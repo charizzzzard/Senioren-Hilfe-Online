@@ -5,7 +5,7 @@
 - project_name: Senioren-Hilfe Online
 - system_name: Senioren-Hilfe Online OS
 - system_short_name: SHO-OS
-- patch_title: MVP_CONTENT_RESEARCH_INPUT_BATCH_01
+- patch_title: OPERATOR_RESEARCH_SOURCE_PACK_BATCH_01_SCAFFOLD
 - external_review_verdict: ACCEPTED_WITH_FINDINGS
 
 SHO-OS ist ein reproduzierbares Content-, Trust- und Publishing-System für seniorengerechte digitale Alltagshilfe in Deutschland.
@@ -15,9 +15,9 @@ Diese Baseline und dieser Patch nutzen Operator-Definitionen als maßgebliche Vo
 ## Git Traceability
 
 - branch: `main`
-- head_before: `5fe1f679ed9d97a5b21b53918d5b7cd93d862bb2`
+- head_before: `6c9200b7c5f73ab46949e6e794e3432385450d77`
 - intended_head_after: `assigned_after_commit`
-- origin_main_before: `5fe1f679ed9d97a5b21b53918d5b7cd93d862bb2`
+- origin_main_before: `6c9200b7c5f73ab46949e6e794e3432385450d77`
 - dirty_state_before: `clean`
 - dirty_state_after: `assigned_after_commit`
 - remote_url: `https://github.com/charizzzzard/Senioren-Hilfe-Online.git`
@@ -26,12 +26,12 @@ Hinweis: `head_after` wird nicht vorab als Commit-SHA eingetragen, weil ein Comm
 
 ## Scope Dieses Patches
 
-- Exakt vier Research-Input-Shells für Batch 01 vorbereitet.
-- Bestehende vier Brief-Scaffolds minimal um Research-Verweise ergänzt.
-- Content-Brief-Template um Research-Reifegrade ergänzt.
-- Dependency-freier Validator um Research-Input-Strukturchecks erweitert.
-- Findings Register für Research-Kontext aktualisiert.
-- Keine echte Recherche durchgeführt, weil im Prompt keine konkreten Research-Daten, Quellenlinks oder SERP-Beobachtungen geliefert wurden.
+- Source-Pack-Ordner und Source-Pack-Template angelegt.
+- Batch-01-Source-Pack-Shell angelegt.
+- Vier bestehende Research-Input-Dateien minimal mit Source-Pack-Pfad und Source-Pack-Status verknüpft.
+- Dependency-freier Validator um Source-Pack-Strukturchecks erweitert.
+- Findings Register für Source-Pack-Kontext aktualisiert.
+- Source Pack ist eine Shell, keine echte Recherche und keine Quellenvalidierung.
 
 ## Non-Scope
 
@@ -40,6 +40,7 @@ Hinweis: `head_after` wird nicht vorab als Commit-SHA eingetragen, weil ein Comm
 - Keine SERP-Recherche.
 - Keine Keyword-Recherche.
 - Keine Quellenvalidierung.
+- Keine echten Quellen oder Quellenlinks.
 - Keine Monetarisierung.
 - Keine Affiliate-Links oder Ads.
 - Keine Marktvalidierungsclaims.
@@ -50,9 +51,9 @@ Hinweis: `head_after` wird nicht vorab als Commit-SHA eingetragen, weil ein Comm
 | finding_id | status | Hinweis |
 | --- | --- | --- |
 | SHO-BL-001 | partially_resolved | Preflight-HEAD und `origin/main` wurden real dokumentiert; finale Patch-SHA steht nach Commit/Push im Abschlussbericht. |
-| SHO-BL-002 | partially_resolved | Validator wurde für Stage 1 gehärtet, bleibt aber dependency-free und textbasiert. |
-| SHO-BL-003 | partially_resolved | Handoff-Kontext enthält reale Branch-, HEAD-, Remote-, Dirty-State- und Research-Batch-Werte. |
-| SHO-BL-004 | partially_resolved | Content-Brief-Template und Briefs enthalten Research-Reifegrade und Research-Input-Verweise. |
+| SHO-BL-002 | partially_resolved | Validator wurde um Source-Pack-Shell-Checks gehärtet, bleibt aber dependency-free und textbasiert. |
+| SHO-BL-003 | partially_resolved | Handoff-Kontext enthält reale Branch-, HEAD-, Remote-, Dirty-State- und Source-Pack-Batch-Werte. |
+| SHO-BL-004 | partially_resolved | Source-Pack-Reifegrade und Research-Input-Verknüpfungen wurden ergänzt. |
 | SHO-BL-005 | carried_forward | Maschinenlesbare Publish-Gates im Artikeltemplate bleiben späterer Scope. |
 | SHO-BL-006 | carried_forward | Eigene Kaufberatungsmethodik bleibt späterer Scope. |
 
@@ -66,10 +67,11 @@ Hinweis: `head_after` wird nicht vorab als Commit-SHA eingetragen, weil ein Comm
 
 ## Files Changed Summary
 
-- `docs/content/research_inputs/README.md`
+- `docs/content/source_packs/README.md`
+- `docs/content/source_packs/SOURCE_PACK_TEMPLATE.md`
+- `docs/content/source_packs/operator-research-source-pack-batch-01.md`
 - `docs/content/research_inputs/*.research.md`
 - `docs/content/briefs/*.md`
-- `docs/content/CONTENT_BRIEF_TEMPLATE.md`
 - `scripts/validate_content_contracts.py`
 - `docs/engineering/VALIDATION_REQUIREMENTS.md`
 - `docs/operations/REVIEW_FINDINGS_REGISTER.md`

@@ -28,6 +28,9 @@ REQUIRED_DOCS = [
     "external_review_packet/00_READ_ME_FIRST.md",
     "external_review_packet/HANDOFF_LATEST_CONTEXT.md",
     "docs/content/research_inputs/README.md",
+    "docs/content/source_packs/README.md",
+    "docs/content/source_packs/SOURCE_PACK_TEMPLATE.md",
+    "docs/content/source_packs/operator-research-source-pack-batch-01.md",
 ]
 
 REQUIRED_BACKLOG_FIELDS = {
@@ -77,6 +80,9 @@ EXPECTED_RESEARCH_FILES = {
     },
 }
 
+SOURCE_PACK_PATH = ROOT / "docs/content/source_packs/operator-research-source-pack-batch-01.md"
+SOURCE_PACK_REL_PATH = "docs/content/source_packs/operator-research-source-pack-batch-01.md"
+
 REQUIRED_BRIEF_FIELDS = {
     "brief_id",
     "title",
@@ -106,6 +112,18 @@ REQUIRED_RESEARCH_FIELDS = {
     "research_status",
     "source_status",
     "serp_status",
+    "source_pack_path",
+    "source_pack_status",
+    "operator_acceptance_status",
+}
+
+REQUIRED_SOURCE_PACK_FIELDS = {
+    "source_pack_id",
+    "batch_id",
+    "linked_research_inputs",
+    "source_pack_status",
+    "created_by",
+    "created_at",
     "operator_acceptance_status",
 }
 
@@ -325,10 +343,82 @@ def validate_research_inputs(failures: list[str]) -> int:
             failures.append(f"Research input {file_name} must have source_status: missing")
         if normalized(fields.get("serp_status")) != "not_researched":
             failures.append(f"Research input {file_name} must have serp_status: not_researched")
+        if fields.get("source_pack_path") != SOURCE_PACK_REL_PATH:
+            failures.append(
+                f"Research input {file_name} must link to source_pack_path: {SOURCE_PACK_REL_PATH}"
+            )
+        if normalized(fields.get("source_pack_status")) != "source_pack_shell":
+            failures.append(f"Research input {file_name} must have source_pack_status: source_pack_shell")
         if normalized(fields.get("operator_acceptance_status")) == "accepted":
             failures.append(f"Research input {file_name} must not have accepted operator status")
 
     return len(found_files)
+
+
+def source_pack_table_statuses(text: str) -> list[str]:
+    statuses: list[str] = []
+    in_table = False
+    for raw_line in text.splitlines():
+        line = raw_line.strip()
+        if line.startswith("| source_id | linked_brief_id |"):
+            in_table = True
+            continue
+        if not in_table:
+            continue
+        if not line.startswith("|"):
+            in_table = False
+            continue
+        if set(line.replace("|", "").replace("-", "").replace(" ", "")) == set():
+            continue
+        cells = [cell.strip() for cell in line.strip("|").split("|")]
+        if len(cells) >= 7:
+            statuses.append(cells[6].lower())
+    return statuses
+
+
+def validate_source_pack(failures: list[str]) -> int:
+    source_pack_dir = ROOT / "docs/content/source_packs"
+    if not source_pack_dir.exists():
+        failures.append("Missing source pack directory: docs/content/source_packs")
+        return 0
+
+    required_paths = [
+        source_pack_dir / "README.md",
+        source_pack_dir / "SOURCE_PACK_TEMPLATE.md",
+        SOURCE_PACK_PATH,
+    ]
+    for path in required_paths:
+        if not path.exists():
+            failures.append(f"Missing source pack file: {path.relative_to(ROOT).as_posix()}")
+
+    if not SOURCE_PACK_PATH.exists():
+        return 0
+
+    text = SOURCE_PACK_PATH.read_text(encoding="utf-8")
+    fields = parse_frontmatter_fields(text)
+    missing = REQUIRED_SOURCE_PACK_FIELDS - set(fields)
+    if missing:
+        failures.append(
+            f"Source pack is missing required fields: {', '.join(sorted(missing))}"
+        )
+
+    if fields.get("source_pack_id") != "SHO-SOURCE-PACK-BATCH-01":
+        failures.append("Source pack has unexpected source_pack_id")
+    if fields.get("batch_id") != "MVP_BATCH_01":
+        failures.append("Source pack has unexpected batch_id")
+    if normalized(fields.get("source_pack_status")) != "source_pack_shell":
+        failures.append("Source pack must have source_pack_status: source_pack_shell")
+    if normalized(fields.get("operator_acceptance_status")) == "accepted":
+        failures.append("Source pack must not have accepted operator status")
+    if "TBD_BY_OPERATOR_OR_RESEARCH" not in text:
+        failures.append("Source pack must preserve TBD_BY_OPERATOR_OR_RESEARCH for missing sources")
+
+    statuses = source_pack_table_statuses(text)
+    for status in statuses:
+        if status in {"candidate", "verified"}:
+            failures.append(f"Source pack shell must not contain source row status: {status}")
+
+    return 1
 
 
 def main() -> int:
@@ -338,6 +428,7 @@ def main() -> int:
     backlog_count = validate_backlog(failures)
     brief_count = validate_brief_scaffolds(failures)
     research_count = validate_research_inputs(failures)
+    source_pack_count = validate_source_pack(failures)
 
     if failures:
         print("FAIL: SHO-OS content contract validation failed")
@@ -351,6 +442,7 @@ def main() -> int:
     print(f"- MVP backlog article entries: {backlog_count}")
     print(f"- Batch 01 brief scaffold files: {brief_count}")
     print(f"- Batch 01 research input files: {research_count}")
+    print(f"- Batch 01 source pack files: {source_pack_count}")
     print("- YAML/frontmatter parsing: dependency-free and text-based")
     return 0
 

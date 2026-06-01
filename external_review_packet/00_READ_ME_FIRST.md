@@ -2,30 +2,27 @@
 
 ## Zweck dieses Review-Pakets
 
-Dieses Review-Paket beschreibt den Patch `MVP_CONTENT_RESEARCH_INPUT_BATCH_01`. Es soll einem externen Review ermöglichen, die Research-Input-Shells, konservativen Brief-Verweise und Validator-Härtung zu prüfen.
+Dieses Review-Paket beschreibt den Patch `OPERATOR_RESEARCH_SOURCE_PACK_BATCH_01_SCAFFOLD`. Es soll einem externen Review ermöglichen, die Source-Pack-Shell, konservativen Research-Input-Verweise und Validator-Härtung zu prüfen.
 
 ## Scope dieses Patches
 
-- Exakt vier Research-Input-Shells für bestehende Batch-01-Briefs anlegen.
-- Bestehende Brief-Scaffolds minimal mit Research-Input-Pfaden verknüpfen.
-- Content-Brief-Template um Research-Reifegrade ergänzen.
-- Validator ohne externe Dependencies um Research-Input-Strukturchecks härten.
+- Source-Pack-Ordner und Source-Pack-Template anlegen.
+- Batch-01-Source-Pack-Shell anlegen.
+- Vier bestehende Research-Input-Dateien minimal mit dem Source Pack verknüpfen.
+- Validator ohne externe Dependencies um Source-Pack-Strukturchecks härten.
 - Findings Register und Handoff-Kontext aktualisieren.
 
 ## Primäre Review-Dateien
 
 - `external_review_packet/HANDOFF_LATEST_CONTEXT.md`
 - `docs/operations/REVIEW_FINDINGS_REGISTER.md`
-- `docs/content/CONTENT_BRIEF_TEMPLATE.md`
-- `docs/content/research_inputs/README.md`
+- `docs/content/source_packs/README.md`
+- `docs/content/source_packs/SOURCE_PACK_TEMPLATE.md`
+- `docs/content/source_packs/operator-research-source-pack-batch-01.md`
 - `docs/content/research_inputs/whatsapp-fuer-senioren-sicher-einrichten.research.md`
 - `docs/content/research_inputs/betrugsnachrichten-auf-whatsapp-erkennen.research.md`
 - `docs/content/research_inputs/smartphone-schriftgroesse-und-bedienhilfen-einstellen.research.md`
 - `docs/content/research_inputs/smartphone-fuer-senioren-einrichten.research.md`
-- `docs/content/briefs/whatsapp-fuer-senioren-sicher-einrichten.md`
-- `docs/content/briefs/betrugsnachrichten-auf-whatsapp-erkennen.md`
-- `docs/content/briefs/smartphone-schriftgroesse-und-bedienhilfen-einstellen.md`
-- `docs/content/briefs/smartphone-fuer-senioren-einrichten.md`
 - `scripts/validate_content_contracts.py`
 
 ## Wichtiger Brief-Hinweis
@@ -35,6 +32,10 @@ Die Briefs sind operator-definierte Scaffolds. Sie sind keine final recherchiert
 ## Wichtiger Research-Hinweis
 
 Research Input Shells sind keine finalen Research-Ergebnisse. Sie enthalten keine validierten Quellen, keine Quellenlinks, keine SERP-Beobachtung und keine Publish-Freigabe.
+
+## Wichtiger Source-Pack-Hinweis
+
+Source Pack Shells sind keine finalen Research-Ergebnisse. Sie enthalten keine echten Quellen, keine validierten Quellenlinks und keine Operator Acceptance.
 
 ## Nicht in Scope
 

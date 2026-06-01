@@ -6,6 +6,8 @@ slug: betrugsnachrichten-auf-whatsapp-erkennen
 research_status: not_researched
 source_status: missing
 serp_status: not_researched
+source_pack_path: docs/content/source_packs/operator-research-source-pack-batch-01.md
+source_pack_status: source_pack_shell
 last_researched: null
 operator_acceptance_status: not_accepted
 ---

@@ -61,6 +61,21 @@ Der Validator prüft für Batch 01 zusätzlich:
 - bestehende Brief-Dateien verweisen auf die passende Research-Input-Datei.
 - keine Brief-Datei enthält `approved_for_publish`.
 
+## Source-Pack-Shell-Checks
+
+Der Validator prüft für Batch 01 zusätzlich:
+
+- Existenz von `docs/content/source_packs/`.
+- Existenz von `docs/content/source_packs/README.md`.
+- Existenz von `docs/content/source_packs/SOURCE_PACK_TEMPLATE.md`.
+- Existenz von `docs/content/source_packs/operator-research-source-pack-batch-01.md`.
+- Pflichtfelder `source_pack_id`, `batch_id`, `linked_research_inputs`, `source_pack_status`, `created_by`, `created_at` und `operator_acceptance_status`.
+- `source_pack_status = source_pack_shell`.
+- kein `operator_acceptance_status = accepted`.
+- keine Source-Row mit Status `candidate` oder `verified`, solange keine echten Operator-Quellen geliefert wurden.
+- `TBD_BY_OPERATOR_OR_RESEARCH` bleibt für fehlende Quellen vorhanden.
+- Research-Input-Dateien verweisen auf das Batch-01-Source-Pack.
+
 ## Verbleibende spätere Checks
 
 - Echtes YAML-Parsing.
@@ -70,6 +85,12 @@ Der Validator prüft für Batch 01 zusätzlich:
 - Source-Evidence-Validator.
 - Quellen-URL-Prüfung.
 - Source-Type-Validierung.
+- Echte URL-Syntaxprüfung.
+- URL-Erreichbarkeitsprüfung.
+- Quellen-Domain-Klassifikation.
+- Source-State-Transition-Regeln.
+- `verified` nur bei `retrieved_at` und Review-Notiz.
+- `rejected` nur mit Ablehnungsgrund.
 - SERP-Snapshot-Metadaten.
 - verified/rejected Source-State.
 - Evidence-Gap-Tracking.
