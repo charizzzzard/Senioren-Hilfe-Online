@@ -2,22 +2,23 @@
 
 ## Zweck dieses Review-Pakets
 
-Dieses Review-Paket beschreibt den Patch `FINAL_LEGAL_WORDING_REVIEW_BRIEF_002`. Es dokumentiert eine konservative Final-Legal-Wording-Review fuer den bestehenden Brief-002-Article-Draft-Candidate, ohne Rechtsberatung, rechtliche Freigabe, Publish Readiness oder Operator Acceptance zu setzen.
+Dieses Review-Paket beschreibt den Patch `FINAL_SOURCE_LIST_REVIEW_BRIEF_002`. Es dokumentiert eine konservative Final-Source-List-Review fuer Brief 002 auf Basis vorhandener Citation-Artefakte, ohne finale Quellenliste, Publish Readiness oder Operator Acceptance zu setzen.
 
 ## Scope dieses Patches
 
-- Genau ein Final-Legal-Wording-Review-Artefakt fuer Brief 002 erstellen.
-- Vorhandene Disclaimer- und Sicherheitsformulierungen wording-seitig bewerten.
-- `legal_wording_review_status: wording_review_prepared_no_legal_approval` dokumentieren.
-- `legal_approval_status: not_approved` und Brief-002-Publish-Readiness ausdruecklich blockiert halten.
-- Finale Quellenliste, finale Artikelvorbereitung und Operator Acceptance ausdruecklich offen halten.
+- Genau ein Final-Source-List-Review-Artefakt fuer Brief 002 erstellen.
+- Nur vorhandene Source IDs `SHO-SRC-005`, `SHO-SRC-006` und `SHO-SRC-007` nutzen.
+- Vorbereitete Display Labels und Citation-Texte aus vorhandenen Artefakten zusammenfuehren.
+- `source_list_review_status: source_list_prepared_not_final` dokumentieren.
+- Fehlende finale Metadaten, finale Artikelvorbereitung und Operator Acceptance ausdruecklich offen halten.
 - `SHO-CLAIM-007` weiter blockiert halten.
-- Keine Rechtsberatung, keine rechtliche Freigabe, keine Operator Acceptance und keine Publish Readiness setzen.
-- Validator minimal erweitern, damit das Final-Legal-Wording-Review-Artefakt als erwartetes Artefakt geprueft wird.
+- Keine finale Quellenlistenfreigabe, keine Operator Acceptance und keine Publish Readiness setzen.
+- Validator minimal erweitern, damit das Final-Source-List-Review-Artefakt als erwartetes Artefakt geprueft wird.
 
 ## Primaere Review-Dateien
 
 - `external_review_packet/HANDOFF_LATEST_CONTEXT.md`
+- `docs/content/article_reviews/betrugsnachrichten-auf-whatsapp-erkennen.final-source-list-review.md`
 - `docs/content/article_reviews/betrugsnachrichten-auf-whatsapp-erkennen.final-legal-wording-review.md`
 - `docs/content/article_reviews/betrugsnachrichten-auf-whatsapp-erkennen.legal-wording-review-prep.md`
 - `docs/content/article_reviews/betrugsnachrichten-auf-whatsapp-erkennen.citation-text-prep.md`
@@ -39,7 +40,7 @@ Dieses Review-Paket beschreibt den Patch `FINAL_LEGAL_WORDING_REVIEW_BRIEF_002`.
 
 ## Wichtiger Hinweis
 
-Final legal wording review only. This is not legal advice, not legal approval, not publish readiness and not Operator Acceptance.
+Final source list review only. This is not a final source list approval, not publish readiness and not Operator Acceptance.
 
 ## Nicht in Scope
 
@@ -53,7 +54,6 @@ Final legal wording review only. This is not legal advice, not legal approval, n
 - Publish Readiness.
 - Operator Acceptance.
 - Rechtliche Freigabe.
-- Rechtsberatung.
 - Finale Citation-Freigabe.
 - Finale Quellenliste.
 - Produktive Website.

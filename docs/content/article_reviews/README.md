@@ -16,6 +16,7 @@ Article Review Artefakte dokumentieren Findings zu vorhandenen Article Draft Can
 - `final_article_prep_gate_review`: konservative Gate Review vor einer spaeteren finalen Artikelvorbereitung.
 - `citation_display_label_review`: vorbereitende Review fuer menschenlesbare Quellenlabels ohne finale Quellenliste.
 - `citation_text_prep`: vorbereitendes Artefakt fuer nicht-finale Citation-Texte ohne finale Quellenliste.
+- `final_source_list_review`: konservative Zusammenfuehrung vorbereiteter Quellenlabels und Citation-Texte ohne finale Quellenliste.
 - `review_ready`: spaeterer Status nach behobenen Findings und bestandenen Review-Gates.
 - `publish_candidate`: spaeterer Status vor moeglicher Human Operator Acceptance.
 - `operator_accepted`: finale Annahme durch Human Operator.
@@ -33,6 +34,7 @@ Article Review Artefakte dokumentieren Findings zu vorhandenen Article Draft Can
 - Final-Article-Preparation-Gate-Reviews duerfen eine spaetere Vorbereitung nur blockieren oder als naechstes Gate markieren; sie duerfen keine Publish Readiness setzen.
 - Citation-Display-Label-Reviews duerfen nur vorhandene Source IDs labeln und keine finalen Citation-Texte oder neuen Quellen einfuehren.
 - Citation-Text-Prep-Artefakte duerfen nur vorhandene Source IDs und vorbereitete Labels nutzen; sie duerfen keine finalen Metadaten oder Quellenlisten behaupten.
+- Final-Source-List-Reviews duerfen vorbereitete Labels und Citation-Texte zusammenfuehren, aber keine finalen Metadaten, keine finale Quellenlistenfreigabe und keine Publish Readiness setzen.
 - Human Operator Acceptance bleibt erforderlich.
 
 ## Nicht-Akzeptanz

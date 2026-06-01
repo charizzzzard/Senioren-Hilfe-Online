@@ -502,6 +502,18 @@ Das Review-Artefakt muss mindestens diese Finding IDs enthalten:
 - Die Review darf Wording-Checks dokumentieren, aber keine Rechtsberatung, keine rechtliche Freigabe, keine finalen Rechtsformulierungen, keine Publish Readiness und keine Operator Acceptance setzen.
 - `SHO-CLAIM-007` muss blockiert bleiben und WhatsApp block/report UI instructions muessen ausgeschlossen bleiben.
 
+## Final-Source-List-Review-Checks
+
+- Fuer Brief 002 muss genau ein Final-Source-List-Review-Artefakt unter `docs/content/article_reviews/` existieren.
+- Das Artefakt muss die Citation-Display-Label-Review, das Citation-Text-Prep-Artefakt und die Final-Legal-Wording-Review verlinken.
+- `source_list_review_status` muss `source_list_prepared_not_final` sein.
+- `operator_acceptance_status` muss `not_accepted` bleiben.
+- `publish_readiness_status` muss `not_ready` bleiben.
+- Nur `SHO-SRC-005`, `SHO-SRC-006` und `SHO-SRC-007` duerfen im Scope sein.
+- `SHO-SRC-001`, `SHO-SRC-002`, `SHO-SRC-003`, `SHO-SRC-004`, `SHO-SRC-013` und `SHO-CLAIM-007` muessen out of scope bleiben.
+- Alle Zeilen muessen `metadata_status: needs_final_metadata_review`, `source_list_status: prepared_not_final` und `publication_ready: no` behalten.
+- Die Review darf keine finalen Metadaten erfinden, keine finale Quellenlistenfreigabe, keine neuen Sources, keine neuen Claims, keine Publish Readiness und keine Operator Acceptance setzen.
+
 ## Verbleibende spätere Checks
 
 - Echtes YAML-Parsing.
