@@ -8,6 +8,8 @@ source_status: verified_sources_available_with_duplicate_rejected
 serp_status: not_researched
 source_pack_path: docs/content/source_packs/operator-research-source-pack-batch-01.md
 source_pack_status: source_candidates_verified_partial
+claim_map_path: docs/content/claim_maps/source-to-claim-map-batch-01.md
+claim_map_status: claim_slots_mapped
 last_researched: null
 operator_acceptance_status: not_accepted
 ---
@@ -24,6 +26,7 @@ Diese Datei sammelt Research-Eingaben für den vorhandenen Brief `SHO-MVP-BRIEF-
 - source_status: verified_sources_available_with_duplicate_rejected
 - serp_status: not_researched
 - content_status: research_input_shell
+- claim_map_status: claim_slots_mapped
 
 ## Required Source Types
 
@@ -55,6 +58,10 @@ Diese Datei sammelt Research-Eingaben für den vorhandenen Brief `SHO-MVP-BRIEF-
 - SHO-SRC-011
 - SHO-SRC-012
 - SHO-SRC-013
+
+## Claim Map Note
+
+Claim map has security article_draft_candidate claims, support-only setup/navigation claims and duplicate blocked source.
 
 ## SERP Observation
 

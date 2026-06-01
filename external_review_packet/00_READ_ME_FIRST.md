@@ -2,20 +2,22 @@
 
 ## Zweck dieses Review-Pakets
 
-Dieses Review-Paket beschreibt den Patch `SOURCE_CANDIDATE_VERIFICATION_BATCH_01_FROM_OPERATOR_REVIEW`. Es soll einem externen Review ermöglichen, die übernommenen Verification-Entscheidungen, konservativen Research-Input-Statusänderungen und Validator-Härtung zu prüfen.
+Dieses Review-Paket beschreibt den Patch `SOURCE_TO_CLAIM_MAPPING_BATCH_01_FROM_OPERATOR_SPEC`. Es soll einem externen Review ermöglichen, die operator-definierte Claim Map, konservativen Research-Input-Verknüpfungen und Validator-Härtung zu prüfen.
 
 ## Scope dieses Patches
 
-- Operator/Review-definierte Verification-Entscheidungen für vorhandene Source Candidates eintragen.
-- `source_pack_status` auf `source_candidates_verified_partial` setzen.
-- Vier bestehende Research-Input-Dateien konservativ mit Source-Verification-Status aktualisieren.
-- Validator ohne externe Dependencies um Source-Verification-State-Checks härten.
+- Claim-Map-Struktur und Template anlegen.
+- Batch-01-Claim-Map aus Operator-Spezifikation materialisieren.
+- Vier bestehende Research-Input-Dateien mit Claim-Map-Pfad verknüpfen.
+- Validator ohne externe Dependencies um Claim-Map-Regeln härten.
 - Findings Register und Handoff-Kontext aktualisieren.
 
 ## Primäre Review-Dateien
 
 - `external_review_packet/HANDOFF_LATEST_CONTEXT.md`
 - `docs/operations/REVIEW_FINDINGS_REGISTER.md`
+- `docs/content/claim_maps/source-to-claim-map-batch-01.md`
+- `docs/content/claim_maps/CLAIM_MAP_TEMPLATE.md`
 - `docs/content/source_packs/README.md`
 - `docs/content/source_packs/SOURCE_PACK_TEMPLATE.md`
 - `docs/content/source_packs/operator-research-source-pack-batch-01.md`
@@ -36,7 +38,7 @@ Research Input Shells sind keine finalen Research-Ergebnisse. Sie enthalten kein
 
 ## Wichtiger Source-Pack-Hinweis
 
-Source Verification ist keine Artikelannahme und keine Publish-Readiness. Operator Acceptance bleibt erforderlich.
+Claim Map ist keine Artikelannahme und keine Publish-Readiness. Operator Acceptance bleibt erforderlich.
 
 ## Nicht in Scope
 

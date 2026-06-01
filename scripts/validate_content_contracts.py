@@ -31,6 +31,9 @@ REQUIRED_DOCS = [
     "docs/content/source_packs/README.md",
     "docs/content/source_packs/SOURCE_PACK_TEMPLATE.md",
     "docs/content/source_packs/operator-research-source-pack-batch-01.md",
+    "docs/content/claim_maps/README.md",
+    "docs/content/claim_maps/CLAIM_MAP_TEMPLATE.md",
+    "docs/content/claim_maps/source-to-claim-map-batch-01.md",
 ]
 
 REQUIRED_BACKLOG_FIELDS = {
@@ -82,6 +85,8 @@ EXPECTED_RESEARCH_FILES = {
 
 SOURCE_PACK_PATH = ROOT / "docs/content/source_packs/operator-research-source-pack-batch-01.md"
 SOURCE_PACK_REL_PATH = "docs/content/source_packs/operator-research-source-pack-batch-01.md"
+CLAIM_MAP_PATH = ROOT / "docs/content/claim_maps/source-to-claim-map-batch-01.md"
+CLAIM_MAP_REL_PATH = "docs/content/claim_maps/source-to-claim-map-batch-01.md"
 ALLOWED_RESEARCH_STATUSES = {
     "not_researched",
     "source_candidates_added",
@@ -105,6 +110,19 @@ ALLOWED_VERIFICATION_STATUSES = {
     "verified",
     "verified_limited",
     "duplicate_of",
+}
+ALLOWED_CLAIM_STATUSES = {
+    "claim_slot_defined",
+    "evidence_available",
+    "evidence_limited",
+    "needs_manual_review",
+    "blocked_duplicate",
+}
+ALLOWED_CLAIM_USE = {
+    "article_draft_candidate",
+    "support_only",
+    "needs_manual_review_before_draft",
+    "not_allowed",
 }
 
 REQUIRED_BRIEF_FIELDS = {
@@ -138,6 +156,8 @@ REQUIRED_RESEARCH_FIELDS = {
     "serp_status",
     "source_pack_path",
     "source_pack_status",
+    "claim_map_path",
+    "claim_map_status",
     "operator_acceptance_status",
 }
 
@@ -148,6 +168,14 @@ REQUIRED_SOURCE_PACK_FIELDS = {
     "source_pack_status",
     "created_by",
     "created_at",
+    "operator_acceptance_status",
+}
+
+REQUIRED_CLAIM_MAP_FIELDS = {
+    "claim_map_id",
+    "batch_id",
+    "linked_source_pack",
+    "claim_map_status",
     "operator_acceptance_status",
 }
 
@@ -379,6 +407,12 @@ def validate_research_inputs(failures: list[str]) -> int:
             failures.append(
                 f"Research input {file_name} has unsupported source_pack_status: {fields.get('source_pack_status')}"
             )
+        if fields.get("claim_map_path") != CLAIM_MAP_REL_PATH:
+            failures.append(
+                f"Research input {file_name} must link to claim_map_path: {CLAIM_MAP_REL_PATH}"
+            )
+        if normalized(fields.get("claim_map_status")) != "claim_slots_mapped":
+            failures.append(f"Research input {file_name} must have claim_map_status: claim_slots_mapped")
         if normalized(fields.get("operator_acceptance_status")) == "accepted":
             failures.append(f"Research input {file_name} must not have accepted operator status")
         research_text = path.read_text(encoding="utf-8")
@@ -552,6 +586,110 @@ def validate_source_pack(failures: list[str]) -> int:
     return 1
 
 
+def claim_map_table_rows(text: str) -> list[dict[str, str]]:
+    rows: list[dict[str, str]] = []
+    in_table = False
+    for raw_line in text.splitlines():
+        line = raw_line.strip()
+        if line.startswith("| claim_id | linked_brief_id |"):
+            in_table = True
+            continue
+        if not in_table:
+            continue
+        if not line.startswith("|"):
+            in_table = False
+            continue
+        if set(line.replace("|", "").replace("-", "").replace(" ", "")) == set():
+            continue
+        cells = [cell.strip() for cell in line.strip("|").split("|")]
+        if len(cells) >= 10:
+            rows.append(
+                {
+                    "claim_id": cells[0],
+                    "linked_brief_id": cells[1],
+                    "linked_brief_slug": cells[2],
+                    "claim_slot": cells[3],
+                    "allowed_source_ids": cells[4],
+                    "source_status_basis": cells[5],
+                    "claim_status": cells[6],
+                    "claim_use_allowed": cells[7],
+                    "evidence_note": cells[8],
+                    "limitations": cells[9],
+                }
+            )
+    return rows
+
+
+def validate_claim_map_rows(rows: list[dict[str, str]], failures: list[str]) -> None:
+    if len(rows) != 14:
+        failures.append(f"Claim map must contain exactly 14 SHO-CLAIM rows; found {len(rows)}")
+
+    seen_ids: set[str] = set()
+    for index, row in enumerate(rows, start=1):
+        claim_id = row.get("claim_id", "")
+        if claim_id in seen_ids:
+            failures.append(f"Claim ID must be unique: {claim_id}")
+        if claim_id:
+            seen_ids.add(claim_id)
+
+        claim_status = normalized(row.get("claim_status"))
+        claim_use = normalized(row.get("claim_use_allowed"))
+        if claim_status not in ALLOWED_CLAIM_STATUSES:
+            failures.append(f"Claim {claim_id or index} has unsupported claim_status: {row.get('claim_status')}")
+        if claim_use not in ALLOWED_CLAIM_USE:
+            failures.append(
+                f"Claim {claim_id or index} has unsupported claim_use_allowed: {row.get('claim_use_allowed')}"
+            )
+        if claim_status == "blocked_duplicate" and claim_use != "not_allowed":
+            failures.append(f"Blocked duplicate claim {claim_id or index} must be not_allowed")
+        if claim_status == "needs_manual_review" and claim_use != "needs_manual_review_before_draft":
+            failures.append(
+                f"Manual-review claim {claim_id or index} must be needs_manual_review_before_draft"
+            )
+        if "SHO-SRC-013" in row.get("allowed_source_ids", "") and claim_use == "article_draft_candidate":
+            failures.append("Rejected duplicate source SHO-SRC-013 must not be article_draft_candidate evidence")
+
+
+def validate_claim_map(failures: list[str]) -> int:
+    claim_map_dir = ROOT / "docs/content/claim_maps"
+    if not claim_map_dir.exists():
+        failures.append("Missing claim map directory: docs/content/claim_maps")
+        return 0
+
+    required_paths = [
+        claim_map_dir / "README.md",
+        claim_map_dir / "CLAIM_MAP_TEMPLATE.md",
+        CLAIM_MAP_PATH,
+    ]
+    for path in required_paths:
+        if not path.exists():
+            failures.append(f"Missing claim map file: {path.relative_to(ROOT).as_posix()}")
+
+    if not CLAIM_MAP_PATH.exists():
+        return 0
+
+    text = CLAIM_MAP_PATH.read_text(encoding="utf-8")
+    fields = parse_frontmatter_fields(text)
+    missing = REQUIRED_CLAIM_MAP_FIELDS - set(fields)
+    if missing:
+        failures.append(f"Claim map is missing required fields: {', '.join(sorted(missing))}")
+    if fields.get("claim_map_id") != "SHO-CLAIM-MAP-BATCH-01":
+        failures.append("Claim map has unexpected claim_map_id")
+    if fields.get("batch_id") != "MVP_BATCH_01":
+        failures.append("Claim map has unexpected batch_id")
+    if fields.get("linked_source_pack") != SOURCE_PACK_REL_PATH:
+        failures.append(f"Claim map must link to source pack: {SOURCE_PACK_REL_PATH}")
+    if normalized(fields.get("claim_map_status")) != "claim_slots_mapped":
+        failures.append("Claim map must have claim_map_status: claim_slots_mapped")
+    if normalized(fields.get("operator_acceptance_status")) == "accepted":
+        failures.append("Claim map must not have accepted operator status")
+    if "research_enriched" in text or "approved_for_publish" in text:
+        failures.append("Claim map must not contain research_enriched or approved_for_publish")
+
+    validate_claim_map_rows(claim_map_table_rows(text), failures)
+    return 1
+
+
 def main() -> int:
     failures: list[str] = []
 
@@ -560,6 +698,7 @@ def main() -> int:
     brief_count = validate_brief_scaffolds(failures)
     research_count = validate_research_inputs(failures)
     source_pack_count = validate_source_pack(failures)
+    claim_map_count = validate_claim_map(failures)
 
     if failures:
         print("FAIL: SHO-OS content contract validation failed")
@@ -574,6 +713,7 @@ def main() -> int:
     print(f"- Batch 01 brief scaffold files: {brief_count}")
     print(f"- Batch 01 research input files: {research_count}")
     print(f"- Batch 01 source pack files: {source_pack_count}")
+    print(f"- Batch 01 claim map files: {claim_map_count}")
     print("- YAML/frontmatter parsing: dependency-free and text-based")
     return 0
 

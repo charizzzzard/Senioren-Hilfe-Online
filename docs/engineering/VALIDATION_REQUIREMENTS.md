@@ -108,6 +108,26 @@ Der Validator prüft für Batch 01 zusätzlich:
 - Research Inputs und Source Pack dürfen kein `research_enriched` enthalten.
 - Briefs und Research Inputs dürfen kein `approved_for_publish` enthalten.
 
+## Claim-Map-Validation-Checks
+
+Der Validator prüft für Batch 01 zusätzlich:
+
+- Existenz von `docs/content/claim_maps/`.
+- Existenz von `docs/content/claim_maps/README.md`.
+- Existenz von `docs/content/claim_maps/CLAIM_MAP_TEMPLATE.md`.
+- Existenz von `docs/content/claim_maps/source-to-claim-map-batch-01.md`.
+- `claim_map_status = claim_slots_mapped`.
+- kein `operator_acceptance_status = accepted`.
+- exakt 14 `SHO-CLAIM-*`-Einträge.
+- eindeutige `claim_id`-Werte.
+- bekannte `claim_status`-Werte.
+- bekannte `claim_use_allowed`-Werte.
+- `blocked_duplicate` muss `not_allowed` sein.
+- `needs_manual_review` muss `needs_manual_review_before_draft` sein.
+- `SHO-SRC-013` darf nicht in `article_draft_candidate`-Claims genutzt werden.
+- Research-Input-Dateien verweisen auf die Batch-01-Claim-Map.
+- Claim Map, Research Inputs und Briefs enthalten kein `research_enriched` und kein `approved_for_publish`.
+
 ## Verbleibende spätere Checks
 
 - Echtes YAML-Parsing.
@@ -128,9 +148,15 @@ Der Validator prüft für Batch 01 zusätzlich:
 - Verified status transition rules.
 - Source rejection reasons.
 - Source evidence mapping to exact claims.
+- Source-to-claim exact quote/evidence extraction.
+- Claim-to-article-section mapping.
+- Source freshness/staleness check.
+- Manual WhatsApp source review gate.
+- Screenshot/device-version gate.
 - retrieved_at normalization.
 - Screenshot/device-version validation.
 - SERP-Snapshot-Metadaten.
+- SERP observation gate.
 - Research-enriched transition gate.
 - verified/rejected Source-State.
 - Evidence-Gap-Tracking.
