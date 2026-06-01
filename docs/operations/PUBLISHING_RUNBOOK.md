@@ -25,6 +25,10 @@
 - Monetarisierungsentscheidung.
 - Operator Acceptance Record.
 
+## Content-Brief-Scaffolds
+
+Content-Brief-Scaffolds sind Arbeitsartefakte vor Recherche und Artikelentwurf. Sie sind nicht publish-ready, dürfen keine finale Operator Acceptance simulieren und dürfen nicht als final recherchierte Content-Briefs behandelt werden.
+
 ## Review-Abfolge
 
 1. Evidence Review.
