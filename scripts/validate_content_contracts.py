@@ -42,6 +42,10 @@ REQUIRED_DOCS = [
     "docs/content/serp_observations/README.md",
     "docs/content/serp_observations/SERP_OBSERVATION_TEMPLATE.md",
     "docs/content/serp_observations/serp-observation-batch-01.md",
+    "docs/content/research_enrichments/README.md",
+    "docs/content/research_enrichments/RESEARCH_ENRICHMENT_TEMPLATE.md",
+    "docs/content/research_enrichments/betrugsnachrichten-auf-whatsapp-erkennen.enrichment.md",
+    "docs/content/research_enrichments/smartphone-schriftgroesse-und-bedienhilfen-einstellen.enrichment.md",
     "docs/operations/CONTENT_RESEARCH_OPERATING_PROTOCOL.md",
     "docs/operations/RESEARCH_BATCH_STAGE_MODEL.md",
     "docs/operations/CODEX_EXECUTOR_BOUNDARY.md",
@@ -109,6 +113,21 @@ EVIDENCE_CAPTURE_PATH = ROOT / "docs/content/evidence_captures/whatsapp-line-evi
 EVIDENCE_CAPTURE_REL_PATH = "docs/content/evidence_captures/whatsapp-line-evidence-capture-batch-01.md"
 SERP_OBSERVATION_PATH = ROOT / "docs/content/serp_observations/serp-observation-batch-01.md"
 SERP_OBSERVATION_REL_PATH = "docs/content/serp_observations/serp-observation-batch-01.md"
+RESEARCH_ENRICHMENTS_DIR = ROOT / "docs/content/research_enrichments"
+EXPECTED_RESEARCH_ENRICHMENTS = {
+    "betrugsnachrichten-auf-whatsapp-erkennen.enrichment.md": {
+        "brief_id": "SHO-MVP-BRIEF-002",
+        "research_input": "docs/content/research_inputs/betrugsnachrichten-auf-whatsapp-erkennen.research.md",
+        "required_claims": ["SHO-CLAIM-004", "SHO-CLAIM-005", "SHO-CLAIM-006", "SHO-CLAIM-007"],
+        "required_terms": ["excluded", "blocked"],
+    },
+    "smartphone-schriftgroesse-und-bedienhilfen-einstellen.enrichment.md": {
+        "brief_id": "SHO-MVP-BRIEF-003",
+        "research_input": "docs/content/research_inputs/smartphone-schriftgroesse-und-bedienhilfen-einstellen.research.md",
+        "required_claims": ["SHO-CLAIM-008", "SHO-CLAIM-009", "SHO-CLAIM-010"],
+        "required_terms": ["support_only"],
+    },
+}
 WHATSAPP_MANUAL_REVIEW_SOURCE_IDS = {"SHO-SRC-001", "SHO-SRC-002", "SHO-SRC-003", "SHO-SRC-004"}
 WHATSAPP_MANUAL_REVIEW_CLAIM_IDS = {"SHO-CLAIM-001", "SHO-CLAIM-002", "SHO-CLAIM-003", "SHO-CLAIM-007"}
 ALLOWED_RESEARCH_STATUSES = {
@@ -334,12 +353,20 @@ def validate_protocol_automation_files(failures: list[str]) -> None:
             "serp_status: observed",
             "serp_observation_status: operator_research_observed",
             "serp_review_status: needs_review",
+            "current_stage: claim_slots_mapped",
         ]
         for fragment in required_fragments:
             if fragment not in text:
                 failures.append(f"Batch manifest must contain: {fragment}")
-        if "approved_for_publish" in text or "research_enriched" in text:
-            failures.append("Batch manifest must not contain approved_for_publish or research_enriched")
+        forbidden_fragments = [
+            "approved_for_publish",
+            "operator_acceptance_status: accepted",
+            "current_stage: research_enriched_brief_candidate",
+            "publish_ready",
+        ]
+        for fragment in forbidden_fragments:
+            if fragment in text:
+                failures.append(f"Batch manifest must not contain: {fragment}")
 
 
 def validate_backlog(failures: list[str]) -> int:
@@ -528,12 +555,29 @@ def validate_research_inputs(failures: list[str]) -> int:
                 )
             if normalized(fields.get("evidence_capture_status")) != "line_evidence_unavailable":
                 failures.append(f"Research input {file_name} must have evidence_capture_status: line_evidence_unavailable")
+        expected_enrichment_paths = {
+            "betrugsnachrichten-auf-whatsapp-erkennen.research.md": (
+                "docs/content/research_enrichments/betrugsnachrichten-auf-whatsapp-erkennen.enrichment.md"
+            ),
+            "smartphone-schriftgroesse-und-bedienhilfen-einstellen.research.md": (
+                "docs/content/research_enrichments/smartphone-schriftgroesse-und-bedienhilfen-einstellen.enrichment.md"
+            ),
+        }
+        if file_name in expected_enrichment_paths:
+            if fields.get("research_enrichment_path") != expected_enrichment_paths[file_name]:
+                failures.append(
+                    f"Research input {file_name} must link to research_enrichment_path: {expected_enrichment_paths[file_name]}"
+                )
+            if normalized(fields.get("enrichment_status")) != "research_enriched_candidate":
+                failures.append(f"Research input {file_name} must have enrichment_status: research_enriched_candidate")
+        elif "research_enrichment_path" in fields or normalized(fields.get("enrichment_status")) == "research_enriched_candidate":
+            failures.append(f"Research input {file_name} must not be marked as an enrichment candidate")
         if normalized(fields.get("operator_acceptance_status")) == "accepted":
             failures.append(f"Research input {file_name} must not have accepted operator status")
         research_text = path.read_text(encoding="utf-8")
         if "approved_for_publish" in research_text:
             failures.append(f"Research input {file_name} must not contain approved_for_publish")
-        if "research_enriched" in research_text:
+        if "research_enriched" in research_text and file_name not in expected_enrichment_paths:
             failures.append(f"Research input {file_name} must not contain research_enriched")
 
     return len(found_files)
@@ -1038,6 +1082,83 @@ def validate_serp_observation(failures: list[str]) -> int:
     return 1
 
 
+def validate_research_enrichments(failures: list[str]) -> int:
+    if not RESEARCH_ENRICHMENTS_DIR.exists():
+        failures.append("Missing research enrichment directory: docs/content/research_enrichments")
+        return 0
+
+    required_paths = [
+        RESEARCH_ENRICHMENTS_DIR / "README.md",
+        RESEARCH_ENRICHMENTS_DIR / "RESEARCH_ENRICHMENT_TEMPLATE.md",
+    ]
+    for path in required_paths:
+        if not path.exists():
+            failures.append(f"Missing research enrichment file: {path.relative_to(ROOT).as_posix()}")
+
+    found_files = {path.name for path in RESEARCH_ENRICHMENTS_DIR.glob("*.enrichment.md")}
+    expected_files = set(EXPECTED_RESEARCH_ENRICHMENTS)
+    if found_files != expected_files:
+        failures.append(
+            "Batch 01 must contain exactly these enrichment files: "
+            f"{', '.join(sorted(expected_files))}; found {', '.join(sorted(found_files))}"
+        )
+
+    for file_name in sorted(expected_files & found_files):
+        path = RESEARCH_ENRICHMENTS_DIR / file_name
+        text = path.read_text(encoding="utf-8")
+        text_lower = text.lower()
+        fields = parse_frontmatter_fields(text)
+        expected = EXPECTED_RESEARCH_ENRICHMENTS[file_name]
+
+        required_fragments = [
+            "enrichment_status: research_enriched_candidate",
+            "operator_acceptance_status: not_accepted",
+            "linked_source_pack:",
+            "linked_claim_map:",
+            "linked_serp_observation:",
+            "Explicit Non-Acceptance",
+            expected["brief_id"],
+        ]
+        for fragment in required_fragments:
+            if fragment not in text:
+                failures.append(f"Research enrichment {file_name} must contain: {fragment}")
+        for claim_id in expected["required_claims"]:
+            if claim_id not in text:
+                failures.append(f"Research enrichment {file_name} must contain claim: {claim_id}")
+        for term in expected["required_terms"]:
+            if term.lower() not in text_lower:
+                failures.append(f"Research enrichment {file_name} must contain marker: {term}")
+
+        if normalized(fields.get("enrichment_status")) != "research_enriched_candidate":
+            failures.append(f"Research enrichment {file_name} must have enrichment_status: research_enriched_candidate")
+        if normalized(fields.get("operator_acceptance_status")) == "accepted":
+            failures.append(f"Research enrichment {file_name} must not have accepted operator status")
+        if fields.get("linked_source_pack") != SOURCE_PACK_REL_PATH:
+            failures.append(f"Research enrichment {file_name} must link to source pack")
+        if fields.get("linked_claim_map") != CLAIM_MAP_REL_PATH:
+            failures.append(f"Research enrichment {file_name} must link to claim map")
+        if fields.get("linked_serp_observation") != SERP_OBSERVATION_REL_PATH:
+            failures.append(f"Research enrichment {file_name} must link to SERP observation")
+        if fields.get("linked_research_input") != expected["research_input"]:
+            failures.append(f"Research enrichment {file_name} must link to expected research input")
+
+        forbidden_fragments = [
+            "approved_for_publish",
+            "operator_acceptance_status: accepted",
+            "publish_ready",
+            "ranking guarantee:",
+            "search volume:",
+            "keyword difficulty:",
+        ]
+        for fragment in forbidden_fragments:
+            if fragment in text_lower:
+                failures.append(f"Research enrichment {file_name} must not contain: {fragment}")
+        if "SHO-MVP-BRIEF-001" in text or "SHO-MVP-BRIEF-004" in text:
+            failures.append(f"Research enrichment {file_name} must not enrich Brief 001 or Brief 004")
+
+    return len(found_files)
+
+
 def main() -> int:
     failures: list[str] = []
 
@@ -1051,6 +1172,7 @@ def main() -> int:
     source_review_count = validate_source_review(failures)
     evidence_capture_count = validate_evidence_capture(failures)
     serp_observation_count = validate_serp_observation(failures)
+    research_enrichment_count = validate_research_enrichments(failures)
 
     if failures:
         print("FAIL: SHO-OS content contract validation failed")
@@ -1069,6 +1191,7 @@ def main() -> int:
     print(f"- Batch 01 source review files: {source_review_count}")
     print(f"- Batch 01 evidence capture files: {evidence_capture_count}")
     print(f"- Batch 01 SERP observation files: {serp_observation_count}")
+    print(f"- Batch 01 research enrichment files: {research_enrichment_count}")
     print("- YAML/frontmatter parsing: dependency-free and text-based")
     return 0
 

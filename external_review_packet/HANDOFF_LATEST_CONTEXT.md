@@ -5,19 +5,19 @@
 - project_name: Senioren-Hilfe Online
 - system_name: Senioren-Hilfe Online OS
 - system_short_name: SHO-OS
-- patch_title: SERP_OBSERVATION_BATCH_01_INTEGRATE_FROM_OPERATOR_RESEARCH
+- patch_title: MVP_CONTENT_BRIEF_RESEARCH_ENRICHMENT_BATCH_01_LIMITED
 - external_review_verdict: ACCEPTED_WITH_FINDINGS
 
 SHO-OS ist ein reproduzierbares Content-, Trust- und Publishing-System fuer seniorengerechte digitale Alltagshilfe in Deutschland.
 
-Dieser Patch integriert den vom Operator gelieferten qualitativen SERP-Research-Output fuer `MVP_BATCH_01`. Er dokumentiert keine neuen SERP-Recherchen, keine neuen Queries, keine Suchvolumina, keine Keyword Difficulty, keine Ranking-, Traffic- oder Umsatzannahmen und keine Publish Readiness.
+Dieser Patch erstellt kontrollierte Research-Enrichment-Candidate-Artefakte fuer exakt zwei Batch-01-Briefs: `SHO-MVP-BRIEF-002` und `SHO-MVP-BRIEF-003`. Er erstellt keine Artikelentwuerfe, keine Publish Readiness, keine Operator Acceptance und keine Full-Batch-Hochstufung.
 
 ## Git Traceability
 
 - branch: `main`
-- head_before: `daeefc8f370266afe5d21f93a5aa7c4fc882895a`
+- head_before: `791f26d61b8e5134f82f3ebbfabbe0894ad52e72`
 - intended_head_after: `assigned_after_commit`
-- origin_main_before: `daeefc8f370266afe5d21f93a5aa7c4fc882895a`
+- origin_main_before: `791f26d61b8e5134f82f3ebbfabbe0894ad52e72`
 - dirty_state_before: `clean`
 - dirty_state_after: `assigned_after_commit`
 - remote_url: `https://github.com/charizzzzard/Senioren-Hilfe-Online.git`
@@ -26,44 +26,46 @@ Hinweis: `head_after` wird nicht vorab als Commit-SHA eingetragen, weil ein Comm
 
 ## Scope Dieses Patches
 
-- SERP Observation Ordner, README und wiederverwendbares Template angelegt.
-- Qualitative Batch-01-SERP-Observation aus Operator-Research integriert.
-- Zwölf operator-gelieferte Queries in einer qualitativen Query Table abgebildet.
-- Vier Research Inputs mit `serp_status: observed`, `serp_observation_status: operator_research_observed` und `serp_review_status: needs_review` verknuepft.
-- Batch Manifest auf `serp_observation: docs/content/serp_observations/serp-observation-batch-01.md` gesetzt.
-- WhatsApp Line-Evidence-Blocker sichtbar gehalten.
-- Status Registry um SERP-Statuswerte ergaenzt.
-- Validatoren um SERP-Artefakt- und Status-Checks erweitert.
+- Research-Enrichment-Ordner, README und wiederverwendbares Template angelegt.
+- Limited Enrichment Candidate fuer `SHO-MVP-BRIEF-002` angelegt.
+- Limited Enrichment Candidate fuer `SHO-MVP-BRIEF-003` angelegt.
+- Research Inputs fuer Brief 002 und Brief 003 mit Enrichment Candidate verknuepft.
+- `MVP_BATCH_01.yaml` um `research_enrichment_candidates` und `not_enriched` ergaenzt.
+- Brief 001 bleibt wegen fehlender WhatsApp Line Evidence out of scope.
+- Brief 004 bleibt wegen Commercial-/Affiliate-Risiko und offener Produktmethodik out of scope.
+- Status Registry um Enrichment-Statuswerte ergaenzt.
+- Validatoren um Limited-Enrichment-Checks und Full-Batch-Transition-Blocker erweitert.
 
 ## Non-Scope
 
-- Keine neue SERP-Recherche.
-- Keine neuen Queries.
-- Keine Suchvolumina.
-- Keine Keyword Difficulty.
-- Keine Ranking-Garantien.
-- Keine Traffic Forecasts.
-- Keine Source Changes.
+- Keine neuen Quellen.
+- Keine Source-URL-Aenderungen.
+- Keine Source Verification Changes.
 - Keine Claim Changes.
+- Keine neuen SERP Observations.
+- Keine Search-Volume-Daten.
+- Keine Keyword-Difficulty-Daten.
+- Keine Ranking-Garantien.
 - Keine Artikelentwuerfe.
 - Keine Website.
 - Keine Monetarisierung.
 - Keine Affiliate-Links oder Ads.
-- Kein Research-Enrichment-Status.
 - Kein `approved_for_publish`-Status.
 - Keine Operator Acceptance Simulation.
+- Kein Full-Batch Research Enrichment.
 
 ## Carried-forward Findings
 
 | finding_id | status | Hinweis |
 | --- | --- | --- |
+| SHO-ENRICH-001 | recorded | Limited research enrichment candidates created for Brief 002 and Brief 003 only. |
 | SHO-SERP-001 | recorded | Batch 01 qualitative SERP observation integrated; needs review; no volume/difficulty/ranking data. |
 | SHO-WA-001 | recorded | WhatsApp manual review attempted; line-level evidence missing; sources remain candidate. |
 | SHO-WA-002 | recorded | WhatsApp line evidence capture created; evidence unavailable; claims remain blocked. |
 | SHO-BL-001 | partially_resolved | Preflight-HEAD und `origin/main` werden real dokumentiert; finale Patch-SHA steht nach Commit/Push im Abschlussbericht. |
-| SHO-BL-002 | partially_resolved | Validator wurde um SERP-Observation-Gates erweitert, bleibt aber dependency-free und textbasiert. |
-| SHO-BL-003 | partially_resolved | Handoff-Kontext enthaelt reale Branch-, HEAD-, Remote-, Dirty-State- und SERP-Patch-Werte. |
-| SHO-BL-004 | partially_resolved | SERP-Statusmodell und Blocker gegen automatische Research-Enrichment-Hochstufung wurden dokumentiert. |
+| SHO-BL-002 | partially_resolved | Validator wurde um Limited-Enrichment-Gates erweitert, bleibt aber dependency-free und textbasiert. |
+| SHO-BL-003 | partially_resolved | Handoff-Kontext enthaelt reale Branch-, HEAD-, Remote-, Dirty-State- und Limited-Enrichment-Patch-Werte. |
+| SHO-BL-004 | partially_resolved | Limited-Enrichment-State-Modell und Out-of-Scope-Blocker fuer Brief 001/004 wurden dokumentiert. |
 | SHO-BL-005 | carried_forward | Maschinenlesbare Publish-Gates im Artikeltemplate bleiben spaeterer Scope. |
 | SHO-BL-006 | carried_forward | Eigene Kaufberatungsmethodik bleibt spaeterer Scope. |
 
@@ -79,10 +81,12 @@ Hinweis: `head_after` wird nicht vorab als Commit-SHA eingetragen, weil ein Comm
 
 ## Files Changed Summary
 
-- `docs/content/serp_observations/README.md`
-- `docs/content/serp_observations/SERP_OBSERVATION_TEMPLATE.md`
-- `docs/content/serp_observations/serp-observation-batch-01.md`
-- `docs/content/research_inputs/*.research.md`
+- `docs/content/research_enrichments/README.md`
+- `docs/content/research_enrichments/RESEARCH_ENRICHMENT_TEMPLATE.md`
+- `docs/content/research_enrichments/betrugsnachrichten-auf-whatsapp-erkennen.enrichment.md`
+- `docs/content/research_enrichments/smartphone-schriftgroesse-und-bedienhilfen-einstellen.enrichment.md`
+- `docs/content/research_inputs/betrugsnachrichten-auf-whatsapp-erkennen.research.md`
+- `docs/content/research_inputs/smartphone-schriftgroesse-und-bedienhilfen-einstellen.research.md`
 - `docs/content/batches/MVP_BATCH_01.yaml`
 - `docs/operations/STATUS_REGISTRY.yaml`
 - `scripts/validate_content_contracts.py`
@@ -94,4 +98,4 @@ Hinweis: `head_after` wird nicht vorab als Commit-SHA eingetragen, weil ein Comm
 
 ## Keine finale Annahme durch Codex
 
-SERP observation was integrated as qualitative operator research, not keyword validation, not traffic evidence and not publish readiness. Finale Annahme bleibt beim Human Operator.
+Limited research enrichment candidates were created only for Brief 002 and Brief 003. No article drafts, publish readiness or Operator Acceptance. Finale Annahme bleibt beim Human Operator.

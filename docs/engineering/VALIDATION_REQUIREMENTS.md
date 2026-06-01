@@ -237,6 +237,28 @@ SERP Observation darf `serp_status: observed` setzen, aber nicht automatisch:
 - `operator_accepted`
 - Operator Acceptance
 
+## Research-Enrichment-Candidate-Checks
+
+Der Validator prueft zusaetzlich:
+
+- Existenz von `docs/content/research_enrichments/README.md`.
+- Existenz von `docs/content/research_enrichments/RESEARCH_ENRICHMENT_TEMPLATE.md`.
+- Exakt zwei Batch-01-Enrichment-Dateien:
+  - `docs/content/research_enrichments/betrugsnachrichten-auf-whatsapp-erkennen.enrichment.md`
+  - `docs/content/research_enrichments/smartphone-schriftgroesse-und-bedienhilfen-einstellen.enrichment.md`
+- Beide Enrichment-Dateien haben `enrichment_status: research_enriched_candidate`.
+- Beide Enrichment-Dateien haben `operator_acceptance_status: not_accepted`.
+- Beide Enrichment-Dateien verweisen auf Source Pack, Claim Map und SERP Observation.
+- Brief 002 Enrichment enthaelt `SHO-CLAIM-004`, `SHO-CLAIM-005`, `SHO-CLAIM-006` und `SHO-CLAIM-007` als ausgeschlossen/blockiert.
+- Brief 003 Enrichment enthaelt `SHO-CLAIM-008`, `SHO-CLAIM-009` als `support_only` und `SHO-CLAIM-010`.
+- Keine Enrichment-Datei darf `approved_for_publish`, `operator_acceptance_status: accepted`, `publish_ready`, Ranking-, Search-Volume- oder Keyword-Difficulty-Metrik-Felder enthalten.
+- `MVP_BATCH_01.yaml` bleibt auf `current_stage: claim_slots_mapped`.
+- `MVP_BATCH_01.yaml` darf die Full-Batch-Stage nicht auf `research_enriched_brief_candidate` setzen.
+
+## Limited-Enrichment-Scope-Checks
+
+Limited Enrichment ist nur fuer Brief 002 und Brief 003 erlaubt. Brief 001 bleibt wegen fehlender WhatsApp Line Evidence blockiert. Brief 004 bleibt wegen Commercial-/Affiliate-Risiko und offener Produktmethodik zurueckgestellt.
+
 ## Verbleibende spätere Checks
 
 - Echtes YAML-Parsing.
@@ -297,3 +319,9 @@ SERP Observation darf `serp_status: observed` setzen, aber nicht automatisch:
 - Mobile SERP observation.
 - Query freshness/staleness.
 - SERP review gate before research enrichment.
+- Exact claim-to-outline mapping.
+- Article draft scaffold validator.
+- Screenshot/device-version gate.
+- Monetization/product-methodology gate for Brief 004.
+- WhatsApp line-evidence gate for Brief 001.
+- Transition from research_enriched_candidate to article_draft_candidate.

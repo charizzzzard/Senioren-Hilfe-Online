@@ -9,6 +9,8 @@ serp_status: observed
 serp_observation_path: docs/content/serp_observations/serp-observation-batch-01.md
 serp_observation_status: operator_research_observed
 serp_review_status: needs_review
+research_enrichment_path: docs/content/research_enrichments/betrugsnachrichten-auf-whatsapp-erkennen.enrichment.md
+enrichment_status: research_enriched_candidate
 source_pack_path: docs/content/source_packs/operator-research-source-pack-batch-01.md
 source_pack_status: source_candidates_verified_partial
 manual_source_review_path: docs/content/source_reviews/whatsapp-source-manual-review-batch-01.md
@@ -33,6 +35,7 @@ Diese Datei sammelt Research-Eingaben für den vorhandenen Brief `SHO-MVP-BRIEF-
 - serp_status: observed
 - serp_observation_status: operator_research_observed
 - serp_review_status: needs_review
+- enrichment_status: research_enriched_candidate
 - content_status: research_input_shell
 - claim_map_status: claim_slots_mapped
 - manual_source_review_path: docs/content/source_reviews/whatsapp-source-manual-review-batch-01.md
@@ -78,6 +81,10 @@ Claim map has article_draft_candidate claims, but no SERP observation and no art
 ## SERP Observation Note
 
 SERP observation indicates strong fit for fraud detection, but WhatsApp block/report claim remains blocked.
+
+## Research Enrichment Note
+
+Research enrichment candidate exists for non-WhatsApp fraud/phishing claims only. WhatsApp block/report UI claim remains blocked.
 
 ## SERP Observation
 

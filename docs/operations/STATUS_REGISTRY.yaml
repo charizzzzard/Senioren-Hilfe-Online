@@ -104,6 +104,18 @@ serp_review_status:
     - reviewed
     - blocked
 
+enrichment_status:
+  allowed:
+    - not_started
+    - research_enriched_candidate
+    - blocked
+    - needs_review
+
+research_enrichment_candidate_scope:
+  allowed:
+    - limited_batch_candidate
+    - single_brief_candidate
+
 forbidden_transitions:
   - from: scaffold_only
     to: approved_for_publish

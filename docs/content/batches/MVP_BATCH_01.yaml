@@ -30,6 +30,16 @@ evidence_captures:
   - docs/content/evidence_captures/whatsapp-line-evidence-capture-batch-01.md
 serp_observation: docs/content/serp_observations/serp-observation-batch-01.md
 
+research_enrichment_candidates:
+  - docs/content/research_enrichments/betrugsnachrichten-auf-whatsapp-erkennen.enrichment.md
+  - docs/content/research_enrichments/smartphone-schriftgroesse-und-bedienhilfen-einstellen.enrichment.md
+
+not_enriched:
+  - brief_id: SHO-MVP-BRIEF-001
+    reason: WhatsApp line evidence unavailable; platform claims blocked.
+  - brief_id: SHO-MVP-BRIEF-004
+    reason: Commercial/affiliate risk and product-recommendation methodology still open.
+
 known_blockers:
   - WhatsApp line-level evidence is unavailable.
   - WhatsApp platform sources remain candidate / needs_manual_review.
@@ -37,6 +47,7 @@ known_blockers:
   - Exact quote/evidence extraction remains incomplete.
   - Screenshot/device-version validation is not yet present.
   - SERP observation is qualitative and requires review.
+  - Brief 004 requires strict monetization/product-methodology review.
 
 non_acceptance:
   - Batch is not publish-ready.
