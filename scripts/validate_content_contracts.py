@@ -50,6 +50,9 @@ REQUIRED_DOCS = [
     "docs/content/article_draft_scaffolds/ARTICLE_DRAFT_SCAFFOLD_TEMPLATE.md",
     "docs/content/article_draft_scaffolds/betrugsnachrichten-auf-whatsapp-erkennen.draft-scaffold.md",
     "docs/content/article_draft_scaffolds/smartphone-schriftgroesse-und-bedienhilfen-einstellen.draft-scaffold.md",
+    "docs/content/article_draft_candidates/README.md",
+    "docs/content/article_draft_candidates/ARTICLE_DRAFT_CANDIDATE_TEMPLATE.md",
+    "docs/content/article_draft_candidates/betrugsnachrichten-auf-whatsapp-erkennen.article-draft-candidate.md",
     "docs/operations/CONTENT_RESEARCH_OPERATING_PROTOCOL.md",
     "docs/operations/RESEARCH_BATCH_STAGE_MODEL.md",
     "docs/operations/CODEX_EXECUTOR_BOUNDARY.md",
@@ -139,14 +142,27 @@ EXPECTED_ARTICLE_DRAFT_SCAFFOLDS = {
     "betrugsnachrichten-auf-whatsapp-erkennen.draft-scaffold.md": {
         "brief_id": "SHO-MVP-BRIEF-002",
         "enrichment": "docs/content/research_enrichments/betrugsnachrichten-auf-whatsapp-erkennen.enrichment.md",
+        "article_candidate": "docs/content/article_draft_candidates/betrugsnachrichten-auf-whatsapp-erkennen.article-draft-candidate.md",
         "required_claims": ["SHO-CLAIM-004", "SHO-CLAIM-005", "SHO-CLAIM-006", "SHO-CLAIM-007"],
         "required_terms": ["excluded", "not allowed"],
     },
     "smartphone-schriftgroesse-und-bedienhilfen-einstellen.draft-scaffold.md": {
         "brief_id": "SHO-MVP-BRIEF-003",
         "enrichment": "docs/content/research_enrichments/smartphone-schriftgroesse-und-bedienhilfen-einstellen.enrichment.md",
+        "article_candidate": "",
         "required_claims": ["SHO-CLAIM-008", "SHO-CLAIM-009", "SHO-CLAIM-010"],
         "required_terms": ["support_only"],
+    },
+}
+ARTICLE_DRAFT_CANDIDATES_DIR = ROOT / "docs/content/article_draft_candidates"
+EXPECTED_ARTICLE_DRAFT_CANDIDATES = {
+    "betrugsnachrichten-auf-whatsapp-erkennen.article-draft-candidate.md": {
+        "article_draft_candidate_id": "SHO-ARTICLE-DRAFT-CANDIDATE-BATCH01-BRIEF002",
+        "brief_id": "SHO-MVP-BRIEF-002",
+        "draft_scaffold": "docs/content/article_draft_scaffolds/betrugsnachrichten-auf-whatsapp-erkennen.draft-scaffold.md",
+        "research_enrichment": "docs/content/research_enrichments/betrugsnachrichten-auf-whatsapp-erkennen.enrichment.md",
+        "required_claims": ["SHO-CLAIM-004", "SHO-CLAIM-005", "SHO-CLAIM-006", "SHO-CLAIM-007"],
+        "required_sources": ["SHO-SRC-005", "SHO-SRC-006", "SHO-SRC-007"],
     },
 }
 WHATSAPP_MANUAL_REVIEW_SOURCE_IDS = {"SHO-SRC-001", "SHO-SRC-002", "SHO-SRC-003", "SHO-SRC-004"}
@@ -1240,6 +1256,13 @@ def validate_article_draft_scaffolds(failures: list[str]) -> int:
             failures.append(f"Draft scaffold {file_name} must not have accepted operator status")
         if fields.get("linked_research_enrichment") != expected["enrichment"]:
             failures.append(f"Draft scaffold {file_name} must link to expected research enrichment")
+        if expected["article_candidate"]:
+            if fields.get("article_draft_candidate_path") != expected["article_candidate"]:
+                failures.append(f"Draft scaffold {file_name} must link to expected article draft candidate")
+            if normalized(fields.get("article_status")) != "article_draft_candidate":
+                failures.append(f"Draft scaffold {file_name} must have article_status: article_draft_candidate")
+        elif "article_draft_candidate_path" in fields or normalized(fields.get("article_status")) == "article_draft_candidate":
+            failures.append(f"Draft scaffold {file_name} must not link to an article draft candidate")
         if fields.get("linked_claim_map") != CLAIM_MAP_REL_PATH:
             failures.append(f"Draft scaffold {file_name} must link to claim map")
         if fields.get("linked_serp_observation") != SERP_OBSERVATION_REL_PATH:
@@ -1263,6 +1286,106 @@ def validate_article_draft_scaffolds(failures: list[str]) -> int:
     return len(found_files)
 
 
+def has_forbidden_status_assignment(text: str) -> bool:
+    forbidden_patterns = [
+        "approved_for_publish: true",
+        "review_status: approved_for_publish",
+        "current_stage: publish_candidate",
+        "operator_acceptance_status: accepted",
+        "publish_ready: true",
+    ]
+    lower_text = text.lower()
+    return any(pattern in lower_text for pattern in forbidden_patterns)
+
+
+def validate_article_draft_candidates(failures: list[str]) -> int:
+    if not ARTICLE_DRAFT_CANDIDATES_DIR.exists():
+        failures.append("Missing article draft candidate directory: docs/content/article_draft_candidates")
+        return 0
+
+    required_paths = [
+        ARTICLE_DRAFT_CANDIDATES_DIR / "README.md",
+        ARTICLE_DRAFT_CANDIDATES_DIR / "ARTICLE_DRAFT_CANDIDATE_TEMPLATE.md",
+    ]
+    for path in required_paths:
+        if not path.exists():
+            failures.append(f"Missing article draft candidate file: {path.relative_to(ROOT).as_posix()}")
+
+    found_files = {path.name for path in ARTICLE_DRAFT_CANDIDATES_DIR.glob("*.article-draft-candidate.md")}
+    expected_files = set(EXPECTED_ARTICLE_DRAFT_CANDIDATES)
+    if found_files != expected_files:
+        failures.append(
+            "Batch 01 must contain exactly these article draft candidate files: "
+            f"{', '.join(sorted(expected_files))}; found {', '.join(sorted(found_files))}"
+        )
+
+    for file_name in sorted(expected_files & found_files):
+        path = ARTICLE_DRAFT_CANDIDATES_DIR / file_name
+        text = path.read_text(encoding="utf-8")
+        text_lower = text.lower()
+        fields = parse_frontmatter_fields(text)
+        expected = EXPECTED_ARTICLE_DRAFT_CANDIDATES[file_name]
+
+        required_fragments = [
+            f"article_draft_candidate_id: {expected['article_draft_candidate_id']}",
+            f"linked_brief_id: {expected['brief_id']}",
+            "article_status: article_draft_candidate",
+            "review_status: needs_senior_ux_review",
+            "operator_acceptance_status: not_accepted",
+            "Evidence Markers Used",
+            "Explicit Non-Acceptance",
+            "SHO-CLAIM-007",
+            "blocked",
+        ]
+        for fragment in required_fragments:
+            if fragment not in text:
+                failures.append(f"Article draft candidate {file_name} must contain: {fragment}")
+        for claim_id in expected["required_claims"]:
+            if claim_id not in text:
+                failures.append(f"Article draft candidate {file_name} must contain claim: {claim_id}")
+        for source_id in expected["required_sources"]:
+            if source_id not in text:
+                failures.append(f"Article draft candidate {file_name} must contain source: {source_id}")
+
+        if fields.get("article_draft_candidate_id") != expected["article_draft_candidate_id"]:
+            failures.append(f"Article draft candidate {file_name} has unexpected ID")
+        if fields.get("linked_brief_id") != expected["brief_id"]:
+            failures.append(f"Article draft candidate {file_name} must link to Brief 002")
+        if fields.get("linked_draft_scaffold") != expected["draft_scaffold"]:
+            failures.append(f"Article draft candidate {file_name} must link to expected draft scaffold")
+        if fields.get("linked_research_enrichment") != expected["research_enrichment"]:
+            failures.append(f"Article draft candidate {file_name} must link to expected research enrichment")
+        if fields.get("linked_claim_map") != CLAIM_MAP_REL_PATH:
+            failures.append(f"Article draft candidate {file_name} must link to claim map")
+        if fields.get("linked_source_pack") != SOURCE_PACK_REL_PATH:
+            failures.append(f"Article draft candidate {file_name} must link to source pack")
+        if fields.get("linked_serp_observation") != SERP_OBSERVATION_REL_PATH:
+            failures.append(f"Article draft candidate {file_name} must link to SERP observation")
+        if normalized(fields.get("article_status")) != "article_draft_candidate":
+            failures.append(f"Article draft candidate {file_name} must have article_status: article_draft_candidate")
+        if normalized(fields.get("review_status")) != "needs_senior_ux_review":
+            failures.append(f"Article draft candidate {file_name} must have review_status: needs_senior_ux_review")
+        if normalized(fields.get("operator_acceptance_status")) == "accepted":
+            failures.append(f"Article draft candidate {file_name} must not have accepted operator status")
+
+        forbidden_fragments = [
+            "ranking guarantee",
+            "search volume",
+            "keyword difficulty",
+            "affiliate",
+            "product recommendation",
+        ]
+        for fragment in forbidden_fragments:
+            if fragment in text_lower:
+                failures.append(f"Article draft candidate {file_name} must not contain: {fragment}")
+        if has_forbidden_status_assignment(text):
+            failures.append(f"Article draft candidate {file_name} contains a forbidden status assignment")
+        if "SHO-MVP-BRIEF-001" in text or "SHO-MVP-BRIEF-003" in text or "SHO-MVP-BRIEF-004" in text:
+            failures.append(f"Article draft candidate {file_name} must not target Brief 001, 003 or 004")
+
+    return len(found_files)
+
+
 def main() -> int:
     failures: list[str] = []
 
@@ -1278,6 +1401,7 @@ def main() -> int:
     serp_observation_count = validate_serp_observation(failures)
     research_enrichment_count = validate_research_enrichments(failures)
     article_draft_scaffold_count = validate_article_draft_scaffolds(failures)
+    article_draft_candidate_count = validate_article_draft_candidates(failures)
 
     if failures:
         print("FAIL: SHO-OS content contract validation failed")
@@ -1298,6 +1422,7 @@ def main() -> int:
     print(f"- Batch 01 SERP observation files: {serp_observation_count}")
     print(f"- Batch 01 research enrichment files: {research_enrichment_count}")
     print(f"- Batch 01 article draft scaffold files: {article_draft_scaffold_count}")
+    print(f"- Batch 01 article draft candidate files: {article_draft_candidate_count}")
     print("- YAML/frontmatter parsing: dependency-free and text-based")
     return 0
 

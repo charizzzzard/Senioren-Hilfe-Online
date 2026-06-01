@@ -279,6 +279,44 @@ Limited Enrichment ist nur fuer Brief 002 und Brief 003 erlaubt. Brief 001 bleib
 
 Draft Scaffolds sind nur fuer Brief 002 und Brief 003 erlaubt. Brief 001 bleibt wegen fehlender WhatsApp Line Evidence blockiert. Brief 004 bleibt wegen Commercial-/Affiliate-Risiko und offener Produktmethodik zurueckgestellt.
 
+## Article-Draft-Candidate-Checks
+
+- `docs/content/article_draft_candidates/README.md` muss existieren.
+- `docs/content/article_draft_candidates/ARTICLE_DRAFT_CANDIDATE_TEMPLATE.md` muss existieren.
+- Exakt ein Batch-01-Article-Draft-Candidate darf existieren:
+  - `docs/content/article_draft_candidates/betrugsnachrichten-auf-whatsapp-erkennen.article-draft-candidate.md`
+- Der Draft Candidate hat `article_draft_candidate_id: SHO-ARTICLE-DRAFT-CANDIDATE-BATCH01-BRIEF002`.
+- Der Draft Candidate hat `linked_brief_id: SHO-MVP-BRIEF-002`.
+- Der Draft Candidate hat `article_status: article_draft_candidate`.
+- Der Draft Candidate hat `review_status: needs_senior_ux_review`.
+- Der Draft Candidate hat `operator_acceptance_status: not_accepted`.
+- Der Draft Candidate enthaelt die erlaubten Claims `SHO-CLAIM-004`, `SHO-CLAIM-005` und `SHO-CLAIM-006`.
+- Der Draft Candidate fuehrt `SHO-CLAIM-007` nur als blockiert/ausgeschlossen.
+- Der Draft Candidate nutzt die erlaubten Source IDs `SHO-SRC-005`, `SHO-SRC-006` und `SHO-SRC-007`.
+- Keine Draft-Candidate-Datei darf fuer Brief 001, Brief 003 oder Brief 004 existieren.
+- `MVP_BATCH_01.yaml` bleibt auf `current_stage: claim_slots_mapped`.
+- `MVP_BATCH_01.yaml` darf nicht auf `article_draft_candidate`, `review_ready` oder `publish_candidate` wechseln.
+
+## Source-Marker-Checks
+
+- Faktische Sicherheitsabschnitte im Draft Candidate muessen Claim-/Source-Arbeitsmarker enthalten.
+- Arbeitsmarker haben das Format `[claim: ... | sources: ...]`.
+- Arbeitsmarker sind keine finalen Leserzitate.
+- `SHO-CLAIM-007` darf nicht als erlaubter Draft-Claim genutzt werden.
+
+## Senior-UX-Review-Gate
+
+- Draft Candidate bleibt `review_status: needs_senior_ux_review`.
+- Kurze Saetze, ruhiger Ton und keine Schuldzuweisung muessen spaeter manuell geprueft werden.
+- Druckbare Checklisten muessen vor Veroeffentlichung separat geprueft werden.
+
+## Safety-Language-Review-Gate
+
+- Keine Panikmache.
+- Keine Garantie, Betrug immer sicher zu erkennen.
+- Keine juristische Beratung.
+- Keine finalen WhatsApp-UI-Schritte ohne entsperrte WhatsApp Evidence.
+
 ## Verbleibende spätere Checks
 
 - Echtes YAML-Parsing.
@@ -351,3 +389,9 @@ Draft Scaffolds sind nur fuer Brief 002 und Brief 003 erlaubt. Brief 001 bleibt 
 - Safety language review.
 - Senior UX readability checklist.
 - Publish candidate validator.
+- Source marker to paragraph validation.
+- Final citation formatting.
+- Readability scoring.
+- Senior UX checklist validator.
+- Article review package.
+- Publish candidate gate.

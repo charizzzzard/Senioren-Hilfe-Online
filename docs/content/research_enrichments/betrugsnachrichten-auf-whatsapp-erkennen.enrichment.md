@@ -10,6 +10,8 @@ linked_serp_observation: docs/content/serp_observations/serp-observation-batch-0
 enrichment_status: research_enriched_candidate
 article_draft_scaffold_path: docs/content/article_draft_scaffolds/betrugsnachrichten-auf-whatsapp-erkennen.draft-scaffold.md
 draft_scaffold_status: article_draft_scaffold
+article_draft_candidate_path: docs/content/article_draft_candidates/betrugsnachrichten-auf-whatsapp-erkennen.article-draft-candidate.md
+article_status: article_draft_candidate
 operator_acceptance_status: not_accepted
 ---
 

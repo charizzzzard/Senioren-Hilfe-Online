@@ -7,6 +7,8 @@ linked_research_enrichment: docs/content/research_enrichments/betrugsnachrichten
 linked_claim_map: docs/content/claim_maps/source-to-claim-map-batch-01.md
 linked_serp_observation: docs/content/serp_observations/serp-observation-batch-01.md
 draft_scaffold_status: article_draft_scaffold
+article_draft_candidate_path: docs/content/article_draft_candidates/betrugsnachrichten-auf-whatsapp-erkennen.article-draft-candidate.md
+article_status: article_draft_candidate
 operator_acceptance_status: not_accepted
 ---
 

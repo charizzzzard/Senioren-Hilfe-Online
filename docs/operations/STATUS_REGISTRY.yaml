@@ -132,6 +132,17 @@ article_status:
     - review_ready
     - publish_candidate
 
+review_status:
+  allowed:
+    - draft
+    - needs_sources
+    - needs_senior_ux_review
+    - needs_source_marker_review
+    - needs_safety_language_review
+    - needs_monetization_review
+    - blocked
+    - approved_for_publish
+
 forbidden_transitions:
   - from: scaffold_only
     to: approved_for_publish
