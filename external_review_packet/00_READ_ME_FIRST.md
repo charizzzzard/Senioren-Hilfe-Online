@@ -2,22 +2,22 @@
 
 ## Zweck dieses Review-Pakets
 
-Dieses Review-Paket beschreibt den Patch `FINAL_SOURCE_LIST_REVIEW_BRIEF_002`. Es dokumentiert eine konservative Final-Source-List-Review fuer Brief 002 auf Basis vorhandener Citation-Artefakte, ohne finale Quellenliste, Publish Readiness oder Operator Acceptance zu setzen.
+Dieses Review-Paket beschreibt den Patch `FINAL_ARTICLE_PREPARATION_OPERATOR_DECISION_BRIEF_002`. Es dokumentiert die ausdrueckliche Human-Operator-Entscheidung, dass Brief 002 in die finale Artikelvorbereitung gehen darf, ohne Publish Readiness oder Operator Acceptance zu setzen.
 
 ## Scope dieses Patches
 
-- Genau ein Final-Source-List-Review-Artefakt fuer Brief 002 erstellen.
-- Nur vorhandene Source IDs `SHO-SRC-005`, `SHO-SRC-006` und `SHO-SRC-007` nutzen.
-- Vorbereitete Display Labels und Citation-Texte aus vorhandenen Artefakten zusammenfuehren.
-- `source_list_review_status: source_list_prepared_not_final` dokumentieren.
-- Fehlende finale Metadaten, finale Artikelvorbereitung und Operator Acceptance ausdruecklich offen halten.
+- Genau ein neues Operator-Decision-Record-Artefakt fuer Brief 002 erstellen.
+- `decision_status: proceed_to_final_article_preparation_not_publish_ready` dokumentieren.
+- Finale Artikelvorbereitung als erlaubten naechsten Arbeitsschritt dokumentieren.
+- Publish Readiness, approved_for_publish, Public Launch, Monetarisierung und Operator Acceptance ausdruecklich ausschliessen.
 - `SHO-CLAIM-007` weiter blockiert halten.
-- Keine finale Quellenlistenfreigabe, keine Operator Acceptance und keine Publish Readiness setzen.
-- Validator minimal erweitern, damit das Final-Source-List-Review-Artefakt als erwartetes Artefakt geprueft wird.
+- Keine neuen Quellen, Claims, SERP-Daten oder Artikelinhalte ergaenzen.
+- Validator minimal erweitern, damit der zweite Operator Decision Record als erwartetes Artefakt geprueft wird.
 
 ## Primaere Review-Dateien
 
 - `external_review_packet/HANDOFF_LATEST_CONTEXT.md`
+- `docs/operations/operator_decisions/HUMAN_OPERATOR_DECISION_BATCH01_BRIEF002_002.md`
 - `docs/content/article_reviews/betrugsnachrichten-auf-whatsapp-erkennen.final-source-list-review.md`
 - `docs/content/article_reviews/betrugsnachrichten-auf-whatsapp-erkennen.final-legal-wording-review.md`
 - `docs/content/article_reviews/betrugsnachrichten-auf-whatsapp-erkennen.legal-wording-review-prep.md`
@@ -40,7 +40,7 @@ Dieses Review-Paket beschreibt den Patch `FINAL_SOURCE_LIST_REVIEW_BRIEF_002`. E
 
 ## Wichtiger Hinweis
 
-Final source list review only. This is not a final source list approval, not publish readiness and not Operator Acceptance.
+Human Operator decision record only. This permits final article preparation for Brief 002, but is not publish readiness, not Operator Acceptance and not publication approval.
 
 ## Nicht in Scope
 
@@ -56,6 +56,8 @@ Final source list review only. This is not a final source list approval, not pub
 - Rechtliche Freigabe.
 - Finale Citation-Freigabe.
 - Finale Quellenliste.
+- Finaler Artikeltext.
+- Public Launch.
 - Produktive Website.
 - Monetarisierung.
 

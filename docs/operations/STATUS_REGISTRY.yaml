@@ -184,6 +184,7 @@ publish_readiness_status:
 decision_status:
   allowed:
     - proceed_to_source_citation_and_legal_wording_preparation
+    - proceed_to_final_article_preparation_not_publish_ready
     - blocked
     - superseded
   forbidden_by_codex:

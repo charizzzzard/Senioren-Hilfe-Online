@@ -70,6 +70,7 @@ REQUIRED_DOCS = [
     "docs/operations/CODEX_EXECUTOR_BOUNDARY.md",
     "docs/operations/operator_decisions/README.md",
     "docs/operations/operator_decisions/HUMAN_OPERATOR_DECISION_BATCH01_BRIEF002_001.md",
+    "docs/operations/operator_decisions/HUMAN_OPERATOR_DECISION_BATCH01_BRIEF002_002.md",
     "docs/operations/MVP_OPERATIONAL_START_PLAN_BATCH_01.md",
     "docs/content/BATCH_WORKFLOW_TEMPLATE.md",
     "docs/operations/NEXT_STAGE_DECISION_TREE.md",
@@ -254,6 +255,16 @@ EXPECTED_OPERATOR_DECISIONS = {
         "linked_article_draft_candidate": "docs/content/article_draft_candidates/betrugsnachrichten-auf-whatsapp-erkennen.article-draft-candidate.md",
         "linked_operator_review_packet": OPERATOR_REVIEW_PACKET_REL_PATH,
         "linked_legal_source_citation_review": LEGAL_SOURCE_CITATION_REVIEW_REL_PATH,
+        "decision_status": "proceed_to_source_citation_and_legal_wording_preparation",
+    },
+    "HUMAN_OPERATOR_DECISION_BATCH01_BRIEF002_002.md": {
+        "operator_decision_id": "HUMAN_OPERATOR_DECISION_BATCH01_BRIEF002_002",
+        "brief_id": "SHO-MVP-BRIEF-002",
+        "linked_article_draft_candidate": "docs/content/article_draft_candidates/betrugsnachrichten-auf-whatsapp-erkennen.article-draft-candidate.md",
+        "linked_final_source_list_review": FINAL_SOURCE_LIST_REVIEW_REL_PATH,
+        "linked_final_legal_wording_review": FINAL_LEGAL_WORDING_REVIEW_REL_PATH,
+        "linked_final_article_prep_gate_review": FINAL_ARTICLE_PREP_GATE_REVIEW_REL_PATH,
+        "decision_status": "proceed_to_final_article_preparation_not_publish_ready",
     },
 }
 EXPECTED_SOURCE_CITATION_FORMATTING_PREPS = {
@@ -582,6 +593,7 @@ def validate_protocol_automation_files(failures: list[str]) -> None:
             "not_ready",
             "decision_status:",
             "proceed_to_source_citation_and_legal_wording_preparation",
+            "proceed_to_final_article_preparation_not_publish_ready",
             "prep_status:",
             "prepared_not_final",
             "legal_approval_status:",
@@ -2019,17 +2031,11 @@ def validate_operator_decisions(failures: list[str]) -> int:
             "batch_id: MVP_BATCH_01",
             f"linked_brief_id: {expected['brief_id']}",
             f"linked_article_draft_candidate: {expected['linked_article_draft_candidate']}",
-            f"linked_operator_review_packet: {expected['linked_operator_review_packet']}",
-            f"linked_legal_source_citation_review: {expected['linked_legal_source_citation_review']}",
-            "decision_status: proceed_to_source_citation_and_legal_wording_preparation",
+            f"decision_status: {expected['decision_status']}",
             "operator_acceptance_status: not_accepted",
             "publish_readiness_status: not_ready",
             "batch_stage_after_decision: claim_slots_mapped",
             "Decision Summary",
-            "final source citation formatting preparation und legal wording review preparation",
-            "Der Draft bleibt Article Draft Candidate.",
-            "Der Batch bleibt nicht publish-ready.",
-            "Es wird keine Operator Acceptance gesetzt.",
             "Explicit Non-Acceptance",
             "Diese Entscheidung ist keine Operator Acceptance.",
             "Diese Entscheidung ist keine Publish Readiness.",
@@ -2038,27 +2044,65 @@ def validate_operator_decisions(failures: list[str]) -> int:
             "Diese Entscheidung erlaubt keine WhatsApp block/report UI instructions.",
             "Diese Entscheidung erlaubt keine Monetarisierung.",
             "Allowed Next Work",
-            "prepare final source citation formatting",
-            "prepare legal wording review",
-            "preserve claim/source traceability",
-            "preserve senior-first safety language",
-            "preserve blocked state for `SHO-CLAIM-007`",
             "Forbidden Work",
             "approve_for_publish",
             "operator_accepted",
             "publish_candidate",
             "review_ready stage transition",
-            "unlock `SHO-CLAIM-007`",
             "add WhatsApp block/report UI instructions",
             "add monetization",
             "add new claims",
             "add new sources",
             "Required Next Gates",
-            "final source citation formatting preparation",
-            "legal wording review preparation",
-            "later Human Operator review before any final article preparation",
             "no final article without explicit later Operator decision",
         ]
+        if file_name == "HUMAN_OPERATOR_DECISION_BATCH01_BRIEF002_001.md":
+            required_fragments.extend(
+                [
+                    f"linked_operator_review_packet: {expected['linked_operator_review_packet']}",
+                    f"linked_legal_source_citation_review: {expected['linked_legal_source_citation_review']}",
+                    "final source citation formatting preparation und legal wording review preparation",
+                    "Der Draft bleibt Article Draft Candidate.",
+                    "Der Batch bleibt nicht publish-ready.",
+                    "Es wird keine Operator Acceptance gesetzt.",
+                    "prepare final source citation formatting",
+                    "prepare legal wording review",
+                    "preserve claim/source traceability",
+                    "preserve senior-first safety language",
+                    "preserve blocked state for `SHO-CLAIM-007`",
+                    "unlock `SHO-CLAIM-007`",
+                    "final source citation formatting preparation",
+                    "legal wording review preparation",
+                    "later Human Operator review before any final article preparation",
+                ]
+            )
+        else:
+            required_fragments.extend(
+                [
+                    f"linked_final_source_list_review: {expected['linked_final_source_list_review']}",
+                    f"linked_final_legal_wording_review: {expected['linked_final_legal_wording_review']}",
+                    f"linked_final_article_prep_gate_review: {expected['linked_final_article_prep_gate_review']}",
+                    "Human Operator erlaubt finale Artikelvorbereitung für Brief 002.",
+                    "Diese Entscheidung erlaubt keine Veröffentlichung.",
+                    "Diese Entscheidung setzt keine Operator Acceptance.",
+                    "Diese Entscheidung setzt keine Publish Readiness.",
+                    "Diese Entscheidung lässt SHO-CLAIM-007 blockiert.",
+                    "Diese Entscheidung ist keine Veröffentlichungsgenehmigung.",
+                    "prepare final article candidate text for Brief 002",
+                    "preserve existing approved claim/source boundaries",
+                    "use only allowed claims SHO-CLAIM-004, SHO-CLAIM-005, SHO-CLAIM-006",
+                    "use only allowed sources SHO-SRC-005, SHO-SRC-006, SHO-SRC-007",
+                    "preserve senior-first safety language",
+                    "preserve blocked state for SHO-CLAIM-007",
+                    "preserve non-final source metadata status",
+                    "public_launch_ready",
+                    "unlock SHO-CLAIM-007",
+                    "claim legal approval",
+                    "final article candidate preparation",
+                    "final article candidate review",
+                    "later Human Operator review before publish candidate",
+                ]
+            )
         for fragment in required_fragments:
             if fragment not in text:
                 failures.append(f"Operator decision {file_name} must contain: {fragment}")
@@ -2069,11 +2113,19 @@ def validate_operator_decisions(failures: list[str]) -> int:
             failures.append(f"Operator decision {file_name} must link to Brief 002")
         if fields.get("linked_article_draft_candidate") != expected["linked_article_draft_candidate"]:
             failures.append(f"Operator decision {file_name} must link to expected draft candidate")
-        if fields.get("linked_operator_review_packet") != expected["linked_operator_review_packet"]:
-            failures.append(f"Operator decision {file_name} must link to operator review packet")
-        if fields.get("linked_legal_source_citation_review") != expected["linked_legal_source_citation_review"]:
-            failures.append(f"Operator decision {file_name} must link to legal/source citation review")
-        if normalized(fields.get("decision_status")) != "proceed_to_source_citation_and_legal_wording_preparation":
+        if file_name == "HUMAN_OPERATOR_DECISION_BATCH01_BRIEF002_001.md":
+            if fields.get("linked_operator_review_packet") != expected["linked_operator_review_packet"]:
+                failures.append(f"Operator decision {file_name} must link to operator review packet")
+            if fields.get("linked_legal_source_citation_review") != expected["linked_legal_source_citation_review"]:
+                failures.append(f"Operator decision {file_name} must link to legal/source citation review")
+        else:
+            if fields.get("linked_final_source_list_review") != expected["linked_final_source_list_review"]:
+                failures.append(f"Operator decision {file_name} must link to final source list review")
+            if fields.get("linked_final_legal_wording_review") != expected["linked_final_legal_wording_review"]:
+                failures.append(f"Operator decision {file_name} must link to final legal wording review")
+            if fields.get("linked_final_article_prep_gate_review") != expected["linked_final_article_prep_gate_review"]:
+                failures.append(f"Operator decision {file_name} must link to final article prep gate review")
+        if normalized(fields.get("decision_status")) != expected["decision_status"]:
             failures.append(f"Operator decision {file_name} must have the expected decision_status")
         if normalized(fields.get("operator_acceptance_status")) != "not_accepted":
             failures.append(f"Operator decision {file_name} must have operator_acceptance_status: not_accepted")
