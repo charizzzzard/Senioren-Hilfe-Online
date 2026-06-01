@@ -16,6 +16,7 @@ ROOT = Path(__file__).resolve().parents[1]
 STATUS_REGISTRY = ROOT / "docs/operations/STATUS_REGISTRY.yaml"
 BATCH_MANIFEST = ROOT / "docs/content/batches/MVP_BATCH_01.yaml"
 SOURCE_PACK = ROOT / "docs/content/source_packs/operator-research-source-pack-batch-01.md"
+EVIDENCE_CAPTURE = ROOT / "docs/content/evidence_captures/whatsapp-line-evidence-capture-batch-01.md"
 
 
 def fail_if_missing(path: Path, failures: list[str]) -> str:
@@ -31,6 +32,7 @@ def main() -> int:
     registry_text = fail_if_missing(STATUS_REGISTRY, failures)
     batch_text = fail_if_missing(BATCH_MANIFEST, failures)
     source_pack_text = fail_if_missing(SOURCE_PACK, failures)
+    evidence_text = EVIDENCE_CAPTURE.read_text(encoding="utf-8") if EVIDENCE_CAPTURE.exists() else ""
 
     if registry_text:
         if "forbidden_transitions" not in registry_text:
@@ -52,6 +54,7 @@ def main() -> int:
         forbidden_fragments = [
             "operator_acceptance_status: accepted",
             "current_stage: operator_accepted",
+            "operator_accepted",
             "approved_for_publish",
             "research_enriched",
         ]
@@ -62,9 +65,17 @@ def main() -> int:
         if "manual_source_reviews:" in batch_text and "current_stage: claim_slots_mapped" not in batch_text:
             failures.append("Manual source review presence must keep MVP_BATCH_01 at claim_slots_mapped")
 
+        if "evidence_captures:" in batch_text and "current_stage: claim_slots_mapped" not in batch_text:
+            failures.append("Evidence capture presence must keep MVP_BATCH_01 at claim_slots_mapped")
+
         if "manual_review_verified" in batch_text and "needs_manual_review" in source_pack_text:
             failures.append(
                 "MVP_BATCH_01.yaml must not contain manual_review_verified while source pack still has needs_manual_review"
+            )
+
+        if "evidence_capture_status: line_evidence_available" in evidence_text and "needs_manual_review" in source_pack_text:
+            failures.append(
+                "Line evidence must not be available while WhatsApp source pack rows still show needs_manual_review without a verification patch"
             )
 
     if failures:

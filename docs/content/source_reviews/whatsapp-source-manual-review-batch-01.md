@@ -3,6 +3,7 @@ source_review_id: SHO-WA-MANUAL-REVIEW-BATCH-01
 batch_id: MVP_BATCH_01
 linked_source_pack: docs/content/source_packs/operator-research-source-pack-batch-01.md
 linked_claim_map: docs/content/claim_maps/source-to-claim-map-batch-01.md
+linked_evidence_capture: docs/content/evidence_captures/whatsapp-line-evidence-capture-batch-01.md
 review_status: manual_review_attempted_needs_line_evidence
 source_status_after_review: candidate
 operator_acceptance_status: not_accepted
@@ -39,6 +40,7 @@ Only these claims are in scope:
 - All four WhatsApp sources remain `candidate`.
 - Related claims remain `needs_manual_review_before_draft`.
 - No article draft may use these WhatsApp sources as verified claim evidence yet.
+- Line-level evidence capture was created but remains `line_evidence_unavailable`.
 
 ## Manual Review Table
 

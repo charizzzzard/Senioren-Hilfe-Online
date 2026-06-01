@@ -56,6 +56,7 @@ operator_acceptance_status:
     - accepted
     - approved_for_publish
     - operator_accepted
+    - research_enriched
 
 manual_review_status:
   allowed:
@@ -68,6 +69,20 @@ manual_review_status:
 source_review_status:
   allowed:
     - manual_review_attempted_needs_line_evidence
+
+evidence_capture_status:
+  allowed:
+    - not_started
+    - line_evidence_available
+    - line_evidence_unavailable
+    - needs_browser_or_manual_capture
+    - blocked_by_dynamic_source
+
+evidence_use_allowed:
+  allowed:
+    - claim_support_allowed
+    - support_only
+    - not_allowed
 
 forbidden_transitions:
   - from: scaffold_only

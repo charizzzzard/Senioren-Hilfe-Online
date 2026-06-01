@@ -183,6 +183,33 @@ Ein dokumentierter Manual-Review-Versuch hebt WhatsApp-Quellen nicht auf `verifi
 - WhatsApp UI review checklist.
 - Explizite Operator-/Review-Entscheidung zur Transition von `manual_review_attempted_needs_line_evidence` zu `manual_review_verified`.
 
+## Evidence-Capture-Checks
+
+Der Validator prueft zusaetzlich:
+
+- Existenz von `docs/content/evidence_captures/README.md`.
+- Existenz von `docs/content/evidence_captures/EVIDENCE_CAPTURE_TEMPLATE.md`.
+- Existenz von `docs/content/evidence_captures/whatsapp-line-evidence-capture-batch-01.md`.
+- Das Evidence-Capture-Artefakt enthaelt `evidence_capture_id: SHO-WA-LINE-EVIDENCE-BATCH-01`.
+- `evidence_capture_status = line_evidence_unavailable`.
+- `operator_acceptance_status = not_accepted`.
+- Die Evidence IDs `SHO-EVID-WA-001` bis `SHO-EVID-WA-004` sind vorhanden.
+- Die Source IDs `SHO-SRC-001` bis `SHO-SRC-004` bleiben dokumentiert.
+- Die Claim IDs `SHO-CLAIM-001`, `SHO-CLAIM-002`, `SHO-CLAIM-003` und `SHO-CLAIM-007` bleiben dokumentiert.
+- Alle WhatsApp Evidence Slots bleiben `not_allowed`.
+- Das Evidence-Capture-Artefakt enthaelt kein `claim_support_allowed`, kein `approved_for_publish` und kein `research_enriched`.
+- Das Source Pack muss `SHO-SRC-001` bis `SHO-SRC-004` weiterhin als `candidate / needs_manual_review` fuehren.
+- Die Claim Map muss die WhatsApp-Claims weiterhin als `needs_manual_review_before_draft` fuehren.
+
+## WhatsApp Line-Evidence Gate
+
+Eine Evidence-Capture-Shell hebt keine WhatsApp-Quelle und keinen WhatsApp-Claim hoch. Solange `line_evidence_unavailable` gilt:
+
+- keine WhatsApp-Quelle wird `verified`.
+- kein WhatsApp-Claim wird `article_draft_candidate`.
+- keine Evidence Row nutzt `claim_support_allowed`.
+- keine Research-Datei wird als angereichert markiert.
+
 ## Verbleibende spätere Checks
 
 - Echtes YAML-Parsing.
@@ -231,3 +258,9 @@ Ein dokumentierter Manual-Review-Versuch hebt WhatsApp-Quellen nicht auf `verifi
 - Screenshot/device-version evidence.
 - WhatsApp UI review checklist.
 - Transition von `manual_review_attempted_needs_line_evidence` zu `manual_review_verified`.
+- Exact quote extraction.
+- Page snapshot metadata.
+- Evidence-to-claim quote mapping.
+- Evidence-source freshness checks.
+- UI screenshot/device-version evidence.
+- Transition von `line_evidence_unavailable` zu `line_evidence_available`.

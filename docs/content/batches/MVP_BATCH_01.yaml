@@ -23,13 +23,16 @@ source_pack: docs/content/source_packs/operator-research-source-pack-batch-01.md
 claim_map: docs/content/claim_maps/source-to-claim-map-batch-01.md
 manual_source_reviews:
   - docs/content/source_reviews/whatsapp-source-manual-review-batch-01.md
+evidence_captures:
+  - docs/content/evidence_captures/whatsapp-line-evidence-capture-batch-01.md
 serp_observation: null
 
 known_blockers:
-  - WhatsApp platform sources still need line-level evidence before verified use.
-  - WhatsApp blocking/reporting UI needs screenshot/device-version review.
+  - WhatsApp line-level evidence is unavailable.
+  - WhatsApp platform sources remain candidate / needs_manual_review.
+  - WhatsApp UI-sensitive instructions remain blocked.
   - SERP observation is not yet present.
-  - Exact quote/evidence extraction is not yet present.
+  - Exact quote/evidence extraction remains incomplete.
   - Screenshot/device-version validation is not yet present.
 
 non_acceptance:
