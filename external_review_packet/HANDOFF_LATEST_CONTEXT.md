@@ -5,19 +5,19 @@
 - project_name: Senioren-Hilfe Online
 - system_name: Senioren-Hilfe Online OS
 - system_short_name: SHO-OS
-- patch_title: HUMAN_OPERATOR_REVIEW_PACKET_BRIEF_002_AFTER_RE_REVIEW
+- patch_title: LEGAL_SOURCE_CITATION_FORMATTING_REVIEW_BRIEF_002
 - external_review_verdict: ACCEPTED_WITH_FINDINGS
 
 SHO-OS ist ein reproduzierbares Content-, Trust- und Publishing-System fuer seniorengerechte digitale Alltagshilfe in Deutschland.
 
-Dieser Patch bereitet ein kompaktes Human-Operator-Review-Paket fuer den bestehenden Brief-002-Article-Draft-Candidate vor. Er setzt keine Publish Readiness, keine Operator Acceptance und keine Batch-Stage-Hochstufung.
+Dieser Patch bereitet ein separates Legal-/Source-Citation-Formatting-Review fuer den bestehenden Brief-002-Article-Draft-Candidate vor. Er setzt keine rechtliche Freigabe, keine Publish Readiness, keine Operator Acceptance und keine Batch-Stage-Hochstufung.
 
 ## Git Traceability
 
 - branch: `main`
-- head_before: `ee05ccbe646113917fb4f153eb77705388eabb19`
+- head_before: `73e089697f8ee9ac25808740f8037ac44c6659fc`
 - intended_head_after: `assigned_after_commit`
-- origin_main_before: `ee05ccbe646113917fb4f153eb77705388eabb19`
+- origin_main_before: `73e089697f8ee9ac25808740f8037ac44c6659fc`
 - dirty_state_before: `clean`
 - dirty_state_after: `assigned_after_commit`
 - remote_url: `https://github.com/charizzzzard/Senioren-Hilfe-Online.git`
@@ -26,11 +26,11 @@ Hinweis: `head_after` wird nicht vorab als Commit-SHA eingetragen, weil ein Comm
 
 ## Scope Dieses Patches
 
-- Neues Operator-Review-Paket erstellt: `docs/content/article_reviews/betrugsnachrichten-auf-whatsapp-erkennen.operator-review-packet.md`.
-- Paket verlinkt Draft Candidate, Article Review und Findings Register.
-- Paket dokumentiert verwendete Claims/Sources, blockierten `SHO-CLAIM-007`, Re-Review-Ergebnisse und verbleibende Blocker.
-- `STATUS_REGISTRY.yaml` um Packet- und Publish-Readiness-Statuswerte fuer nicht-akzeptierte Review-Pakete ergaenzt.
-- `validate_content_contracts.py` um Operator-Review-Packet-Checks erweitert.
+- Neues Legal-/Source-Citation-Review erstellt: `docs/content/article_reviews/betrugsnachrichten-auf-whatsapp-erkennen.legal-source-citation-review.md`.
+- Review verlinkt Draft Candidate, Article Review und Operator Review Packet.
+- Review dokumentiert Legal-/Safety-Pruefpunkte, Quellenformatierungsstatus, blockierten `SHO-CLAIM-007` und verbleibende Blocker.
+- `STATUS_REGISTRY.yaml` um `review_status: prepared_for_operator_review` ergaenzt.
+- `validate_content_contracts.py` um Legal-/Source-Citation-Review-Checks erweitert.
 - Batch-Manifest bleibt unveraendert auf `current_stage: claim_slots_mapped`.
 - Batch bleibt `current_stage: claim_slots_mapped`.
 
@@ -47,14 +47,14 @@ Hinweis: `head_after` wird nicht vorab als Commit-SHA eingetragen, weil ein Comm
 - Keine Website.
 - Keine Monetarisierung.
 
-## Operator Review Packet Summary
+## Legal / Source Citation Review Summary
 
-- packet_status: `prepared_for_operator_review`
+- review_status: `prepared_for_operator_review`
 - operator_acceptance_status: `not_accepted`
 - publish_readiness_status: `not_ready`
 - linked draft candidate: `docs/content/article_draft_candidates/betrugsnachrichten-auf-whatsapp-erkennen.article-draft-candidate.md`
-- linked article review: `docs/content/article_reviews/betrugsnachrichten-auf-whatsapp-erkennen.review.md`
-- linked findings register: `docs/operations/REVIEW_FINDINGS_REGISTER.md`
+- linked operator review packet: `docs/content/article_reviews/betrugsnachrichten-auf-whatsapp-erkennen.operator-review-packet.md`
+- result: no legal approval, no final source citation formatting, no publish readiness.
 
 ## Guardrails
 
@@ -65,6 +65,7 @@ Hinweis: `head_after` wird nicht vorab als Commit-SHA eingetragen, weil ein Comm
 - Keine Monetarisierung.
 - Keine Publish Readiness.
 - Keine Operator Acceptance.
+- Keine rechtliche Freigabe.
 - Batch Stage bleibt `claim_slots_mapped`.
 
 ## Validation Commands
@@ -79,7 +80,7 @@ Hinweis: `head_after` wird nicht vorab als Commit-SHA eingetragen, weil ein Comm
 
 ## Files Changed Summary
 
-- `docs/content/article_reviews/betrugsnachrichten-auf-whatsapp-erkennen.operator-review-packet.md`
+- `docs/content/article_reviews/betrugsnachrichten-auf-whatsapp-erkennen.legal-source-citation-review.md`
 - `docs/content/article_reviews/README.md`
 - `docs/operations/STATUS_REGISTRY.yaml`
 - `scripts/validate_content_contracts.py`
@@ -89,4 +90,4 @@ Hinweis: `head_after` wird nicht vorab als Commit-SHA eingetragen, weil ein Comm
 
 ## Keine finale Annahme durch Codex
 
-Operator review packet prepared, but no publish readiness and no Operator Acceptance. Finale Annahme bleibt beim Human Operator.
+Legal/source citation review prepared, but no legal approval, no publish readiness and no Operator Acceptance. Finale Annahme bleibt beim Human Operator.

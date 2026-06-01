@@ -141,6 +141,7 @@ review_status:
     - needs_safety_language_review
     - needs_monetization_review
     - review_completed_with_findings
+    - prepared_for_operator_review
     - needs_fix
     - needs_re_review_after_fix
     - re_review_passed

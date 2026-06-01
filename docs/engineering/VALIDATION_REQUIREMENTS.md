@@ -395,6 +395,16 @@ Das Review-Artefakt muss mindestens diese Finding IDs enthalten:
 - Das Paket muss `SHO-CLAIM-007` als blockiert sichtbar halten.
 - Das Paket darf keine aktive Publish Readiness, keine Operator Acceptance und keine Batch-Stage-Hochstufung enthalten.
 
+## Legal-Source-Citation-Review-Checks
+
+- Fuer Brief 002 muss genau ein Legal-/Source-Citation-Review unter `docs/content/article_reviews/` existieren.
+- Das Review muss den Draft Candidate, das Article Review und das Operator Review Packet verlinken.
+- Das Review muss `review_status: prepared_for_operator_review`, `operator_acceptance_status: not_accepted` und `publish_readiness_status: not_ready` enthalten.
+- Das Review muss ausdruecklich dokumentieren: keine Rechtsberatung, keine rechtliche Freigabe, keine Operator Acceptance und keine Publish Readiness.
+- Das Review muss verwendete Claims `SHO-CLAIM-004`, `SHO-CLAIM-005`, `SHO-CLAIM-006` und Sources `SHO-SRC-005`, `SHO-SRC-006`, `SHO-SRC-007` sichtbar halten.
+- Das Review muss `SHO-CLAIM-007` als blockiert fuehren und WhatsApp Blockieren-/Melden-UI-Anweisungen weiterhin ausschliessen.
+- Das Review darf keine finale Quellenliste fuer Veroeffentlichung und keine rechtliche Freigabe behaupten.
+
 ## Verbleibende spätere Checks
 
 - Echtes YAML-Parsing.
