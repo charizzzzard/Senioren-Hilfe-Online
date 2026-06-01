@@ -1,12 +1,14 @@
 # Content Brief Template
 
-Dieses Template unterstützt drei Reifegrade:
+Dieses Template unterstützt folgende Reifegrade:
 
 - `scaffold_only`: operator-definierter oder vorbereitender Scaffold ohne SERP-Recherche und ohne finale Quellen.
-- `research_brief`: recherchierter Brief mit dokumentierten Quellen, SERP-Beobachtung und offenen Review-Fragen.
-- `article_ready_brief`: Brief, der als Grundlage für einen Artikelentwurf genutzt werden darf, aber noch keine Veröffentlichung erlaubt.
+- `research_input_shell`: vorbereitete Research-Eingabestruktur ohne echte Recherche.
+- `research_enriched`: Brief oder Research-Artefakt mit dokumentierten Quellen- und SERP-Eingaben.
+- `article_ready_candidate`: Brief, der als Grundlage für einen Artikelentwurf genutzt werden darf, aber noch keine Veröffentlichung erlaubt.
+- `approved_for_publish`: nur nach bestandenem Review Gate und Human Operator Acceptance.
 
-Ein Scaffold ist nicht publish-ready und darf keine finale Operator Acceptance simulieren.
+Ein Scaffold oder eine `research_input_shell` ist nicht publish-ready und darf keine finale Operator Acceptance simulieren. `research_enriched` darf nur gesetzt werden, wenn konkrete Quellen/SERP-Beobachtungen dokumentiert wurden. `approved_for_publish` darf nicht durch Codex/OpenClaw gesetzt werden.
 
 ## Operative Pflichtfelder
 

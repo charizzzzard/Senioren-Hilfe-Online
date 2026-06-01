@@ -2,21 +2,26 @@
 
 ## Zweck dieses Review-Pakets
 
-Dieses Review-Paket beschreibt den Patch `MVP_CONTENT_BRIEF_SCAFFOLD_BATCH_01_FROM_OPERATOR_SPEC`. Es soll einem externen Review ermöglichen, die Traceability, Validator-Härtung und vier operator-definierten Content-Brief-Scaffolds zu prüfen.
+Dieses Review-Paket beschreibt den Patch `MVP_CONTENT_RESEARCH_INPUT_BATCH_01`. Es soll einem externen Review ermöglichen, die Research-Input-Shells, konservativen Brief-Verweise und Validator-Härtung zu prüfen.
 
 ## Scope dieses Patches
 
-- Handoff-Kontext mit realen Preflight-Git-Werten aktualisieren.
-- Externe Review-Findings aus dem Baseline-Review sichtbar weiterführen.
-- Content-Brief-Template um strengere operative Pflichtfelder ergänzen.
-- Exakt vier operator-definierte Content-Brief-Scaffolds materialisieren.
-- Validator ohne externe Dependencies für Stage-1-Prüfungen härten.
+- Exakt vier Research-Input-Shells für bestehende Batch-01-Briefs anlegen.
+- Bestehende Brief-Scaffolds minimal mit Research-Input-Pfaden verknüpfen.
+- Content-Brief-Template um Research-Reifegrade ergänzen.
+- Validator ohne externe Dependencies um Research-Input-Strukturchecks härten.
+- Findings Register und Handoff-Kontext aktualisieren.
 
 ## Primäre Review-Dateien
 
 - `external_review_packet/HANDOFF_LATEST_CONTEXT.md`
 - `docs/operations/REVIEW_FINDINGS_REGISTER.md`
 - `docs/content/CONTENT_BRIEF_TEMPLATE.md`
+- `docs/content/research_inputs/README.md`
+- `docs/content/research_inputs/whatsapp-fuer-senioren-sicher-einrichten.research.md`
+- `docs/content/research_inputs/betrugsnachrichten-auf-whatsapp-erkennen.research.md`
+- `docs/content/research_inputs/smartphone-schriftgroesse-und-bedienhilfen-einstellen.research.md`
+- `docs/content/research_inputs/smartphone-fuer-senioren-einrichten.research.md`
 - `docs/content/briefs/whatsapp-fuer-senioren-sicher-einrichten.md`
 - `docs/content/briefs/betrugsnachrichten-auf-whatsapp-erkennen.md`
 - `docs/content/briefs/smartphone-schriftgroesse-und-bedienhilfen-einstellen.md`
@@ -26,6 +31,10 @@ Dieses Review-Paket beschreibt den Patch `MVP_CONTENT_BRIEF_SCAFFOLD_BATCH_01_FR
 ## Wichtiger Brief-Hinweis
 
 Die Briefs sind operator-definierte Scaffolds. Sie sind keine final recherchierten Content-Briefs, enthalten keine SERP-Daten, keine Keyword-Daten, keine finalen Quellenlinks und keine finalen Artikelabschnitte.
+
+## Wichtiger Research-Hinweis
+
+Research Input Shells sind keine finalen Research-Ergebnisse. Sie enthalten keine validierten Quellen, keine Quellenlinks, keine SERP-Beobachtung und keine Publish-Freigabe.
 
 ## Nicht in Scope
 

@@ -27,6 +27,7 @@ REQUIRED_DOCS = [
     "docs/governance/OPERATOR_ACCEPTANCE_POLICY.md",
     "external_review_packet/00_READ_ME_FIRST.md",
     "external_review_packet/HANDOFF_LATEST_CONTEXT.md",
+    "docs/content/research_inputs/README.md",
 ]
 
 REQUIRED_BACKLOG_FIELDS = {
@@ -49,6 +50,33 @@ EXPECTED_BRIEF_FILES = {
     "smartphone-fuer-senioren-einrichten.md",
 }
 
+EXPECTED_RESEARCH_FILES = {
+    "whatsapp-fuer-senioren-sicher-einrichten.research.md": {
+        "brief_file": "whatsapp-fuer-senioren-sicher-einrichten.md",
+        "brief_id": "SHO-MVP-BRIEF-001",
+        "research_id": "SHO-MVP-RESEARCH-001",
+        "slug": "whatsapp-fuer-senioren-sicher-einrichten",
+    },
+    "betrugsnachrichten-auf-whatsapp-erkennen.research.md": {
+        "brief_file": "betrugsnachrichten-auf-whatsapp-erkennen.md",
+        "brief_id": "SHO-MVP-BRIEF-002",
+        "research_id": "SHO-MVP-RESEARCH-002",
+        "slug": "betrugsnachrichten-auf-whatsapp-erkennen",
+    },
+    "smartphone-schriftgroesse-und-bedienhilfen-einstellen.research.md": {
+        "brief_file": "smartphone-schriftgroesse-und-bedienhilfen-einstellen.md",
+        "brief_id": "SHO-MVP-BRIEF-003",
+        "research_id": "SHO-MVP-RESEARCH-003",
+        "slug": "smartphone-schriftgroesse-und-bedienhilfen-einstellen",
+    },
+    "smartphone-fuer-senioren-einrichten.research.md": {
+        "brief_file": "smartphone-fuer-senioren-einrichten.md",
+        "brief_id": "SHO-MVP-BRIEF-004",
+        "research_id": "SHO-MVP-RESEARCH-004",
+        "slug": "smartphone-fuer-senioren-einrichten",
+    },
+}
+
 REQUIRED_BRIEF_FIELDS = {
     "brief_id",
     "title",
@@ -63,7 +91,22 @@ REQUIRED_BRIEF_FIELDS = {
     "affiliate_allowed_initially",
     "review_status",
     "operator_acceptance_status",
+    "research_input_path",
+    "research_status",
+    "source_status",
+    "serp_status",
     "content_status",
+}
+
+REQUIRED_RESEARCH_FIELDS = {
+    "research_id",
+    "linked_brief_id",
+    "linked_brief_path",
+    "slug",
+    "research_status",
+    "source_status",
+    "serp_status",
+    "operator_acceptance_status",
 }
 
 
@@ -197,23 +240,93 @@ def validate_brief_scaffolds(failures: list[str]) -> int:
 
     for file_name in sorted(EXPECTED_BRIEF_FILES & found_files):
         path = briefs_dir / file_name
-        fields = parse_frontmatter_fields(path.read_text(encoding="utf-8"))
+        text = path.read_text(encoding="utf-8")
+        fields = parse_frontmatter_fields(text)
         missing = REQUIRED_BRIEF_FIELDS - set(fields)
         if missing:
             failures.append(
                 f"Brief {file_name} is missing required fields: {', '.join(sorted(missing))}"
             )
 
+        if "approved_for_publish" in text:
+            failures.append(f"Brief {file_name} must not contain approved_for_publish")
         if normalized(fields.get("content_status")) != "scaffold_only":
             failures.append(f"Brief {file_name} must have content_status: scaffold_only")
         if normalized(fields.get("review_status")) == "approved_for_publish":
             failures.append(f"Brief {file_name} must not be approved_for_publish")
         if normalized(fields.get("operator_acceptance_status")) == "accepted":
             failures.append(f"Brief {file_name} must not have accepted operator status")
+        if normalized(fields.get("research_status")) != "not_researched":
+            failures.append(f"Brief {file_name} must have research_status: not_researched")
+        if normalized(fields.get("source_status")) != "missing":
+            failures.append(f"Brief {file_name} must have source_status: missing")
+        if normalized(fields.get("serp_status")) != "not_researched":
+            failures.append(f"Brief {file_name} must have serp_status: not_researched")
+
+        expected_research_path = (
+            f"docs/content/research_inputs/{fields.get('slug', '')}.research.md"
+        )
+        if fields.get("research_input_path") != expected_research_path:
+            failures.append(
+                f"Brief {file_name} must link to research_input_path: {expected_research_path}"
+            )
         if has_security_context(fields) and is_true(fields.get("monetization_allowed_initially")):
             failures.append(
                 f"Security/fraud brief must not allow initial monetization: {file_name}"
             )
+
+    return len(found_files)
+
+
+def validate_research_inputs(failures: list[str]) -> int:
+    research_dir = ROOT / "docs/content/research_inputs"
+    if not research_dir.exists():
+        failures.append("Missing research input directory: docs/content/research_inputs")
+        return 0
+
+    readme_path = research_dir / "README.md"
+    if not readme_path.exists():
+        failures.append("Missing research input README: docs/content/research_inputs/README.md")
+
+    found_files = {path.name for path in research_dir.glob("*.research.md")}
+    expected_files = set(EXPECTED_RESEARCH_FILES)
+    missing_files = expected_files - found_files
+    extra_files = found_files - expected_files
+
+    for file_name in sorted(missing_files):
+        failures.append(f"Missing expected research input: docs/content/research_inputs/{file_name}")
+    for file_name in sorted(extra_files):
+        failures.append(f"Unexpected research input in Batch 01: docs/content/research_inputs/{file_name}")
+
+    for file_name in sorted(expected_files & found_files):
+        path = research_dir / file_name
+        fields = parse_frontmatter_fields(path.read_text(encoding="utf-8"))
+        expected = EXPECTED_RESEARCH_FILES[file_name]
+        missing = REQUIRED_RESEARCH_FIELDS - set(fields)
+        if missing:
+            failures.append(
+                f"Research input {file_name} is missing required fields: {', '.join(sorted(missing))}"
+            )
+
+        expected_brief_path = f"docs/content/briefs/{expected['brief_file']}"
+        if fields.get("research_id") != expected["research_id"]:
+            failures.append(f"Research input {file_name} has unexpected research_id")
+        if fields.get("linked_brief_id") != expected["brief_id"]:
+            failures.append(f"Research input {file_name} has unexpected linked_brief_id")
+        if fields.get("linked_brief_path") != expected_brief_path:
+            failures.append(
+                f"Research input {file_name} must link to brief path: {expected_brief_path}"
+            )
+        if fields.get("slug") != expected["slug"]:
+            failures.append(f"Research input {file_name} has unexpected slug")
+        if normalized(fields.get("research_status")) != "not_researched":
+            failures.append(f"Research input {file_name} must have research_status: not_researched")
+        if normalized(fields.get("source_status")) != "missing":
+            failures.append(f"Research input {file_name} must have source_status: missing")
+        if normalized(fields.get("serp_status")) != "not_researched":
+            failures.append(f"Research input {file_name} must have serp_status: not_researched")
+        if normalized(fields.get("operator_acceptance_status")) == "accepted":
+            failures.append(f"Research input {file_name} must not have accepted operator status")
 
     return len(found_files)
 
@@ -224,6 +337,7 @@ def main() -> int:
     validate_required_docs(failures)
     backlog_count = validate_backlog(failures)
     brief_count = validate_brief_scaffolds(failures)
+    research_count = validate_research_inputs(failures)
 
     if failures:
         print("FAIL: SHO-OS content contract validation failed")
@@ -236,6 +350,7 @@ def main() -> int:
     print(f"- Required documentation files present: {len(REQUIRED_DOCS)}")
     print(f"- MVP backlog article entries: {backlog_count}")
     print(f"- Batch 01 brief scaffold files: {brief_count}")
+    print(f"- Batch 01 research input files: {research_count}")
     print("- YAML/frontmatter parsing: dependency-free and text-based")
     return 0
 

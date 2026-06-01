@@ -46,6 +46,21 @@ Der Validator prüft zusätzlich:
 - kein `review_status = approved_for_publish`.
 - kein `operator_acceptance_status = accepted`.
 
+## Research-Input-Shell-Checks
+
+Der Validator prüft für Batch 01 zusätzlich:
+
+- Existenz von `docs/content/research_inputs/`.
+- Existenz von `docs/content/research_inputs/README.md`.
+- exakt vier Research-Input-Dateien für Batch 01.
+- Pflichtfelder `research_id`, `linked_brief_id`, `linked_brief_path`, `research_status`, `source_status`, `serp_status` und `operator_acceptance_status`.
+- `research_status = not_researched`.
+- `source_status = missing`.
+- `serp_status = not_researched`.
+- kein `operator_acceptance_status = accepted`.
+- bestehende Brief-Dateien verweisen auf die passende Research-Input-Datei.
+- keine Brief-Datei enthält `approved_for_publish`.
+
 ## Verbleibende spätere Checks
 
 - Echtes YAML-Parsing.
@@ -53,5 +68,10 @@ Der Validator prüft zusätzlich:
 - Link-Checker.
 - Accessibility-Checklist-Validator.
 - Source-Evidence-Validator.
+- Quellen-URL-Prüfung.
+- Source-Type-Validierung.
+- SERP-Snapshot-Metadaten.
+- verified/rejected Source-State.
+- Evidence-Gap-Tracking.
 - Staleness- und `last_reviewed`-Check.
 - Publish-Gate-Validator.

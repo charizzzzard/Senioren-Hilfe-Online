@@ -18,6 +18,10 @@ requires_screenshots: true
 requires_print_checklist: true
 review_status: draft
 operator_acceptance_status: not_accepted
+research_input_path: docs/content/research_inputs/smartphone-fuer-senioren-einrichten.research.md
+research_status: not_researched
+source_status: missing
+serp_status: not_researched
 content_status: scaffold_only
 ---
 
