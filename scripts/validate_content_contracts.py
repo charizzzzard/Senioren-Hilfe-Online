@@ -1352,9 +1352,16 @@ def validate_article_draft_candidates(failures: list[str]) -> int:
             f"article_draft_candidate_id: {expected['article_draft_candidate_id']}",
             f"linked_brief_id: {expected['brief_id']}",
             "article_status: article_draft_candidate",
-            "review_status: review_completed_with_findings",
+            "review_status: needs_re_review_after_fix",
             "operator_acceptance_status: not_accepted",
             f"article_review_path: {expected['article_review']}",
+            "fix_patch_id: ARTICLE_DRAFT_CANDIDATE_FIX_BATCH_01_BRIEF_002",
+            "fixed_review_findings",
+            "SHO-ARTICLE-002-UX-001",
+            "SHO-ARTICLE-002-UX-002",
+            "SHO-ARTICLE-002-SAFE-001",
+            "SHO-ARTICLE-002-SRC-001",
+            "3-Schritte-Sofort-Check",
             "Evidence Markers Used",
             "Explicit Non-Acceptance",
             "SHO-CLAIM-007",
@@ -1388,8 +1395,8 @@ def validate_article_draft_candidates(failures: list[str]) -> int:
             failures.append(f"Article draft candidate {file_name} must link to SERP observation")
         if normalized(fields.get("article_status")) != "article_draft_candidate":
             failures.append(f"Article draft candidate {file_name} must have article_status: article_draft_candidate")
-        if normalized(fields.get("review_status")) != "review_completed_with_findings":
-            failures.append(f"Article draft candidate {file_name} must have review_status: review_completed_with_findings")
+        if normalized(fields.get("review_status")) != "needs_re_review_after_fix":
+            failures.append(f"Article draft candidate {file_name} must have review_status: needs_re_review_after_fix")
         if normalized(fields.get("operator_acceptance_status")) == "accepted":
             failures.append(f"Article draft candidate {file_name} must not have accepted operator status")
 
@@ -1403,6 +1410,22 @@ def validate_article_draft_candidates(failures: list[str]) -> int:
         for fragment in forbidden_fragments:
             if fragment in text_lower:
                 failures.append(f"Article draft candidate {file_name} must not contain: {fragment}")
+        forbidden_transliterations = [
+            "Pruefen",
+            "pruefen",
+            "koennen",
+            "Angehoerige",
+            "Grosseltern",
+            "Menuewege",
+            "Ueberweisen",
+            "verdaechtig",
+            "spaeter",
+            "naechsten",
+            "Passwoerter",
+        ]
+        for fragment in forbidden_transliterations:
+            if fragment in text:
+                failures.append(f"Article draft candidate {file_name} must not contain transliteration: {fragment}")
         if has_forbidden_status_assignment(text):
             failures.append(f"Article draft candidate {file_name} contains a forbidden status assignment")
         if "SHO-MVP-BRIEF-001" in text or "SHO-MVP-BRIEF-003" in text or "SHO-MVP-BRIEF-004" in text:
@@ -1443,6 +1466,8 @@ def validate_article_reviews(failures: list[str]) -> int:
             "review_status: review_completed_with_findings",
             "operator_acceptance_status: not_accepted",
             "ACCEPTED_FOR_FIX_PATCH",
+            "Fix Patch Link",
+            "ARTICLE_DRAFT_CANDIDATE_FIX_BATCH_01_BRIEF_002",
             "Explicit Non-Acceptance",
         ]
         for fragment in required_fragments:

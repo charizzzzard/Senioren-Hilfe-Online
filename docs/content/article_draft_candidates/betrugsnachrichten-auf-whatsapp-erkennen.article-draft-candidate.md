@@ -10,7 +10,13 @@ linked_source_pack: docs/content/source_packs/operator-research-source-pack-batc
 linked_serp_observation: docs/content/serp_observations/serp-observation-batch-01.md
 article_status: article_draft_candidate
 article_review_path: docs/content/article_reviews/betrugsnachrichten-auf-whatsapp-erkennen.review.md
-review_status: review_completed_with_findings
+review_status: needs_re_review_after_fix
+fix_patch_id: ARTICLE_DRAFT_CANDIDATE_FIX_BATCH_01_BRIEF_002
+fixed_review_findings:
+  - SHO-ARTICLE-002-UX-001
+  - SHO-ARTICLE-002-UX-002
+  - SHO-ARTICLE-002-SAFE-001
+  - SHO-ARTICLE-002-SRC-001
 operator_acceptance_status: not_accepted
 ---
 
@@ -62,65 +68,35 @@ Blocked:
 
 Bleiben Sie ruhig.
 
-Eine verdaechtige Nachricht ist ein Grund zum Pruefen.
+Klicken Sie nicht auf Links, zahlen Sie nicht sofort und prüfen Sie die Nachricht zuerst. [claim: SHO-CLAIM-005 | sources: SHO-SRC-005, SHO-SRC-006] [claim: SHO-CLAIM-006 | sources: SHO-SRC-007]
 
-Sie ist kein Grund, sofort zu handeln.
+Besonders vorsichtig sollten Sie sein, wenn angeblich ein Kind oder Enkelkind mit neuer Nummer schreibt und schnell Geld braucht. [claim: SHO-CLAIM-004 | sources: SHO-SRC-005, SHO-SRC-006]
 
-Klicken Sie nicht auf einen Link, wenn Ihnen die Nachricht seltsam vorkommt. [claim: SHO-CLAIM-006 | sources: SHO-SRC-007]
+#### 3-Schritte-Sofort-Check
 
-Ueberweisen Sie kein Geld nur wegen einer Nachricht. [claim: SHO-CLAIM-005 | sources: SHO-SRC-005, SHO-SRC-006]
+1. Nicht klicken und nicht zahlen. [claim: SHO-CLAIM-005 | sources: SHO-SRC-005, SHO-SRC-006] [claim: SHO-CLAIM-006 | sources: SHO-SRC-007]
 
-Geben Sie keine Codes weiter. [claim: SHO-CLAIM-006 | sources: SHO-SRC-007]
+2. Über bekannte Nummer zurückrufen. [claim: SHO-CLAIM-005 | sources: SHO-SRC-005, SHO-SRC-006]
 
-Antworten Sie nicht unter Druck.
-
-Rufen Sie die Person zuerst ueber eine bekannte Nummer an. [claim: SHO-CLAIM-005 | sources: SHO-SRC-005, SHO-SRC-006]
-
-Nutzen Sie dafuer nicht die neue Nummer aus der Nachricht. [claim: SHO-CLAIM-005 | sources: SHO-SRC-005, SHO-SRC-006]
-
-Fragen Sie eine vertraute Person, wenn Sie unsicher sind.
-
-Eine kurze Pause ist besser als eine schnelle Zahlung. [claim: SHO-CLAIM-005 | sources: SHO-SRC-005, SHO-SRC-006]
-
-Besonders vorsichtig sollten Sie sein, wenn angeblich ein Kind oder Enkelkind mit neuer Nummer schreibt. [claim: SHO-CLAIM-004 | sources: SHO-SRC-005, SHO-SRC-006]
-
-Auch eine dringende Bitte um Geld kann ein Warnsignal sein. [claim: SHO-CLAIM-004 | sources: SHO-SRC-005, SHO-SRC-006]
-
-Auch Links koennen ein Warnsignal sein. [claim: SHO-CLAIM-006 | sources: SHO-SRC-007]
-
-Nicht jede seltsame Nachricht ist sicher Betrug.
-
-Aber jede seltsame Nachricht darf in Ruhe geprueft werden.
-
-Lassen Sie sich nicht hetzen.
-
-Lassen Sie sich nicht beschuldigen.
-
-Sie muessen niemandem sofort antworten.
-
-Sie muessen niemandem sofort Geld senden.
-
-Sie duerfen Hilfe holen.
-
-Sie duerfen die Nachricht einer vertrauten Person zeigen.
+3. Vertrauensperson fragen.
 
 Dieser Entwurf gibt keine Garantie, Betrug immer sicher zu erkennen.
 
-Er hilft nur dabei, typische Warnzeichen ruhig zu pruefen.
+Er hilft nur dabei, typische Warnzeichen ruhig zu prüfen.
 
-### 2. Fuer wen ist diese Anleitung?
+### 2. Für wen ist diese Anleitung?
 
-Diese Anleitung ist fuer Senior:innen, die WhatsApp oder SMS nutzen.
+Diese Anleitung ist für Senior:innen, die WhatsApp oder SMS nutzen.
 
-Sie ist auch fuer Angehoerige gedacht, die Eltern oder Grosseltern bei verdaechtigen Nachrichten unterstuetzen.
+Sie ist auch für Angehörige gedacht, die Eltern oder Großeltern bei verdächtigen Nachrichten unterstützen.
 
 Der Text ist bewusst einfach gehalten.
 
 Er soll helfen, in einer unklaren Situation ruhig zu bleiben.
 
-### 3. Woran erkennt man eine verdaechtige WhatsApp-Nachricht?
+### 3. Woran erkennt man eine verdächtige WhatsApp-Nachricht?
 
-Eine Nachricht kann verdaechtig sein, wenn jemand behauptet, eine neue Nummer zu haben. [claim: SHO-CLAIM-004 | sources: SHO-SRC-005, SHO-SRC-006]
+Eine Nachricht kann verdächtig sein, wenn jemand behauptet, eine neue Nummer zu haben. [claim: SHO-CLAIM-004 | sources: SHO-SRC-005, SHO-SRC-006]
 
 Ein Beispiel als neutrales Muster:
 
@@ -128,13 +104,13 @@ Ein Beispiel als neutrales Muster:
 
 Dieses Muster allein beweist keinen Betrug.
 
-Es sollte aber geprueft werden, bevor Sie reagieren. [claim: SHO-CLAIM-005 | sources: SHO-SRC-005, SHO-SRC-006]
+Es sollte aber geprüft werden, bevor Sie reagieren. [claim: SHO-CLAIM-005 | sources: SHO-SRC-005, SHO-SRC-006]
 
-Weitere Warnzeichen koennen sein:
+Weitere Warnzeichen können sein:
 
 - die Person bittet sehr dringend um Geld [claim: SHO-CLAIM-004 | sources: SHO-SRC-005, SHO-SRC-006]
 - die Person setzt Sie unter Druck [claim: SHO-CLAIM-006 | sources: SHO-SRC-007]
-- die Nachricht enthaelt einen Link [claim: SHO-CLAIM-006 | sources: SHO-SRC-007]
+- die Nachricht enthält einen Link [claim: SHO-CLAIM-006 | sources: SHO-SRC-007]
 - der Absender wirkt ungewohnt [claim: SHO-CLAIM-006 | sources: SHO-SRC-007]
 - die Wortwahl passt nicht zur bekannten Person
 
@@ -152,7 +128,7 @@ Wenn mehrere Warnzeichen zusammenkommen, sollten Sie besonders vorsichtig sein.
 
 5. Wenn Sie niemanden erreichen, fragen Sie eine vertraute Person.
 
-6. Bewahren Sie die Nachricht auf, damit sie spaeter gemeinsam angeschaut werden kann.
+6. Bewahren Sie die Nachricht nur auf, wenn Sie sie später einer vertrauten Person zeigen möchten. Antworten Sie nicht, klicken Sie nicht und senden Sie kein Geld.
 
 7. Antworten Sie erst, wenn Sie sicherer sind.
 
@@ -174,45 +150,45 @@ Er ist keine juristische Beratung.
 
 - Ungewohnte Sprache: Die Nachricht klingt anders als sonst.
 
-- Unklarer Absender: Sie koennen nicht sicher erkennen, wer schreibt. [claim: SHO-CLAIM-006 | sources: SHO-SRC-007]
+- Unklarer Absender: Sie können nicht sicher erkennen, wer schreibt. [claim: SHO-CLAIM-006 | sources: SHO-SRC-007]
 
 Ein einzelnes Warnsignal ist kein sicherer Beweis.
 
 Aber ein Warnsignal reicht, um langsamer zu machen.
 
-### 6. Was Angehoerige tun koennen
+### 6. Was Angehörige tun können
 
-Bleiben Sie ruhig, wenn ein Elternteil oder Grosselternteil eine verdaechtige Nachricht zeigt.
+Bleiben Sie ruhig, wenn ein Elternteil oder Großelternteil eine verdächtige Nachricht zeigt.
 
-Machen Sie keine Vorwuerfe.
+Machen Sie keine Vorwürfe.
 
 Viele Betrugsversuche arbeiten mit Druck und Unsicherheit. [claim: SHO-CLAIM-006 | sources: SHO-SRC-007]
 
-Helfen Sie beim Pruefen.
+Helfen Sie beim Prüfen.
 
 Legen Sie gemeinsam fest, welche Telefonnummern als bekannt gelten.
 
 Vereinbaren Sie eine einfache Regel:
 
-Bei Geldbitten wird zuerst ueber eine bekannte Nummer angerufen. [claim: SHO-CLAIM-005 | sources: SHO-SRC-005, SHO-SRC-006]
+Bei Geldbitten wird zuerst über eine bekannte Nummer angerufen. [claim: SHO-CLAIM-005 | sources: SHO-SRC-005, SHO-SRC-006]
 
-Sie koennen auch anbieten, unklare Nachrichten gemeinsam anzusehen.
+Sie können auch anbieten, unklare Nachrichten gemeinsam anzusehen.
 
 Wichtig ist ein Ton, der nicht beschämt.
 
-Wer Hilfe bekommt, fragt beim naechsten Mal eher wieder nach.
+Wer Hilfe bekommt, fragt beim nächsten Mal eher wieder nach.
 
 ### 7. Was diese Anleitung noch nicht abdeckt
 
-Dieser Draft enthaelt noch keine finalen WhatsApp-Schritte zum Blockieren oder Melden.
+Dieser Draft enthält noch keine finalen WhatsApp-Schritte zum Blockieren oder Melden.
 
 Der Grund ist klar:
 
 SHO-CLAIM-007 bleibt blockiert.
 
-Fuer diesen Claim fehlen noch WhatsApp Line Evidence und UI Review.
+Für diesen Claim fehlen noch WhatsApp Line Evidence und UI Review.
 
-Darum werden hier keine finalen Menuewege beschrieben.
+Darum werden hier keine finalen Menüwege beschrieben.
 
 Dieser Text ist ein Draft Candidate.
 
@@ -227,15 +203,15 @@ Draft checklist needs review before publishing.
 - Ich rufe die Person auf der alten oder bekannten Nummer an. [claim: SHO-CLAIM-005 | sources: SHO-SRC-005, SHO-SRC-006]
 - Ich frage eine vertraute Person.
 - Ich bleibe ruhig.
-- Ich teile keine Codes oder Passwoerter. [claim: SHO-CLAIM-006 | sources: SHO-SRC-007]
+- Ich teile keine Codes oder Passwörter. [claim: SHO-CLAIM-006 | sources: SHO-SRC-007]
 
-### 9. Quellen- und Pruefstatus
+### 9. Quellen- und Prüfstatus
 
-- SHO-SRC-005: verified source candidate used for fraud/new-number pattern.
-- SHO-SRC-006: verified source candidate used for senior/family verification context.
-- SHO-SRC-007: verified source candidate used for general phishing/smishing warning patterns.
+- SHO-SRC-005: verified source used in this draft candidate for fraud/new-number pattern.
+- SHO-SRC-006: verified source used in this draft candidate for senior/family verification context.
+- SHO-SRC-007: verified source used in this draft candidate for general phishing/smishing warning patterns.
 - SHO-SRC-004: excluded; WhatsApp block/report UI claim remains blocked.
-- Review status: needs_senior_ux_review, needs_source_marker_review, needs_final_operator_acceptance.
+- Review status: needs_re_review_after_fix, needs_source_marker_review, needs_final_operator_acceptance.
 
 ## Evidence Markers Used
 
@@ -249,9 +225,9 @@ Draft checklist needs review before publishing.
 
 ## Review Checklist
 
-- Senior UX review required.
+- Senior UX re-review required.
 - Source marker review required.
-- Safety language review required.
+- Safety language re-review required.
 - No fear amplification.
 - No monetization.
 - No final publish status.
@@ -261,7 +237,7 @@ Draft checklist needs review before publishing.
 
 - WhatsApp block/report UI claim remains blocked.
 - No final legal review.
-- No final senior UX review.
+- No final senior UX re-review.
 - No final source citation formatting.
 - No Operator Acceptance.
 

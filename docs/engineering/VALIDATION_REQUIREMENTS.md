@@ -342,6 +342,29 @@ Das Review-Artefakt muss mindestens diese Finding IDs enthalten:
 - `SHO-ARTICLE-002-MON-001`
 - `SHO-ARTICLE-002-PUB-001`
 
+## Draft-Candidate-Fix-Patch-Checks
+
+- Der bestehende Brief-002-Draft-Candidate bleibt dieselbe Datei.
+- Der Draft Candidate hat `fix_patch_id: ARTICLE_DRAFT_CANDIDATE_FIX_BATCH_01_BRIEF_002`.
+- Der Draft Candidate hat `review_status: needs_re_review_after_fix`.
+- Der Draft Candidate listet die behobenen Findings:
+  - `SHO-ARTICLE-002-UX-001`
+  - `SHO-ARTICLE-002-UX-002`
+  - `SHO-ARTICLE-002-SAFE-001`
+  - `SHO-ARTICLE-002-SRC-001`
+- Der Draft Candidate enthaelt einen `3-Schritte-Sofort-Check`.
+- Der Draft Candidate darf keine user-facing ASCII-Transliterationen wie `Pruefen`, `koennen`, `Angehoerige`, `Grosseltern`, `Menuewege`, `Ueberweisen`, `verdaechtig`, `spaeter`, `naechsten` oder `Passwoerter` enthalten.
+- Das Review-Artefakt enthaelt einen `Fix Patch Link`.
+- `MVP_BATCH_01.yaml` bleibt auf `current_stage: claim_slots_mapped`.
+- `MVP_BATCH_01.yaml` darf nicht auf `review_ready` oder `publish_candidate` wechseln.
+
+## Re-Review-Requirement-After-Fix
+
+- Ein Fix-Patch ersetzt keine Re-Review.
+- Nach dem Fix bleibt `review_status: needs_re_review_after_fix`.
+- Kein Inhalt wird durch diesen Fix-Patch publish-ready.
+- Operator Acceptance bleibt `not_accepted`.
+
 ## Verbleibende spätere Checks
 
 - Echtes YAML-Parsing.
@@ -425,3 +448,7 @@ Das Review-Artefakt muss mindestens diese Finding IDs enthalten:
 - Safety language lint.
 - Claim-marker-to-source validation.
 - Review-to-fix-patch linkage.
+- Automated umlaut/transliteration lint.
+- Senior quick-answer length check.
+- Source marker to claim validation.
+- Re-review gate before review_ready.

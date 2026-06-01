@@ -142,6 +142,7 @@ review_status:
     - needs_monetization_review
     - review_completed_with_findings
     - needs_fix
+    - needs_re_review_after_fix
     - not_ready
     - blocked
     - approved_for_publish

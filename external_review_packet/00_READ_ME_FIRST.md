@@ -2,23 +2,21 @@
 
 ## Zweck dieses Review-Pakets
 
-Dieses Review-Paket beschreibt den Patch `ARTICLE_DRAFT_CANDIDATE_REVIEW_BATCH_01_BRIEF_002`. Es soll einem externen Review ermoeglichen, die Review-Findings zum bestehenden Brief-002-Draft-Candidate zu pruefen.
+Dieses Review-Paket beschreibt den Patch `ARTICLE_DRAFT_CANDIDATE_FIX_BATCH_01_BRIEF_002`. Es soll einem externen Review ermoeglichen, die begrenzten Korrekturen am bestehenden Brief-002-Draft-Candidate und die weiter erforderliche Re-Review zu pruefen.
 
 ## Scope dieses Patches
 
-- Article-Review-Struktur und Template anlegen.
-- Review-Artefakt fuer den bestehenden Brief-002-Draft-Candidate erstellen.
-- Vorgegebene Findings dokumentieren.
-- Draft Candidate nur mit Review-Pfad und Review-Status verknuepfen.
-- Batch Manifest konservativ um `article_reviews` ergaenzen.
-- Validatoren um Article-Review-Checks erweitern.
+- Bestehenden Brief-002-Draft-Candidate korrigieren.
+- Dokumentierte Review-Findings `SHO-ARTICLE-002-UX-001`, `SHO-ARTICLE-002-UX-002`, `SHO-ARTICLE-002-SAFE-001` und `SHO-ARTICLE-002-SRC-001` adressieren.
+- Review-Artefakt mit Fix Patch Link ergaenzen.
+- Batch Manifest konservativ um `article_draft_candidate_fixes` ergaenzen.
+- Validatoren um Fix-Patch-Checks erweitern.
 
 ## Primaere Review-Dateien
 
 - `external_review_packet/HANDOFF_LATEST_CONTEXT.md`
-- `docs/content/article_reviews/betrugsnachrichten-auf-whatsapp-erkennen.review.md`
-- `docs/content/article_reviews/ARTICLE_REVIEW_TEMPLATE.md`
 - `docs/content/article_draft_candidates/betrugsnachrichten-auf-whatsapp-erkennen.article-draft-candidate.md`
+- `docs/content/article_reviews/betrugsnachrichten-auf-whatsapp-erkennen.review.md`
 - `docs/content/batches/MVP_BATCH_01.yaml`
 - `scripts/validate_content_contracts.py`
 - `scripts/validate_stage_transitions.py`
@@ -27,16 +25,17 @@ Dieses Review-Paket beschreibt den Patch `ARTICLE_DRAFT_CANDIDATE_REVIEW_BATCH_0
 
 ## Wichtiger Hinweis
 
-This patch records review findings only. It does not rewrite article text, does not create publish-ready content and does not simulate Operator Acceptance.
+Fix patch applied to existing Brief 002 draft candidate. Re-review required. No publish readiness and no Operator Acceptance.
 
 ## Nicht in Scope
 
-- Artikeltext umschreiben.
+- Neuer Article Draft Candidate.
 - Neue Quellen.
-- Source-URL-Aenderungen.
+- Neue Claims.
 - Source Verification Changes.
-- Claim Changes.
-- Neue SERP Observations.
+- Neue SERP-Daten.
+- WhatsApp Blockieren-/Melden-UI-Anleitung.
+- Artikel fuer Brief 001, Brief 003 oder Brief 004.
 - Publish Readiness.
 - Operator Acceptance.
 - Produktive Website.

@@ -104,6 +104,12 @@ def main() -> int:
             if "operator_acceptance_status: not_accepted" not in batch_text:
                 failures.append("Article reviews require operator_acceptance_status: not_accepted")
 
+        if "article_draft_candidate_fixes:" in batch_text:
+            if "current_stage: claim_slots_mapped" not in batch_text:
+                failures.append("Article draft candidate fixes require MVP_BATCH_01 to remain at claim_slots_mapped")
+            if "operator_acceptance_status: not_accepted" not in batch_text:
+                failures.append("Article draft candidate fixes require operator_acceptance_status: not_accepted")
+
         if "manual_review_verified" in batch_text and "needs_manual_review" in source_pack_text:
             failures.append(
                 "MVP_BATCH_01.yaml must not contain manual_review_verified while source pack still has needs_manual_review"

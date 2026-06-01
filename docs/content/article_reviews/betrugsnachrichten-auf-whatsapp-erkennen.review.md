@@ -92,6 +92,13 @@ Not ready. The draft candidate is not publish-ready and is not Operator accepted
 - Normalize source wording around verified sources used in the draft candidate.
 - Keep `SHO-CLAIM-007` blocked until WhatsApp line evidence and UI review exist.
 
+## Fix Patch Link
+
+- fix_patch_id: ARTICLE_DRAFT_CANDIDATE_FIX_BATCH_01_BRIEF_002
+- fixed_candidate_path: docs/content/article_draft_candidates/betrugsnachrichten-auf-whatsapp-erkennen.article-draft-candidate.md
+- expected_next_review: ARTICLE_DRAFT_CANDIDATE_RE_REVIEW_BATCH_01_BRIEF_002
+- note: Fix patch applied; review remains not publish readiness and not Operator Acceptance.
+
 ## Explicit Non-Acceptance
 
 This review is not publish readiness and not Operator Acceptance.
