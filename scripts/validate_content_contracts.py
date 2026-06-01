@@ -61,6 +61,8 @@ REQUIRED_DOCS = [
     "docs/operations/CONTENT_RESEARCH_OPERATING_PROTOCOL.md",
     "docs/operations/RESEARCH_BATCH_STAGE_MODEL.md",
     "docs/operations/CODEX_EXECUTOR_BOUNDARY.md",
+    "docs/operations/operator_decisions/README.md",
+    "docs/operations/operator_decisions/HUMAN_OPERATOR_DECISION_BATCH01_BRIEF002_001.md",
     "docs/content/BATCH_WORKFLOW_TEMPLATE.md",
     "docs/operations/NEXT_STAGE_DECISION_TREE.md",
     "docs/operations/STATUS_REGISTRY.yaml",
@@ -171,6 +173,8 @@ OPERATOR_REVIEW_PACKET_REL_PATH = (
 LEGAL_SOURCE_CITATION_REVIEW_REL_PATH = (
     "docs/content/article_reviews/betrugsnachrichten-auf-whatsapp-erkennen.legal-source-citation-review.md"
 )
+OPERATOR_DECISIONS_DIR = ROOT / "docs/operations/operator_decisions"
+OPERATOR_DECISION_REL_PATH = "docs/operations/operator_decisions/HUMAN_OPERATOR_DECISION_BATCH01_BRIEF002_001.md"
 EXPECTED_ARTICLE_DRAFT_CANDIDATES = {
     "betrugsnachrichten-auf-whatsapp-erkennen.article-draft-candidate.md": {
         "article_draft_candidate_id": "SHO-ARTICLE-DRAFT-CANDIDATE-BATCH01-BRIEF002",
@@ -213,6 +217,15 @@ EXPECTED_LEGAL_SOURCE_CITATION_REVIEWS = {
         "linked_article_draft_candidate": "docs/content/article_draft_candidates/betrugsnachrichten-auf-whatsapp-erkennen.article-draft-candidate.md",
         "linked_article_review": ARTICLE_REVIEW_REL_PATH,
         "linked_operator_review_packet": OPERATOR_REVIEW_PACKET_REL_PATH,
+    },
+}
+EXPECTED_OPERATOR_DECISIONS = {
+    "HUMAN_OPERATOR_DECISION_BATCH01_BRIEF002_001.md": {
+        "operator_decision_id": "HUMAN_OPERATOR_DECISION_BATCH01_BRIEF002_001",
+        "brief_id": "SHO-MVP-BRIEF-002",
+        "linked_article_draft_candidate": "docs/content/article_draft_candidates/betrugsnachrichten-auf-whatsapp-erkennen.article-draft-candidate.md",
+        "linked_operator_review_packet": OPERATOR_REVIEW_PACKET_REL_PATH,
+        "linked_legal_source_citation_review": LEGAL_SOURCE_CITATION_REVIEW_REL_PATH,
     },
 }
 WHATSAPP_MANUAL_REVIEW_SOURCE_IDS = {"SHO-SRC-001", "SHO-SRC-002", "SHO-SRC-003", "SHO-SRC-004"}
@@ -474,6 +487,8 @@ def validate_protocol_automation_files(failures: list[str]) -> None:
             "prepared_for_operator_review",
             "publish_readiness_status:",
             "not_ready",
+            "decision_status:",
+            "proceed_to_source_citation_and_legal_wording_preparation",
             "review_status:",
             "human_controlled:",
             "approved_for_publish",
@@ -1868,6 +1883,116 @@ def validate_legal_source_citation_reviews(failures: list[str]) -> int:
     return len(found_files)
 
 
+def validate_operator_decisions(failures: list[str]) -> int:
+    if not OPERATOR_DECISIONS_DIR.exists():
+        failures.append("Missing operator decisions directory: docs/operations/operator_decisions")
+        return 0
+
+    readme = OPERATOR_DECISIONS_DIR / "README.md"
+    if not readme.exists():
+        failures.append("Missing operator decisions README: docs/operations/operator_decisions/README.md")
+
+    found_files = {path.name for path in OPERATOR_DECISIONS_DIR.glob("HUMAN_OPERATOR_DECISION_*.md")}
+    expected_files = set(EXPECTED_OPERATOR_DECISIONS)
+    if found_files != expected_files:
+        failures.append(
+            "Batch 01 must contain exactly these operator decision files: "
+            f"{', '.join(sorted(expected_files))}; found {', '.join(sorted(found_files))}"
+        )
+
+    for file_name in sorted(expected_files & found_files):
+        path = OPERATOR_DECISIONS_DIR / file_name
+        text = path.read_text(encoding="utf-8")
+        fields = parse_frontmatter_fields(text)
+        expected = EXPECTED_OPERATOR_DECISIONS[file_name]
+
+        required_fragments = [
+            f"operator_decision_id: {expected['operator_decision_id']}",
+            "batch_id: MVP_BATCH_01",
+            f"linked_brief_id: {expected['brief_id']}",
+            f"linked_article_draft_candidate: {expected['linked_article_draft_candidate']}",
+            f"linked_operator_review_packet: {expected['linked_operator_review_packet']}",
+            f"linked_legal_source_citation_review: {expected['linked_legal_source_citation_review']}",
+            "decision_status: proceed_to_source_citation_and_legal_wording_preparation",
+            "operator_acceptance_status: not_accepted",
+            "publish_readiness_status: not_ready",
+            "batch_stage_after_decision: claim_slots_mapped",
+            "Decision Summary",
+            "final source citation formatting preparation und legal wording review preparation",
+            "Der Draft bleibt Article Draft Candidate.",
+            "Der Batch bleibt nicht publish-ready.",
+            "Es wird keine Operator Acceptance gesetzt.",
+            "Explicit Non-Acceptance",
+            "Diese Entscheidung ist keine Operator Acceptance.",
+            "Diese Entscheidung ist keine Publish Readiness.",
+            "Diese Entscheidung ist keine rechtliche Freigabe.",
+            "Diese Entscheidung schaltet keine blockierten Claims frei.",
+            "Diese Entscheidung erlaubt keine WhatsApp block/report UI instructions.",
+            "Diese Entscheidung erlaubt keine Monetarisierung.",
+            "Allowed Next Work",
+            "prepare final source citation formatting",
+            "prepare legal wording review",
+            "preserve claim/source traceability",
+            "preserve senior-first safety language",
+            "preserve blocked state for `SHO-CLAIM-007`",
+            "Forbidden Work",
+            "approve_for_publish",
+            "operator_accepted",
+            "publish_candidate",
+            "review_ready stage transition",
+            "unlock `SHO-CLAIM-007`",
+            "add WhatsApp block/report UI instructions",
+            "add monetization",
+            "add new claims",
+            "add new sources",
+            "Required Next Gates",
+            "final source citation formatting preparation",
+            "legal wording review preparation",
+            "later Human Operator review before any final article preparation",
+            "no final article without explicit later Operator decision",
+        ]
+        for fragment in required_fragments:
+            if fragment not in text:
+                failures.append(f"Operator decision {file_name} must contain: {fragment}")
+
+        if fields.get("operator_decision_id") != expected["operator_decision_id"]:
+            failures.append(f"Operator decision {file_name} has unexpected ID")
+        if fields.get("linked_brief_id") != expected["brief_id"]:
+            failures.append(f"Operator decision {file_name} must link to Brief 002")
+        if fields.get("linked_article_draft_candidate") != expected["linked_article_draft_candidate"]:
+            failures.append(f"Operator decision {file_name} must link to expected draft candidate")
+        if fields.get("linked_operator_review_packet") != expected["linked_operator_review_packet"]:
+            failures.append(f"Operator decision {file_name} must link to operator review packet")
+        if fields.get("linked_legal_source_citation_review") != expected["linked_legal_source_citation_review"]:
+            failures.append(f"Operator decision {file_name} must link to legal/source citation review")
+        if normalized(fields.get("decision_status")) != "proceed_to_source_citation_and_legal_wording_preparation":
+            failures.append(f"Operator decision {file_name} must have the expected decision_status")
+        if normalized(fields.get("operator_acceptance_status")) != "not_accepted":
+            failures.append(f"Operator decision {file_name} must have operator_acceptance_status: not_accepted")
+        if normalized(fields.get("publish_readiness_status")) != "not_ready":
+            failures.append(f"Operator decision {file_name} must have publish_readiness_status: not_ready")
+        if normalized(fields.get("batch_stage_after_decision")) != "claim_slots_mapped":
+            failures.append(f"Operator decision {file_name} must keep batch_stage_after_decision: claim_slots_mapped")
+
+        forbidden_assignments = [
+            "approved_for_publish: true",
+            "operator_acceptance_status: accepted",
+            "publish_readiness_status: publish_candidate",
+            "publish_readiness_status: approved_for_publish",
+            "publish_ready: true",
+            "current_stage: review_ready",
+            "current_stage: publish_candidate",
+            "legal_approval: true",
+            "rechtliche_freigabe: true",
+        ]
+        lower_text = text.lower()
+        for fragment in forbidden_assignments:
+            if fragment in lower_text:
+                failures.append(f"Operator decision {file_name} must not contain forbidden assignment: {fragment}")
+
+    return len(found_files)
+
+
 def main() -> int:
     failures: list[str] = []
 
@@ -1888,6 +2013,7 @@ def main() -> int:
     article_review_count = validate_article_reviews(failures)
     operator_review_packet_count = validate_operator_review_packets(failures)
     legal_source_citation_review_count = validate_legal_source_citation_reviews(failures)
+    operator_decision_count = validate_operator_decisions(failures)
 
     if failures:
         print("FAIL: SHO-OS content contract validation failed")
@@ -1912,6 +2038,7 @@ def main() -> int:
     print(f"- Batch 01 article review files: {article_review_count}")
     print(f"- Batch 01 operator review packet files: {operator_review_packet_count}")
     print(f"- Batch 01 legal/source citation review files: {legal_source_citation_review_count}")
+    print(f"- Batch 01 operator decision files: {operator_decision_count}")
     print("- YAML/frontmatter parsing: dependency-free and text-based")
     return 0
 

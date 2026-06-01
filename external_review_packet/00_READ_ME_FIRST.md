@@ -2,19 +2,21 @@
 
 ## Zweck dieses Review-Pakets
 
-Dieses Review-Paket beschreibt den Patch `LEGAL_SOURCE_CITATION_FORMATTING_REVIEW_BRIEF_002`. Es soll die konservative Legal-/Source-Citation-Formatting-Pruefung des aktuellen Brief-002-Article-Draft-Candidate nachvollziehbar machen.
+Dieses Review-Paket beschreibt den Patch `HUMAN_OPERATOR_DECISION_BATCH01_BRIEF002_PROCEED_TO_SOURCE_CITATION_AND_LEGAL_WORDING`. Es dokumentiert die Human-Operator-Entscheidung fuer den naechsten vorbereitenden Arbeitsschritt zu Brief 002.
 
 ## Scope dieses Patches
 
-- Genau ein Legal-/Source-Citation-Review fuer Brief 002 erstellen.
-- Review verlinkt Draft Candidate, Article Review und Operator Review Packet.
-- Review dokumentiert rechtliche Formulierungsrisiken, Quellenformatierungsstatus, blockierten `SHO-CLAIM-007` und verbleibende Blocker.
-- Validator minimal erweitern, damit das Review-Artefakt als erwartetes Artefakt geprueft wird.
+- Genau ein Operator Decision Record fuer Brief 002 erstellen.
+- Decision verlinkt Draft Candidate, Operator Review Packet und Legal-/Source-Citation-Review.
+- Decision erlaubt nur final source citation formatting preparation und legal wording review preparation.
+- Decision dokumentiert ausdruecklich: keine Operator Acceptance, keine Publish Readiness, keine rechtliche Freigabe, kein Claim-Unlock.
+- Validator minimal erweitern, damit das Decision Record als erwartetes Artefakt geprueft wird.
 - Batch Manifest ohne Stage-Hochstufung beibehalten.
 
 ## Primaere Review-Dateien
 
 - `external_review_packet/HANDOFF_LATEST_CONTEXT.md`
+- `docs/operations/operator_decisions/HUMAN_OPERATOR_DECISION_BATCH01_BRIEF002_001.md`
 - `docs/content/article_reviews/betrugsnachrichten-auf-whatsapp-erkennen.legal-source-citation-review.md`
 - `docs/content/article_reviews/betrugsnachrichten-auf-whatsapp-erkennen.operator-review-packet.md`
 - `docs/content/article_draft_candidates/betrugsnachrichten-auf-whatsapp-erkennen.article-draft-candidate.md`
@@ -28,7 +30,7 @@ Dieses Review-Paket beschreibt den Patch `LEGAL_SOURCE_CITATION_FORMATTING_REVIE
 
 ## Wichtiger Hinweis
 
-Legal/source citation review only. This is not legal approval, not publish readiness and not Operator Acceptance.
+Operator decision record only. This is not legal approval, not publish readiness and not Operator Acceptance.
 
 ## Nicht in Scope
 

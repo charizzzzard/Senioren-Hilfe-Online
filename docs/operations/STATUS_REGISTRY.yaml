@@ -181,6 +181,17 @@ publish_readiness_status:
     - approved_for_publish
     - publish_ready
 
+decision_status:
+  allowed:
+    - proceed_to_source_citation_and_legal_wording_preparation
+    - blocked
+    - superseded
+  forbidden_by_codex:
+    - accepted
+    - operator_accepted
+    - approved_for_publish
+    - publish_ready
+
 forbidden_transitions:
   - from: scaffold_only
     to: approved_for_publish

@@ -405,6 +405,16 @@ Das Review-Artefakt muss mindestens diese Finding IDs enthalten:
 - Das Review muss `SHO-CLAIM-007` als blockiert fuehren und WhatsApp Blockieren-/Melden-UI-Anweisungen weiterhin ausschliessen.
 - Das Review darf keine finale Quellenliste fuer Veroeffentlichung und keine rechtliche Freigabe behaupten.
 
+## Human-Operator-Decision-Record-Checks
+
+- Fuer Brief 002 muss genau ein Operator Decision Record unter `docs/operations/operator_decisions/` existieren.
+- Das Decision Record muss den Draft Candidate, das Operator Review Packet und das Legal-/Source-Citation-Review verlinken.
+- `decision_status` muss `proceed_to_source_citation_and_legal_wording_preparation` sein.
+- `operator_acceptance_status` muss `not_accepted` bleiben.
+- `publish_readiness_status` muss `not_ready` bleiben.
+- `batch_stage_after_decision` muss `claim_slots_mapped` bleiben.
+- Das Decision Record darf keine Operator Acceptance, keine Publish Readiness, keine rechtliche Freigabe und keinen Claim-Unlock setzen.
+
 ## Verbleibende spätere Checks
 
 - Echtes YAML-Parsing.

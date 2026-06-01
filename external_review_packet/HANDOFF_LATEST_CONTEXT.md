@@ -5,19 +5,19 @@
 - project_name: Senioren-Hilfe Online
 - system_name: Senioren-Hilfe Online OS
 - system_short_name: SHO-OS
-- patch_title: LEGAL_SOURCE_CITATION_FORMATTING_REVIEW_BRIEF_002
+- patch_title: HUMAN_OPERATOR_DECISION_BATCH01_BRIEF002_PROCEED_TO_SOURCE_CITATION_AND_LEGAL_WORDING
 - external_review_verdict: ACCEPTED_WITH_FINDINGS
 
 SHO-OS ist ein reproduzierbares Content-, Trust- und Publishing-System fuer seniorengerechte digitale Alltagshilfe in Deutschland.
 
-Dieser Patch bereitet ein separates Legal-/Source-Citation-Formatting-Review fuer den bestehenden Brief-002-Article-Draft-Candidate vor. Er setzt keine rechtliche Freigabe, keine Publish Readiness, keine Operator Acceptance und keine Batch-Stage-Hochstufung.
+Dieser Patch dokumentiert die ausdrueckliche Human-Operator-Entscheidung fuer Brief 002: mit final source citation formatting preparation und legal wording review preparation fortfahren. Er setzt keine Operator Acceptance, keine Publish Readiness, keine rechtliche Freigabe und keine Batch-Stage-Hochstufung.
 
 ## Git Traceability
 
 - branch: `main`
-- head_before: `73e089697f8ee9ac25808740f8037ac44c6659fc`
+- head_before: `44db38342c2d42a7dd51b0df2a7b97be1ce18803`
 - intended_head_after: `assigned_after_commit`
-- origin_main_before: `73e089697f8ee9ac25808740f8037ac44c6659fc`
+- origin_main_before: `44db38342c2d42a7dd51b0df2a7b97be1ce18803`
 - dirty_state_before: `clean`
 - dirty_state_after: `assigned_after_commit`
 - remote_url: `https://github.com/charizzzzard/Senioren-Hilfe-Online.git`
@@ -26,11 +26,11 @@ Hinweis: `head_after` wird nicht vorab als Commit-SHA eingetragen, weil ein Comm
 
 ## Scope Dieses Patches
 
-- Neues Legal-/Source-Citation-Review erstellt: `docs/content/article_reviews/betrugsnachrichten-auf-whatsapp-erkennen.legal-source-citation-review.md`.
-- Review verlinkt Draft Candidate, Article Review und Operator Review Packet.
-- Review dokumentiert Legal-/Safety-Pruefpunkte, Quellenformatierungsstatus, blockierten `SHO-CLAIM-007` und verbleibende Blocker.
-- `STATUS_REGISTRY.yaml` um `review_status: prepared_for_operator_review` ergaenzt.
-- `validate_content_contracts.py` um Legal-/Source-Citation-Review-Checks erweitert.
+- Neues Operator Decision Record erstellt: `docs/operations/operator_decisions/HUMAN_OPERATOR_DECISION_BATCH01_BRIEF002_001.md`.
+- Decision dokumentiert erlaubte naechste Arbeit: final source citation formatting preparation und legal wording review preparation.
+- Decision dokumentiert Nicht-Akzeptanz: keine Operator Acceptance, keine Publish Readiness, keine rechtliche Freigabe, kein Claim-Unlock.
+- `STATUS_REGISTRY.yaml` um `decision_status` fuer diesen naechsten Arbeitsschritt ergaenzt.
+- `validate_content_contracts.py` um Operator-Decision-Checks erweitert.
 - Batch-Manifest bleibt unveraendert auf `current_stage: claim_slots_mapped`.
 - Batch bleibt `current_stage: claim_slots_mapped`.
 
@@ -47,14 +47,13 @@ Hinweis: `head_after` wird nicht vorab als Commit-SHA eingetragen, weil ein Comm
 - Keine Website.
 - Keine Monetarisierung.
 
-## Legal / Source Citation Review Summary
+## Operator Decision Summary
 
-- review_status: `prepared_for_operator_review`
+- decision_status: `proceed_to_source_citation_and_legal_wording_preparation`
 - operator_acceptance_status: `not_accepted`
 - publish_readiness_status: `not_ready`
-- linked draft candidate: `docs/content/article_draft_candidates/betrugsnachrichten-auf-whatsapp-erkennen.article-draft-candidate.md`
-- linked operator review packet: `docs/content/article_reviews/betrugsnachrichten-auf-whatsapp-erkennen.operator-review-packet.md`
-- result: no legal approval, no final source citation formatting, no publish readiness.
+- batch_stage_after_decision: `claim_slots_mapped`
+- allowed next work: final source citation formatting preparation; legal wording review preparation.
 
 ## Guardrails
 
@@ -80,8 +79,8 @@ Hinweis: `head_after` wird nicht vorab als Commit-SHA eingetragen, weil ein Comm
 
 ## Files Changed Summary
 
-- `docs/content/article_reviews/betrugsnachrichten-auf-whatsapp-erkennen.legal-source-citation-review.md`
-- `docs/content/article_reviews/README.md`
+- `docs/operations/operator_decisions/README.md`
+- `docs/operations/operator_decisions/HUMAN_OPERATOR_DECISION_BATCH01_BRIEF002_001.md`
 - `docs/operations/STATUS_REGISTRY.yaml`
 - `scripts/validate_content_contracts.py`
 - `docs/engineering/VALIDATION_REQUIREMENTS.md`
@@ -90,4 +89,4 @@ Hinweis: `head_after` wird nicht vorab als Commit-SHA eingetragen, weil ein Comm
 
 ## Keine finale Annahme durch Codex
 
-Legal/source citation review prepared, but no legal approval, no publish readiness and no Operator Acceptance. Finale Annahme bleibt beim Human Operator.
+Human Operator decision recorded for next preparation gates, but no legal approval, no publish readiness and no Operator Acceptance. Finale Annahme bleibt beim Human Operator.
