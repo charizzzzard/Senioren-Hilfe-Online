@@ -1,0 +1,121 @@
+articles:
+  - title: WhatsApp für Senioren sicher einrichten
+    slug: whatsapp-fuer-senioren-sicher-einrichten
+    cluster: WhatsApp
+    target_audience: Senior:innen und Angehörige
+    intent: WhatsApp sicher einrichten und erste Risiken vermeiden
+    priority: 1
+    risk_level: high
+    monetization_allowed_initially: false
+    requires_sources: true
+    requires_screenshots: true
+    requires_print_checklist: true
+    status: brief_required
+  - title: Betrugsnachrichten auf WhatsApp erkennen
+    slug: betrugsnachrichten-auf-whatsapp-erkennen
+    cluster: Online-Sicherheit
+    target_audience: Senior:innen und Angehörige
+    intent: Betrugsversuche erkennen und sicher reagieren
+    priority: 1
+    risk_level: high
+    monetization_allowed_initially: false
+    requires_sources: true
+    requires_screenshots: true
+    requires_print_checklist: true
+    status: brief_required
+  - title: Smartphone-Schriftgröße und Bedienhilfen einstellen
+    slug: smartphone-schriftgroesse-bedienhilfen-einstellen
+    cluster: Smartphone Grundlagen
+    target_audience: Senior:innen
+    intent: Lesbarkeit und Bedienbarkeit am Smartphone verbessern
+    priority: 1
+    risk_level: medium
+    monetization_allowed_initially: false
+    requires_sources: true
+    requires_screenshots: true
+    requires_print_checklist: true
+    status: brief_required
+  - title: Smartphone für Senioren einrichten
+    slug: smartphone-fuer-senioren-einrichten
+    cluster: Smartphone Grundlagen
+    target_audience: Angehörige und Senior:innen
+    intent: Smartphone alltagstauglich und sicher vorbereiten
+    priority: 1
+    risk_level: medium
+    monetization_allowed_initially: false
+    requires_sources: true
+    requires_screenshots: true
+    requires_print_checklist: true
+    status: brief_required
+  - title: Fotos auf dem Smartphone finden und sichern
+    slug: fotos-auf-dem-smartphone-finden-und-sichern
+    cluster: Smartphone Grundlagen
+    target_audience: Senior:innen und Angehörige
+    intent: Fotos wiederfinden und Verlust vermeiden
+    priority: 2
+    risk_level: medium
+    monetization_allowed_initially: false
+    requires_sources: true
+    requires_screenshots: true
+    requires_print_checklist: true
+    status: planned
+  - title: WLAN am Smartphone verbinden
+    slug: wlan-am-smartphone-verbinden
+    cluster: Smartphone Grundlagen
+    target_audience: Senior:innen
+    intent: Smartphone sicher mit WLAN verbinden
+    priority: 2
+    risk_level: medium
+    monetization_allowed_initially: false
+    requires_sources: true
+    requires_screenshots: true
+    requires_print_checklist: true
+    status: planned
+  - title: Angehörigen-Checkliste Eltern digital helfen
+    slug: angehoerigen-checkliste-eltern-digital-helfen
+    cluster: Angehörigen-Hilfe
+    target_audience: Angehörige
+    intent: Eltern oder Großeltern strukturiert digital unterstützen
+    priority: 2
+    risk_level: medium
+    monetization_allowed_initially: false
+    requires_sources: true
+    requires_screenshots: false
+    requires_print_checklist: true
+    status: planned
+  - title: Seniorenhandy oder Smartphone Entscheidungshilfe
+    slug: seniorenhandy-oder-smartphone-entscheidungshilfe
+    cluster: Geräte & Kaufberatung
+    target_audience: Senior:innen und Angehörige
+    intent: Passende Geräteklasse ohne Scheinkaufberatung einschätzen
+    priority: 2
+    risk_level: medium
+    monetization_allowed_initially: false
+    requires_sources: true
+    requires_screenshots: false
+    requires_print_checklist: true
+    status: planned
+  - title: WhatsApp Kontakt blockieren und melden
+    slug: whatsapp-kontakt-blockieren-und-melden
+    cluster: WhatsApp
+    target_audience: Senior:innen
+    intent: Unerwünschte oder verdächtige Kontakte sicher behandeln
+    priority: 3
+    risk_level: high
+    monetization_allowed_initially: false
+    requires_sources: true
+    requires_screenshots: true
+    requires_print_checklist: true
+    status: planned
+  - title: App-Berechtigungen am Smartphone verstehen
+    slug: app-berechtigungen-am-smartphone-verstehen
+    cluster: Online-Sicherheit
+    target_audience: Senior:innen und Angehörige
+    intent: App-Berechtigungen erkennen und vorsichtig prüfen
+    priority: 3
+    risk_level: high
+    monetization_allowed_initially: false
+    requires_sources: true
+    requires_screenshots: true
+    requires_print_checklist: true
+    status: planned

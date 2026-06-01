@@ -1,0 +1,138 @@
+capabilities:
+  - id: positioning_definition
+    name: Positionierungsdefinition
+    description: Hält Systemname, Ein-Satz-Definition, Kernpositionierung und Zielgruppen.
+    mvp_required: true
+    owner: human_operator
+    status: defined
+    evidence_artifacts:
+      - docs/00_PROJECT_SYSTEM_DEFINITION.md
+      - docs/strategy/POSITIONING.md
+  - id: topic_cluster_management
+    name: Themencluster-Verwaltung
+    description: Definiert MVP-Cluster und spätere Cluster als operative Content-Struktur.
+    mvp_required: true
+    owner: system
+    status: defined
+    evidence_artifacts:
+      - docs/content/TOPIC_CLUSTER_MAP.md
+      - docs/content/MVP_CONTENT_BACKLOG.yaml
+  - id: serp_research_capture
+    name: SERP- und Quellenrecherche-Erfassung
+    description: Strukturiert Beobachtungen zu Suchintention, SERP-Lage und Quellen.
+    mvp_required: true
+    owner: system
+    status: defined
+    evidence_artifacts:
+      - docs/content/CONTENT_BRIEF_TEMPLATE.md
+      - docs/architecture/CONTENT_PIPELINE.md
+  - id: content_brief_generation
+    name: Content-Brief-Erstellung
+    description: Führt Thema, Zielgruppe, Differenzierung, Quellen und Review-Fragen zusammen.
+    mvp_required: true
+    owner: system
+    status: defined
+    evidence_artifacts:
+      - docs/content/CONTENT_BRIEF_TEMPLATE.md
+  - id: source_evidence_standard
+    name: Source- und Evidence-Standard
+    description: Legt fest, wann Quellen Pflicht sind und welche Quellen bevorzugt werden.
+    mvp_required: true
+    owner: system
+    status: defined
+    evidence_artifacts:
+      - docs/governance/SOURCE_AND_EVIDENCE_STANDARD.md
+  - id: senior_ux_standard
+    name: Senior UX Standard
+    description: Definiert seniorengerechte Sprache, Struktur, Warnhinweise und Druckbarkeit.
+    mvp_required: true
+    owner: system
+    status: defined
+    evidence_artifacts:
+      - docs/governance/ACCESSIBILITY_AND_SENIOR_UX_STANDARD.md
+  - id: accessibility_gate
+    name: Accessibility Gate
+    description: Prüft später wahrnehmbare, bedienbare, verständliche und robuste Umsetzung.
+    mvp_required: true
+    owner: system
+    status: planned
+    evidence_artifacts:
+      - docs/engineering/VALIDATION_REQUIREMENTS.md
+  - id: article_template
+    name: Artikeltemplate
+    description: Standardisiert Frontmatter und Artikelstruktur.
+    mvp_required: true
+    owner: system
+    status: defined
+    evidence_artifacts:
+      - docs/content/ARTICLE_TEMPLATE.md
+  - id: screenshot_step_model
+    name: Screenshot-Step-Modell
+    description: Plant große Screenshots und Schrittfolgen für konkrete Anleitungen.
+    mvp_required: true
+    owner: system
+    status: defined
+    evidence_artifacts:
+      - docs/content/ARTICLE_TEMPLATE.md
+      - docs/content/CONTENT_BRIEF_TEMPLATE.md
+  - id: print_checklist_model
+    name: Druck-Checklisten-Modell
+    description: Verankert druckbare Checklisten als Bestandteil geeigneter Artikel.
+    mvp_required: true
+    owner: system
+    status: defined
+    evidence_artifacts:
+      - docs/content/ARTICLE_TEMPLATE.md
+  - id: trust_monetization_gate
+    name: Trust- und Monetarisierungsgate
+    description: Blockiert Monetarisierung, wenn Vertrauen, Sicherheit oder Transparenz verletzt werden.
+    mvp_required: true
+    owner: system
+    status: defined
+    evidence_artifacts:
+      - docs/governance/TRUST_AND_MONETIZATION_POLICY.md
+      - docs/strategy/MONETIZATION_THESIS.md
+  - id: review_queue
+    name: Review Queue
+    description: Nutzt Reviewstatus und Gates vor Veröffentlichung.
+    mvp_required: true
+    owner: system
+    status: planned
+    evidence_artifacts:
+      - docs/governance/CONTENT_REVIEW_GATE.md
+      - docs/operations/REVIEW_RUNBOOK.md
+  - id: publishing_runbook
+    name: Publishing Runbook
+    description: Beschreibt den Weg von Brief zu Veröffentlichung.
+    mvp_required: true
+    owner: system
+    status: defined
+    evidence_artifacts:
+      - docs/operations/PUBLISHING_RUNBOOK.md
+  - id: metrics_learning_loop
+    name: Metrics Learning Loop
+    description: Nutzt Search Console und spätere Engagement-Signale für Content-Entscheidungen.
+    mvp_required: true
+    owner: system
+    status: defined
+    evidence_artifacts:
+      - docs/operations/METRICS_AND_LEARNING_LOOP.md
+  - id: update_staleness_tracking
+    name: Update- und Staleness-Tracking
+    description: Nutzt letzte Prüfung und spätere Update-Regeln gegen veraltete Inhalte.
+    mvp_required: true
+    owner: system
+    status: planned
+    evidence_artifacts:
+      - docs/content/ARTICLE_TEMPLATE.md
+      - docs/engineering/VALIDATION_REQUIREMENTS.md
+  - id: external_handoff
+    name: External Handoff
+    description: Bereitet externe Review-Paketstruktur ohne lokale oder private Artefakte vor.
+    mvp_required: true
+    owner: system
+    status: defined
+    evidence_artifacts:
+      - docs/operations/HANDOFF_STANDARD.md
+      - external_review_packet/00_READ_ME_FIRST.md
+      - external_review_packet/HANDOFF_LATEST_CONTEXT.md
