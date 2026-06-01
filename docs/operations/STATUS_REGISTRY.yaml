@@ -243,6 +243,34 @@ label_status:
     - approved_for_publish
     - publish_ready
 
+operational_status:
+  allowed:
+    - internal_operations_ready
+    - not_started
+    - blocked
+  forbidden_by_codex:
+    - public_launch_ready
+    - accepted
+    - operator_accepted
+    - approved_for_publish
+    - publish_ready
+
+public_launch_status:
+  allowed:
+    - not_ready
+    - ready
+    - launched
+  human_controlled:
+    - ready
+    - launched
+  forbidden_by_codex:
+    - ready
+    - launched
+    - accepted
+    - operator_accepted
+    - approved_for_publish
+    - publish_ready
+
 forbidden_transitions:
   - from: scaffold_only
     to: approved_for_publish

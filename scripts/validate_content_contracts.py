@@ -67,6 +67,7 @@ REQUIRED_DOCS = [
     "docs/operations/CODEX_EXECUTOR_BOUNDARY.md",
     "docs/operations/operator_decisions/README.md",
     "docs/operations/operator_decisions/HUMAN_OPERATOR_DECISION_BATCH01_BRIEF002_001.md",
+    "docs/operations/MVP_OPERATIONAL_START_PLAN_BATCH_01.md",
     "docs/content/BATCH_WORKFLOW_TEMPLATE.md",
     "docs/operations/NEXT_STAGE_DECISION_TREE.md",
     "docs/operations/STATUS_REGISTRY.yaml",
@@ -128,6 +129,7 @@ CLAIM_MAP_REL_PATH = "docs/content/claim_maps/source-to-claim-map-batch-01.md"
 BATCH_MANIFEST_PATH = ROOT / "docs/content/batches/MVP_BATCH_01.yaml"
 STATUS_REGISTRY_PATH = ROOT / "docs/operations/STATUS_REGISTRY.yaml"
 REVIEW_FINDINGS_REGISTER_PATH = ROOT / "docs/operations/REVIEW_FINDINGS_REGISTER.md"
+MVP_OPERATIONAL_START_PLAN_PATH = ROOT / "docs/operations/MVP_OPERATIONAL_START_PLAN_BATCH_01.md"
 SOURCE_REVIEW_PATH = ROOT / "docs/content/source_reviews/whatsapp-source-manual-review-batch-01.md"
 SOURCE_REVIEW_REL_PATH = "docs/content/source_reviews/whatsapp-source-manual-review-batch-01.md"
 EVIDENCE_CAPTURE_PATH = ROOT / "docs/content/evidence_captures/whatsapp-line-evidence-capture-batch-01.md"
@@ -550,6 +552,9 @@ def validate_protocol_automation_files(failures: list[str]) -> None:
             "gate_status:",
             "blocked_pending_final_citation_and_legal_review",
             "label_status:",
+            "operational_status:",
+            "internal_operations_ready",
+            "public_launch_status:",
             "review_status:",
             "human_controlled:",
             "approved_for_publish",
@@ -2520,6 +2525,116 @@ def validate_citation_display_label_reviews(failures: list[str]) -> int:
     return len(found_files)
 
 
+def validate_mvp_operational_start_plan(failures: list[str]) -> int:
+    if not MVP_OPERATIONAL_START_PLAN_PATH.exists():
+        failures.append("Missing MVP operational start plan: docs/operations/MVP_OPERATIONAL_START_PLAN_BATCH_01.md")
+        return 0
+
+    text = MVP_OPERATIONAL_START_PLAN_PATH.read_text(encoding="utf-8")
+    fields = parse_frontmatter_fields(text)
+
+    required_fragments = [
+        "operational_start_plan_id: SHO-MVP-OPERATIONAL-START-BATCH01",
+        "batch_id: MVP_BATCH_01",
+        "operational_status: internal_operations_ready",
+        "public_launch_status: not_ready",
+        "operator_acceptance_status: not_accepted",
+        "publish_readiness_status: not_ready",
+        "Executive Summary",
+        "Projekt kann operativ intern starten.",
+        "Kein Artikel ist publish-ready.",
+        "Brief 002 bleibt blockiert bis final citation/legal gates.",
+        "Website-/Content-Operations duerfen vorbereitet werden.",
+        "Monetarisierung bleibt out of scope.",
+        "Operational Workstreams",
+        "Content pipeline operations",
+        "Website structure / information architecture",
+        "Internal preview workflow",
+        "Article readiness dashboard",
+        "Brief 002 finalization gates",
+        "Brief 003 draft candidate preparation",
+        "Trust/legal/source workflow",
+        "Analytics/feedback later, without public claims",
+        "What Can Start Now",
+        "repo-based content operations",
+        "internal preview structure",
+        "article readiness tracking",
+        "next article candidate work",
+        "design/UX system documentation",
+        "website skeleton planning",
+        "What Cannot Start Yet",
+        "public launch",
+        "monetization",
+        "affiliate",
+        "final publication",
+        "WhatsApp UI block/report instructions",
+        "publishing Brief 002",
+        "claiming legal approval",
+        "Current Brief 002 Gate State",
+        "Article Draft Candidate exists.",
+        "Re-review passed.",
+        "Operator Decision exists.",
+        "Source Citation Formatting Prep exists.",
+        "Legal Wording Review Prep exists.",
+        "Final Article Prep Gate Review blocks final article preparation.",
+        "Citation Display Label Review exists.",
+        "No Publish Readiness.",
+        "No Operator Acceptance.",
+        "SHO-CLAIM-007 remains blocked.",
+        "WEBSITE_INFORMATION_ARCHITECTURE_MVP",
+        "ARTICLE_READINESS_DASHBOARD_BATCH_01",
+        "BRIEF_003_ARTICLE_DRAFT_CANDIDATE",
+        "FINAL_CITATION_TEXT_PREPARATION_BRIEF_002",
+        "FINAL_LEGAL_WORDING_REVIEW_BRIEF_002",
+        "approve final article preparation",
+        "approve publication candidate",
+        "approve public launch",
+        "approve monetization policy",
+        "Explicit Non-Acceptance",
+        "This plan is not Operator Acceptance.",
+        "This plan is not Publish Readiness.",
+        "This plan is not public launch approval.",
+        "This plan does not approve monetization.",
+        "This plan does not publish any article.",
+        "This plan does not unlock SHO-CLAIM-007.",
+    ]
+    for fragment in required_fragments:
+        if fragment not in text:
+            failures.append(f"MVP operational start plan must contain: {fragment}")
+
+    if fields.get("operational_start_plan_id") != "SHO-MVP-OPERATIONAL-START-BATCH01":
+        failures.append("MVP operational start plan has unexpected ID")
+    if normalized(fields.get("operational_status")) != "internal_operations_ready":
+        failures.append("MVP operational start plan must have operational_status: internal_operations_ready")
+    if normalized(fields.get("public_launch_status")) != "not_ready":
+        failures.append("MVP operational start plan must have public_launch_status: not_ready")
+    if normalized(fields.get("operator_acceptance_status")) != "not_accepted":
+        failures.append("MVP operational start plan must have operator_acceptance_status: not_accepted")
+    if normalized(fields.get("publish_readiness_status")) != "not_ready":
+        failures.append("MVP operational start plan must have publish_readiness_status: not_ready")
+
+    forbidden_assignments = [
+        "approved_for_publish: true",
+        "operator_acceptance_status: accepted",
+        "publish_readiness_status: publish_candidate",
+        "publish_readiness_status: approved_for_publish",
+        "publish_ready: true",
+        "public_launch_status: ready",
+        "public_launch_status: launched",
+        "current_stage: review_ready",
+        "current_stage: publish_candidate",
+        "legal_approval: true",
+        "legal_approval_status: approved",
+        "monetization_status: approved",
+    ]
+    lower_text = text.lower()
+    for fragment in forbidden_assignments:
+        if fragment in lower_text:
+            failures.append(f"MVP operational start plan must not contain forbidden assignment: {fragment}")
+
+    return 1
+
+
 def main() -> int:
     failures: list[str] = []
 
@@ -2545,6 +2660,7 @@ def main() -> int:
     legal_wording_review_prep_count = validate_legal_wording_review_preps(failures)
     final_article_prep_gate_review_count = validate_final_article_prep_gate_reviews(failures)
     citation_display_label_review_count = validate_citation_display_label_reviews(failures)
+    mvp_operational_start_plan_count = validate_mvp_operational_start_plan(failures)
 
     if failures:
         print("FAIL: SHO-OS content contract validation failed")
@@ -2574,6 +2690,7 @@ def main() -> int:
     print(f"- Batch 01 legal wording review prep files: {legal_wording_review_prep_count}")
     print(f"- Batch 01 final article prep gate review files: {final_article_prep_gate_review_count}")
     print(f"- Batch 01 citation display label review files: {citation_display_label_review_count}")
+    print(f"- Batch 01 MVP operational start plan files: {mvp_operational_start_plan_count}")
     print("- YAML/frontmatter parsing: dependency-free and text-based")
     return 0
 

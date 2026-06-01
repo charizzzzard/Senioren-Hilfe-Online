@@ -467,6 +467,18 @@ Das Review-Artefakt muss mindestens diese Finding IDs enthalten:
 - Alle vorbereiteten Labels muessen `prepared_not_final`, `final_citation_text_status: not_prepared` und `publication_ready: no` behalten.
 - Das Artefakt darf keine finale Quellenliste, keine finalen Citation-Texte, keine neuen Sources, keine neuen Claims, keine Publish Readiness und keine Operator Acceptance setzen.
 
+## MVP-Operational-Start-Plan-Checks
+
+- Fuer Batch 01 muss `docs/operations/MVP_OPERATIONAL_START_PLAN_BATCH_01.md` existieren.
+- Das Artefakt muss `operational_status: internal_operations_ready` enthalten.
+- `public_launch_status` muss `not_ready` bleiben.
+- `operator_acceptance_status` muss `not_accepted` bleiben.
+- `publish_readiness_status` muss `not_ready` bleiben.
+- Der Plan darf interne Website-/Content-Operations, Preview-Struktur, Readiness Tracking und naechste Candidate-Arbeit vorbereiten.
+- Der Plan darf keinen Public Launch, keine Monetarisierung, keine Affiliate-Inhalte, keine finale Publikation, keine WhatsApp-UI-Blockieren/Melden-Instructions und keine rechtliche Freigabe erlauben.
+- Der Plan muss Brief 002 weiterhin als blockiert bis final citation/legal gates fuehren.
+- Der Plan ersetzt keine Batch-Stage-Transition und keine Operator Acceptance.
+
 ## Verbleibende spätere Checks
 
 - Echtes YAML-Parsing.
