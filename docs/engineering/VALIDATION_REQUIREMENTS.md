@@ -479,6 +479,18 @@ Das Review-Artefakt muss mindestens diese Finding IDs enthalten:
 - Der Plan muss Brief 002 weiterhin als blockiert bis final citation/legal gates fuehren.
 - Der Plan ersetzt keine Batch-Stage-Transition und keine Operator Acceptance.
 
+## Citation-Text-Prep-Checks
+
+- Fuer Brief 002 muss genau ein Citation-Text-Prep-Artefakt unter `docs/content/article_reviews/` existieren.
+- Das Artefakt muss die Citation-Display-Label-Review, das Source-Citation-Formatting-Prep-Artefakt und die Final-Article-Preparation-Gate-Review verlinken.
+- `citation_text_status` muss `prepared_not_final` sein.
+- `operator_acceptance_status` muss `not_accepted` bleiben.
+- `publish_readiness_status` muss `not_ready` bleiben.
+- Nur `SHO-SRC-005`, `SHO-SRC-006` und `SHO-SRC-007` duerfen im Scope sein.
+- Alle vorbereiteten Citation-Texte muessen `prepared_not_final`, `metadata_review_status: needs_final_metadata_review` und `publication_ready: no` behalten.
+- Das Artefakt darf keine finalen Titel, Herausgeber, URLs oder Abrufdaten als geprueft behaupten.
+- Das Artefakt darf keine finale Quellenliste, keine finale Citation-Freigabe, keine neuen Sources, keine neuen Claims, keine Publish Readiness und keine Operator Acceptance setzen.
+
 ## Verbleibende spätere Checks
 
 - Echtes YAML-Parsing.

@@ -62,6 +62,7 @@ REQUIRED_DOCS = [
     "docs/content/article_reviews/betrugsnachrichten-auf-whatsapp-erkennen.legal-wording-review-prep.md",
     "docs/content/article_reviews/betrugsnachrichten-auf-whatsapp-erkennen.final-article-prep-gate-review.md",
     "docs/content/article_reviews/betrugsnachrichten-auf-whatsapp-erkennen.citation-display-label-review.md",
+    "docs/content/article_reviews/betrugsnachrichten-auf-whatsapp-erkennen.citation-text-prep.md",
     "docs/operations/CONTENT_RESEARCH_OPERATING_PROTOCOL.md",
     "docs/operations/RESEARCH_BATCH_STAGE_MODEL.md",
     "docs/operations/CODEX_EXECUTOR_BOUNDARY.md",
@@ -191,6 +192,7 @@ FINAL_ARTICLE_PREP_GATE_REVIEW_REL_PATH = (
 CITATION_DISPLAY_LABEL_REVIEW_REL_PATH = (
     "docs/content/article_reviews/betrugsnachrichten-auf-whatsapp-erkennen.citation-display-label-review.md"
 )
+CITATION_TEXT_PREP_REL_PATH = "docs/content/article_reviews/betrugsnachrichten-auf-whatsapp-erkennen.citation-text-prep.md"
 OPERATOR_DECISIONS_DIR = ROOT / "docs/operations/operator_decisions"
 OPERATOR_DECISION_REL_PATH = "docs/operations/operator_decisions/HUMAN_OPERATOR_DECISION_BATCH01_BRIEF002_001.md"
 EXPECTED_ARTICLE_DRAFT_CANDIDATES = {
@@ -280,6 +282,15 @@ EXPECTED_CITATION_DISPLAY_LABEL_REVIEWS = {
     "betrugsnachrichten-auf-whatsapp-erkennen.citation-display-label-review.md": {
         "citation_display_label_review_id": "SHO-CITATION-DISPLAY-LABEL-REVIEW-BATCH01-BRIEF002",
         "brief_id": "SHO-MVP-BRIEF-002",
+        "linked_source_citation_formatting_prep": SOURCE_CITATION_FORMATTING_PREP_REL_PATH,
+        "linked_final_article_prep_gate_review": FINAL_ARTICLE_PREP_GATE_REVIEW_REL_PATH,
+    },
+}
+EXPECTED_CITATION_TEXT_PREPS = {
+    "betrugsnachrichten-auf-whatsapp-erkennen.citation-text-prep.md": {
+        "citation_text_prep_id": "SHO-CITATION-TEXT-PREP-BATCH01-BRIEF002",
+        "brief_id": "SHO-MVP-BRIEF-002",
+        "linked_citation_display_label_review": CITATION_DISPLAY_LABEL_REVIEW_REL_PATH,
         "linked_source_citation_formatting_prep": SOURCE_CITATION_FORMATTING_PREP_REL_PATH,
         "linked_final_article_prep_gate_review": FINAL_ARTICLE_PREP_GATE_REVIEW_REL_PATH,
     },
@@ -555,6 +566,7 @@ def validate_protocol_automation_files(failures: list[str]) -> None:
             "operational_status:",
             "internal_operations_ready",
             "public_launch_status:",
+            "citation_text_status:",
             "review_status:",
             "human_controlled:",
             "approved_for_publish",
@@ -2525,6 +2537,129 @@ def validate_citation_display_label_reviews(failures: list[str]) -> int:
     return len(found_files)
 
 
+def validate_citation_text_preps(failures: list[str]) -> int:
+    if not ARTICLE_REVIEWS_DIR.exists():
+        failures.append("Missing article review directory: docs/content/article_reviews")
+        return 0
+
+    found_files = {path.name for path in ARTICLE_REVIEWS_DIR.glob("*.citation-text-prep.md")}
+    expected_files = set(EXPECTED_CITATION_TEXT_PREPS)
+    if found_files != expected_files:
+        failures.append(
+            "Batch 01 must contain exactly these citation text prep files: "
+            f"{', '.join(sorted(expected_files))}; found {', '.join(sorted(found_files))}"
+        )
+
+    for file_name in sorted(expected_files & found_files):
+        path = ARTICLE_REVIEWS_DIR / file_name
+        text = path.read_text(encoding="utf-8")
+        fields = parse_frontmatter_fields(text)
+        expected = EXPECTED_CITATION_TEXT_PREPS[file_name]
+
+        required_fragments = [
+            f"citation_text_prep_id: {expected['citation_text_prep_id']}",
+            "batch_id: MVP_BATCH_01",
+            f"linked_brief_id: {expected['brief_id']}",
+            f"linked_citation_display_label_review: {expected['linked_citation_display_label_review']}",
+            f"linked_source_citation_formatting_prep: {expected['linked_source_citation_formatting_prep']}",
+            f"linked_final_article_prep_gate_review: {expected['linked_final_article_prep_gate_review']}",
+            "citation_text_status: prepared_not_final",
+            "operator_acceptance_status: not_accepted",
+            "publish_readiness_status: not_ready",
+            "Explicit Non-Acceptance",
+            "Dieses Artefakt ist keine finale Quellenliste.",
+            "Dieses Artefakt ist keine finale Citation-Freigabe.",
+            "Dieses Artefakt ist keine Publish Readiness.",
+            "Dieses Artefakt ist keine Operator Acceptance.",
+            "Dieses Artefakt ist keine rechtliche Freigabe.",
+            "Dieses Artefakt fuegt keine neuen Quellen hinzu.",
+            "Dieses Artefakt schaltet keine blockierten Claims frei.",
+            "Source ID Scope",
+            "SHO-SRC-005",
+            "SHO-SRC-006",
+            "SHO-SRC-007",
+            "Prepared Citation Texts",
+            "Quelle zu Betrugsmaschen mit neuer Nummer und Verifikationshinweisen. Finaler Titel, Herausgeber, URL und Abrufdatum müssen vor Veröffentlichung geprüft werden.",
+            "Quelle zu Familien-/Seniorenkontext und Rückrufprüfung. Finaler Titel, Herausgeber, URL und Abrufdatum müssen vor Veröffentlichung geprüft werden.",
+            "Quelle zu allgemeinen Phishing-/Smishing-Warnsignalen. Finaler Titel, Herausgeber, URL und Abrufdatum müssen vor Veröffentlichung geprüft werden.",
+            "citation_text_status",
+            "prepared_not_final",
+            "metadata_review_status",
+            "needs_final_metadata_review",
+            "publication_ready",
+            "| SHO-SRC-005 |",
+            "| SHO-SRC-006 |",
+            "| SHO-SRC-007 |",
+            "no new source IDs introduced",
+            "no new claims introduced",
+            "no final source list prepared",
+            "no final citation approval claimed",
+            "no source metadata invented",
+            "SHO-CLAIM-007 remains blocked",
+            "WhatsApp block/report UI instructions remain out of scope",
+            "final source metadata review",
+            "final citation text approval by Human Operator or defined source-formatting gate",
+            "final source list review",
+            "final legal wording review",
+            "later Human Operator review before final article preparation",
+            "Codex must not approve for publish",
+            "Codex must not mark operator accepted",
+            "Codex must not claim legal approval",
+            "Codex must not claim final citation approval",
+            "Codex must not mark final article preparation as approved",
+            "Codex must not unlock SHO-CLAIM-007",
+            "Codex must not add WhatsApp block/report UI instructions",
+            "Codex must not add monetization",
+            "Codex must not add new claims",
+            "Codex must not add new sources",
+        ]
+        for fragment in required_fragments:
+            if fragment not in text:
+                failures.append(f"Citation text prep {file_name} must contain: {fragment}")
+
+        if fields.get("citation_text_prep_id") != expected["citation_text_prep_id"]:
+            failures.append(f"Citation text prep {file_name} has unexpected ID")
+        if fields.get("linked_brief_id") != expected["brief_id"]:
+            failures.append(f"Citation text prep {file_name} must link to Brief 002")
+        if fields.get("linked_citation_display_label_review") != expected["linked_citation_display_label_review"]:
+            failures.append(f"Citation text prep {file_name} must link to citation display label review")
+        if fields.get("linked_source_citation_formatting_prep") != expected["linked_source_citation_formatting_prep"]:
+            failures.append(f"Citation text prep {file_name} must link to source citation formatting prep")
+        if fields.get("linked_final_article_prep_gate_review") != expected["linked_final_article_prep_gate_review"]:
+            failures.append(f"Citation text prep {file_name} must link to final article prep gate review")
+        if normalized(fields.get("citation_text_status")) != "prepared_not_final":
+            failures.append(f"Citation text prep {file_name} must have citation_text_status: prepared_not_final")
+        if normalized(fields.get("operator_acceptance_status")) != "not_accepted":
+            failures.append(f"Citation text prep {file_name} must have operator_acceptance_status: not_accepted")
+        if normalized(fields.get("publish_readiness_status")) != "not_ready":
+            failures.append(f"Citation text prep {file_name} must have publish_readiness_status: not_ready")
+
+        forbidden_assignments = [
+            "approved_for_publish: true",
+            "operator_acceptance_status: accepted",
+            "publish_readiness_status: publish_candidate",
+            "publish_readiness_status: approved_for_publish",
+            "publish_ready: true",
+            "current_stage: review_ready",
+            "current_stage: publish_candidate",
+            "legal_approval: true",
+            "legal_approval_status: approved",
+            "gate_status: approved",
+            "citation_text_status: approved",
+            "metadata_review_status: approved",
+            "publication_ready: yes",
+            "final_source_list: true",
+            "final_citation_approval: true",
+            "final_article_preparation_approved: true",
+        ]
+        lower_text = text.lower()
+        for fragment in forbidden_assignments:
+            if fragment in lower_text:
+                failures.append(f"Citation text prep {file_name} must not contain forbidden assignment: {fragment}")
+
+    return len(found_files)
+
+
 def validate_mvp_operational_start_plan(failures: list[str]) -> int:
     if not MVP_OPERATIONAL_START_PLAN_PATH.exists():
         failures.append("Missing MVP operational start plan: docs/operations/MVP_OPERATIONAL_START_PLAN_BATCH_01.md")
@@ -2660,6 +2795,7 @@ def main() -> int:
     legal_wording_review_prep_count = validate_legal_wording_review_preps(failures)
     final_article_prep_gate_review_count = validate_final_article_prep_gate_reviews(failures)
     citation_display_label_review_count = validate_citation_display_label_reviews(failures)
+    citation_text_prep_count = validate_citation_text_preps(failures)
     mvp_operational_start_plan_count = validate_mvp_operational_start_plan(failures)
 
     if failures:
@@ -2690,6 +2826,7 @@ def main() -> int:
     print(f"- Batch 01 legal wording review prep files: {legal_wording_review_prep_count}")
     print(f"- Batch 01 final article prep gate review files: {final_article_prep_gate_review_count}")
     print(f"- Batch 01 citation display label review files: {citation_display_label_review_count}")
+    print(f"- Batch 01 citation text prep files: {citation_text_prep_count}")
     print(f"- Batch 01 MVP operational start plan files: {mvp_operational_start_plan_count}")
     print("- YAML/frontmatter parsing: dependency-free and text-based")
     return 0

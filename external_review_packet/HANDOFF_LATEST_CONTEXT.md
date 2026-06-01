@@ -5,19 +5,19 @@
 - project_name: Senioren-Hilfe Online
 - system_name: Senioren-Hilfe Online OS
 - system_short_name: SHO-OS
-- patch_title: MVP_OPERATIONAL_START_BATCH_01
+- patch_title: FINAL_CITATION_TEXT_PREPARATION_BRIEF_002
 - external_review_verdict: ACCEPTED_WITH_FINDINGS
 
 SHO-OS ist ein reproduzierbares Content-, Trust- und Publishing-System fuer seniorengerechte digitale Alltagshilfe in Deutschland.
 
-Dieser Patch bereitet den internen operativen MVP-Start fuer Batch 01 vor. Er trennt interne Operations-Readiness von Public Launch, Publish Readiness und Operator Acceptance. Er setzt keine Artikelveroeffentlichung, keine Monetarisierung und keine Batch-Stage-Hochstufung.
+Dieser Patch bereitet nicht-finale Citation-Texte fuer die bereits vorhandenen Source IDs zu Brief 002 vor. Er setzt keine finale Quellenliste, keine finale Citation-Freigabe, keine Publish Readiness, keine Operator Acceptance und keine Batch-Stage-Hochstufung.
 
 ## Git Traceability
 
 - branch: `main`
-- head_before: `dd13f0545656754ac727b7f3e4ace7220877188e`
+- head_before: `20fc3c480ba259e6161c77e94075d916eddb2553`
 - intended_head_after: `assigned_after_commit`
-- origin_main_before: `dd13f0545656754ac727b7f3e4ace7220877188e`
+- origin_main_before: `20fc3c480ba259e6161c77e94075d916eddb2553`
 - dirty_state_before: `clean`
 - dirty_state_after: `assigned_after_commit`
 - remote_url: `https://github.com/charizzzzard/Senioren-Hilfe-Online.git`
@@ -26,13 +26,14 @@ Hinweis: `head_after` wird nicht vorab als Commit-SHA eingetragen, weil ein Comm
 
 ## Scope Dieses Patches
 
-- Neues MVP Operational Start Plan Artefakt erstellt: `docs/operations/MVP_OPERATIONAL_START_PLAN_BATCH_01.md`.
-- `operational_status: internal_operations_ready` dokumentiert.
-- `public_launch_status: not_ready`, `publish_readiness_status: not_ready` und `operator_acceptance_status: not_accepted` bleiben gesetzt.
-- Brief 002 bleibt bis final citation/legal gates blockiert.
+- Neues Citation-Text-Prep-Artefakt erstellt: `docs/content/article_reviews/betrugsnachrichten-auf-whatsapp-erkennen.citation-text-prep.md`.
+- Nur vorhandene Source IDs `SHO-SRC-005`, `SHO-SRC-006` und `SHO-SRC-007` verwendet.
+- Vorbereitete Citation-Texte als `prepared_not_final` dokumentiert.
+- `metadata_review_status: needs_final_metadata_review` und `publication_ready: no` fuer alle vorbereiteten Citation-Texte dokumentiert.
+- Finale Quellenliste und finale Citation-Freigabe bleiben offen.
 - `SHO-CLAIM-007` bleibt blockiert und WhatsApp block/report UI instructions bleiben ausgeschlossen.
-- `STATUS_REGISTRY.yaml` um `operational_status` und `public_launch_status` ergaenzt.
-- `validate_content_contracts.py` um MVP-Operational-Start-Plan-Checks erweitert.
+- `STATUS_REGISTRY.yaml` um `citation_text_status` ergaenzt.
+- `validate_content_contracts.py` um Citation-Text-Prep-Checks erweitert.
 - Batch bleibt `current_stage: claim_slots_mapped`.
 
 ## Non-Scope
@@ -47,15 +48,18 @@ Hinweis: `head_after` wird nicht vorab als Commit-SHA eingetragen, weil ein Comm
 - Keine Operator Acceptance Simulation.
 - Keine Website.
 - Keine Monetarisierung.
+- Keine finale Quellenliste.
+- Keine finale Citation-Freigabe.
 
-## MVP Operational Start Summary
+## Citation Text Prep Summary
 
-- operational_status: `internal_operations_ready`
-- public_launch_status: `not_ready`
+- citation_text_status: `prepared_not_final`
 - operator_acceptance_status: `not_accepted`
 - publish_readiness_status: `not_ready`
-- internal operations may start: repo-based content operations, preview structure, readiness tracking, website skeleton planning.
-- blocked: public launch, monetization, final publication, Brief 002 publishing, WhatsApp UI block/report instructions.
+- source_ids_reviewed: `SHO-SRC-005`, `SHO-SRC-006`, `SHO-SRC-007`
+- metadata_review_status: `needs_final_metadata_review`
+- publication_ready: `no`
+- blocked: final source metadata review, final citation text approval, final source list review, final legal wording review, Brief 002 publishing, WhatsApp UI block/report instructions.
 
 ## Guardrails
 
@@ -67,6 +71,8 @@ Hinweis: `head_after` wird nicht vorab als Commit-SHA eingetragen, weil ein Comm
 - Keine Publish Readiness.
 - Keine Operator Acceptance.
 - Keine rechtliche Freigabe.
+- Keine finale Quellenliste.
+- Keine finale Citation-Freigabe.
 - Batch Stage bleibt `claim_slots_mapped`.
 
 ## Validation Commands
@@ -81,7 +87,8 @@ Hinweis: `head_after` wird nicht vorab als Commit-SHA eingetragen, weil ein Comm
 
 ## Files Changed Summary
 
-- `docs/operations/MVP_OPERATIONAL_START_PLAN_BATCH_01.md`
+- `docs/content/article_reviews/betrugsnachrichten-auf-whatsapp-erkennen.citation-text-prep.md`
+- `docs/content/article_reviews/README.md`
 - `docs/operations/STATUS_REGISTRY.yaml`
 - `scripts/validate_content_contracts.py`
 - `docs/engineering/VALIDATION_REQUIREMENTS.md`
@@ -90,4 +97,4 @@ Hinweis: `head_after` wird nicht vorab als Commit-SHA eingetragen, weil ein Comm
 
 ## Keine finale Annahme durch Codex
 
-MVP operational start plan prepared for internal operations only, with no public launch, no publish readiness and no Operator Acceptance. Finale Annahme bleibt beim Human Operator.
+Citation texts prepared as non-final working text only, with no final source list, no final citation approval, no publish readiness and no Operator Acceptance. Finale Annahme bleibt beim Human Operator.

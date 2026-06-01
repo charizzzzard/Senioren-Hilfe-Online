@@ -2,26 +2,28 @@
 
 ## Zweck dieses Review-Pakets
 
-Dieses Review-Paket beschreibt den Patch `MVP_OPERATIONAL_START_BATCH_01`. Es bereitet den internen operativen MVP-Start vor, ohne Public Launch, Publish Readiness oder Operator Acceptance zu setzen.
+Dieses Review-Paket beschreibt den Patch `FINAL_CITATION_TEXT_PREPARATION_BRIEF_002`. Es bereitet nicht-finale Citation-Texte fuer die bereits vorhandenen Source IDs zu Brief 002 vor, ohne eine finale Quellenliste, Publish Readiness oder Operator Acceptance zu setzen.
 
 ## Scope dieses Patches
 
-- Genau ein MVP Operational Start Plan Artefakt fuer Batch 01 erstellen.
-- Interne Content-/Website-/Preview-Operations als startbereit markieren.
-- Public Launch, Monetarisierung, finale Publikation und Brief-002-Publish-Readiness ausdruecklich blockiert halten.
-- Brief 002 bleibt bis final citation/legal gates blockiert.
+- Genau ein Citation-Text-Prep-Artefakt fuer Brief 002 erstellen.
+- Nur vorhandene Source IDs `SHO-SRC-005`, `SHO-SRC-006` und `SHO-SRC-007` nutzen.
+- Vorbereitete Display Labels aus der Citation Display Label Review uebernehmen.
+- Citation-Texte als `prepared_not_final` markieren.
+- Finale Quellenliste, finale Citation-Freigabe und Brief-002-Publish-Readiness ausdruecklich blockiert halten.
 - `SHO-CLAIM-007` weiter blockiert halten.
 - Keine Rechtsberatung, keine rechtliche Freigabe, keine Operator Acceptance und keine Publish Readiness setzen.
-- Validator minimal erweitern, damit der Operational Start Plan als erwartetes Artefakt geprueft wird.
+- Validator minimal erweitern, damit das Citation-Text-Prep-Artefakt als erwartetes Artefakt geprueft wird.
 
 ## Primaere Review-Dateien
 
 - `external_review_packet/HANDOFF_LATEST_CONTEXT.md`
-- `docs/operations/MVP_OPERATIONAL_START_PLAN_BATCH_01.md`
+- `docs/content/article_reviews/betrugsnachrichten-auf-whatsapp-erkennen.citation-text-prep.md`
 - `docs/content/article_reviews/betrugsnachrichten-auf-whatsapp-erkennen.citation-display-label-review.md`
-- `docs/content/article_reviews/betrugsnachrichten-auf-whatsapp-erkennen.final-article-prep-gate-review.md`
-- `docs/content/article_reviews/betrugsnachrichten-auf-whatsapp-erkennen.legal-wording-review-prep.md`
 - `docs/content/article_reviews/betrugsnachrichten-auf-whatsapp-erkennen.source-citation-formatting-prep.md`
+- `docs/content/article_reviews/betrugsnachrichten-auf-whatsapp-erkennen.final-article-prep-gate-review.md`
+- `docs/operations/MVP_OPERATIONAL_START_PLAN_BATCH_01.md`
+- `docs/content/article_reviews/betrugsnachrichten-auf-whatsapp-erkennen.legal-wording-review-prep.md`
 - `docs/operations/operator_decisions/HUMAN_OPERATOR_DECISION_BATCH01_BRIEF002_001.md`
 - `docs/content/article_reviews/betrugsnachrichten-auf-whatsapp-erkennen.legal-source-citation-review.md`
 - `docs/content/article_reviews/betrugsnachrichten-auf-whatsapp-erkennen.operator-review-packet.md`
@@ -36,7 +38,7 @@ Dieses Review-Paket beschreibt den Patch `MVP_OPERATIONAL_START_BATCH_01`. Es be
 
 ## Wichtiger Hinweis
 
-Operational start plan only. This is not public launch approval, not publish readiness and not Operator Acceptance.
+Citation text preparation only. This is not a final source list, not final citation approval, not publish readiness and not Operator Acceptance.
 
 ## Nicht in Scope
 
@@ -50,6 +52,8 @@ Operational start plan only. This is not public launch approval, not publish rea
 - Publish Readiness.
 - Operator Acceptance.
 - Rechtliche Freigabe.
+- Finale Citation-Freigabe.
+- Finale Quellenliste.
 - Produktive Website.
 - Monetarisierung.
 
