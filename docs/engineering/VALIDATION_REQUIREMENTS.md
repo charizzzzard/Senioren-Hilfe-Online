@@ -491,6 +491,17 @@ Das Review-Artefakt muss mindestens diese Finding IDs enthalten:
 - Das Artefakt darf keine finalen Titel, Herausgeber, URLs oder Abrufdaten als geprueft behaupten.
 - Das Artefakt darf keine finale Quellenliste, keine finale Citation-Freigabe, keine neuen Sources, keine neuen Claims, keine Publish Readiness und keine Operator Acceptance setzen.
 
+## Final-Legal-Wording-Review-Checks
+
+- Fuer Brief 002 muss genau ein Final-Legal-Wording-Review-Artefakt unter `docs/content/article_reviews/` existieren.
+- Das Artefakt muss den Article Draft Candidate, das Legal-Wording-Review-Prep-Artefakt und das Citation-Text-Prep-Artefakt verlinken.
+- `legal_wording_review_status` muss `wording_review_prepared_no_legal_approval` sein.
+- `legal_approval_status` muss `not_approved` bleiben.
+- `operator_acceptance_status` muss `not_accepted` bleiben.
+- `publish_readiness_status` muss `not_ready` bleiben.
+- Die Review darf Wording-Checks dokumentieren, aber keine Rechtsberatung, keine rechtliche Freigabe, keine finalen Rechtsformulierungen, keine Publish Readiness und keine Operator Acceptance setzen.
+- `SHO-CLAIM-007` muss blockiert bleiben und WhatsApp block/report UI instructions muessen ausgeschlossen bleiben.
+
 ## Verbleibende spätere Checks
 
 - Echtes YAML-Parsing.

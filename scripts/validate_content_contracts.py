@@ -63,6 +63,7 @@ REQUIRED_DOCS = [
     "docs/content/article_reviews/betrugsnachrichten-auf-whatsapp-erkennen.final-article-prep-gate-review.md",
     "docs/content/article_reviews/betrugsnachrichten-auf-whatsapp-erkennen.citation-display-label-review.md",
     "docs/content/article_reviews/betrugsnachrichten-auf-whatsapp-erkennen.citation-text-prep.md",
+    "docs/content/article_reviews/betrugsnachrichten-auf-whatsapp-erkennen.final-legal-wording-review.md",
     "docs/operations/CONTENT_RESEARCH_OPERATING_PROTOCOL.md",
     "docs/operations/RESEARCH_BATCH_STAGE_MODEL.md",
     "docs/operations/CODEX_EXECUTOR_BOUNDARY.md",
@@ -193,6 +194,9 @@ CITATION_DISPLAY_LABEL_REVIEW_REL_PATH = (
     "docs/content/article_reviews/betrugsnachrichten-auf-whatsapp-erkennen.citation-display-label-review.md"
 )
 CITATION_TEXT_PREP_REL_PATH = "docs/content/article_reviews/betrugsnachrichten-auf-whatsapp-erkennen.citation-text-prep.md"
+FINAL_LEGAL_WORDING_REVIEW_REL_PATH = (
+    "docs/content/article_reviews/betrugsnachrichten-auf-whatsapp-erkennen.final-legal-wording-review.md"
+)
 OPERATOR_DECISIONS_DIR = ROOT / "docs/operations/operator_decisions"
 OPERATOR_DECISION_REL_PATH = "docs/operations/operator_decisions/HUMAN_OPERATOR_DECISION_BATCH01_BRIEF002_001.md"
 EXPECTED_ARTICLE_DRAFT_CANDIDATES = {
@@ -293,6 +297,15 @@ EXPECTED_CITATION_TEXT_PREPS = {
         "linked_citation_display_label_review": CITATION_DISPLAY_LABEL_REVIEW_REL_PATH,
         "linked_source_citation_formatting_prep": SOURCE_CITATION_FORMATTING_PREP_REL_PATH,
         "linked_final_article_prep_gate_review": FINAL_ARTICLE_PREP_GATE_REVIEW_REL_PATH,
+    },
+}
+EXPECTED_FINAL_LEGAL_WORDING_REVIEWS = {
+    "betrugsnachrichten-auf-whatsapp-erkennen.final-legal-wording-review.md": {
+        "final_legal_wording_review_id": "SHO-FINAL-LEGAL-WORDING-REVIEW-BATCH01-BRIEF002",
+        "brief_id": "SHO-MVP-BRIEF-002",
+        "linked_article_draft_candidate": "docs/content/article_draft_candidates/betrugsnachrichten-auf-whatsapp-erkennen.article-draft-candidate.md",
+        "linked_legal_wording_review_prep": LEGAL_WORDING_REVIEW_PREP_REL_PATH,
+        "linked_citation_text_prep": CITATION_TEXT_PREP_REL_PATH,
     },
 }
 WHATSAPP_MANUAL_REVIEW_SOURCE_IDS = {"SHO-SRC-001", "SHO-SRC-002", "SHO-SRC-003", "SHO-SRC-004"}
@@ -567,6 +580,8 @@ def validate_protocol_automation_files(failures: list[str]) -> None:
             "internal_operations_ready",
             "public_launch_status:",
             "citation_text_status:",
+            "legal_wording_review_status:",
+            "wording_review_prepared_no_legal_approval",
             "review_status:",
             "human_controlled:",
             "approved_for_publish",
@@ -2660,6 +2675,124 @@ def validate_citation_text_preps(failures: list[str]) -> int:
     return len(found_files)
 
 
+def validate_final_legal_wording_reviews(failures: list[str]) -> int:
+    if not ARTICLE_REVIEWS_DIR.exists():
+        failures.append("Missing article review directory: docs/content/article_reviews")
+        return 0
+
+    found_files = {path.name for path in ARTICLE_REVIEWS_DIR.glob("*.final-legal-wording-review.md")}
+    expected_files = set(EXPECTED_FINAL_LEGAL_WORDING_REVIEWS)
+    if found_files != expected_files:
+        failures.append(
+            "Batch 01 must contain exactly these final legal wording review files: "
+            f"{', '.join(sorted(expected_files))}; found {', '.join(sorted(found_files))}"
+        )
+
+    for file_name in sorted(expected_files & found_files):
+        path = ARTICLE_REVIEWS_DIR / file_name
+        text = path.read_text(encoding="utf-8")
+        fields = parse_frontmatter_fields(text)
+        expected = EXPECTED_FINAL_LEGAL_WORDING_REVIEWS[file_name]
+
+        required_fragments = [
+            f"final_legal_wording_review_id: {expected['final_legal_wording_review_id']}",
+            "batch_id: MVP_BATCH_01",
+            f"linked_brief_id: {expected['brief_id']}",
+            f"linked_article_draft_candidate: {expected['linked_article_draft_candidate']}",
+            f"linked_legal_wording_review_prep: {expected['linked_legal_wording_review_prep']}",
+            f"linked_citation_text_prep: {expected['linked_citation_text_prep']}",
+            "legal_wording_review_status: wording_review_prepared_no_legal_approval",
+            "legal_approval_status: not_approved",
+            "operator_acceptance_status: not_accepted",
+            "publish_readiness_status: not_ready",
+            "Explicit Non-Acceptance",
+            "Diese Review ist keine Rechtsberatung.",
+            "Diese Review ist keine rechtliche Freigabe.",
+            "Diese Review ist keine Publish Readiness.",
+            "Diese Review ist keine Operator Acceptance.",
+            "Diese Review finalisiert keinen Artikel.",
+            "Diese Review schaltet keine blockierten Claims frei.",
+            "Legal Wording Checks",
+            "| no-guarantee wording present | yes |",
+            "| legal-advice disclaimer present | yes |",
+            "| draft/non-final wording present | yes |",
+            "| no panic amplification found | yes |",
+            "| no WhatsApp block/report UI wording added | yes |",
+            "| no claim of complete fraud detection | yes |",
+            "| no legal approval claimed | yes |",
+            "| final legal approval exists | no |",
+            "| Operator Acceptance exists | no |",
+            "| Publish Readiness exists | no |",
+            "legal_wording_review_prepared_no_legal_approval",
+            "wording appears suitable for later Human Operator final article review",
+            "legal approval remains not_approved",
+            "final article preparation remains blocked pending Human Operator decision and final source list review",
+            "final source list review",
+            "final metadata review",
+            "later Human Operator decision for final article preparation",
+            "no final article without explicit later Operator decision",
+            "SHO-CLAIM-007 remains blocked",
+            "No WhatsApp line evidence / UI review is available.",
+            "No WhatsApp block/report UI instructions are allowed by this review.",
+            "Codex must not approve for publish",
+            "Codex must not mark operator accepted",
+            "Codex must not claim legal approval",
+            "Codex must not mark final article preparation as approved",
+            "Codex must not unlock SHO-CLAIM-007",
+            "Codex must not add WhatsApp block/report UI instructions",
+            "Codex must not add monetization",
+            "Codex must not add new claims",
+            "Codex must not add new sources",
+        ]
+        for fragment in required_fragments:
+            if fragment not in text:
+                failures.append(f"Final legal wording review {file_name} must contain: {fragment}")
+
+        if fields.get("final_legal_wording_review_id") != expected["final_legal_wording_review_id"]:
+            failures.append(f"Final legal wording review {file_name} has unexpected ID")
+        if fields.get("linked_brief_id") != expected["brief_id"]:
+            failures.append(f"Final legal wording review {file_name} must link to Brief 002")
+        if fields.get("linked_article_draft_candidate") != expected["linked_article_draft_candidate"]:
+            failures.append(f"Final legal wording review {file_name} must link to expected draft candidate")
+        if fields.get("linked_legal_wording_review_prep") != expected["linked_legal_wording_review_prep"]:
+            failures.append(f"Final legal wording review {file_name} must link to legal wording review prep")
+        if fields.get("linked_citation_text_prep") != expected["linked_citation_text_prep"]:
+            failures.append(f"Final legal wording review {file_name} must link to citation text prep")
+        if normalized(fields.get("legal_wording_review_status")) != "wording_review_prepared_no_legal_approval":
+            failures.append(
+                f"Final legal wording review {file_name} must have legal_wording_review_status: wording_review_prepared_no_legal_approval"
+            )
+        if normalized(fields.get("legal_approval_status")) != "not_approved":
+            failures.append(f"Final legal wording review {file_name} must have legal_approval_status: not_approved")
+        if normalized(fields.get("operator_acceptance_status")) != "not_accepted":
+            failures.append(f"Final legal wording review {file_name} must have operator_acceptance_status: not_accepted")
+        if normalized(fields.get("publish_readiness_status")) != "not_ready":
+            failures.append(f"Final legal wording review {file_name} must have publish_readiness_status: not_ready")
+
+        forbidden_assignments = [
+            "approved_for_publish: true",
+            "operator_acceptance_status: accepted",
+            "publish_readiness_status: publish_candidate",
+            "publish_readiness_status: approved_for_publish",
+            "publish_ready: true",
+            "current_stage: review_ready",
+            "current_stage: publish_candidate",
+            "legal_approval: true",
+            "legal_approval_status: approved",
+            "legal_wording_review_status: approved",
+            "gate_status: approved",
+            "final_source_list: true",
+            "final_article_preparation_approved: true",
+            "rechtliche_freigabe: true",
+        ]
+        lower_text = text.lower()
+        for fragment in forbidden_assignments:
+            if fragment in lower_text:
+                failures.append(f"Final legal wording review {file_name} must not contain forbidden assignment: {fragment}")
+
+    return len(found_files)
+
+
 def validate_mvp_operational_start_plan(failures: list[str]) -> int:
     if not MVP_OPERATIONAL_START_PLAN_PATH.exists():
         failures.append("Missing MVP operational start plan: docs/operations/MVP_OPERATIONAL_START_PLAN_BATCH_01.md")
@@ -2796,6 +2929,7 @@ def main() -> int:
     final_article_prep_gate_review_count = validate_final_article_prep_gate_reviews(failures)
     citation_display_label_review_count = validate_citation_display_label_reviews(failures)
     citation_text_prep_count = validate_citation_text_preps(failures)
+    final_legal_wording_review_count = validate_final_legal_wording_reviews(failures)
     mvp_operational_start_plan_count = validate_mvp_operational_start_plan(failures)
 
     if failures:
@@ -2827,6 +2961,7 @@ def main() -> int:
     print(f"- Batch 01 final article prep gate review files: {final_article_prep_gate_review_count}")
     print(f"- Batch 01 citation display label review files: {citation_display_label_review_count}")
     print(f"- Batch 01 citation text prep files: {citation_text_prep_count}")
+    print(f"- Batch 01 final legal wording review files: {final_legal_wording_review_count}")
     print(f"- Batch 01 MVP operational start plan files: {mvp_operational_start_plan_count}")
     print("- YAML/frontmatter parsing: dependency-free and text-based")
     return 0

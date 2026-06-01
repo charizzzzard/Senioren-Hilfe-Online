@@ -284,6 +284,19 @@ citation_text_status:
     - approved_for_publish
     - publish_ready
 
+legal_wording_review_status:
+  allowed:
+    - wording_review_prepared_no_legal_approval
+    - needs_review
+    - blocked
+    - superseded
+  forbidden_by_codex:
+    - approved
+    - accepted
+    - operator_accepted
+    - approved_for_publish
+    - publish_ready
+
 forbidden_transitions:
   - from: scaffold_only
     to: approved_for_publish
