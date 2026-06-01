@@ -5,19 +5,19 @@
 - project_name: Senioren-Hilfe Online
 - system_name: Senioren-Hilfe Online OS
 - system_short_name: SHO-OS
-- patch_title: FINAL_SOURCE_CITATION_FORMATTING_PREPARATION_BRIEF_002
+- patch_title: LEGAL_WORDING_REVIEW_PREPARATION_BRIEF_002
 - external_review_verdict: ACCEPTED_WITH_FINDINGS
 
 SHO-OS ist ein reproduzierbares Content-, Trust- und Publishing-System fuer seniorengerechte digitale Alltagshilfe in Deutschland.
 
-Dieser Patch bereitet die spaetere Quellenformatierung fuer Brief 002 vor. Er sammelt vorhandene Claim-/Source-Marker und markiert finale Quellenlabels sowie finale Zitationstexte weiter als offen. Er setzt keine Operator Acceptance, keine Publish Readiness, keine rechtliche Freigabe und keine Batch-Stage-Hochstufung.
+Dieser Patch bereitet eine konservative Legal-Wording-Review fuer Brief 002 vor. Er dokumentiert vorhandene sichere Formulierungsmarker, offene rechtliche/haftungsbezogene Pruefpunkte und die weiter blockierte WhatsApp-UI-Claim-Grenze. Er setzt keine Operator Acceptance, keine Publish Readiness, keine rechtliche Freigabe und keine Batch-Stage-Hochstufung.
 
 ## Git Traceability
 
 - branch: `main`
-- head_before: `e06c4dab25bcaa6863799b7bab6c13ef15ce6e88`
+- head_before: `7fa5e4343b17b5d5ad270853ed2d1e888fdbfd39`
 - intended_head_after: `assigned_after_commit`
-- origin_main_before: `e06c4dab25bcaa6863799b7bab6c13ef15ce6e88`
+- origin_main_before: `7fa5e4343b17b5d5ad270853ed2d1e888fdbfd39`
 - dirty_state_before: `clean`
 - dirty_state_after: `assigned_after_commit`
 - remote_url: `https://github.com/charizzzzard/Senioren-Hilfe-Online.git`
@@ -26,11 +26,12 @@ Hinweis: `head_after` wird nicht vorab als Commit-SHA eingetragen, weil ein Comm
 
 ## Scope Dieses Patches
 
-- Neues Source-Citation-Formatting-Prep-Artefakt erstellt: `docs/content/article_reviews/betrugsnachrichten-auf-whatsapp-erkennen.source-citation-formatting-prep.md`.
-- Vorhandene Marker dokumentiert: `SHO-CLAIM-004`, `SHO-CLAIM-005`, `SHO-CLAIM-006` mit `SHO-SRC-005`, `SHO-SRC-006`, `SHO-SRC-007`.
-- `SHO-CLAIM-007` bleibt blockiert und darf nicht fuer finale Zitationen genutzt werden.
-- `STATUS_REGISTRY.yaml` um `prep_status` fuer vorbereitende Artefakte ergaenzt.
-- `validate_content_contracts.py` um Source-Citation-Formatting-Prep-Checks erweitert.
+- Neues Legal-Wording-Review-Prep-Artefakt erstellt: `docs/content/article_reviews/betrugsnachrichten-auf-whatsapp-erkennen.legal-wording-review-prep.md`.
+- Vorhandene sichere Draft-Marker dokumentiert: keine Garantie, keine juristische Beratung, Draft Candidate, keine finale Anleitung.
+- Rechtliche Freigabe bleibt explizit aus: `legal_approval_status: not_approved`.
+- `SHO-CLAIM-007` bleibt blockiert und WhatsApp block/report UI instructions bleiben ausgeschlossen.
+- `STATUS_REGISTRY.yaml` um `legal_approval_status` fuer konservative Review-Prep-Artefakte ergaenzt.
+- `validate_content_contracts.py` um Legal-Wording-Review-Prep-Checks erweitert.
 - Batch bleibt `current_stage: claim_slots_mapped`.
 
 ## Non-Scope
@@ -46,14 +47,13 @@ Hinweis: `head_after` wird nicht vorab als Commit-SHA eingetragen, weil ein Comm
 - Keine Website.
 - Keine Monetarisierung.
 
-## Source Citation Formatting Prep Summary
+## Legal Wording Review Prep Summary
 
 - prep_status: `prepared_not_final`
 - operator_acceptance_status: `not_accepted`
 - publish_readiness_status: `not_ready`
-- final_display_label: `TBD_BY_OPERATOR_OR_SOURCE_FORMATTING_REVIEW`
-- final_citation_text: `TBD_BY_OPERATOR_OR_SOURCE_FORMATTING_REVIEW`
-- publication_ready: `no`
+- legal_approval_status: `not_approved`
+- legal wording result: preparation only; no legal advice and no legal approval.
 
 ## Guardrails
 
@@ -79,7 +79,7 @@ Hinweis: `head_after` wird nicht vorab als Commit-SHA eingetragen, weil ein Comm
 
 ## Files Changed Summary
 
-- `docs/content/article_reviews/betrugsnachrichten-auf-whatsapp-erkennen.source-citation-formatting-prep.md`
+- `docs/content/article_reviews/betrugsnachrichten-auf-whatsapp-erkennen.legal-wording-review-prep.md`
 - `docs/content/article_reviews/README.md`
 - `docs/operations/STATUS_REGISTRY.yaml`
 - `scripts/validate_content_contracts.py`
@@ -89,4 +89,4 @@ Hinweis: `head_after` wird nicht vorab als Commit-SHA eingetragen, weil ein Comm
 
 ## Keine finale Annahme durch Codex
 
-Source citation formatting preparation recorded, but no final source list, no legal approval, no publish readiness and no Operator Acceptance. Finale Annahme bleibt beim Human Operator.
+Legal wording review preparation recorded, but no legal advice, no legal approval, no publish readiness and no Operator Acceptance. Finale Annahme bleibt beim Human Operator.

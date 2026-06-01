@@ -2,20 +2,21 @@
 
 ## Zweck dieses Review-Pakets
 
-Dieses Review-Paket beschreibt den Patch `FINAL_SOURCE_CITATION_FORMATTING_PREPARATION_BRIEF_002`. Es bereitet die spaetere Quellenformatierung fuer den bestehenden Article Draft Candidate zu Brief 002 vor.
+Dieses Review-Paket beschreibt den Patch `LEGAL_WORDING_REVIEW_PREPARATION_BRIEF_002`. Es bereitet eine konservative Legal-Wording-Review fuer den bestehenden Article Draft Candidate zu Brief 002 vor.
 
 ## Scope dieses Patches
 
-- Genau ein Source-Citation-Formatting-Prep-Artefakt fuer Brief 002 erstellen.
-- Vorhandene Claim-/Source-Marker aus dem Draft sammeln.
-- Source IDs fuer spaetere Display Labels und Citation Text vorbereiten.
+- Genau ein Legal-Wording-Review-Prep-Artefakt fuer Brief 002 erstellen.
+- Vorhandene Sicherheits- und Disclaimer-Formulierungen aus dem Draft konservativ pruefen.
+- Rechtliche/haftungsbezogene Formulierungsrisiken fuer eine spaetere Human-Review sichtbar machen.
 - `SHO-CLAIM-007` weiter blockiert halten.
-- Keine finale Quellenliste, keine Operator Acceptance und keine Publish Readiness setzen.
+- Keine Rechtsberatung, keine rechtliche Freigabe, keine Operator Acceptance und keine Publish Readiness setzen.
 - Validator minimal erweitern, damit das Prep-Artefakt als erwartetes Artefakt geprueft wird.
 
 ## Primaere Review-Dateien
 
 - `external_review_packet/HANDOFF_LATEST_CONTEXT.md`
+- `docs/content/article_reviews/betrugsnachrichten-auf-whatsapp-erkennen.legal-wording-review-prep.md`
 - `docs/content/article_reviews/betrugsnachrichten-auf-whatsapp-erkennen.source-citation-formatting-prep.md`
 - `docs/operations/operator_decisions/HUMAN_OPERATOR_DECISION_BATCH01_BRIEF002_001.md`
 - `docs/content/article_reviews/betrugsnachrichten-auf-whatsapp-erkennen.legal-source-citation-review.md`
@@ -31,7 +32,7 @@ Dieses Review-Paket beschreibt den Patch `FINAL_SOURCE_CITATION_FORMATTING_PREPA
 
 ## Wichtiger Hinweis
 
-Source citation formatting preparation only. This is not a final source list, not legal approval, not publish readiness and not Operator Acceptance.
+Legal wording review preparation only. This is not legal advice, not legal approval, not publish readiness and not Operator Acceptance.
 
 ## Nicht in Scope
 
