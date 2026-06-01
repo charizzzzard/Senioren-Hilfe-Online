@@ -1,0 +1,35 @@
+batch_id: MVP_BATCH_01
+batch_name: MVP Content Batch 01
+current_stage: claim_slots_mapped
+operator_acceptance_status: not_accepted
+
+briefs:
+  - brief_id: SHO-MVP-BRIEF-001
+    path: docs/content/briefs/whatsapp-fuer-senioren-sicher-einrichten.md
+  - brief_id: SHO-MVP-BRIEF-002
+    path: docs/content/briefs/betrugsnachrichten-auf-whatsapp-erkennen.md
+  - brief_id: SHO-MVP-BRIEF-003
+    path: docs/content/briefs/smartphone-schriftgroesse-und-bedienhilfen-einstellen.md
+  - brief_id: SHO-MVP-BRIEF-004
+    path: docs/content/briefs/smartphone-fuer-senioren-einrichten.md
+
+research_inputs:
+  - docs/content/research_inputs/whatsapp-fuer-senioren-sicher-einrichten.research.md
+  - docs/content/research_inputs/betrugsnachrichten-auf-whatsapp-erkennen.research.md
+  - docs/content/research_inputs/smartphone-schriftgroesse-und-bedienhilfen-einstellen.research.md
+  - docs/content/research_inputs/smartphone-fuer-senioren-einrichten.research.md
+
+source_pack: docs/content/source_packs/operator-research-source-pack-batch-01.md
+claim_map: docs/content/claim_maps/source-to-claim-map-batch-01.md
+serp_observation: null
+
+known_blockers:
+  - WhatsApp platform sources still need manual review.
+  - SERP observation is not yet present.
+  - Exact quote/evidence extraction is not yet present.
+  - Screenshot/device-version validation is not yet present.
+
+non_acceptance:
+  - Batch is not publish-ready.
+  - Batch is not operator-accepted.
+  - No article draft exists.

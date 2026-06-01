@@ -1,0 +1,67 @@
+stage_status:
+  allowed:
+    - system_baseline
+    - operator_defined_brief_scaffold
+    - research_input_shell
+    - source_pack_shell
+    - source_candidates_added
+    - source_candidates_verified_partial
+    - claim_slots_mapped
+    - manual_source_review
+    - serp_observation
+    - research_enriched_brief_candidate
+    - article_draft_candidate
+    - review_ready
+    - publish_candidate
+    - operator_accepted
+
+research_status:
+  allowed:
+    - not_researched
+    - source_candidates_added
+    - source_candidates_verified_partial
+    - claim_slots_mapped
+    - serp_observed
+    - research_enriched_candidate
+  forbidden_by_codex:
+    - operator_accepted
+    - approved_for_publish
+
+source_pack_status:
+  allowed:
+    - source_pack_shell
+    - source_candidates_added
+    - source_candidates_verified_partial
+
+source_status:
+  allowed:
+    - missing
+    - candidate
+    - verified
+    - rejected
+    - stale
+    - partial_verified
+    - verified_sources_available
+    - verified_sources_available_with_duplicate_rejected
+
+claim_map_status:
+  allowed:
+    - claim_slots_mapped
+
+operator_acceptance_status:
+  allowed:
+    - not_accepted
+    - accepted
+  forbidden_by_codex:
+    - accepted
+
+forbidden_transitions:
+  - from: scaffold_only
+    to: approved_for_publish
+  - from: source_candidates_added
+    to: research_enriched
+  - from: claim_slots_mapped
+    to: approved_for_publish
+  - from: any
+    to: operator_accepted
+    actor: codex

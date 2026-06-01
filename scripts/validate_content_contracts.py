@@ -34,6 +34,14 @@ REQUIRED_DOCS = [
     "docs/content/claim_maps/README.md",
     "docs/content/claim_maps/CLAIM_MAP_TEMPLATE.md",
     "docs/content/claim_maps/source-to-claim-map-batch-01.md",
+    "docs/operations/CONTENT_RESEARCH_OPERATING_PROTOCOL.md",
+    "docs/operations/RESEARCH_BATCH_STAGE_MODEL.md",
+    "docs/operations/CODEX_EXECUTOR_BOUNDARY.md",
+    "docs/content/BATCH_WORKFLOW_TEMPLATE.md",
+    "docs/operations/NEXT_STAGE_DECISION_TREE.md",
+    "docs/operations/STATUS_REGISTRY.yaml",
+    "docs/content/batches/MVP_BATCH_01.yaml",
+    "scripts/validate_stage_transitions.py",
 ]
 
 REQUIRED_BACKLOG_FIELDS = {
@@ -179,6 +187,33 @@ REQUIRED_CLAIM_MAP_FIELDS = {
     "operator_acceptance_status",
 }
 
+PROTOCOL_REQUIRED_TERMS = {
+    "docs/operations/CONTENT_RESEARCH_OPERATING_PROTOCOL.md": [
+        "operator_defined_brief_scaffold",
+        "research_input_shell",
+        "source_pack_shell",
+        "source_candidates_added",
+        "source_candidates_verified_partial",
+        "claim_slots_mapped",
+        "operator_accepted",
+    ],
+    "docs/operations/CODEX_EXECUTOR_BOUNDARY.md": [
+        "codex darf nicht",
+        "operator acceptance",
+        "keine quellen recherchieren",
+        "keine claims formulieren",
+    ],
+    "docs/operations/RESEARCH_BATCH_STAGE_MODEL.md": [
+        "verbotene spr",
+        "review_required",
+        "blocked",
+    ],
+    "docs/operations/STATUS_REGISTRY.yaml": [
+        "forbidden_transitions",
+        "forbidden_by_codex",
+    ],
+}
+
 
 def parse_simple_list_items(text: str, item_start_key: str) -> list[dict[str, str]]:
     """Parse a constrained YAML list whose entries start with a known key."""
@@ -252,6 +287,34 @@ def validate_required_docs(failures: list[str]) -> None:
     for rel_path in REQUIRED_DOCS:
         if not (ROOT / rel_path).exists():
             failures.append(f"Missing required file: {rel_path}")
+
+
+def validate_protocol_automation_files(failures: list[str]) -> None:
+    for rel_path, required_terms in PROTOCOL_REQUIRED_TERMS.items():
+        path = ROOT / rel_path
+        if not path.exists():
+            failures.append(f"Missing protocol automation file: {rel_path}")
+            continue
+
+        text = path.read_text(encoding="utf-8").lower()
+        for term in required_terms:
+            if term.lower() not in text:
+                failures.append(f"{rel_path} must contain required marker: {term}")
+
+    batch_manifest = ROOT / "docs/content/batches/MVP_BATCH_01.yaml"
+    if batch_manifest.exists():
+        text = batch_manifest.read_text(encoding="utf-8")
+        required_fragments = [
+            "batch_id: MVP_BATCH_01",
+            "current_stage: claim_slots_mapped",
+            "operator_acceptance_status: not_accepted",
+            "claim_map: docs/content/claim_maps/source-to-claim-map-batch-01.md",
+        ]
+        for fragment in required_fragments:
+            if fragment not in text:
+                failures.append(f"Batch manifest must contain: {fragment}")
+        if "approved_for_publish" in text or "research_enriched" in text:
+            failures.append("Batch manifest must not contain approved_for_publish or research_enriched")
 
 
 def validate_backlog(failures: list[str]) -> int:
@@ -694,6 +757,7 @@ def main() -> int:
     failures: list[str] = []
 
     validate_required_docs(failures)
+    validate_protocol_automation_files(failures)
     backlog_count = validate_backlog(failures)
     brief_count = validate_brief_scaffolds(failures)
     research_count = validate_research_inputs(failures)

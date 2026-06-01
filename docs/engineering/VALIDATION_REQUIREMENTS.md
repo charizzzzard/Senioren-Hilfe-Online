@@ -128,6 +128,35 @@ Der Validator prüft für Batch 01 zusätzlich:
 - Research-Input-Dateien verweisen auf die Batch-01-Claim-Map.
 - Claim Map, Research Inputs und Briefs enthalten kein `research_enriched` und kein `approved_for_publish`.
 
+## Operating-Protocol- und Automation-Baseline-Checks
+
+Der Validator prueft zusaetzlich:
+
+- Existenz von `docs/operations/CONTENT_RESEARCH_OPERATING_PROTOCOL.md`.
+- Existenz von `docs/operations/RESEARCH_BATCH_STAGE_MODEL.md`.
+- Existenz von `docs/operations/CODEX_EXECUTOR_BOUNDARY.md`.
+- Existenz von `docs/content/BATCH_WORKFLOW_TEMPLATE.md`.
+- Existenz von `docs/operations/NEXT_STAGE_DECISION_TREE.md`.
+- Existenz von `docs/operations/STATUS_REGISTRY.yaml`.
+- Existenz von `docs/content/batches/MVP_BATCH_01.yaml`.
+- Existenz von `scripts/validate_stage_transitions.py`.
+- Das Operating Protocol enthaelt die etablierte Stage-Kette bis `operator_accepted`.
+- Die Codex Executor Boundary enthaelt explizite Nicht-Duerfen-Regeln, Operator Acceptance und Quellen-/Claim-Grenzen.
+- Das Stage-Modell enthaelt verbotene Spruenge sowie `REVIEW_REQUIRED` und `BLOCKED`.
+- Die Status Registry enthaelt `forbidden_transitions` und `forbidden_by_codex`.
+
+## Stage-Transition-Validator-Skeleton
+
+`scripts/validate_stage_transitions.py` prueft dependency-free und textbasiert:
+
+- `docs/operations/STATUS_REGISTRY.yaml` existiert.
+- `docs/content/batches/MVP_BATCH_01.yaml` existiert.
+- `MVP_BATCH_01` steht auf `current_stage: claim_slots_mapped`.
+- Operator Acceptance ist nicht gesetzt.
+- Das Batch Manifest enthaelt kein `approved_for_publish` und kein `research_enriched`.
+
+Der Check ist ein Skeleton und ersetzt keine vollstaendige Transition Engine.
+
 ## Verbleibende spätere Checks
 
 - Echtes YAML-Parsing.
@@ -162,3 +191,12 @@ Der Validator prüft für Batch 01 zusätzlich:
 - Evidence-Gap-Tracking.
 - Staleness- und `last_reviewed`-Check.
 - Publish-Gate-Validator.
+- Operating Protocol presence checks.
+- Status Registry checks.
+- Batch Manifest checks.
+- Stage Transition Validator Skeleton.
+- Vollstaendige Transition Engine.
+- `batch_id`-parametrisierte Validatoren.
+- Handoff Builder.
+- Quality Gate Summary.
+- CI-Integration.

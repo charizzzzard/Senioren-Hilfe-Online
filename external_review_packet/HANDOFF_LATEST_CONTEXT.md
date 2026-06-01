@@ -5,19 +5,19 @@
 - project_name: Senioren-Hilfe Online
 - system_name: Senioren-Hilfe Online OS
 - system_short_name: SHO-OS
-- patch_title: SOURCE_TO_CLAIM_MAPPING_BATCH_01_FROM_OPERATOR_SPEC
+- patch_title: CONTENT_RESEARCH_PROTOCOL_AND_AUTOMATION_BASELINE
 - external_review_verdict: ACCEPTED_WITH_FINDINGS
 
-SHO-OS ist ein reproduzierbares Content-, Trust- und Publishing-System für seniorengerechte digitale Alltagshilfe in Deutschland.
+SHO-OS ist ein reproduzierbares Content-, Trust- und Publishing-System fuer seniorengerechte digitale Alltagshilfe in Deutschland.
 
-Diese Baseline und dieser Patch nutzen Operator-Definitionen als maßgebliche Vorgabe. Es werden keine eigenen Markt-, SEO-, Umsatz-, Ranking-, Keyword-, SERP- oder Conversion-Claims ergänzt.
+Dieser Patch dokumentiert das wiederverwendbare Operating Protocol und legt erste Automatisierungsanker an. Er fuegt keine neuen Inhalte, Quellen, Claims, SERP-Daten, Artikel, Website, Monetarisierung oder Acceptance hinzu.
 
 ## Git Traceability
 
 - branch: `main`
-- head_before: `4505ce0aa416ae5be0b85ece9c2f1e08dd99ae0f`
+- head_before: `19f348bc85c06ad0dcfd70e53e6455b86c2790e8`
 - intended_head_after: `assigned_after_commit`
-- origin_main_before: `4505ce0aa416ae5be0b85ece9c2f1e08dd99ae0f`
+- origin_main_before: `19f348bc85c06ad0dcfd70e53e6455b86c2790e8`
 - dirty_state_before: `clean`
 - dirty_state_after: `assigned_after_commit`
 - remote_url: `https://github.com/charizzzzard/Senioren-Hilfe-Online.git`
@@ -26,59 +26,70 @@ Hinweis: `head_after` wird nicht vorab als Commit-SHA eingetragen, weil ein Comm
 
 ## Scope Dieses Patches
 
-- Claim-Map-Ordner und Claim-Map-Template angelegt.
-- Batch-01-Source-to-Claim-Map mit exakt 14 Operator-Claims angelegt.
-- Vier bestehende Research-Input-Dateien minimal mit Claim-Map-Pfad und Status verknüpft.
-- Dependency-freier Validator um Claim-Map-Struktur- und Statusprüfungen erweitert.
-- Findings Register für Claim-Map-Kontext aktualisiert.
-- Claim Map ist kein Artikeltext, keine Quellenannahme, keine Publish-Readiness und keine Operator Acceptance.
+- Content Research Operating Protocol angelegt.
+- Research Batch Stage Model dokumentiert.
+- Codex Executor Boundary explizit festgehalten.
+- Batch Workflow Template angelegt.
+- Next Stage Decision Tree angelegt.
+- Maschinenlesbare Status Registry als Baseline angelegt.
+- Batch Manifest fuer `MVP_BATCH_01` angelegt.
+- Dependency-free Stage-Transition-Validator als Skeleton implementiert.
+- Bestehenden Content-Contract-Validator um Protocol-/Automation-Pruefungen erweitert.
+- Findings Register fuer Operating-Protocol- und Automation-Baseline aktualisiert.
 
 ## Non-Scope
 
-- Keine produktive Website.
-- Keine finalen Artikel.
-- Keine SERP-Recherche.
-- Keine Keyword-Recherche.
-- Keine neue Recherche.
+- Keine neuen Content-Themen.
+- Keine neuen Brief Scaffolds.
 - Keine neuen Quellen oder Quellenlinks.
-- Keine URL-Änderungen.
-- Kein `research_enriched`-Status.
-- Kein `approved_for_publish`-Status.
-- Keine neuen Claims außerhalb der Operator-Spezifikation.
-- Kein Artikeltext.
+- Keine Source Verification Changes.
+- Keine Claim-Aenderungen.
+- Keine SERP-Daten.
+- Keine Keyword-Daten.
+- Keine Artikelentwuerfe.
+- Keine Website.
 - Keine Monetarisierung.
 - Keine Affiliate-Links oder Ads.
-- Keine Marktvalidierungsclaims.
-- Keine finale Annahme durch Codex/OpenClaw.
+- Kein `research_enriched`-Status.
+- Kein `approved_for_publish`-Status.
+- Keine Operator Acceptance Simulation.
+- Keine vollstaendige Transition Engine.
+- Keine CI-Integration.
 
 ## Carried-forward Findings
 
 | finding_id | status | Hinweis |
 | --- | --- | --- |
-| SHO-BL-001 | partially_resolved | Preflight-HEAD und `origin/main` wurden real dokumentiert; finale Patch-SHA steht nach Commit/Push im Abschlussbericht. |
-| SHO-BL-002 | partially_resolved | Validator wurde um Claim-Map-Prüfungen gehärtet, bleibt aber dependency-free und textbasiert. |
-| SHO-BL-003 | partially_resolved | Handoff-Kontext enthält reale Branch-, HEAD-, Remote-, Dirty-State- und Claim-Map-Patch-Werte. |
-| SHO-BL-004 | partially_resolved | Claim-Map-State-Modell nutzt `claim_slots_mapped`, ohne `research_enriched` oder Publish-Freigabe zu setzen. |
-| SHO-BL-005 | carried_forward | Maschinenlesbare Publish-Gates im Artikeltemplate bleiben späterer Scope. |
-| SHO-BL-006 | carried_forward | Eigene Kaufberatungsmethodik bleibt späterer Scope. |
+| SHO-BL-001 | partially_resolved | Preflight-HEAD und `origin/main` werden real dokumentiert; finale Patch-SHA steht nach Commit/Push im Abschlussbericht. |
+| SHO-BL-002 | partially_resolved | Validator wurde um Protocol-/Automation-Pruefungen erweitert, bleibt aber dependency-free und textbasiert. |
+| SHO-BL-003 | partially_resolved | Handoff-Kontext enthaelt reale Branch-, HEAD-, Remote-, Dirty-State- und Protocol-Patch-Werte. |
+| SHO-BL-004 | partially_resolved | Stage-Modell, Status Registry und verbotene Transitions wurden dokumentiert. |
+| SHO-BL-005 | carried_forward | Maschinenlesbare Publish-Gates im Artikeltemplate bleiben spaeterer Scope. |
+| SHO-BL-006 | carried_forward | Eigene Kaufberatungsmethodik bleibt spaeterer Scope. |
+| SHO-OPS-001 | recorded | Operating Protocol formalized. |
+| SHO-OPS-002 | recorded | Status Registry baseline added. |
+| SHO-OPS-003 | recorded | Stage Transition Validator skeleton added. |
 
 ## Validation Commands
 
 - `python scripts/validate_content_contracts.py`
+- `python scripts/validate_stage_transitions.py`
 - `python -m py_compile scripts/validate_content_contracts.py`
+- `python -m py_compile scripts/validate_stage_transitions.py`
 - `git status --short --branch`
 - `git diff --stat`
 - `git diff --name-status`
 
 ## Files Changed Summary
 
-- `docs/content/claim_maps/README.md`
-- `docs/content/claim_maps/CLAIM_MAP_TEMPLATE.md`
-- `docs/content/claim_maps/source-to-claim-map-batch-01.md`
-- `docs/content/source_packs/README.md`
-- `docs/content/source_packs/SOURCE_PACK_TEMPLATE.md`
-- `docs/content/source_packs/operator-research-source-pack-batch-01.md`
-- `docs/content/research_inputs/*.research.md`
+- `docs/operations/CONTENT_RESEARCH_OPERATING_PROTOCOL.md`
+- `docs/operations/RESEARCH_BATCH_STAGE_MODEL.md`
+- `docs/operations/CODEX_EXECUTOR_BOUNDARY.md`
+- `docs/content/BATCH_WORKFLOW_TEMPLATE.md`
+- `docs/operations/NEXT_STAGE_DECISION_TREE.md`
+- `docs/operations/STATUS_REGISTRY.yaml`
+- `docs/content/batches/MVP_BATCH_01.yaml`
+- `scripts/validate_stage_transitions.py`
 - `scripts/validate_content_contracts.py`
 - `docs/engineering/VALIDATION_REQUIREMENTS.md`
 - `docs/operations/REVIEW_FINDINGS_REGISTER.md`
@@ -87,4 +98,4 @@ Hinweis: `head_after` wird nicht vorab als Commit-SHA eingetragen, weil ein Comm
 
 ## Keine finale Annahme durch Codex
 
-Codex/OpenClaw operationalisiert die Baseline und die Brief-Scaffolds. Finale Annahme bleibt beim Human Operator.
+Codex/OpenClaw operationalisiert Operator-/Research-Inputs und Repo-Protokolle. Finale Annahme bleibt beim Human Operator.
