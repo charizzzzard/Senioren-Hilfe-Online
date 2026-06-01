@@ -148,6 +148,13 @@ review_status:
     - not_ready
     - blocked
     - approved_for_publish
+  human_controlled:
+    - approved_for_publish
+  forbidden_by_codex:
+    - accepted
+    - operator_accepted
+    - approved_for_publish
+    - publish_ready
 
 forbidden_transitions:
   - from: scaffold_only

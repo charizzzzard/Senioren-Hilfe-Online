@@ -17,6 +17,12 @@ STATUS_REGISTRY = ROOT / "docs/operations/STATUS_REGISTRY.yaml"
 BATCH_MANIFEST = ROOT / "docs/content/batches/MVP_BATCH_01.yaml"
 SOURCE_PACK = ROOT / "docs/content/source_packs/operator-research-source-pack-batch-01.md"
 EVIDENCE_CAPTURE = ROOT / "docs/content/evidence_captures/whatsapp-line-evidence-capture-batch-01.md"
+ARTICLE_DRAFT_CANDIDATE = (
+    ROOT
+    / "docs/content/article_draft_candidates/betrugsnachrichten-auf-whatsapp-erkennen.article-draft-candidate.md"
+)
+ARTICLE_REVIEW = ROOT / "docs/content/article_reviews/betrugsnachrichten-auf-whatsapp-erkennen.review.md"
+REVIEW_FINDINGS_REGISTER = ROOT / "docs/operations/REVIEW_FINDINGS_REGISTER.md"
 
 
 def fail_if_missing(path: Path, failures: list[str]) -> str:
@@ -26,6 +32,19 @@ def fail_if_missing(path: Path, failures: list[str]) -> str:
     return path.read_text(encoding="utf-8")
 
 
+def has_forbidden_assignment(text: str) -> bool:
+    forbidden_patterns = [
+        "operator_acceptance_status: accepted",
+        "approved_for_publish: true",
+        "review_status: approved_for_publish",
+        "publish_ready: true",
+        "article_status: publish_candidate",
+        "article_status: review_ready",
+    ]
+    lower_text = text.lower()
+    return any(pattern in lower_text for pattern in forbidden_patterns)
+
+
 def main() -> int:
     failures: list[str] = []
 
@@ -33,6 +52,9 @@ def main() -> int:
     batch_text = fail_if_missing(BATCH_MANIFEST, failures)
     source_pack_text = fail_if_missing(SOURCE_PACK, failures)
     evidence_text = EVIDENCE_CAPTURE.read_text(encoding="utf-8") if EVIDENCE_CAPTURE.exists() else ""
+    article_candidate_text = fail_if_missing(ARTICLE_DRAFT_CANDIDATE, failures)
+    article_review_text = fail_if_missing(ARTICLE_REVIEW, failures)
+    findings_register_text = fail_if_missing(REVIEW_FINDINGS_REGISTER, failures)
 
     if registry_text:
         if "forbidden_transitions" not in registry_text:
@@ -97,12 +119,20 @@ def main() -> int:
                 failures.append("Article draft candidates require MVP_BATCH_01 to remain at claim_slots_mapped")
             if "operator_acceptance_status: not_accepted" not in batch_text:
                 failures.append("Article draft candidates require operator_acceptance_status: not_accepted")
+            if "review_status: re_review_passed_not_publish_ready" not in article_candidate_text:
+                failures.append(
+                    "Brief 002 article draft candidate must stay at review_status: re_review_passed_not_publish_ready"
+                )
 
         if "article_reviews:" in batch_text:
             if "current_stage: claim_slots_mapped" not in batch_text:
                 failures.append("Article reviews require MVP_BATCH_01 to remain at claim_slots_mapped")
             if "operator_acceptance_status: not_accepted" not in batch_text:
                 failures.append("Article reviews require operator_acceptance_status: not_accepted")
+            if "review_status: review_completed_with_findings" not in article_review_text:
+                failures.append("Article review must retain original review_status: review_completed_with_findings")
+            if "re_review_status: re_review_passed_not_publish_ready" not in article_review_text:
+                failures.append("Article review must contain separate re_review_status: re_review_passed_not_publish_ready")
 
         if "article_draft_candidate_fixes:" in batch_text:
             if "current_stage: claim_slots_mapped" not in batch_text:
@@ -119,6 +149,71 @@ def main() -> int:
             failures.append(
                 "Line evidence must not be available while WhatsApp source pack rows still show needs_manual_review without a verification patch"
             )
+
+    if article_candidate_text:
+        required_candidate_fragments = [
+            "article_status: article_draft_candidate",
+            "review_status: re_review_passed_not_publish_ready",
+            "operator_acceptance_status: not_accepted",
+            "SHO-CLAIM-007 remains blocked",
+            "Explicit Non-Acceptance",
+        ]
+        for fragment in required_candidate_fragments:
+            if fragment not in article_candidate_text:
+                failures.append(f"Article draft candidate must contain: {fragment}")
+        if "[claim: SHO-CLAIM-007" in article_candidate_text:
+            failures.append("SHO-CLAIM-007 must not be used as a draft candidate evidence marker")
+        if has_forbidden_assignment(article_candidate_text):
+            failures.append("Article draft candidate contains a forbidden publish/review assignment")
+        lower_candidate = article_candidate_text.lower()
+        forbidden_candidate_fragments = [
+            "affiliate-link",
+            "affiliate link",
+            "product recommendation",
+            "produktempfehlung:",
+            "empfohlenes produkt",
+            "jetzt kaufen",
+            "tippen sie auf blockieren",
+            "tippen sie auf melden",
+            "kontakt blockieren",
+            "chat melden",
+        ]
+        for fragment in forbidden_candidate_fragments:
+            if fragment in lower_candidate:
+                failures.append(f"Article draft candidate must not contain forbidden fragment: {fragment}")
+
+    if article_review_text:
+        required_review_fragments = [
+            "review_status: review_completed_with_findings",
+            "operator_acceptance_status: not_accepted",
+            "Fix Patch Link",
+            "Re-Review Result",
+            "re_review_status: re_review_passed_not_publish_ready",
+            "SHO-ARTICLE-002-UX-001 | fixed_pending_re_review | re_review_passed",
+            "SHO-ARTICLE-002-UX-002 | fixed_pending_re_review | re_review_passed",
+            "SHO-ARTICLE-002-SAFE-001 | fixed_pending_re_review | re_review_passed",
+            "SHO-ARTICLE-002-SRC-001 | fixed_pending_re_review | re_review_passed",
+            "Explicit Non-Acceptance",
+        ]
+        for fragment in required_review_fragments:
+            if fragment not in article_review_text:
+                failures.append(f"Article review must contain: {fragment}")
+        if has_forbidden_assignment(article_review_text):
+            failures.append("Article review contains a forbidden publish/review assignment")
+
+    if findings_register_text:
+        required_register_fragments = [
+            "SHO-ARTICLE-002-UX-001 | article_draft_candidate_review | P2 | re_review_passed",
+            "SHO-ARTICLE-002-UX-002 | article_draft_candidate_review | P2 | re_review_passed",
+            "SHO-ARTICLE-002-SAFE-001 | article_draft_candidate_review | P2 | re_review_passed",
+            "SHO-ARTICLE-002-SRC-001 | article_draft_candidate_review | P2 | re_review_passed",
+            "SHO-ARTICLE-002-GATE-001 | article_draft_candidate_review | P1 | pass_carried_forward",
+            "SHO-ARTICLE-002-MON-001 | article_draft_candidate_review | P1 | pass_carried_forward",
+            "SHO-ARTICLE-002-PUB-001 | article_draft_candidate_review | P1 | pass_carried_forward",
+        ]
+        for fragment in required_register_fragments:
+            if fragment not in findings_register_text:
+                failures.append(f"Review findings register must contain hardened status row: {fragment}")
 
     if failures:
         print("FAIL: SHO-OS stage transition skeleton validation failed")

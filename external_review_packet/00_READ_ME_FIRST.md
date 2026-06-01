@@ -2,15 +2,15 @@
 
 ## Zweck dieses Review-Pakets
 
-Dieses Review-Paket beschreibt den Patch `ARTICLE_DRAFT_CANDIDATE_RE_REVIEW_BATCH_01_BRIEF_002`. Es soll einem externen Review ermoeglichen, das bestandene Re-Review des gefixten Brief-002-Draft-Candidate zu pruefen.
+Dieses Review-Paket beschreibt den Patch `STAGE_TRANSITION_VALIDATOR_HARDENING_AFTER_ARTICLE_RE_REVIEW`. Es soll einem externen Review ermoeglichen, die gehaerteten Validator-Gates nach dem bestandenen Brief-002-Re-Review zu pruefen.
 
 ## Scope dieses Patches
 
-- Bestehenden Brief-002-Draft-Candidate formal re-reviewen.
-- Vier fixierte Findings als `re_review_passed` dokumentieren.
-- Draft Candidate auf `review_status: re_review_passed_not_publish_ready` setzen.
-- Batch Manifest ohne Stage-Hochstufung praezisieren.
-- Validatoren um Re-Review-Checks erweitern.
+- Content-Contract-Validator um Cross-File-Gates fuer Draft Candidate, Article Review, Findings Register und Status Registry haerten.
+- Stage-Transition-Validator um konservative Artikel-/Review-/Batch-Gates haerten.
+- `approved_for_publish` als human-controlled und fuer Codex verboten dokumentieren.
+- Unterschied zwischen Draft-Candidate-Review-Status, Article-Review-Re-Review-Status und Batch-Stage maschinenlesbar absichern.
+- Batch Manifest ohne Stage-Hochstufung beibehalten.
 
 ## Primaere Review-Dateien
 
@@ -18,6 +18,7 @@ Dieses Review-Paket beschreibt den Patch `ARTICLE_DRAFT_CANDIDATE_RE_REVIEW_BATC
 - `docs/content/article_draft_candidates/betrugsnachrichten-auf-whatsapp-erkennen.article-draft-candidate.md`
 - `docs/content/article_reviews/betrugsnachrichten-auf-whatsapp-erkennen.review.md`
 - `docs/content/batches/MVP_BATCH_01.yaml`
+- `docs/operations/STATUS_REGISTRY.yaml`
 - `scripts/validate_content_contracts.py`
 - `scripts/validate_stage_transitions.py`
 - `docs/engineering/VALIDATION_REQUIREMENTS.md`
@@ -25,7 +26,7 @@ Dieses Review-Paket beschreibt den Patch `ARTICLE_DRAFT_CANDIDATE_RE_REVIEW_BATC
 
 ## Wichtiger Hinweis
 
-Re-review passed, but this is not publish readiness and not Operator Acceptance.
+Validator hardening only. This is not publish readiness and not Operator Acceptance.
 
 ## Nicht in Scope
 

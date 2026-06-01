@@ -117,6 +117,9 @@ SOURCE_PACK_PATH = ROOT / "docs/content/source_packs/operator-research-source-pa
 SOURCE_PACK_REL_PATH = "docs/content/source_packs/operator-research-source-pack-batch-01.md"
 CLAIM_MAP_PATH = ROOT / "docs/content/claim_maps/source-to-claim-map-batch-01.md"
 CLAIM_MAP_REL_PATH = "docs/content/claim_maps/source-to-claim-map-batch-01.md"
+BATCH_MANIFEST_PATH = ROOT / "docs/content/batches/MVP_BATCH_01.yaml"
+STATUS_REGISTRY_PATH = ROOT / "docs/operations/STATUS_REGISTRY.yaml"
+REVIEW_FINDINGS_REGISTER_PATH = ROOT / "docs/operations/REVIEW_FINDINGS_REGISTER.md"
 SOURCE_REVIEW_PATH = ROOT / "docs/content/source_reviews/whatsapp-source-manual-review-batch-01.md"
 SOURCE_REVIEW_REL_PATH = "docs/content/source_reviews/whatsapp-source-manual-review-batch-01.md"
 EVIDENCE_CAPTURE_PATH = ROOT / "docs/content/evidence_captures/whatsapp-line-evidence-capture-batch-01.md"
@@ -397,9 +400,8 @@ def validate_protocol_automation_files(failures: list[str]) -> None:
             if term.lower() not in text:
                 failures.append(f"{rel_path} must contain required marker: {term}")
 
-    batch_manifest = ROOT / "docs/content/batches/MVP_BATCH_01.yaml"
-    if batch_manifest.exists():
-        text = batch_manifest.read_text(encoding="utf-8")
+    if BATCH_MANIFEST_PATH.exists():
+        text = BATCH_MANIFEST_PATH.read_text(encoding="utf-8")
         required_fragments = [
             "batch_id: MVP_BATCH_01",
             "current_stage: claim_slots_mapped",
@@ -409,6 +411,11 @@ def validate_protocol_automation_files(failures: list[str]) -> None:
             f"- {EVIDENCE_CAPTURE_REL_PATH}",
             f"serp_observation: {SERP_OBSERVATION_REL_PATH}",
             f"- {ARTICLE_REVIEW_REL_PATH}",
+            "article_draft_candidates:",
+            "article_reviews:",
+            "article_draft_candidate_fixes:",
+            "Brief 002 draft candidate fix re-review passed, but no publish readiness is set.",
+            "No final article draft exists.",
             "serp_status: observed",
             "serp_observation_status: operator_research_observed",
             "serp_review_status: needs_review",
@@ -429,6 +436,67 @@ def validate_protocol_automation_files(failures: list[str]) -> None:
         for fragment in forbidden_fragments:
             if fragment in text:
                 failures.append(f"Batch manifest must not contain: {fragment}")
+        if "No article draft exists." in text:
+            failures.append("Batch manifest must use 'No final article draft exists.' after draft candidate creation")
+
+    if STATUS_REGISTRY_PATH.exists():
+        registry_text = STATUS_REGISTRY_PATH.read_text(encoding="utf-8")
+        required_status_fragments = [
+            "re_review_passed",
+            "re_review_passed_not_publish_ready",
+            "human_controlled:",
+            "approved_for_publish",
+            "forbidden_by_codex:",
+            "publish_ready",
+            "operator_accepted",
+        ]
+        for fragment in required_status_fragments:
+            if fragment not in registry_text:
+                failures.append(f"STATUS_REGISTRY.yaml must contain hardened status marker: {fragment}")
+
+        if "approved_for_publish\n" in registry_text and "forbidden_by_codex:" not in registry_text:
+            failures.append("STATUS_REGISTRY.yaml must document approved_for_publish as forbidden for Codex")
+
+
+def validate_review_findings_register(failures: list[str]) -> None:
+    if not REVIEW_FINDINGS_REGISTER_PATH.exists():
+        failures.append("Missing review findings register: docs/operations/REVIEW_FINDINGS_REGISTER.md")
+        return
+
+    lines = REVIEW_FINDINGS_REGISTER_PATH.read_text(encoding="utf-8").splitlines()
+    by_id = {}
+    for line in lines:
+        if line.startswith("| SHO-"):
+            parts = [part.strip() for part in line.strip("|").split("|")]
+            if parts:
+                by_id[parts[0]] = parts
+
+    expected_re_review_passed = [
+        "SHO-ARTICLE-002-UX-001",
+        "SHO-ARTICLE-002-UX-002",
+        "SHO-ARTICLE-002-SAFE-001",
+        "SHO-ARTICLE-002-SRC-001",
+    ]
+    for finding_id in expected_re_review_passed:
+        parts = by_id.get(finding_id)
+        if not parts:
+            failures.append(f"Review findings register must contain {finding_id}")
+            continue
+        if len(parts) < 4 or parts[3] != "re_review_passed":
+            failures.append(f"Review finding {finding_id} must have status re_review_passed")
+
+    expected_guardrails = [
+        "SHO-ARTICLE-002-GATE-001",
+        "SHO-ARTICLE-002-MON-001",
+        "SHO-ARTICLE-002-PUB-001",
+    ]
+    for finding_id in expected_guardrails:
+        parts = by_id.get(finding_id)
+        if not parts:
+            failures.append(f"Review findings register must contain {finding_id}")
+            continue
+        if len(parts) < 4 or parts[3] != "pass_carried_forward":
+            failures.append(f"Guardrail finding {finding_id} must stay pass_carried_forward")
 
 
 def validate_backlog(failures: list[str]) -> int:
@@ -1397,8 +1465,15 @@ def validate_article_draft_candidates(failures: list[str]) -> int:
             failures.append(f"Article draft candidate {file_name} must have article_status: article_draft_candidate")
         if normalized(fields.get("review_status")) != "re_review_passed_not_publish_ready":
             failures.append(f"Article draft candidate {file_name} must have review_status: re_review_passed_not_publish_ready")
-        if normalized(fields.get("operator_acceptance_status")) == "accepted":
-            failures.append(f"Article draft candidate {file_name} must not have accepted operator status")
+        if normalized(fields.get("operator_acceptance_status")) != "not_accepted":
+            failures.append(f"Article draft candidate {file_name} must have operator_acceptance_status: not_accepted")
+
+        if "article_status: publish_candidate" in text_lower or "article_status: review_ready" in text_lower:
+            failures.append(f"Article draft candidate {file_name} must not be review_ready or publish_candidate")
+        if "SHO-CLAIM-007 remains blocked" not in text:
+            failures.append(f"Article draft candidate {file_name} must preserve SHO-CLAIM-007 as blocked")
+        if "SHO-CLAIM-007" in text and "[claim: SHO-CLAIM-007" in text:
+            failures.append(f"Article draft candidate {file_name} must not use SHO-CLAIM-007 as an evidence marker")
 
         forbidden_fragments = [
             "ranking guarantee",
@@ -1406,10 +1481,29 @@ def validate_article_draft_candidates(failures: list[str]) -> int:
             "keyword difficulty",
             "affiliate",
             "product recommendation",
+            "affiliate-link",
+            "affiliate link",
+            "produktempfehlung:",
+            "empfohlenes produkt",
+            "jetzt kaufen",
+            "kaufen sie dieses",
         ]
         for fragment in forbidden_fragments:
             if fragment in text_lower:
                 failures.append(f"Article draft candidate {file_name} must not contain: {fragment}")
+        forbidden_whatsapp_ui_steps = [
+            "tippen sie auf blockieren",
+            "tippen sie auf melden",
+            "kontakt blockieren",
+            "chat melden",
+            "menue > blockieren",
+            "menü > blockieren",
+            "einstellungen > blockieren",
+            "blockieren-tipps",
+        ]
+        for fragment in forbidden_whatsapp_ui_steps:
+            if fragment in text_lower:
+                failures.append(f"Article draft candidate {file_name} must not contain WhatsApp UI instruction: {fragment}")
         forbidden_transliterations = [
             "Pruefen",
             "pruefen",
@@ -1471,6 +1565,14 @@ def validate_article_reviews(failures: list[str]) -> int:
             "Re-Review Result",
             "ARTICLE_DRAFT_CANDIDATE_RE_REVIEW_BATCH_01_BRIEF_002",
             "re_review_status: re_review_passed_not_publish_ready",
+            "Re-Review Finding Results",
+            "SHO-ARTICLE-002-UX-001 | fixed_pending_re_review | re_review_passed",
+            "SHO-ARTICLE-002-UX-002 | fixed_pending_re_review | re_review_passed",
+            "SHO-ARTICLE-002-SAFE-001 | fixed_pending_re_review | re_review_passed",
+            "SHO-ARTICLE-002-SRC-001 | fixed_pending_re_review | re_review_passed",
+            "Blocked claim protection for SHO-CLAIM-007: pass",
+            "Monetization guardrail: pass",
+            "Publish readiness: not_ready",
             "Explicit Non-Acceptance",
         ]
         for fragment in required_fragments:
@@ -1486,13 +1588,20 @@ def validate_article_reviews(failures: list[str]) -> int:
             failures.append(f"Article review {file_name} must link to expected article draft candidate")
         if normalized(fields.get("review_status")) != "review_completed_with_findings":
             failures.append(f"Article review {file_name} must have review_status: review_completed_with_findings")
-        if normalized(fields.get("operator_acceptance_status")) == "accepted":
-            failures.append(f"Article review {file_name} must not have accepted operator status")
+        if normalized(fields.get("operator_acceptance_status")) != "not_accepted":
+            failures.append(f"Article review {file_name} must have operator_acceptance_status: not_accepted")
+        if "re_review_status: re_review_passed_not_publish_ready" not in text:
+            failures.append(f"Article review {file_name} must keep separate body re_review_status")
+        if normalized(fields.get("review_status")) == "re_review_passed_not_publish_ready":
+            failures.append(f"Article review {file_name} must not replace original frontmatter review_status with re_review_status")
 
         forbidden_assignments = [
             "approved_for_publish: true",
             "operator_acceptance_status: accepted",
             "publish_ready: true",
+            "review_status: approved_for_publish",
+            "current_stage: review_ready",
+            "current_stage: publish_candidate",
         ]
         lower_text = text.lower()
         for fragment in forbidden_assignments:
@@ -1507,6 +1616,7 @@ def main() -> int:
 
     validate_required_docs(failures)
     validate_protocol_automation_files(failures)
+    validate_review_findings_register(failures)
     backlog_count = validate_backlog(failures)
     brief_count = validate_brief_scaffolds(failures)
     research_count = validate_research_inputs(failures)

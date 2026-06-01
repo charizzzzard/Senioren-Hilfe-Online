@@ -5,19 +5,19 @@
 - project_name: Senioren-Hilfe Online
 - system_name: Senioren-Hilfe Online OS
 - system_short_name: SHO-OS
-- patch_title: ARTICLE_DRAFT_CANDIDATE_RE_REVIEW_BATCH_01_BRIEF_002
+- patch_title: STAGE_TRANSITION_VALIDATOR_HARDENING_AFTER_ARTICLE_RE_REVIEW
 - external_review_verdict: ACCEPTED_WITH_FINDINGS
 
 SHO-OS ist ein reproduzierbares Content-, Trust- und Publishing-System fuer seniorengerechte digitale Alltagshilfe in Deutschland.
 
-Dieser Patch dokumentiert das formale Re-Review des bestehenden Brief-002-Article-Draft-Candidate nach dem Fix-Patch `ARTICLE_DRAFT_CANDIDATE_FIX_BATCH_01_BRIEF_002`. Der Re-Review ist bestanden, aber setzt keine Publish Readiness und keine Operator Acceptance.
+Dieser Patch haertet die bestehenden Content- und Stage-Validatoren nach dem bestandenen Re-Review fuer Brief 002. Er setzt keine Publish Readiness, keine Operator Acceptance und keine Batch-Stage-Hochstufung.
 
 ## Git Traceability
 
 - branch: `main`
-- head_before: `9d744a1d29adbba37a47572388c3767886661593`
+- head_before: `3f89b81c31e1a438f120c0dfbb670061e632f203`
 - intended_head_after: `assigned_after_commit`
-- origin_main_before: `9d744a1d29adbba37a47572388c3767886661593`
+- origin_main_before: `3f89b81c31e1a438f120c0dfbb670061e632f203`
 - dirty_state_before: `clean`
 - dirty_state_after: `assigned_after_commit`
 - remote_url: `https://github.com/charizzzzard/Senioren-Hilfe-Online.git`
@@ -26,12 +26,11 @@ Hinweis: `head_after` wird nicht vorab als Commit-SHA eingetragen, weil ein Comm
 
 ## Scope Dieses Patches
 
-- Bestehenden Brief-002-Draft-Candidate re-reviewed.
-- `review_status` des Draft Candidate auf `re_review_passed_not_publish_ready` gesetzt.
-- Review-Artefakt um `Re-Review Result` ergaenzt.
-- Vier vorherige Fix-Findings auf `re_review_passed` gesetzt.
-- Batch-Manifest-Formulierung auf `No final article draft exists.` praezisiert.
-- Status Registry und Validatoren um Re-Review-Statuswerte erweitert.
+- `validate_content_contracts.py` um harte Checks fuer Draft Candidate, Article Review, Findings Register, Status Registry und Batch-Manifest erweitert.
+- `validate_stage_transitions.py` um Cross-File-Gates fuer Draft Candidate, Article Review und Findings Register erweitert.
+- `STATUS_REGISTRY.yaml` dokumentiert `approved_for_publish` als human-controlled und fuer Codex verboten.
+- Article-Review-Statusmodell praezisiert: Frontmatter bleibt `review_completed_with_findings`, Re-Review steht separat im Body.
+- Batch-Manifest bleibt unveraendert auf `current_stage: claim_slots_mapped`.
 - Batch bleibt `current_stage: claim_slots_mapped`.
 
 ## Non-Scope
@@ -47,14 +46,14 @@ Hinweis: `head_after` wird nicht vorab als Commit-SHA eingetragen, weil ein Comm
 - Keine Website.
 - Keine Monetarisierung.
 
-## Re-Review Results
+## Hardened Validator Gates
 
-| finding_id | result | Hinweis |
-| --- | --- | --- |
-| SHO-ARTICLE-002-UX-001 | re_review_passed | Kurzantwort ist gekuerzt und hat 3-Schritte-Sofort-Check. |
-| SHO-ARTICLE-002-UX-002 | re_review_passed | Verbotene ASCII-Transliterationen sind aus dem user-facing Draft entfernt. |
-| SHO-ARTICLE-002-SAFE-001 | re_review_passed | Nachricht-aufbewahren-Hinweis verbietet Antwort, Klick und Zahlung. |
-| SHO-ARTICLE-002-SRC-001 | re_review_passed | Quellenstatus-Wording ist geklaert. |
+- Batch muss `current_stage: claim_slots_mapped` und `operator_acceptance_status: not_accepted` behalten.
+- Draft Candidate muss `article_status: article_draft_candidate` und `review_status: re_review_passed_not_publish_ready` behalten.
+- Article Review muss Original-Review und separaten Re-Review-Block enthalten.
+- Findings Register muss Fix-Findings als `re_review_passed` und Guardrails als `pass_carried_forward` fuehren.
+- `SHO-CLAIM-007` darf nicht als Evidence Marker genutzt werden.
+- Publish-/Acceptance-Assignments bleiben verboten.
 
 ## Guardrails
 
@@ -84,11 +83,11 @@ Hinweis: `head_after` wird nicht vorab als Commit-SHA eingetragen, weil ein Comm
 - `docs/content/batches/MVP_BATCH_01.yaml`
 - `docs/operations/STATUS_REGISTRY.yaml`
 - `scripts/validate_content_contracts.py`
+- `scripts/validate_stage_transitions.py`
 - `docs/engineering/VALIDATION_REQUIREMENTS.md`
-- `docs/operations/REVIEW_FINDINGS_REGISTER.md`
 - `external_review_packet/00_READ_ME_FIRST.md`
 - `external_review_packet/HANDOFF_LATEST_CONTEXT.md`
 
 ## Keine finale Annahme durch Codex
 
-Re-review passed, but no publish readiness and no Operator Acceptance. Finale Annahme bleibt beim Human Operator.
+Validator hardening completed, but no publish readiness and no Operator Acceptance. Finale Annahme bleibt beim Human Operator.

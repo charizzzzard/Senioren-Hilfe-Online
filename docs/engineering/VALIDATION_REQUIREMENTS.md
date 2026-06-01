@@ -375,6 +375,17 @@ Das Review-Artefakt muss mindestens diese Finding IDs enthalten:
 - Batch Stage bleibt `claim_slots_mapped`.
 - `MVP_BATCH_01.yaml` muss bei vorhandenen Draft Candidates "No final article draft exists." statt "No article draft exists." verwenden.
 
+## Hardened Stage-Transition Checks After Re-Review
+
+- Der Draft Candidate muss `article_status: article_draft_candidate`, `review_status: re_review_passed_not_publish_ready` und `operator_acceptance_status: not_accepted` behalten.
+- Das Article Review behaelt im Frontmatter `review_status: review_completed_with_findings`; der bestandene Re-Review wird separat im Body mit `re_review_status: re_review_passed_not_publish_ready` dokumentiert.
+- `MVP_BATCH_01.yaml` darf trotz bestandenem Re-Review nicht auf `review_ready`, `publish_candidate`, `operator_accepted` oder eine andere Full-Batch-Artikelstage wechseln.
+- `SHO-CLAIM-007` muss im Draft Candidate blockiert bleiben und darf nicht als Evidence Marker genutzt werden.
+- WhatsApp Blockieren-/Melden-UI-Schritte bleiben verboten, solange Line Evidence und UI Review fehlen.
+- Affiliate-, Product-Recommendation- und aktive Kaufempfehlungsmarker bleiben im Betrugsartikel verboten.
+- Das Findings Register muss die vier Fix-Findings als `re_review_passed` und die Guardrail-Findings als `pass_carried_forward` fuehren.
+- `approved_for_publish` bleibt ein human-controlled Status und ist fuer Codex als aktiver Zustand verboten.
+
 ## Verbleibende spätere Checks
 
 - Echtes YAML-Parsing.
