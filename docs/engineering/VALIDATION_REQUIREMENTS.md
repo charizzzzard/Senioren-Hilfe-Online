@@ -361,9 +361,19 @@ Das Review-Artefakt muss mindestens diese Finding IDs enthalten:
 ## Re-Review-Requirement-After-Fix
 
 - Ein Fix-Patch ersetzt keine Re-Review.
-- Nach dem Fix bleibt `review_status: needs_re_review_after_fix`.
+- Nach bestandenem Re-Review darf der Draft Candidate `review_status: re_review_passed_not_publish_ready` tragen.
 - Kein Inhalt wird durch diesen Fix-Patch publish-ready.
 - Operator Acceptance bleibt `not_accepted`.
+- Ein bestandener Re-Review setzt nicht `review_ready`, `publish_candidate`, `approved_for_publish` oder Operator Acceptance.
+
+## Article-Draft-Candidate-Re-Review-Checks
+
+- Das bestehende Review-Artefakt enthaelt `Re-Review Result`.
+- Das Review-Artefakt enthaelt `re_review_status: re_review_passed_not_publish_ready`.
+- Das Review-Artefakt enthaelt `ARTICLE_DRAFT_CANDIDATE_RE_REVIEW_BATCH_01_BRIEF_002`.
+- Die vier Fix-Findings `SHO-ARTICLE-002-UX-001`, `SHO-ARTICLE-002-UX-002`, `SHO-ARTICLE-002-SAFE-001` und `SHO-ARTICLE-002-SRC-001` werden nur als Re-Review bestanden dokumentiert.
+- Batch Stage bleibt `claim_slots_mapped`.
+- `MVP_BATCH_01.yaml` muss bei vorhandenen Draft Candidates "No final article draft exists." statt "No article draft exists." verwenden.
 
 ## Verbleibende spätere Checks
 

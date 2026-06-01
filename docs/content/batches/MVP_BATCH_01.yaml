@@ -57,8 +57,7 @@ known_blockers:
   - Article draft scaffolds exist only for Brief 002 and Brief 003.
   - Article draft candidate exists only for Brief 002.
   - Brief 002 draft candidate reviewed with findings.
-  - Brief 002 requires fix patch before review_ready.
-  - Brief 002 draft candidate requires re-review after fix.
+  - Brief 002 draft candidate fix re-review passed, but no publish readiness is set.
   - Brief 003 has scaffold only, no text candidate.
   - No final article drafts exist.
   - WhatsApp line-level evidence is unavailable.
@@ -66,11 +65,6 @@ known_blockers:
   - WhatsApp platform sources remain candidate / needs_manual_review.
   - WhatsApp UI-sensitive instructions remain blocked.
   - WhatsApp block/report UI claim remains blocked for Brief 002.
-  - Draft candidate requires senior UX review.
-  - Senior UX fixes required.
-  - Draft candidate requires source marker review.
-  - Source wording/source marker review required.
-  - Safety language clarification required.
   - Exact quote/evidence extraction remains incomplete.
   - Screenshot/device-version validation is not yet present.
   - Screenshot/device-version validation remains open for Brief 003.
@@ -84,4 +78,4 @@ known_blockers:
 non_acceptance:
   - Batch is not publish-ready.
   - Batch is not operator-accepted.
-  - No article draft exists.
+  - No final article draft exists.

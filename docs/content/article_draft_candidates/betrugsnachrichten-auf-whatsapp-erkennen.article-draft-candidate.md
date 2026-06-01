@@ -10,7 +10,7 @@ linked_source_pack: docs/content/source_packs/operator-research-source-pack-batc
 linked_serp_observation: docs/content/serp_observations/serp-observation-batch-01.md
 article_status: article_draft_candidate
 article_review_path: docs/content/article_reviews/betrugsnachrichten-auf-whatsapp-erkennen.review.md
-review_status: needs_re_review_after_fix
+review_status: re_review_passed_not_publish_ready
 fix_patch_id: ARTICLE_DRAFT_CANDIDATE_FIX_BATCH_01_BRIEF_002
 fixed_review_findings:
   - SHO-ARTICLE-002-UX-001
@@ -211,7 +211,7 @@ Draft checklist needs review before publishing.
 - SHO-SRC-006: verified source used in this draft candidate for senior/family verification context.
 - SHO-SRC-007: verified source used in this draft candidate for general phishing/smishing warning patterns.
 - SHO-SRC-004: excluded; WhatsApp block/report UI claim remains blocked.
-- Review status: needs_re_review_after_fix, needs_source_marker_review, needs_final_operator_acceptance.
+- Review status: re_review_passed_not_publish_ready, needs_final_operator_acceptance.
 
 ## Evidence Markers Used
 
@@ -225,9 +225,9 @@ Draft checklist needs review before publishing.
 
 ## Review Checklist
 
-- Senior UX re-review required.
-- Source marker review required.
-- Safety language re-review required.
+- Senior UX re-review passed.
+- Source marker re-review passed.
+- Safety language re-review passed.
 - No fear amplification.
 - No monetization.
 - No final publish status.

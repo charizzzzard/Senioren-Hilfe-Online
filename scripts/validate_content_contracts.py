@@ -1352,7 +1352,7 @@ def validate_article_draft_candidates(failures: list[str]) -> int:
             f"article_draft_candidate_id: {expected['article_draft_candidate_id']}",
             f"linked_brief_id: {expected['brief_id']}",
             "article_status: article_draft_candidate",
-            "review_status: needs_re_review_after_fix",
+            "review_status: re_review_passed_not_publish_ready",
             "operator_acceptance_status: not_accepted",
             f"article_review_path: {expected['article_review']}",
             "fix_patch_id: ARTICLE_DRAFT_CANDIDATE_FIX_BATCH_01_BRIEF_002",
@@ -1395,8 +1395,8 @@ def validate_article_draft_candidates(failures: list[str]) -> int:
             failures.append(f"Article draft candidate {file_name} must link to SERP observation")
         if normalized(fields.get("article_status")) != "article_draft_candidate":
             failures.append(f"Article draft candidate {file_name} must have article_status: article_draft_candidate")
-        if normalized(fields.get("review_status")) != "needs_re_review_after_fix":
-            failures.append(f"Article draft candidate {file_name} must have review_status: needs_re_review_after_fix")
+        if normalized(fields.get("review_status")) != "re_review_passed_not_publish_ready":
+            failures.append(f"Article draft candidate {file_name} must have review_status: re_review_passed_not_publish_ready")
         if normalized(fields.get("operator_acceptance_status")) == "accepted":
             failures.append(f"Article draft candidate {file_name} must not have accepted operator status")
 
@@ -1468,6 +1468,9 @@ def validate_article_reviews(failures: list[str]) -> int:
             "ACCEPTED_FOR_FIX_PATCH",
             "Fix Patch Link",
             "ARTICLE_DRAFT_CANDIDATE_FIX_BATCH_01_BRIEF_002",
+            "Re-Review Result",
+            "ARTICLE_DRAFT_CANDIDATE_RE_REVIEW_BATCH_01_BRIEF_002",
+            "re_review_status: re_review_passed_not_publish_ready",
             "Explicit Non-Acceptance",
         ]
         for fragment in required_fragments:

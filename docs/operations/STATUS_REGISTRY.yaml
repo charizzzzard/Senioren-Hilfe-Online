@@ -143,6 +143,8 @@ review_status:
     - review_completed_with_findings
     - needs_fix
     - needs_re_review_after_fix
+    - re_review_passed
+    - re_review_passed_not_publish_ready
     - not_ready
     - blocked
     - approved_for_publish

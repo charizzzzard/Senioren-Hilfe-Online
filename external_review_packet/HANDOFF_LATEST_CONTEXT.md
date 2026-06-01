@@ -5,19 +5,19 @@
 - project_name: Senioren-Hilfe Online
 - system_name: Senioren-Hilfe Online OS
 - system_short_name: SHO-OS
-- patch_title: ARTICLE_DRAFT_CANDIDATE_FIX_BATCH_01_BRIEF_002
+- patch_title: ARTICLE_DRAFT_CANDIDATE_RE_REVIEW_BATCH_01_BRIEF_002
 - external_review_verdict: ACCEPTED_WITH_FINDINGS
 
 SHO-OS ist ein reproduzierbares Content-, Trust- und Publishing-System fuer seniorengerechte digitale Alltagshilfe in Deutschland.
 
-Dieser Patch korrigiert ausschliesslich den bestehenden Brief-002-Article-Draft-Candidate anhand der dokumentierten Review-Findings. Er erstellt keine neue Draft-Datei, keine neuen Quellen, keine neuen Claims, keine Publish Readiness und keine Operator Acceptance.
+Dieser Patch dokumentiert das formale Re-Review des bestehenden Brief-002-Article-Draft-Candidate nach dem Fix-Patch `ARTICLE_DRAFT_CANDIDATE_FIX_BATCH_01_BRIEF_002`. Der Re-Review ist bestanden, aber setzt keine Publish Readiness und keine Operator Acceptance.
 
 ## Git Traceability
 
 - branch: `main`
-- head_before: `7498be477f155863fc8ec29b65fad568552d7b0b`
+- head_before: `9d744a1d29adbba37a47572388c3767886661593`
 - intended_head_after: `assigned_after_commit`
-- origin_main_before: `7498be477f155863fc8ec29b65fad568552d7b0b`
+- origin_main_before: `9d744a1d29adbba37a47572388c3767886661593`
 - dirty_state_before: `clean`
 - dirty_state_after: `assigned_after_commit`
 - remote_url: `https://github.com/charizzzzard/Senioren-Hilfe-Online.git`
@@ -26,19 +26,16 @@ Hinweis: `head_after` wird nicht vorab als Commit-SHA eingetragen, weil ein Comm
 
 ## Scope Dieses Patches
 
-- Bestehenden Brief-002-Draft-Candidate korrigiert.
-- Kurzantwort gekuerzt und um `3-Schritte-Sofort-Check` ergaenzt.
-- User-facing ASCII-Transliterationen in der Draft-Datei bereinigt.
-- Sicherheitsklarstellung zu Nachricht aufbewahren ergaenzt.
-- Quellenstatus-Wording auf `verified source used in this draft candidate` geaendert.
-- `SHO-CLAIM-007` bleibt blockiert.
-- Review-Artefakt um Fix Patch Link ergaenzt.
-- `MVP_BATCH_01.yaml` um `article_draft_candidate_fixes` ergaenzt.
-- Validatoren um Fix-Patch- und Re-Review-Checks erweitert.
+- Bestehenden Brief-002-Draft-Candidate re-reviewed.
+- `review_status` des Draft Candidate auf `re_review_passed_not_publish_ready` gesetzt.
+- Review-Artefakt um `Re-Review Result` ergaenzt.
+- Vier vorherige Fix-Findings auf `re_review_passed` gesetzt.
+- Batch-Manifest-Formulierung auf `No final article draft exists.` praezisiert.
+- Status Registry und Validatoren um Re-Review-Statuswerte erweitert.
+- Batch bleibt `current_stage: claim_slots_mapped`.
 
 ## Non-Scope
 
-- Kein neuer Article Draft Candidate.
 - Keine neuen Quellen.
 - Keine Source Verification Changes.
 - Keine neuen Claims.
@@ -50,29 +47,25 @@ Hinweis: `head_after` wird nicht vorab als Commit-SHA eingetragen, weil ein Comm
 - Keine Website.
 - Keine Monetarisierung.
 
-## Carried-forward Findings
+## Re-Review Results
 
-| finding_id | status | Hinweis |
+| finding_id | result | Hinweis |
 | --- | --- | --- |
-| SHO-ARTICLE-002-UX-001 | fixed_pending_re_review | Kurzantwort gekuerzt und 3-Schritte-Check ergaenzt. |
-| SHO-ARTICLE-002-UX-002 | fixed_pending_re_review | User-facing Umlaute im Draft Candidate korrigiert. |
-| SHO-ARTICLE-002-SAFE-001 | fixed_pending_re_review | Nachricht-aufbewahren-Hinweis sicherer formuliert. |
-| SHO-ARTICLE-002-SRC-001 | fixed_pending_re_review | Quellenstatus-Wording geklaert. |
-| SHO-ARTICLE-002-GATE-001 | pass_carried_forward | `SHO-CLAIM-007` bleibt blockiert. |
-| SHO-ARTICLE-002-MON-001 | pass_carried_forward | Keine Monetarisierung eingefuehrt. |
-| SHO-ARTICLE-002-PUB-001 | pass_carried_forward | Keine Publish Readiness und keine Operator Acceptance. |
-| SHO-ARTICLE-002-FIX-001 | recorded | Draft candidate fix patch applied; re-review required. |
-| SHO-ARTICLE-001 | recorded | First article draft candidate created for Brief 002 only; requires review. |
-| SHO-DRAFT-001 | recorded | Article draft scaffolds created for Brief 002 and Brief 003 only; no final article text. |
-| SHO-ENRICH-001 | recorded | Limited research enrichment candidates created for Brief 002 and Brief 003 only. |
-| SHO-SERP-001 | recorded | Batch 01 qualitative SERP observation integrated; needs review; no volume/difficulty/ranking data. |
-| SHO-WA-001 | recorded | WhatsApp manual review attempted; line-level evidence missing; sources remain candidate. |
-| SHO-WA-002 | recorded | WhatsApp line evidence capture created; evidence unavailable; claims remain blocked. |
-| SHO-BL-002 | partially_resolved | Validator wurde um Fix-Patch-Gates erweitert, bleibt aber dependency-free und textbasiert. |
-| SHO-BL-003 | partially_resolved | Handoff-Kontext enthaelt reale Branch-, HEAD-, Remote-, Dirty-State- und Fix-Patch-Werte. |
-| SHO-BL-004 | partially_resolved | Fix-Patch-State-Modell und Re-Review-Anforderung wurden dokumentiert. |
-| SHO-BL-005 | carried_forward | Maschinenlesbare Publish-Gates im Artikeltemplate bleiben spaeterer Scope. |
-| SHO-BL-006 | carried_forward | Eigene Kaufberatungsmethodik bleibt spaeterer Scope. |
+| SHO-ARTICLE-002-UX-001 | re_review_passed | Kurzantwort ist gekuerzt und hat 3-Schritte-Sofort-Check. |
+| SHO-ARTICLE-002-UX-002 | re_review_passed | Verbotene ASCII-Transliterationen sind aus dem user-facing Draft entfernt. |
+| SHO-ARTICLE-002-SAFE-001 | re_review_passed | Nachricht-aufbewahren-Hinweis verbietet Antwort, Klick und Zahlung. |
+| SHO-ARTICLE-002-SRC-001 | re_review_passed | Quellenstatus-Wording ist geklaert. |
+
+## Guardrails
+
+- `SHO-CLAIM-007` bleibt blockiert.
+- Keine neuen Quellen.
+- Keine neuen Claims.
+- Keine WhatsApp-UI-Anleitung.
+- Keine Monetarisierung.
+- Keine Publish Readiness.
+- Keine Operator Acceptance.
+- Batch Stage bleibt `claim_slots_mapped`.
 
 ## Validation Commands
 
@@ -91,7 +84,6 @@ Hinweis: `head_after` wird nicht vorab als Commit-SHA eingetragen, weil ein Comm
 - `docs/content/batches/MVP_BATCH_01.yaml`
 - `docs/operations/STATUS_REGISTRY.yaml`
 - `scripts/validate_content_contracts.py`
-- `scripts/validate_stage_transitions.py`
 - `docs/engineering/VALIDATION_REQUIREMENTS.md`
 - `docs/operations/REVIEW_FINDINGS_REGISTER.md`
 - `external_review_packet/00_READ_ME_FIRST.md`
@@ -99,4 +91,4 @@ Hinweis: `head_after` wird nicht vorab als Commit-SHA eingetragen, weil ein Comm
 
 ## Keine finale Annahme durch Codex
 
-Fix patch applied to existing Brief 002 draft candidate. Re-review required. No publish readiness and no Operator Acceptance. Finale Annahme bleibt beim Human Operator.
+Re-review passed, but no publish readiness and no Operator Acceptance. Finale Annahme bleibt beim Human Operator.

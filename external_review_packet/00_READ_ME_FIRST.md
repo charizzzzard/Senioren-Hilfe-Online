@@ -2,15 +2,15 @@
 
 ## Zweck dieses Review-Pakets
 
-Dieses Review-Paket beschreibt den Patch `ARTICLE_DRAFT_CANDIDATE_FIX_BATCH_01_BRIEF_002`. Es soll einem externen Review ermoeglichen, die begrenzten Korrekturen am bestehenden Brief-002-Draft-Candidate und die weiter erforderliche Re-Review zu pruefen.
+Dieses Review-Paket beschreibt den Patch `ARTICLE_DRAFT_CANDIDATE_RE_REVIEW_BATCH_01_BRIEF_002`. Es soll einem externen Review ermoeglichen, das bestandene Re-Review des gefixten Brief-002-Draft-Candidate zu pruefen.
 
 ## Scope dieses Patches
 
-- Bestehenden Brief-002-Draft-Candidate korrigieren.
-- Dokumentierte Review-Findings `SHO-ARTICLE-002-UX-001`, `SHO-ARTICLE-002-UX-002`, `SHO-ARTICLE-002-SAFE-001` und `SHO-ARTICLE-002-SRC-001` adressieren.
-- Review-Artefakt mit Fix Patch Link ergaenzen.
-- Batch Manifest konservativ um `article_draft_candidate_fixes` ergaenzen.
-- Validatoren um Fix-Patch-Checks erweitern.
+- Bestehenden Brief-002-Draft-Candidate formal re-reviewen.
+- Vier fixierte Findings als `re_review_passed` dokumentieren.
+- Draft Candidate auf `review_status: re_review_passed_not_publish_ready` setzen.
+- Batch Manifest ohne Stage-Hochstufung praezisieren.
+- Validatoren um Re-Review-Checks erweitern.
 
 ## Primaere Review-Dateien
 
@@ -25,11 +25,11 @@ Dieses Review-Paket beschreibt den Patch `ARTICLE_DRAFT_CANDIDATE_FIX_BATCH_01_B
 
 ## Wichtiger Hinweis
 
-Fix patch applied to existing Brief 002 draft candidate. Re-review required. No publish readiness and no Operator Acceptance.
+Re-review passed, but this is not publish readiness and not Operator Acceptance.
 
 ## Nicht in Scope
 
-- Neuer Article Draft Candidate.
+- Neue Artikelabschnitte.
 - Neue Quellen.
 - Neue Claims.
 - Source Verification Changes.

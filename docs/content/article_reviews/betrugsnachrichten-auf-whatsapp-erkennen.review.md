@@ -99,6 +99,30 @@ Not ready. The draft candidate is not publish-ready and is not Operator accepted
 - expected_next_review: ARTICLE_DRAFT_CANDIDATE_RE_REVIEW_BATCH_01_BRIEF_002
 - note: Fix patch applied; review remains not publish readiness and not Operator Acceptance.
 
+## Re-Review Result
+
+- re_review_id: ARTICLE_DRAFT_CANDIDATE_RE_REVIEW_BATCH_01_BRIEF_002
+- re_review_status: re_review_passed_not_publish_ready
+- reviewed_fix_patch_id: ARTICLE_DRAFT_CANDIDATE_FIX_BATCH_01_BRIEF_002
+- Senior UX: pass
+- Kurzantwort / 3-Schritte-Sofort-Check: pass
+- German umlauts in user-facing text: pass
+- Safety language: pass
+- Source/claim marker discipline: pass
+- Blocked claim protection for SHO-CLAIM-007: pass
+- Monetization guardrail: pass
+- Publish readiness: not_ready
+- Operator Acceptance: not_accepted
+
+## Re-Review Finding Results
+
+| finding_id | prior_status | re_review_result | note |
+| --- | --- | --- | --- |
+| SHO-ARTICLE-002-UX-001 | fixed_pending_re_review | re_review_passed | Kurzantwort is materially shortened and contains a clear 3-step emergency check. |
+| SHO-ARTICLE-002-UX-002 | fixed_pending_re_review | re_review_passed | User-facing German transliterations were replaced with proper umlauts. |
+| SHO-ARTICLE-002-SAFE-001 | fixed_pending_re_review | re_review_passed | Message preservation now explicitly means no reply, no clicking and no payment. |
+| SHO-ARTICLE-002-SRC-001 | fixed_pending_re_review | re_review_passed | Source wording now uses "verified source used in this draft candidate". |
+
 ## Explicit Non-Acceptance
 
 This review is not publish readiness and not Operator Acceptance.
