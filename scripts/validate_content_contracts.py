@@ -60,6 +60,7 @@ REQUIRED_DOCS = [
     "docs/content/article_reviews/betrugsnachrichten-auf-whatsapp-erkennen.legal-source-citation-review.md",
     "docs/content/article_reviews/betrugsnachrichten-auf-whatsapp-erkennen.source-citation-formatting-prep.md",
     "docs/content/article_reviews/betrugsnachrichten-auf-whatsapp-erkennen.legal-wording-review-prep.md",
+    "docs/content/article_reviews/betrugsnachrichten-auf-whatsapp-erkennen.final-article-prep-gate-review.md",
     "docs/operations/CONTENT_RESEARCH_OPERATING_PROTOCOL.md",
     "docs/operations/RESEARCH_BATCH_STAGE_MODEL.md",
     "docs/operations/CODEX_EXECUTOR_BOUNDARY.md",
@@ -181,6 +182,9 @@ SOURCE_CITATION_FORMATTING_PREP_REL_PATH = (
 LEGAL_WORDING_REVIEW_PREP_REL_PATH = (
     "docs/content/article_reviews/betrugsnachrichten-auf-whatsapp-erkennen.legal-wording-review-prep.md"
 )
+FINAL_ARTICLE_PREP_GATE_REVIEW_REL_PATH = (
+    "docs/content/article_reviews/betrugsnachrichten-auf-whatsapp-erkennen.final-article-prep-gate-review.md"
+)
 OPERATOR_DECISIONS_DIR = ROOT / "docs/operations/operator_decisions"
 OPERATOR_DECISION_REL_PATH = "docs/operations/operator_decisions/HUMAN_OPERATOR_DECISION_BATCH01_BRIEF002_001.md"
 EXPECTED_ARTICLE_DRAFT_CANDIDATES = {
@@ -252,6 +256,18 @@ EXPECTED_LEGAL_WORDING_REVIEW_PREPS = {
         "linked_article_draft_candidate": "docs/content/article_draft_candidates/betrugsnachrichten-auf-whatsapp-erkennen.article-draft-candidate.md",
         "linked_operator_decision": OPERATOR_DECISION_REL_PATH,
         "linked_source_citation_formatting_prep": SOURCE_CITATION_FORMATTING_PREP_REL_PATH,
+    },
+}
+EXPECTED_FINAL_ARTICLE_PREP_GATE_REVIEWS = {
+    "betrugsnachrichten-auf-whatsapp-erkennen.final-article-prep-gate-review.md": {
+        "final_article_prep_gate_review_id": "SHO-FINAL-ARTICLE-PREP-GATE-REVIEW-BATCH01-BRIEF002",
+        "brief_id": "SHO-MVP-BRIEF-002",
+        "linked_article_draft_candidate": "docs/content/article_draft_candidates/betrugsnachrichten-auf-whatsapp-erkennen.article-draft-candidate.md",
+        "linked_article_review": ARTICLE_REVIEW_REL_PATH,
+        "linked_operator_review_packet": OPERATOR_REVIEW_PACKET_REL_PATH,
+        "linked_operator_decision": OPERATOR_DECISION_REL_PATH,
+        "linked_source_citation_formatting_prep": SOURCE_CITATION_FORMATTING_PREP_REL_PATH,
+        "linked_legal_wording_review_prep": LEGAL_WORDING_REVIEW_PREP_REL_PATH,
     },
 }
 WHATSAPP_MANUAL_REVIEW_SOURCE_IDS = {"SHO-SRC-001", "SHO-SRC-002", "SHO-SRC-003", "SHO-SRC-004"}
@@ -519,6 +535,8 @@ def validate_protocol_automation_files(failures: list[str]) -> None:
             "prepared_not_final",
             "legal_approval_status:",
             "not_approved",
+            "gate_status:",
+            "blocked_pending_final_citation_and_legal_review",
             "review_status:",
             "human_controlled:",
             "approved_for_publish",
@@ -2241,6 +2259,136 @@ def validate_legal_wording_review_preps(failures: list[str]) -> int:
     return len(found_files)
 
 
+def validate_final_article_prep_gate_reviews(failures: list[str]) -> int:
+    if not ARTICLE_REVIEWS_DIR.exists():
+        failures.append("Missing article review directory: docs/content/article_reviews")
+        return 0
+
+    found_files = {path.name for path in ARTICLE_REVIEWS_DIR.glob("*.final-article-prep-gate-review.md")}
+    expected_files = set(EXPECTED_FINAL_ARTICLE_PREP_GATE_REVIEWS)
+    if found_files != expected_files:
+        failures.append(
+            "Batch 01 must contain exactly these final article prep gate review files: "
+            f"{', '.join(sorted(expected_files))}; found {', '.join(sorted(found_files))}"
+        )
+
+    for file_name in sorted(expected_files & found_files):
+        path = ARTICLE_REVIEWS_DIR / file_name
+        text = path.read_text(encoding="utf-8")
+        fields = parse_frontmatter_fields(text)
+        expected = EXPECTED_FINAL_ARTICLE_PREP_GATE_REVIEWS[file_name]
+
+        required_fragments = [
+            f"final_article_prep_gate_review_id: {expected['final_article_prep_gate_review_id']}",
+            "batch_id: MVP_BATCH_01",
+            f"linked_brief_id: {expected['brief_id']}",
+            f"linked_article_draft_candidate: {expected['linked_article_draft_candidate']}",
+            f"linked_article_review: {expected['linked_article_review']}",
+            f"linked_operator_review_packet: {expected['linked_operator_review_packet']}",
+            f"linked_operator_decision: {expected['linked_operator_decision']}",
+            f"linked_source_citation_formatting_prep: {expected['linked_source_citation_formatting_prep']}",
+            f"linked_legal_wording_review_prep: {expected['linked_legal_wording_review_prep']}",
+            "gate_status: blocked_pending_final_citation_and_legal_review",
+            "operator_acceptance_status: not_accepted",
+            "publish_readiness_status: not_ready",
+            "legal_approval_status: not_approved",
+            "batch_stage_after_gate_review: claim_slots_mapped",
+            "Explicit Non-Acceptance",
+            "Diese Gate Review ist keine finale Artikelvorbereitung.",
+            "Diese Gate Review ist keine Publish Readiness.",
+            "Diese Gate Review ist keine Operator Acceptance.",
+            "Diese Gate Review ist keine rechtliche Freigabe.",
+            "Diese Gate Review schaltet keine blockierten Claims frei.",
+            "Diese Gate Review erlaubt keine WhatsApp block/report UI instructions.",
+            "Diese Gate Review erlaubt keine Monetarisierung.",
+            "Gate Checklist",
+            "| Article Draft Candidate exists | yes |",
+            "| Re-review passed | yes |",
+            "| Operator Review Packet exists | yes |",
+            "| Human Operator next-gate decision exists | yes |",
+            "| Source Citation Formatting Prep exists | yes |",
+            "| Legal Wording Review Prep exists | yes |",
+            "| Final source citation formatting completed | no |",
+            "| Final legal wording review completed | no |",
+            "| Legal approval claimed | no |",
+            "| Operator Acceptance exists | no |",
+            "| Publish Readiness exists | no |",
+            "| SHO-CLAIM-007 remains blocked | yes |",
+            "| WhatsApp block/report UI instructions allowed | no |",
+            "| Monetization allowed | no |",
+            "final_article_preparation_blocked_pending_final_citation_and_legal_review",
+            "reason: final citation display labels and final citation texts are still TBD",
+            "reason: legal_approval_status remains not_approved",
+            "reason: no later Human Operator decision for final article preparation exists",
+            "Allowed Next Work",
+            "final citation display label review",
+            "final citation text preparation",
+            "final legal wording review",
+            "later Human Operator decision before final article preparation",
+            "Codex must not approve for publish",
+            "Codex must not mark operator accepted",
+            "Codex must not claim legal approval",
+            "Codex must not mark final article preparation as approved",
+            "Codex must not unlock SHO-CLAIM-007",
+            "Codex must not add WhatsApp block/report UI instructions",
+            "Codex must not add monetization",
+            "Codex must not add new claims",
+            "Codex must not add new sources",
+        ]
+        for fragment in required_fragments:
+            if fragment not in text:
+                failures.append(f"Final article prep gate review {file_name} must contain: {fragment}")
+
+        if fields.get("final_article_prep_gate_review_id") != expected["final_article_prep_gate_review_id"]:
+            failures.append(f"Final article prep gate review {file_name} has unexpected ID")
+        if fields.get("linked_brief_id") != expected["brief_id"]:
+            failures.append(f"Final article prep gate review {file_name} must link to Brief 002")
+        if fields.get("linked_article_draft_candidate") != expected["linked_article_draft_candidate"]:
+            failures.append(f"Final article prep gate review {file_name} must link to expected draft candidate")
+        if fields.get("linked_article_review") != expected["linked_article_review"]:
+            failures.append(f"Final article prep gate review {file_name} must link to article review")
+        if fields.get("linked_operator_review_packet") != expected["linked_operator_review_packet"]:
+            failures.append(f"Final article prep gate review {file_name} must link to operator review packet")
+        if fields.get("linked_operator_decision") != expected["linked_operator_decision"]:
+            failures.append(f"Final article prep gate review {file_name} must link to operator decision")
+        if fields.get("linked_source_citation_formatting_prep") != expected["linked_source_citation_formatting_prep"]:
+            failures.append(f"Final article prep gate review {file_name} must link to source citation formatting prep")
+        if fields.get("linked_legal_wording_review_prep") != expected["linked_legal_wording_review_prep"]:
+            failures.append(f"Final article prep gate review {file_name} must link to legal wording review prep")
+        if normalized(fields.get("gate_status")) != "blocked_pending_final_citation_and_legal_review":
+            failures.append(
+                f"Final article prep gate review {file_name} must have gate_status: blocked_pending_final_citation_and_legal_review"
+            )
+        if normalized(fields.get("operator_acceptance_status")) != "not_accepted":
+            failures.append(f"Final article prep gate review {file_name} must have operator_acceptance_status: not_accepted")
+        if normalized(fields.get("publish_readiness_status")) != "not_ready":
+            failures.append(f"Final article prep gate review {file_name} must have publish_readiness_status: not_ready")
+        if normalized(fields.get("legal_approval_status")) != "not_approved":
+            failures.append(f"Final article prep gate review {file_name} must have legal_approval_status: not_approved")
+        if normalized(fields.get("batch_stage_after_gate_review")) != "claim_slots_mapped":
+            failures.append(f"Final article prep gate review {file_name} must keep batch_stage_after_gate_review: claim_slots_mapped")
+
+        forbidden_assignments = [
+            "approved_for_publish: true",
+            "operator_acceptance_status: accepted",
+            "publish_readiness_status: publish_candidate",
+            "publish_readiness_status: approved_for_publish",
+            "publish_ready: true",
+            "current_stage: review_ready",
+            "current_stage: publish_candidate",
+            "legal_approval: true",
+            "legal_approval_status: approved",
+            "final_article_preparation_approved: true",
+            "rechtliche_freigabe: true",
+        ]
+        lower_text = text.lower()
+        for fragment in forbidden_assignments:
+            if fragment in lower_text:
+                failures.append(f"Final article prep gate review {file_name} must not contain forbidden assignment: {fragment}")
+
+    return len(found_files)
+
+
 def main() -> int:
     failures: list[str] = []
 
@@ -2264,6 +2412,7 @@ def main() -> int:
     operator_decision_count = validate_operator_decisions(failures)
     source_citation_formatting_prep_count = validate_source_citation_formatting_preps(failures)
     legal_wording_review_prep_count = validate_legal_wording_review_preps(failures)
+    final_article_prep_gate_review_count = validate_final_article_prep_gate_reviews(failures)
 
     if failures:
         print("FAIL: SHO-OS content contract validation failed")
@@ -2291,6 +2440,7 @@ def main() -> int:
     print(f"- Batch 01 operator decision files: {operator_decision_count}")
     print(f"- Batch 01 source citation formatting prep files: {source_citation_formatting_prep_count}")
     print(f"- Batch 01 legal wording review prep files: {legal_wording_review_prep_count}")
+    print(f"- Batch 01 final article prep gate review files: {final_article_prep_gate_review_count}")
     print("- YAML/frontmatter parsing: dependency-free and text-based")
     return 0
 

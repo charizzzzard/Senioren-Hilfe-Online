@@ -441,6 +441,20 @@ Das Review-Artefakt muss mindestens diese Finding IDs enthalten:
 - Die Findings `SHO-ARTICLE-002-LEGAL-WORDING-001` bis `SHO-ARTICLE-002-LEGAL-WORDING-004` muessen vorhanden sein.
 - Das Artefakt darf keine finalen Rechtsformulierungen, kein `legal_approval_status: approved`, keine Publish Readiness, keine Operator Acceptance und keinen Claim-Unlock setzen.
 
+## Final-Article-Preparation-Gate-Review-Checks
+
+- Fuer Brief 002 muss genau ein Final-Article-Preparation-Gate-Review-Artefakt unter `docs/content/article_reviews/` existieren.
+- Das Artefakt muss den Article Draft Candidate, das Article Review, das Operator Review Packet, das Operator Decision Record, das Source-Citation-Formatting-Prep-Artefakt und das Legal-Wording-Review-Prep-Artefakt verlinken.
+- `gate_status` muss `blocked_pending_final_citation_and_legal_review` sein.
+- `operator_acceptance_status` muss `not_accepted` bleiben.
+- `publish_readiness_status` muss `not_ready` bleiben.
+- `legal_approval_status` muss `not_approved` bleiben.
+- `batch_stage_after_gate_review` muss `claim_slots_mapped` bleiben.
+- Die Gate Checklist muss dokumentieren: Re-Review passed yes, Operator Review Packet exists yes, Human Operator next-gate decision exists yes, Source Citation Formatting Prep exists yes, Legal Wording Review Prep exists yes.
+- Die Gate Checklist muss zugleich dokumentieren: Final source citation formatting completed no, Final legal wording review completed no, Operator Acceptance exists no, Publish Readiness exists no.
+- Das Gate Result muss `final_article_preparation_blocked_pending_final_citation_and_legal_review` sein.
+- Das Artefakt darf keine finale Artikelvorbereitung freigeben, keine finale Quellenliste behaupten, keine rechtliche Freigabe behaupten, keine Publish Readiness und keine Operator Acceptance setzen.
+
 ## Verbleibende spätere Checks
 
 - Echtes YAML-Parsing.

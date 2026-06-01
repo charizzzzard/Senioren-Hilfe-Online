@@ -5,19 +5,19 @@
 - project_name: Senioren-Hilfe Online
 - system_name: Senioren-Hilfe Online OS
 - system_short_name: SHO-OS
-- patch_title: LEGAL_WORDING_REVIEW_PREPARATION_BRIEF_002
+- patch_title: FINAL_ARTICLE_PREPARATION_GATE_REVIEW_BRIEF_002
 - external_review_verdict: ACCEPTED_WITH_FINDINGS
 
 SHO-OS ist ein reproduzierbares Content-, Trust- und Publishing-System fuer seniorengerechte digitale Alltagshilfe in Deutschland.
 
-Dieser Patch bereitet eine konservative Legal-Wording-Review fuer Brief 002 vor. Er dokumentiert vorhandene sichere Formulierungsmarker, offene rechtliche/haftungsbezogene Pruefpunkte und die weiter blockierte WhatsApp-UI-Claim-Grenze. Er setzt keine Operator Acceptance, keine Publish Readiness, keine rechtliche Freigabe und keine Batch-Stage-Hochstufung.
+Dieser Patch dokumentiert eine konservative Final-Article-Preparation-Gate-Review fuer Brief 002. Das Gate bleibt blockiert, weil finale Quellenformatierung und finale Legal-Wording-Review noch nicht abgeschlossen sind. Er setzt keine Operator Acceptance, keine Publish Readiness, keine rechtliche Freigabe und keine Batch-Stage-Hochstufung.
 
 ## Git Traceability
 
 - branch: `main`
-- head_before: `7fa5e4343b17b5d5ad270853ed2d1e888fdbfd39`
+- head_before: `766a88083b96ad468936d2312e4984d4e0d73281`
 - intended_head_after: `assigned_after_commit`
-- origin_main_before: `7fa5e4343b17b5d5ad270853ed2d1e888fdbfd39`
+- origin_main_before: `766a88083b96ad468936d2312e4984d4e0d73281`
 - dirty_state_before: `clean`
 - dirty_state_after: `assigned_after_commit`
 - remote_url: `https://github.com/charizzzzard/Senioren-Hilfe-Online.git`
@@ -26,12 +26,12 @@ Hinweis: `head_after` wird nicht vorab als Commit-SHA eingetragen, weil ein Comm
 
 ## Scope Dieses Patches
 
-- Neues Legal-Wording-Review-Prep-Artefakt erstellt: `docs/content/article_reviews/betrugsnachrichten-auf-whatsapp-erkennen.legal-wording-review-prep.md`.
-- Vorhandene sichere Draft-Marker dokumentiert: keine Garantie, keine juristische Beratung, Draft Candidate, keine finale Anleitung.
-- Rechtliche Freigabe bleibt explizit aus: `legal_approval_status: not_approved`.
+- Neues Final-Article-Preparation-Gate-Review-Artefakt erstellt: `docs/content/article_reviews/betrugsnachrichten-auf-whatsapp-erkennen.final-article-prep-gate-review.md`.
+- Gate Status konservativ gesetzt: `blocked_pending_final_citation_and_legal_review`.
+- Gate Result dokumentiert: `final_article_preparation_blocked_pending_final_citation_and_legal_review`.
 - `SHO-CLAIM-007` bleibt blockiert und WhatsApp block/report UI instructions bleiben ausgeschlossen.
-- `STATUS_REGISTRY.yaml` um `legal_approval_status` fuer konservative Review-Prep-Artefakte ergaenzt.
-- `validate_content_contracts.py` um Legal-Wording-Review-Prep-Checks erweitert.
+- `STATUS_REGISTRY.yaml` um `gate_status` fuer blockierende Gate Reviews ergaenzt.
+- `validate_content_contracts.py` um Final-Article-Preparation-Gate-Review-Checks erweitert.
 - Batch bleibt `current_stage: claim_slots_mapped`.
 
 ## Non-Scope
@@ -47,13 +47,14 @@ Hinweis: `head_after` wird nicht vorab als Commit-SHA eingetragen, weil ein Comm
 - Keine Website.
 - Keine Monetarisierung.
 
-## Legal Wording Review Prep Summary
+## Final Article Preparation Gate Review Summary
 
-- prep_status: `prepared_not_final`
+- gate_status: `blocked_pending_final_citation_and_legal_review`
 - operator_acceptance_status: `not_accepted`
 - publish_readiness_status: `not_ready`
 - legal_approval_status: `not_approved`
-- legal wording result: preparation only; no legal advice and no legal approval.
+- batch_stage_after_gate_review: `claim_slots_mapped`
+- gate result: final article preparation remains blocked pending final citation and legal review.
 
 ## Guardrails
 
@@ -79,7 +80,7 @@ Hinweis: `head_after` wird nicht vorab als Commit-SHA eingetragen, weil ein Comm
 
 ## Files Changed Summary
 
-- `docs/content/article_reviews/betrugsnachrichten-auf-whatsapp-erkennen.legal-wording-review-prep.md`
+- `docs/content/article_reviews/betrugsnachrichten-auf-whatsapp-erkennen.final-article-prep-gate-review.md`
 - `docs/content/article_reviews/README.md`
 - `docs/operations/STATUS_REGISTRY.yaml`
 - `scripts/validate_content_contracts.py`
@@ -89,4 +90,4 @@ Hinweis: `head_after` wird nicht vorab als Commit-SHA eingetragen, weil ein Comm
 
 ## Keine finale Annahme durch Codex
 
-Legal wording review preparation recorded, but no legal advice, no legal approval, no publish readiness and no Operator Acceptance. Finale Annahme bleibt beim Human Operator.
+Final article preparation gate review recorded as blocked, with no legal approval, no publish readiness and no Operator Acceptance. Finale Annahme bleibt beim Human Operator.

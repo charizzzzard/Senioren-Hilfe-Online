@@ -217,6 +217,19 @@ legal_approval_status:
     - approved_for_publish
     - publish_ready
 
+gate_status:
+  allowed:
+    - blocked_pending_final_citation_and_legal_review
+    - needs_operator_decision
+    - blocked
+    - superseded
+  forbidden_by_codex:
+    - approved
+    - accepted
+    - operator_accepted
+    - approved_for_publish
+    - publish_ready
+
 forbidden_transitions:
   - from: scaffold_only
     to: approved_for_publish

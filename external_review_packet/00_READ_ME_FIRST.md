@@ -2,13 +2,13 @@
 
 ## Zweck dieses Review-Pakets
 
-Dieses Review-Paket beschreibt den Patch `LEGAL_WORDING_REVIEW_PREPARATION_BRIEF_002`. Es bereitet eine konservative Legal-Wording-Review fuer den bestehenden Article Draft Candidate zu Brief 002 vor.
+Dieses Review-Paket beschreibt den Patch `FINAL_ARTICLE_PREPARATION_GATE_REVIEW_BRIEF_002`. Es dokumentiert konservativ, dass die finale Artikelvorbereitung fuer Brief 002 weiterhin blockiert bleibt.
 
 ## Scope dieses Patches
 
-- Genau ein Legal-Wording-Review-Prep-Artefakt fuer Brief 002 erstellen.
-- Vorhandene Sicherheits- und Disclaimer-Formulierungen aus dem Draft konservativ pruefen.
-- Rechtliche/haftungsbezogene Formulierungsrisiken fuer eine spaetere Human-Review sichtbar machen.
+- Genau ein Final-Article-Preparation-Gate-Review-Artefakt fuer Brief 002 erstellen.
+- Gate Checklist fuer bestehende Review-, Decision-, Citation- und Legal-Prep-Artefakte dokumentieren.
+- Gate Result konservativ auf blockiert setzen, weil finale Quellenformatierung und finale Legal-Wording-Review fehlen.
 - `SHO-CLAIM-007` weiter blockiert halten.
 - Keine Rechtsberatung, keine rechtliche Freigabe, keine Operator Acceptance und keine Publish Readiness setzen.
 - Validator minimal erweitern, damit das Prep-Artefakt als erwartetes Artefakt geprueft wird.
@@ -16,6 +16,7 @@ Dieses Review-Paket beschreibt den Patch `LEGAL_WORDING_REVIEW_PREPARATION_BRIEF
 ## Primaere Review-Dateien
 
 - `external_review_packet/HANDOFF_LATEST_CONTEXT.md`
+- `docs/content/article_reviews/betrugsnachrichten-auf-whatsapp-erkennen.final-article-prep-gate-review.md`
 - `docs/content/article_reviews/betrugsnachrichten-auf-whatsapp-erkennen.legal-wording-review-prep.md`
 - `docs/content/article_reviews/betrugsnachrichten-auf-whatsapp-erkennen.source-citation-formatting-prep.md`
 - `docs/operations/operator_decisions/HUMAN_OPERATOR_DECISION_BATCH01_BRIEF002_001.md`
@@ -32,7 +33,7 @@ Dieses Review-Paket beschreibt den Patch `LEGAL_WORDING_REVIEW_PREPARATION_BRIEF
 
 ## Wichtiger Hinweis
 
-Legal wording review preparation only. This is not legal advice, not legal approval, not publish readiness and not Operator Acceptance.
+Final article preparation gate review only. This is not final article preparation, not legal approval, not publish readiness and not Operator Acceptance.
 
 ## Nicht in Scope
 
