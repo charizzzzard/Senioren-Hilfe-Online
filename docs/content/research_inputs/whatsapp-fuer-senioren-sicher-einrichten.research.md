@@ -3,11 +3,11 @@ research_id: SHO-MVP-RESEARCH-001
 linked_brief_id: SHO-MVP-BRIEF-001
 linked_brief_path: docs/content/briefs/whatsapp-fuer-senioren-sicher-einrichten.md
 slug: whatsapp-fuer-senioren-sicher-einrichten
-research_status: source_candidates_added
-source_status: candidate
+research_status: source_candidates_verified_partial
+source_status: partial_verified
 serp_status: not_researched
 source_pack_path: docs/content/source_packs/operator-research-source-pack-batch-01.md
-source_pack_status: source_candidates_added
+source_pack_status: source_candidates_verified_partial
 last_researched: null
 operator_acceptance_status: not_accepted
 ---
@@ -20,8 +20,8 @@ Diese Datei sammelt Research-Eingaben für den vorhandenen Brief `SHO-MVP-BRIEF-
 
 ## Current Status
 
-- research_status: source_candidates_added
-- source_status: candidate
+- research_status: source_candidates_verified_partial
+- source_status: partial_verified
 - serp_status: not_researched
 - content_status: research_input_shell
 
@@ -40,6 +40,14 @@ Diese Datei sammelt Research-Eingaben für den vorhandenen Brief `SHO-MVP-BRIEF-
 | SHO-SRC-003 | official_platform_help | Siehe Source Pack | docs/content/source_packs/operator-research-source-pack-batch-01.md | candidate | Operator-gelieferter Quellenkandidat; nicht verifiziert |
 | SHO-SRC-004 | official_platform_help | Siehe Source Pack | docs/content/source_packs/operator-research-source-pack-batch-01.md | candidate | Operator-gelieferter Quellenkandidat; nicht verifiziert |
 
+## Source Verification Summary
+
+- SHO-SRC-001: needs_manual_review, remains candidate.
+- SHO-SRC-002: needs_manual_review, remains candidate.
+- SHO-SRC-003: needs_manual_review, remains candidate.
+- SHO-SRC-004: needs_manual_review, remains candidate.
+- WhatsApp official platform sources remain candidate/needs_manual_review; do not mark this brief as research-enriched.
+
 ## Source References
 
 - SHO-SRC-001
@@ -56,8 +64,8 @@ Diese Datei sammelt Research-Eingaben für den vorhandenen Brief `SHO-MVP-BRIEF-
 
 ## Evidence Gaps
 
-- Finale offizielle Quellen sind nicht ausgewählt.
-- Verbraucher- oder Sicherheitsquelle für Messenger-Sicherheit fehlt.
+- WhatsApp-Plattformquellen brauchen manuelle Detailprüfung.
+- Verbraucher- oder Sicherheitsquelle für Messenger-Sicherheit ist weiterhin nicht final verifiziert.
 - Datenschutz- oder Sicherheitsinformation ist offen.
 
 ## Screenshot Research Needs

@@ -5,7 +5,7 @@
 - project_name: Senioren-Hilfe Online
 - system_name: Senioren-Hilfe Online OS
 - system_short_name: SHO-OS
-- patch_title: OPERATOR_RESEARCH_SOURCE_PACK_BATCH_01_POPULATE
+- patch_title: SOURCE_CANDIDATE_VERIFICATION_BATCH_01_FROM_OPERATOR_REVIEW
 - external_review_verdict: ACCEPTED_WITH_FINDINGS
 
 SHO-OS ist ein reproduzierbares Content-, Trust- und Publishing-System für seniorengerechte digitale Alltagshilfe in Deutschland.
@@ -15,9 +15,9 @@ Diese Baseline und dieser Patch nutzen Operator-Definitionen als maßgebliche Vo
 ## Git Traceability
 
 - branch: `main`
-- head_before: `c20537f9c25e98dcbc3407e7752bdea9d68e1335`
+- head_before: `e4427e1df08753bb160a119d6d77d0aa0d06f86a`
 - intended_head_after: `assigned_after_commit`
-- origin_main_before: `c20537f9c25e98dcbc3407e7752bdea9d68e1335`
+- origin_main_before: `e4427e1df08753bb160a119d6d77d0aa0d06f86a`
 - dirty_state_before: `clean`
 - dirty_state_after: `assigned_after_commit`
 - remote_url: `https://github.com/charizzzzard/Senioren-Hilfe-Online.git`
@@ -26,12 +26,12 @@ Hinweis: `head_after` wird nicht vorab als Commit-SHA eingetragen, weil ein Comm
 
 ## Scope Dieses Patches
 
-- Operator-gelieferte Quellenkandidaten in das bestehende Batch-01-Source-Pack eingetragen.
-- Source-Pack-Status auf `source_candidates_added` gesetzt.
-- Vier bestehende Research-Input-Dateien konservativ auf `source_candidates_added` und `candidate` aktualisiert.
-- Dependency-freier Validator um Source-Candidate-Population-Prüfungen erweitert.
-- Findings Register für Source-Candidate-Kontext aktualisiert.
-- Quellen wurden als Kandidaten eingetragen, nicht verifiziert und nicht publish-ready markiert.
+- Operator/Review-definierte Verification-Entscheidungen für 13 bestehende Source Candidates eingetragen.
+- Source-Pack-Status auf `source_candidates_verified_partial` gesetzt.
+- Vier bestehende Research-Input-Dateien konservativ auf `source_candidates_verified_partial` aktualisiert.
+- Dependency-freier Validator um Source-Verification-State-Prüfungen erweitert.
+- Findings Register für Source-Verification-Kontext aktualisiert.
+- Einige Quellen sind durch externe/operator-review Entscheidung als `verified` markiert; Operator Acceptance bleibt `not_accepted` und kein Content ist publish-ready.
 
 ## Non-Scope
 
@@ -39,10 +39,11 @@ Hinweis: `head_after` wird nicht vorab als Commit-SHA eingetragen, weil ein Comm
 - Keine finalen Artikel.
 - Keine SERP-Recherche.
 - Keine Keyword-Recherche.
-- Keine Quellenvalidierung.
-- Keine zusätzlichen Quellen oder Quellenlinks außerhalb der Operator-Eingabe.
-- Kein `verified`-Status.
+- Keine neue Recherche.
+- Keine neuen Quellen oder Quellenlinks.
+- Keine URL-Änderungen.
 - Kein `research_enriched`-Status.
+- Kein `approved_for_publish`-Status.
 - Keine Monetarisierung.
 - Keine Affiliate-Links oder Ads.
 - Keine Marktvalidierungsclaims.
@@ -53,9 +54,9 @@ Hinweis: `head_after` wird nicht vorab als Commit-SHA eingetragen, weil ein Comm
 | finding_id | status | Hinweis |
 | --- | --- | --- |
 | SHO-BL-001 | partially_resolved | Preflight-HEAD und `origin/main` wurden real dokumentiert; finale Patch-SHA steht nach Commit/Push im Abschlussbericht. |
-| SHO-BL-002 | partially_resolved | Validator wurde um Source-Candidate-Population-Prüfungen gehärtet, bleibt aber dependency-free und textbasiert. |
-| SHO-BL-003 | partially_resolved | Handoff-Kontext enthält reale Branch-, HEAD-, Remote-, Dirty-State- und Source-Candidate-Patch-Werte. |
-| SHO-BL-004 | partially_resolved | Research-/Source-Pack-State-Modell nutzt `source_candidates_added`, ohne `verified` oder `research_enriched` zu setzen. |
+| SHO-BL-002 | partially_resolved | Validator wurde um Source-Verification-State-Prüfungen gehärtet, bleibt aber dependency-free und textbasiert. |
+| SHO-BL-003 | partially_resolved | Handoff-Kontext enthält reale Branch-, HEAD-, Remote-, Dirty-State- und Source-Verification-Patch-Werte. |
+| SHO-BL-004 | partially_resolved | Research-/Source-Pack-State-Modell nutzt `source_candidates_verified_partial`, ohne `research_enriched` oder Publish-Freigabe zu setzen. |
 | SHO-BL-005 | carried_forward | Maschinenlesbare Publish-Gates im Artikeltemplate bleiben späterer Scope. |
 | SHO-BL-006 | carried_forward | Eigene Kaufberatungsmethodik bleibt späterer Scope. |
 

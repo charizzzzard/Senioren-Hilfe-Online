@@ -92,6 +92,22 @@ Der Validator prüft für Batch 01 zusätzlich:
 - kein URL-Feld enthält nach Population `TBD_BY_OPERATOR_OR_RESEARCH`.
 - Research-Input-Dateien enthalten kein `approved_for_publish`.
 
+## Source-Verification-State-Checks
+
+Der Validator prüft für Batch 01 zusätzlich:
+
+- `source_pack_status = source_candidates_verified_partial` ist erlaubt.
+- Research-Input-Dateien dürfen `research_status = source_candidates_verified_partial` nutzen.
+- Research-Input-Dateien dürfen `source_status = partial_verified`, `verified_sources_available` oder `verified_sources_available_with_duplicate_rejected` nutzen.
+- Source-Rows dürfen `candidate`, `verified` oder `rejected` sein.
+- Jede `SHO-SRC-*`-Row enthält `verification_status`, `verification_note`, `duplicate_of` und `source_status_after`.
+- `verification_status` ist einer von `needs_manual_review`, `verified`, `verified_limited` oder `duplicate_of`.
+- `duplicate_of` ist Pflicht, wenn `verification_status = duplicate_of`.
+- `SHO-SRC-013` bleibt als rejected duplicate von `SHO-SRC-012` erhalten.
+- `source_status_after` muss zum Row-Status passen.
+- Research Inputs und Source Pack dürfen kein `research_enriched` enthalten.
+- Briefs und Research Inputs dürfen kein `approved_for_publish` enthalten.
+
 ## Verbleibende spätere Checks
 
 - Echtes YAML-Parsing.
@@ -111,6 +127,9 @@ Der Validator prüft für Batch 01 zusätzlich:
 - Source content extraction evidence.
 - Verified status transition rules.
 - Source rejection reasons.
+- Source evidence mapping to exact claims.
+- retrieved_at normalization.
+- Screenshot/device-version validation.
 - SERP-Snapshot-Metadaten.
 - Research-enriched transition gate.
 - verified/rejected Source-State.

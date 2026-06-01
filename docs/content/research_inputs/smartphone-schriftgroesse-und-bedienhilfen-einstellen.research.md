@@ -3,11 +3,11 @@ research_id: SHO-MVP-RESEARCH-003
 linked_brief_id: SHO-MVP-BRIEF-003
 linked_brief_path: docs/content/briefs/smartphone-schriftgroesse-und-bedienhilfen-einstellen.md
 slug: smartphone-schriftgroesse-und-bedienhilfen-einstellen
-research_status: source_candidates_added
-source_status: candidate
+research_status: source_candidates_verified_partial
+source_status: verified_sources_available
 serp_status: not_researched
 source_pack_path: docs/content/source_packs/operator-research-source-pack-batch-01.md
-source_pack_status: source_candidates_added
+source_pack_status: source_candidates_verified_partial
 last_researched: null
 operator_acceptance_status: not_accepted
 ---
@@ -20,8 +20,8 @@ Diese Datei sammelt Research-Eingaben für den vorhandenen Brief `SHO-MVP-BRIEF-
 
 ## Current Status
 
-- research_status: source_candidates_added
-- source_status: candidate
+- research_status: source_candidates_verified_partial
+- source_status: verified_sources_available
 - serp_status: not_researched
 - content_status: research_input_shell
 
@@ -35,9 +35,16 @@ Diese Datei sammelt Research-Eingaben für den vorhandenen Brief `SHO-MVP-BRIEF-
 
 | source_id | source_type | title_or_provider | url | status | notes |
 | --- | --- | --- | --- | --- | --- |
-| SHO-SRC-008 | manufacturer_support | Siehe Source Pack | docs/content/source_packs/operator-research-source-pack-batch-01.md | candidate | Operator-gelieferter Quellenkandidat; nicht verifiziert |
-| SHO-SRC-009 | manufacturer_support | Siehe Source Pack | docs/content/source_packs/operator-research-source-pack-batch-01.md | candidate | Operator-gelieferter Quellenkandidat; nicht verifiziert |
-| SHO-SRC-010 | manufacturer_support | Siehe Source Pack | docs/content/source_packs/operator-research-source-pack-batch-01.md | candidate | Operator-gelieferter Quellenkandidat; nicht verifiziert |
+| SHO-SRC-008 | manufacturer_support | Siehe Source Pack | docs/content/source_packs/operator-research-source-pack-batch-01.md | verified | verified durch Operator/Review; nicht final akzeptiert |
+| SHO-SRC-009 | manufacturer_support | Siehe Source Pack | docs/content/source_packs/operator-research-source-pack-batch-01.md | verified | verified_limited durch Operator/Review; Navigationsquelle |
+| SHO-SRC-010 | manufacturer_support | Siehe Source Pack | docs/content/source_packs/operator-research-source-pack-batch-01.md | verified | verified durch Operator/Review; nicht final akzeptiert |
+
+## Source Verification Summary
+
+- SHO-SRC-008: verified.
+- SHO-SRC-009: verified_limited; navigation support only.
+- SHO-SRC-010: verified.
+- Android and iPhone accessibility sources are verified, but screenshots and device/version decisions remain open.
 
 ## Source References
 
@@ -54,7 +61,7 @@ Diese Datei sammelt Research-Eingaben für den vorhandenen Brief `SHO-MVP-BRIEF-
 
 ## Evidence Gaps
 
-- Finale offizielle Quellen sind nicht ausgewählt.
+- Finales Source-to-Claim-Mapping fehlt.
 - Android-Oberfläche und Samsung-Scope sind nicht entschieden.
 - Projektstandard zur Mindestschriftgröße ist offen.
 

@@ -82,9 +82,30 @@ EXPECTED_RESEARCH_FILES = {
 
 SOURCE_PACK_PATH = ROOT / "docs/content/source_packs/operator-research-source-pack-batch-01.md"
 SOURCE_PACK_REL_PATH = "docs/content/source_packs/operator-research-source-pack-batch-01.md"
-ALLOWED_RESEARCH_STATUSES = {"not_researched", "source_candidates_added"}
-ALLOWED_RESEARCH_SOURCE_STATUSES = {"missing", "candidate"}
-ALLOWED_SOURCE_PACK_STATUSES = {"source_pack_shell", "source_candidates_added"}
+ALLOWED_RESEARCH_STATUSES = {
+    "not_researched",
+    "source_candidates_added",
+    "source_candidates_verified_partial",
+}
+ALLOWED_RESEARCH_SOURCE_STATUSES = {
+    "missing",
+    "candidate",
+    "partial_verified",
+    "verified_sources_available",
+    "verified_sources_available_with_duplicate_rejected",
+}
+ALLOWED_SOURCE_PACK_STATUSES = {
+    "source_pack_shell",
+    "source_candidates_added",
+    "source_candidates_verified_partial",
+}
+ALLOWED_SOURCE_ROW_STATUSES = {"candidate", "verified", "rejected"}
+ALLOWED_VERIFICATION_STATUSES = {
+    "needs_manual_review",
+    "verified",
+    "verified_limited",
+    "duplicate_of",
+}
 
 REQUIRED_BRIEF_FIELDS = {
     "brief_id",
@@ -360,8 +381,11 @@ def validate_research_inputs(failures: list[str]) -> int:
             )
         if normalized(fields.get("operator_acceptance_status")) == "accepted":
             failures.append(f"Research input {file_name} must not have accepted operator status")
-        if "approved_for_publish" in path.read_text(encoding="utf-8"):
+        research_text = path.read_text(encoding="utf-8")
+        if "approved_for_publish" in research_text:
             failures.append(f"Research input {file_name} must not contain approved_for_publish")
+        if "research_enriched" in research_text:
+            failures.append(f"Research input {file_name} must not contain research_enriched")
 
     return len(found_files)
 
@@ -383,20 +407,28 @@ def source_pack_table_rows(text: str) -> list[dict[str, str]]:
             continue
         cells = [cell.strip() for cell in line.strip("|").split("|")]
         if len(cells) >= 10:
-            rows.append(
-                {
-                    "source_id": cells[0],
-                    "linked_brief_id": cells[1],
-                    "source_type": cells[2],
-                    "title_or_provider": cells[3],
-                    "url": cells[4],
-                    "retrieved_at": cells[5],
-                    "status": cells[6],
-                    "supports": cells[7],
-                    "risks": cells[8],
-                    "notes": cells[9],
-                }
-            )
+            row = {
+                "source_id": cells[0],
+                "linked_brief_id": cells[1],
+                "source_type": cells[2],
+                "title_or_provider": cells[3],
+                "url": cells[4],
+                "retrieved_at": cells[5],
+                "status": cells[6],
+                "supports": cells[7],
+                "risks": cells[8],
+                "notes": cells[9],
+            }
+            if len(cells) >= 14:
+                row.update(
+                    {
+                        "verification_status": cells[10],
+                        "verification_note": cells[11],
+                        "duplicate_of": cells[12],
+                        "source_status_after": cells[13],
+                    }
+                )
+            rows.append(row)
     return rows
 
 
@@ -416,9 +448,17 @@ def validate_source_pack_rows(rows: list[dict[str, str]], failures: list[str]) -
         "supports",
         "risks",
         "notes",
+        "verification_status",
+        "verification_note",
+        "duplicate_of",
+        "source_status_after",
     }
     for index, row in enumerate(rows, start=1):
-        missing = [column for column in required_columns if not row.get(column)]
+        missing = [
+            column
+            for column in required_columns
+            if not row.get(column) and column != "duplicate_of"
+        ]
         if missing:
             failures.append(
                 f"Source row {index} is missing required columns: {', '.join(sorted(missing))}"
@@ -431,14 +471,33 @@ def validate_source_pack_rows(rows: list[dict[str, str]], failures: list[str]) -
             seen_ids.add(source_id)
 
         status = normalized(row.get("status"))
-        if status == "verified":
-            failures.append(f"Source row must not be verified: {source_id or f'row {index}'}")
-        if status not in {"candidate", "missing", "rejected", "stale"}:
+        if status not in ALLOWED_SOURCE_ROW_STATUSES:
             failures.append(
                 f"Source row {source_id or index} has unsupported status: {row.get('status')}"
             )
         if "TBD_BY_OPERATOR_OR_RESEARCH" in row.get("url", ""):
             failures.append(f"Source row URL must not be TBD after populate: {source_id}")
+
+        verification_status = normalized(row.get("verification_status"))
+        if verification_status not in ALLOWED_VERIFICATION_STATUSES:
+            failures.append(
+                f"Source row {source_id or index} has unsupported verification_status: {row.get('verification_status')}"
+            )
+        if verification_status in {"verified", "verified_limited", "needs_manual_review", "duplicate_of"} and not row.get(
+            "verification_note"
+        ):
+            failures.append(f"Source row {source_id or index} must have verification_note")
+        if verification_status == "duplicate_of":
+            if not row.get("duplicate_of"):
+                failures.append(f"Duplicate source row {source_id or index} must have duplicate_of")
+            if status != "rejected":
+                failures.append(f"Duplicate source row {source_id or index} must be rejected")
+        if status == "rejected" and verification_status != "duplicate_of":
+            failures.append(f"Rejected source row {source_id or index} must declare duplicate_of")
+        if row.get("source_status_after") and normalized(row.get("source_status_after")) != status:
+            failures.append(
+                f"Source row {source_id or index} status must match source_status_after"
+            )
 
 
 def validate_source_pack(failures: list[str]) -> int:
@@ -475,8 +534,20 @@ def validate_source_pack(failures: list[str]) -> int:
         failures.append(f"Source pack has unsupported source_pack_status: {fields.get('source_pack_status')}")
     if normalized(fields.get("operator_acceptance_status")) == "accepted":
         failures.append("Source pack must not have accepted operator status")
+    if "approved_for_publish" in text or "research_enriched" in text:
+        failures.append("Source pack must not contain approved_for_publish or research_enriched")
 
-    validate_source_pack_rows(source_pack_table_rows(text), failures)
+    rows = source_pack_table_rows(text)
+    validate_source_pack_rows(rows, failures)
+    rejected_duplicates = [
+        row
+        for row in rows
+        if row.get("source_id") == "SHO-SRC-013"
+        and normalized(row.get("status")) == "rejected"
+        and row.get("duplicate_of") == "SHO-SRC-012"
+    ]
+    if not rejected_duplicates:
+        failures.append("Rejected duplicate source SHO-SRC-013 must remain present and point to SHO-SRC-012")
 
     return 1
 

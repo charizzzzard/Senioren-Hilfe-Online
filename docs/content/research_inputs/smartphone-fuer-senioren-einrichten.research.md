@@ -3,11 +3,11 @@ research_id: SHO-MVP-RESEARCH-004
 linked_brief_id: SHO-MVP-BRIEF-004
 linked_brief_path: docs/content/briefs/smartphone-fuer-senioren-einrichten.md
 slug: smartphone-fuer-senioren-einrichten
-research_status: source_candidates_added
-source_status: candidate
+research_status: source_candidates_verified_partial
+source_status: verified_sources_available_with_duplicate_rejected
 serp_status: not_researched
 source_pack_path: docs/content/source_packs/operator-research-source-pack-batch-01.md
-source_pack_status: source_candidates_added
+source_pack_status: source_candidates_verified_partial
 last_researched: null
 operator_acceptance_status: not_accepted
 ---
@@ -20,8 +20,8 @@ Diese Datei sammelt Research-Eingaben für den vorhandenen Brief `SHO-MVP-BRIEF-
 
 ## Current Status
 
-- research_status: source_candidates_added
-- source_status: candidate
+- research_status: source_candidates_verified_partial
+- source_status: verified_sources_available_with_duplicate_rejected
 - serp_status: not_researched
 - content_status: research_input_shell
 
@@ -36,10 +36,18 @@ Diese Datei sammelt Research-Eingaben für den vorhandenen Brief `SHO-MVP-BRIEF-
 
 | source_id | source_type | title_or_provider | url | status | notes |
 | --- | --- | --- | --- | --- | --- |
-| SHO-SRC-009 | manufacturer_support | Siehe Source Pack | docs/content/source_packs/operator-research-source-pack-batch-01.md | candidate | Operator-gelieferter Quellenkandidat; nicht verifiziert |
-| SHO-SRC-011 | manufacturer_support | Siehe Source Pack | docs/content/source_packs/operator-research-source-pack-batch-01.md | candidate | Operator-gelieferter Quellenkandidat; nicht verifiziert |
-| SHO-SRC-012 | official_authority | Siehe Source Pack | docs/content/source_packs/operator-research-source-pack-batch-01.md | candidate | Operator-gelieferter Quellenkandidat; nicht verifiziert |
-| SHO-SRC-013 | official_authority | Siehe Source Pack | docs/content/source_packs/operator-research-source-pack-batch-01.md | candidate | Operator-gelieferter Quellenkandidat; nicht verifiziert |
+| SHO-SRC-009 | manufacturer_support | Siehe Source Pack | docs/content/source_packs/operator-research-source-pack-batch-01.md | verified | verified_limited durch Operator/Review; Navigationsquelle |
+| SHO-SRC-011 | manufacturer_support | Siehe Source Pack | docs/content/source_packs/operator-research-source-pack-batch-01.md | verified | verified_limited durch Operator/Review; nicht senior-spezifisch |
+| SHO-SRC-012 | official_authority | Siehe Source Pack | docs/content/source_packs/operator-research-source-pack-batch-01.md | verified | verified durch Operator/Review; nicht final akzeptiert |
+| SHO-SRC-013 | official_authority | Siehe Source Pack | docs/content/source_packs/operator-research-source-pack-batch-01.md | rejected | duplicate_of SHO-SRC-012; nicht als verified evidence nutzen |
+
+## Source Verification Summary
+
+- SHO-SRC-009: verified_limited; navigation support only.
+- SHO-SRC-011: verified_limited; setup context, not senior-specific.
+- SHO-SRC-012: verified.
+- SHO-SRC-013: rejected duplicate_of SHO-SRC-012.
+- Setup and safety sources are available, but senior-specific translation and duplicate cleanup remain review items.
 
 ## Source References
 
@@ -57,7 +65,7 @@ Diese Datei sammelt Research-Eingaben für den vorhandenen Brief `SHO-MVP-BRIEF-
 
 ## Evidence Gaps
 
-- Finale offizielle Quellen sind nicht ausgewählt.
+- Finales Source-to-Claim-Mapping fehlt.
 - Zielausrichtung und Geräteklasse sind nicht entschieden.
 - Google-/Apple-Konto-Scope ist offen.
 

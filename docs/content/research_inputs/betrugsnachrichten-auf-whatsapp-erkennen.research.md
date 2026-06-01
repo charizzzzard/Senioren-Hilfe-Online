@@ -3,11 +3,11 @@ research_id: SHO-MVP-RESEARCH-002
 linked_brief_id: SHO-MVP-BRIEF-002
 linked_brief_path: docs/content/briefs/betrugsnachrichten-auf-whatsapp-erkennen.md
 slug: betrugsnachrichten-auf-whatsapp-erkennen
-research_status: source_candidates_added
-source_status: candidate
+research_status: source_candidates_verified_partial
+source_status: verified_sources_available
 serp_status: not_researched
 source_pack_path: docs/content/source_packs/operator-research-source-pack-batch-01.md
-source_pack_status: source_candidates_added
+source_pack_status: source_candidates_verified_partial
 last_researched: null
 operator_acceptance_status: not_accepted
 ---
@@ -20,8 +20,8 @@ Diese Datei sammelt Research-Eingaben für den vorhandenen Brief `SHO-MVP-BRIEF-
 
 ## Current Status
 
-- research_status: source_candidates_added
-- source_status: candidate
+- research_status: source_candidates_verified_partial
+- source_status: verified_sources_available
 - serp_status: not_researched
 - content_status: research_input_shell
 
@@ -35,10 +35,18 @@ Diese Datei sammelt Research-Eingaben für den vorhandenen Brief `SHO-MVP-BRIEF-
 
 | source_id | source_type | title_or_provider | url | status | notes |
 | --- | --- | --- | --- | --- | --- |
-| SHO-SRC-004 | official_platform_help | Siehe Source Pack | docs/content/source_packs/operator-research-source-pack-batch-01.md | candidate | Operator-gelieferter Quellenkandidat; nicht verifiziert |
-| SHO-SRC-005 | official_authority | Siehe Source Pack | docs/content/source_packs/operator-research-source-pack-batch-01.md | candidate | Operator-gelieferter Quellenkandidat; nicht verifiziert |
-| SHO-SRC-006 | official_authority | Siehe Source Pack | docs/content/source_packs/operator-research-source-pack-batch-01.md | candidate | Operator-gelieferter Quellenkandidat; nicht verifiziert |
-| SHO-SRC-007 | consumer_protection | Siehe Source Pack | docs/content/source_packs/operator-research-source-pack-batch-01.md | candidate | Operator-gelieferter Quellenkandidat; nicht verifiziert |
+| SHO-SRC-004 | official_platform_help | Siehe Source Pack | docs/content/source_packs/operator-research-source-pack-batch-01.md | candidate | needs_manual_review; nicht verifiziert |
+| SHO-SRC-005 | official_authority | Siehe Source Pack | docs/content/source_packs/operator-research-source-pack-batch-01.md | verified | verified durch Operator/Review; nicht final akzeptiert |
+| SHO-SRC-006 | official_authority | Siehe Source Pack | docs/content/source_packs/operator-research-source-pack-batch-01.md | verified | verified durch Operator/Review; nicht final akzeptiert |
+| SHO-SRC-007 | consumer_protection | Siehe Source Pack | docs/content/source_packs/operator-research-source-pack-batch-01.md | verified | verified durch Operator/Review; nicht WhatsApp-spezifisch |
+
+## Source Verification Summary
+
+- SHO-SRC-004: needs_manual_review, remains candidate.
+- SHO-SRC-005: verified.
+- SHO-SRC-006: verified.
+- SHO-SRC-007: verified, but not WhatsApp-specific.
+- Strong verified fraud sources are available, but this brief is not yet research-enriched because no SERP observation and no final article evidence mapping exists.
 
 ## Source References
 
@@ -56,9 +64,9 @@ Diese Datei sammelt Research-Eingaben für den vorhandenen Brief `SHO-MVP-BRIEF-
 
 ## Evidence Gaps
 
-- Finale offizielle Quellen sind nicht ausgewählt.
+- WhatsApp-Blockieren/Melden-Quelle braucht manuelle Detailprüfung.
 - Betrugsfall-Abdeckung ist nicht entschieden.
-- Quelle zum Blockieren oder Melden ist offen.
+- Finales Source-to-Claim-Mapping fehlt.
 
 ## Screenshot Research Needs
 
