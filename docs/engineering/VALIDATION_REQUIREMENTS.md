@@ -157,6 +157,32 @@ Der Validator prueft zusaetzlich:
 
 Der Check ist ein Skeleton und ersetzt keine vollstaendige Transition Engine.
 
+## Manual-Source-Review-Checks
+
+Der Validator prueft zusaetzlich:
+
+- Existenz von `docs/content/source_reviews/README.md`.
+- Existenz von `docs/content/source_reviews/whatsapp-source-manual-review-batch-01.md`.
+- Das WhatsApp-Review-Artefakt enthaelt `source_review_id: SHO-WA-MANUAL-REVIEW-BATCH-01`.
+- `review_status = manual_review_attempted_needs_line_evidence`.
+- `source_status_after_review = candidate`.
+- `operator_acceptance_status = not_accepted`.
+- Die Source IDs `SHO-SRC-001` bis `SHO-SRC-004` bleiben dokumentiert.
+- Die Claim IDs `SHO-CLAIM-001`, `SHO-CLAIM-002`, `SHO-CLAIM-003` und `SHO-CLAIM-007` bleiben dokumentiert.
+- Das Review-Artefakt enthaelt kein `source_status_after_review: verified`, kein `approved_for_publish` und kein `research_enriched`.
+- Das Source Pack muss `SHO-SRC-001` bis `SHO-SRC-004` weiterhin als `candidate / needs_manual_review` fuehren.
+- Die Claim Map muss die WhatsApp-Claims weiterhin als `needs_manual_review_before_draft` fuehren.
+
+## WhatsApp Source Review Gate
+
+Ein dokumentierter Manual-Review-Versuch hebt WhatsApp-Quellen nicht auf `verified`. Fuer eine spaetere Hochstufung braucht es mindestens:
+
+- Exact line/quote extraction.
+- Platform page snapshot metadata.
+- Screenshot/device-version evidence.
+- WhatsApp UI review checklist.
+- Explizite Operator-/Review-Entscheidung zur Transition von `manual_review_attempted_needs_line_evidence` zu `manual_review_verified`.
+
 ## Verbleibende spätere Checks
 
 - Echtes YAML-Parsing.
@@ -200,3 +226,8 @@ Der Check ist ein Skeleton und ersetzt keine vollstaendige Transition Engine.
 - Handoff Builder.
 - Quality Gate Summary.
 - CI-Integration.
+- Exact line/quote extraction.
+- Platform page snapshot metadata.
+- Screenshot/device-version evidence.
+- WhatsApp UI review checklist.
+- Transition von `manual_review_attempted_needs_line_evidence` zu `manual_review_verified`.

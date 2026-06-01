@@ -8,6 +8,7 @@ source_status: verified_sources_available
 serp_status: not_researched
 source_pack_path: docs/content/source_packs/operator-research-source-pack-batch-01.md
 source_pack_status: source_candidates_verified_partial
+manual_source_review_path: docs/content/source_reviews/whatsapp-source-manual-review-batch-01.md
 claim_map_path: docs/content/claim_maps/source-to-claim-map-batch-01.md
 claim_map_status: claim_slots_mapped
 last_researched: null
@@ -27,6 +28,7 @@ Diese Datei sammelt Research-Eingaben für den vorhandenen Brief `SHO-MVP-BRIEF-
 - serp_status: not_researched
 - content_status: research_input_shell
 - claim_map_status: claim_slots_mapped
+- manual_source_review_path: docs/content/source_reviews/whatsapp-source-manual-review-batch-01.md
 
 ## Required Source Types
 
@@ -50,6 +52,7 @@ Diese Datei sammelt Research-Eingaben für den vorhandenen Brief `SHO-MVP-BRIEF-
 - SHO-SRC-006: verified.
 - SHO-SRC-007: verified, but not WhatsApp-specific.
 - Strong verified fraud sources are available, but this brief is not yet research-enriched because no SERP observation and no final article evidence mapping exists.
+- Fraud/phishing claims have verified non-WhatsApp sources, but WhatsApp block/report UI claim remains needs_manual_review.
 
 ## Source References
 

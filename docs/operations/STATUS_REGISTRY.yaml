@@ -54,6 +54,20 @@ operator_acceptance_status:
     - accepted
   forbidden_by_codex:
     - accepted
+    - approved_for_publish
+    - operator_accepted
+
+manual_review_status:
+  allowed:
+    - not_started
+    - manual_review_attempted_needs_line_evidence
+    - line_evidence_available
+    - manual_review_verified
+    - rejected
+
+source_review_status:
+  allowed:
+    - manual_review_attempted_needs_line_evidence
 
 forbidden_transitions:
   - from: scaffold_only

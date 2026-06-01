@@ -8,6 +8,7 @@ source_status: partial_verified
 serp_status: not_researched
 source_pack_path: docs/content/source_packs/operator-research-source-pack-batch-01.md
 source_pack_status: source_candidates_verified_partial
+manual_source_review_path: docs/content/source_reviews/whatsapp-source-manual-review-batch-01.md
 claim_map_path: docs/content/claim_maps/source-to-claim-map-batch-01.md
 claim_map_status: claim_slots_mapped
 last_researched: null
@@ -27,6 +28,7 @@ Diese Datei sammelt Research-Eingaben für den vorhandenen Brief `SHO-MVP-BRIEF-
 - serp_status: not_researched
 - content_status: research_input_shell
 - claim_map_status: claim_slots_mapped
+- manual_source_review_path: docs/content/source_reviews/whatsapp-source-manual-review-batch-01.md
 
 ## Required Source Types
 
@@ -50,6 +52,7 @@ Diese Datei sammelt Research-Eingaben für den vorhandenen Brief `SHO-MVP-BRIEF-
 - SHO-SRC-003: needs_manual_review, remains candidate.
 - SHO-SRC-004: needs_manual_review, remains candidate.
 - WhatsApp official platform sources remain candidate/needs_manual_review; do not mark this brief as research-enriched.
+- All WhatsApp platform sources remain candidate / needs_manual_review after manual review attempt because line-level evidence is missing.
 
 ## Source References
 

@@ -15,6 +15,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 STATUS_REGISTRY = ROOT / "docs/operations/STATUS_REGISTRY.yaml"
 BATCH_MANIFEST = ROOT / "docs/content/batches/MVP_BATCH_01.yaml"
+SOURCE_PACK = ROOT / "docs/content/source_packs/operator-research-source-pack-batch-01.md"
 
 
 def fail_if_missing(path: Path, failures: list[str]) -> str:
@@ -29,6 +30,7 @@ def main() -> int:
 
     registry_text = fail_if_missing(STATUS_REGISTRY, failures)
     batch_text = fail_if_missing(BATCH_MANIFEST, failures)
+    source_pack_text = fail_if_missing(SOURCE_PACK, failures)
 
     if registry_text:
         if "forbidden_transitions" not in registry_text:
@@ -56,6 +58,14 @@ def main() -> int:
         for fragment in forbidden_fragments:
             if fragment in batch_text:
                 failures.append(f"MVP_BATCH_01.yaml must not contain: {fragment}")
+
+        if "manual_source_reviews:" in batch_text and "current_stage: claim_slots_mapped" not in batch_text:
+            failures.append("Manual source review presence must keep MVP_BATCH_01 at claim_slots_mapped")
+
+        if "manual_review_verified" in batch_text and "needs_manual_review" in source_pack_text:
+            failures.append(
+                "MVP_BATCH_01.yaml must not contain manual_review_verified while source pack still has needs_manual_review"
+            )
 
     if failures:
         print("FAIL: SHO-OS stage transition skeleton validation failed")

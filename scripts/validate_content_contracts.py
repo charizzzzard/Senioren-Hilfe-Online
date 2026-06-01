@@ -34,6 +34,8 @@ REQUIRED_DOCS = [
     "docs/content/claim_maps/README.md",
     "docs/content/claim_maps/CLAIM_MAP_TEMPLATE.md",
     "docs/content/claim_maps/source-to-claim-map-batch-01.md",
+    "docs/content/source_reviews/README.md",
+    "docs/content/source_reviews/whatsapp-source-manual-review-batch-01.md",
     "docs/operations/CONTENT_RESEARCH_OPERATING_PROTOCOL.md",
     "docs/operations/RESEARCH_BATCH_STAGE_MODEL.md",
     "docs/operations/CODEX_EXECUTOR_BOUNDARY.md",
@@ -95,6 +97,10 @@ SOURCE_PACK_PATH = ROOT / "docs/content/source_packs/operator-research-source-pa
 SOURCE_PACK_REL_PATH = "docs/content/source_packs/operator-research-source-pack-batch-01.md"
 CLAIM_MAP_PATH = ROOT / "docs/content/claim_maps/source-to-claim-map-batch-01.md"
 CLAIM_MAP_REL_PATH = "docs/content/claim_maps/source-to-claim-map-batch-01.md"
+SOURCE_REVIEW_PATH = ROOT / "docs/content/source_reviews/whatsapp-source-manual-review-batch-01.md"
+SOURCE_REVIEW_REL_PATH = "docs/content/source_reviews/whatsapp-source-manual-review-batch-01.md"
+WHATSAPP_MANUAL_REVIEW_SOURCE_IDS = {"SHO-SRC-001", "SHO-SRC-002", "SHO-SRC-003", "SHO-SRC-004"}
+WHATSAPP_MANUAL_REVIEW_CLAIM_IDS = {"SHO-CLAIM-001", "SHO-CLAIM-002", "SHO-CLAIM-003", "SHO-CLAIM-007"}
 ALLOWED_RESEARCH_STATUSES = {
     "not_researched",
     "source_candidates_added",
@@ -309,6 +315,7 @@ def validate_protocol_automation_files(failures: list[str]) -> None:
             "current_stage: claim_slots_mapped",
             "operator_acceptance_status: not_accepted",
             "claim_map: docs/content/claim_maps/source-to-claim-map-batch-01.md",
+            f"- {SOURCE_REVIEW_REL_PATH}",
         ]
         for fragment in required_fragments:
             if fragment not in text:
@@ -476,6 +483,13 @@ def validate_research_inputs(failures: list[str]) -> int:
             )
         if normalized(fields.get("claim_map_status")) != "claim_slots_mapped":
             failures.append(f"Research input {file_name} must have claim_map_status: claim_slots_mapped")
+        if file_name in {
+            "whatsapp-fuer-senioren-sicher-einrichten.research.md",
+            "betrugsnachrichten-auf-whatsapp-erkennen.research.md",
+        } and fields.get("manual_source_review_path") != SOURCE_REVIEW_REL_PATH:
+            failures.append(
+                f"Research input {file_name} must link to manual_source_review_path: {SOURCE_REVIEW_REL_PATH}"
+            )
         if normalized(fields.get("operator_acceptance_status")) == "accepted":
             failures.append(f"Research input {file_name} must not have accepted operator status")
         research_text = path.read_text(encoding="utf-8")
@@ -596,6 +610,18 @@ def validate_source_pack_rows(rows: list[dict[str, str]], failures: list[str]) -
                 f"Source row {source_id or index} status must match source_status_after"
             )
 
+        if source_id in WHATSAPP_MANUAL_REVIEW_SOURCE_IDS:
+            if status != "candidate":
+                failures.append(f"WhatsApp manual-review source {source_id} must remain candidate")
+            if verification_status != "needs_manual_review":
+                failures.append(
+                    f"WhatsApp manual-review source {source_id} must remain needs_manual_review"
+                )
+            if normalized(row.get("source_status_after")) != "candidate":
+                failures.append(f"WhatsApp manual-review source {source_id} must have source_status_after candidate")
+            if "WHATSAPP_SOURCE_MANUAL_REVIEW_BATCH_01" not in row.get("verification_note", ""):
+                failures.append(f"WhatsApp manual-review source {source_id} must reference manual review batch")
+
 
 def validate_source_pack(failures: list[str]) -> int:
     source_pack_dir = ROOT / "docs/content/source_packs"
@@ -711,6 +737,15 @@ def validate_claim_map_rows(rows: list[dict[str, str]], failures: list[str]) -> 
             )
         if "SHO-SRC-013" in row.get("allowed_source_ids", "") and claim_use == "article_draft_candidate":
             failures.append("Rejected duplicate source SHO-SRC-013 must not be article_draft_candidate evidence")
+        if claim_id in WHATSAPP_MANUAL_REVIEW_CLAIM_IDS:
+            if claim_status != "needs_manual_review":
+                failures.append(f"WhatsApp manual-review claim {claim_id} must remain needs_manual_review")
+            if claim_use != "needs_manual_review_before_draft":
+                failures.append(
+                    f"WhatsApp manual-review claim {claim_id} must remain needs_manual_review_before_draft"
+                )
+            if "WHATSAPP_SOURCE_MANUAL_REVIEW_BATCH_01" not in row.get("evidence_note", ""):
+                failures.append(f"WhatsApp manual-review claim {claim_id} must reference manual review batch")
 
 
 def validate_claim_map(failures: list[str]) -> int:
@@ -753,6 +788,69 @@ def validate_claim_map(failures: list[str]) -> int:
     return 1
 
 
+def validate_source_review(failures: list[str]) -> int:
+    source_review_dir = ROOT / "docs/content/source_reviews"
+    if not source_review_dir.exists():
+        failures.append("Missing source review directory: docs/content/source_reviews")
+        return 0
+
+    required_paths = [
+        source_review_dir / "README.md",
+        SOURCE_REVIEW_PATH,
+    ]
+    for path in required_paths:
+        if not path.exists():
+            failures.append(f"Missing source review file: {path.relative_to(ROOT).as_posix()}")
+
+    if not SOURCE_REVIEW_PATH.exists():
+        return 0
+
+    text = SOURCE_REVIEW_PATH.read_text(encoding="utf-8")
+    fields = parse_frontmatter_fields(text)
+    required_fragments = [
+        "source_review_id: SHO-WA-MANUAL-REVIEW-BATCH-01",
+        "review_status: manual_review_attempted_needs_line_evidence",
+        "source_status_after_review: candidate",
+        "operator_acceptance_status: not_accepted",
+        "SHO-SRC-001",
+        "SHO-SRC-002",
+        "SHO-SRC-003",
+        "SHO-SRC-004",
+        "SHO-CLAIM-001",
+        "SHO-CLAIM-002",
+        "SHO-CLAIM-003",
+        "SHO-CLAIM-007",
+    ]
+    for fragment in required_fragments:
+        if fragment not in text:
+            failures.append(f"Source review file must contain: {fragment}")
+
+    if fields.get("source_review_id") != "SHO-WA-MANUAL-REVIEW-BATCH-01":
+        failures.append("Source review has unexpected source_review_id")
+    if fields.get("linked_source_pack") != SOURCE_PACK_REL_PATH:
+        failures.append(f"Source review must link to source pack: {SOURCE_PACK_REL_PATH}")
+    if fields.get("linked_claim_map") != CLAIM_MAP_REL_PATH:
+        failures.append(f"Source review must link to claim map: {CLAIM_MAP_REL_PATH}")
+    if normalized(fields.get("review_status")) != "manual_review_attempted_needs_line_evidence":
+        failures.append("Source review must have review_status: manual_review_attempted_needs_line_evidence")
+    if normalized(fields.get("source_status_after_review")) != "candidate":
+        failures.append("Source review must have source_status_after_review: candidate")
+    if normalized(fields.get("operator_acceptance_status")) == "accepted":
+        failures.append("Source review must not have accepted operator status")
+
+    forbidden_fragments = [
+        "source_status_after_review: verified",
+        "operator_acceptance_status: accepted",
+        "approved_for_publish",
+        "research_enriched",
+    ]
+    for fragment in forbidden_fragments:
+        if fragment in text:
+            failures.append(f"Source review file must not contain: {fragment}")
+
+    return 1
+
+
 def main() -> int:
     failures: list[str] = []
 
@@ -763,6 +861,7 @@ def main() -> int:
     research_count = validate_research_inputs(failures)
     source_pack_count = validate_source_pack(failures)
     claim_map_count = validate_claim_map(failures)
+    source_review_count = validate_source_review(failures)
 
     if failures:
         print("FAIL: SHO-OS content contract validation failed")
@@ -778,6 +877,7 @@ def main() -> int:
     print(f"- Batch 01 research input files: {research_count}")
     print(f"- Batch 01 source pack files: {source_pack_count}")
     print(f"- Batch 01 claim map files: {claim_map_count}")
+    print(f"- Batch 01 source review files: {source_review_count}")
     print("- YAML/frontmatter parsing: dependency-free and text-based")
     return 0
 
