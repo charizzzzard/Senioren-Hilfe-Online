@@ -34,6 +34,10 @@ research_enrichment_candidates:
   - docs/content/research_enrichments/betrugsnachrichten-auf-whatsapp-erkennen.enrichment.md
   - docs/content/research_enrichments/smartphone-schriftgroesse-und-bedienhilfen-einstellen.enrichment.md
 
+article_draft_scaffolds:
+  - docs/content/article_draft_scaffolds/betrugsnachrichten-auf-whatsapp-erkennen.draft-scaffold.md
+  - docs/content/article_draft_scaffolds/smartphone-schriftgroesse-und-bedienhilfen-einstellen.draft-scaffold.md
+
 not_enriched:
   - brief_id: SHO-MVP-BRIEF-001
     reason: WhatsApp line evidence unavailable; platform claims blocked.
@@ -41,13 +45,20 @@ not_enriched:
     reason: Commercial/affiliate risk and product-recommendation methodology still open.
 
 known_blockers:
+  - Article draft scaffolds exist only for Brief 002 and Brief 003.
+  - No final article drafts exist.
   - WhatsApp line-level evidence is unavailable.
+  - WhatsApp Brief 001 remains blocked by missing line evidence.
   - WhatsApp platform sources remain candidate / needs_manual_review.
   - WhatsApp UI-sensitive instructions remain blocked.
+  - WhatsApp block/report UI claim remains blocked for Brief 002.
   - Exact quote/evidence extraction remains incomplete.
   - Screenshot/device-version validation is not yet present.
+  - Screenshot/device-version validation remains open for Brief 003.
   - SERP observation is qualitative and requires review.
   - Brief 004 requires strict monetization/product-methodology review.
+  - Brief 004 remains held for product/monetization methodology.
+  - Full batch is not research-enriched and not publish-ready.
 
 non_acceptance:
   - Batch is not publish-ready.

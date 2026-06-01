@@ -46,6 +46,10 @@ REQUIRED_DOCS = [
     "docs/content/research_enrichments/RESEARCH_ENRICHMENT_TEMPLATE.md",
     "docs/content/research_enrichments/betrugsnachrichten-auf-whatsapp-erkennen.enrichment.md",
     "docs/content/research_enrichments/smartphone-schriftgroesse-und-bedienhilfen-einstellen.enrichment.md",
+    "docs/content/article_draft_scaffolds/README.md",
+    "docs/content/article_draft_scaffolds/ARTICLE_DRAFT_SCAFFOLD_TEMPLATE.md",
+    "docs/content/article_draft_scaffolds/betrugsnachrichten-auf-whatsapp-erkennen.draft-scaffold.md",
+    "docs/content/article_draft_scaffolds/smartphone-schriftgroesse-und-bedienhilfen-einstellen.draft-scaffold.md",
     "docs/operations/CONTENT_RESEARCH_OPERATING_PROTOCOL.md",
     "docs/operations/RESEARCH_BATCH_STAGE_MODEL.md",
     "docs/operations/CODEX_EXECUTOR_BOUNDARY.md",
@@ -118,12 +122,29 @@ EXPECTED_RESEARCH_ENRICHMENTS = {
     "betrugsnachrichten-auf-whatsapp-erkennen.enrichment.md": {
         "brief_id": "SHO-MVP-BRIEF-002",
         "research_input": "docs/content/research_inputs/betrugsnachrichten-auf-whatsapp-erkennen.research.md",
+        "draft_scaffold": "docs/content/article_draft_scaffolds/betrugsnachrichten-auf-whatsapp-erkennen.draft-scaffold.md",
         "required_claims": ["SHO-CLAIM-004", "SHO-CLAIM-005", "SHO-CLAIM-006", "SHO-CLAIM-007"],
         "required_terms": ["excluded", "blocked"],
     },
     "smartphone-schriftgroesse-und-bedienhilfen-einstellen.enrichment.md": {
         "brief_id": "SHO-MVP-BRIEF-003",
         "research_input": "docs/content/research_inputs/smartphone-schriftgroesse-und-bedienhilfen-einstellen.research.md",
+        "draft_scaffold": "docs/content/article_draft_scaffolds/smartphone-schriftgroesse-und-bedienhilfen-einstellen.draft-scaffold.md",
+        "required_claims": ["SHO-CLAIM-008", "SHO-CLAIM-009", "SHO-CLAIM-010"],
+        "required_terms": ["support_only"],
+    },
+}
+ARTICLE_DRAFT_SCAFFOLDS_DIR = ROOT / "docs/content/article_draft_scaffolds"
+EXPECTED_ARTICLE_DRAFT_SCAFFOLDS = {
+    "betrugsnachrichten-auf-whatsapp-erkennen.draft-scaffold.md": {
+        "brief_id": "SHO-MVP-BRIEF-002",
+        "enrichment": "docs/content/research_enrichments/betrugsnachrichten-auf-whatsapp-erkennen.enrichment.md",
+        "required_claims": ["SHO-CLAIM-004", "SHO-CLAIM-005", "SHO-CLAIM-006", "SHO-CLAIM-007"],
+        "required_terms": ["excluded", "not allowed"],
+    },
+    "smartphone-schriftgroesse-und-bedienhilfen-einstellen.draft-scaffold.md": {
+        "brief_id": "SHO-MVP-BRIEF-003",
+        "enrichment": "docs/content/research_enrichments/smartphone-schriftgroesse-und-bedienhilfen-einstellen.enrichment.md",
         "required_claims": ["SHO-CLAIM-008", "SHO-CLAIM-009", "SHO-CLAIM-010"],
         "required_terms": ["support_only"],
     },
@@ -362,6 +383,9 @@ def validate_protocol_automation_files(failures: list[str]) -> None:
             "approved_for_publish",
             "operator_acceptance_status: accepted",
             "current_stage: research_enriched_brief_candidate",
+            "current_stage: article_draft_candidate",
+            "current_stage: review_ready",
+            "current_stage: publish_candidate",
             "publish_ready",
         ]
         for fragment in forbidden_fragments:
@@ -1141,6 +1165,10 @@ def validate_research_enrichments(failures: list[str]) -> int:
             failures.append(f"Research enrichment {file_name} must link to SERP observation")
         if fields.get("linked_research_input") != expected["research_input"]:
             failures.append(f"Research enrichment {file_name} must link to expected research input")
+        if fields.get("article_draft_scaffold_path") != expected["draft_scaffold"]:
+            failures.append(f"Research enrichment {file_name} must link to expected draft scaffold")
+        if normalized(fields.get("draft_scaffold_status")) != "article_draft_scaffold":
+            failures.append(f"Research enrichment {file_name} must have draft_scaffold_status: article_draft_scaffold")
 
         forbidden_fragments = [
             "approved_for_publish",
@@ -1159,6 +1187,82 @@ def validate_research_enrichments(failures: list[str]) -> int:
     return len(found_files)
 
 
+def validate_article_draft_scaffolds(failures: list[str]) -> int:
+    if not ARTICLE_DRAFT_SCAFFOLDS_DIR.exists():
+        failures.append("Missing article draft scaffold directory: docs/content/article_draft_scaffolds")
+        return 0
+
+    required_paths = [
+        ARTICLE_DRAFT_SCAFFOLDS_DIR / "README.md",
+        ARTICLE_DRAFT_SCAFFOLDS_DIR / "ARTICLE_DRAFT_SCAFFOLD_TEMPLATE.md",
+    ]
+    for path in required_paths:
+        if not path.exists():
+            failures.append(f"Missing article draft scaffold file: {path.relative_to(ROOT).as_posix()}")
+
+    found_files = {path.name for path in ARTICLE_DRAFT_SCAFFOLDS_DIR.glob("*.draft-scaffold.md")}
+    expected_files = set(EXPECTED_ARTICLE_DRAFT_SCAFFOLDS)
+    if found_files != expected_files:
+        failures.append(
+            "Batch 01 must contain exactly these draft scaffold files: "
+            f"{', '.join(sorted(expected_files))}; found {', '.join(sorted(found_files))}"
+        )
+
+    for file_name in sorted(expected_files & found_files):
+        path = ARTICLE_DRAFT_SCAFFOLDS_DIR / file_name
+        text = path.read_text(encoding="utf-8")
+        text_lower = text.lower()
+        fields = parse_frontmatter_fields(text)
+        expected = EXPECTED_ARTICLE_DRAFT_SCAFFOLDS[file_name]
+
+        required_fragments = [
+            "draft_scaffold_status: article_draft_scaffold",
+            "operator_acceptance_status: not_accepted",
+            "linked_research_enrichment:",
+            "linked_claim_map:",
+            "linked_serp_observation:",
+            "Explicit Non-Acceptance",
+            expected["brief_id"],
+        ]
+        for fragment in required_fragments:
+            if fragment not in text:
+                failures.append(f"Draft scaffold {file_name} must contain: {fragment}")
+        for claim_id in expected["required_claims"]:
+            if claim_id not in text:
+                failures.append(f"Draft scaffold {file_name} must contain claim: {claim_id}")
+        for term in expected["required_terms"]:
+            if term.lower() not in text_lower:
+                failures.append(f"Draft scaffold {file_name} must contain marker: {term}")
+
+        if normalized(fields.get("draft_scaffold_status")) != "article_draft_scaffold":
+            failures.append(f"Draft scaffold {file_name} must have draft_scaffold_status: article_draft_scaffold")
+        if normalized(fields.get("operator_acceptance_status")) == "accepted":
+            failures.append(f"Draft scaffold {file_name} must not have accepted operator status")
+        if fields.get("linked_research_enrichment") != expected["enrichment"]:
+            failures.append(f"Draft scaffold {file_name} must link to expected research enrichment")
+        if fields.get("linked_claim_map") != CLAIM_MAP_REL_PATH:
+            failures.append(f"Draft scaffold {file_name} must link to claim map")
+        if fields.get("linked_serp_observation") != SERP_OBSERVATION_REL_PATH:
+            failures.append(f"Draft scaffold {file_name} must link to SERP observation")
+
+        forbidden_fragments = [
+            "approved_for_publish",
+            "operator_acceptance_status: accepted",
+            "publish_ready",
+            "final_article_text",
+            "ranking guarantee",
+            "search volume",
+            "keyword difficulty",
+        ]
+        for fragment in forbidden_fragments:
+            if fragment in text_lower:
+                failures.append(f"Draft scaffold {file_name} must not contain: {fragment}")
+        if "SHO-MVP-BRIEF-001" in text or "SHO-MVP-BRIEF-004" in text:
+            failures.append(f"Draft scaffold {file_name} must not scaffold Brief 001 or Brief 004")
+
+    return len(found_files)
+
+
 def main() -> int:
     failures: list[str] = []
 
@@ -1173,6 +1277,7 @@ def main() -> int:
     evidence_capture_count = validate_evidence_capture(failures)
     serp_observation_count = validate_serp_observation(failures)
     research_enrichment_count = validate_research_enrichments(failures)
+    article_draft_scaffold_count = validate_article_draft_scaffolds(failures)
 
     if failures:
         print("FAIL: SHO-OS content contract validation failed")
@@ -1192,6 +1297,7 @@ def main() -> int:
     print(f"- Batch 01 evidence capture files: {evidence_capture_count}")
     print(f"- Batch 01 SERP observation files: {serp_observation_count}")
     print(f"- Batch 01 research enrichment files: {research_enrichment_count}")
+    print(f"- Batch 01 article draft scaffold files: {article_draft_scaffold_count}")
     print("- YAML/frontmatter parsing: dependency-free and text-based")
     return 0
 

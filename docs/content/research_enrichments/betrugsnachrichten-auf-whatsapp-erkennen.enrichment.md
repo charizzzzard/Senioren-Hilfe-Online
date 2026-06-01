@@ -8,6 +8,8 @@ linked_source_pack: docs/content/source_packs/operator-research-source-pack-batc
 linked_claim_map: docs/content/claim_maps/source-to-claim-map-batch-01.md
 linked_serp_observation: docs/content/serp_observations/serp-observation-batch-01.md
 enrichment_status: research_enriched_candidate
+article_draft_scaffold_path: docs/content/article_draft_scaffolds/betrugsnachrichten-auf-whatsapp-erkennen.draft-scaffold.md
+draft_scaffold_status: article_draft_scaffold
 operator_acceptance_status: not_accepted
 ---
 

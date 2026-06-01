@@ -57,6 +57,7 @@ operator_acceptance_status:
     - approved_for_publish
     - operator_accepted
     - research_enriched
+    - publish_ready
 
 manual_review_status:
   allowed:
@@ -115,6 +116,21 @@ research_enrichment_candidate_scope:
   allowed:
     - limited_batch_candidate
     - single_brief_candidate
+
+draft_scaffold_status:
+  allowed:
+    - not_started
+    - article_draft_scaffold
+    - blocked
+    - needs_review
+
+article_status:
+  allowed:
+    - not_started
+    - article_draft_scaffold
+    - article_draft_candidate
+    - review_ready
+    - publish_candidate
 
 forbidden_transitions:
   - from: scaffold_only

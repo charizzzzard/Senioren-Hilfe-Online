@@ -259,6 +259,26 @@ Der Validator prueft zusaetzlich:
 
 Limited Enrichment ist nur fuer Brief 002 und Brief 003 erlaubt. Brief 001 bleibt wegen fehlender WhatsApp Line Evidence blockiert. Brief 004 bleibt wegen Commercial-/Affiliate-Risiko und offener Produktmethodik zurueckgestellt.
 
+## Article-Draft-Scaffold-Checks
+
+- `docs/content/article_draft_scaffolds/README.md` muss existieren.
+- `docs/content/article_draft_scaffolds/ARTICLE_DRAFT_SCAFFOLD_TEMPLATE.md` muss existieren.
+- Exakt zwei Batch-01-Draft-Scaffold-Dateien duerfen existieren:
+  - `docs/content/article_draft_scaffolds/betrugsnachrichten-auf-whatsapp-erkennen.draft-scaffold.md`
+  - `docs/content/article_draft_scaffolds/smartphone-schriftgroesse-und-bedienhilfen-einstellen.draft-scaffold.md`
+- Beide Scaffold-Dateien haben `draft_scaffold_status: article_draft_scaffold`.
+- Beide Scaffold-Dateien haben `operator_acceptance_status: not_accepted`.
+- Beide Scaffold-Dateien verweisen auf Research Enrichment, Claim Map und SERP Observation.
+- Brief 002 Scaffold enthaelt `SHO-CLAIM-004`, `SHO-CLAIM-005`, `SHO-CLAIM-006` und `SHO-CLAIM-007` als ausgeschlossen/nicht erlaubt.
+- Brief 003 Scaffold enthaelt `SHO-CLAIM-008`, `SHO-CLAIM-009` als `support_only` und `SHO-CLAIM-010`.
+- Keine Scaffold-Datei darf `approved_for_publish`, `operator_acceptance_status: accepted`, `publish_ready`, `final_article_text`, Ranking-, Search-Volume- oder Keyword-Difficulty-Marker enthalten.
+- `MVP_BATCH_01.yaml` bleibt auf `current_stage: claim_slots_mapped`.
+- `MVP_BATCH_01.yaml` darf nicht auf `article_draft_candidate`, `review_ready` oder `publish_candidate` wechseln.
+
+## Limited-Draft-Scaffold-Scope-Checks
+
+Draft Scaffolds sind nur fuer Brief 002 und Brief 003 erlaubt. Brief 001 bleibt wegen fehlender WhatsApp Line Evidence blockiert. Brief 004 bleibt wegen Commercial-/Affiliate-Risiko und offener Produktmethodik zurueckgestellt.
+
 ## Verbleibende spätere Checks
 
 - Echtes YAML-Parsing.
@@ -325,3 +345,9 @@ Limited Enrichment ist nur fuer Brief 002 und Brief 003 erlaubt. Brief 001 bleib
 - Monetization/product-methodology gate for Brief 004.
 - WhatsApp line-evidence gate for Brief 001.
 - Transition from research_enriched_candidate to article_draft_candidate.
+- Final article draft validator.
+- Claim-to-paragraph mapping.
+- Source citation placement validator.
+- Safety language review.
+- Senior UX readability checklist.
+- Publish candidate validator.

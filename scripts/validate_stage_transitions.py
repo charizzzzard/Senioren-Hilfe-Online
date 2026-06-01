@@ -57,6 +57,9 @@ def main() -> int:
             "operator_accepted",
             "approved_for_publish",
             "publish_ready",
+            "current_stage: article_draft_candidate",
+            "current_stage: review_ready",
+            "current_stage: publish_candidate",
         ]
         for fragment in forbidden_fragments:
             if fragment in batch_text:
@@ -82,6 +85,12 @@ def main() -> int:
             if "current_stage: research_enriched_brief_candidate" in batch_text:
                 failures.append("Limited enrichment candidates must not move the full batch stage")
 
+        if "article_draft_scaffolds:" in batch_text:
+            if "current_stage: claim_slots_mapped" not in batch_text:
+                failures.append("Article draft scaffolds require MVP_BATCH_01 to remain at claim_slots_mapped")
+            if "operator_acceptance_status: not_accepted" not in batch_text:
+                failures.append("Article draft scaffolds require operator_acceptance_status: not_accepted")
+
         if "manual_review_verified" in batch_text and "needs_manual_review" in source_pack_text:
             failures.append(
                 "MVP_BATCH_01.yaml must not contain manual_review_verified while source pack still has needs_manual_review"
@@ -103,7 +112,7 @@ def main() -> int:
     print("- STATUS_REGISTRY.yaml present with forbidden transition markers")
     print("- MVP_BATCH_01.yaml present at current_stage: claim_slots_mapped")
     print("- Operator Acceptance is not set")
-    print("- No approved_for_publish or full-batch research enrichment transition detected")
+    print("- No approved_for_publish, publish_ready or full-batch article transition detected")
     print("- YAML parsing: dependency-free and text-based skeleton")
     return 0
 
