@@ -5,19 +5,19 @@
 - project_name: Senioren-Hilfe Online
 - system_name: Senioren-Hilfe Online OS
 - system_short_name: SHO-OS
-- patch_title: STAGE_TRANSITION_VALIDATOR_HARDENING_AFTER_ARTICLE_RE_REVIEW
+- patch_title: HUMAN_OPERATOR_REVIEW_PACKET_BRIEF_002_AFTER_RE_REVIEW
 - external_review_verdict: ACCEPTED_WITH_FINDINGS
 
 SHO-OS ist ein reproduzierbares Content-, Trust- und Publishing-System fuer seniorengerechte digitale Alltagshilfe in Deutschland.
 
-Dieser Patch haertet die bestehenden Content- und Stage-Validatoren nach dem bestandenen Re-Review fuer Brief 002. Er setzt keine Publish Readiness, keine Operator Acceptance und keine Batch-Stage-Hochstufung.
+Dieser Patch bereitet ein kompaktes Human-Operator-Review-Paket fuer den bestehenden Brief-002-Article-Draft-Candidate vor. Er setzt keine Publish Readiness, keine Operator Acceptance und keine Batch-Stage-Hochstufung.
 
 ## Git Traceability
 
 - branch: `main`
-- head_before: `3f89b81c31e1a438f120c0dfbb670061e632f203`
+- head_before: `ee05ccbe646113917fb4f153eb77705388eabb19`
 - intended_head_after: `assigned_after_commit`
-- origin_main_before: `3f89b81c31e1a438f120c0dfbb670061e632f203`
+- origin_main_before: `ee05ccbe646113917fb4f153eb77705388eabb19`
 - dirty_state_before: `clean`
 - dirty_state_after: `assigned_after_commit`
 - remote_url: `https://github.com/charizzzzard/Senioren-Hilfe-Online.git`
@@ -26,10 +26,11 @@ Hinweis: `head_after` wird nicht vorab als Commit-SHA eingetragen, weil ein Comm
 
 ## Scope Dieses Patches
 
-- `validate_content_contracts.py` um harte Checks fuer Draft Candidate, Article Review, Findings Register, Status Registry und Batch-Manifest erweitert.
-- `validate_stage_transitions.py` um Cross-File-Gates fuer Draft Candidate, Article Review und Findings Register erweitert.
-- `STATUS_REGISTRY.yaml` dokumentiert `approved_for_publish` als human-controlled und fuer Codex verboten.
-- Article-Review-Statusmodell praezisiert: Frontmatter bleibt `review_completed_with_findings`, Re-Review steht separat im Body.
+- Neues Operator-Review-Paket erstellt: `docs/content/article_reviews/betrugsnachrichten-auf-whatsapp-erkennen.operator-review-packet.md`.
+- Paket verlinkt Draft Candidate, Article Review und Findings Register.
+- Paket dokumentiert verwendete Claims/Sources, blockierten `SHO-CLAIM-007`, Re-Review-Ergebnisse und verbleibende Blocker.
+- `STATUS_REGISTRY.yaml` um Packet- und Publish-Readiness-Statuswerte fuer nicht-akzeptierte Review-Pakete ergaenzt.
+- `validate_content_contracts.py` um Operator-Review-Packet-Checks erweitert.
 - Batch-Manifest bleibt unveraendert auf `current_stage: claim_slots_mapped`.
 - Batch bleibt `current_stage: claim_slots_mapped`.
 
@@ -46,14 +47,14 @@ Hinweis: `head_after` wird nicht vorab als Commit-SHA eingetragen, weil ein Comm
 - Keine Website.
 - Keine Monetarisierung.
 
-## Hardened Validator Gates
+## Operator Review Packet Summary
 
-- Batch muss `current_stage: claim_slots_mapped` und `operator_acceptance_status: not_accepted` behalten.
-- Draft Candidate muss `article_status: article_draft_candidate` und `review_status: re_review_passed_not_publish_ready` behalten.
-- Article Review muss Original-Review und separaten Re-Review-Block enthalten.
-- Findings Register muss Fix-Findings als `re_review_passed` und Guardrails als `pass_carried_forward` fuehren.
-- `SHO-CLAIM-007` darf nicht als Evidence Marker genutzt werden.
-- Publish-/Acceptance-Assignments bleiben verboten.
+- packet_status: `prepared_for_operator_review`
+- operator_acceptance_status: `not_accepted`
+- publish_readiness_status: `not_ready`
+- linked draft candidate: `docs/content/article_draft_candidates/betrugsnachrichten-auf-whatsapp-erkennen.article-draft-candidate.md`
+- linked article review: `docs/content/article_reviews/betrugsnachrichten-auf-whatsapp-erkennen.review.md`
+- linked findings register: `docs/operations/REVIEW_FINDINGS_REGISTER.md`
 
 ## Guardrails
 
@@ -78,16 +79,14 @@ Hinweis: `head_after` wird nicht vorab als Commit-SHA eingetragen, weil ein Comm
 
 ## Files Changed Summary
 
-- `docs/content/article_draft_candidates/betrugsnachrichten-auf-whatsapp-erkennen.article-draft-candidate.md`
-- `docs/content/article_reviews/betrugsnachrichten-auf-whatsapp-erkennen.review.md`
-- `docs/content/batches/MVP_BATCH_01.yaml`
+- `docs/content/article_reviews/betrugsnachrichten-auf-whatsapp-erkennen.operator-review-packet.md`
+- `docs/content/article_reviews/README.md`
 - `docs/operations/STATUS_REGISTRY.yaml`
 - `scripts/validate_content_contracts.py`
-- `scripts/validate_stage_transitions.py`
 - `docs/engineering/VALIDATION_REQUIREMENTS.md`
 - `external_review_packet/00_READ_ME_FIRST.md`
 - `external_review_packet/HANDOFF_LATEST_CONTEXT.md`
 
 ## Keine finale Annahme durch Codex
 
-Validator hardening completed, but no publish readiness and no Operator Acceptance. Finale Annahme bleibt beim Human Operator.
+Operator review packet prepared, but no publish readiness and no Operator Acceptance. Finale Annahme bleibt beim Human Operator.

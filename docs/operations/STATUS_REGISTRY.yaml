@@ -156,6 +156,30 @@ review_status:
     - approved_for_publish
     - publish_ready
 
+packet_status:
+  allowed:
+    - prepared_for_operator_review
+    - blocked
+    - superseded
+  forbidden_by_codex:
+    - accepted
+    - operator_accepted
+    - approved_for_publish
+    - publish_ready
+
+publish_readiness_status:
+  allowed:
+    - not_ready
+    - publish_candidate
+    - approved_for_publish
+  human_controlled:
+    - publish_candidate
+    - approved_for_publish
+  forbidden_by_codex:
+    - publish_candidate
+    - approved_for_publish
+    - publish_ready
+
 forbidden_transitions:
   - from: scaffold_only
     to: approved_for_publish

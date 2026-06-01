@@ -56,6 +56,7 @@ REQUIRED_DOCS = [
     "docs/content/article_reviews/README.md",
     "docs/content/article_reviews/ARTICLE_REVIEW_TEMPLATE.md",
     "docs/content/article_reviews/betrugsnachrichten-auf-whatsapp-erkennen.review.md",
+    "docs/content/article_reviews/betrugsnachrichten-auf-whatsapp-erkennen.operator-review-packet.md",
     "docs/operations/CONTENT_RESEARCH_OPERATING_PROTOCOL.md",
     "docs/operations/RESEARCH_BATCH_STAGE_MODEL.md",
     "docs/operations/CODEX_EXECUTOR_BOUNDARY.md",
@@ -163,6 +164,9 @@ EXPECTED_ARTICLE_DRAFT_SCAFFOLDS = {
 ARTICLE_DRAFT_CANDIDATES_DIR = ROOT / "docs/content/article_draft_candidates"
 ARTICLE_REVIEWS_DIR = ROOT / "docs/content/article_reviews"
 ARTICLE_REVIEW_REL_PATH = "docs/content/article_reviews/betrugsnachrichten-auf-whatsapp-erkennen.review.md"
+OPERATOR_REVIEW_PACKET_REL_PATH = (
+    "docs/content/article_reviews/betrugsnachrichten-auf-whatsapp-erkennen.operator-review-packet.md"
+)
 EXPECTED_ARTICLE_DRAFT_CANDIDATES = {
     "betrugsnachrichten-auf-whatsapp-erkennen.article-draft-candidate.md": {
         "article_draft_candidate_id": "SHO-ARTICLE-DRAFT-CANDIDATE-BATCH01-BRIEF002",
@@ -187,6 +191,15 @@ EXPECTED_ARTICLE_REVIEWS = {
             "SHO-ARTICLE-002-MON-001",
             "SHO-ARTICLE-002-PUB-001",
         ],
+    },
+}
+EXPECTED_OPERATOR_REVIEW_PACKETS = {
+    "betrugsnachrichten-auf-whatsapp-erkennen.operator-review-packet.md": {
+        "operator_review_packet_id": "SHO-OPERATOR-REVIEW-PACKET-BATCH01-BRIEF002",
+        "brief_id": "SHO-MVP-BRIEF-002",
+        "linked_article_draft_candidate": "docs/content/article_draft_candidates/betrugsnachrichten-auf-whatsapp-erkennen.article-draft-candidate.md",
+        "linked_article_review": ARTICLE_REVIEW_REL_PATH,
+        "linked_findings_register": "docs/operations/REVIEW_FINDINGS_REGISTER.md",
     },
 }
 WHATSAPP_MANUAL_REVIEW_SOURCE_IDS = {"SHO-SRC-001", "SHO-SRC-002", "SHO-SRC-003", "SHO-SRC-004"}
@@ -444,6 +457,10 @@ def validate_protocol_automation_files(failures: list[str]) -> None:
         required_status_fragments = [
             "re_review_passed",
             "re_review_passed_not_publish_ready",
+            "packet_status:",
+            "prepared_for_operator_review",
+            "publish_readiness_status:",
+            "not_ready",
             "human_controlled:",
             "approved_for_publish",
             "forbidden_by_codex:",
@@ -1611,6 +1628,118 @@ def validate_article_reviews(failures: list[str]) -> int:
     return len(found_files)
 
 
+def validate_operator_review_packets(failures: list[str]) -> int:
+    if not ARTICLE_REVIEWS_DIR.exists():
+        failures.append("Missing article review directory: docs/content/article_reviews")
+        return 0
+
+    found_files = {path.name for path in ARTICLE_REVIEWS_DIR.glob("*.operator-review-packet.md")}
+    expected_files = set(EXPECTED_OPERATOR_REVIEW_PACKETS)
+    if found_files != expected_files:
+        failures.append(
+            "Batch 01 must contain exactly these operator review packet files: "
+            f"{', '.join(sorted(expected_files))}; found {', '.join(sorted(found_files))}"
+        )
+
+    for file_name in sorted(expected_files & found_files):
+        path = ARTICLE_REVIEWS_DIR / file_name
+        text = path.read_text(encoding="utf-8")
+        fields = parse_frontmatter_fields(text)
+        expected = EXPECTED_OPERATOR_REVIEW_PACKETS[file_name]
+
+        required_fragments = [
+            f"operator_review_packet_id: {expected['operator_review_packet_id']}",
+            "batch_id: MVP_BATCH_01",
+            f"linked_brief_id: {expected['brief_id']}",
+            f"linked_article_draft_candidate: {expected['linked_article_draft_candidate']}",
+            f"linked_article_review: {expected['linked_article_review']}",
+            f"linked_findings_register: {expected['linked_findings_register']}",
+            "packet_status: prepared_for_operator_review",
+            "operator_acceptance_status: not_accepted",
+            "publish_readiness_status: not_ready",
+            "Explicit Non-Acceptance",
+            "Dieses Paket ist keine Operator Acceptance.",
+            "Dieses Paket ist keine Publish Readiness.",
+            "Dieses Paket schaltet keine blockierten Claims frei.",
+            "Operator Review Checklist",
+            "Senior UX pruefen",
+            "Verstaendlichkeit fuer Senior:innen pruefen",
+            "Sicherheitsformulierung pruefen",
+            "Keine Angstverstaerkung pruefen",
+            "Quellen-/Claim-Marker pruefen",
+            "Blockierte WhatsApp-UI-Anweisungen pruefen",
+            "Keine Monetarisierung pruefen",
+            "Keine Produkt-/Affiliate-Empfehlung pruefen",
+            "Claim/Source Summary",
+            "SHO-CLAIM-004",
+            "SHO-CLAIM-005",
+            "SHO-CLAIM-006",
+            "SHO-SRC-005",
+            "SHO-SRC-006",
+            "SHO-SRC-007",
+            "SHO-CLAIM-007",
+            "SHO-ARTICLE-002-UX-001`: re_review_passed",
+            "SHO-ARTICLE-002-UX-002`: re_review_passed",
+            "SHO-ARTICLE-002-SAFE-001`: re_review_passed",
+            "SHO-ARTICLE-002-SRC-001`: re_review_passed",
+            "Remaining Blockers",
+            "no final legal review",
+            "no final source citation formatting",
+            "no Operator Acceptance",
+            "no publish readiness",
+            "WhatsApp block/report UI claim remains blocked",
+            "no WhatsApp line evidence / UI review for `SHO-CLAIM-007`",
+            "Permitted Future Operator Decisions",
+            "request another content fix",
+            "request legal/source citation review",
+            "request final article preparation",
+            "keep as draft candidate",
+            "reject candidate",
+            "Forbidden Automated Decisions",
+            "Codex must not approve for publish",
+            "Codex must not mark operator accepted",
+            "Codex must not unlock `SHO-CLAIM-007`",
+            "Codex must not add WhatsApp block/report UI instructions",
+            "Codex must not add monetization",
+        ]
+        for fragment in required_fragments:
+            if fragment not in text:
+                failures.append(f"Operator review packet {file_name} must contain: {fragment}")
+
+        if fields.get("operator_review_packet_id") != expected["operator_review_packet_id"]:
+            failures.append(f"Operator review packet {file_name} has unexpected ID")
+        if fields.get("linked_brief_id") != expected["brief_id"]:
+            failures.append(f"Operator review packet {file_name} must link to Brief 002")
+        if fields.get("linked_article_draft_candidate") != expected["linked_article_draft_candidate"]:
+            failures.append(f"Operator review packet {file_name} must link to expected draft candidate")
+        if fields.get("linked_article_review") != expected["linked_article_review"]:
+            failures.append(f"Operator review packet {file_name} must link to expected article review")
+        if fields.get("linked_findings_register") != expected["linked_findings_register"]:
+            failures.append(f"Operator review packet {file_name} must link to findings register")
+        if normalized(fields.get("packet_status")) != "prepared_for_operator_review":
+            failures.append(f"Operator review packet {file_name} must have packet_status: prepared_for_operator_review")
+        if normalized(fields.get("operator_acceptance_status")) != "not_accepted":
+            failures.append(f"Operator review packet {file_name} must have operator_acceptance_status: not_accepted")
+        if normalized(fields.get("publish_readiness_status")) != "not_ready":
+            failures.append(f"Operator review packet {file_name} must have publish_readiness_status: not_ready")
+
+        forbidden_assignments = [
+            "approved_for_publish: true",
+            "operator_acceptance_status: accepted",
+            "publish_readiness_status: publish_candidate",
+            "publish_readiness_status: approved_for_publish",
+            "publish_ready: true",
+            "current_stage: review_ready",
+            "current_stage: publish_candidate",
+        ]
+        lower_text = text.lower()
+        for fragment in forbidden_assignments:
+            if fragment in lower_text:
+                failures.append(f"Operator review packet {file_name} must not contain forbidden assignment: {fragment}")
+
+    return len(found_files)
+
+
 def main() -> int:
     failures: list[str] = []
 
@@ -1629,6 +1758,7 @@ def main() -> int:
     article_draft_scaffold_count = validate_article_draft_scaffolds(failures)
     article_draft_candidate_count = validate_article_draft_candidates(failures)
     article_review_count = validate_article_reviews(failures)
+    operator_review_packet_count = validate_operator_review_packets(failures)
 
     if failures:
         print("FAIL: SHO-OS content contract validation failed")
@@ -1651,6 +1781,7 @@ def main() -> int:
     print(f"- Batch 01 article draft scaffold files: {article_draft_scaffold_count}")
     print(f"- Batch 01 article draft candidate files: {article_draft_candidate_count}")
     print(f"- Batch 01 article review files: {article_review_count}")
+    print(f"- Batch 01 operator review packet files: {operator_review_packet_count}")
     print("- YAML/frontmatter parsing: dependency-free and text-based")
     return 0
 

@@ -386,6 +386,15 @@ Das Review-Artefakt muss mindestens diese Finding IDs enthalten:
 - Das Findings Register muss die vier Fix-Findings als `re_review_passed` und die Guardrail-Findings als `pass_carried_forward` fuehren.
 - `approved_for_publish` bleibt ein human-controlled Status und ist fuer Codex als aktiver Zustand verboten.
 
+## Human-Operator-Review-Packet-Checks
+
+- Fuer Brief 002 muss genau ein Operator Review Packet unter `docs/content/article_reviews/` existieren.
+- Das Paket muss `packet_status: prepared_for_operator_review`, `operator_acceptance_status: not_accepted` und `publish_readiness_status: not_ready` enthalten.
+- Das Paket muss den Article Draft Candidate, das Article Review und das Findings Register verlinken.
+- Das Paket muss verwendete Claims `SHO-CLAIM-004`, `SHO-CLAIM-005`, `SHO-CLAIM-006` und verwendete Sources `SHO-SRC-005`, `SHO-SRC-006`, `SHO-SRC-007` auflisten.
+- Das Paket muss `SHO-CLAIM-007` als blockiert sichtbar halten.
+- Das Paket darf keine aktive Publish Readiness, keine Operator Acceptance und keine Batch-Stage-Hochstufung enthalten.
+
 ## Verbleibende spätere Checks
 
 - Echtes YAML-Parsing.
