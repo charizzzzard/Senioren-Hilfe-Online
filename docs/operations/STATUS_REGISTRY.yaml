@@ -84,6 +84,26 @@ evidence_use_allowed:
     - support_only
     - not_allowed
 
+serp_status:
+  allowed:
+    - not_researched
+    - observed
+    - needs_review
+    - reviewed
+
+serp_observation_status:
+  allowed:
+    - not_started
+    - operator_research_observed
+    - reviewed
+    - rejected
+
+serp_review_status:
+  allowed:
+    - needs_review
+    - reviewed
+    - blocked
+
 forbidden_transitions:
   - from: scaffold_only
     to: approved_for_publish

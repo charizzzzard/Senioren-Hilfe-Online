@@ -2,6 +2,9 @@ batch_id: MVP_BATCH_01
 batch_name: MVP Content Batch 01
 current_stage: claim_slots_mapped
 operator_acceptance_status: not_accepted
+serp_status: observed
+serp_observation_status: operator_research_observed
+serp_review_status: needs_review
 
 briefs:
   - brief_id: SHO-MVP-BRIEF-001
@@ -25,15 +28,15 @@ manual_source_reviews:
   - docs/content/source_reviews/whatsapp-source-manual-review-batch-01.md
 evidence_captures:
   - docs/content/evidence_captures/whatsapp-line-evidence-capture-batch-01.md
-serp_observation: null
+serp_observation: docs/content/serp_observations/serp-observation-batch-01.md
 
 known_blockers:
   - WhatsApp line-level evidence is unavailable.
   - WhatsApp platform sources remain candidate / needs_manual_review.
   - WhatsApp UI-sensitive instructions remain blocked.
-  - SERP observation is not yet present.
   - Exact quote/evidence extraction remains incomplete.
   - Screenshot/device-version validation is not yet present.
+  - SERP observation is qualitative and requires review.
 
 non_acceptance:
   - Batch is not publish-ready.

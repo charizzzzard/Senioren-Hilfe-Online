@@ -39,6 +39,9 @@ REQUIRED_DOCS = [
     "docs/content/evidence_captures/README.md",
     "docs/content/evidence_captures/EVIDENCE_CAPTURE_TEMPLATE.md",
     "docs/content/evidence_captures/whatsapp-line-evidence-capture-batch-01.md",
+    "docs/content/serp_observations/README.md",
+    "docs/content/serp_observations/SERP_OBSERVATION_TEMPLATE.md",
+    "docs/content/serp_observations/serp-observation-batch-01.md",
     "docs/operations/CONTENT_RESEARCH_OPERATING_PROTOCOL.md",
     "docs/operations/RESEARCH_BATCH_STAGE_MODEL.md",
     "docs/operations/CODEX_EXECUTOR_BOUNDARY.md",
@@ -104,6 +107,8 @@ SOURCE_REVIEW_PATH = ROOT / "docs/content/source_reviews/whatsapp-source-manual-
 SOURCE_REVIEW_REL_PATH = "docs/content/source_reviews/whatsapp-source-manual-review-batch-01.md"
 EVIDENCE_CAPTURE_PATH = ROOT / "docs/content/evidence_captures/whatsapp-line-evidence-capture-batch-01.md"
 EVIDENCE_CAPTURE_REL_PATH = "docs/content/evidence_captures/whatsapp-line-evidence-capture-batch-01.md"
+SERP_OBSERVATION_PATH = ROOT / "docs/content/serp_observations/serp-observation-batch-01.md"
+SERP_OBSERVATION_REL_PATH = "docs/content/serp_observations/serp-observation-batch-01.md"
 WHATSAPP_MANUAL_REVIEW_SOURCE_IDS = {"SHO-SRC-001", "SHO-SRC-002", "SHO-SRC-003", "SHO-SRC-004"}
 WHATSAPP_MANUAL_REVIEW_CLAIM_IDS = {"SHO-CLAIM-001", "SHO-CLAIM-002", "SHO-CLAIM-003", "SHO-CLAIM-007"}
 ALLOWED_RESEARCH_STATUSES = {
@@ -173,6 +178,9 @@ REQUIRED_RESEARCH_FIELDS = {
     "research_status",
     "source_status",
     "serp_status",
+    "serp_observation_path",
+    "serp_observation_status",
+    "serp_review_status",
     "source_pack_path",
     "source_pack_status",
     "claim_map_path",
@@ -322,6 +330,10 @@ def validate_protocol_automation_files(failures: list[str]) -> None:
             "claim_map: docs/content/claim_maps/source-to-claim-map-batch-01.md",
             f"- {SOURCE_REVIEW_REL_PATH}",
             f"- {EVIDENCE_CAPTURE_REL_PATH}",
+            f"serp_observation: {SERP_OBSERVATION_REL_PATH}",
+            "serp_status: observed",
+            "serp_observation_status: operator_research_observed",
+            "serp_review_status: needs_review",
         ]
         for fragment in required_fragments:
             if fragment not in text:
@@ -473,8 +485,18 @@ def validate_research_inputs(failures: list[str]) -> int:
             failures.append(
                 f"Research input {file_name} has unsupported source_status: {fields.get('source_status')}"
             )
-        if normalized(fields.get("serp_status")) != "not_researched":
-            failures.append(f"Research input {file_name} must have serp_status: not_researched")
+        if normalized(fields.get("serp_status")) != "observed":
+            failures.append(f"Research input {file_name} must have serp_status: observed")
+        if fields.get("serp_observation_path") != SERP_OBSERVATION_REL_PATH:
+            failures.append(
+                f"Research input {file_name} must link to serp_observation_path: {SERP_OBSERVATION_REL_PATH}"
+            )
+        if normalized(fields.get("serp_observation_status")) != "operator_research_observed":
+            failures.append(
+                f"Research input {file_name} must have serp_observation_status: operator_research_observed"
+            )
+        if normalized(fields.get("serp_review_status")) != "needs_review":
+            failures.append(f"Research input {file_name} must have serp_review_status: needs_review")
         if fields.get("source_pack_path") != SOURCE_PACK_REL_PATH:
             failures.append(
                 f"Research input {file_name} must link to source_pack_path: {SOURCE_PACK_REL_PATH}"
@@ -941,6 +963,81 @@ def validate_evidence_capture(failures: list[str]) -> int:
     return 1
 
 
+def validate_serp_observation(failures: list[str]) -> int:
+    serp_dir = ROOT / "docs/content/serp_observations"
+    if not serp_dir.exists():
+        failures.append("Missing SERP observation directory: docs/content/serp_observations")
+        return 0
+
+    required_paths = [
+        serp_dir / "README.md",
+        serp_dir / "SERP_OBSERVATION_TEMPLATE.md",
+        SERP_OBSERVATION_PATH,
+    ]
+    for path in required_paths:
+        if not path.exists():
+            failures.append(f"Missing SERP observation file: {path.relative_to(ROOT).as_posix()}")
+
+    if not SERP_OBSERVATION_PATH.exists():
+        return 0
+
+    text = SERP_OBSERVATION_PATH.read_text(encoding="utf-8")
+    text_lower = text.lower()
+    fields = parse_frontmatter_fields(text)
+    required_fragments = [
+        "serp_observation_id: SHO-SERP-OBS-BATCH-01",
+        "batch_id: MVP_BATCH_01",
+        'searched_at: "2026-06-01"',
+        "serp_observation_status: operator_research_observed",
+        "serp_review_status: needs_review",
+        "operator_acceptance_status: not_accepted",
+        "No search volume",
+        "No keyword difficulty",
+        "No ranking guarantee",
+        "SHO-MVP-BRIEF-001",
+        "SHO-MVP-BRIEF-002",
+        "SHO-MVP-BRIEF-003",
+        "SHO-MVP-BRIEF-004",
+    ]
+    for fragment in required_fragments:
+        if fragment not in text:
+            failures.append(f"SERP observation file must contain: {fragment}")
+
+    if fields.get("serp_observation_id") != "SHO-SERP-OBS-BATCH-01":
+        failures.append("SERP observation has unexpected serp_observation_id")
+    if fields.get("batch_id") != "MVP_BATCH_01":
+        failures.append("SERP observation has unexpected batch_id")
+    if normalized(fields.get("serp_observation_status")) != "operator_research_observed":
+        failures.append("SERP observation must have serp_observation_status: operator_research_observed")
+    if normalized(fields.get("serp_review_status")) != "needs_review":
+        failures.append("SERP observation must have serp_review_status: needs_review")
+    if normalized(fields.get("operator_acceptance_status")) == "accepted":
+        failures.append("SERP observation must not have accepted operator status")
+
+    forbidden_fragments = [
+        "operator_acceptance_status: accepted",
+        "approved_for_publish",
+        "research_enriched",
+        "traffic forecast:",
+        "ranking guarantee:",
+    ]
+    for fragment in forbidden_fragments:
+        if fragment in text_lower:
+            failures.append(f"SERP observation file must not contain: {fragment}")
+
+    query_rows = [
+        line
+        for line in text.splitlines()
+        if line.startswith("| SHO-MVP-BRIEF-") and "qualitative observation only" in line
+    ]
+    if len(query_rows) != 12:
+        failures.append(
+            f"SERP observation must contain exactly 12 qualitative query rows; found {len(query_rows)}"
+        )
+
+    return 1
+
+
 def main() -> int:
     failures: list[str] = []
 
@@ -953,6 +1050,7 @@ def main() -> int:
     claim_map_count = validate_claim_map(failures)
     source_review_count = validate_source_review(failures)
     evidence_capture_count = validate_evidence_capture(failures)
+    serp_observation_count = validate_serp_observation(failures)
 
     if failures:
         print("FAIL: SHO-OS content contract validation failed")
@@ -970,6 +1068,7 @@ def main() -> int:
     print(f"- Batch 01 claim map files: {claim_map_count}")
     print(f"- Batch 01 source review files: {source_review_count}")
     print(f"- Batch 01 evidence capture files: {evidence_capture_count}")
+    print(f"- Batch 01 SERP observation files: {serp_observation_count}")
     print("- YAML/frontmatter parsing: dependency-free and text-based")
     return 0
 

@@ -5,7 +5,10 @@ linked_brief_path: docs/content/briefs/whatsapp-fuer-senioren-sicher-einrichten.
 slug: whatsapp-fuer-senioren-sicher-einrichten
 research_status: source_candidates_verified_partial
 source_status: partial_verified
-serp_status: not_researched
+serp_status: observed
+serp_observation_path: docs/content/serp_observations/serp-observation-batch-01.md
+serp_observation_status: operator_research_observed
+serp_review_status: needs_review
 source_pack_path: docs/content/source_packs/operator-research-source-pack-batch-01.md
 source_pack_status: source_candidates_verified_partial
 manual_source_review_path: docs/content/source_reviews/whatsapp-source-manual-review-batch-01.md
@@ -27,7 +30,9 @@ Diese Datei sammelt Research-Eingaben für den vorhandenen Brief `SHO-MVP-BRIEF-
 
 - research_status: source_candidates_verified_partial
 - source_status: partial_verified
-- serp_status: not_researched
+- serp_status: observed
+- serp_observation_status: operator_research_observed
+- serp_review_status: needs_review
 - content_status: research_input_shell
 - claim_map_status: claim_slots_mapped
 - manual_source_review_path: docs/content/source_reviews/whatsapp-source-manual-review-batch-01.md
@@ -69,12 +74,16 @@ Diese Datei sammelt Research-Eingaben für den vorhandenen Brief `SHO-MVP-BRIEF-
 
 Claim map shows manual review still required for all WhatsApp platform claims.
 
+## SERP Observation Note
+
+SERP observation shows relevance for senior-first WhatsApp setup, but WhatsApp line-evidence blocker remains active.
+
 ## SERP Observation
 
-- status: not_researched
-- observation: TBD_BY_OPERATOR_OR_RESEARCH
-- competing_result_patterns: TBD_BY_OPERATOR_OR_RESEARCH
-- differentiation_review: TBD_BY_OPERATOR_OR_RESEARCH
+- status: observed
+- observation: qualitative operator SERP observation recorded in docs/content/serp_observations/serp-observation-batch-01.md
+- competing_result_patterns: official_support; consumer_portal; generic_tech_blog; video_result; forum; senior_service_or_app
+- differentiation_review: senior-first safety checklist, large screenshots, caregiver notes and printed checklist are observed opportunities
 
 ## Evidence Gaps
 

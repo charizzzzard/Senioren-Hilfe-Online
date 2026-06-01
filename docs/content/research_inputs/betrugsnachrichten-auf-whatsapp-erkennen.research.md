@@ -5,7 +5,10 @@ linked_brief_path: docs/content/briefs/betrugsnachrichten-auf-whatsapp-erkennen.
 slug: betrugsnachrichten-auf-whatsapp-erkennen
 research_status: source_candidates_verified_partial
 source_status: verified_sources_available
-serp_status: not_researched
+serp_status: observed
+serp_observation_path: docs/content/serp_observations/serp-observation-batch-01.md
+serp_observation_status: operator_research_observed
+serp_review_status: needs_review
 source_pack_path: docs/content/source_packs/operator-research-source-pack-batch-01.md
 source_pack_status: source_candidates_verified_partial
 manual_source_review_path: docs/content/source_reviews/whatsapp-source-manual-review-batch-01.md
@@ -27,7 +30,9 @@ Diese Datei sammelt Research-Eingaben für den vorhandenen Brief `SHO-MVP-BRIEF-
 
 - research_status: source_candidates_verified_partial
 - source_status: verified_sources_available
-- serp_status: not_researched
+- serp_status: observed
+- serp_observation_status: operator_research_observed
+- serp_review_status: needs_review
 - content_status: research_input_shell
 - claim_map_status: claim_slots_mapped
 - manual_source_review_path: docs/content/source_reviews/whatsapp-source-manual-review-batch-01.md
@@ -70,12 +75,16 @@ Diese Datei sammelt Research-Eingaben für den vorhandenen Brief `SHO-MVP-BRIEF-
 
 Claim map has article_draft_candidate claims, but no SERP observation and no article acceptance.
 
+## SERP Observation Note
+
+SERP observation indicates strong fit for fraud detection, but WhatsApp block/report claim remains blocked.
+
 ## SERP Observation
 
-- status: not_researched
-- observation: TBD_BY_OPERATOR_OR_RESEARCH
-- competing_result_patterns: TBD_BY_OPERATOR_OR_RESEARCH
-- differentiation_review: TBD_BY_OPERATOR_OR_RESEARCH
+- status: observed
+- observation: qualitative operator SERP observation recorded in docs/content/serp_observations/serp-observation-batch-01.md
+- competing_result_patterns: public_initiative; consumer_portal; news_portal; security_blog; video_result; official_support
+- differentiation_review: emergency checklist, decision tree, family verification flow and calm wording are observed opportunities
 
 ## Evidence Gaps
 

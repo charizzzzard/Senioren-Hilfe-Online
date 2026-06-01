@@ -2,26 +2,27 @@
 
 ## Zweck dieses Review-Pakets
 
-Dieses Review-Paket beschreibt den Patch `WHATSAPP_LINE_EVIDENCE_CAPTURE_BATCH_01`. Es soll einem externen Review ermoeglichen, den dokumentierten WhatsApp-Line-Evidence-Status, die konservativen Source-/Claim-Statuswerte und die Validator-Blocker gegen falsche Hochstufung zu pruefen.
+Dieses Review-Paket beschreibt den Patch `SERP_OBSERVATION_BATCH_01_INTEGRATE_FROM_OPERATOR_RESEARCH`. Es soll einem externen Review ermoeglichen, die qualitative SERP Observation, konservativen Research-Input-Verknuepfungen und Validator-Blocker gegen falsche Hochstufung zu pruefen.
 
 ## Scope dieses Patches
 
-- Evidence-Capture-Struktur und Template anlegen.
-- WhatsApp Line Evidence Capture Artefakt fuer vier bestehende WhatsApp Help Center Source Candidates anlegen.
-- Vier Evidence Slots als `line_evidence_unavailable` und `not_allowed` dokumentieren.
-- Source Review, Source Pack, Claim Map, Research Inputs und Batch Manifest konservativ verknuepfen.
-- Validatoren um Evidence-Capture-Checks erweitern.
+- SERP-Observation-Struktur und Template anlegen.
+- Operator-gelieferten qualitativen SERP-Output fuer `MVP_BATCH_01` integrieren.
+- Zwölf bestehende Operator-Queries in einer qualitativen Query Table dokumentieren.
+- Vier Research Inputs und Batch Manifest konservativ verknuepfen.
+- Validatoren um SERP-Observation-Checks erweitern.
 
 ## Primaere Review-Dateien
 
 - `external_review_packet/HANDOFF_LATEST_CONTEXT.md`
-- `docs/content/evidence_captures/whatsapp-line-evidence-capture-batch-01.md`
-- `docs/content/evidence_captures/EVIDENCE_CAPTURE_TEMPLATE.md`
-- `docs/content/evidence_captures/README.md`
-- `docs/content/source_reviews/whatsapp-source-manual-review-batch-01.md`
-- `docs/content/source_packs/operator-research-source-pack-batch-01.md`
-- `docs/content/claim_maps/source-to-claim-map-batch-01.md`
+- `docs/content/serp_observations/serp-observation-batch-01.md`
+- `docs/content/serp_observations/SERP_OBSERVATION_TEMPLATE.md`
+- `docs/content/serp_observations/README.md`
 - `docs/content/batches/MVP_BATCH_01.yaml`
+- `docs/content/research_inputs/whatsapp-fuer-senioren-sicher-einrichten.research.md`
+- `docs/content/research_inputs/betrugsnachrichten-auf-whatsapp-erkennen.research.md`
+- `docs/content/research_inputs/smartphone-schriftgroesse-und-bedienhilfen-einstellen.research.md`
+- `docs/content/research_inputs/smartphone-fuer-senioren-einrichten.research.md`
 - `scripts/validate_content_contracts.py`
 - `scripts/validate_stage_transitions.py`
 - `docs/engineering/VALIDATION_REQUIREMENTS.md`
@@ -29,23 +30,24 @@ Dieses Review-Paket beschreibt den Patch `WHATSAPP_LINE_EVIDENCE_CAPTURE_BATCH_0
 
 ## Wichtiger Hinweis
 
-This patch records evidence capture state. It does not make WhatsApp sources verified or claims draft-ready.
+This patch integrates qualitative SERP observation only. It does not make any brief research-enriched or publish-ready.
 
-Die WhatsApp-Quellen `SHO-SRC-001` bis `SHO-SRC-004` bleiben `candidate / needs_manual_review`. Die Claims `SHO-CLAIM-001`, `SHO-CLAIM-002`, `SHO-CLAIM-003` und `SHO-CLAIM-007` bleiben `needs_manual_review_before_draft`.
+Die SERP Observation enthaelt keine Search-Volume-Daten, keine Keyword-Difficulty-Daten, keine Ranking-Garantien, keine Traffic- oder Revenue-Prognosen und keine Operator Acceptance.
 
 ## Nicht in Scope
 
-- Neue Quellen.
-- Source-URL-Aenderungen.
-- WhatsApp-Source-Verifikation.
-- Source Promotion zu `verified`.
-- Claim Promotion zu `article_draft_candidate`.
-- `claim_support_allowed` fuer WhatsApp Evidence.
-- SERP- oder Keyword-Daten.
+- Neue SERP-Recherche.
+- Neue Queries.
+- Search Volume.
+- Keyword Difficulty.
+- Ranking Guarantees.
+- Traffic Forecasts.
+- Source Changes.
+- Claim Changes.
 - Finale Artikel.
 - Produktive Website.
 - Affiliate-Links, Ads, Newsletter oder Tracking.
-- `research_enriched`.
+- Research Enrichment.
 - `approved_for_publish`.
 - Finale Annahme durch Codex/OpenClaw.
 

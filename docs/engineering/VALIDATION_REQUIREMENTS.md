@@ -210,6 +210,33 @@ Eine Evidence-Capture-Shell hebt keine WhatsApp-Quelle und keinen WhatsApp-Claim
 - keine Evidence Row nutzt `claim_support_allowed`.
 - keine Research-Datei wird als angereichert markiert.
 
+## SERP-Observation-Checks
+
+Der Validator prueft zusaetzlich:
+
+- Existenz von `docs/content/serp_observations/README.md`.
+- Existenz von `docs/content/serp_observations/SERP_OBSERVATION_TEMPLATE.md`.
+- Existenz von `docs/content/serp_observations/serp-observation-batch-01.md`.
+- Das SERP-Artefakt enthaelt `serp_observation_id: SHO-SERP-OBS-BATCH-01`.
+- `searched_at = "2026-06-01"`.
+- `serp_observation_status = operator_research_observed`.
+- `serp_review_status = needs_review`.
+- `operator_acceptance_status = not_accepted`.
+- Alle vier Batch-01-Brief-IDs sind enthalten.
+- Zwölf qualitative Query Rows sind enthalten.
+- Keine Search-Volume-, Keyword-Difficulty-, Ranking-, Traffic- oder Revenue-Prognose wird als Metrik gesetzt.
+- Alle vier Research Inputs verweisen auf `docs/content/serp_observations/serp-observation-batch-01.md`.
+- Alle vier Research Inputs bleiben unterhalb von Research Enrichment und Publish-Freigabe.
+
+## SERP-Status-Transition-Checks
+
+SERP Observation darf `serp_status: observed` setzen, aber nicht automatisch:
+
+- `current_stage: research_enriched_brief_candidate`
+- `approved_for_publish`
+- `operator_accepted`
+- Operator Acceptance
+
 ## Verbleibende spätere Checks
 
 - Echtes YAML-Parsing.
@@ -264,3 +291,9 @@ Eine Evidence-Capture-Shell hebt keine WhatsApp-Quelle und keinen WhatsApp-Claim
 - Evidence-source freshness checks.
 - UI screenshot/device-version evidence.
 - Transition von `line_evidence_unavailable` zu `line_evidence_available`.
+- Exact SERP URL list.
+- Query-level result snapshots.
+- Screenshot proof if needed.
+- Mobile SERP observation.
+- Query freshness/staleness.
+- SERP review gate before research enrichment.

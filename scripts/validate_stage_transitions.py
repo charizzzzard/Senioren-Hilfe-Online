@@ -68,6 +68,13 @@ def main() -> int:
         if "evidence_captures:" in batch_text and "current_stage: claim_slots_mapped" not in batch_text:
             failures.append("Evidence capture presence must keep MVP_BATCH_01 at claim_slots_mapped")
 
+        if "serp_observation:" in batch_text and "current_stage: research_enriched_brief_candidate" in batch_text:
+            failures.append(
+                "SERP observation must not move MVP_BATCH_01 to research_enriched_brief_candidate without an explicit transition patch"
+            )
+        if "serp_observation:" in batch_text and "current_stage: claim_slots_mapped" not in batch_text:
+            failures.append("SERP observation presence must keep MVP_BATCH_01 at claim_slots_mapped")
+
         if "manual_review_verified" in batch_text and "needs_manual_review" in source_pack_text:
             failures.append(
                 "MVP_BATCH_01.yaml must not contain manual_review_verified while source pack still has needs_manual_review"

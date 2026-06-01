@@ -5,7 +5,10 @@ linked_brief_path: docs/content/briefs/smartphone-fuer-senioren-einrichten.md
 slug: smartphone-fuer-senioren-einrichten
 research_status: source_candidates_verified_partial
 source_status: verified_sources_available_with_duplicate_rejected
-serp_status: not_researched
+serp_status: observed
+serp_observation_path: docs/content/serp_observations/serp-observation-batch-01.md
+serp_observation_status: operator_research_observed
+serp_review_status: needs_review
 source_pack_path: docs/content/source_packs/operator-research-source-pack-batch-01.md
 source_pack_status: source_candidates_verified_partial
 claim_map_path: docs/content/claim_maps/source-to-claim-map-batch-01.md
@@ -24,7 +27,9 @@ Diese Datei sammelt Research-Eingaben für den vorhandenen Brief `SHO-MVP-BRIEF-
 
 - research_status: source_candidates_verified_partial
 - source_status: verified_sources_available_with_duplicate_rejected
-- serp_status: not_researched
+- serp_status: observed
+- serp_observation_status: operator_research_observed
+- serp_review_status: needs_review
 - content_status: research_input_shell
 - claim_map_status: claim_slots_mapped
 
@@ -63,12 +68,16 @@ Diese Datei sammelt Research-Eingaben für den vorhandenen Brief `SHO-MVP-BRIEF-
 
 Claim map has security article_draft_candidate claims, support-only setup/navigation claims and duplicate blocked source.
 
+## SERP Observation Note
+
+SERP observation indicates relevance for smartphone setup, with commercial/affiliate risk and strict monetization gate.
+
 ## SERP Observation
 
-- status: not_researched
-- observation: TBD_BY_OPERATOR_OR_RESEARCH
-- competing_result_patterns: TBD_BY_OPERATOR_OR_RESEARCH
-- differentiation_review: TBD_BY_OPERATOR_OR_RESEARCH
+- status: observed
+- observation: qualitative operator SERP observation recorded in docs/content/serp_observations/serp-observation-batch-01.md
+- competing_result_patterns: generic_tech_blog; commercial_result; video_result; manufacturer_support; senior_community; product_comparison
+- differentiation_review: functional setup checklist without product-push is an observed opportunity
 
 ## Evidence Gaps
 
