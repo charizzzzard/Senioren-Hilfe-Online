@@ -192,6 +192,17 @@ decision_status:
     - approved_for_publish
     - publish_ready
 
+prep_status:
+  allowed:
+    - prepared_not_final
+    - blocked
+    - superseded
+  forbidden_by_codex:
+    - accepted
+    - operator_accepted
+    - approved_for_publish
+    - publish_ready
+
 forbidden_transitions:
   - from: scaffold_only
     to: approved_for_publish

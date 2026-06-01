@@ -58,6 +58,7 @@ REQUIRED_DOCS = [
     "docs/content/article_reviews/betrugsnachrichten-auf-whatsapp-erkennen.review.md",
     "docs/content/article_reviews/betrugsnachrichten-auf-whatsapp-erkennen.operator-review-packet.md",
     "docs/content/article_reviews/betrugsnachrichten-auf-whatsapp-erkennen.legal-source-citation-review.md",
+    "docs/content/article_reviews/betrugsnachrichten-auf-whatsapp-erkennen.source-citation-formatting-prep.md",
     "docs/operations/CONTENT_RESEARCH_OPERATING_PROTOCOL.md",
     "docs/operations/RESEARCH_BATCH_STAGE_MODEL.md",
     "docs/operations/CODEX_EXECUTOR_BOUNDARY.md",
@@ -173,6 +174,9 @@ OPERATOR_REVIEW_PACKET_REL_PATH = (
 LEGAL_SOURCE_CITATION_REVIEW_REL_PATH = (
     "docs/content/article_reviews/betrugsnachrichten-auf-whatsapp-erkennen.legal-source-citation-review.md"
 )
+SOURCE_CITATION_FORMATTING_PREP_REL_PATH = (
+    "docs/content/article_reviews/betrugsnachrichten-auf-whatsapp-erkennen.source-citation-formatting-prep.md"
+)
 OPERATOR_DECISIONS_DIR = ROOT / "docs/operations/operator_decisions"
 OPERATOR_DECISION_REL_PATH = "docs/operations/operator_decisions/HUMAN_OPERATOR_DECISION_BATCH01_BRIEF002_001.md"
 EXPECTED_ARTICLE_DRAFT_CANDIDATES = {
@@ -226,6 +230,15 @@ EXPECTED_OPERATOR_DECISIONS = {
         "linked_article_draft_candidate": "docs/content/article_draft_candidates/betrugsnachrichten-auf-whatsapp-erkennen.article-draft-candidate.md",
         "linked_operator_review_packet": OPERATOR_REVIEW_PACKET_REL_PATH,
         "linked_legal_source_citation_review": LEGAL_SOURCE_CITATION_REVIEW_REL_PATH,
+    },
+}
+EXPECTED_SOURCE_CITATION_FORMATTING_PREPS = {
+    "betrugsnachrichten-auf-whatsapp-erkennen.source-citation-formatting-prep.md": {
+        "source_citation_formatting_prep_id": "SHO-SOURCE-CITATION-FORMATTING-PREP-BATCH01-BRIEF002",
+        "brief_id": "SHO-MVP-BRIEF-002",
+        "linked_article_draft_candidate": "docs/content/article_draft_candidates/betrugsnachrichten-auf-whatsapp-erkennen.article-draft-candidate.md",
+        "linked_article_review": ARTICLE_REVIEW_REL_PATH,
+        "linked_operator_decision": OPERATOR_DECISION_REL_PATH,
     },
 }
 WHATSAPP_MANUAL_REVIEW_SOURCE_IDS = {"SHO-SRC-001", "SHO-SRC-002", "SHO-SRC-003", "SHO-SRC-004"}
@@ -489,6 +502,8 @@ def validate_protocol_automation_files(failures: list[str]) -> None:
             "not_ready",
             "decision_status:",
             "proceed_to_source_citation_and_legal_wording_preparation",
+            "prep_status:",
+            "prepared_not_final",
             "review_status:",
             "human_controlled:",
             "approved_for_publish",
@@ -1993,6 +2008,112 @@ def validate_operator_decisions(failures: list[str]) -> int:
     return len(found_files)
 
 
+def validate_source_citation_formatting_preps(failures: list[str]) -> int:
+    if not ARTICLE_REVIEWS_DIR.exists():
+        failures.append("Missing article review directory: docs/content/article_reviews")
+        return 0
+
+    found_files = {path.name for path in ARTICLE_REVIEWS_DIR.glob("*.source-citation-formatting-prep.md")}
+    expected_files = set(EXPECTED_SOURCE_CITATION_FORMATTING_PREPS)
+    if found_files != expected_files:
+        failures.append(
+            "Batch 01 must contain exactly these source citation formatting prep files: "
+            f"{', '.join(sorted(expected_files))}; found {', '.join(sorted(found_files))}"
+        )
+
+    for file_name in sorted(expected_files & found_files):
+        path = ARTICLE_REVIEWS_DIR / file_name
+        text = path.read_text(encoding="utf-8")
+        fields = parse_frontmatter_fields(text)
+        expected = EXPECTED_SOURCE_CITATION_FORMATTING_PREPS[file_name]
+
+        required_fragments = [
+            f"source_citation_formatting_prep_id: {expected['source_citation_formatting_prep_id']}",
+            "batch_id: MVP_BATCH_01",
+            f"linked_brief_id: {expected['brief_id']}",
+            f"linked_article_draft_candidate: {expected['linked_article_draft_candidate']}",
+            f"linked_article_review: {expected['linked_article_review']}",
+            f"linked_operator_decision: {expected['linked_operator_decision']}",
+            "prep_status: prepared_not_final",
+            "operator_acceptance_status: not_accepted",
+            "publish_readiness_status: not_ready",
+            "Explicit Non-Acceptance",
+            "Dieses Artefakt ist keine finale Quellenliste.",
+            "Dieses Artefakt ist keine Publish Readiness.",
+            "Dieses Artefakt ist keine Operator Acceptance.",
+            "Dieses Artefakt ist keine rechtliche Freigabe.",
+            "Dieses Artefakt schaltet keine blockierten Claims frei.",
+            "Claim/Source Marker Inventory",
+            "SHO-CLAIM-004 -> SHO-SRC-005, SHO-SRC-006",
+            "SHO-CLAIM-005 -> SHO-SRC-005, SHO-SRC-006",
+            "SHO-CLAIM-006 -> SHO-SRC-007",
+            "SHO-CLAIM-007 remains blocked",
+            "no WhatsApp line evidence / UI review available",
+            "no WhatsApp block/report UI instructions allowed",
+            "do not cite SHO-CLAIM-007 in final article until separately unblocked",
+            "Source Formatting Preparation",
+            "TBD_BY_OPERATOR_OR_SOURCE_FORMATTING_REVIEW",
+            "publication_ready",
+            "| SHO-SRC-005 |",
+            "| SHO-SRC-006 |",
+            "| SHO-SRC-007 |",
+            "final display labels need review",
+            "final citation text needs review",
+            "final source list needs review",
+            "legal wording review still required",
+            "later Human Operator review required before final article preparation",
+            "Forbidden Automated Decisions",
+            "Codex must not approve for publish",
+            "Codex must not mark operator accepted",
+            "Codex must not unlock SHO-CLAIM-007",
+            "Codex must not add WhatsApp block/report UI instructions",
+            "Codex must not add monetization",
+            "Codex must not add new claims",
+            "Codex must not add new sources",
+        ]
+        for fragment in required_fragments:
+            if fragment not in text:
+                failures.append(f"Source citation formatting prep {file_name} must contain: {fragment}")
+
+        if fields.get("source_citation_formatting_prep_id") != expected["source_citation_formatting_prep_id"]:
+            failures.append(f"Source citation formatting prep {file_name} has unexpected ID")
+        if fields.get("linked_brief_id") != expected["brief_id"]:
+            failures.append(f"Source citation formatting prep {file_name} must link to Brief 002")
+        if fields.get("linked_article_draft_candidate") != expected["linked_article_draft_candidate"]:
+            failures.append(f"Source citation formatting prep {file_name} must link to expected draft candidate")
+        if fields.get("linked_article_review") != expected["linked_article_review"]:
+            failures.append(f"Source citation formatting prep {file_name} must link to expected article review")
+        if fields.get("linked_operator_decision") != expected["linked_operator_decision"]:
+            failures.append(f"Source citation formatting prep {file_name} must link to operator decision")
+        if normalized(fields.get("prep_status")) != "prepared_not_final":
+            failures.append(f"Source citation formatting prep {file_name} must have prep_status: prepared_not_final")
+        if normalized(fields.get("operator_acceptance_status")) != "not_accepted":
+            failures.append(f"Source citation formatting prep {file_name} must have operator_acceptance_status: not_accepted")
+        if normalized(fields.get("publish_readiness_status")) != "not_ready":
+            failures.append(f"Source citation formatting prep {file_name} must have publish_readiness_status: not_ready")
+
+        forbidden_assignments = [
+            "approved_for_publish: true",
+            "operator_acceptance_status: accepted",
+            "publish_readiness_status: publish_candidate",
+            "publish_readiness_status: approved_for_publish",
+            "publish_ready: true",
+            "current_stage: review_ready",
+            "current_stage: publish_candidate",
+            "legal_approval: true",
+            "rechtliche_freigabe: true",
+            "publication_ready: yes",
+        ]
+        lower_text = text.lower()
+        for fragment in forbidden_assignments:
+            if fragment in lower_text:
+                failures.append(
+                    f"Source citation formatting prep {file_name} must not contain forbidden assignment: {fragment}"
+                )
+
+    return len(found_files)
+
+
 def main() -> int:
     failures: list[str] = []
 
@@ -2014,6 +2135,7 @@ def main() -> int:
     operator_review_packet_count = validate_operator_review_packets(failures)
     legal_source_citation_review_count = validate_legal_source_citation_reviews(failures)
     operator_decision_count = validate_operator_decisions(failures)
+    source_citation_formatting_prep_count = validate_source_citation_formatting_preps(failures)
 
     if failures:
         print("FAIL: SHO-OS content contract validation failed")
@@ -2039,6 +2161,7 @@ def main() -> int:
     print(f"- Batch 01 operator review packet files: {operator_review_packet_count}")
     print(f"- Batch 01 legal/source citation review files: {legal_source_citation_review_count}")
     print(f"- Batch 01 operator decision files: {operator_decision_count}")
+    print(f"- Batch 01 source citation formatting prep files: {source_citation_formatting_prep_count}")
     print("- YAML/frontmatter parsing: dependency-free and text-based")
     return 0
 

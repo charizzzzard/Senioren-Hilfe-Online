@@ -5,19 +5,19 @@
 - project_name: Senioren-Hilfe Online
 - system_name: Senioren-Hilfe Online OS
 - system_short_name: SHO-OS
-- patch_title: HUMAN_OPERATOR_DECISION_BATCH01_BRIEF002_PROCEED_TO_SOURCE_CITATION_AND_LEGAL_WORDING
+- patch_title: FINAL_SOURCE_CITATION_FORMATTING_PREPARATION_BRIEF_002
 - external_review_verdict: ACCEPTED_WITH_FINDINGS
 
 SHO-OS ist ein reproduzierbares Content-, Trust- und Publishing-System fuer seniorengerechte digitale Alltagshilfe in Deutschland.
 
-Dieser Patch dokumentiert die ausdrueckliche Human-Operator-Entscheidung fuer Brief 002: mit final source citation formatting preparation und legal wording review preparation fortfahren. Er setzt keine Operator Acceptance, keine Publish Readiness, keine rechtliche Freigabe und keine Batch-Stage-Hochstufung.
+Dieser Patch bereitet die spaetere Quellenformatierung fuer Brief 002 vor. Er sammelt vorhandene Claim-/Source-Marker und markiert finale Quellenlabels sowie finale Zitationstexte weiter als offen. Er setzt keine Operator Acceptance, keine Publish Readiness, keine rechtliche Freigabe und keine Batch-Stage-Hochstufung.
 
 ## Git Traceability
 
 - branch: `main`
-- head_before: `44db38342c2d42a7dd51b0df2a7b97be1ce18803`
+- head_before: `e06c4dab25bcaa6863799b7bab6c13ef15ce6e88`
 - intended_head_after: `assigned_after_commit`
-- origin_main_before: `44db38342c2d42a7dd51b0df2a7b97be1ce18803`
+- origin_main_before: `e06c4dab25bcaa6863799b7bab6c13ef15ce6e88`
 - dirty_state_before: `clean`
 - dirty_state_after: `assigned_after_commit`
 - remote_url: `https://github.com/charizzzzard/Senioren-Hilfe-Online.git`
@@ -26,12 +26,11 @@ Hinweis: `head_after` wird nicht vorab als Commit-SHA eingetragen, weil ein Comm
 
 ## Scope Dieses Patches
 
-- Neues Operator Decision Record erstellt: `docs/operations/operator_decisions/HUMAN_OPERATOR_DECISION_BATCH01_BRIEF002_001.md`.
-- Decision dokumentiert erlaubte naechste Arbeit: final source citation formatting preparation und legal wording review preparation.
-- Decision dokumentiert Nicht-Akzeptanz: keine Operator Acceptance, keine Publish Readiness, keine rechtliche Freigabe, kein Claim-Unlock.
-- `STATUS_REGISTRY.yaml` um `decision_status` fuer diesen naechsten Arbeitsschritt ergaenzt.
-- `validate_content_contracts.py` um Operator-Decision-Checks erweitert.
-- Batch-Manifest bleibt unveraendert auf `current_stage: claim_slots_mapped`.
+- Neues Source-Citation-Formatting-Prep-Artefakt erstellt: `docs/content/article_reviews/betrugsnachrichten-auf-whatsapp-erkennen.source-citation-formatting-prep.md`.
+- Vorhandene Marker dokumentiert: `SHO-CLAIM-004`, `SHO-CLAIM-005`, `SHO-CLAIM-006` mit `SHO-SRC-005`, `SHO-SRC-006`, `SHO-SRC-007`.
+- `SHO-CLAIM-007` bleibt blockiert und darf nicht fuer finale Zitationen genutzt werden.
+- `STATUS_REGISTRY.yaml` um `prep_status` fuer vorbereitende Artefakte ergaenzt.
+- `validate_content_contracts.py` um Source-Citation-Formatting-Prep-Checks erweitert.
 - Batch bleibt `current_stage: claim_slots_mapped`.
 
 ## Non-Scope
@@ -47,13 +46,14 @@ Hinweis: `head_after` wird nicht vorab als Commit-SHA eingetragen, weil ein Comm
 - Keine Website.
 - Keine Monetarisierung.
 
-## Operator Decision Summary
+## Source Citation Formatting Prep Summary
 
-- decision_status: `proceed_to_source_citation_and_legal_wording_preparation`
+- prep_status: `prepared_not_final`
 - operator_acceptance_status: `not_accepted`
 - publish_readiness_status: `not_ready`
-- batch_stage_after_decision: `claim_slots_mapped`
-- allowed next work: final source citation formatting preparation; legal wording review preparation.
+- final_display_label: `TBD_BY_OPERATOR_OR_SOURCE_FORMATTING_REVIEW`
+- final_citation_text: `TBD_BY_OPERATOR_OR_SOURCE_FORMATTING_REVIEW`
+- publication_ready: `no`
 
 ## Guardrails
 
@@ -79,8 +79,8 @@ Hinweis: `head_after` wird nicht vorab als Commit-SHA eingetragen, weil ein Comm
 
 ## Files Changed Summary
 
-- `docs/operations/operator_decisions/README.md`
-- `docs/operations/operator_decisions/HUMAN_OPERATOR_DECISION_BATCH01_BRIEF002_001.md`
+- `docs/content/article_reviews/betrugsnachrichten-auf-whatsapp-erkennen.source-citation-formatting-prep.md`
+- `docs/content/article_reviews/README.md`
 - `docs/operations/STATUS_REGISTRY.yaml`
 - `scripts/validate_content_contracts.py`
 - `docs/engineering/VALIDATION_REQUIREMENTS.md`
@@ -89,4 +89,4 @@ Hinweis: `head_after` wird nicht vorab als Commit-SHA eingetragen, weil ein Comm
 
 ## Keine finale Annahme durch Codex
 
-Human Operator decision recorded for next preparation gates, but no legal approval, no publish readiness and no Operator Acceptance. Finale Annahme bleibt beim Human Operator.
+Source citation formatting preparation recorded, but no final source list, no legal approval, no publish readiness and no Operator Acceptance. Finale Annahme bleibt beim Human Operator.

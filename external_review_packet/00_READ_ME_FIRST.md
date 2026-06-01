@@ -2,20 +2,21 @@
 
 ## Zweck dieses Review-Pakets
 
-Dieses Review-Paket beschreibt den Patch `HUMAN_OPERATOR_DECISION_BATCH01_BRIEF002_PROCEED_TO_SOURCE_CITATION_AND_LEGAL_WORDING`. Es dokumentiert die Human-Operator-Entscheidung fuer den naechsten vorbereitenden Arbeitsschritt zu Brief 002.
+Dieses Review-Paket beschreibt den Patch `FINAL_SOURCE_CITATION_FORMATTING_PREPARATION_BRIEF_002`. Es bereitet die spaetere Quellenformatierung fuer den bestehenden Article Draft Candidate zu Brief 002 vor.
 
 ## Scope dieses Patches
 
-- Genau ein Operator Decision Record fuer Brief 002 erstellen.
-- Decision verlinkt Draft Candidate, Operator Review Packet und Legal-/Source-Citation-Review.
-- Decision erlaubt nur final source citation formatting preparation und legal wording review preparation.
-- Decision dokumentiert ausdruecklich: keine Operator Acceptance, keine Publish Readiness, keine rechtliche Freigabe, kein Claim-Unlock.
-- Validator minimal erweitern, damit das Decision Record als erwartetes Artefakt geprueft wird.
-- Batch Manifest ohne Stage-Hochstufung beibehalten.
+- Genau ein Source-Citation-Formatting-Prep-Artefakt fuer Brief 002 erstellen.
+- Vorhandene Claim-/Source-Marker aus dem Draft sammeln.
+- Source IDs fuer spaetere Display Labels und Citation Text vorbereiten.
+- `SHO-CLAIM-007` weiter blockiert halten.
+- Keine finale Quellenliste, keine Operator Acceptance und keine Publish Readiness setzen.
+- Validator minimal erweitern, damit das Prep-Artefakt als erwartetes Artefakt geprueft wird.
 
 ## Primaere Review-Dateien
 
 - `external_review_packet/HANDOFF_LATEST_CONTEXT.md`
+- `docs/content/article_reviews/betrugsnachrichten-auf-whatsapp-erkennen.source-citation-formatting-prep.md`
 - `docs/operations/operator_decisions/HUMAN_OPERATOR_DECISION_BATCH01_BRIEF002_001.md`
 - `docs/content/article_reviews/betrugsnachrichten-auf-whatsapp-erkennen.legal-source-citation-review.md`
 - `docs/content/article_reviews/betrugsnachrichten-auf-whatsapp-erkennen.operator-review-packet.md`
@@ -30,7 +31,7 @@ Dieses Review-Paket beschreibt den Patch `HUMAN_OPERATOR_DECISION_BATCH01_BRIEF0
 
 ## Wichtiger Hinweis
 
-Operator decision record only. This is not legal approval, not publish readiness and not Operator Acceptance.
+Source citation formatting preparation only. This is not a final source list, not legal approval, not publish readiness and not Operator Acceptance.
 
 ## Nicht in Scope
 

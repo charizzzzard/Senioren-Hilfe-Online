@@ -415,6 +415,19 @@ Das Review-Artefakt muss mindestens diese Finding IDs enthalten:
 - `batch_stage_after_decision` muss `claim_slots_mapped` bleiben.
 - Das Decision Record darf keine Operator Acceptance, keine Publish Readiness, keine rechtliche Freigabe und keinen Claim-Unlock setzen.
 
+## Source-Citation-Formatting-Prep-Checks
+
+- Fuer Brief 002 muss genau ein Source-Citation-Formatting-Prep-Artefakt unter `docs/content/article_reviews/` existieren.
+- Das Artefakt muss den Article Draft Candidate, das Article Review und das Operator Decision Record verlinken.
+- `prep_status` muss `prepared_not_final` sein.
+- `operator_acceptance_status` muss `not_accepted` bleiben.
+- `publish_readiness_status` muss `not_ready` bleiben.
+- Das Artefakt darf nur vorhandene Marker fuer `SHO-CLAIM-004`, `SHO-CLAIM-005`, `SHO-CLAIM-006` und `SHO-SRC-005`, `SHO-SRC-006`, `SHO-SRC-007` dokumentieren.
+- `SHO-CLAIM-007` muss als blockiert sichtbar bleiben und darf nicht fuer finale Zitationen genutzt werden.
+- `final_display_label` und `final_citation_text` muessen als `TBD_BY_OPERATOR_OR_SOURCE_FORMATTING_REVIEW` markiert bleiben.
+- `publication_ready` muss fuer alle vorbereiteten Sources `no` bleiben.
+- Das Artefakt darf keine finale Quellenliste, keine rechtliche Freigabe, keine Publish Readiness und keine Operator Acceptance behaupten.
+
 ## Verbleibende spätere Checks
 
 - Echtes YAML-Parsing.
