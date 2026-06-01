@@ -140,6 +140,9 @@ review_status:
     - needs_source_marker_review
     - needs_safety_language_review
     - needs_monetization_review
+    - review_completed_with_findings
+    - needs_fix
+    - not_ready
     - blocked
     - approved_for_publish
 

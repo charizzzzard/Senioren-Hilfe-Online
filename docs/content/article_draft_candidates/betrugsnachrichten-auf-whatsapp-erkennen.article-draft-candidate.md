@@ -9,7 +9,8 @@ linked_claim_map: docs/content/claim_maps/source-to-claim-map-batch-01.md
 linked_source_pack: docs/content/source_packs/operator-research-source-pack-batch-01.md
 linked_serp_observation: docs/content/serp_observations/serp-observation-batch-01.md
 article_status: article_draft_candidate
-review_status: needs_senior_ux_review
+article_review_path: docs/content/article_reviews/betrugsnachrichten-auf-whatsapp-erkennen.review.md
+review_status: review_completed_with_findings
 operator_acceptance_status: not_accepted
 ---
 

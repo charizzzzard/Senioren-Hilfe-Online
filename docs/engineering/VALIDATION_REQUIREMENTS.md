@@ -317,6 +317,31 @@ Draft Scaffolds sind nur fuer Brief 002 und Brief 003 erlaubt. Brief 001 bleibt 
 - Keine juristische Beratung.
 - Keine finalen WhatsApp-UI-Schritte ohne entsperrte WhatsApp Evidence.
 
+## Article-Review-Artefakt-Checks
+
+- `docs/content/article_reviews/README.md` muss existieren.
+- `docs/content/article_reviews/ARTICLE_REVIEW_TEMPLATE.md` muss existieren.
+- Exakt ein Batch-01-Article-Review-Artefakt darf fuer Brief 002 existieren:
+  - `docs/content/article_reviews/betrugsnachrichten-auf-whatsapp-erkennen.review.md`
+- Das Review-Artefakt hat `article_review_id: SHO-ARTICLE-REVIEW-BATCH01-BRIEF002`.
+- Das Review-Artefakt hat `review_status: review_completed_with_findings`.
+- Das Review-Artefakt hat `operator_acceptance_status: not_accepted`.
+- Der Draft Candidate verlinkt per `article_review_path` auf das Review-Artefakt.
+- `MVP_BATCH_01.yaml` bleibt auf `current_stage: claim_slots_mapped`.
+- `MVP_BATCH_01.yaml` darf nicht auf `review_ready` oder `publish_candidate` wechseln.
+
+## Review-Finding-ID-Checks
+
+Das Review-Artefakt muss mindestens diese Finding IDs enthalten:
+
+- `SHO-ARTICLE-002-UX-001`
+- `SHO-ARTICLE-002-UX-002`
+- `SHO-ARTICLE-002-SAFE-001`
+- `SHO-ARTICLE-002-SRC-001`
+- `SHO-ARTICLE-002-GATE-001`
+- `SHO-ARTICLE-002-MON-001`
+- `SHO-ARTICLE-002-PUB-001`
+
 ## Verbleibende spätere Checks
 
 - Echtes YAML-Parsing.
@@ -395,3 +420,8 @@ Draft Scaffolds sind nur fuer Brief 002 und Brief 003 erlaubt. Brief 001 bleibt 
 - Senior UX checklist validator.
 - Article review package.
 - Publish candidate gate.
+- Automated source marker matching.
+- Readability checklist.
+- Safety language lint.
+- Claim-marker-to-source validation.
+- Review-to-fix-patch linkage.
