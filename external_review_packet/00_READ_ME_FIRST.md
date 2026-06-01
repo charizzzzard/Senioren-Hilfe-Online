@@ -2,14 +2,14 @@
 
 ## Zweck dieses Review-Pakets
 
-Dieses Review-Paket beschreibt den Patch `OPERATOR_RESEARCH_SOURCE_PACK_BATCH_01_SCAFFOLD`. Es soll einem externen Review ermöglichen, die Source-Pack-Shell, konservativen Research-Input-Verweise und Validator-Härtung zu prüfen.
+Dieses Review-Paket beschreibt den Patch `OPERATOR_RESEARCH_SOURCE_PACK_BATCH_01_POPULATE`. Es soll einem externen Review ermöglichen, die operator-gelieferten Quellenkandidaten, konservativen Research-Input-Statusänderungen und Validator-Härtung zu prüfen.
 
 ## Scope dieses Patches
 
-- Source-Pack-Ordner und Source-Pack-Template anlegen.
-- Batch-01-Source-Pack-Shell anlegen.
-- Vier bestehende Research-Input-Dateien minimal mit dem Source Pack verknüpfen.
-- Validator ohne externe Dependencies um Source-Pack-Strukturchecks härten.
+- Operator-gelieferte Source Candidates in das bestehende Source Pack eintragen.
+- `source_pack_status` auf `source_candidates_added` setzen.
+- Vier bestehende Research-Input-Dateien konservativ mit Source-IDs referenzieren.
+- Validator ohne externe Dependencies um Source-Candidate-Population-Checks härten.
 - Findings Register und Handoff-Kontext aktualisieren.
 
 ## Primäre Review-Dateien
@@ -24,6 +24,7 @@ Dieses Review-Paket beschreibt den Patch `OPERATOR_RESEARCH_SOURCE_PACK_BATCH_01
 - `docs/content/research_inputs/smartphone-schriftgroesse-und-bedienhilfen-einstellen.research.md`
 - `docs/content/research_inputs/smartphone-fuer-senioren-einrichten.research.md`
 - `scripts/validate_content_contracts.py`
+- `docs/engineering/VALIDATION_REQUIREMENTS.md`
 
 ## Wichtiger Brief-Hinweis
 
@@ -35,7 +36,7 @@ Research Input Shells sind keine finalen Research-Ergebnisse. Sie enthalten kein
 
 ## Wichtiger Source-Pack-Hinweis
 
-Source Pack Shells sind keine finalen Research-Ergebnisse. Sie enthalten keine echten Quellen, keine validierten Quellenlinks und keine Operator Acceptance.
+Source Candidates sind keine final verifizierten Quellen. Sie sind nicht akzeptiert, nicht ausreichend für Publishing und nicht als `verified` markiert.
 
 ## Nicht in Scope
 

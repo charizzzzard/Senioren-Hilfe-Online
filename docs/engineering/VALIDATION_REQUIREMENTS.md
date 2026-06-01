@@ -76,6 +76,22 @@ Der Validator prüft für Batch 01 zusätzlich:
 - `TBD_BY_OPERATOR_OR_RESEARCH` bleibt für fehlende Quellen vorhanden.
 - Research-Input-Dateien verweisen auf das Batch-01-Source-Pack.
 
+## Source-Candidate-Population-Checks
+
+Der Validator prüft für Batch 01 zusätzlich:
+
+- `source_pack_status = source_candidates_added` oder vorbereitete Shell-Statuswerte.
+- Research-Input-Dateien dürfen `research_status = source_candidates_added` nutzen.
+- Research-Input-Dateien dürfen `source_status = candidate` nutzen.
+- `serp_status` bleibt `not_researched`.
+- kein `operator_acceptance_status = accepted`.
+- keine Source-Row mit Status `verified`.
+- mindestens zwölf Source-Candidate-Rows im Batch-01-Source-Pack.
+- eindeutige `source_id`-Werte.
+- jede Source-Row enthält `source_id`, `linked_brief_id`, `source_type`, `title_or_provider`, `url`, `retrieved_at`, `status`, `supports`, `risks` und `notes`.
+- kein URL-Feld enthält nach Population `TBD_BY_OPERATOR_OR_RESEARCH`.
+- Research-Input-Dateien enthalten kein `approved_for_publish`.
+
 ## Verbleibende spätere Checks
 
 - Echtes YAML-Parsing.
@@ -91,7 +107,12 @@ Der Validator prüft für Batch 01 zusätzlich:
 - Source-State-Transition-Regeln.
 - `verified` nur bei `retrieved_at` und Review-Notiz.
 - `rejected` nur mit Ablehnungsgrund.
+- URL reachability check.
+- Source content extraction evidence.
+- Verified status transition rules.
+- Source rejection reasons.
 - SERP-Snapshot-Metadaten.
+- Research-enriched transition gate.
 - verified/rejected Source-State.
 - Evidence-Gap-Tracking.
 - Staleness- und `last_reviewed`-Check.

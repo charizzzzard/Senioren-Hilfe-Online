@@ -82,6 +82,9 @@ EXPECTED_RESEARCH_FILES = {
 
 SOURCE_PACK_PATH = ROOT / "docs/content/source_packs/operator-research-source-pack-batch-01.md"
 SOURCE_PACK_REL_PATH = "docs/content/source_packs/operator-research-source-pack-batch-01.md"
+ALLOWED_RESEARCH_STATUSES = {"not_researched", "source_candidates_added"}
+ALLOWED_RESEARCH_SOURCE_STATUSES = {"missing", "candidate"}
+ALLOWED_SOURCE_PACK_STATUSES = {"source_pack_shell", "source_candidates_added"}
 
 REQUIRED_BRIEF_FIELDS = {
     "brief_id",
@@ -337,26 +340,34 @@ def validate_research_inputs(failures: list[str]) -> int:
             )
         if fields.get("slug") != expected["slug"]:
             failures.append(f"Research input {file_name} has unexpected slug")
-        if normalized(fields.get("research_status")) != "not_researched":
-            failures.append(f"Research input {file_name} must have research_status: not_researched")
-        if normalized(fields.get("source_status")) != "missing":
-            failures.append(f"Research input {file_name} must have source_status: missing")
+        if normalized(fields.get("research_status")) not in ALLOWED_RESEARCH_STATUSES:
+            failures.append(
+                f"Research input {file_name} has unsupported research_status: {fields.get('research_status')}"
+            )
+        if normalized(fields.get("source_status")) not in ALLOWED_RESEARCH_SOURCE_STATUSES:
+            failures.append(
+                f"Research input {file_name} has unsupported source_status: {fields.get('source_status')}"
+            )
         if normalized(fields.get("serp_status")) != "not_researched":
             failures.append(f"Research input {file_name} must have serp_status: not_researched")
         if fields.get("source_pack_path") != SOURCE_PACK_REL_PATH:
             failures.append(
                 f"Research input {file_name} must link to source_pack_path: {SOURCE_PACK_REL_PATH}"
             )
-        if normalized(fields.get("source_pack_status")) != "source_pack_shell":
-            failures.append(f"Research input {file_name} must have source_pack_status: source_pack_shell")
+        if normalized(fields.get("source_pack_status")) not in ALLOWED_SOURCE_PACK_STATUSES:
+            failures.append(
+                f"Research input {file_name} has unsupported source_pack_status: {fields.get('source_pack_status')}"
+            )
         if normalized(fields.get("operator_acceptance_status")) == "accepted":
             failures.append(f"Research input {file_name} must not have accepted operator status")
+        if "approved_for_publish" in path.read_text(encoding="utf-8"):
+            failures.append(f"Research input {file_name} must not contain approved_for_publish")
 
     return len(found_files)
 
 
-def source_pack_table_statuses(text: str) -> list[str]:
-    statuses: list[str] = []
+def source_pack_table_rows(text: str) -> list[dict[str, str]]:
+    rows: list[dict[str, str]] = []
     in_table = False
     for raw_line in text.splitlines():
         line = raw_line.strip()
@@ -371,9 +382,63 @@ def source_pack_table_statuses(text: str) -> list[str]:
         if set(line.replace("|", "").replace("-", "").replace(" ", "")) == set():
             continue
         cells = [cell.strip() for cell in line.strip("|").split("|")]
-        if len(cells) >= 7:
-            statuses.append(cells[6].lower())
-    return statuses
+        if len(cells) >= 10:
+            rows.append(
+                {
+                    "source_id": cells[0],
+                    "linked_brief_id": cells[1],
+                    "source_type": cells[2],
+                    "title_or_provider": cells[3],
+                    "url": cells[4],
+                    "retrieved_at": cells[5],
+                    "status": cells[6],
+                    "supports": cells[7],
+                    "risks": cells[8],
+                    "notes": cells[9],
+                }
+            )
+    return rows
+
+
+def validate_source_pack_rows(rows: list[dict[str, str]], failures: list[str]) -> None:
+    if len(rows) < 12:
+        failures.append(f"Source pack must contain at least 12 source candidate rows; found {len(rows)}")
+
+    seen_ids: set[str] = set()
+    required_columns = {
+        "source_id",
+        "linked_brief_id",
+        "source_type",
+        "title_or_provider",
+        "url",
+        "retrieved_at",
+        "status",
+        "supports",
+        "risks",
+        "notes",
+    }
+    for index, row in enumerate(rows, start=1):
+        missing = [column for column in required_columns if not row.get(column)]
+        if missing:
+            failures.append(
+                f"Source row {index} is missing required columns: {', '.join(sorted(missing))}"
+            )
+
+        source_id = row.get("source_id", "")
+        if source_id in seen_ids:
+            failures.append(f"Source row source_id must be unique: {source_id}")
+        if source_id:
+            seen_ids.add(source_id)
+
+        status = normalized(row.get("status"))
+        if status == "verified":
+            failures.append(f"Source row must not be verified: {source_id or f'row {index}'}")
+        if status not in {"candidate", "missing", "rejected", "stale"}:
+            failures.append(
+                f"Source row {source_id or index} has unsupported status: {row.get('status')}"
+            )
+        if "TBD_BY_OPERATOR_OR_RESEARCH" in row.get("url", ""):
+            failures.append(f"Source row URL must not be TBD after populate: {source_id}")
 
 
 def validate_source_pack(failures: list[str]) -> int:
@@ -406,17 +471,12 @@ def validate_source_pack(failures: list[str]) -> int:
         failures.append("Source pack has unexpected source_pack_id")
     if fields.get("batch_id") != "MVP_BATCH_01":
         failures.append("Source pack has unexpected batch_id")
-    if normalized(fields.get("source_pack_status")) != "source_pack_shell":
-        failures.append("Source pack must have source_pack_status: source_pack_shell")
+    if normalized(fields.get("source_pack_status")) not in ALLOWED_SOURCE_PACK_STATUSES:
+        failures.append(f"Source pack has unsupported source_pack_status: {fields.get('source_pack_status')}")
     if normalized(fields.get("operator_acceptance_status")) == "accepted":
         failures.append("Source pack must not have accepted operator status")
-    if "TBD_BY_OPERATOR_OR_RESEARCH" not in text:
-        failures.append("Source pack must preserve TBD_BY_OPERATOR_OR_RESEARCH for missing sources")
 
-    statuses = source_pack_table_statuses(text)
-    for status in statuses:
-        if status in {"candidate", "verified"}:
-            failures.append(f"Source pack shell must not contain source row status: {status}")
+    validate_source_pack_rows(source_pack_table_rows(text), failures)
 
     return 1
 

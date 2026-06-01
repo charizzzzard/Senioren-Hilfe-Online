@@ -3,11 +3,11 @@ research_id: SHO-MVP-RESEARCH-003
 linked_brief_id: SHO-MVP-BRIEF-003
 linked_brief_path: docs/content/briefs/smartphone-schriftgroesse-und-bedienhilfen-einstellen.md
 slug: smartphone-schriftgroesse-und-bedienhilfen-einstellen
-research_status: not_researched
-source_status: missing
+research_status: source_candidates_added
+source_status: candidate
 serp_status: not_researched
 source_pack_path: docs/content/source_packs/operator-research-source-pack-batch-01.md
-source_pack_status: source_pack_shell
+source_pack_status: source_candidates_added
 last_researched: null
 operator_acceptance_status: not_accepted
 ---
@@ -20,8 +20,8 @@ Diese Datei sammelt Research-Eingaben für den vorhandenen Brief `SHO-MVP-BRIEF-
 
 ## Current Status
 
-- research_status: not_researched
-- source_status: missing
+- research_status: source_candidates_added
+- source_status: candidate
 - serp_status: not_researched
 - content_status: research_input_shell
 
@@ -35,7 +35,15 @@ Diese Datei sammelt Research-Eingaben für den vorhandenen Brief `SHO-MVP-BRIEF-
 
 | source_id | source_type | title_or_provider | url | status | notes |
 | --- | --- | --- | --- | --- | --- |
-| TBD | TBD_BY_OPERATOR_OR_RESEARCH | TBD_BY_OPERATOR_OR_RESEARCH | TBD_BY_OPERATOR_OR_RESEARCH | missing | Noch nicht recherchiert |
+| SHO-SRC-008 | manufacturer_support | Siehe Source Pack | docs/content/source_packs/operator-research-source-pack-batch-01.md | candidate | Operator-gelieferter Quellenkandidat; nicht verifiziert |
+| SHO-SRC-009 | manufacturer_support | Siehe Source Pack | docs/content/source_packs/operator-research-source-pack-batch-01.md | candidate | Operator-gelieferter Quellenkandidat; nicht verifiziert |
+| SHO-SRC-010 | manufacturer_support | Siehe Source Pack | docs/content/source_packs/operator-research-source-pack-batch-01.md | candidate | Operator-gelieferter Quellenkandidat; nicht verifiziert |
+
+## Source References
+
+- SHO-SRC-008
+- SHO-SRC-009
+- SHO-SRC-010
 
 ## SERP Observation
 
@@ -69,7 +77,7 @@ Diese Datei sammelt Research-Eingaben für den vorhandenen Brief `SHO-MVP-BRIEF-
 - echte Quellenrecherche durch Operator/Research-Agent
 - SERP-Beobachtung mit Datum und Suchkontext ergänzen
 - Quellenstatus auf candidate/verified/rejected setzen
-- danach Brief als research_enriched markieren
+- danach spätere Brief-Anreicherung durch Review-Gate prüfen
 
 ## Explicit Non-Acceptance
 
