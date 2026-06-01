@@ -2,20 +2,22 @@
 
 ## Zweck dieses Review-Pakets
 
-Dieses Review-Paket beschreibt den Patch `FINAL_ARTICLE_PREPARATION_GATE_REVIEW_BRIEF_002`. Es dokumentiert konservativ, dass die finale Artikelvorbereitung fuer Brief 002 weiterhin blockiert bleibt.
+Dieses Review-Paket beschreibt den Patch `FINAL_CITATION_DISPLAY_LABEL_REVIEW_BRIEF_002`. Es bereitet konservative Display Labels fuer vorhandene Quellen IDs zu Brief 002 vor.
 
 ## Scope dieses Patches
 
-- Genau ein Final-Article-Preparation-Gate-Review-Artefakt fuer Brief 002 erstellen.
-- Gate Checklist fuer bestehende Review-, Decision-, Citation- und Legal-Prep-Artefakte dokumentieren.
-- Gate Result konservativ auf blockiert setzen, weil finale Quellenformatierung und finale Legal-Wording-Review fehlen.
+- Genau ein Citation-Display-Label-Review-Artefakt fuer Brief 002 erstellen.
+- Nur vorhandene Source IDs `SHO-SRC-005`, `SHO-SRC-006` und `SHO-SRC-007` labeln.
+- Labels als `prepared_not_final` markieren.
+- Keine finalen Citation-Texte und keine finale Quellenliste setzen.
 - `SHO-CLAIM-007` weiter blockiert halten.
 - Keine Rechtsberatung, keine rechtliche Freigabe, keine Operator Acceptance und keine Publish Readiness setzen.
-- Validator minimal erweitern, damit das Prep-Artefakt als erwartetes Artefakt geprueft wird.
+- Validator minimal erweitern, damit das Label-Review-Artefakt als erwartetes Artefakt geprueft wird.
 
 ## Primaere Review-Dateien
 
 - `external_review_packet/HANDOFF_LATEST_CONTEXT.md`
+- `docs/content/article_reviews/betrugsnachrichten-auf-whatsapp-erkennen.citation-display-label-review.md`
 - `docs/content/article_reviews/betrugsnachrichten-auf-whatsapp-erkennen.final-article-prep-gate-review.md`
 - `docs/content/article_reviews/betrugsnachrichten-auf-whatsapp-erkennen.legal-wording-review-prep.md`
 - `docs/content/article_reviews/betrugsnachrichten-auf-whatsapp-erkennen.source-citation-formatting-prep.md`
@@ -33,7 +35,7 @@ Dieses Review-Paket beschreibt den Patch `FINAL_ARTICLE_PREPARATION_GATE_REVIEW_
 
 ## Wichtiger Hinweis
 
-Final article preparation gate review only. This is not final article preparation, not legal approval, not publish readiness and not Operator Acceptance.
+Citation display label review only. This is not a final source list, not final citation text, not legal approval, not publish readiness and not Operator Acceptance.
 
 ## Nicht in Scope
 

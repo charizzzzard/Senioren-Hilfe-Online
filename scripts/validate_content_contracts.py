@@ -61,6 +61,7 @@ REQUIRED_DOCS = [
     "docs/content/article_reviews/betrugsnachrichten-auf-whatsapp-erkennen.source-citation-formatting-prep.md",
     "docs/content/article_reviews/betrugsnachrichten-auf-whatsapp-erkennen.legal-wording-review-prep.md",
     "docs/content/article_reviews/betrugsnachrichten-auf-whatsapp-erkennen.final-article-prep-gate-review.md",
+    "docs/content/article_reviews/betrugsnachrichten-auf-whatsapp-erkennen.citation-display-label-review.md",
     "docs/operations/CONTENT_RESEARCH_OPERATING_PROTOCOL.md",
     "docs/operations/RESEARCH_BATCH_STAGE_MODEL.md",
     "docs/operations/CODEX_EXECUTOR_BOUNDARY.md",
@@ -185,6 +186,9 @@ LEGAL_WORDING_REVIEW_PREP_REL_PATH = (
 FINAL_ARTICLE_PREP_GATE_REVIEW_REL_PATH = (
     "docs/content/article_reviews/betrugsnachrichten-auf-whatsapp-erkennen.final-article-prep-gate-review.md"
 )
+CITATION_DISPLAY_LABEL_REVIEW_REL_PATH = (
+    "docs/content/article_reviews/betrugsnachrichten-auf-whatsapp-erkennen.citation-display-label-review.md"
+)
 OPERATOR_DECISIONS_DIR = ROOT / "docs/operations/operator_decisions"
 OPERATOR_DECISION_REL_PATH = "docs/operations/operator_decisions/HUMAN_OPERATOR_DECISION_BATCH01_BRIEF002_001.md"
 EXPECTED_ARTICLE_DRAFT_CANDIDATES = {
@@ -268,6 +272,14 @@ EXPECTED_FINAL_ARTICLE_PREP_GATE_REVIEWS = {
         "linked_operator_decision": OPERATOR_DECISION_REL_PATH,
         "linked_source_citation_formatting_prep": SOURCE_CITATION_FORMATTING_PREP_REL_PATH,
         "linked_legal_wording_review_prep": LEGAL_WORDING_REVIEW_PREP_REL_PATH,
+    },
+}
+EXPECTED_CITATION_DISPLAY_LABEL_REVIEWS = {
+    "betrugsnachrichten-auf-whatsapp-erkennen.citation-display-label-review.md": {
+        "citation_display_label_review_id": "SHO-CITATION-DISPLAY-LABEL-REVIEW-BATCH01-BRIEF002",
+        "brief_id": "SHO-MVP-BRIEF-002",
+        "linked_source_citation_formatting_prep": SOURCE_CITATION_FORMATTING_PREP_REL_PATH,
+        "linked_final_article_prep_gate_review": FINAL_ARTICLE_PREP_GATE_REVIEW_REL_PATH,
     },
 }
 WHATSAPP_MANUAL_REVIEW_SOURCE_IDS = {"SHO-SRC-001", "SHO-SRC-002", "SHO-SRC-003", "SHO-SRC-004"}
@@ -537,6 +549,7 @@ def validate_protocol_automation_files(failures: list[str]) -> None:
             "not_approved",
             "gate_status:",
             "blocked_pending_final_citation_and_legal_review",
+            "label_status:",
             "review_status:",
             "human_controlled:",
             "approved_for_publish",
@@ -2389,6 +2402,124 @@ def validate_final_article_prep_gate_reviews(failures: list[str]) -> int:
     return len(found_files)
 
 
+def validate_citation_display_label_reviews(failures: list[str]) -> int:
+    if not ARTICLE_REVIEWS_DIR.exists():
+        failures.append("Missing article review directory: docs/content/article_reviews")
+        return 0
+
+    found_files = {path.name for path in ARTICLE_REVIEWS_DIR.glob("*.citation-display-label-review.md")}
+    expected_files = set(EXPECTED_CITATION_DISPLAY_LABEL_REVIEWS)
+    if found_files != expected_files:
+        failures.append(
+            "Batch 01 must contain exactly these citation display label review files: "
+            f"{', '.join(sorted(expected_files))}; found {', '.join(sorted(found_files))}"
+        )
+
+    for file_name in sorted(expected_files & found_files):
+        path = ARTICLE_REVIEWS_DIR / file_name
+        text = path.read_text(encoding="utf-8")
+        fields = parse_frontmatter_fields(text)
+        expected = EXPECTED_CITATION_DISPLAY_LABEL_REVIEWS[file_name]
+
+        required_fragments = [
+            f"citation_display_label_review_id: {expected['citation_display_label_review_id']}",
+            "batch_id: MVP_BATCH_01",
+            f"linked_brief_id: {expected['brief_id']}",
+            f"linked_source_citation_formatting_prep: {expected['linked_source_citation_formatting_prep']}",
+            f"linked_final_article_prep_gate_review: {expected['linked_final_article_prep_gate_review']}",
+            "label_status: prepared_not_final",
+            "operator_acceptance_status: not_accepted",
+            "publish_readiness_status: not_ready",
+            "Explicit Non-Acceptance",
+            "Diese Review ist keine finale Quellenliste.",
+            "Diese Review ist keine Publish Readiness.",
+            "Diese Review ist keine Operator Acceptance.",
+            "Diese Review ist keine rechtliche Freigabe.",
+            "Diese Review fuegt keine neuen Quellen hinzu.",
+            "Diese Review schaltet keine blockierten Claims frei.",
+            "Source ID Scope",
+            "SHO-SRC-005",
+            "SHO-SRC-006",
+            "SHO-SRC-007",
+            "SHO-SRC-001",
+            "SHO-SRC-002",
+            "SHO-SRC-003",
+            "SHO-SRC-004",
+            "SHO-SRC-013",
+            "Prepared Display Labels",
+            "Quelle zu Betrugsmaschen mit neuer Nummer und Verifikationshinweisen",
+            "Quelle zu Familien-/Seniorenkontext und Rückrufprüfung",
+            "Quelle zu allgemeinen Phishing-/Smishing-Warnsignalen",
+            "final_citation_text_status",
+            "not_prepared",
+            "publication_ready",
+            "| SHO-SRC-005 |",
+            "| SHO-SRC-006 |",
+            "| SHO-SRC-007 |",
+            "no new source IDs introduced",
+            "no new claims introduced",
+            "no final citation text prepared",
+            "no final source list prepared",
+            "SHO-CLAIM-007 remains blocked",
+            "WhatsApp block/report UI instructions remain out of scope",
+            "final citation text preparation",
+            "final source list review",
+            "final legal wording review",
+            "later Human Operator review before final article preparation",
+            "Codex must not approve for publish",
+            "Codex must not mark operator accepted",
+            "Codex must not claim legal approval",
+            "Codex must not mark final article preparation as approved",
+            "Codex must not unlock SHO-CLAIM-007",
+            "Codex must not add WhatsApp block/report UI instructions",
+            "Codex must not add monetization",
+            "Codex must not add new claims",
+            "Codex must not add new sources",
+        ]
+        for fragment in required_fragments:
+            if fragment not in text:
+                failures.append(f"Citation display label review {file_name} must contain: {fragment}")
+
+        if fields.get("citation_display_label_review_id") != expected["citation_display_label_review_id"]:
+            failures.append(f"Citation display label review {file_name} has unexpected ID")
+        if fields.get("linked_brief_id") != expected["brief_id"]:
+            failures.append(f"Citation display label review {file_name} must link to Brief 002")
+        if fields.get("linked_source_citation_formatting_prep") != expected["linked_source_citation_formatting_prep"]:
+            failures.append(f"Citation display label review {file_name} must link to source citation formatting prep")
+        if fields.get("linked_final_article_prep_gate_review") != expected["linked_final_article_prep_gate_review"]:
+            failures.append(f"Citation display label review {file_name} must link to final article prep gate review")
+        if normalized(fields.get("label_status")) != "prepared_not_final":
+            failures.append(f"Citation display label review {file_name} must have label_status: prepared_not_final")
+        if normalized(fields.get("operator_acceptance_status")) != "not_accepted":
+            failures.append(f"Citation display label review {file_name} must have operator_acceptance_status: not_accepted")
+        if normalized(fields.get("publish_readiness_status")) != "not_ready":
+            failures.append(f"Citation display label review {file_name} must have publish_readiness_status: not_ready")
+
+        forbidden_assignments = [
+            "approved_for_publish: true",
+            "operator_acceptance_status: accepted",
+            "publish_readiness_status: publish_candidate",
+            "publish_readiness_status: approved_for_publish",
+            "publish_ready: true",
+            "current_stage: review_ready",
+            "current_stage: publish_candidate",
+            "legal_approval: true",
+            "legal_approval_status: approved",
+            "gate_status: approved",
+            "label_status: approved",
+            "final_citation_text_status: prepared",
+            "publication_ready: yes",
+            "final_source_list: true",
+            "final_article_preparation_approved: true",
+        ]
+        lower_text = text.lower()
+        for fragment in forbidden_assignments:
+            if fragment in lower_text:
+                failures.append(f"Citation display label review {file_name} must not contain forbidden assignment: {fragment}")
+
+    return len(found_files)
+
+
 def main() -> int:
     failures: list[str] = []
 
@@ -2413,6 +2544,7 @@ def main() -> int:
     source_citation_formatting_prep_count = validate_source_citation_formatting_preps(failures)
     legal_wording_review_prep_count = validate_legal_wording_review_preps(failures)
     final_article_prep_gate_review_count = validate_final_article_prep_gate_reviews(failures)
+    citation_display_label_review_count = validate_citation_display_label_reviews(failures)
 
     if failures:
         print("FAIL: SHO-OS content contract validation failed")
@@ -2441,6 +2573,7 @@ def main() -> int:
     print(f"- Batch 01 source citation formatting prep files: {source_citation_formatting_prep_count}")
     print(f"- Batch 01 legal wording review prep files: {legal_wording_review_prep_count}")
     print(f"- Batch 01 final article prep gate review files: {final_article_prep_gate_review_count}")
+    print(f"- Batch 01 citation display label review files: {citation_display_label_review_count}")
     print("- YAML/frontmatter parsing: dependency-free and text-based")
     return 0
 

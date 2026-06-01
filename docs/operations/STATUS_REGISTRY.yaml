@@ -230,6 +230,19 @@ gate_status:
     - approved_for_publish
     - publish_ready
 
+label_status:
+  allowed:
+    - prepared_not_final
+    - needs_review
+    - blocked
+    - superseded
+  forbidden_by_codex:
+    - approved
+    - accepted
+    - operator_accepted
+    - approved_for_publish
+    - publish_ready
+
 forbidden_transitions:
   - from: scaffold_only
     to: approved_for_publish

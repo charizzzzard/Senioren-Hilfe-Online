@@ -455,6 +455,18 @@ Das Review-Artefakt muss mindestens diese Finding IDs enthalten:
 - Das Gate Result muss `final_article_preparation_blocked_pending_final_citation_and_legal_review` sein.
 - Das Artefakt darf keine finale Artikelvorbereitung freigeben, keine finale Quellenliste behaupten, keine rechtliche Freigabe behaupten, keine Publish Readiness und keine Operator Acceptance setzen.
 
+## Citation-Display-Label-Review-Checks
+
+- Fuer Brief 002 muss genau ein Citation-Display-Label-Review-Artefakt unter `docs/content/article_reviews/` existieren.
+- Das Artefakt muss das Source-Citation-Formatting-Prep-Artefakt und die Final-Article-Preparation-Gate-Review verlinken.
+- `label_status` muss `prepared_not_final` sein.
+- `operator_acceptance_status` muss `not_accepted` bleiben.
+- `publish_readiness_status` muss `not_ready` bleiben.
+- Nur `SHO-SRC-005`, `SHO-SRC-006` und `SHO-SRC-007` duerfen als vorbereitete Labels im Scope sein.
+- `SHO-SRC-001`, `SHO-SRC-002`, `SHO-SRC-003`, `SHO-SRC-004`, `SHO-SRC-013` und nicht vorhandene Sources muessen out of scope bleiben.
+- Alle vorbereiteten Labels muessen `prepared_not_final`, `final_citation_text_status: not_prepared` und `publication_ready: no` behalten.
+- Das Artefakt darf keine finale Quellenliste, keine finalen Citation-Texte, keine neuen Sources, keine neuen Claims, keine Publish Readiness und keine Operator Acceptance setzen.
+
 ## Verbleibende spätere Checks
 
 - Echtes YAML-Parsing.
