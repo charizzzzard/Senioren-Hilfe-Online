@@ -492,6 +492,20 @@ Das Review-Artefakt muss mindestens diese Finding IDs enthalten:
 - `public_launch_status`, `publish_readiness_status`, `operator_acceptance_status` und `monetization_status` muessen konservativ bleiben.
 - Die Roadmap darf keine Ranking-, Traffic-, Revenue-, Keyword-, SERP-, Nutzerfeedback- oder E-Mail-Daten erfinden.
 
+## Article Readiness Dashboard Batch 01 Checks
+
+- Fuer Batch 01 muss `docs/operations/ARTICLE_READINESS_DASHBOARD_BATCH_01.md` existieren.
+- Das Dashboard ist internal tracking only.
+- Das Dashboard aktiviert keinen Public Launch.
+- Das Dashboard setzt keine Publish Readiness.
+- Das Dashboard genehmigt keine Monetarisierung.
+- Das Dashboard erstellt keine Operator Acceptance.
+- Das Dashboard schliesst User-Perspective-, Reader-Experience-, Accessibility- oder Feedback-Reviews nicht ab.
+- Das Dashboard muss genau die vier Batch-01-Briefs `SHO-MVP-BRIEF-001`, `SHO-MVP-BRIEF-002`, `SHO-MVP-BRIEF-003` und `SHO-MVP-BRIEF-004` enthalten.
+- Das Dashboard muss Brief 001, Brief 003 und Brief 004 Blocker sichtbar halten.
+- Das Dashboard muss `SHO-CLAIM-007` fuer Brief 002 blockiert halten.
+- Die Placeholder-Statuswerte muessen konservativ bleiben: `pending_quality_loop_baseline`, `pending_reader_experience_baseline`, `pending_accessibility_standard`, `feedback_not_collected`.
+
 ## Citation-Text-Prep-Checks
 
 - Fuer Brief 002 muss genau ein Citation-Text-Prep-Artefakt unter `docs/content/article_reviews/` existieren.

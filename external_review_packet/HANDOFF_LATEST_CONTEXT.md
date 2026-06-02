@@ -5,19 +5,19 @@
 - project_name: Senioren-Hilfe Online
 - system_name: Senioren-Hilfe Online OS
 - system_short_name: SHO-OS
-- patch_title: ROADMAP_AND_MILESTONES_MVP_2026
+- patch_title: ARTICLE_READINESS_DASHBOARD_BATCH_01
 - external_review_verdict: ACCEPTED_WITH_FINDINGS
 
 SHO-OS ist ein reproduzierbares Content-, Trust- und Publishing-System fuer seniorengerechte digitale Alltagshilfe in Deutschland.
 
-Dieser Patch dokumentiert eine konservative Roadmap- und Milestone-Baseline fuer Juni 2026 bis November 2026. Er setzt keine Publish Readiness, keine Operator Acceptance, keine Public-Launch-Freigabe, keine Monetarisierung und keine Batch-Stage-Hochstufung.
+Dieser Patch dokumentiert ein internes Article Readiness Dashboard fuer alle vier Batch-01-Briefs. Er setzt keine Publish Readiness, keine Operator Acceptance, keine Public-Launch-Freigabe, keine Monetarisierung und keine Batch-Stage-Hochstufung.
 
 ## Git Traceability
 
 - branch: `main`
-- head_before: `ea39ed8d8f86dfaf758420ee39830a1ed3cd3826`
+- head_before: `f00845b97c278a09eacebea07b2e456756bca291`
 - intended_head_after: `assigned_after_commit`
-- origin_main_before: `ea39ed8d8f86dfaf758420ee39830a1ed3cd3826`
+- origin_main_before: `f00845b97c278a09eacebea07b2e456756bca291`
 - dirty_state_before: `clean`
 - dirty_state_after: `assigned_after_commit`
 - remote_url: `https://github.com/charizzzzard/Senioren-Hilfe-Online.git`
@@ -26,15 +26,17 @@ Hinweis: `head_after` wird nicht vorab als Commit-SHA eingetragen, weil ein Comm
 
 ## Scope Dieses Patches
 
-- Neues Roadmap-Artefakt erstellt: `docs/operations/ROADMAP_AND_MILESTONES_MVP_2026.md`.
-- `roadmap_status: baseline_defined` dokumentiert.
-- Planning horizon `2026-06_to_2026-11` dokumentiert.
-- 30-/60-/90-Tage- und 6-Monats-Ziele, Milestones, Phase Plan, Quality Gates, SEO/Analytics Gates, Feedback Gates und Monetization Gates dokumentiert.
+- Neues Dashboard-Artefakt erstellt: `docs/operations/ARTICLE_READINESS_DASHBOARD_BATCH_01.md`.
+- `dashboard_status: internal_tracking_ready` dokumentiert.
+- Genau vier Batch-01-Briefs in einer Article Readiness Table dokumentiert.
+- Brief 001, Brief 003 und Brief 004 Blocker bleiben sichtbar.
+- Brief 002 bleibt final_article_preparation_allowed_not_publish_ready, aber nicht publish-ready.
+- User-Perspective-, Reader-Experience-, Accessibility- und Feedback-Status sind nur Platzhalter.
 - `public_launch_status: not_ready`, `publish_readiness_status: not_ready`, `monetization_status: not_approved` und `operator_acceptance_status: not_accepted` bleiben gesetzt.
 - Publish Readiness, approved_for_publish, Public Launch, Monetarisierung und Operator Acceptance bleiben ausgeschlossen.
 - `SHO-CLAIM-007` bleibt blockiert und WhatsApp block/report UI instructions bleiben ausgeschlossen.
-- `STATUS_REGISTRY.yaml` um `roadmap_status` ergaenzt.
-- `validate_content_contracts.py` um Roadmap-and-Milestones-MVP-2026-Checks erweitert.
+- `STATUS_REGISTRY.yaml` um `dashboard_status` und `placeholder_status` ergaenzt.
+- `validate_content_contracts.py` um Article-Readiness-Dashboard-Batch-01-Checks erweitert.
 - Batch bleibt `current_stage: claim_slots_mapped`.
 
 ## Non-Scope
@@ -50,6 +52,7 @@ Hinweis: `head_after` wird nicht vorab als Commit-SHA eingetragen, weil ein Comm
 - Keine Website.
 - Keine Monetarisierung.
 - Keine Roadmap-Aktivierung.
+- Keine Dashboard-Aktivierung als Freigabe.
 - Keine finale Quellenliste.
 - Keine finale Citation-Freigabe.
 - Keine rechtliche Freigabe.
@@ -58,18 +61,19 @@ Hinweis: `head_after` wird nicht vorab als Commit-SHA eingetragen, weil ein Comm
 - Kein Public Launch.
 - Keine Ranking-, Traffic-, Revenue-, Suchvolumen- oder Keyword-Difficulty-Claims.
 - Keine Nutzerfeedback- oder E-Mail-Claims ohne echte Daten.
+- Keine abgeschlossenen User-Perspective-, Reader-Experience-, Accessibility- oder Feedback-Reviews.
 
-## Roadmap Summary
+## Article Readiness Dashboard Summary
 
-- roadmap_id: `SHO-ROADMAP-MVP-2026`
+- readiness_dashboard_id: `SHO-ARTICLE-READINESS-DASHBOARD-BATCH01`
+- dashboard_status: `internal_tracking_ready`
 - roadmap_status: `baseline_defined`
-- planning_horizon: `2026-06_to_2026-11`
 - operational_status: `internal_operations_ready`
 - public_launch_status: `not_ready`
 - operator_acceptance_status: `not_accepted`
 - publish_readiness_status: `not_ready`
 - monetization_status: `not_approved`
-- roadmap_content: 30-/60-/90-day goals, 6-month goals, M0-M7 milestones, phase plan, gates and KPI sections.
+- dashboard_scope: four Batch 01 briefs, readiness table, placeholders, allowed next work and blocked work.
 - blocked: public launch, publish readiness, Operator Acceptance, monetization, affiliate, legal approval, WhatsApp UI block/report instructions, quantified SEO/user feedback claims without data.
 
 ## Guardrails
@@ -88,6 +92,7 @@ Hinweis: `head_after` wird nicht vorab als Commit-SHA eingetragen, weil ein Comm
 - Kein Public Launch.
 - Keine Monetarisierung.
 - Keine erfundenen SEO-/Feedback-Daten.
+- Keine abgeschlossenen Reader-/Feedback-Reviews.
 - Batch Stage bleibt `claim_slots_mapped`.
 
 ## Validation Commands
@@ -102,7 +107,7 @@ Hinweis: `head_after` wird nicht vorab als Commit-SHA eingetragen, weil ein Comm
 
 ## Files Changed Summary
 
-- `docs/operations/ROADMAP_AND_MILESTONES_MVP_2026.md`
+- `docs/operations/ARTICLE_READINESS_DASHBOARD_BATCH_01.md`
 - `docs/operations/STATUS_REGISTRY.yaml`
 - `scripts/validate_content_contracts.py`
 - `docs/engineering/VALIDATION_REQUIREMENTS.md`
@@ -111,4 +116,4 @@ Hinweis: `head_after` wird nicht vorab als Commit-SHA eingetragen, weil ein Comm
 
 ## Keine finale Annahme durch Codex
 
-Roadmap baseline recorded as planning only, with no public launch, no publish readiness, no monetization approval and no Operator Acceptance. Finale Annahme bleibt beim Human Operator.
+Article readiness dashboard recorded as internal tracking only, with no public launch, no publish readiness, no monetization approval and no Operator Acceptance. Finale Annahme bleibt beim Human Operator.

@@ -2,21 +2,23 @@
 
 ## Zweck dieses Review-Pakets
 
-Dieses Review-Paket beschreibt den Patch `ROADMAP_AND_MILESTONES_MVP_2026`. Es dokumentiert eine konservative Roadmap- und Milestone-Baseline fuer Juni 2026 bis November 2026, ohne Public Launch, Publish Readiness, Monetarisierung oder Operator Acceptance zu setzen.
+Dieses Review-Paket beschreibt den Patch `ARTICLE_READINESS_DASHBOARD_BATCH_01`. Es dokumentiert ein internes Article Readiness Dashboard fuer alle vier Batch-01-Briefs, ohne Public Launch, Publish Readiness, Monetarisierung oder Operator Acceptance zu setzen.
 
 ## Scope dieses Patches
 
-- Genau ein neues Roadmap-Artefakt erstellen: `docs/operations/ROADMAP_AND_MILESTONES_MVP_2026.md`.
-- `roadmap_status: baseline_defined` dokumentieren.
-- 30-/60-/90-Tage- und 6-Monats-Ziele, Milestones, Phasen und Gates dokumentieren.
+- Genau ein neues Article Readiness Dashboard erstellen: `docs/operations/ARTICLE_READINESS_DASHBOARD_BATCH_01.md`.
+- `dashboard_status: internal_tracking_ready` dokumentieren.
+- Genau vier Batch-01-Briefs in einer vergleichbaren Readiness-Tabelle erfassen.
+- User-Perspective-, Reader-Experience-, Accessibility- und Feedback-Status nur als Platzhalter dokumentieren.
 - Public Launch, Publish Readiness, Monetarisierung und Operator Acceptance ausdruecklich ausschliessen.
 - `SHO-CLAIM-007` weiter blockiert halten.
 - Keine Quellen, Claims, SERP-Metriken, Keyword-Metriken, Nutzerfeedback-Daten oder Strategie-Freigaben erfinden.
-- Validator minimal erweitern, damit das Roadmap-Artefakt als erwartetes Artefakt geprueft wird.
+- Validator minimal erweitern, damit das Dashboard-Artefakt als erwartetes Artefakt geprueft wird.
 
 ## Primaere Review-Dateien
 
 - `external_review_packet/HANDOFF_LATEST_CONTEXT.md`
+- `docs/operations/ARTICLE_READINESS_DASHBOARD_BATCH_01.md`
 - `docs/operations/ROADMAP_AND_MILESTONES_MVP_2026.md`
 - `docs/operations/MVP_OPERATIONAL_START_PLAN_BATCH_01.md`
 - `docs/operations/CONTENT_RESEARCH_OPERATING_PROTOCOL.md`
@@ -45,7 +47,7 @@ Dieses Review-Paket beschreibt den Patch `ROADMAP_AND_MILESTONES_MVP_2026`. Es d
 
 ## Wichtiger Hinweis
 
-Roadmap planning only. This does not activate public launch, does not set publish readiness, does not approve monetization and does not create Operator Acceptance.
+Article readiness dashboard only. This is internal tracking, not public launch, not publish readiness, not monetization approval and not Operator Acceptance.
 
 ## Nicht in Scope
 
@@ -64,6 +66,7 @@ Roadmap planning only. This does not activate public launch, does not set publis
 - Finaler Artikeltext.
 - Public Launch.
 - Roadmap-Aktivierung.
+- Abgeschlossene User-Perspective-, Reader-Experience-, Accessibility- oder Feedback-Reviews.
 - Ranking-, Traffic-, Revenue-, Suchvolumen- oder Keyword-Difficulty-Claims.
 - Nutzerfeedback- oder E-Mail-Claims ohne echte Daten.
 - Produktive Website.

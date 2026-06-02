@@ -73,6 +73,7 @@ REQUIRED_DOCS = [
     "docs/operations/operator_decisions/HUMAN_OPERATOR_DECISION_BATCH01_BRIEF002_002.md",
     "docs/operations/MVP_OPERATIONAL_START_PLAN_BATCH_01.md",
     "docs/operations/ROADMAP_AND_MILESTONES_MVP_2026.md",
+    "docs/operations/ARTICLE_READINESS_DASHBOARD_BATCH_01.md",
     "docs/content/BATCH_WORKFLOW_TEMPLATE.md",
     "docs/operations/NEXT_STAGE_DECISION_TREE.md",
     "docs/operations/STATUS_REGISTRY.yaml",
@@ -136,6 +137,7 @@ STATUS_REGISTRY_PATH = ROOT / "docs/operations/STATUS_REGISTRY.yaml"
 REVIEW_FINDINGS_REGISTER_PATH = ROOT / "docs/operations/REVIEW_FINDINGS_REGISTER.md"
 MVP_OPERATIONAL_START_PLAN_PATH = ROOT / "docs/operations/MVP_OPERATIONAL_START_PLAN_BATCH_01.md"
 ROADMAP_MVP_2026_PATH = ROOT / "docs/operations/ROADMAP_AND_MILESTONES_MVP_2026.md"
+ARTICLE_READINESS_DASHBOARD_PATH = ROOT / "docs/operations/ARTICLE_READINESS_DASHBOARD_BATCH_01.md"
 SOURCE_REVIEW_PATH = ROOT / "docs/content/source_reviews/whatsapp-source-manual-review-batch-01.md"
 SOURCE_REVIEW_REL_PATH = "docs/content/source_reviews/whatsapp-source-manual-review-batch-01.md"
 EVIDENCE_CAPTURE_PATH = ROOT / "docs/content/evidence_captures/whatsapp-line-evidence-capture-batch-01.md"
@@ -608,6 +610,13 @@ def validate_protocol_automation_files(failures: list[str]) -> None:
             "public_launch_status:",
             "roadmap_status:",
             "baseline_defined",
+            "dashboard_status:",
+            "internal_tracking_ready",
+            "placeholder_status:",
+            "pending_quality_loop_baseline",
+            "pending_reader_experience_baseline",
+            "pending_accessibility_standard",
+            "feedback_not_collected",
             "citation_text_status:",
             "legal_wording_review_status:",
             "wording_review_prepared_no_legal_approval",
@@ -3225,6 +3234,164 @@ def validate_roadmap_mvp_2026(failures: list[str]) -> int:
     return 1
 
 
+def validate_article_readiness_dashboard(failures: list[str]) -> int:
+    if not ARTICLE_READINESS_DASHBOARD_PATH.exists():
+        failures.append("Missing article readiness dashboard: docs/operations/ARTICLE_READINESS_DASHBOARD_BATCH_01.md")
+        return 0
+
+    text = ARTICLE_READINESS_DASHBOARD_PATH.read_text(encoding="utf-8")
+    fields = parse_frontmatter_fields(text)
+
+    required_fragments = [
+        "readiness_dashboard_id: SHO-ARTICLE-READINESS-DASHBOARD-BATCH01",
+        "batch_id: MVP_BATCH_01",
+        "dashboard_status: internal_tracking_ready",
+        "roadmap_status: baseline_defined",
+        "operational_status: internal_operations_ready",
+        "public_launch_status: not_ready",
+        "publish_readiness_status: not_ready",
+        "monetization_status: not_approved",
+        "operator_acceptance_status: not_accepted",
+        "Purpose",
+        "Current Batch Baseline",
+        "Executive Summary",
+        "Article Readiness Table",
+        "Brief-Level Status Details",
+        "Allowed Next Work",
+        "Blocked Work",
+        "Quality Review Placeholders",
+        "User Perspective and Reader Experience Placeholders",
+        "Feedback/Analytics Placeholders",
+        "Required Human Decisions",
+        "Explicit Non-Acceptance",
+        "brief_id",
+        "slug_or_title",
+        "current_artifact_level",
+        "current_stage_effect",
+        "allowed_next_step",
+        "allowed_claims",
+        "blocked_claims",
+        "source_state",
+        "review_state",
+        "user_perspective_status",
+        "reader_experience_status",
+        "accessibility_status",
+        "feedback_status",
+        "publish_readiness",
+        "operator_acceptance",
+        "primary_blockers",
+        "SHO-MVP-BRIEF-001",
+        "SHO-MVP-BRIEF-002",
+        "SHO-MVP-BRIEF-003",
+        "SHO-MVP-BRIEF-004",
+        "blocked_before_draft",
+        "WhatsApp line evidence/manual review only",
+        "WhatsApp line-level evidence unavailable",
+        "WhatsApp platform sources remain candidate / needs_manual_review",
+        "WhatsApp UI-sensitive instructions remain blocked",
+        "final_article_preparation_allowed_not_publish_ready",
+        "final article candidate preparation",
+        "SHO-CLAIM-004",
+        "SHO-CLAIM-005",
+        "SHO-CLAIM-006",
+        "SHO-CLAIM-007",
+        "SHO-SRC-005",
+        "SHO-SRC-006",
+        "SHO-SRC-007",
+        "draft candidate exists",
+        "re-review passed not publish-ready",
+        "final source list review exists",
+        "final legal wording review exists",
+        "operator decision allows final article preparation only",
+        "draft_scaffold_only",
+        "article draft candidate preparation only if existing claim/source boundaries are preserved",
+        "screenshot/device-version validation remains open",
+        "no text candidate yet",
+        "held_for_methodology",
+        "product/monetization methodology review before article drafting",
+        "commercial/affiliate risk",
+        "product recommendation methodology open",
+        "no monetization approval",
+        "pending_quality_loop_baseline",
+        "pending_reader_experience_baseline",
+        "pending_accessibility_standard",
+        "feedback_not_collected",
+        "Einfache Sprache bedeutet nicht anspruchslose Sprache. Inhalte sollen klar, freundlich und zugänglich sein, aber ältere Leserinnen und Leser als erwachsene, erfahrene und interessierte Menschen ernst nehmen.",
+        "CONTENT_QUALITY_USER_PERSPECTIVE_READER_EXPERIENCE_AND_FEEDBACK_LOOP_BASELINE",
+        "FINAL_ARTICLE_CANDIDATE_BRIEF_002",
+        "BRIEF_003_ARTICLE_DRAFT_CANDIDATE",
+        "WEBSITE_INFORMATION_ARCHITECTURE_MVP",
+        "KEYWORD_VALIDATION_FRAMEWORK_BATCH_01",
+        "public launch",
+        "monetization",
+        "affiliate",
+        "final publication",
+        "Operator Acceptance",
+        "approved_for_publish",
+        "publish_candidate",
+        "WhatsApp block/report UI instructions",
+        "unlocking SHO-CLAIM-007",
+        "invented SEO/keyword/user-feedback metrics",
+        "product recommendations without methodology",
+        "This dashboard is internal tracking only.",
+        "Dieses Dashboard aktiviert keinen Public Launch.",
+        "Dieses Dashboard setzt keine Publish Readiness.",
+        "Dieses Dashboard genehmigt keine Monetarisierung.",
+        "Dieses Dashboard erstellt keine Operator Acceptance.",
+        "Dieses Dashboard schliesst User-Perspective-, Reader-Experience-, Accessibility- oder Feedback-Reviews nicht ab.",
+    ]
+    for fragment in required_fragments:
+        if fragment not in text:
+            failures.append(f"Article readiness dashboard must contain: {fragment}")
+
+    if fields.get("readiness_dashboard_id") != "SHO-ARTICLE-READINESS-DASHBOARD-BATCH01":
+        failures.append("Article readiness dashboard has unexpected readiness_dashboard_id")
+    if normalized(fields.get("batch_id")) != "mvp_batch_01":
+        failures.append("Article readiness dashboard must have batch_id: MVP_BATCH_01")
+    if normalized(fields.get("dashboard_status")) != "internal_tracking_ready":
+        failures.append("Article readiness dashboard must have dashboard_status: internal_tracking_ready")
+    if normalized(fields.get("roadmap_status")) != "baseline_defined":
+        failures.append("Article readiness dashboard must have roadmap_status: baseline_defined")
+    if normalized(fields.get("operational_status")) != "internal_operations_ready":
+        failures.append("Article readiness dashboard must have operational_status: internal_operations_ready")
+    if normalized(fields.get("public_launch_status")) != "not_ready":
+        failures.append("Article readiness dashboard must have public_launch_status: not_ready")
+    if normalized(fields.get("publish_readiness_status")) != "not_ready":
+        failures.append("Article readiness dashboard must have publish_readiness_status: not_ready")
+    if normalized(fields.get("monetization_status")) != "not_approved":
+        failures.append("Article readiness dashboard must have monetization_status: not_approved")
+    if normalized(fields.get("operator_acceptance_status")) != "not_accepted":
+        failures.append("Article readiness dashboard must have operator_acceptance_status: not_accepted")
+
+    row_count = sum(1 for line in text.splitlines() if line.startswith("| SHO-MVP-BRIEF-"))
+    if row_count != 4:
+        failures.append(f"Article readiness dashboard must contain exactly 4 Batch 01 table rows; found {row_count}")
+
+    forbidden_assignments = [
+        "public_launch_status: ready",
+        "public_launch_status: launched",
+        "publish_readiness_status: approved_for_publish",
+        "operator_acceptance_status: accepted",
+        "monetization_status: approved",
+        "article_status: publish_candidate",
+        "review_status: approved_for_publish",
+        "dashboard_status: accepted",
+        "dashboard_status: approved_for_publish",
+        "approved_for_publish: true",
+        "publish_ready: true",
+        "legal_approval: true",
+        "legal_approval_status: approved",
+        "current_stage: review_ready",
+        "current_stage: publish_candidate",
+    ]
+    lower_text = text.lower()
+    for fragment in forbidden_assignments:
+        if fragment in lower_text:
+            failures.append(f"Article readiness dashboard must not contain forbidden activation marker: {fragment}")
+
+    return 1
+
+
 def main() -> int:
     failures: list[str] = []
 
@@ -3255,6 +3422,7 @@ def main() -> int:
     final_source_list_review_count = validate_final_source_list_reviews(failures)
     mvp_operational_start_plan_count = validate_mvp_operational_start_plan(failures)
     roadmap_mvp_2026_count = validate_roadmap_mvp_2026(failures)
+    article_readiness_dashboard_count = validate_article_readiness_dashboard(failures)
 
     if failures:
         print("FAIL: SHO-OS content contract validation failed")
@@ -3289,6 +3457,7 @@ def main() -> int:
     print(f"- Batch 01 final source list review files: {final_source_list_review_count}")
     print(f"- Batch 01 MVP operational start plan files: {mvp_operational_start_plan_count}")
     print(f"- Batch 01 MVP roadmap files: {roadmap_mvp_2026_count}")
+    print(f"- Batch 01 article readiness dashboard files: {article_readiness_dashboard_count}")
     print("- YAML/frontmatter parsing: dependency-free and text-based")
     return 0
 

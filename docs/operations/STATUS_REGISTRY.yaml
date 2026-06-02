@@ -287,6 +287,33 @@ roadmap_status:
     - publish_ready
     - public_launch_ready
 
+dashboard_status:
+  allowed:
+    - internal_tracking_ready
+    - not_started
+    - blocked
+    - superseded
+  forbidden_by_codex:
+    - accepted
+    - operator_accepted
+    - approved_for_publish
+    - publish_ready
+    - public_launch_ready
+
+placeholder_status:
+  allowed:
+    - pending_quality_loop_baseline
+    - pending_reader_experience_baseline
+    - pending_accessibility_standard
+    - feedback_not_collected
+    - not_applicable
+    - blocked
+  forbidden_by_codex:
+    - accepted
+    - operator_accepted
+    - approved_for_publish
+    - publish_ready
+
 citation_text_status:
   allowed:
     - prepared_not_final
