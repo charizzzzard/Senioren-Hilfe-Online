@@ -695,6 +695,24 @@ Das Review-Artefakt muss mindestens diese Finding IDs enthalten:
 - Das Review-Paket darf keine aktiven Launch-, Publish-, Acceptance-, Monetization-, Analytics-, Search-Console- oder Feedback-Statuswerte enthalten.
 - Das Review-Paket darf keine Website Runtime, keine Static Site Launch, keine Artikeltexte, keine neuen Claims, keine neuen Sources und keine WhatsApp block/report UI instructions freigeben.
 
+## Static Preview Spec Internal Only Checks
+
+- `docs/operations/website_preview/STATIC_PREVIEW_SPEC_INTERNAL_ONLY.md` muss existieren.
+- Die Spec muss `spec_status: specification_only_not_implemented` enthalten.
+- Die Spec muss `preview_runtime_status: not_implemented` enthalten.
+- Die Spec muss `static_generation_status: not_implemented` enthalten.
+- Die Spec muss `public_launch_status: not_ready` enthalten.
+- Die Spec muss `publish_readiness_status: not_ready` enthalten.
+- Die Spec muss `operator_acceptance_status: not_accepted` enthalten.
+- Die Spec muss `monetization_status: not_approved` enthalten.
+- Die Spec muss `analytics_status: not_connected` enthalten.
+- Die Spec muss `search_console_status: not_connected` enthalten.
+- Die Spec muss `user_feedback_status: not_collected` enthalten.
+- Die Spec muss die Website-IA und das Website-Preview-Review-Paket verlinken.
+- Die Spec muss Purpose, Current Baseline, Static Preview Concept, Template-Level Specification, Content State Mapping Rules, Status Banner Requirements, Human Operator Decisions Needed Before Implementation, Allowed Outcomes, Forbidden Outcomes und Explicit Non-Acceptance enthalten.
+- Die Spec darf keine aktiven Runtime-, Static-Generation-, Launch-, Publish-, Acceptance-, Monetization-, Analytics-, Search-Console- oder Feedback-Statuswerte enthalten.
+- Die Spec darf keine echten HTML-, CSS-, JS-, Build-, Deployment-, Tracking- oder Public-Website-Dateien erzeugen.
+
 ## Reader Experience Quality Checks
 
 - Reader Experience ist ein eigenes Qualitaetsfeld neben Quellen, Claims, Safety, SEO und Accessibility.

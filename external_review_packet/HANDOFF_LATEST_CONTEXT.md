@@ -5,19 +5,19 @@
 - project_name: Senioren-Hilfe Online
 - system_name: Senioren-Hilfe Online OS
 - system_short_name: SHO-OS
-- patch_title: WEBSITE_PREVIEW_REVIEW_PACKET_INTERNAL_ONLY
+- patch_title: STATIC_PREVIEW_SPEC_INTERNAL_ONLY
 - external_review_verdict: PENDING_REVIEW
 
 SHO-OS ist ein reproduzierbares Content-, Trust- und Publishing-System fuer seniorengerechte digitale Alltagshilfe in Deutschland.
 
-Dieser Patch erstellt ein internes Review-Paket fuer die Website-Informationsarchitektur. Er implementiert keine Website-Runtime, keine Static Site Generation, keine Public Pages, veroeffentlicht keine Artikel, setzt keine Publish Readiness, keine Operator Acceptance, keine Public-Launch-Freigabe, keine Monetarisierung, keine rechtliche Freigabe, keine Live-Analytics, kein Live-Feedback, keine neuen Quellen und keine neuen Claims.
+Dieser Patch erstellt eine interne Static-Preview-Spezifikation. Er implementiert keine Website-Runtime, keine Static Site Generation, keine HTML/CSS/JS-Dateien, keine Public Pages, veroeffentlicht keine Artikel, setzt keine Publish Readiness, keine Operator Acceptance, keine Public-Launch-Freigabe, keine Monetarisierung, keine rechtliche Freigabe, keine Live-Analytics, kein Live-Feedback, keine neuen Quellen und keine neuen Claims.
 
 ## Git Traceability
 
 - branch: `main`
-- head_before: `6b466636d673977c488f3128cb8320d2c583a9f4`
+- head_before: `299b134fd329261efc3afb6ff88ad0f62ca32211`
 - intended_head_after: `assigned_after_commit`
-- origin_main_before: `6b466636d673977c488f3128cb8320d2c583a9f4`
+- origin_main_before: `299b134fd329261efc3afb6ff88ad0f62ca32211`
 - dirty_state_before: `clean`
 - dirty_state_after: `assigned_after_commit`
 
@@ -25,18 +25,22 @@ Hinweis: `head_after` wird nicht vorab als Commit-SHA eingetragen, weil ein Comm
 
 ## Scope Dieses Patches
 
-- `docs/operations/website_preview/WEBSITE_PREVIEW_REVIEW_PACKET_INTERNAL_ONLY.md` erstellt.
-- Review Checklist fuer IA, Senior Navigation, Trust, Content-State Visibility und Non-Live-Signale dokumentiert.
-- Human Operator Review Questions vorbereitet.
-- Findings `SHO-WEBPREVIEW-IA-001` bis `SHO-WEBPREVIEW-IA-003` dokumentiert.
-- Allowed Outcomes und Forbidden Outcomes dokumentiert.
-- Empfohlener naechster Schritt: `STATIC_PREVIEW_SPEC_INTERNAL_ONLY`.
-- Website-Preview-README, Validation Requirements und `validate_content_contracts.py` um Review-Packet-Abdeckung ergaenzt.
+- `docs/operations/website_preview/STATIC_PREVIEW_SPEC_INTERNAL_ONLY.md` erstellt.
+- Static Preview Concept fuer interne, nicht deployte und nicht indexierte Vorschau dokumentiert.
+- Allowed Future Preview Surface und Explicitly Forbidden Preview Surface dokumentiert.
+- Template-Level Specification fuer Home, Topic Hub, Article Candidate Shell, Status Banner, Source/Trust Note, Accessibility Note und Blocked Content dokumentiert.
+- Content State Mapping Rules fuer Brief 001 bis Brief 004 dokumentiert.
+- Status Banner Requirements dokumentiert.
+- Planning-only File/Directory Proposal dokumentiert; keine Dateien daraus erstellt.
+- Human Operator Decisions Needed Before Implementation dokumentiert.
+- Empfohlener naechster Schritt: `VISUAL_DESIGN_SYSTEM_SPEC_INTERNAL_ONLY`.
+- Website-Preview-README, Validation Requirements und `validate_content_contracts.py` um Static-Preview-Spec-Abdeckung ergaenzt.
 
 ## Non-Scope
 
 - Keine Website-Runtime.
 - Keine Static Site Generation.
+- Keine HTML/CSS/JS-Dateien.
 - Keine Public Pages.
 - Kein Public Launch.
 - Keine Artikelveroeffentlichung.
@@ -56,12 +60,12 @@ Hinweis: `head_after` wird nicht vorab als Commit-SHA eingetragen, weil ein Comm
 - Keine echten Nutzerfeedback-Daten.
 - Keine SEO-/Keyword-/Ranking-/Traffic-/CTR-/Conversion-/Revenue-Daten.
 
-## Review Packet Summary
+## Static Preview Spec Summary
 
-- review_packet_id: `WEBSITE-PREVIEW-REVIEW-PACKET-INTERNAL-ONLY`
-- linked_artifact: `docs/operations/website_preview/WEBSITE_INFORMATION_ARCHITECTURE_INTERNAL_PREVIEW_V1.md`
-- review_packet_status: `prepared_for_human_operator_review_not_acceptance`
-- website_preview_artifact_status: `internal_preview_structure_defined`
+- static_preview_spec_id: `STATIC-PREVIEW-SPEC-INTERNAL-ONLY`
+- spec_status: `specification_only_not_implemented`
+- preview_runtime_status: `not_implemented`
+- static_generation_status: `not_implemented`
 - public_launch_status: `not_ready`
 - publish_readiness_status: `not_ready`
 - operator_acceptance_status: `not_accepted`
@@ -73,7 +77,8 @@ Hinweis: `head_after` wird nicht vorab als Commit-SHA eingetragen, weil ein Comm
 ## Guardrails
 
 - Kein Website Runtime.
-- Kein Static Site Launch.
+- Keine Static Site Generation.
+- Keine HTML/CSS/JS-Preview-Dateien.
 - Kein Public Launch.
 - Keine Publish Readiness.
 - Keine Operator Acceptance.
@@ -97,4 +102,4 @@ Hinweis: `head_after` wird nicht vorab als Commit-SHA eingetragen, weil ein Comm
 
 ## Keine finale Annahme durch Codex
 
-Website Preview Review Packet Internal Only recorded for internal review preparation only, with no website runtime, no static site launch, no public launch, no publish readiness, no Operator Acceptance, no monetization approval and no unlock of blocked claims. Finale Annahme bleibt beim Human Operator.
+Static Preview Spec Internal Only recorded for internal specification only, with no website runtime, no static site generation, no public launch, no publish readiness, no Operator Acceptance, no monetization approval and no unlock of blocked claims. Finale Annahme bleibt beim Human Operator.

@@ -2,24 +2,25 @@
 
 ## Zweck dieses Review-Pakets
 
-Dieses Review-Paket beschreibt den Patch `WEBSITE_PREVIEW_REVIEW_PACKET_INTERNAL_ONLY`.
+Dieses Review-Paket beschreibt den Patch `STATIC_PREVIEW_SPEC_INTERNAL_ONLY`.
 
-Der Patch erstellt ein internes Review-Paket fuer die bereits definierte Website-Informationsarchitektur `WEBSITE_INFORMATION_ARCHITECTURE_INTERNAL_PREVIEW_V1`. Das Paket macht die IA reviewbar, sammelt Human-Operator-Fragen, dokumentiert Findings, erlaubte Outcomes und verbotene Outcomes.
+Der Patch erstellt eine interne Spezifikation fuer eine spaetere statische Website-Preview von Senioren-Hilfe Online. Die Spezifikation definiert erlaubte Preview-Flächen, verbotene Preview-Flächen, Template-Level-Anforderungen, Content-State-Mapping, Statusbanner und Human-Operator-Fragen vor technischer Umsetzung.
 
-Der Patch implementiert keine Website-Runtime, keine Static Site Generation, keine Public Pages, keinen Public Launch, keine Publish Readiness, keine Operator Acceptance, keine Monetarisierung, keine Affiliate-Logik und keine Analytics-/Search-Console-/Feedback-Verbindung.
+Der Patch implementiert keine Website-Runtime, keine Static Site Generation, keine HTML/CSS/JS-Dateien, keine Public Pages, keinen Public Launch, keine Publish Readiness, keine Operator Acceptance, keine Monetarisierung, keine Affiliate-Logik und keine Analytics-/Search-Console-/Feedback-Verbindung.
 
 ## Scope dieses Patches
 
-- Website-Preview-Review-Paket erstellen:
-  - `docs/operations/website_preview/WEBSITE_PREVIEW_REVIEW_PACKET_INTERNAL_ONLY.md`
-- Website-Preview-README um das neue Review-Paket ergaenzen.
-- Validation Requirements und `validate_content_contracts.py` um Review-Packet-Checks ergaenzen.
+- Static-Preview-Spezifikation erstellen:
+  - `docs/operations/website_preview/STATIC_PREVIEW_SPEC_INTERNAL_ONLY.md`
+- Website-Preview-README um die neue Spezifikation ergaenzen.
+- Validation Requirements und `validate_content_contracts.py` um Static-Preview-Spec-Checks ergaenzen.
 - Externen Handoff-Kontext auf diesen Patch aktualisieren.
 
 ## Primaere Review-Dateien
 
-- `docs/operations/website_preview/WEBSITE_PREVIEW_REVIEW_PACKET_INTERNAL_ONLY.md`
+- `docs/operations/website_preview/STATIC_PREVIEW_SPEC_INTERNAL_ONLY.md`
 - `docs/operations/website_preview/WEBSITE_INFORMATION_ARCHITECTURE_INTERNAL_PREVIEW_V1.md`
+- `docs/operations/website_preview/WEBSITE_PREVIEW_REVIEW_PACKET_INTERNAL_ONLY.md`
 - `docs/operations/website_preview/README.md`
 - `docs/engineering/VALIDATION_REQUIREMENTS.md`
 - `scripts/validate_content_contracts.py`
@@ -29,6 +30,7 @@ Der Patch implementiert keine Website-Runtime, keine Static Site Generation, kei
 
 - Keine Website-Runtime.
 - Keine Static Site Generation.
+- Keine HTML/CSS/JS-Preview-Dateien.
 - Keine Public Pages.
 - Kein Public Launch.
 - Keine Artikelveroeffentlichung.
@@ -58,4 +60,4 @@ Der Patch implementiert keine Website-Runtime, keine Static Site Generation, kei
 
 ## Operator Acceptance
 
-Der Human Operator bleibt finale Annahmeautoritaet. Dieses Paket ist eine interne Review-Vorbereitung, keine Runtime, keine finale Annahme und keine Freigabe.
+Der Human Operator bleibt finale Annahmeautoritaet. Dieses Paket ist eine interne Spezifikation, keine Implementierung, keine Runtime, keine finale Annahme und keine Freigabe.

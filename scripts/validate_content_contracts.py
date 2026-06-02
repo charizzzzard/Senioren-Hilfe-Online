@@ -98,6 +98,7 @@ REQUIRED_DOCS = [
     "docs/operations/website_preview/README.md",
     "docs/operations/website_preview/WEBSITE_INFORMATION_ARCHITECTURE_INTERNAL_PREVIEW_V1.md",
     "docs/operations/website_preview/WEBSITE_PREVIEW_REVIEW_PACKET_INTERNAL_ONLY.md",
+    "docs/operations/website_preview/STATIC_PREVIEW_SPEC_INTERNAL_ONLY.md",
     "scripts/validate_stage_transitions.py",
 ]
 
@@ -199,6 +200,9 @@ WEBSITE_INFORMATION_ARCHITECTURE_INTERNAL_PREVIEW_V1_PATH = (
 )
 WEBSITE_PREVIEW_REVIEW_PACKET_INTERNAL_ONLY_PATH = (
     WEBSITE_PREVIEW_DIR / "WEBSITE_PREVIEW_REVIEW_PACKET_INTERNAL_ONLY.md"
+)
+STATIC_PREVIEW_SPEC_INTERNAL_ONLY_PATH = (
+    WEBSITE_PREVIEW_DIR / "STATIC_PREVIEW_SPEC_INTERNAL_ONLY.md"
 )
 SOURCE_REVIEW_PATH = ROOT / "docs/content/source_reviews/whatsapp-source-manual-review-batch-01.md"
 SOURCE_REVIEW_REL_PATH = "docs/content/source_reviews/whatsapp-source-manual-review-batch-01.md"
@@ -5498,6 +5502,7 @@ def validate_website_information_architecture_internal_preview_v1(
         WEBSITE_PREVIEW_DIR / "README.md",
         WEBSITE_INFORMATION_ARCHITECTURE_INTERNAL_PREVIEW_V1_PATH,
         WEBSITE_PREVIEW_REVIEW_PACKET_INTERNAL_ONLY_PATH,
+        STATIC_PREVIEW_SPEC_INTERNAL_ONLY_PATH,
     ]
     count = 0
     for path in required_paths:
@@ -5514,6 +5519,9 @@ def validate_website_information_architecture_internal_preview_v1(
         encoding="utf-8"
     )
     review_packet_text = WEBSITE_PREVIEW_REVIEW_PACKET_INTERNAL_ONLY_PATH.read_text(
+        encoding="utf-8"
+    )
+    static_preview_spec_text = STATIC_PREVIEW_SPEC_INTERNAL_ONLY_PATH.read_text(
         encoding="utf-8"
     )
     queue_text = WORK_QUEUE_V1_PATH.read_text(encoding="utf-8")
@@ -5600,6 +5608,43 @@ def validate_website_information_architecture_internal_preview_v1(
                 f"{fragment}"
             )
 
+    required_static_preview_spec_fragments = [
+        "static_preview_spec_id: STATIC-PREVIEW-SPEC-INTERNAL-ONLY",
+        "linked_ia_artifact: docs/operations/website_preview/WEBSITE_INFORMATION_ARCHITECTURE_INTERNAL_PREVIEW_V1.md",
+        "linked_review_packet: docs/operations/website_preview/WEBSITE_PREVIEW_REVIEW_PACKET_INTERNAL_ONLY.md",
+        "spec_status: specification_only_not_implemented",
+        "preview_runtime_status: not_implemented",
+        "static_generation_status: not_implemented",
+        "public_launch_status: not_ready",
+        "publish_readiness_status: not_ready",
+        "operator_acceptance_status: not_accepted",
+        "monetization_status: not_approved",
+        "analytics_status: not_connected",
+        "search_console_status: not_connected",
+        "user_feedback_status: not_collected",
+        "## Purpose",
+        "## Explicit Non-Acceptance",
+        "## Current Baseline",
+        "## Static Preview Concept",
+        "## Template-Level Specification",
+        "## Content State Mapping Rules",
+        "## Status Banner Requirements",
+        "## Human Operator Decisions Needed Before Implementation",
+        "## Allowed Outcomes",
+        "## Forbidden Outcomes",
+        "VISUAL_DESIGN_SYSTEM_SPEC_INTERNAL_ONLY",
+        "These files are not created by this patch.",
+        "no HTML/CSS/JS preview files",
+        "no new claims",
+        "no new sources",
+        "no WhatsApp block/report UI instructions",
+    ]
+    for fragment in required_static_preview_spec_fragments:
+        if fragment not in static_preview_spec_text:
+            failures.append(
+                "Static Preview Spec Internal Only must contain: " f"{fragment}"
+            )
+
     required_queue_fragments = [
         "queue_item_id: CQ-V1-004",
         "docs/operations/website_preview/WEBSITE_INFORMATION_ARCHITECTURE_INTERNAL_PREVIEW_V1.md",
@@ -5643,6 +5688,19 @@ def validate_website_information_architecture_internal_preview_v1(
                 "Website Preview Review Packet Internal Only must not contain active forbidden marker: "
                 f"{fragment}"
             )
+    forbidden_static_preview_active_markers = forbidden_active_markers + [
+        "preview_runtime_status: implemented",
+        "static_generation_status: implemented",
+        "public_launch_ready: true",
+        "publish_ready: true",
+    ]
+    lower_static_preview_spec_text = static_preview_spec_text.lower()
+    for fragment in forbidden_static_preview_active_markers:
+        if fragment in lower_static_preview_spec_text:
+            failures.append(
+                "Static Preview Spec Internal Only must not contain active forbidden marker: "
+                f"{fragment}"
+            )
 
     forbidden_data_claims = [
         "real ranking data",
@@ -5665,6 +5723,27 @@ def validate_website_information_architecture_internal_preview_v1(
             failures.append(
                 "Website Preview Review Packet Internal Only must not claim real metric data: "
                 f"{fragment}"
+            )
+        if fragment in lower_static_preview_spec_text:
+            failures.append(
+                "Static Preview Spec Internal Only must not claim real metric data: "
+                f"{fragment}"
+            )
+
+    forbidden_runtime_paths = [
+        ROOT / "preview_static_internal",
+        ROOT / "preview_static_internal/index.html",
+        ROOT / "preview_static_internal/topics/index.html",
+        ROOT / "preview_static_internal/articles/brief-002-preview.html",
+        ROOT / "preview_static_internal/status/index.html",
+        ROOT / "preview_static_internal/styles.css",
+        ROOT / "preview_static_internal/preview.js",
+    ]
+    for path in forbidden_runtime_paths:
+        if path.exists():
+            failures.append(
+                "Static Preview Spec Internal Only must not create runtime path: "
+                f"{path.relative_to(ROOT)}"
             )
 
     return count
