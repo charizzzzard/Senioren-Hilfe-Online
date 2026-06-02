@@ -1,0 +1,167 @@
+queue_id: CONTENT-WORK-QUEUE-V1
+queue_status: draft_operational_baseline
+batch_id: MVP_BATCH_01
+public_launch_status: not_ready
+publish_readiness_status: not_ready
+operator_acceptance_status: not_accepted
+monetization_status: not_approved
+analytics_status: not_connected
+search_console_status: not_connected
+user_feedback_status: not_collected
+queue_note: "Internal operating artifact only. Does not trigger runtime execution."
+
+queue_items:
+  - queue_item_id: CQ-V1-001
+    title: Define pipeline contract and work queue
+    linked_stage_id: STAGE_00_STRATEGY_TRUST_PORTFOLIO_INTAKE
+    linked_brief_id: not_applicable
+    required_inputs:
+      - docs/architecture/CONTENT_MACHINE_TARGET_CAPABILITY_MAP.md
+      - docs/architecture/CONTENT_MACHINE_GATE_MODEL.md
+      - docs/operations/ARTICLE_READINESS_DASHBOARD_BATCH_01.md
+    produced_outputs:
+      - docs/operations/content_pipeline/CONTENT_PIPELINE_CONTRACT_V1.md
+      - docs/operations/content_pipeline/CONTENT_PRODUCTION_ROLE_BOUNDARIES_V1.md
+      - docs/operations/content_pipeline/WORK_QUEUE_V1.yaml
+    blockers:
+      - none_for_this_patch
+    allowed_next_action: validate_and_commit_operating_baseline
+    forbidden_actions:
+      - set_publish_readiness
+      - set_operator_acceptance
+      - activate_public_launch
+      - activate_monetization
+    human_gate_required: no
+    automation_candidate: validator_assisted
+    status: completed_by_this_patch
+
+  - queue_item_id: CQ-V1-002
+    title: Brief 002 later publish-candidate decision packet preparation
+    linked_stage_id: STAGE_11_PUBLISH_CANDIDATE_DECISION
+    linked_brief_id: SHO-MVP-BRIEF-002
+    required_inputs:
+      - docs/content/final_article_candidates/betrugsnachrichten-auf-whatsapp-erkennen.final-article-candidate.md
+      - docs/content/article_quality_scorecards/betrugsnachrichten-auf-whatsapp-erkennen.final-article-candidate.scorecard.md
+      - docs/operations/operator_review_packets/HUMAN_OPERATOR_REVIEW_PACKET_FINAL_ARTICLE_CANDIDATE_BRIEF_002.md
+    produced_outputs:
+      - future_publish_candidate_decision_packet_not_ready
+    blockers:
+      - human_operator_gate_required
+      - publication_gate_not_open
+    allowed_next_action: prepare_decision_packet_only
+    forbidden_actions:
+      - set_publish_candidate_without_operator_decision
+      - set_operator_acceptance
+      - approve_public_launch
+    human_gate_required: yes
+    automation_candidate: codex_assisted
+    status: pending_human_operator_gate
+
+  - queue_item_id: CQ-V1-003
+    title: Brief 003 device/version scope decision
+    linked_stage_id: STAGE_03_SOURCE_DISCOVERY_EVIDENCE_GATE
+    linked_brief_id: SHO-MVP-BRIEF-003
+    required_inputs:
+      - docs/operations/device_version_scope_decisions/BRIEF_003_DEVICE_VERSION_SCOPE_DECISION_PACKET.md
+      - docs/operations/screenshot_evidence_requirements/BRIEF_003_SCREENSHOT_EVIDENCE_REQUIREMENTS_CHECKLIST.md
+    produced_outputs:
+      - future_human_operator_scope_decision_record
+    blockers:
+      - device_version_scope_unresolved
+      - screenshot_evidence_not_available
+      - no_text_candidate
+    allowed_next_action: human_operator_selects_scope_option
+    forbidden_actions:
+      - validate_android_path_without_evidence
+      - validate_ios_path_without_evidence
+      - create_article_candidate_before_scope_decision
+    human_gate_required: yes
+    automation_candidate: human_controlled
+    status: pending_human_operator_decision
+
+  - queue_item_id: CQ-V1-004
+    title: Website information architecture / internal preview structure
+    linked_stage_id: STAGE_12_WEBSITE_PREVIEW_RELEASE_PREPARATION
+    linked_brief_id: not_applicable
+    required_inputs:
+      - docs/operations/ROADMAP_AND_MILESTONES_MVP_2026.md
+      - docs/operations/ARTICLE_READINESS_DASHBOARD_BATCH_01.md
+    produced_outputs:
+      - future_internal_preview_information_architecture
+    blockers:
+      - no_public_launch_decision
+      - no_publish_ready_content
+    allowed_next_action: define_internal_preview_structure_only
+    forbidden_actions:
+      - activate_public_launch
+      - publish_article
+      - connect_analytics
+    human_gate_required: yes
+    automation_candidate: codex_assisted
+    status: pending_internal_planning
+
+  - queue_item_id: CQ-V1-005
+    title: Pipeline runner / next task generator specification
+    linked_stage_id: STAGE_15_REFRESH_REWRITE_MERGE_EXPANSION_LOOP
+    linked_brief_id: not_applicable
+    required_inputs:
+      - docs/operations/content_pipeline/CONTENT_PIPELINE_CONTRACT_V1.md
+      - docs/operations/content_pipeline/WORK_QUEUE_V1.yaml
+    produced_outputs:
+      - future_pipeline_runner_spec
+    blockers:
+      - runner_not_defined
+      - no_runtime_execution_policy
+    allowed_next_action: specify_runner_without_execution
+    forbidden_actions:
+      - auto_publish
+      - auto_accept
+      - auto_monetize
+    human_gate_required: yes
+    automation_candidate: runner_candidate
+    status: future_candidate
+
+  - queue_item_id: CQ-V1-006
+    title: Keyword validation framework
+    linked_stage_id: STAGE_02_KEYWORD_QUALIFICATION
+    linked_brief_id: not_applicable
+    required_inputs:
+      - docs/content/seo/keyword_seed_lists/SEO_KEYWORD_DISCOVERY_SEED_LIST_BATCH_01.md
+      - docs/content/seo/keyword_qualification_records/README.md
+      - docs/content/seo/keyword_cluster_maps/SEO_KEYWORD_CLUSTER_MAP_CANDIDATE_BATCH_01.md
+    produced_outputs:
+      - future_selected_keyword_records_or_review
+    blockers:
+      - no_real_search_volume
+      - no_ranking_data
+      - no_search_console_connection
+    allowed_next_action: planning_only_keyword_review
+    forbidden_actions:
+      - invent_search_volume
+      - invent_ranking_data
+      - claim_traffic
+    human_gate_required: no
+    automation_candidate: validator_assisted
+    status: planning_only
+
+  - queue_item_id: CQ-V1-007
+    title: Monetization methodology
+    linked_stage_id: STAGE_16_MONETIZATION_METHODOLOGY_TRUST_CONFLICT_GATE
+    linked_brief_id: SHO-MVP-BRIEF-004
+    required_inputs:
+      - docs/governance/TRUST_AND_MONETIZATION_POLICY.md
+      - docs/operations/ARTICLE_READINESS_DASHBOARD_BATCH_01.md
+    produced_outputs:
+      - future_product_monetization_methodology_decision_packet
+    blockers:
+      - product_recommendation_methodology_missing
+      - commercial_affiliate_risk
+      - human_operator_decision_required
+    allowed_next_action: prepare_methodology_decision_packet_only
+    forbidden_actions:
+      - add_affiliate_logic
+      - add_ads
+      - approve_monetization
+    human_gate_required: yes
+    automation_candidate: human_controlled
+    status: blocked_until_human_operator_decision

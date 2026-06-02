@@ -627,6 +627,27 @@ Das Review-Artefakt muss mindestens diese Finding IDs enthalten:
 - Das Article Readiness Dashboard darf `source metadata reviewed from existing repo metadata not live verified` fuer Brief 002 dokumentieren, muss aber Publish Readiness, Operator Acceptance, Public Launch und Monetarisierung weiterhin blockiert halten.
 - User-Perspective-, Reader-Experience- und Feedback-Reviews duerfen durch diese Review nicht als abgeschlossen behauptet werden.
 
+## Content Pipeline Contract and Work Queue V1 Checks
+
+- Fuer die Content Pipeline muessen diese Artefakte existieren:
+  - `docs/operations/content_pipeline/README.md`
+  - `docs/operations/content_pipeline/CONTENT_PIPELINE_CONTRACT_V1.md`
+  - `docs/operations/content_pipeline/CONTENT_PRODUCTION_ROLE_BOUNDARIES_V1.md`
+  - `docs/operations/content_pipeline/WORK_QUEUE_V1.yaml`
+- Die Work Queue ist ein internes Operating-Artefakt und triggert keine Runtime-Ausfuehrung.
+- Work Queue darf keinen aktiven Status `publish_ready` enthalten, solange keine spaetere explizite Human-Operator-Entscheidung dokumentiert ist.
+- Work Queue darf keinen aktiven Status `monetization_approved` enthalten.
+- Work Queue darf keinen aktiven Status `public_launch_ready` enthalten.
+- Work Queue darf keinen aktiven Status `operator_accepted` enthalten.
+- Work Queue darf keinen aktiven Status `approved_for_publish` enthalten.
+- Pipeline-Stages muessen `required_inputs` und `produced_outputs` enthalten.
+- Human-controlled stages duerfen nicht automatisiert werden.
+- Codex execution items muessen non-acceptance statuses erhalten.
+- Kein Queue Item darf echte Analytics-, Search-Console-, Ranking-, Traffic-, Conversion-, Revenue- oder Feedbackdaten behaupten, solange keine spaetere validierte Datenquelle verlinkt ist.
+- Blockierte Claims bleiben blockiert, bis eine spaetere explizite Human-Operator-Entscheidung und Evidence Review sie entsperrt.
+- Build Mode Exit Gate und Anti-Endless-Prompting Rules muessen im Pipeline Contract sichtbar bleiben.
+- Die Work Queue muss fuer jedes Queue Item `queue_item_id`, `title`, `linked_stage_id`, `required_inputs`, `produced_outputs`, `blockers`, `allowed_next_action`, `forbidden_actions`, `human_gate_required`, `automation_candidate` und `status` enthalten.
+
 ## Reader Experience Quality Checks
 
 - Reader Experience ist ein eigenes Qualitaetsfeld neben Quellen, Claims, Safety, SEO und Accessibility.

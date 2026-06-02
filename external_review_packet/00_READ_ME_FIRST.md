@@ -2,72 +2,53 @@
 
 ## Zweck dieses Review-Pakets
 
-Dieses Review-Paket beschreibt den Patch `FINAL_SOURCE_METADATA_REVIEW_BRIEF_002`.
+Dieses Review-Paket beschreibt den Patch `CONTENT_PIPELINE_CONTRACT_AND_WORK_QUEUE_V1`.
 
-Der Patch dokumentiert eine dedizierte Final Source Metadata Review fuer den Final Article Candidate zu Brief 002.
+Der Patch ueberfuehrt das bestehende Content-Machine-Zielmodell in einen wiederholbaren, spaeter automatisierbaren Operating Contract mit Pipeline-Stages, Rollen-Grenzen, Work Queue und Validator-Erweiterung.
 
-Die Review ist ein interner Source-Metadata-/Governance-Schritt. Sie setzt keine Publish Readiness, keine Operator Acceptance, keine rechtliche Freigabe, keinen Public Launch und keine Monetarisierung.
+Der Patch ist ein internes Operations-/Governance-Artefakt. Er setzt keine Publish Readiness, keine Operator Acceptance, keine Public-Launch-Freigabe, keine Monetarisierung und keine rechtliche Freigabe.
 
 ## Scope dieses Patches
 
-- Genau eine dedizierte Final Source Metadata Review erstellen:
-  - `docs/content/article_reviews/betrugsnachrichten-auf-whatsapp-erkennen.final-source-metadata-review.md`
-- Nur vorhandene Repo-Metadaten fuer `SHO-SRC-005`, `SHO-SRC-006` und `SHO-SRC-007` konsolidieren.
-- Batch Manifest um die Final Source Metadata Review ergaenzen.
-- Article Readiness Dashboard fuer Brief 002 um `source metadata reviewed from existing repo metadata not live verified` aktualisieren.
-- Status Registry und Validator minimal fuer `final_source_metadata_review_status` und `source_metadata_status` erweitern.
-- Externe Handoff-Dateien auf den neuen Patch-Kontext aktualisieren.
+- Content Pipeline Ordner erstellen:
+  - `docs/operations/content_pipeline/README.md`
+  - `docs/operations/content_pipeline/CONTENT_PIPELINE_CONTRACT_V1.md`
+  - `docs/operations/content_pipeline/CONTENT_PRODUCTION_ROLE_BOUNDARIES_V1.md`
+  - `docs/operations/content_pipeline/WORK_QUEUE_V1.yaml`
+- Pipeline-Stages von Strategy Intake bis Refresh Loop und Monetization Gate dokumentieren.
+- Build Mode Exit Gate und Anti-Endless-Prompting Rules dokumentieren.
+- Rollen- und Entscheidungsgrenzen fuer Human Operator, ChatGPT, Codex, Validatoren, Future Runner und externe Datenquellen dokumentieren.
+- Conservative Work Queue fuer `MVP_BATCH_01` anlegen.
+- Status Registry, Validation Requirements und Validator minimal fuer Pipeline Contract / Work Queue ergaenzen.
+- Externen Handoff-Kontext auf diesen Patch aktualisieren.
 
 ## Primaere Review-Dateien
 
-- `external_review_packet/HANDOFF_LATEST_CONTEXT.md`
-- `docs/content/article_reviews/betrugsnachrichten-auf-whatsapp-erkennen.final-source-metadata-review.md`
-- `docs/content/article_reviews/betrugsnachrichten-auf-whatsapp-erkennen.accessibility-review.md`
-- `docs/content/article_reviews/betrugsnachrichten-auf-whatsapp-erkennen.final-source-list-review.md`
-- `docs/content/article_reviews/betrugsnachrichten-auf-whatsapp-erkennen.citation-display-label-review.md`
-- `docs/content/article_reviews/betrugsnachrichten-auf-whatsapp-erkennen.citation-text-prep.md`
-- `docs/content/final_article_candidates/betrugsnachrichten-auf-whatsapp-erkennen.final-article-candidate.md`
-- `docs/content/article_quality_scorecards/betrugsnachrichten-auf-whatsapp-erkennen.final-article-candidate.scorecard.md`
-- `docs/content/source_packs/operator-research-source-pack-batch-01.md`
-- `docs/content/claim_maps/source-to-claim-map-batch-01.md`
-- `docs/operations/operator_decisions/HUMAN_OPERATOR_DECISION_FINAL_ARTICLE_CANDIDATE_BRIEF_002.md`
-- `docs/content/batches/MVP_BATCH_01.yaml`
-- `docs/operations/ARTICLE_READINESS_DASHBOARD_BATCH_01.md`
+- `docs/operations/content_pipeline/CONTENT_PIPELINE_CONTRACT_V1.md`
+- `docs/operations/content_pipeline/CONTENT_PRODUCTION_ROLE_BOUNDARIES_V1.md`
+- `docs/operations/content_pipeline/WORK_QUEUE_V1.yaml`
+- `docs/operations/content_pipeline/README.md`
 - `docs/operations/STATUS_REGISTRY.yaml`
-- `scripts/validate_content_contracts.py`
-- `scripts/validate_stage_transitions.py`
 - `docs/engineering/VALIDATION_REQUIREMENTS.md`
-
-## Wichtiger Hinweis
-
-Final source metadata review only. This is not publish readiness, not Operator Acceptance, not public launch, not monetization approval, not legal approval and not live source verification.
-
-`live_source_verification_status: not_performed`
-
-`citation_metadata_finality: reviewed_from_repo_metadata_not_publication_final`
+- `scripts/validate_content_contracts.py`
+- `external_review_packet/HANDOFF_LATEST_CONTEXT.md`
 
 ## Nicht in Scope
 
-- Publish Readiness.
-- Operator Acceptance.
-- Public Launch.
-- Monetarisierung.
-- Affiliate.
-- Produkt-Empfehlungen.
-- Neue Quellen.
-- Neue Claims.
-- Neue Source-Metadaten.
-- Live-Webpruefung.
-- Finale Quellenmetadaten fuer Publikation.
-- Neue SERP-Daten.
-- Live-Analytics.
-- Live-Feedback.
-- E-Mail-Feedback-Verbindung.
-- Echte Nutzerfeedback-Daten.
-- SEO-/Keyword-Metriken.
-- WhatsApp block/report UI instructions.
-- Freischaltung von `SHO-CLAIM-007`.
-- Rechtliche Freigabe.
+- Keine Artikeltexte.
+- Keine Article Candidates.
+- Keine Publish Readiness.
+- Keine Operator Acceptance.
+- Kein Public Launch.
+- Keine Monetarisierung.
+- Keine Affiliate-Logik.
+- Keine neuen Quellen.
+- Keine neuen Claims.
+- Keine Entsperrung blockierter Claims.
+- Keine WhatsApp block/report UI instructions.
+- Keine Analytics-, Search-Console-, E-Mail-Feedback- oder externe Service-Verbindung.
+- Keine echten SEO-, Ranking-, Traffic-, CTR-, Conversion-, Revenue-, Nutzerfeedback- oder Source-Freshness-Daten.
+- Keine Runtime und kein Pipeline Runner.
 
 ## Validation Commands
 
@@ -80,4 +61,4 @@ Final source metadata review only. This is not publish readiness, not Operator A
 
 ## Operator Acceptance
 
-Der Human Operator bleibt finale Annahmeautoritaet. Dieses Paket ist Review-Evidenz und Arbeitsstand, keine finale Annahme.
+Der Human Operator bleibt finale Annahmeautoritaet. Dieses Paket ist ein Operating-Baseline- und Review-Arbeitsstand, keine finale Annahme.

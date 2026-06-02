@@ -552,6 +552,88 @@ source_metadata_status:
     - publish_ready
     - public_launch_ready
 
+pipeline_contract_status:
+  allowed:
+    - operational_baseline_not_live
+    - active
+    - blocked
+    - superseded
+  human_controlled:
+    - active
+  forbidden_by_codex:
+    - active
+    - accepted
+    - operator_accepted
+    - approved_for_publish
+    - publish_ready
+    - public_launch_ready
+
+role_boundaries_status:
+  allowed:
+    - operational_baseline
+    - active
+    - blocked
+    - superseded
+  human_controlled:
+    - active
+  forbidden_by_codex:
+    - accepted
+    - operator_accepted
+    - approved_for_publish
+    - publish_ready
+    - public_launch_ready
+
+queue_status:
+  allowed:
+    - draft_operational_baseline
+    - active
+    - blocked
+    - superseded
+  human_controlled:
+    - active
+  forbidden_by_codex:
+    - accepted
+    - operator_accepted
+    - approved_for_publish
+    - publish_ready
+    - public_launch_ready
+    - monetization_approved
+
+queue_item_status:
+  allowed:
+    - completed_by_this_patch
+    - in_this_patch
+    - pending_human_operator_gate
+    - pending_human_operator_decision
+    - pending_internal_planning
+    - future_candidate
+    - planning_only
+    - blocked_until_human_operator_decision
+    - blocked
+    - superseded
+  forbidden_by_codex:
+    - accepted
+    - operator_accepted
+    - approved_for_publish
+    - publish_ready
+    - public_launch_ready
+    - monetization_approved
+
+automation_level:
+  allowed:
+    - manual_current
+    - template_assisted
+    - validator_assisted
+    - codex_assisted
+    - runner_candidate
+    - human_controlled
+    - not_live
+    - blocked
+  forbidden_by_codex:
+    - auto_publish
+    - auto_accept
+    - auto_monetize
+
 forbidden_transitions:
   - from: scaffold_only
     to: approved_for_publish

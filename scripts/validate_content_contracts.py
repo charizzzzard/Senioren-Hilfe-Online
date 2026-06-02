@@ -89,6 +89,10 @@ REQUIRED_DOCS = [
     "docs/operations/NEXT_STAGE_DECISION_TREE.md",
     "docs/operations/STATUS_REGISTRY.yaml",
     "docs/content/batches/MVP_BATCH_01.yaml",
+    "docs/operations/content_pipeline/README.md",
+    "docs/operations/content_pipeline/CONTENT_PIPELINE_CONTRACT_V1.md",
+    "docs/operations/content_pipeline/CONTENT_PRODUCTION_ROLE_BOUNDARIES_V1.md",
+    "docs/operations/content_pipeline/WORK_QUEUE_V1.yaml",
     "scripts/validate_stage_transitions.py",
 ]
 
@@ -172,6 +176,12 @@ ACCESSIBILITY_REVIEW_BRIEF_002_PATH = (
 FINAL_SOURCE_METADATA_REVIEW_BRIEF_002_PATH = (
     ROOT / "docs/content/article_reviews/betrugsnachrichten-auf-whatsapp-erkennen.final-source-metadata-review.md"
 )
+CONTENT_PIPELINE_DIR = ROOT / "docs/operations/content_pipeline"
+CONTENT_PIPELINE_CONTRACT_V1_PATH = CONTENT_PIPELINE_DIR / "CONTENT_PIPELINE_CONTRACT_V1.md"
+CONTENT_PRODUCTION_ROLE_BOUNDARIES_V1_PATH = (
+    CONTENT_PIPELINE_DIR / "CONTENT_PRODUCTION_ROLE_BOUNDARIES_V1.md"
+)
+WORK_QUEUE_V1_PATH = CONTENT_PIPELINE_DIR / "WORK_QUEUE_V1.yaml"
 SOURCE_REVIEW_PATH = ROOT / "docs/content/source_reviews/whatsapp-source-manual-review-batch-01.md"
 SOURCE_REVIEW_REL_PATH = "docs/content/source_reviews/whatsapp-source-manual-review-batch-01.md"
 EVIDENCE_CAPTURE_PATH = ROOT / "docs/content/evidence_captures/whatsapp-line-evidence-capture-batch-01.md"
@@ -5203,6 +5213,198 @@ def validate_human_operator_review_packet_final_article_candidate_brief_002(
     return 1
 
 
+def validate_content_pipeline_contract_and_work_queue_v1(failures: list[str]) -> int:
+    required_paths = [
+        CONTENT_PIPELINE_DIR / "README.md",
+        CONTENT_PIPELINE_CONTRACT_V1_PATH,
+        CONTENT_PRODUCTION_ROLE_BOUNDARIES_V1_PATH,
+        WORK_QUEUE_V1_PATH,
+    ]
+    count = 0
+    for path in required_paths:
+        if not path.exists():
+            failures.append(f"Missing content pipeline artifact: {path.relative_to(ROOT)}")
+        else:
+            count += 1
+
+    if count != len(required_paths):
+        return count
+
+    contract_text = CONTENT_PIPELINE_CONTRACT_V1_PATH.read_text(encoding="utf-8")
+    role_text = CONTENT_PRODUCTION_ROLE_BOUNDARIES_V1_PATH.read_text(encoding="utf-8")
+    queue_text = WORK_QUEUE_V1_PATH.read_text(encoding="utf-8")
+
+    required_stage_ids = [
+        "STAGE_00_STRATEGY_TRUST_PORTFOLIO_INTAKE",
+        "STAGE_01_TOPIC_INTAKE",
+        "STAGE_02_KEYWORD_QUALIFICATION",
+        "STAGE_03_SOURCE_DISCOVERY_EVIDENCE_GATE",
+        "STAGE_04_CLAIM_EXTRACTION_CLAIM_MAPPING",
+        "STAGE_05_CONTENT_BRIEF",
+        "STAGE_06_SEO_BRIEF_ADDENDUM",
+        "STAGE_07_DRAFT_SCAFFOLD",
+        "STAGE_08_ARTICLE_CANDIDATE",
+        "STAGE_09_QUALITY_READER_ACCESSIBILITY_SAFETY_REVIEWS",
+        "STAGE_10_HUMAN_OPERATOR_REVIEW_PACKET",
+        "STAGE_11_PUBLISH_CANDIDATE_DECISION",
+        "STAGE_12_WEBSITE_PREVIEW_RELEASE_PREPARATION",
+        "STAGE_13_PUBLIC_LAUNCH_DECISION",
+        "STAGE_14_ANALYTICS_SEARCH_CONSOLE_FEEDBACK_INTAKE",
+        "STAGE_15_REFRESH_REWRITE_MERGE_EXPANSION_LOOP",
+        "STAGE_16_MONETIZATION_METHODOLOGY_TRUST_CONFLICT_GATE",
+    ]
+    required_stage_fields = [
+        "stage_id",
+        "stage_name",
+        "purpose",
+        "required_inputs",
+        "produced_outputs",
+        "allowed_actions",
+        "forbidden_actions",
+        "blocking_conditions",
+        "validator_expectations",
+        "human_gate_required",
+        "automation_level",
+        "allowed_next_stage",
+        "non_acceptance_status",
+    ]
+    for stage_id in required_stage_ids:
+        if stage_id not in contract_text:
+            failures.append(f"Content Pipeline Contract V1 missing stage ID: {stage_id}")
+    for field in required_stage_fields:
+        if f"| {field} |" not in contract_text:
+            failures.append(f"Content Pipeline Contract V1 missing stage field: {field}")
+    for fragment in [
+        "Build Mode Exit Gate",
+        "Anti-Endless-Prompting Rules",
+        "Pipeline Contract exists.",
+        "Work Queue exists.",
+        "Role Boundaries exist.",
+        "Next tasks can be derived from repo state instead of ad hoc prompting.",
+        "Documentation progress must not be confused with product progress.",
+    ]:
+        if fragment not in contract_text:
+            failures.append(f"Content Pipeline Contract V1 must contain: {fragment}")
+
+    required_role_fragments = [
+        "Human Operator",
+        "ChatGPT / Review and Prompt Controller",
+        "Codex / Execution Agent",
+        "Validators / Deterministic Checks",
+        "Future Pipeline Runner",
+        "External Primary Sources / Data Inputs",
+        "Codex may produce, structure, inspect, validate, and report.",
+        "Codex may not strategically approve, publish, monetize, accept, or invent missing data.",
+        "publish_candidate",
+        "publish_ready",
+        "approved_for_publish",
+        "operator_accepted",
+        "public_launch_ready",
+        "monetization_approved",
+        "unlock blocked claims",
+        "Codex must create a blocker report",
+    ]
+    for fragment in required_role_fragments:
+        if fragment not in role_text:
+            failures.append(f"Content Production Role Boundaries V1 must contain: {fragment}")
+
+    required_queue_metadata = [
+        "queue_id: CONTENT-WORK-QUEUE-V1",
+        "queue_status: draft_operational_baseline",
+        "batch_id: MVP_BATCH_01",
+        "public_launch_status: not_ready",
+        "publish_readiness_status: not_ready",
+        "operator_acceptance_status: not_accepted",
+        "monetization_status: not_approved",
+        "analytics_status: not_connected",
+        "search_console_status: not_connected",
+        "user_feedback_status: not_collected",
+        "queue_items:",
+    ]
+    for fragment in required_queue_metadata:
+        if fragment not in queue_text:
+            failures.append(f"Work Queue V1 must contain metadata fragment: {fragment}")
+
+    required_queue_item_fields = [
+        "queue_item_id:",
+        "title:",
+        "linked_stage_id:",
+        "required_inputs:",
+        "produced_outputs:",
+        "blockers:",
+        "allowed_next_action:",
+        "forbidden_actions:",
+        "human_gate_required:",
+        "automation_candidate:",
+        "status:",
+    ]
+    queue_item_blocks = re.split(r"\n  - queue_item_id: ", queue_text)
+    queue_items = []
+    if len(queue_item_blocks) > 1:
+        queue_items = ["queue_item_id: " + block for block in queue_item_blocks[1:]]
+    if len(queue_items) < 7:
+        failures.append("Work Queue V1 must contain at least seven queue items")
+    for index, item in enumerate(queue_items, start=1):
+        for field in required_queue_item_fields:
+            if field not in item:
+                failures.append(f"Work Queue V1 item {index} missing field: {field}")
+
+    required_queue_items = [
+        "CQ-V1-001",
+        "CQ-V1-002",
+        "CQ-V1-003",
+        "CQ-V1-004",
+        "CQ-V1-005",
+        "CQ-V1-006",
+        "CQ-V1-007",
+        "Brief 002 later publish-candidate decision packet preparation",
+        "Brief 003 device/version scope decision",
+        "Website information architecture / internal preview structure",
+        "Pipeline runner / next task generator specification",
+        "Keyword validation framework",
+        "Monetization methodology",
+    ]
+    for fragment in required_queue_items:
+        if fragment not in queue_text:
+            failures.append(f"Work Queue V1 must contain queue item fragment: {fragment}")
+
+    forbidden_active_status_values = [
+        "status: publish_ready",
+        "status: public_launch_ready",
+        "status: monetization_approved",
+        "status: operator_accepted",
+        "status: approved_for_publish",
+        "queue_status: publish_ready",
+        "queue_status: public_launch_ready",
+        "queue_status: monetization_approved",
+        "queue_status: operator_accepted",
+        "queue_status: approved_for_publish",
+        "publish_readiness_status: publish_ready",
+        "public_launch_status: public_launch_ready",
+        "monetization_status: monetization_approved",
+        "operator_acceptance_status: accepted",
+    ]
+    lower_queue_text = queue_text.lower()
+    for fragment in forbidden_active_status_values:
+        if fragment in lower_queue_text:
+            failures.append(f"Work Queue V1 must not contain active forbidden status: {fragment}")
+
+    forbidden_data_claims = [
+        "analytics_status: connected",
+        "search_console_status: connected",
+        "user_feedback_status: collected",
+        "ranking_status: available",
+        "traffic_status: available",
+        "conversion_status: available",
+        "revenue_status: available",
+    ]
+    for fragment in forbidden_data_claims:
+        if fragment in lower_queue_text:
+            failures.append(f"Work Queue V1 must not claim live data: {fragment}")
+
+    return count
+
+
 def main() -> int:
     failures: list[str] = []
 
@@ -5243,6 +5445,9 @@ def main() -> int:
     applied_scorecard_brief_002_count = validate_applied_scorecard_brief_002(failures)
     human_operator_review_packet_final_article_candidate_brief_002_count = (
         validate_human_operator_review_packet_final_article_candidate_brief_002(failures)
+    )
+    content_pipeline_contract_and_work_queue_v1_count = (
+        validate_content_pipeline_contract_and_work_queue_v1(failures)
     )
 
     if failures:
@@ -5289,6 +5494,10 @@ def main() -> int:
     print(
         "- Batch 01 Human Operator review packet Final Article Candidate Brief 002 files: "
         f"{human_operator_review_packet_final_article_candidate_brief_002_count}"
+    )
+    print(
+        "- Content Pipeline Contract and Work Queue V1 files: "
+        f"{content_pipeline_contract_and_work_queue_v1_count}"
     )
     print("- YAML/frontmatter parsing: dependency-free and text-based")
     return 0
