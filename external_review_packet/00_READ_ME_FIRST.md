@@ -2,22 +2,23 @@
 
 ## Zweck dieses Review-Pakets
 
-Dieses Review-Paket beschreibt den Patch `STATIC_PREVIEW_SKELETON_IMPLEMENTATION_DECISION_PACKET_INTERNAL_ONLY`.
+Dieses Review-Paket beschreibt den Patch `HUMAN_OPERATOR_DECISION_STATIC_PREVIEW_SKELETON_IMPLEMENTATION`.
 
-Der Patch erstellt ein internes Human-Operator-Decision-Packet fuer eine moegliche spaetere Implementierung eines internen Static-Preview-Skeletons von Senioren-Hilfe Online. Das Packet formuliert Entscheidungsoptionen, einen konservativen Safe Default, erlaubten spaeteren Scope, Pflicht-Constraints, Brief-Rendering- und JS-Subentscheidungen, Risiken und Human-Operator-Fragen.
+Der Patch dokumentiert die echte Human-Operator-Entscheidung fuer eine spaetere interne Static-Preview-Skeleton-Implementierung. Die Entscheidung erlaubt einen spaeteren separaten internen HTML/CSS-only Skeleton unter `preview_static_internal/`, verbietet JS fuer den ersten Skeleton, beschraenkt Brief 002 auf eine Shell ohne Artikelbody und verlangt Statusbanner oben und im Footer jeder Seite.
 
-Der Patch genehmigt keine Implementierung, simuliert keine Human-Operator-Entscheidung, implementiert keine Website-Runtime, keine Static Site Generation, keine HTML/CSS/JS-Dateien, keine Design Assets, keine Public Pages, keinen Public Launch, keine Publish Readiness, keine Operator Acceptance, keine Monetarisierung, keine Affiliate-Logik, keine Analytics-/Search-Console-/Feedback-Verbindung, keine Accessibility-Tests und keine WCAG-Konformitaetsbehauptung.
+Der Patch implementiert noch keinen Skeleton, erzeugt keine HTML/CSS/JS-Dateien, keine Design Assets, keine Runtime, keine Static Site Generation, keine Public Pages, keinen Public Launch, keine Publish Readiness, keine Operator Acceptance fuer das Gesamtprojekt, keine Monetarisierung, keine Affiliate-Logik, keine Analytics-/Search-Console-/Feedback-Verbindung, keine Accessibility-Tests und keine WCAG-Konformitaetsbehauptung.
 
 ## Scope dieses Patches
 
-- Static-Preview-Skeleton-Implementation-Decision-Packet erstellen:
-  - `docs/operations/website_preview/STATIC_PREVIEW_SKELETON_IMPLEMENTATION_DECISION_PACKET_INTERNAL_ONLY.md`
-- Website-Preview-README um das neue Decision-Packet ergaenzen.
-- Validation Requirements und `validate_content_contracts.py` um Decision-Packet-Checks ergaenzen.
+- Human-Operator-Decision-Record erstellen:
+  - `docs/operations/operator_decisions/HUMAN_OPERATOR_DECISION_STATIC_PREVIEW_SKELETON_IMPLEMENTATION.md`
+- Website-Preview-README und Operator-Decisions-README um den neuen Entscheidungsstand ergaenzen.
+- Validation Requirements und `validate_content_contracts.py` um Human-Operator-Decision-Checks ergaenzen.
 - Externen Handoff-Kontext auf diesen Patch aktualisieren.
 
 ## Primaere Review-Dateien
 
+- `docs/operations/operator_decisions/HUMAN_OPERATOR_DECISION_STATIC_PREVIEW_SKELETON_IMPLEMENTATION.md`
 - `docs/operations/website_preview/STATIC_PREVIEW_SKELETON_IMPLEMENTATION_DECISION_PACKET_INTERNAL_ONLY.md`
 - `docs/operations/website_preview/STATIC_PREVIEW_SKELETON_SPEC_INTERNAL_ONLY.md`
 - `docs/operations/website_preview/ACCESSIBILITY_REQUIREMENTS_REVIEW_PACKET_INTERNAL_ONLY.md`

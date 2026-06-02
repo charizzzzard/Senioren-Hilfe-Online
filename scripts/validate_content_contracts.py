@@ -74,6 +74,7 @@ REQUIRED_DOCS = [
     "docs/operations/operator_decisions/HUMAN_OPERATOR_DECISION_BATCH01_BRIEF002_001.md",
     "docs/operations/operator_decisions/HUMAN_OPERATOR_DECISION_BATCH01_BRIEF002_002.md",
     "docs/operations/operator_decisions/HUMAN_OPERATOR_DECISION_FINAL_ARTICLE_CANDIDATE_BRIEF_002.md",
+    "docs/operations/operator_decisions/HUMAN_OPERATOR_DECISION_STATIC_PREVIEW_SKELETON_IMPLEMENTATION.md",
     "docs/operations/operator_review_packets/HUMAN_OPERATOR_REVIEW_PACKET_FINAL_ARTICLE_CANDIDATE_BRIEF_002.md",
     "docs/operations/MVP_OPERATIONAL_START_PLAN_BATCH_01.md",
     "docs/operations/ROADMAP_AND_MILESTONES_MVP_2026.md",
@@ -364,6 +365,17 @@ EXPECTED_OPERATOR_DECISIONS = {
         "linked_scorecard": "docs/content/article_quality_scorecards/betrugsnachrichten-auf-whatsapp-erkennen.final-article-candidate.scorecard.md",
         "linked_operator_review_packet": "docs/operations/operator_review_packets/HUMAN_OPERATOR_REVIEW_PACKET_FINAL_ARTICLE_CANDIDATE_BRIEF_002.md",
         "operator_review_outcome_status": "proceed_to_operator_review_candidate_not_publish_ready",
+    },
+    "HUMAN_OPERATOR_DECISION_STATIC_PREVIEW_SKELETON_IMPLEMENTATION.md": {
+        "decision_id": "HUMAN-OPERATOR-DECISION-STATIC-PREVIEW-SKELETON-IMPLEMENTATION",
+        "linked_decision_packet": "docs/operations/website_preview/STATIC_PREVIEW_SKELETON_IMPLEMENTATION_DECISION_PACKET_INTERNAL_ONLY.md",
+        "linked_skeleton_spec": "docs/operations/website_preview/STATIC_PREVIEW_SKELETON_SPEC_INTERNAL_ONLY.md",
+        "linked_accessibility_review_packet": "docs/operations/website_preview/ACCESSIBILITY_REQUIREMENTS_REVIEW_PACKET_INTERNAL_ONLY.md",
+        "linked_accessibility_requirements_spec": "docs/operations/website_preview/ACCESSIBILITY_REQUIREMENTS_FOR_STATIC_PREVIEW_INTERNAL_ONLY.md",
+        "linked_visual_design_system_spec": "docs/operations/website_preview/VISUAL_DESIGN_SYSTEM_SPEC_INTERNAL_ONLY.md",
+        "linked_static_preview_spec": "docs/operations/website_preview/STATIC_PREVIEW_SPEC_INTERNAL_ONLY.md",
+        "linked_ia_artifact": "docs/operations/website_preview/WEBSITE_INFORMATION_ARCHITECTURE_INTERNAL_PREVIEW_V1.md",
+        "decision_status": "approved_for_later_internal_html_css_skeleton_no_js",
     },
 }
 EXPECTED_SOURCE_CITATION_FORMATTING_PREPS = {
@@ -2182,6 +2194,169 @@ def validate_operator_decisions(failures: list[str]) -> int:
         text = path.read_text(encoding="utf-8")
         fields = parse_frontmatter_fields(text)
         expected = EXPECTED_OPERATOR_DECISIONS[file_name]
+
+        if file_name == "HUMAN_OPERATOR_DECISION_STATIC_PREVIEW_SKELETON_IMPLEMENTATION.md":
+            required_fragments = [
+                f"decision_id: {expected['decision_id']}",
+                f"linked_decision_packet: {expected['linked_decision_packet']}",
+                f"linked_skeleton_spec: {expected['linked_skeleton_spec']}",
+                f"linked_accessibility_review_packet: {expected['linked_accessibility_review_packet']}",
+                f"linked_accessibility_requirements_spec: {expected['linked_accessibility_requirements_spec']}",
+                f"linked_visual_design_system_spec: {expected['linked_visual_design_system_spec']}",
+                f"linked_static_preview_spec: {expected['linked_static_preview_spec']}",
+                f"linked_ia_artifact: {expected['linked_ia_artifact']}",
+                "scope: MVP_BATCH_01",
+                f"decision_status: {expected['decision_status']}",
+                "implementation_decision_status: approved_for_later_internal_html_css_skeleton_no_js",
+                "implementation_status: not_implemented",
+                "skeleton_runtime_status: not_implemented",
+                "skeleton_generation_status: not_implemented",
+                "preview_runtime_status: not_implemented",
+                "static_generation_status: not_implemented",
+                "html_generation_status: not_implemented",
+                "css_generation_status: not_implemented",
+                "js_generation_status: not_implemented",
+                "asset_generation_status: not_implemented",
+                "brief_002_rendering_decision: shell_only_no_article_body",
+                "js_decision: js_forbidden_first_skeleton",
+                "accessibility_testing_status: not_performed",
+                "wcag_conformance_status: not_claimed",
+                "public_launch_status: not_ready",
+                "publish_readiness_status: not_ready",
+                "operator_acceptance_status: not_accepted",
+                "monetization_status: not_approved",
+                "analytics_status: not_connected",
+                "search_console_status: not_connected",
+                "user_feedback_status: not_collected",
+                "## Purpose",
+                "## Decision Summary",
+                "## Explicit Non-Acceptance",
+                "## Approved Later Implementation Scope",
+                "## Mandatory Later Implementation Constraints",
+                "## Required Follow-Up",
+                "## Risk Acceptance Boundary",
+                "## Forbidden Outcomes",
+                "## Recommended Next Step",
+                "approve_internal_html_css_skeleton_no_js",
+                "shell_only_no_article_body",
+                "js_forbidden_first_skeleton",
+                "top_and_footer_on_every_page",
+                "preview_static_internal/",
+                "STATIC_PREVIEW_SKELETON_REVIEW_PACKET_INTERNAL_ONLY",
+                "This decision is not implementation.",
+                "This decision does not approve JS.",
+                "This decision does not approve full Brief 002 article body rendering.",
+                "not unlock SHO-CLAIM-007",
+                "not include WhatsApp block/report UI instructions",
+                "no implementation performed",
+                "no HTML/CSS/JS files created by this patch",
+                "no new article text",
+                "no new claims",
+                "no new sources",
+                "no WhatsApp block/report UI instructions",
+            ]
+            for fragment in required_fragments:
+                if fragment not in text:
+                    failures.append(
+                        f"Operator decision {file_name} must contain: {fragment}"
+                    )
+
+            if fields.get("decision_id") != expected["decision_id"]:
+                failures.append(f"Operator decision {file_name} has unexpected ID")
+            if fields.get("linked_decision_packet") != expected["linked_decision_packet"]:
+                failures.append(f"Operator decision {file_name} must link to decision packet")
+            if fields.get("linked_skeleton_spec") != expected["linked_skeleton_spec"]:
+                failures.append(f"Operator decision {file_name} must link to skeleton spec")
+            if (
+                fields.get("linked_accessibility_review_packet")
+                != expected["linked_accessibility_review_packet"]
+            ):
+                failures.append(
+                    f"Operator decision {file_name} must link to accessibility review packet"
+                )
+            if (
+                fields.get("linked_accessibility_requirements_spec")
+                != expected["linked_accessibility_requirements_spec"]
+            ):
+                failures.append(
+                    f"Operator decision {file_name} must link to accessibility requirements spec"
+                )
+            if (
+                fields.get("linked_visual_design_system_spec")
+                != expected["linked_visual_design_system_spec"]
+            ):
+                failures.append(
+                    f"Operator decision {file_name} must link to visual design system spec"
+                )
+            if fields.get("linked_static_preview_spec") != expected["linked_static_preview_spec"]:
+                failures.append(f"Operator decision {file_name} must link to static preview spec")
+            if fields.get("linked_ia_artifact") != expected["linked_ia_artifact"]:
+                failures.append(f"Operator decision {file_name} must link to IA artifact")
+            if normalized(fields.get("decision_status")) != expected["decision_status"]:
+                failures.append(f"Operator decision {file_name} must have expected decision_status")
+            if (
+                normalized(fields.get("implementation_decision_status"))
+                != "approved_for_later_internal_html_css_skeleton_no_js"
+            ):
+                failures.append(
+                    f"Operator decision {file_name} must have expected implementation_decision_status"
+                )
+            if normalized(fields.get("implementation_status")) != "not_implemented":
+                failures.append(f"Operator decision {file_name} must keep implementation_status not_implemented")
+            if normalized(fields.get("js_decision")) != "js_forbidden_first_skeleton":
+                failures.append(f"Operator decision {file_name} must forbid JS for first skeleton")
+            if (
+                normalized(fields.get("brief_002_rendering_decision"))
+                != "shell_only_no_article_body"
+            ):
+                failures.append(f"Operator decision {file_name} must keep Brief 002 shell-only")
+            if normalized(fields.get("operator_acceptance_status")) != "not_accepted":
+                failures.append(f"Operator decision {file_name} must keep operator_acceptance_status not_accepted")
+            if normalized(fields.get("publish_readiness_status")) != "not_ready":
+                failures.append(f"Operator decision {file_name} must keep publish_readiness_status not_ready")
+            if normalized(fields.get("public_launch_status")) != "not_ready":
+                failures.append(f"Operator decision {file_name} must keep public_launch_status not_ready")
+            if normalized(fields.get("monetization_status")) != "not_approved":
+                failures.append(f"Operator decision {file_name} must keep monetization_status not_approved")
+            if normalized(fields.get("analytics_status")) != "not_connected":
+                failures.append(f"Operator decision {file_name} must keep analytics_status not_connected")
+            if normalized(fields.get("search_console_status")) != "not_connected":
+                failures.append(f"Operator decision {file_name} must keep search_console_status not_connected")
+            if normalized(fields.get("user_feedback_status")) != "not_collected":
+                failures.append(f"Operator decision {file_name} must keep user_feedback_status not_collected")
+
+            forbidden_fragments = [
+                "implementation_status: implemented",
+                "skeleton_runtime_status: implemented",
+                "skeleton_generation_status: implemented",
+                "html_generation_status: implemented",
+                "css_generation_status: implemented",
+                "js_generation_status: implemented",
+                "asset_generation_status: implemented",
+                "js_decision: js_allowed",
+                "brief_002_rendering_decision: full_internal_candidate_text_with_not_publish_ready_banner",
+                "accessibility_testing_status: performed",
+                "wcag_conformance_status: claimed",
+                "wcag_conformance_status: compliant",
+                "public_launch_status: ready",
+                "public_launch_status: launched",
+                "publish_readiness_status: publish_candidate",
+                "publish_readiness_status: approved_for_publish",
+                "operator_acceptance_status: accepted",
+                "monetization_status: approved",
+                "analytics_status: connected",
+                "search_console_status: connected",
+                "user_feedback_status: collected",
+                "public_launch_ready: true",
+                "publish_ready: true",
+            ]
+            lower_text = text.lower()
+            for fragment in forbidden_fragments:
+                if fragment in lower_text:
+                    failures.append(
+                        f"Operator decision {file_name} must not contain active forbidden marker: {fragment}"
+                    )
+            continue
 
         required_fragments = [
             f"operator_decision_id: {expected['operator_decision_id']}",

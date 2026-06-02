@@ -829,6 +829,34 @@ Das Review-Artefakt muss mindestens diese Finding IDs enthalten:
 - Das Decision-Packet darf keine aktive Implementierungsentscheidung, keine simulierte Human-Operator-Entscheidung und keine aktiven Skeleton-, HTML-, CSS-, JS-, Asset-, Accessibility-Testing-, WCAG-, Runtime-, Static-Generation-, Launch-, Publish-, Acceptance-, Monetization-, Analytics-, Search-Console- oder Feedback-Statuswerte enthalten.
 - Das Decision-Packet darf keine echten CSS-, HTML-, JS-, Bild-, Asset-, Build-, Deployment-, Tracking- oder Public-Website-Dateien erzeugen.
 
+## Human Operator Decision Static Preview Skeleton Implementation Checks
+
+- `docs/operations/operator_decisions/HUMAN_OPERATOR_DECISION_STATIC_PREVIEW_SKELETON_IMPLEMENTATION.md` muss existieren.
+- Das Decision-Record muss `decision_status: approved_for_later_internal_html_css_skeleton_no_js` enthalten.
+- Das Decision-Record muss `implementation_decision_status: approved_for_later_internal_html_css_skeleton_no_js` enthalten.
+- Das Decision-Record muss `implementation_status: not_implemented` enthalten.
+- Das Decision-Record muss `skeleton_runtime_status: not_implemented` enthalten.
+- Das Decision-Record muss `skeleton_generation_status: not_implemented` enthalten.
+- Das Decision-Record muss `html_generation_status: not_implemented` enthalten.
+- Das Decision-Record muss `css_generation_status: not_implemented` enthalten.
+- Das Decision-Record muss `js_generation_status: not_implemented` enthalten.
+- Das Decision-Record muss `asset_generation_status: not_implemented` enthalten.
+- Das Decision-Record muss `brief_002_rendering_decision: shell_only_no_article_body` enthalten.
+- Das Decision-Record muss `js_decision: js_forbidden_first_skeleton` enthalten.
+- Das Decision-Record muss `accessibility_testing_status: not_performed` enthalten.
+- Das Decision-Record muss `wcag_conformance_status: not_claimed` enthalten.
+- Das Decision-Record muss `public_launch_status: not_ready` enthalten.
+- Das Decision-Record muss `publish_readiness_status: not_ready` enthalten.
+- Das Decision-Record muss `operator_acceptance_status: not_accepted` enthalten.
+- Das Decision-Record muss `monetization_status: not_approved` enthalten.
+- Das Decision-Record muss `analytics_status: not_connected` enthalten.
+- Das Decision-Record muss `search_console_status: not_connected` enthalten.
+- Das Decision-Record muss `user_feedback_status: not_collected` enthalten.
+- Das Decision-Record muss das Implementation Decision Packet, die Skeleton-Spec, das Accessibility-Review-Paket, die Accessibility-Requirements-Spec, die Visual-Design-System-Spec, die Static-Preview-Spec und die Website-IA verlinken.
+- Das Decision-Record muss Purpose, Decision Summary, Explicit Non-Acceptance, Approved Later Implementation Scope, Mandatory Later Implementation Constraints, Required Follow-Up, Risk Acceptance Boundary, Forbidden Outcomes und Recommended Next Step enthalten.
+- Das Decision-Record darf keine aktive Implementierung, keine JS-Freigabe, kein Full-Body-Rendering fuer Brief 002, keine aktiven Accessibility-Testing-, WCAG-, Skeleton-, HTML-, CSS-, JS-, Asset-, Launch-, Publish-, Acceptance-, Monetization-, Analytics-, Search-Console- oder Feedback-Statuswerte enthalten.
+- Das Decision-Record darf keine echten CSS-, HTML-, JS-, Bild-, Asset-, Build-, Deployment-, Tracking- oder Public-Website-Dateien erzeugen.
+
 ## Reader Experience Quality Checks
 
 - Reader Experience ist ein eigenes Qualitaetsfeld neben Quellen, Claims, Safety, SEO und Accessibility.

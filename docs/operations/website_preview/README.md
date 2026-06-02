@@ -23,6 +23,11 @@ Die Artefakte sind nicht live. Sie erstellen keine Website-Runtime, veroeffentli
 - `STATIC_PREVIEW_SKELETON_IMPLEMENTATION_DECISION_PACKET_INTERNAL_ONLY.md`
   - Internes Human-Operator-Decision-Packet fuer eine moegliche spaetere Skeleton-Implementierung; keine Genehmigung, keine HTML-, CSS-, JS-, Asset- oder Runtime-Erzeugung.
 
+## Verwandte Operator-Decision-Artefakte
+
+- `docs/operations/operator_decisions/HUMAN_OPERATOR_DECISION_STATIC_PREVIEW_SKELETON_IMPLEMENTATION.md`
+  - Human-Operator-Entscheidung fuer eine spaetere interne HTML/CSS-only Skeleton-Implementierung; keine Umsetzung in diesem Decision-Record.
+
 ## Non-Acceptance
 
 - Kein Public Launch.
