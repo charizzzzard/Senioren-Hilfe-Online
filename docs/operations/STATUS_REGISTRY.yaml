@@ -272,6 +272,21 @@ public_launch_status:
     - approved_for_publish
     - publish_ready
 
+roadmap_status:
+  allowed:
+    - baseline_defined
+    - active
+    - blocked
+    - superseded
+  human_controlled:
+    - active
+  forbidden_by_codex:
+    - accepted
+    - operator_accepted
+    - approved_for_publish
+    - publish_ready
+    - public_launch_ready
+
 citation_text_status:
   allowed:
     - prepared_not_final

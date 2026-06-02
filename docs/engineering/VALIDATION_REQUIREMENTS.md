@@ -480,6 +480,18 @@ Das Review-Artefakt muss mindestens diese Finding IDs enthalten:
 - Der Plan muss Brief 002 weiterhin als blockiert bis final citation/legal gates fuehren.
 - Der Plan ersetzt keine Batch-Stage-Transition und keine Operator Acceptance.
 
+## Roadmap and Milestones MVP 2026 Checks
+
+- Fuer das MVP muss `docs/operations/ROADMAP_AND_MILESTONES_MVP_2026.md` existieren.
+- Die Roadmap ist planning only.
+- Die Roadmap aktiviert keinen Public Launch.
+- Die Roadmap setzt keine Publish Readiness.
+- Die Roadmap genehmigt keine Monetarisierung.
+- Die Roadmap erstellt keine Operator Acceptance.
+- `roadmap_status` muss `baseline_defined` bleiben, solange keine spaetere Human-Operator-Entscheidung etwas anderes erlaubt.
+- `public_launch_status`, `publish_readiness_status`, `operator_acceptance_status` und `monetization_status` muessen konservativ bleiben.
+- Die Roadmap darf keine Ranking-, Traffic-, Revenue-, Keyword-, SERP-, Nutzerfeedback- oder E-Mail-Daten erfinden.
+
 ## Citation-Text-Prep-Checks
 
 - Fuer Brief 002 muss genau ein Citation-Text-Prep-Artefakt unter `docs/content/article_reviews/` existieren.

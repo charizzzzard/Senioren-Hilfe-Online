@@ -2,21 +2,26 @@
 
 ## Zweck dieses Review-Pakets
 
-Dieses Review-Paket beschreibt den Patch `FINAL_ARTICLE_PREPARATION_OPERATOR_DECISION_BRIEF_002`. Es dokumentiert die ausdrueckliche Human-Operator-Entscheidung, dass Brief 002 in die finale Artikelvorbereitung gehen darf, ohne Publish Readiness oder Operator Acceptance zu setzen.
+Dieses Review-Paket beschreibt den Patch `ROADMAP_AND_MILESTONES_MVP_2026`. Es dokumentiert eine konservative Roadmap- und Milestone-Baseline fuer Juni 2026 bis November 2026, ohne Public Launch, Publish Readiness, Monetarisierung oder Operator Acceptance zu setzen.
 
 ## Scope dieses Patches
 
-- Genau ein neues Operator-Decision-Record-Artefakt fuer Brief 002 erstellen.
-- `decision_status: proceed_to_final_article_preparation_not_publish_ready` dokumentieren.
-- Finale Artikelvorbereitung als erlaubten naechsten Arbeitsschritt dokumentieren.
-- Publish Readiness, approved_for_publish, Public Launch, Monetarisierung und Operator Acceptance ausdruecklich ausschliessen.
+- Genau ein neues Roadmap-Artefakt erstellen: `docs/operations/ROADMAP_AND_MILESTONES_MVP_2026.md`.
+- `roadmap_status: baseline_defined` dokumentieren.
+- 30-/60-/90-Tage- und 6-Monats-Ziele, Milestones, Phasen und Gates dokumentieren.
+- Public Launch, Publish Readiness, Monetarisierung und Operator Acceptance ausdruecklich ausschliessen.
 - `SHO-CLAIM-007` weiter blockiert halten.
-- Keine neuen Quellen, Claims, SERP-Daten oder Artikelinhalte ergaenzen.
-- Validator minimal erweitern, damit der zweite Operator Decision Record als erwartetes Artefakt geprueft wird.
+- Keine Quellen, Claims, SERP-Metriken, Keyword-Metriken, Nutzerfeedback-Daten oder Strategie-Freigaben erfinden.
+- Validator minimal erweitern, damit das Roadmap-Artefakt als erwartetes Artefakt geprueft wird.
 
 ## Primaere Review-Dateien
 
 - `external_review_packet/HANDOFF_LATEST_CONTEXT.md`
+- `docs/operations/ROADMAP_AND_MILESTONES_MVP_2026.md`
+- `docs/operations/MVP_OPERATIONAL_START_PLAN_BATCH_01.md`
+- `docs/operations/CONTENT_RESEARCH_OPERATING_PROTOCOL.md`
+- `docs/operations/CODEX_EXECUTOR_BOUNDARY.md`
+- `docs/operations/NEXT_STAGE_DECISION_TREE.md`
 - `docs/operations/operator_decisions/HUMAN_OPERATOR_DECISION_BATCH01_BRIEF002_002.md`
 - `docs/content/article_reviews/betrugsnachrichten-auf-whatsapp-erkennen.final-source-list-review.md`
 - `docs/content/article_reviews/betrugsnachrichten-auf-whatsapp-erkennen.final-legal-wording-review.md`
@@ -40,7 +45,7 @@ Dieses Review-Paket beschreibt den Patch `FINAL_ARTICLE_PREPARATION_OPERATOR_DEC
 
 ## Wichtiger Hinweis
 
-Human Operator decision record only. This permits final article preparation for Brief 002, but is not publish readiness, not Operator Acceptance and not publication approval.
+Roadmap planning only. This does not activate public launch, does not set publish readiness, does not approve monetization and does not create Operator Acceptance.
 
 ## Nicht in Scope
 
@@ -58,6 +63,9 @@ Human Operator decision record only. This permits final article preparation for 
 - Finale Quellenliste.
 - Finaler Artikeltext.
 - Public Launch.
+- Roadmap-Aktivierung.
+- Ranking-, Traffic-, Revenue-, Suchvolumen- oder Keyword-Difficulty-Claims.
+- Nutzerfeedback- oder E-Mail-Claims ohne echte Daten.
 - Produktive Website.
 - Monetarisierung.
 

@@ -5,19 +5,19 @@
 - project_name: Senioren-Hilfe Online
 - system_name: Senioren-Hilfe Online OS
 - system_short_name: SHO-OS
-- patch_title: FINAL_ARTICLE_PREPARATION_OPERATOR_DECISION_BRIEF_002
+- patch_title: ROADMAP_AND_MILESTONES_MVP_2026
 - external_review_verdict: ACCEPTED_WITH_FINDINGS
 
 SHO-OS ist ein reproduzierbares Content-, Trust- und Publishing-System fuer seniorengerechte digitale Alltagshilfe in Deutschland.
 
-Dieser Patch dokumentiert die ausdrueckliche Human-Operator-Entscheidung, dass Brief 002 in die finale Artikelvorbereitung gehen darf. Er setzt keine Publish Readiness, keine Operator Acceptance, keine Publikationsfreigabe und keine Batch-Stage-Hochstufung.
+Dieser Patch dokumentiert eine konservative Roadmap- und Milestone-Baseline fuer Juni 2026 bis November 2026. Er setzt keine Publish Readiness, keine Operator Acceptance, keine Public-Launch-Freigabe, keine Monetarisierung und keine Batch-Stage-Hochstufung.
 
 ## Git Traceability
 
 - branch: `main`
-- head_before: `495b2f4ca378e6a697923af61de2226013c1396b`
+- head_before: `ea39ed8d8f86dfaf758420ee39830a1ed3cd3826`
 - intended_head_after: `assigned_after_commit`
-- origin_main_before: `495b2f4ca378e6a697923af61de2226013c1396b`
+- origin_main_before: `ea39ed8d8f86dfaf758420ee39830a1ed3cd3826`
 - dirty_state_before: `clean`
 - dirty_state_after: `assigned_after_commit`
 - remote_url: `https://github.com/charizzzzard/Senioren-Hilfe-Online.git`
@@ -26,14 +26,15 @@ Hinweis: `head_after` wird nicht vorab als Commit-SHA eingetragen, weil ein Comm
 
 ## Scope Dieses Patches
 
-- Neues Operator Decision Record Artefakt erstellt: `docs/operations/operator_decisions/HUMAN_OPERATOR_DECISION_BATCH01_BRIEF002_002.md`.
-- `decision_status: proceed_to_final_article_preparation_not_publish_ready` dokumentiert.
-- Finale Artikelvorbereitung fuer Brief 002 als erlaubter naechster Arbeitsschritt dokumentiert.
-- `publish_readiness_status: not_ready`, `operator_acceptance_status: not_accepted` und `batch_stage_after_decision: claim_slots_mapped` bleiben gesetzt.
+- Neues Roadmap-Artefakt erstellt: `docs/operations/ROADMAP_AND_MILESTONES_MVP_2026.md`.
+- `roadmap_status: baseline_defined` dokumentiert.
+- Planning horizon `2026-06_to_2026-11` dokumentiert.
+- 30-/60-/90-Tage- und 6-Monats-Ziele, Milestones, Phase Plan, Quality Gates, SEO/Analytics Gates, Feedback Gates und Monetization Gates dokumentiert.
+- `public_launch_status: not_ready`, `publish_readiness_status: not_ready`, `monetization_status: not_approved` und `operator_acceptance_status: not_accepted` bleiben gesetzt.
 - Publish Readiness, approved_for_publish, Public Launch, Monetarisierung und Operator Acceptance bleiben ausgeschlossen.
 - `SHO-CLAIM-007` bleibt blockiert und WhatsApp block/report UI instructions bleiben ausgeschlossen.
-- `STATUS_REGISTRY.yaml` um den neuen `decision_status` ergaenzt.
-- `validate_content_contracts.py` um den zweiten Operator Decision Record erweitert.
+- `STATUS_REGISTRY.yaml` um `roadmap_status` ergaenzt.
+- `validate_content_contracts.py` um Roadmap-and-Milestones-MVP-2026-Checks erweitert.
 - Batch bleibt `current_stage: claim_slots_mapped`.
 
 ## Non-Scope
@@ -48,22 +49,28 @@ Hinweis: `head_after` wird nicht vorab als Commit-SHA eingetragen, weil ein Comm
 - Keine Operator Acceptance Simulation.
 - Keine Website.
 - Keine Monetarisierung.
+- Keine Roadmap-Aktivierung.
 - Keine finale Quellenliste.
 - Keine finale Citation-Freigabe.
 - Keine rechtliche Freigabe.
 - Keine Publikationsfreigabe.
 - Kein finaler Artikeltext.
 - Kein Public Launch.
+- Keine Ranking-, Traffic-, Revenue-, Suchvolumen- oder Keyword-Difficulty-Claims.
+- Keine Nutzerfeedback- oder E-Mail-Claims ohne echte Daten.
 
-## Operator Decision Summary
+## Roadmap Summary
 
-- operator_decision_id: `HUMAN_OPERATOR_DECISION_BATCH01_BRIEF002_002`
-- decision_status: `proceed_to_final_article_preparation_not_publish_ready`
+- roadmap_id: `SHO-ROADMAP-MVP-2026`
+- roadmap_status: `baseline_defined`
+- planning_horizon: `2026-06_to_2026-11`
+- operational_status: `internal_operations_ready`
+- public_launch_status: `not_ready`
 - operator_acceptance_status: `not_accepted`
 - publish_readiness_status: `not_ready`
-- batch_stage_after_decision: `claim_slots_mapped`
-- allowed_next_work: final article candidate text preparation for Brief 002 under existing claim/source boundaries.
-- blocked: publishing, publish candidate status, Operator Acceptance, Public Launch, monetization, WhatsApp UI block/report instructions.
+- monetization_status: `not_approved`
+- roadmap_content: 30-/60-/90-day goals, 6-month goals, M0-M7 milestones, phase plan, gates and KPI sections.
+- blocked: public launch, publish readiness, Operator Acceptance, monetization, affiliate, legal approval, WhatsApp UI block/report instructions, quantified SEO/user feedback claims without data.
 
 ## Guardrails
 
@@ -79,6 +86,8 @@ Hinweis: `head_after` wird nicht vorab als Commit-SHA eingetragen, weil ein Comm
 - Keine finale Citation-Freigabe.
 - Kein finaler Artikeltext.
 - Kein Public Launch.
+- Keine Monetarisierung.
+- Keine erfundenen SEO-/Feedback-Daten.
 - Batch Stage bleibt `claim_slots_mapped`.
 
 ## Validation Commands
@@ -93,8 +102,7 @@ Hinweis: `head_after` wird nicht vorab als Commit-SHA eingetragen, weil ein Comm
 
 ## Files Changed Summary
 
-- `docs/operations/operator_decisions/HUMAN_OPERATOR_DECISION_BATCH01_BRIEF002_002.md`
-- `docs/operations/operator_decisions/README.md`
+- `docs/operations/ROADMAP_AND_MILESTONES_MVP_2026.md`
 - `docs/operations/STATUS_REGISTRY.yaml`
 - `scripts/validate_content_contracts.py`
 - `docs/engineering/VALIDATION_REQUIREMENTS.md`
@@ -103,4 +111,4 @@ Hinweis: `head_after` wird nicht vorab als Commit-SHA eingetragen, weil ein Comm
 
 ## Keine finale Annahme durch Codex
 
-Human Operator decision recorded for final article preparation only, with no publish readiness, no Operator Acceptance, no public launch and no final article text in this patch. Finale Annahme bleibt beim Human Operator.
+Roadmap baseline recorded as planning only, with no public launch, no publish readiness, no monetization approval and no Operator Acceptance. Finale Annahme bleibt beim Human Operator.
