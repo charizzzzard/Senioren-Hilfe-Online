@@ -575,6 +575,18 @@ Das Review-Artefakt muss mindestens diese Finding IDs enthalten:
 - Die angewendete Scorecard darf keine numerischen SEO-, Analytics-, Feedback- oder Monetarisierungsdaten erfinden.
 - Der Final Article Candidate darf nach angewendeter Scorecard `review_status: scorecard_review_completed_not_publish_ready` und `scorecard_status: review_completed_not_publish_ready` tragen, bleibt aber `publish_readiness_status: not_ready`.
 
+## Human Operator Review Packet Final Article Candidate Brief 002 Checks
+
+- Fuer Brief 002 muss genau ein Human-Operator-Review-Packet existieren:
+  - `docs/operations/operator_review_packets/HUMAN_OPERATOR_REVIEW_PACKET_FINAL_ARTICLE_CANDIDATE_BRIEF_002.md`
+- Das Packet ist keine Operator Acceptance.
+- Das Packet ist keine Publish Readiness.
+- Das Packet genehmigt keinen Public Launch und keine Monetarisierung.
+- Das Packet muss `SHO-CLAIM-007` blockiert halten.
+- Das Packet muss WhatsApp block/report UI instructions verboten halten.
+- Das Packet muss moegliche Human-Operator-Outcomes und fuer Codex verbotene Outcomes dokumentieren.
+- Das Packet darf keine Analytics-, SEO-Metriken, Nutzerfeedback- oder Source-Daten erfinden.
+
 ## Reader Experience Quality Checks
 
 - Reader Experience ist ein eigenes Qualitaetsfeld neben Quellen, Claims, Safety, SEO und Accessibility.

@@ -71,6 +71,7 @@ REQUIRED_DOCS = [
     "docs/operations/operator_decisions/README.md",
     "docs/operations/operator_decisions/HUMAN_OPERATOR_DECISION_BATCH01_BRIEF002_001.md",
     "docs/operations/operator_decisions/HUMAN_OPERATOR_DECISION_BATCH01_BRIEF002_002.md",
+    "docs/operations/operator_review_packets/HUMAN_OPERATOR_REVIEW_PACKET_FINAL_ARTICLE_CANDIDATE_BRIEF_002.md",
     "docs/operations/MVP_OPERATIONAL_START_PLAN_BATCH_01.md",
     "docs/operations/ROADMAP_AND_MILESTONES_MVP_2026.md",
     "docs/operations/ARTICLE_READINESS_DASHBOARD_BATCH_01.md",
@@ -154,6 +155,9 @@ ARTICLE_QUALITY_SCORECARD_TEMPLATE_PATH = (
 )
 APPLIED_SCORECARD_BRIEF_002_PATH = (
     ROOT / "docs/content/article_quality_scorecards/betrugsnachrichten-auf-whatsapp-erkennen.final-article-candidate.scorecard.md"
+)
+HUMAN_OPERATOR_REVIEW_PACKET_FINAL_ARTICLE_CANDIDATE_BRIEF_002_PATH = (
+    ROOT / "docs/operations/operator_review_packets/HUMAN_OPERATOR_REVIEW_PACKET_FINAL_ARTICLE_CANDIDATE_BRIEF_002.md"
 )
 FINAL_ARTICLE_CANDIDATES_DIR = ROOT / "docs/content/final_article_candidates"
 FINAL_ARTICLE_CANDIDATE_BRIEF_002_PATH = (
@@ -586,9 +590,12 @@ def validate_protocol_automation_files(failures: list[str]) -> None:
             "- docs/content/final_article_candidates/betrugsnachrichten-auf-whatsapp-erkennen.final-article-candidate.md",
             "article_quality_scorecards:",
             "- docs/content/article_quality_scorecards/betrugsnachrichten-auf-whatsapp-erkennen.final-article-candidate.scorecard.md",
+            "operator_review_packets:",
+            "- docs/operations/operator_review_packets/HUMAN_OPERATOR_REVIEW_PACKET_FINAL_ARTICLE_CANDIDATE_BRIEF_002.md",
             "Brief 002 draft candidate fix re-review passed, but no publish readiness is set.",
             "Brief 002 final article candidate exists and is not publish-ready.",
             "Brief 002 final article candidate has scorecard review completed, but remains not publish-ready.",
+            "Brief 002 human operator review packet prepared, but no Operator Acceptance or Publish Readiness is set.",
             "No publish-ready final article exists.",
             "serp_status: observed",
             "serp_observation_status: operator_research_observed",
@@ -620,6 +627,10 @@ def validate_protocol_automation_files(failures: list[str]) -> None:
             "re_review_passed_not_publish_ready",
             "packet_status:",
             "prepared_for_operator_review",
+            "review_packet_status:",
+            "prepared_for_human_operator_review_not_acceptance",
+            "operator_review_outcome_status:",
+            "proceed_to_operator_review_candidate_not_publish_ready",
             "publish_readiness_status:",
             "not_ready",
             "decision_status:",
@@ -4496,6 +4507,200 @@ def validate_applied_scorecard_brief_002(failures: list[str]) -> int:
     return 1
 
 
+def validate_human_operator_review_packet_final_article_candidate_brief_002(
+    failures: list[str],
+) -> int:
+    if not HUMAN_OPERATOR_REVIEW_PACKET_FINAL_ARTICLE_CANDIDATE_BRIEF_002_PATH.exists():
+        failures.append(
+            "Missing Human Operator review packet for Final Article Candidate Brief 002: "
+            "docs/operations/operator_review_packets/HUMAN_OPERATOR_REVIEW_PACKET_FINAL_ARTICLE_CANDIDATE_BRIEF_002.md"
+        )
+        return 0
+
+    text = HUMAN_OPERATOR_REVIEW_PACKET_FINAL_ARTICLE_CANDIDATE_BRIEF_002_PATH.read_text(
+        encoding="utf-8"
+    )
+    fields = parse_frontmatter_fields(text)
+
+    required_frontmatter_fragments = [
+        "operator_review_packet_id: SHO-HUMAN-OPERATOR-REVIEW-PACKET-BATCH01-BRIEF002-FINAL-ARTICLE-CANDIDATE",
+        "batch_id: MVP_BATCH_01",
+        "linked_brief_id: SHO-MVP-BRIEF-002",
+        "linked_final_article_candidate: docs/content/final_article_candidates/betrugsnachrichten-auf-whatsapp-erkennen.final-article-candidate.md",
+        "linked_applied_scorecard: docs/content/article_quality_scorecards/betrugsnachrichten-auf-whatsapp-erkennen.final-article-candidate.scorecard.md",
+        "review_packet_status: prepared_for_human_operator_review_not_acceptance",
+        "operator_acceptance_status: not_accepted",
+        "publish_readiness_status: not_ready",
+        "public_launch_status: not_ready",
+        "monetization_status: not_approved",
+        "analytics_status: not_connected",
+        "user_feedback_status: not_collected",
+        "email_feedback_status: not_connected",
+        "reader_experience_feedback_status: not_collected",
+        "keyword_validation_status: not_available",
+    ]
+    required_sections = [
+        "Purpose",
+        "Explicit Non-Acceptance",
+        "Reviewed Artifacts",
+        "Current Article State",
+        "Scorecard Review Summary",
+        "Allowed Claims and Sources",
+        "Blocked Claims and Carry-Forward",
+        "Remaining Blockers",
+        "Human Operator Review Questions",
+        "Possible Human Operator Outcomes",
+        "Forbidden Outcomes",
+        "Required Follow-Up Depending on Decision",
+        "Guardrails Confirmed",
+    ]
+    required_non_acceptance_fragments = [
+        "This packet is not Operator Acceptance.",
+        "This packet is not Publish Readiness.",
+        "This packet does not approve public launch.",
+        "This packet does not approve monetization.",
+        "This packet does not approve legal wording.",
+        "This packet does not unlock SHO-CLAIM-007.",
+        "This packet does not approve WhatsApp block/report UI instructions.",
+    ]
+    required_human_outcomes = [
+        "request_revision",
+        "request_accessibility_review",
+        "request_final_source_metadata_review",
+        "proceed_to_operator_review_candidate_not_publish_ready",
+        "hold_blocked",
+    ]
+    required_forbidden_codex_outcomes = [
+        "approved_for_publish",
+        "publish_ready",
+        "operator_accepted",
+        "public_launch_ready",
+        "monetization_approved",
+    ]
+    required_review_questions = [
+        "Ist der Artikel aus Sicht der Zielgruppe ruhig, wuerdevoll und hilfreich genug?",
+        "Trifft der Artikel die reale Situation aelterer Leserinnen und Leser?",
+        "Ist die Balance aus Einfachheit und Anspruch angemessen?",
+        "Sind die Safety-Hinweise ausreichend ruhig und klar?",
+        "Soll der Artikel in eine gezielte Revision gehen?",
+        "Soll eine zusaetzliche Accessibility-/Final-Source-Metadata-Review vorgeschaltet werden?",
+        "Soll der Artikel als Human-Operator-Review-Kandidat weitergefuehrt werden, weiterhin nicht publish-ready?",
+    ]
+    required_guardrail_fragments = [
+        "article_status: final_article_candidate_not_publish_ready",
+        "review_status: scorecard_review_completed_not_publish_ready",
+        "scorecard_status: review_completed_not_publish_ready",
+        "scorecard_recommendation_status: ready_for_next_internal_review",
+        "legal_approval_status: not_approved",
+        "SHO-CLAIM-004",
+        "SHO-CLAIM-005",
+        "SHO-CLAIM-006",
+        "SHO-SRC-005",
+        "SHO-SRC-006",
+        "SHO-SRC-007",
+        "SHO-CLAIM-007 remains blocked",
+        "WhatsApp block/report UI instructions remain forbidden",
+        "No new claims added.",
+        "No new sources added.",
+        "No source metadata invented.",
+        "No SEO, analytics, feedback, revenue or conversion data invented.",
+    ]
+    required_fragments = (
+        required_frontmatter_fragments
+        + required_sections
+        + required_non_acceptance_fragments
+        + required_human_outcomes
+        + required_forbidden_codex_outcomes
+        + required_review_questions
+        + required_guardrail_fragments
+    )
+    for fragment in required_fragments:
+        if fragment not in text:
+            failures.append(
+                "Human Operator review packet Final Article Candidate Brief 002 must contain: "
+                f"{fragment}"
+            )
+
+    if (
+        fields.get("operator_review_packet_id")
+        != "SHO-HUMAN-OPERATOR-REVIEW-PACKET-BATCH01-BRIEF002-FINAL-ARTICLE-CANDIDATE"
+    ):
+        failures.append("Human Operator review packet Brief 002 has unexpected operator_review_packet_id")
+    if normalized(fields.get("batch_id")) != "mvp_batch_01":
+        failures.append("Human Operator review packet Brief 002 must have batch_id: MVP_BATCH_01")
+    if fields.get("linked_brief_id") != "SHO-MVP-BRIEF-002":
+        failures.append("Human Operator review packet Brief 002 must have linked_brief_id: SHO-MVP-BRIEF-002")
+    if normalized(fields.get("review_packet_status")) != "prepared_for_human_operator_review_not_acceptance":
+        failures.append(
+            "Human Operator review packet Brief 002 must have review_packet_status: "
+            "prepared_for_human_operator_review_not_acceptance"
+        )
+    if normalized(fields.get("operator_acceptance_status")) != "not_accepted":
+        failures.append("Human Operator review packet Brief 002 must keep operator_acceptance_status: not_accepted")
+    if normalized(fields.get("publish_readiness_status")) != "not_ready":
+        failures.append("Human Operator review packet Brief 002 must keep publish_readiness_status: not_ready")
+    if normalized(fields.get("public_launch_status")) != "not_ready":
+        failures.append("Human Operator review packet Brief 002 must keep public_launch_status: not_ready")
+    if normalized(fields.get("monetization_status")) != "not_approved":
+        failures.append("Human Operator review packet Brief 002 must keep monetization_status: not_approved")
+    if normalized(fields.get("analytics_status")) != "not_connected":
+        failures.append("Human Operator review packet Brief 002 must keep analytics_status: not_connected")
+    if normalized(fields.get("user_feedback_status")) != "not_collected":
+        failures.append("Human Operator review packet Brief 002 must keep user_feedback_status: not_collected")
+    if normalized(fields.get("email_feedback_status")) != "not_connected":
+        failures.append("Human Operator review packet Brief 002 must keep email_feedback_status: not_connected")
+    if normalized(fields.get("reader_experience_feedback_status")) != "not_collected":
+        failures.append(
+            "Human Operator review packet Brief 002 must keep "
+            "reader_experience_feedback_status: not_collected"
+        )
+    if normalized(fields.get("keyword_validation_status")) != "not_available":
+        failures.append("Human Operator review packet Brief 002 must keep keyword_validation_status: not_available")
+
+    batch_text = BATCH_MANIFEST_PATH.read_text(encoding="utf-8")
+    if "operator_review_packets:" not in batch_text:
+        failures.append("Batch manifest must contain operator_review_packets section")
+    if "- docs/operations/operator_review_packets/HUMAN_OPERATOR_REVIEW_PACKET_FINAL_ARTICLE_CANDIDATE_BRIEF_002.md" not in batch_text:
+        failures.append("Batch manifest must link Human Operator review packet Brief 002")
+    if "Brief 002 human operator review packet prepared, but no Operator Acceptance or Publish Readiness is set." not in batch_text:
+        failures.append("Batch manifest must carry Human Operator review packet non-acceptance blocker")
+
+    dashboard_text = ARTICLE_READINESS_DASHBOARD_PATH.read_text(encoding="utf-8")
+    if "human operator review packet prepared not acceptance" not in dashboard_text:
+        failures.append("Article readiness dashboard must mention human operator review packet prepared not acceptance")
+    if "SHO-CLAIM-007 remains blocked" not in dashboard_text:
+        failures.append("Article readiness dashboard must keep SHO-CLAIM-007 blocked")
+
+    forbidden_activation_markers = [
+        "approved_for_publish: true",
+        "publish_ready: true",
+        "operator_acceptance_status: accepted",
+        "publish_readiness_status: approved_for_publish",
+        "public_launch_status: ready",
+        "public_launch_status: launched",
+        "monetization_status: approved",
+        "analytics_status: connected",
+        "user_feedback_status: collected",
+        "email_feedback_status: connected",
+        "reader_experience_feedback_status: collected",
+        "keyword_validation_status: documented",
+        "review_packet_status: accepted",
+        "review_packet_status: approved_for_publish",
+        "operator_review_outcome_status: approved_for_publish",
+        "operator_review_outcome_status: publish_ready",
+        "operator_review_outcome_status: operator_accepted",
+    ]
+    lower_text = text.lower()
+    for fragment in forbidden_activation_markers:
+        if fragment in lower_text:
+            failures.append(
+                "Human Operator review packet Brief 002 must not contain forbidden activation marker: "
+                f"{fragment}"
+            )
+
+    return 1
+
+
 def main() -> int:
     failures: list[str] = []
 
@@ -4532,6 +4737,9 @@ def main() -> int:
     content_quality_scorecard_template_count = validate_content_quality_scorecard_template_batch_01(failures)
     final_article_candidate_brief_002_count = validate_final_article_candidate_brief_002(failures)
     applied_scorecard_brief_002_count = validate_applied_scorecard_brief_002(failures)
+    human_operator_review_packet_final_article_candidate_brief_002_count = (
+        validate_human_operator_review_packet_final_article_candidate_brief_002(failures)
+    )
 
     if failures:
         print("FAIL: SHO-OS content contract validation failed")
@@ -4572,6 +4780,10 @@ def main() -> int:
     print(f"- Batch 01 content quality scorecard template files: {content_quality_scorecard_template_count}")
     print(f"- Batch 01 final article candidate Brief 002 files: {final_article_candidate_brief_002_count}")
     print(f"- Batch 01 applied scorecard Brief 002 files: {applied_scorecard_brief_002_count}")
+    print(
+        "- Batch 01 Human Operator review packet Final Article Candidate Brief 002 files: "
+        f"{human_operator_review_packet_final_article_candidate_brief_002_count}"
+    )
     print("- YAML/frontmatter parsing: dependency-free and text-based")
     return 0
 

@@ -171,6 +171,33 @@ packet_status:
     - approved_for_publish
     - publish_ready
 
+review_packet_status:
+  allowed:
+    - prepared_for_human_operator_review_not_acceptance
+    - needs_revision
+    - blocked
+    - superseded
+  forbidden_by_codex:
+    - accepted
+    - operator_accepted
+    - approved_for_publish
+    - publish_ready
+    - public_launch_ready
+
+operator_review_outcome_status:
+  allowed:
+    - request_revision
+    - request_accessibility_review
+    - request_final_source_metadata_review
+    - proceed_to_operator_review_candidate_not_publish_ready
+    - hold_blocked
+  forbidden_by_codex:
+    - approved_for_publish
+    - publish_ready
+    - operator_accepted
+    - public_launch_ready
+    - monetization_approved
+
 publish_readiness_status:
   allowed:
     - not_ready

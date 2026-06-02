@@ -40,7 +40,7 @@ Dieses Dashboard ist ein internes Steuerungsartefakt fuer `MVP_BATCH_01`. Es mac
 ## Executive Summary
 
 - Brief 001 ist blocked_before_draft, weil WhatsApp line-level evidence fehlt.
-- Brief 002 ist final_article_candidate_prepared_not_publish_ready, aber nicht publish-ready.
+- Brief 002 ist final_article_candidate_prepared_not_publish_ready, mit Scorecard Review und Human-Operator-Review-Packet vorbereitet, aber nicht publish-ready.
 - Brief 003 ist draft_scaffold_only und hat noch keinen Text Candidate.
 - Brief 004 ist held_for_methodology wegen commercial/affiliate risk und offener product recommendation methodology.
 - Alle User-Perspective-, Reader-Experience-, Accessibility- und Feedback-Status sind Platzhalter, keine abgeschlossenen Reviews.
@@ -50,7 +50,7 @@ Dieses Dashboard ist ein internes Steuerungsartefakt fuer `MVP_BATCH_01`. Es mac
 | brief_id | slug_or_title | current_artifact_level | current_stage_effect | allowed_next_step | allowed_claims | blocked_claims | source_state | review_state | user_perspective_status | reader_experience_status | accessibility_status | feedback_status | publish_readiness | operator_acceptance | primary_blockers |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | SHO-MVP-BRIEF-001 | WhatsApp fuer Senioren sicher einrichten | blocked_before_draft | no_stage_change_claim_slots_mapped | WhatsApp line evidence/manual review only | none | WhatsApp platform claims blocked | WhatsApp platform sources remain candidate / needs_manual_review | manual review still blocked before draft | pending_quality_loop_baseline | pending_reader_experience_baseline | pending_accessibility_standard | feedback_not_collected | not_ready | not_accepted | WhatsApp line-level evidence unavailable; WhatsApp platform sources remain candidate / needs_manual_review; WhatsApp UI-sensitive instructions remain blocked |
-| SHO-MVP-BRIEF-002 | Betrugsnachrichten auf WhatsApp erkennen | final_article_candidate_prepared_not_publish_ready | no_stage_change_claim_slots_mapped | next internal review after scorecard | SHO-CLAIM-004; SHO-CLAIM-005; SHO-CLAIM-006 | SHO-CLAIM-007 | SHO-SRC-005; SHO-SRC-006; SHO-SRC-007 | final article candidate exists; scorecard review completed not publish-ready; draft candidate exists; re-review passed not publish-ready; final source list review exists; final legal wording review exists; operator decision allowed final article preparation only | pending_quality_loop_baseline | pending_reader_experience_baseline | pending_accessibility_standard | feedback_not_collected | not_ready | not_accepted | SHO-CLAIM-007 remains blocked; no WhatsApp block/report UI instructions; no publish readiness; no Operator Acceptance |
+| SHO-MVP-BRIEF-002 | Betrugsnachrichten auf WhatsApp erkennen | final_article_candidate_prepared_not_publish_ready | no_stage_change_claim_slots_mapped | next internal review after scorecard; human operator packet prepared not acceptance | SHO-CLAIM-004; SHO-CLAIM-005; SHO-CLAIM-006 | SHO-CLAIM-007 | SHO-SRC-005; SHO-SRC-006; SHO-SRC-007 | final article candidate exists; scorecard review completed not publish-ready; human operator review packet prepared not acceptance; draft candidate exists; re-review passed not publish-ready; final source list review exists; final legal wording review exists; operator decision allowed final article preparation only | pending_quality_loop_baseline | pending_reader_experience_baseline | pending_accessibility_standard | feedback_not_collected | not_ready | not_accepted | SHO-CLAIM-007 remains blocked; no WhatsApp block/report UI instructions; no publish readiness; no Operator Acceptance |
 | SHO-MVP-BRIEF-003 | Smartphone-Schriftgroesse und Bedienhilfen einstellen | draft_scaffold_only | no_stage_change_claim_slots_mapped | article draft candidate preparation only if existing claim/source boundaries are preserved | SHO-CLAIM-008; SHO-CLAIM-010; SHO-CLAIM-009 support_only | none at current mapping level | Android/iPhone source boundaries mapped; support_only navigation remains limited | scaffold exists; no text candidate yet | pending_quality_loop_baseline | pending_reader_experience_baseline | pending_accessibility_standard | feedback_not_collected | not_ready | not_accepted | screenshot/device-version validation remains open; no text candidate yet |
 | SHO-MVP-BRIEF-004 | Smartphone fuer Senioren einrichten | held_for_methodology | no_stage_change_claim_slots_mapped | product/monetization methodology review before article drafting | none | commercial/product recommendation claims not draft-ready | product/source methodology not approved | held before article drafting | pending_quality_loop_baseline | pending_reader_experience_baseline | pending_accessibility_standard | feedback_not_collected | not_ready | not_accepted | commercial/affiliate risk; product recommendation methodology open; no monetization approval |
 
@@ -67,11 +67,11 @@ Dieses Dashboard ist ein internes Steuerungsartefakt fuer `MVP_BATCH_01`. Es mac
 ### SHO-MVP-BRIEF-002
 
 - current_artifact_level: final_article_candidate_prepared_not_publish_ready
-- allowed_next_step: next internal review after scorecard
+- allowed_next_step: next internal review after scorecard; human operator packet prepared not acceptance
 - allowed_claims: SHO-CLAIM-004, SHO-CLAIM-005, SHO-CLAIM-006
 - blocked_claims: SHO-CLAIM-007
 - source_state: SHO-SRC-005, SHO-SRC-006, SHO-SRC-007
-- review_state: final article candidate exists; scorecard review completed not publish-ready; draft candidate exists; re-review passed not publish-ready; final source list review exists; final legal wording review exists; operator decision allowed final article preparation only
+- review_state: final article candidate exists; scorecard review completed not publish-ready; human operator review packet prepared not acceptance; draft candidate exists; re-review passed not publish-ready; final source list review exists; final legal wording review exists; operator decision allowed final article preparation only
 - publish_readiness: not_ready
 - operator_acceptance: not_accepted
 

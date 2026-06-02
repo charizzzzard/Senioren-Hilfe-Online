@@ -2,24 +2,25 @@
 
 ## Zweck dieses Review-Pakets
 
-Dieses Review-Paket beschreibt den Patch `FINAL_ARTICLE_CANDIDATE_SCORECARD_REVIEW_BRIEF_002`. Es dokumentiert eine angewendete Content Quality Scorecard fuer den internen Final Article Candidate zu Brief 002.
+Dieses Review-Paket beschreibt den Patch `SYNC_SCORECARD_REVIEW_AND_PREPARE_HUMAN_OPERATOR_REVIEW_PACKET_BRIEF_002`.
 
-Die Scorecard ist ein interner Review-Schritt. Sie setzt keine Publish Readiness, keine Operator Acceptance, keine rechtliche Freigabe, keinen Public Launch und keine Monetarisierung.
+Zuerst wurde der bereits lokal committed Scorecard-Review-Commit `4f3b97ab6edac99299e67a10b80b3b4442bc0247` nach `origin/main` synchronisiert. Danach wurde ein Human-Operator-Review-Packet fuer den internen Final Article Candidate zu Brief 002 vorbereitet.
+
+Das Packet ist ein interner Review-Schritt. Es setzt keine Publish Readiness, keine Operator Acceptance, keine rechtliche Freigabe, keinen Public Launch und keine Monetarisierung.
 
 ## Scope dieses Patches
 
-- Genau eine angewendete Scorecard erstellen:
-  - `docs/content/article_quality_scorecards/betrugsnachrichten-auf-whatsapp-erkennen.final-article-candidate.scorecard.md`
-- Final Article Candidate mit `linked_applied_scorecard` verlinken.
-- Final Article Candidate auf `review_status: scorecard_review_completed_not_publish_ready` setzen.
-- Final Article Candidate auf `scorecard_status: review_completed_not_publish_ready` setzen.
-- Batch Manifest um `article_quality_scorecards` ergaenzen.
-- Article Readiness Dashboard fuer Brief 002 auf `scorecard review completed not publish-ready` aktualisieren.
-- Status Registry und Validator minimal fuer den angewendeten Scorecard-Review erweitern.
+- Scorecard-Review-Commit nach `origin/main` synchronisieren.
+- Genau ein Human-Operator-Review-Packet erstellen:
+  - `docs/operations/operator_review_packets/HUMAN_OPERATOR_REVIEW_PACKET_FINAL_ARTICLE_CANDIDATE_BRIEF_002.md`
+- Batch Manifest um `operator_review_packets` ergaenzen.
+- Article Readiness Dashboard fuer Brief 002 um `human operator review packet prepared not acceptance` aktualisieren.
+- Status Registry und Validator minimal fuer das Human-Operator-Review-Packet erweitern.
 
 ## Primaere Review-Dateien
 
 - `external_review_packet/HANDOFF_LATEST_CONTEXT.md`
+- `docs/operations/operator_review_packets/HUMAN_OPERATOR_REVIEW_PACKET_FINAL_ARTICLE_CANDIDATE_BRIEF_002.md`
 - `docs/content/article_quality_scorecards/betrugsnachrichten-auf-whatsapp-erkennen.final-article-candidate.scorecard.md`
 - `docs/content/final_article_candidates/betrugsnachrichten-auf-whatsapp-erkennen.final-article-candidate.md`
 - `docs/content/article_quality_scorecards/CONTENT_QUALITY_SCORECARD_TEMPLATE_BATCH_01.md`
@@ -35,7 +36,7 @@ Die Scorecard ist ein interner Review-Schritt. Sie setzt keine Publish Readiness
 
 ## Wichtiger Hinweis
 
-Applied scorecard review only. This is not publish readiness, not Operator Acceptance, not public launch, not monetization approval and not legal approval.
+Human Operator Review Packet preparation only. This is not publish readiness, not Operator Acceptance, not public launch, not monetization approval and not legal approval.
 
 ## Nicht in Scope
 
@@ -58,6 +59,7 @@ Applied scorecard review only. This is not publish readiness, not Operator Accep
 - Freischaltung von `SHO-CLAIM-007`.
 - Rechtliche Freigabe.
 - Finale Quellenmetadaten.
+ - Human-Operator-Entscheidung oder Annahme.
 
 ## Validation Commands
 
