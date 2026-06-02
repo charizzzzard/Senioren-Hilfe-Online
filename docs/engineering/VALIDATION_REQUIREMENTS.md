@@ -533,6 +533,19 @@ Das Review-Artefakt muss mindestens diese Finding IDs enthalten:
 - Vor Live-Nutzung sind Privacy-Review und Human-Operator-Entscheidung erforderlich.
 - Das Artefakt aktiviert keine Analytics, keine SEO-Metriken, keine Monetarisierung, keine Publikation und keine Operator Acceptance.
 
+## Content Quality Scorecard Template Batch 01 Checks
+
+- Fuer Batch 01 muss `docs/content/article_quality_scorecards/README.md` existieren.
+- Fuer Batch 01 muss `docs/content/article_quality_scorecards/CONTENT_QUALITY_SCORECARD_TEMPLATE_BATCH_01.md` existieren.
+- Das Scorecard Template ist keine angewendete Review.
+- Das Scorecard Template setzt keine Publish Readiness.
+- Das Scorecard Template erstellt keine Operator Acceptance.
+- Das Scorecard Template aktiviert keine Analytics, kein Feedback, keine SEO-Metriken und keine Monetarisierung.
+- Das Scorecard Template muss Core-Quality-, User-Perspective- und Reader-Experience-Felder enthalten.
+- Das Scorecard Template muss das Editorial Principle enthalten, dass einfache Sprache nicht anspruchslos, kindlich oder bevormundend werden darf.
+- Das Scorecard Template muss SEO-, Feedback- und Monetarisierungsdaten als nicht verfuegbar halten, solange diese Daten nicht spaeter separat dokumentiert wurden.
+- Ein Score von 3 darf keine Publish Readiness, keine rechtliche Freigabe und keine Operator Acceptance implizieren.
+
 ## Reader Experience Quality Checks
 
 - Reader Experience ist ein eigenes Qualitaetsfeld neben Quellen, Claims, Safety, SEO und Accessibility.

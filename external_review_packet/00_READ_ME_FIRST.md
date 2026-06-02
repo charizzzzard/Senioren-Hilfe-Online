@@ -2,35 +2,30 @@
 
 ## Zweck dieses Review-Pakets
 
-Dieses Review-Paket beschreibt den Patch `CONTENT_QUALITY_USER_PERSPECTIVE_READER_EXPERIENCE_AND_FEEDBACK_LOOP_BASELINE`. Es dokumentiert eine interne Baseline fuer Content-Qualitaet, Zielgruppenperspektive, Reader Experience und spaetere Feedback-Loops, ohne Live-Feedback, Analytics, Public Launch, Publish Readiness, Monetarisierung oder Operator Acceptance zu aktivieren.
+Dieses Review-Paket beschreibt den Patch `CONTENT_QUALITY_SCORECARD_TEMPLATE_BATCH_01`. Es dokumentiert ein wiederverwendbares Content Quality Scorecard Template fuer `MVP_BATCH_01`, ohne eine angewendete Artikelbewertung, Publish Readiness, Operator Acceptance, Live-Feedback, Analytics, SEO-Metriken oder Monetarisierung zu setzen.
 
 ## Scope dieses Patches
 
-- Neues Operations-Artefakt: `docs/operations/CONTENT_QUALITY_USER_PERSPECTIVE_READER_EXPERIENCE_AND_FEEDBACK_LOOP_BASELINE.md`.
-- Neues Feedback-Protokoll-Artefakt: `docs/operations/USER_FEEDBACK_INTAKE_PROTOCOL_BASELINE.md`.
-- `loop_status: baseline_defined_not_live` dokumentieren.
-- `reader_experience_status: baseline_defined` dokumentieren.
-- `user_feedback_status: not_collected` dokumentieren.
-- `email_feedback_status: not_connected` dokumentieren.
-- `analytics_status: not_connected` dokumentieren.
-- `keyword_validation_status: not_available` dokumentieren.
-- Reader-Experience-, User-Perspective- und Feedback-Qualitaetsdimensionen als spaetere Review-Baseline definieren.
-- Keine echten Nutzerfeedback-, E-Mail-, Analytics-, SEO-, Keyword- oder Monetarisierungsdaten erfinden.
-- `SHO-CLAIM-007` weiter blockiert halten.
-- Public Launch, Publish Readiness, Monetarisierung und Operator Acceptance ausdruecklich ausschliessen.
-- Validator minimal erweitern, damit beide Baseline-Artefakte als erwartete Artefakte geprueft werden.
+- Neuer Ordner: `docs/content/article_quality_scorecards/`.
+- Neues README: `docs/content/article_quality_scorecards/README.md`.
+- Neues Scorecard Template: `docs/content/article_quality_scorecards/CONTENT_QUALITY_SCORECARD_TEMPLATE_BATCH_01.md`.
+- `scorecard_status: template_defined_not_applied` dokumentieren.
+- Core-Quality-, User-Perspective- und Reader-Experience-Felder als Review-Raster dokumentieren.
+- Safety-/Trust-, Accessibility-, SEO/Search-Intent-, Freshness-, Monetization-Risk-, Feedback- und Publish-Blocker-Felder als Platzhalter dokumentieren.
+- Keine Score-Werte erfinden.
+- Keine echten Nutzerfeedback-, E-Mail-, Analytics-, SEO-, Keyword- oder Monetarisierungsdaten behaupten.
+- `docs/operations/ARTICLE_READINESS_DASHBOARD_BATCH_01.md` minimal um `CONTENT_QUALITY_SCORECARD_TEMPLATE_BATCH_01` als Allowed Next Work ergaenzen.
+- Validator minimal erweitern, damit das Scorecard Template als erwartetes Artefakt geprueft wird.
 
 ## Primaere Review-Dateien
 
 - `external_review_packet/HANDOFF_LATEST_CONTEXT.md`
+- `docs/content/article_quality_scorecards/README.md`
+- `docs/content/article_quality_scorecards/CONTENT_QUALITY_SCORECARD_TEMPLATE_BATCH_01.md`
 - `docs/operations/CONTENT_QUALITY_USER_PERSPECTIVE_READER_EXPERIENCE_AND_FEEDBACK_LOOP_BASELINE.md`
 - `docs/operations/USER_FEEDBACK_INTAKE_PROTOCOL_BASELINE.md`
 - `docs/operations/ARTICLE_READINESS_DASHBOARD_BATCH_01.md`
 - `docs/operations/ROADMAP_AND_MILESTONES_MVP_2026.md`
-- `docs/operations/MVP_OPERATIONAL_START_PLAN_BATCH_01.md`
-- `docs/operations/CONTENT_RESEARCH_OPERATING_PROTOCOL.md`
-- `docs/operations/CODEX_EXECUTOR_BOUNDARY.md`
-- `docs/operations/NEXT_STAGE_DECISION_TREE.md`
 - `docs/content/batches/MVP_BATCH_01.yaml`
 - `docs/operations/STATUS_REGISTRY.yaml`
 - `scripts/validate_content_contracts.py`
@@ -39,10 +34,12 @@ Dieses Review-Paket beschreibt den Patch `CONTENT_QUALITY_USER_PERSPECTIVE_READE
 
 ## Wichtiger Hinweis
 
-Content quality, user perspective, reader experience and feedback loop baseline only. This is internal baseline documentation, not live optimization, not live analytics, not real user feedback, not public launch, not publish readiness, not monetization approval and not Operator Acceptance.
+Content quality scorecard template only. This is a reusable review raster, not an applied review, not publish readiness, not Operator Acceptance, not live analytics, not live feedback, not SEO metrics and not monetization approval.
 
 ## Nicht in Scope
 
+- Angewendete Artikelbewertung.
+- Score-Werte fuer reale Artikel.
 - Neue Artikelabschnitte.
 - Neue Quellen.
 - Neue Claims.

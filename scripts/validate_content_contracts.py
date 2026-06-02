@@ -76,6 +76,8 @@ REQUIRED_DOCS = [
     "docs/operations/ARTICLE_READINESS_DASHBOARD_BATCH_01.md",
     "docs/operations/CONTENT_QUALITY_USER_PERSPECTIVE_READER_EXPERIENCE_AND_FEEDBACK_LOOP_BASELINE.md",
     "docs/operations/USER_FEEDBACK_INTAKE_PROTOCOL_BASELINE.md",
+    "docs/content/article_quality_scorecards/README.md",
+    "docs/content/article_quality_scorecards/CONTENT_QUALITY_SCORECARD_TEMPLATE_BATCH_01.md",
     "docs/content/BATCH_WORKFLOW_TEMPLATE.md",
     "docs/operations/NEXT_STAGE_DECISION_TREE.md",
     "docs/operations/STATUS_REGISTRY.yaml",
@@ -144,6 +146,9 @@ CONTENT_QUALITY_FEEDBACK_LOOP_PATH = (
     ROOT / "docs/operations/CONTENT_QUALITY_USER_PERSPECTIVE_READER_EXPERIENCE_AND_FEEDBACK_LOOP_BASELINE.md"
 )
 USER_FEEDBACK_INTAKE_PROTOCOL_PATH = ROOT / "docs/operations/USER_FEEDBACK_INTAKE_PROTOCOL_BASELINE.md"
+ARTICLE_QUALITY_SCORECARD_TEMPLATE_PATH = (
+    ROOT / "docs/content/article_quality_scorecards/CONTENT_QUALITY_SCORECARD_TEMPLATE_BATCH_01.md"
+)
 SOURCE_REVIEW_PATH = ROOT / "docs/content/source_reviews/whatsapp-source-manual-review-batch-01.md"
 SOURCE_REVIEW_REL_PATH = "docs/content/source_reviews/whatsapp-source-manual-review-batch-01.md"
 EVIDENCE_CAPTURE_PATH = ROOT / "docs/content/evidence_captures/whatsapp-line-evidence-capture-batch-01.md"
@@ -636,6 +641,10 @@ def validate_protocol_automation_files(failures: list[str]) -> None:
             "analytics_status:",
             "keyword_validation_status:",
             "not_available",
+            "scorecard_status:",
+            "template_defined_not_applied",
+            "scorecard_recommendation_status:",
+            "candidate_for_human_operator_review_not_publish_ready",
             "citation_text_status:",
             "legal_wording_review_status:",
             "wording_review_prepared_no_legal_approval",
@@ -3337,6 +3346,7 @@ def validate_article_readiness_dashboard(failures: list[str]) -> int:
         "feedback_not_collected",
         "Einfache Sprache bedeutet nicht anspruchslose Sprache. Inhalte sollen klar, freundlich und zugänglich sein, aber ältere Leserinnen und Leser als erwachsene, erfahrene und interessierte Menschen ernst nehmen.",
         "CONTENT_QUALITY_USER_PERSPECTIVE_READER_EXPERIENCE_AND_FEEDBACK_LOOP_BASELINE",
+        "CONTENT_QUALITY_SCORECARD_TEMPLATE_BATCH_01",
         "FINAL_ARTICLE_CANDIDATE_BRIEF_002",
         "BRIEF_003_ARTICLE_DRAFT_CANDIDATE",
         "WEBSITE_INFORMATION_ARCHITECTURE_MVP",
@@ -3752,6 +3762,256 @@ def validate_user_feedback_intake_protocol_baseline(failures: list[str]) -> int:
     return 1
 
 
+def validate_content_quality_scorecard_template_batch_01(failures: list[str]) -> int:
+    readme_path = ROOT / "docs/content/article_quality_scorecards/README.md"
+    if not readme_path.exists():
+        failures.append("Missing article quality scorecards README: docs/content/article_quality_scorecards/README.md")
+        return 0
+    if not ARTICLE_QUALITY_SCORECARD_TEMPLATE_PATH.exists():
+        failures.append(
+            "Missing content quality scorecard template: "
+            "docs/content/article_quality_scorecards/CONTENT_QUALITY_SCORECARD_TEMPLATE_BATCH_01.md"
+        )
+        return 0
+
+    readme_text = readme_path.read_text(encoding="utf-8")
+    template_text = ARTICLE_QUALITY_SCORECARD_TEMPLATE_PATH.read_text(encoding="utf-8")
+    fields = parse_frontmatter_fields(template_text)
+
+    readme_required_fragments = [
+        "Article Quality Scorecards",
+        "Scorecards sind Bewertungs- und Review-Raster.",
+        "Keine Scorecard setzt `approved_for_publish`.",
+        "Der Human Operator bleibt finale Annahmeautorität.",
+    ]
+    for fragment in readme_required_fragments:
+        if fragment not in readme_text:
+            failures.append(f"Article quality scorecards README must contain: {fragment}")
+
+    required_frontmatter_fragments = [
+        "scorecard_template_id: SHO-CONTENT-QUALITY-SCORECARD-TEMPLATE-BATCH01",
+        "batch_id: MVP_BATCH_01",
+        "scorecard_status: template_defined_not_applied",
+        "loop_status: baseline_defined_not_live",
+        "user_feedback_status: not_collected",
+        "email_feedback_status: not_connected",
+        "reader_experience_feedback_status: not_collected",
+        "analytics_status: not_connected",
+        "keyword_validation_status: not_available",
+        "monetization_status: not_approved",
+        "operator_acceptance_status: not_accepted",
+        "publish_readiness_status: not_ready",
+        "public_launch_status: not_ready",
+    ]
+    required_sections = [
+        "Purpose",
+        "Scope",
+        "Explicit Non-Acceptance",
+        "How To Use This Scorecard",
+        "Required Article Metadata",
+        "Score Scale",
+        "Core Quality Score Fields",
+        "User Perspective Score Fields",
+        "Reader Experience Score Fields",
+        "Safety and Trust Fields",
+        "Accessibility Fields",
+        "SEO/Search Intent Fields",
+        "Freshness and Refresh Fields",
+        "Monetization Risk Fields",
+        "Feedback Fields",
+        "Publish Blocker Fields",
+        "Required Reviewer Notes",
+        "Required Human Decisions",
+        "Output Recommendation Values",
+    ]
+    required_placeholders = [
+        "TBD_BY_REVIEW",
+        "NOT_APPLIED",
+        "NOT_AVAILABLE",
+        "BLOCKED",
+        "NEEDS_REVIEW",
+        "PASS",
+        "FAIL",
+    ]
+    required_article_metadata_fields = [
+        "article_slug",
+        "linked_brief_id",
+        "linked_article_candidate_path",
+        "review_date",
+        "reviewer_role",
+        "source_pack_path",
+        "claim_map_path",
+        "article_readiness_dashboard_path",
+        "quality_loop_baseline_path",
+        "operator_acceptance_status",
+        "publish_readiness_status",
+    ]
+    required_score_scale = [
+        "0 = blocked / missing / unsafe",
+        "1 = weak / needs major revision",
+        "2 = usable but needs review or improvement",
+        "3 = strong for current stage, not automatically publish-ready",
+        "A score of 3 does not imply publish readiness, legal approval or Operator Acceptance.",
+    ]
+    required_core_quality_fields = [
+        "evidence_quality",
+        "claim_source_alignment",
+        "senior_readability",
+        "safety_language",
+        "accessibility",
+        "search_intent_fit",
+        "freshness",
+        "trust_risk",
+        "monetization_risk",
+        "publish_blockers",
+    ]
+    required_user_perspective_fields = [
+        "target_user_empathy_fit",
+        "caregiver_perspective_fit",
+        "real_world_situation_fit",
+        "confusion_prevention",
+        "user_question_coverage",
+        "emotional_safety",
+        "practical_next_step_clarity",
+        "print_or_forward_usefulness",
+        "feedback_learnability",
+    ]
+    required_reader_experience_fields = [
+        "reader_experience_quality",
+        "reading_pleasure",
+        "text_flow",
+        "respectful_depth",
+        "adult_reader_tone",
+        "clarity_without_oversimplification",
+        "emotional_warmth",
+        "topic_engagement",
+        "narrative_coherence",
+        "calm_confident_voice",
+    ]
+    required_safety_trust_checks = [
+        "no panic amplification",
+        "no blame toward affected users",
+        "no guarantee that fraud is always detectable",
+        "no legal advice",
+        "no legal approval claim",
+        "no blocked WhatsApp UI instructions",
+        "no use of SHO-CLAIM-007 unless later explicitly unlocked",
+        "no source-less factual claims",
+    ]
+    required_feedback_fields = [
+        "user_feedback_status",
+        "email_feedback_status",
+        "reader_experience_feedback_status",
+        "feedback_summary",
+        "feedback_source",
+        "feedback_review_status",
+        "linked_feedback_register",
+        "privacy_review_status",
+    ]
+    required_seo_fields = [
+        "search_intent_fit",
+        "keyword_validation_status",
+        "search_volume_status",
+        "keyword_difficulty_status",
+        "ranking_data_status",
+        "traffic_data_status",
+    ]
+    required_output_values = [
+        "blocked",
+        "needs_major_revision",
+        "needs_targeted_revision",
+        "ready_for_next_internal_review",
+        "candidate_for_human_operator_review_not_publish_ready",
+        "approved_for_publish",
+        "publish_ready",
+        "operator_accepted",
+        "public_launch_ready",
+    ]
+    required_fragments = (
+        required_frontmatter_fragments
+        + required_sections
+        + required_placeholders
+        + required_article_metadata_fields
+        + required_score_scale
+        + required_core_quality_fields
+        + required_user_perspective_fields
+        + required_reader_experience_fields
+        + required_safety_trust_checks
+        + required_feedback_fields
+        + required_seo_fields
+        + required_output_values
+        + [
+            "Einfache Sprache bedeutet nicht anspruchslose Sprache. Inhalte sollen klar, freundlich und zugänglich sein, aber ältere Leserinnen und Leser als erwachsene, erfahrene und interessierte Menschen ernst nehmen.",
+            "No numeric SEO metrics may be invented.",
+            "These fields must default to unavailable or not collected states.",
+            "Diese Scorecard-Vorlage ist keine angewendete Review.",
+            "Diese Scorecard-Vorlage setzt keine Publish Readiness.",
+            "Diese Scorecard-Vorlage erstellt keine Operator Acceptance.",
+            "Diese Scorecard-Vorlage aktiviert keine Analytics.",
+            "Diese Scorecard-Vorlage aktiviert kein Live-Feedback.",
+            "Diese Scorecard-Vorlage behauptet keine SEO-Metriken.",
+            "Diese Scorecard-Vorlage genehmigt keine Monetarisierung.",
+        ]
+    )
+    for fragment in required_fragments:
+        if fragment not in template_text:
+            failures.append(f"Content quality scorecard template must contain: {fragment}")
+
+    if fields.get("scorecard_template_id") != "SHO-CONTENT-QUALITY-SCORECARD-TEMPLATE-BATCH01":
+        failures.append("Content quality scorecard template has unexpected scorecard_template_id")
+    if normalized(fields.get("batch_id")) != "mvp_batch_01":
+        failures.append("Content quality scorecard template must have batch_id: MVP_BATCH_01")
+    if normalized(fields.get("scorecard_status")) != "template_defined_not_applied":
+        failures.append("Content quality scorecard template must have scorecard_status: template_defined_not_applied")
+    if normalized(fields.get("loop_status")) != "baseline_defined_not_live":
+        failures.append("Content quality scorecard template must have loop_status: baseline_defined_not_live")
+    if normalized(fields.get("user_feedback_status")) != "not_collected":
+        failures.append("Content quality scorecard template must have user_feedback_status: not_collected")
+    if normalized(fields.get("email_feedback_status")) != "not_connected":
+        failures.append("Content quality scorecard template must have email_feedback_status: not_connected")
+    if normalized(fields.get("reader_experience_feedback_status")) != "not_collected":
+        failures.append("Content quality scorecard template must have reader_experience_feedback_status: not_collected")
+    if normalized(fields.get("analytics_status")) != "not_connected":
+        failures.append("Content quality scorecard template must have analytics_status: not_connected")
+    if normalized(fields.get("keyword_validation_status")) != "not_available":
+        failures.append("Content quality scorecard template must have keyword_validation_status: not_available")
+    if normalized(fields.get("monetization_status")) != "not_approved":
+        failures.append("Content quality scorecard template must have monetization_status: not_approved")
+    if normalized(fields.get("operator_acceptance_status")) != "not_accepted":
+        failures.append("Content quality scorecard template must have operator_acceptance_status: not_accepted")
+    if normalized(fields.get("publish_readiness_status")) != "not_ready":
+        failures.append("Content quality scorecard template must have publish_readiness_status: not_ready")
+    if normalized(fields.get("public_launch_status")) != "not_ready":
+        failures.append("Content quality scorecard template must have public_launch_status: not_ready")
+
+    forbidden_assignments = [
+        "scorecard_status: accepted",
+        "scorecard_status: approved_for_publish",
+        "scorecard_status: publish_ready",
+        "operator_acceptance_status: accepted",
+        "publish_readiness_status: approved_for_publish",
+        "public_launch_status: ready",
+        "public_launch_status: launched",
+        "monetization_status: approved",
+        "analytics_status: connected",
+        "user_feedback_status: collected",
+        "email_feedback_status: connected",
+        "reader_experience_feedback_status: collected",
+        "keyword_validation_status: documented",
+        "approved_for_publish: true",
+        "publish_ready: true",
+    ]
+    lower_text = template_text.lower()
+    for fragment in forbidden_assignments:
+        if fragment in lower_text:
+            failures.append(
+                "Content quality scorecard template must not contain forbidden activation marker: "
+                f"{fragment}"
+            )
+
+    return 1
+
+
 def main() -> int:
     failures: list[str] = []
 
@@ -3785,6 +4045,7 @@ def main() -> int:
     article_readiness_dashboard_count = validate_article_readiness_dashboard(failures)
     content_quality_feedback_loop_count = validate_content_quality_feedback_loop_baseline(failures)
     user_feedback_intake_protocol_count = validate_user_feedback_intake_protocol_baseline(failures)
+    content_quality_scorecard_template_count = validate_content_quality_scorecard_template_batch_01(failures)
 
     if failures:
         print("FAIL: SHO-OS content contract validation failed")
@@ -3822,6 +4083,7 @@ def main() -> int:
     print(f"- Batch 01 article readiness dashboard files: {article_readiness_dashboard_count}")
     print(f"- Batch 01 content quality feedback loop baseline files: {content_quality_feedback_loop_count}")
     print(f"- Batch 01 user feedback intake protocol baseline files: {user_feedback_intake_protocol_count}")
+    print(f"- Batch 01 content quality scorecard template files: {content_quality_scorecard_template_count}")
     print("- YAML/frontmatter parsing: dependency-free and text-based")
     return 0
 

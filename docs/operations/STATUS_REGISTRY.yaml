@@ -402,6 +402,34 @@ keyword_validation_status:
     - approved_for_publish
     - publish_ready
 
+scorecard_status:
+  allowed:
+    - template_defined_not_applied
+    - draft_scorecard
+    - review_completed_not_publish_ready
+    - blocked
+    - superseded
+  forbidden_by_codex:
+    - accepted
+    - operator_accepted
+    - approved_for_publish
+    - publish_ready
+    - public_launch_ready
+
+scorecard_recommendation_status:
+  allowed:
+    - blocked
+    - needs_major_revision
+    - needs_targeted_revision
+    - ready_for_next_internal_review
+    - candidate_for_human_operator_review_not_publish_ready
+  forbidden_by_codex:
+    - accepted
+    - operator_accepted
+    - approved_for_publish
+    - publish_ready
+    - public_launch_ready
+
 citation_text_status:
   allowed:
     - prepared_not_final

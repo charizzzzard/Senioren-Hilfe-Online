@@ -5,19 +5,19 @@
 - project_name: Senioren-Hilfe Online
 - system_name: Senioren-Hilfe Online OS
 - system_short_name: SHO-OS
-- patch_title: CONTENT_QUALITY_USER_PERSPECTIVE_READER_EXPERIENCE_AND_FEEDBACK_LOOP_BASELINE
+- patch_title: CONTENT_QUALITY_SCORECARD_TEMPLATE_BATCH_01
 - external_review_verdict: ACCEPTED_WITH_FINDINGS
 
 SHO-OS ist ein reproduzierbares Content-, Trust- und Publishing-System fuer seniorengerechte digitale Alltagshilfe in Deutschland.
 
-Dieser Patch dokumentiert eine interne Baseline fuer Content-Qualitaet, Zielgruppenperspektive, Reader Experience und spaetere Feedback-Loops. Er setzt keine Publish Readiness, keine Operator Acceptance, keine Public-Launch-Freigabe, keine Monetarisierung, keine Live-Analytics, kein Live-Feedback und keine Batch-Stage-Hochstufung.
+Dieser Patch dokumentiert ein wiederverwendbares Content Quality Scorecard Template fuer `MVP_BATCH_01`. Er setzt keine angewendete Review, keine Score-Werte, keine Publish Readiness, keine Operator Acceptance, keine Public-Launch-Freigabe, keine Monetarisierung, keine Live-Analytics, kein Live-Feedback und keine Batch-Stage-Hochstufung.
 
 ## Git Traceability
 
 - branch: `main`
-- head_before: `603fae5c09a6b25ee64d9680ebd1e482166765ca`
+- head_before: `523002daf379543c8364eb1416138c781bfb167c`
 - intended_head_after: `assigned_after_commit`
-- origin_main_before: `603fae5c09a6b25ee64d9680ebd1e482166765ca`
+- origin_main_before: `523002daf379543c8364eb1416138c781bfb167c`
 - dirty_state_before: `clean`
 - dirty_state_after: `assigned_after_commit`
 - remote_url: `https://github.com/charizzzzard/Senioren-Hilfe-Online.git`
@@ -26,25 +26,22 @@ Hinweis: `head_after` wird nicht vorab als Commit-SHA eingetragen, weil ein Comm
 
 ## Scope Dieses Patches
 
-- Neues Baseline-Artefakt erstellt: `docs/operations/CONTENT_QUALITY_USER_PERSPECTIVE_READER_EXPERIENCE_AND_FEEDBACK_LOOP_BASELINE.md`.
-- Neues Feedback-Protokoll-Artefakt erstellt: `docs/operations/USER_FEEDBACK_INTAKE_PROTOCOL_BASELINE.md`.
-- `loop_status: baseline_defined_not_live` dokumentiert.
-- `reader_experience_status: baseline_defined` dokumentiert.
-- `user_feedback_status: not_collected` dokumentiert.
-- `email_feedback_status: not_connected` dokumentiert.
-- `reader_experience_feedback_status: not_collected` dokumentiert.
-- `analytics_status: not_connected` dokumentiert.
-- `keyword_validation_status: not_available` dokumentiert.
-- `feedback_protocol_status: baseline_defined_not_live` dokumentiert.
-- `privacy_review_status: required_before_live_use` als Platzhalter dokumentiert.
-- User-Perspective-, Reader-Experience- und Feedback-Loop-Qualitaetsdimensionen fuer spaetere Reviews definiert.
-- Fehlende Daten explizit sichtbar gehalten: Search Console, Analytics, Ranking, Keyword-Volumen, Keyword-Difficulty, Conversion, Nutzerfeedback, E-Mail-Feedback, Usability-Tests, Reader-Experience-Feedback und Monetization Performance.
-- `STATUS_REGISTRY.yaml` um Nicht-Live-Status fuer Loop, Feedback, Analytics und Keyword Validation ergaenzt.
-- `validate_content_contracts.py` um Baseline-Checks fuer beide neuen Artefakte erweitert.
+- Neuer Ordner erstellt: `docs/content/article_quality_scorecards/`.
+- Neues README erstellt: `docs/content/article_quality_scorecards/README.md`.
+- Neues Scorecard Template erstellt: `docs/content/article_quality_scorecards/CONTENT_QUALITY_SCORECARD_TEMPLATE_BATCH_01.md`.
+- `scorecard_template_id: SHO-CONTENT-QUALITY-SCORECARD-TEMPLATE-BATCH01` dokumentiert.
+- `scorecard_status: template_defined_not_applied` dokumentiert.
+- `loop_status: baseline_defined_not_live`, `user_feedback_status: not_collected`, `email_feedback_status: not_connected`, `reader_experience_feedback_status: not_collected`, `analytics_status: not_connected`, `keyword_validation_status: not_available` bleiben konservativ.
+- Core-Quality-, User-Perspective-, Reader-Experience-, Safety-/Trust-, Accessibility-, SEO/Search-Intent-, Freshness-, Monetization-Risk-, Feedback- und Publish-Blocker-Felder als Platzhalter dokumentiert.
+- `STATUS_REGISTRY.yaml` um `scorecard_status` und `scorecard_recommendation_status` ergaenzt.
+- `ARTICLE_READINESS_DASHBOARD_BATCH_01.md` minimal um `CONTENT_QUALITY_SCORECARD_TEMPLATE_BATCH_01` als Allowed Next Work ergaenzt.
+- `validate_content_contracts.py` um Scorecard-Template-Checks erweitert.
 - Batch bleibt `current_stage: claim_slots_mapped`.
 
 ## Non-Scope
 
+- Keine angewendete Artikelbewertung.
+- Keine Score-Werte fuer reale Artikel.
 - Keine neuen Quellen.
 - Keine Source Verification Changes.
 - Keine neuen Claims.
@@ -60,8 +57,6 @@ Hinweis: `head_after` wird nicht vorab als Commit-SHA eingetragen, weil ein Comm
 - Keine echten Nutzerfeedback-Daten.
 - Keine echten Reader-Experience-Feedback-Daten.
 - Keine Ranking-, Traffic-, Revenue-, Suchvolumen- oder Keyword-Difficulty-Claims.
-- Keine Roadmap-Aktivierung.
-- Keine Dashboard-Aktivierung als Freigabe.
 - Keine finale Quellenliste.
 - Keine finale Citation-Freigabe.
 - Keine rechtliche Freigabe.
@@ -69,26 +64,24 @@ Hinweis: `head_after` wird nicht vorab als Commit-SHA eingetragen, weil ein Comm
 - Kein finaler Artikeltext.
 - Kein Public Launch.
 
-## Baseline Summary
+## Scorecard Template Summary
 
-- quality_loop_id: `SHO-CONTENT-QUALITY-USER-PERSPECTIVE-READER-EXPERIENCE-FEEDBACK-LOOP-BASELINE`
+- scorecard_template_id: `SHO-CONTENT-QUALITY-SCORECARD-TEMPLATE-BATCH01`
+- scorecard_status: `template_defined_not_applied`
 - loop_status: `baseline_defined_not_live`
-- reader_experience_status: `baseline_defined`
 - user_feedback_status: `not_collected`
 - email_feedback_status: `not_connected`
+- reader_experience_feedback_status: `not_collected`
 - analytics_status: `not_connected`
 - keyword_validation_status: `not_available`
-- feedback_protocol_id: `SHO-USER-FEEDBACK-INTAKE-PROTOCOL-BASELINE`
-- feedback_protocol_status: `baseline_defined_not_live`
-- reader_experience_feedback_status: `not_collected`
-- privacy_review_status: `required_before_live_use`
+- monetization_status: `not_approved`
 - public_launch_status: `not_ready`
 - operator_acceptance_status: `not_accepted`
 - publish_readiness_status: `not_ready`
-- monetization_status: `not_approved`
 
 ## Guardrails
 
+- Keine Score-Werte erfunden.
 - `SHO-CLAIM-007` bleibt blockiert.
 - Keine neuen Quellen.
 - Keine neuen Claims.
@@ -116,8 +109,9 @@ Hinweis: `head_after` wird nicht vorab als Commit-SHA eingetragen, weil ein Comm
 
 ## Files Changed Summary
 
-- `docs/operations/CONTENT_QUALITY_USER_PERSPECTIVE_READER_EXPERIENCE_AND_FEEDBACK_LOOP_BASELINE.md`
-- `docs/operations/USER_FEEDBACK_INTAKE_PROTOCOL_BASELINE.md`
+- `docs/content/article_quality_scorecards/README.md`
+- `docs/content/article_quality_scorecards/CONTENT_QUALITY_SCORECARD_TEMPLATE_BATCH_01.md`
+- `docs/operations/ARTICLE_READINESS_DASHBOARD_BATCH_01.md`
 - `docs/operations/STATUS_REGISTRY.yaml`
 - `scripts/validate_content_contracts.py`
 - `docs/engineering/VALIDATION_REQUIREMENTS.md`
@@ -126,4 +120,4 @@ Hinweis: `head_after` wird nicht vorab als Commit-SHA eingetragen, weil ein Comm
 
 ## Keine finale Annahme durch Codex
 
-Content quality, reader experience and feedback loop baseline recorded as internal baseline only, with no live feedback, no live analytics, no public launch, no publish readiness, no monetization approval and no Operator Acceptance. Finale Annahme bleibt beim Human Operator.
+Content quality scorecard template recorded as reusable internal review raster only, with no applied article review, no live feedback, no live analytics, no public launch, no publish readiness, no monetization approval and no Operator Acceptance. Finale Annahme bleibt beim Human Operator.
