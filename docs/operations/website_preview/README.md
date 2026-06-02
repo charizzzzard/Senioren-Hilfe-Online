@@ -12,6 +12,8 @@ Die Artefakte sind nicht live. Sie erstellen keine Website-Runtime, veroeffentli
   - Internes Review-Paket fuer die Website-IA; vorbereitet fuer Human-Operator-Review, keine Acceptance.
 - `STATIC_PREVIEW_SPEC_INTERNAL_ONLY.md`
   - Spezifikation fuer eine spaetere interne statische Preview; keine Implementierung, keine Runtime und kein Launch.
+- `VISUAL_DESIGN_SYSTEM_SPEC_INTERNAL_ONLY.md`
+  - Spezifikation fuer seniorengerechte visuelle Regeln einer spaeteren internen Preview; keine CSS-, Asset- oder Runtime-Erzeugung.
 
 ## Non-Acceptance
 

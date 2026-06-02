@@ -713,6 +713,25 @@ Das Review-Artefakt muss mindestens diese Finding IDs enthalten:
 - Die Spec darf keine aktiven Runtime-, Static-Generation-, Launch-, Publish-, Acceptance-, Monetization-, Analytics-, Search-Console- oder Feedback-Statuswerte enthalten.
 - Die Spec darf keine echten HTML-, CSS-, JS-, Build-, Deployment-, Tracking- oder Public-Website-Dateien erzeugen.
 
+## Visual Design System Spec Internal Only Checks
+
+- `docs/operations/website_preview/VISUAL_DESIGN_SYSTEM_SPEC_INTERNAL_ONLY.md` muss existieren.
+- Die Spec muss `spec_status: specification_only_not_implemented` enthalten.
+- Die Spec muss `design_runtime_status: not_implemented` enthalten.
+- Die Spec muss `asset_generation_status: not_implemented` enthalten.
+- Die Spec muss `css_generation_status: not_implemented` enthalten.
+- Die Spec muss `public_launch_status: not_ready` enthalten.
+- Die Spec muss `publish_readiness_status: not_ready` enthalten.
+- Die Spec muss `operator_acceptance_status: not_accepted` enthalten.
+- Die Spec muss `monetization_status: not_approved` enthalten.
+- Die Spec muss `analytics_status: not_connected` enthalten.
+- Die Spec muss `search_console_status: not_connected` enthalten.
+- Die Spec muss `user_feedback_status: not_collected` enthalten.
+- Die Spec muss die Static-Preview-Spec, die Website-IA und das Website-Preview-Review-Paket verlinken.
+- Die Spec muss Purpose, Current Baseline, Design Principles, Visual Identity Direction, Typography Specification, Color System Specification, Layout and Spacing Specification, Component Specification, Status Banner Visual Rules, Content State Visual Mapping, Accessibility / Senior UX Requirements, Anti-Patterns, Human Operator Decisions Needed Before Implementation, Allowed Outcomes, Forbidden Outcomes und Explicit Non-Acceptance enthalten.
+- Die Spec darf keine aktiven Design-Runtime-, Asset-, CSS-, Launch-, Publish-, Acceptance-, Monetization-, Analytics-, Search-Console- oder Feedback-Statuswerte enthalten.
+- Die Spec darf keine echten CSS-, HTML-, JS-, Bild-, Asset-, Build-, Deployment-, Tracking- oder Public-Website-Dateien erzeugen.
+
 ## Reader Experience Quality Checks
 
 - Reader Experience ist ein eigenes Qualitaetsfeld neben Quellen, Claims, Safety, SEO und Accessibility.

@@ -99,6 +99,7 @@ REQUIRED_DOCS = [
     "docs/operations/website_preview/WEBSITE_INFORMATION_ARCHITECTURE_INTERNAL_PREVIEW_V1.md",
     "docs/operations/website_preview/WEBSITE_PREVIEW_REVIEW_PACKET_INTERNAL_ONLY.md",
     "docs/operations/website_preview/STATIC_PREVIEW_SPEC_INTERNAL_ONLY.md",
+    "docs/operations/website_preview/VISUAL_DESIGN_SYSTEM_SPEC_INTERNAL_ONLY.md",
     "scripts/validate_stage_transitions.py",
 ]
 
@@ -203,6 +204,9 @@ WEBSITE_PREVIEW_REVIEW_PACKET_INTERNAL_ONLY_PATH = (
 )
 STATIC_PREVIEW_SPEC_INTERNAL_ONLY_PATH = (
     WEBSITE_PREVIEW_DIR / "STATIC_PREVIEW_SPEC_INTERNAL_ONLY.md"
+)
+VISUAL_DESIGN_SYSTEM_SPEC_INTERNAL_ONLY_PATH = (
+    WEBSITE_PREVIEW_DIR / "VISUAL_DESIGN_SYSTEM_SPEC_INTERNAL_ONLY.md"
 )
 SOURCE_REVIEW_PATH = ROOT / "docs/content/source_reviews/whatsapp-source-manual-review-batch-01.md"
 SOURCE_REVIEW_REL_PATH = "docs/content/source_reviews/whatsapp-source-manual-review-batch-01.md"
@@ -5503,6 +5507,7 @@ def validate_website_information_architecture_internal_preview_v1(
         WEBSITE_INFORMATION_ARCHITECTURE_INTERNAL_PREVIEW_V1_PATH,
         WEBSITE_PREVIEW_REVIEW_PACKET_INTERNAL_ONLY_PATH,
         STATIC_PREVIEW_SPEC_INTERNAL_ONLY_PATH,
+        VISUAL_DESIGN_SYSTEM_SPEC_INTERNAL_ONLY_PATH,
     ]
     count = 0
     for path in required_paths:
@@ -5523,6 +5528,9 @@ def validate_website_information_architecture_internal_preview_v1(
     )
     static_preview_spec_text = STATIC_PREVIEW_SPEC_INTERNAL_ONLY_PATH.read_text(
         encoding="utf-8"
+    )
+    visual_design_system_spec_text = (
+        VISUAL_DESIGN_SYSTEM_SPEC_INTERNAL_ONLY_PATH.read_text(encoding="utf-8")
     )
     queue_text = WORK_QUEUE_V1_PATH.read_text(encoding="utf-8")
 
@@ -5645,6 +5653,53 @@ def validate_website_information_architecture_internal_preview_v1(
                 "Static Preview Spec Internal Only must contain: " f"{fragment}"
             )
 
+    required_visual_design_spec_fragments = [
+        "visual_design_system_spec_id: VISUAL-DESIGN-SYSTEM-SPEC-INTERNAL-ONLY",
+        "linked_static_preview_spec: docs/operations/website_preview/STATIC_PREVIEW_SPEC_INTERNAL_ONLY.md",
+        "linked_ia_artifact: docs/operations/website_preview/WEBSITE_INFORMATION_ARCHITECTURE_INTERNAL_PREVIEW_V1.md",
+        "linked_review_packet: docs/operations/website_preview/WEBSITE_PREVIEW_REVIEW_PACKET_INTERNAL_ONLY.md",
+        "spec_status: specification_only_not_implemented",
+        "design_runtime_status: not_implemented",
+        "asset_generation_status: not_implemented",
+        "css_generation_status: not_implemented",
+        "public_launch_status: not_ready",
+        "publish_readiness_status: not_ready",
+        "operator_acceptance_status: not_accepted",
+        "monetization_status: not_approved",
+        "analytics_status: not_connected",
+        "search_console_status: not_connected",
+        "user_feedback_status: not_collected",
+        "## Purpose",
+        "## Explicit Non-Acceptance",
+        "## Current Baseline",
+        "## Design Principles",
+        "## Visual Identity Direction",
+        "## Typography Specification",
+        "## Color System Specification",
+        "## Layout and Spacing Specification",
+        "## Component Specification",
+        "## Status Banner Visual Rules",
+        "## Content State Visual Mapping",
+        "## Accessibility / Senior UX Requirements",
+        "## Anti-Patterns",
+        "## Human Operator Decisions Needed Before Implementation",
+        "## Allowed Outcomes",
+        "## Forbidden Outcomes",
+        "ACCESSIBILITY_REQUIREMENTS_FOR_STATIC_PREVIEW_INTERNAL_ONLY",
+        "Do not create CSS.",
+        "no HTML/CSS/JS files",
+        "no design asset files",
+        "no new claims",
+        "no new sources",
+        "no WhatsApp block/report UI instructions",
+    ]
+    for fragment in required_visual_design_spec_fragments:
+        if fragment not in visual_design_system_spec_text:
+            failures.append(
+                "Visual Design System Spec Internal Only must contain: "
+                f"{fragment}"
+            )
+
     required_queue_fragments = [
         "queue_item_id: CQ-V1-004",
         "docs/operations/website_preview/WEBSITE_INFORMATION_ARCHITECTURE_INTERNAL_PREVIEW_V1.md",
@@ -5701,6 +5756,20 @@ def validate_website_information_architecture_internal_preview_v1(
                 "Static Preview Spec Internal Only must not contain active forbidden marker: "
                 f"{fragment}"
             )
+    forbidden_visual_design_active_markers = forbidden_active_markers + [
+        "design_runtime_status: implemented",
+        "asset_generation_status: implemented",
+        "css_generation_status: implemented",
+        "public_launch_ready: true",
+        "publish_ready: true",
+    ]
+    lower_visual_design_system_spec_text = visual_design_system_spec_text.lower()
+    for fragment in forbidden_visual_design_active_markers:
+        if fragment in lower_visual_design_system_spec_text:
+            failures.append(
+                "Visual Design System Spec Internal Only must not contain active forbidden marker: "
+                f"{fragment}"
+            )
 
     forbidden_data_claims = [
         "real ranking data",
@@ -5729,6 +5798,11 @@ def validate_website_information_architecture_internal_preview_v1(
                 "Static Preview Spec Internal Only must not claim real metric data: "
                 f"{fragment}"
             )
+        if fragment in lower_visual_design_system_spec_text:
+            failures.append(
+                "Visual Design System Spec Internal Only must not claim real metric data: "
+                f"{fragment}"
+            )
 
     forbidden_runtime_paths = [
         ROOT / "preview_static_internal",
@@ -5743,6 +5817,23 @@ def validate_website_information_architecture_internal_preview_v1(
         if path.exists():
             failures.append(
                 "Static Preview Spec Internal Only must not create runtime path: "
+                f"{path.relative_to(ROOT)}"
+            )
+
+    forbidden_design_asset_patterns = [
+        "*.css",
+        "*.js",
+        "*.html",
+        "*.png",
+        "*.svg",
+        "*.jpg",
+        "*.jpeg",
+        "*.webp",
+    ]
+    for pattern in forbidden_design_asset_patterns:
+        for path in WEBSITE_PREVIEW_DIR.rglob(pattern):
+            failures.append(
+                "Visual Design System Spec Internal Only must not create design/runtime asset: "
                 f"{path.relative_to(ROOT)}"
             )
 

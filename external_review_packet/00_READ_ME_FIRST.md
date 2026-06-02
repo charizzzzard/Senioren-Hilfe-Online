@@ -2,22 +2,23 @@
 
 ## Zweck dieses Review-Pakets
 
-Dieses Review-Paket beschreibt den Patch `STATIC_PREVIEW_SPEC_INTERNAL_ONLY`.
+Dieses Review-Paket beschreibt den Patch `VISUAL_DESIGN_SYSTEM_SPEC_INTERNAL_ONLY`.
 
-Der Patch erstellt eine interne Spezifikation fuer eine spaetere statische Website-Preview von Senioren-Hilfe Online. Die Spezifikation definiert erlaubte Preview-Flächen, verbotene Preview-Flächen, Template-Level-Anforderungen, Content-State-Mapping, Statusbanner und Human-Operator-Fragen vor technischer Umsetzung.
+Der Patch erstellt eine interne Spezifikation fuer das Visual Design System einer spaeteren internen Static Preview von Senioren-Hilfe Online. Die Spezifikation definiert senior-first Designprinzipien, Typografie, semantische Farbrollen, Layout/Spacing, konzeptionelle Komponenten, Statusbanner-Regeln und Content-State-Mapping.
 
-Der Patch implementiert keine Website-Runtime, keine Static Site Generation, keine HTML/CSS/JS-Dateien, keine Public Pages, keinen Public Launch, keine Publish Readiness, keine Operator Acceptance, keine Monetarisierung, keine Affiliate-Logik und keine Analytics-/Search-Console-/Feedback-Verbindung.
+Der Patch implementiert keine Website-Runtime, keine Static Site Generation, keine HTML/CSS/JS-Dateien, keine Design Assets, keine Public Pages, keinen Public Launch, keine Publish Readiness, keine Operator Acceptance, keine Monetarisierung, keine Affiliate-Logik und keine Analytics-/Search-Console-/Feedback-Verbindung.
 
 ## Scope dieses Patches
 
-- Static-Preview-Spezifikation erstellen:
-  - `docs/operations/website_preview/STATIC_PREVIEW_SPEC_INTERNAL_ONLY.md`
+- Visual-Design-System-Spezifikation erstellen:
+  - `docs/operations/website_preview/VISUAL_DESIGN_SYSTEM_SPEC_INTERNAL_ONLY.md`
 - Website-Preview-README um die neue Spezifikation ergaenzen.
-- Validation Requirements und `validate_content_contracts.py` um Static-Preview-Spec-Checks ergaenzen.
+- Validation Requirements und `validate_content_contracts.py` um Visual-Design-Spec-Checks ergaenzen.
 - Externen Handoff-Kontext auf diesen Patch aktualisieren.
 
 ## Primaere Review-Dateien
 
+- `docs/operations/website_preview/VISUAL_DESIGN_SYSTEM_SPEC_INTERNAL_ONLY.md`
 - `docs/operations/website_preview/STATIC_PREVIEW_SPEC_INTERNAL_ONLY.md`
 - `docs/operations/website_preview/WEBSITE_INFORMATION_ARCHITECTURE_INTERNAL_PREVIEW_V1.md`
 - `docs/operations/website_preview/WEBSITE_PREVIEW_REVIEW_PACKET_INTERNAL_ONLY.md`
@@ -30,7 +31,8 @@ Der Patch implementiert keine Website-Runtime, keine Static Site Generation, kei
 
 - Keine Website-Runtime.
 - Keine Static Site Generation.
-- Keine HTML/CSS/JS-Preview-Dateien.
+- Keine HTML/CSS/JS-Dateien.
+- Keine Design-Asset-Dateien.
 - Keine Public Pages.
 - Kein Public Launch.
 - Keine Artikelveroeffentlichung.
@@ -40,6 +42,7 @@ Der Patch implementiert keine Website-Runtime, keine Static Site Generation, kei
 - Keine Monetarisierung.
 - Keine Affiliate-Inhalte.
 - Keine Ads.
+- Keine Produkt-Empfehlungen.
 - Keine neuen Quellen.
 - Keine neuen Claims.
 - Keine Entsperrung blockierter Claims.
