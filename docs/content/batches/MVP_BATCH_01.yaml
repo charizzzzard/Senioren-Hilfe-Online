@@ -56,6 +56,11 @@ article_quality_scorecards:
 operator_review_packets:
   - docs/operations/operator_review_packets/HUMAN_OPERATOR_REVIEW_PACKET_FINAL_ARTICLE_CANDIDATE_BRIEF_002.md
 
+operator_decisions:
+  - docs/operations/operator_decisions/HUMAN_OPERATOR_DECISION_BATCH01_BRIEF002_001.md
+  - docs/operations/operator_decisions/HUMAN_OPERATOR_DECISION_BATCH01_BRIEF002_002.md
+  - docs/operations/operator_decisions/HUMAN_OPERATOR_DECISION_FINAL_ARTICLE_CANDIDATE_BRIEF_002.md
+
 not_enriched:
   - brief_id: SHO-MVP-BRIEF-001
     reason: WhatsApp line evidence unavailable; platform claims blocked.
@@ -70,6 +75,7 @@ known_blockers:
   - Brief 002 final article candidate exists and is not publish-ready.
   - Brief 002 final article candidate has scorecard review completed, but remains not publish-ready.
   - Brief 002 human operator review packet prepared, but no Operator Acceptance or Publish Readiness is set.
+  - Brief 002 Human Operator decision allows internal operator review candidate continuation, but no Publish Readiness or Operator Acceptance is set.
   - Brief 003 has scaffold only, no text candidate.
   - No publish-ready final article exists.
   - WhatsApp line-level evidence is unavailable.

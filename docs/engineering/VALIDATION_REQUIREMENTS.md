@@ -410,11 +410,14 @@ Das Review-Artefakt muss mindestens diese Finding IDs enthalten:
 - Fuer Brief 002 muessen die erwarteten Operator Decision Records unter `docs/operations/operator_decisions/` existieren.
 - Der erste Decision Record muss den Draft Candidate, das Operator Review Packet und das Legal-/Source-Citation-Review verlinken.
 - Der zweite Decision Record muss den Draft Candidate, die Final-Source-List-Review, die Final-Legal-Wording-Review und die Final-Article-Prep-Gate-Review verlinken.
+- Der dritte Decision Record muss den Final Article Candidate, die angewendete Scorecard und das Human-Operator-Review-Packet verlinken.
 - Erlaubte `decision_status`-Werte fuer diese Records sind `proceed_to_source_citation_and_legal_wording_preparation` und `proceed_to_final_article_preparation_not_publish_ready`.
+- Erlaubter `operator_review_outcome_status` fuer den dritten Record ist `proceed_to_operator_review_candidate_not_publish_ready`.
 - `operator_acceptance_status` muss `not_accepted` bleiben.
 - `publish_readiness_status` muss `not_ready` bleiben.
 - `batch_stage_after_decision` muss `claim_slots_mapped` bleiben.
-- Decision Records duerfen keine Operator Acceptance, keine Publish Readiness, keine rechtliche Freigabe, keine Veroeffentlichungsgenehmigung und keinen Claim-Unlock setzen.
+- Der dritte Record muss Dedicated Accessibility Review und Final Source Metadata Review vor jedem Publish-Candidate-Schritt als carried-forward gates sichtbar halten.
+- Decision Records duerfen keine Operator Acceptance, keine Publish Readiness, keine rechtliche Freigabe, keine Veroeffentlichungsgenehmigung, keine Public-Launch-Freigabe, keine Monetarisierungsfreigabe und keinen Claim-Unlock setzen.
 
 ## Source-Citation-Formatting-Prep-Checks
 

@@ -2,24 +2,25 @@
 
 ## Zweck dieses Review-Pakets
 
-Dieses Review-Paket beschreibt den Patch `SYNC_SCORECARD_REVIEW_AND_PREPARE_HUMAN_OPERATOR_REVIEW_PACKET_BRIEF_002`.
+Dieses Review-Paket beschreibt den Patch `HUMAN_OPERATOR_DECISION_FINAL_ARTICLE_CANDIDATE_BRIEF_002`.
 
-Zuerst wurde der bereits lokal committed Scorecard-Review-Commit `4f3b97ab6edac99299e67a10b80b3b4442bc0247` nach `origin/main` synchronisiert. Danach wurde ein Human-Operator-Review-Packet fuer den internen Final Article Candidate zu Brief 002 vorbereitet.
+Der Patch dokumentiert die ausdrueckliche Human-Operator-Entscheidung, den Final Article Candidate fuer Brief 002 als internen Operator-Review-Kandidaten weiterzufuehren.
 
-Das Packet ist ein interner Review-Schritt. Es setzt keine Publish Readiness, keine Operator Acceptance, keine rechtliche Freigabe, keinen Public Launch und keine Monetarisierung.
+Die Entscheidung ist ein Governance-/Dokumentationsschritt. Sie setzt keine Publish Readiness, keine Operator Acceptance, keine rechtliche Freigabe, keinen Public Launch und keine Monetarisierung.
 
 ## Scope dieses Patches
 
-- Scorecard-Review-Commit nach `origin/main` synchronisieren.
-- Genau ein Human-Operator-Review-Packet erstellen:
-  - `docs/operations/operator_review_packets/HUMAN_OPERATOR_REVIEW_PACKET_FINAL_ARTICLE_CANDIDATE_BRIEF_002.md`
-- Batch Manifest um `operator_review_packets` ergaenzen.
-- Article Readiness Dashboard fuer Brief 002 um `human operator review packet prepared not acceptance` aktualisieren.
-- Status Registry und Validator minimal fuer das Human-Operator-Review-Packet erweitern.
+- Genau einen Human-Operator-Decision-Record erstellen:
+  - `docs/operations/operator_decisions/HUMAN_OPERATOR_DECISION_FINAL_ARTICLE_CANDIDATE_BRIEF_002.md`
+- Batch Manifest um den Decision Record ergaenzen.
+- Article Readiness Dashboard fuer Brief 002 um `proceed_to_operator_review_candidate_not_publish_ready` aktualisieren.
+- Operator-Decision-Validator minimal fuer den neuen Outcome-Record erweitern.
+- Externe Handoff-Dateien auf den neuen Patch-Kontext aktualisieren.
 
 ## Primaere Review-Dateien
 
 - `external_review_packet/HANDOFF_LATEST_CONTEXT.md`
+- `docs/operations/operator_decisions/HUMAN_OPERATOR_DECISION_FINAL_ARTICLE_CANDIDATE_BRIEF_002.md`
 - `docs/operations/operator_review_packets/HUMAN_OPERATOR_REVIEW_PACKET_FINAL_ARTICLE_CANDIDATE_BRIEF_002.md`
 - `docs/content/article_quality_scorecards/betrugsnachrichten-auf-whatsapp-erkennen.final-article-candidate.scorecard.md`
 - `docs/content/final_article_candidates/betrugsnachrichten-auf-whatsapp-erkennen.final-article-candidate.md`
@@ -36,7 +37,7 @@ Das Packet ist ein interner Review-Schritt. Es setzt keine Publish Readiness, ke
 
 ## Wichtiger Hinweis
 
-Human Operator Review Packet preparation only. This is not publish readiness, not Operator Acceptance, not public launch, not monetization approval and not legal approval.
+Human Operator decision record only. This is not publish readiness, not Operator Acceptance, not public launch, not monetization approval and not legal approval.
 
 ## Nicht in Scope
 
@@ -59,7 +60,7 @@ Human Operator Review Packet preparation only. This is not publish readiness, no
 - Freischaltung von `SHO-CLAIM-007`.
 - Rechtliche Freigabe.
 - Finale Quellenmetadaten.
- - Human-Operator-Entscheidung oder Annahme.
+- Operator Acceptance.
 
 ## Validation Commands
 

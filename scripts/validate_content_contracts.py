@@ -71,6 +71,7 @@ REQUIRED_DOCS = [
     "docs/operations/operator_decisions/README.md",
     "docs/operations/operator_decisions/HUMAN_OPERATOR_DECISION_BATCH01_BRIEF002_001.md",
     "docs/operations/operator_decisions/HUMAN_OPERATOR_DECISION_BATCH01_BRIEF002_002.md",
+    "docs/operations/operator_decisions/HUMAN_OPERATOR_DECISION_FINAL_ARTICLE_CANDIDATE_BRIEF_002.md",
     "docs/operations/operator_review_packets/HUMAN_OPERATOR_REVIEW_PACKET_FINAL_ARTICLE_CANDIDATE_BRIEF_002.md",
     "docs/operations/MVP_OPERATIONAL_START_PLAN_BATCH_01.md",
     "docs/operations/ROADMAP_AND_MILESTONES_MVP_2026.md",
@@ -294,6 +295,14 @@ EXPECTED_OPERATOR_DECISIONS = {
         "linked_final_legal_wording_review": FINAL_LEGAL_WORDING_REVIEW_REL_PATH,
         "linked_final_article_prep_gate_review": FINAL_ARTICLE_PREP_GATE_REVIEW_REL_PATH,
         "decision_status": "proceed_to_final_article_preparation_not_publish_ready",
+    },
+    "HUMAN_OPERATOR_DECISION_FINAL_ARTICLE_CANDIDATE_BRIEF_002.md": {
+        "operator_decision_id": "HUMAN_OPERATOR_DECISION_FINAL_ARTICLE_CANDIDATE_BRIEF_002",
+        "brief_id": "SHO-MVP-BRIEF-002",
+        "linked_final_article_candidate": "docs/content/final_article_candidates/betrugsnachrichten-auf-whatsapp-erkennen.final-article-candidate.md",
+        "linked_scorecard": "docs/content/article_quality_scorecards/betrugsnachrichten-auf-whatsapp-erkennen.final-article-candidate.scorecard.md",
+        "linked_operator_review_packet": "docs/operations/operator_review_packets/HUMAN_OPERATOR_REVIEW_PACKET_FINAL_ARTICLE_CANDIDATE_BRIEF_002.md",
+        "operator_review_outcome_status": "proceed_to_operator_review_candidate_not_publish_ready",
     },
 }
 EXPECTED_SOURCE_CITATION_FORMATTING_PREPS = {
@@ -2102,8 +2111,6 @@ def validate_operator_decisions(failures: list[str]) -> int:
             f"operator_decision_id: {expected['operator_decision_id']}",
             "batch_id: MVP_BATCH_01",
             f"linked_brief_id: {expected['brief_id']}",
-            f"linked_article_draft_candidate: {expected['linked_article_draft_candidate']}",
-            f"decision_status: {expected['decision_status']}",
             "operator_acceptance_status: not_accepted",
             "publish_readiness_status: not_ready",
             "batch_stage_after_decision: claim_slots_mapped",
@@ -2131,6 +2138,8 @@ def validate_operator_decisions(failures: list[str]) -> int:
         if file_name == "HUMAN_OPERATOR_DECISION_BATCH01_BRIEF002_001.md":
             required_fragments.extend(
                 [
+                    f"linked_article_draft_candidate: {expected['linked_article_draft_candidate']}",
+                    f"decision_status: {expected['decision_status']}",
                     f"linked_operator_review_packet: {expected['linked_operator_review_packet']}",
                     f"linked_legal_source_citation_review: {expected['linked_legal_source_citation_review']}",
                     "final source citation formatting preparation und legal wording review preparation",
@@ -2148,9 +2157,11 @@ def validate_operator_decisions(failures: list[str]) -> int:
                     "later Human Operator review before any final article preparation",
                 ]
             )
-        else:
+        elif file_name == "HUMAN_OPERATOR_DECISION_BATCH01_BRIEF002_002.md":
             required_fragments.extend(
                 [
+                    f"linked_article_draft_candidate: {expected['linked_article_draft_candidate']}",
+                    f"decision_status: {expected['decision_status']}",
                     f"linked_final_source_list_review: {expected['linked_final_source_list_review']}",
                     f"linked_final_legal_wording_review: {expected['linked_final_legal_wording_review']}",
                     f"linked_final_article_prep_gate_review: {expected['linked_final_article_prep_gate_review']}",
@@ -2175,6 +2186,41 @@ def validate_operator_decisions(failures: list[str]) -> int:
                     "later Human Operator review before publish candidate",
                 ]
             )
+        else:
+            required_fragments.extend(
+                [
+                    f"linked_final_article_candidate: {expected['linked_final_article_candidate']}",
+                    f"linked_scorecard: {expected['linked_scorecard']}",
+                    f"linked_operator_review_packet: {expected['linked_operator_review_packet']}",
+                    f"operator_review_outcome_status: {expected['operator_review_outcome_status']}",
+                    "Human Operator erlaubt, den Final Article Candidate fuer `SHO-MVP-BRIEF-002` als naechsten internen Review-Kandidaten weiterzufuehren.",
+                    "Diese Entscheidung erlaubt nur den naechsten internen Review-Schritt.",
+                    "Diese Entscheidung ist keine Veroeffentlichungsgenehmigung.",
+                    "Diese Entscheidung ist keine Monetarisierungsfreigabe.",
+                    "Diese Entscheidung fuegt keine neuen Claims hinzu.",
+                    "Diese Entscheidung fuegt keine neuen Sources hinzu.",
+                    "Diese Entscheidung erfindet keine Source-Metadaten.",
+                    "continue Final Article Candidate as internal operator review candidate",
+                    "prepare Dedicated Accessibility Review before any publish-candidate step",
+                    "prepare Final Source Metadata Review before any publish-candidate step",
+                    "preserve allowed claims SHO-CLAIM-004, SHO-CLAIM-005, SHO-CLAIM-006",
+                    "preserve allowed sources SHO-SRC-005, SHO-SRC-006, SHO-SRC-007",
+                    "preserve blocked state for SHO-CLAIM-007",
+                    "Dedicated Accessibility Review before any publish-candidate step.",
+                    "Final Source Metadata Review before any publish-candidate step.",
+                    "Later explicit Human Operator decision before any publish-candidate status.",
+                    "Later explicit Human Operator decision before any Operator Acceptance.",
+                    "Later explicit Human Operator decision before public launch or monetization.",
+                    "public_launch_status: not_ready",
+                    "monetization_status: not_approved",
+                    "legal_approval_status: not_approved",
+                    "publish_ready",
+                    "monetization_approved",
+                    "legal_approval_status: approved",
+                    "invent source metadata",
+                    "invent SEO, analytics, ranking, traffic, feedback, conversion or revenue data",
+                ]
+            )
         for fragment in required_fragments:
             if fragment not in text:
                 failures.append(f"Operator decision {file_name} must contain: {fragment}")
@@ -2183,21 +2229,38 @@ def validate_operator_decisions(failures: list[str]) -> int:
             failures.append(f"Operator decision {file_name} has unexpected ID")
         if fields.get("linked_brief_id") != expected["brief_id"]:
             failures.append(f"Operator decision {file_name} must link to Brief 002")
-        if fields.get("linked_article_draft_candidate") != expected["linked_article_draft_candidate"]:
-            failures.append(f"Operator decision {file_name} must link to expected draft candidate")
         if file_name == "HUMAN_OPERATOR_DECISION_BATCH01_BRIEF002_001.md":
+            if fields.get("linked_article_draft_candidate") != expected["linked_article_draft_candidate"]:
+                failures.append(f"Operator decision {file_name} must link to expected draft candidate")
             if fields.get("linked_operator_review_packet") != expected["linked_operator_review_packet"]:
                 failures.append(f"Operator decision {file_name} must link to operator review packet")
             if fields.get("linked_legal_source_citation_review") != expected["linked_legal_source_citation_review"]:
                 failures.append(f"Operator decision {file_name} must link to legal/source citation review")
-        else:
+        elif file_name == "HUMAN_OPERATOR_DECISION_BATCH01_BRIEF002_002.md":
+            if fields.get("linked_article_draft_candidate") != expected["linked_article_draft_candidate"]:
+                failures.append(f"Operator decision {file_name} must link to expected draft candidate")
             if fields.get("linked_final_source_list_review") != expected["linked_final_source_list_review"]:
                 failures.append(f"Operator decision {file_name} must link to final source list review")
             if fields.get("linked_final_legal_wording_review") != expected["linked_final_legal_wording_review"]:
                 failures.append(f"Operator decision {file_name} must link to final legal wording review")
             if fields.get("linked_final_article_prep_gate_review") != expected["linked_final_article_prep_gate_review"]:
                 failures.append(f"Operator decision {file_name} must link to final article prep gate review")
-        if normalized(fields.get("decision_status")) != expected["decision_status"]:
+        else:
+            if fields.get("linked_final_article_candidate") != expected["linked_final_article_candidate"]:
+                failures.append(f"Operator decision {file_name} must link to final article candidate")
+            if fields.get("linked_scorecard") != expected["linked_scorecard"]:
+                failures.append(f"Operator decision {file_name} must link to applied scorecard")
+            if fields.get("linked_operator_review_packet") != expected["linked_operator_review_packet"]:
+                failures.append(f"Operator decision {file_name} must link to Human Operator review packet")
+            if normalized(fields.get("operator_review_outcome_status")) != expected["operator_review_outcome_status"]:
+                failures.append(f"Operator decision {file_name} must have the expected operator_review_outcome_status")
+            if normalized(fields.get("public_launch_status")) != "not_ready":
+                failures.append(f"Operator decision {file_name} must have public_launch_status: not_ready")
+            if normalized(fields.get("monetization_status")) != "not_approved":
+                failures.append(f"Operator decision {file_name} must have monetization_status: not_approved")
+            if normalized(fields.get("legal_approval_status")) != "not_approved":
+                failures.append(f"Operator decision {file_name} must have legal_approval_status: not_approved")
+        if "decision_status" in expected and normalized(fields.get("decision_status")) != expected["decision_status"]:
             failures.append(f"Operator decision {file_name} must have the expected decision_status")
         if normalized(fields.get("operator_acceptance_status")) != "not_accepted":
             failures.append(f"Operator decision {file_name} must have operator_acceptance_status: not_accepted")
