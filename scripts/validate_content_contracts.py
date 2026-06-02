@@ -105,6 +105,14 @@ REQUIRED_DOCS = [
     "docs/operations/website_preview/ACCESSIBILITY_REQUIREMENTS_REVIEW_PACKET_INTERNAL_ONLY.md",
     "docs/operations/website_preview/STATIC_PREVIEW_SKELETON_SPEC_INTERNAL_ONLY.md",
     "docs/operations/website_preview/STATIC_PREVIEW_SKELETON_IMPLEMENTATION_DECISION_PACKET_INTERNAL_ONLY.md",
+    "preview_static_internal/README.md",
+    "preview_static_internal/index.html",
+    "preview_static_internal/topics/index.html",
+    "preview_static_internal/topics/smartphone-bedienung.html",
+    "preview_static_internal/topics/whatsapp-sicherheit.html",
+    "preview_static_internal/articles/brief-002-preview.html",
+    "preview_static_internal/status/index.html",
+    "preview_static_internal/styles.css",
     "scripts/validate_stage_transitions.py",
 ]
 
@@ -226,6 +234,25 @@ STATIC_PREVIEW_SKELETON_IMPLEMENTATION_DECISION_PACKET_INTERNAL_ONLY_PATH = (
     WEBSITE_PREVIEW_DIR
     / "STATIC_PREVIEW_SKELETON_IMPLEMENTATION_DECISION_PACKET_INTERNAL_ONLY.md"
 )
+PREVIEW_STATIC_INTERNAL_DIR = ROOT / "preview_static_internal"
+PREVIEW_STATIC_INTERNAL_FILES = [
+    PREVIEW_STATIC_INTERNAL_DIR / "README.md",
+    PREVIEW_STATIC_INTERNAL_DIR / "index.html",
+    PREVIEW_STATIC_INTERNAL_DIR / "topics/index.html",
+    PREVIEW_STATIC_INTERNAL_DIR / "topics/smartphone-bedienung.html",
+    PREVIEW_STATIC_INTERNAL_DIR / "topics/whatsapp-sicherheit.html",
+    PREVIEW_STATIC_INTERNAL_DIR / "articles/brief-002-preview.html",
+    PREVIEW_STATIC_INTERNAL_DIR / "status/index.html",
+    PREVIEW_STATIC_INTERNAL_DIR / "styles.css",
+]
+PREVIEW_STATIC_INTERNAL_HTML_FILES = [
+    PREVIEW_STATIC_INTERNAL_DIR / "index.html",
+    PREVIEW_STATIC_INTERNAL_DIR / "topics/index.html",
+    PREVIEW_STATIC_INTERNAL_DIR / "topics/smartphone-bedienung.html",
+    PREVIEW_STATIC_INTERNAL_DIR / "topics/whatsapp-sicherheit.html",
+    PREVIEW_STATIC_INTERNAL_DIR / "articles/brief-002-preview.html",
+    PREVIEW_STATIC_INTERNAL_DIR / "status/index.html",
+]
 SOURCE_REVIEW_PATH = ROOT / "docs/content/source_reviews/whatsapp-source-manual-review-batch-01.md"
 SOURCE_REVIEW_REL_PATH = "docs/content/source_reviews/whatsapp-source-manual-review-batch-01.md"
 EVIDENCE_CAPTURE_PATH = ROOT / "docs/content/evidence_captures/whatsapp-line-evidence-capture-batch-01.md"
@@ -723,6 +750,28 @@ def validate_protocol_automation_files(failures: list[str]) -> None:
             "decision_status:",
             "proceed_to_source_citation_and_legal_wording_preparation",
             "proceed_to_final_article_preparation_not_publish_ready",
+            "approved_for_later_internal_html_css_skeleton_no_js",
+            "preview_runtime_status:",
+            "static_generation_status:",
+            "skeleton_runtime_status:",
+            "skeleton_generation_status:",
+            "design_runtime_status:",
+            "asset_generation_status:",
+            "html_generation_status:",
+            "css_generation_status:",
+            "js_generation_status:",
+            "accessibility_testing_status:",
+            "not_performed",
+            "not_tested",
+            "wcag_conformance_status:",
+            "not_claimed",
+            "implementation_status:",
+            "implementation_decision_status:",
+            "pending_human_operator_decision",
+            "brief_002_rendering_decision:",
+            "shell_only_no_article_body",
+            "js_decision:",
+            "js_forbidden_first_skeleton",
             "prep_status:",
             "prepared_not_final",
             "legal_approval_status:",
@@ -6327,22 +6376,6 @@ def validate_website_information_architecture_internal_preview_v1(
                 f"{fragment}"
             )
 
-    forbidden_runtime_paths = [
-        ROOT / "preview_static_internal",
-        ROOT / "preview_static_internal/index.html",
-        ROOT / "preview_static_internal/topics/index.html",
-        ROOT / "preview_static_internal/articles/brief-002-preview.html",
-        ROOT / "preview_static_internal/status/index.html",
-        ROOT / "preview_static_internal/styles.css",
-        ROOT / "preview_static_internal/preview.js",
-    ]
-    for path in forbidden_runtime_paths:
-        if path.exists():
-            failures.append(
-                "Static Preview Spec Internal Only must not create runtime path: "
-                f"{path.relative_to(ROOT)}"
-            )
-
     forbidden_design_asset_patterns = [
         "*.css",
         "*.js",
@@ -6359,6 +6392,176 @@ def validate_website_information_architecture_internal_preview_v1(
                 "Visual Design System Spec Internal Only must not create design/runtime asset: "
                 f"{path.relative_to(ROOT)}"
             )
+
+    return count
+
+
+def validate_static_preview_skeleton_internal_only(failures: list[str]) -> int:
+    count = 0
+    for path in PREVIEW_STATIC_INTERNAL_FILES:
+        if not path.exists():
+            failures.append(f"Missing static preview skeleton file: {path.relative_to(ROOT)}")
+        else:
+            count += 1
+
+    if not PREVIEW_STATIC_INTERNAL_DIR.exists():
+        return count
+
+    approved_paths = {path.resolve() for path in PREVIEW_STATIC_INTERNAL_FILES}
+    for path in PREVIEW_STATIC_INTERNAL_DIR.rglob("*"):
+        if not path.is_file():
+            continue
+        if path.resolve() not in approved_paths:
+            failures.append(
+                "Static Preview Skeleton Internal Only contains unapproved file: "
+                f"{path.relative_to(ROOT)}"
+            )
+
+    forbidden_patterns = [
+        "*.js",
+        "*.png",
+        "*.svg",
+        "*.jpg",
+        "*.jpeg",
+        "*.webp",
+        "*.gif",
+        "*.ico",
+        "package.json",
+        "package-lock.json",
+        "vite.config.*",
+        "webpack.config.*",
+        "rollup.config.*",
+        "*.map",
+        "robots.txt",
+        "sitemap.xml",
+    ]
+    for pattern in forbidden_patterns:
+        for path in PREVIEW_STATIC_INTERNAL_DIR.rglob(pattern):
+            failures.append(
+                "Static Preview Skeleton Internal Only must not contain forbidden file: "
+                f"{path.relative_to(ROOT)}"
+            )
+
+    required_html_fragments = [
+        "internal_only",
+        "not_public",
+        "publish_readiness_status: not_ready",
+        "operator_acceptance_status: not_accepted",
+        "public_launch_status: not_ready",
+        "analytics_status: not_connected",
+        "monetization_status: not_approved",
+        "search_console_status: not_connected",
+        "user_feedback_status: not_collected",
+        "accessibility_testing_status: not_performed",
+        "wcag_conformance_status: not_claimed",
+    ]
+    forbidden_active_html_markers = [
+        "publish_readiness_status: publish_candidate",
+        "publish_readiness_status: approved_for_publish",
+        "public_launch_status: ready",
+        "public_launch_status: launched",
+        "operator_acceptance_status: accepted",
+        "analytics_status: connected",
+        "search_console_status: connected",
+        "user_feedback_status: collected",
+        "wcag_conformance_status: claimed",
+        "wcag_conformance_status: compliant",
+        "accessibility_testing_status: performed",
+    ]
+    forbidden_html_fragments = [
+        "<script",
+        "<form",
+        "analytics script",
+        "tracking code",
+        "search console verification",
+        "contact form",
+        "newsletter form",
+        "affiliate block",
+        "ads block",
+        "product recommendation block",
+        "whatsapp block/report ui instructions",
+        "http://",
+        "https://",
+    ]
+
+    for path in PREVIEW_STATIC_INTERNAL_HTML_FILES:
+        if not path.exists():
+            continue
+        text = path.read_text(encoding="utf-8")
+        lower_text = text.lower()
+        for fragment in required_html_fragments:
+            if fragment not in text:
+                failures.append(
+                    f"Static Preview Skeleton page {path.relative_to(ROOT)} "
+                    f"must contain: {fragment}"
+                )
+        for fragment in forbidden_active_html_markers:
+            if fragment in lower_text:
+                failures.append(
+                    f"Static Preview Skeleton page {path.relative_to(ROOT)} "
+                    f"must not contain active forbidden marker: {fragment}"
+                )
+        for fragment in forbidden_html_fragments:
+            if fragment in lower_text:
+                failures.append(
+                    f"Static Preview Skeleton page {path.relative_to(ROOT)} "
+                    f"must not contain forbidden fragment: {fragment}"
+                )
+
+    brief_002_path = PREVIEW_STATIC_INTERNAL_DIR / "articles/brief-002-preview.html"
+    if brief_002_path.exists():
+        brief_002_text = brief_002_path.read_text(encoding="utf-8")
+        required_brief_002_fragments = [
+            "shell_only_no_article_body",
+            "final_article_candidate_prepared_not_publish_ready",
+            "no article body",
+            "SHO-CLAIM-007 remains blocked",
+        ]
+        for fragment in required_brief_002_fragments:
+            if fragment not in brief_002_text:
+                failures.append(
+                    "Static Preview Skeleton Brief 002 shell must contain: "
+                    f"{fragment}"
+                )
+
+    if (PREVIEW_STATIC_INTERNAL_DIR / "styles.css").exists():
+        css_text = (PREVIEW_STATIC_INTERNAL_DIR / "styles.css").read_text(
+            encoding="utf-8"
+        )
+        lower_css_text = css_text.lower()
+        for fragment in ["@import", "http://", "https://", "url("]:
+            if fragment in lower_css_text:
+                failures.append(
+                    "Static Preview Skeleton styles.css must not contain external "
+                    f"dependency marker: {fragment}"
+                )
+        for fragment in [
+            ".status-banner",
+            "@media print",
+            "@media (max-width:",
+            ":focus",
+        ]:
+            if fragment not in css_text:
+                failures.append(
+                    "Static Preview Skeleton styles.css must contain: "
+                    f"{fragment}"
+                )
+
+    source_text = Path(__file__).read_text(encoding="utf-8")
+    required_summary_labels = [
+        "Content Pipeline V1 files",
+        "Website Preview V1 files",
+    ]
+    forbidden_summary_labels = [
+        "Content Pipeline Contract and Work Queue V1 " + "files",
+        "Website Information Architecture Internal Preview V1 " + "files",
+    ]
+    for fragment in required_summary_labels:
+        if fragment not in source_text:
+            failures.append(f"Validator summary label must contain: {fragment}")
+    for fragment in forbidden_summary_labels:
+        if fragment in source_text:
+            failures.append(f"Validator summary label must not contain old label: {fragment}")
 
     return count
 
@@ -6410,6 +6613,9 @@ def main() -> int:
     website_information_architecture_internal_preview_v1_count = (
         validate_website_information_architecture_internal_preview_v1(failures)
     )
+    static_preview_skeleton_internal_only_count = (
+        validate_static_preview_skeleton_internal_only(failures)
+    )
 
     if failures:
         print("FAIL: SHO-OS content contract validation failed")
@@ -6457,12 +6663,16 @@ def main() -> int:
         f"{human_operator_review_packet_final_article_candidate_brief_002_count}"
     )
     print(
-        "- Content Pipeline Contract and Work Queue V1 files: "
+        "- Content Pipeline V1 files: "
         f"{content_pipeline_contract_and_work_queue_v1_count}"
     )
     print(
-        "- Website Information Architecture Internal Preview V1 files: "
+        "- Website Preview V1 files: "
         f"{website_information_architecture_internal_preview_v1_count}"
+    )
+    print(
+        "- Static Preview Skeleton Internal Only files: "
+        f"{static_preview_skeleton_internal_only_count}"
     )
     print("- YAML/frontmatter parsing: dependency-free and text-based")
     return 0

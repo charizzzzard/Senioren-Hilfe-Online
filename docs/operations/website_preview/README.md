@@ -28,6 +28,14 @@ Die Artefakte sind nicht live. Sie erstellen keine Website-Runtime, veroeffentli
 - `docs/operations/operator_decisions/HUMAN_OPERATOR_DECISION_STATIC_PREVIEW_SKELETON_IMPLEMENTATION.md`
   - Human-Operator-Entscheidung fuer eine spaetere interne HTML/CSS-only Skeleton-Implementierung; keine Umsetzung in diesem Decision-Record.
 
+## Interner Static-Preview-Skeleton
+
+- `preview_static_internal/`
+  - Interner HTML/CSS-only Static-Preview-Skeleton fuer Review-Zwecke nach Human-Operator-Entscheidung.
+  - Kein JS, keine Runtime, keine Static Site Generation, keine Public Pages und keine Publish Readiness.
+  - Brief 002 wird nur als `shell_only_no_article_body` dargestellt.
+  - Erforderlicher naechster Schritt: `STATIC_PREVIEW_SKELETON_REVIEW_PACKET_INTERNAL_ONLY`.
+
 ## Non-Acceptance
 
 - Kein Public Launch.

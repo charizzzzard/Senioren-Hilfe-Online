@@ -5,19 +5,19 @@
 - project_name: Senioren-Hilfe Online
 - system_name: Senioren-Hilfe Online OS
 - system_short_name: SHO-OS
-- patch_title: HUMAN_OPERATOR_DECISION_STATIC_PREVIEW_SKELETON_IMPLEMENTATION
+- patch_title: STATIC_PREVIEW_SKELETON_INTERNAL_ONLY_WITH_ONE_TIME_P3_DOC_DRIFT_GOVERNANCE_CLEANUP
 - external_review_verdict: PENDING_REVIEW
 
 SHO-OS ist ein reproduzierbares Content-, Trust- und Publishing-System fuer seniorengerechte digitale Alltagshilfe in Deutschland.
 
-Dieser Patch dokumentiert die echte Human-Operator-Entscheidung fuer eine spaetere interne Static-Preview-Skeleton-Implementierung. Die Entscheidung erlaubt einen spaeteren separaten internen HTML/CSS-only Skeleton unter `preview_static_internal/`, verbietet JS fuer den ersten Skeleton, beschraenkt Brief 002 auf eine Shell ohne Artikelbody und verlangt Statusbanner oben und im Footer jeder Seite. Der Patch implementiert noch keinen Skeleton, erzeugt keine HTML/CSS/JS-Dateien, keine Design Assets, keine Runtime, keine Static Site Generation, keine Public Pages, veroeffentlicht keine Artikel, setzt keine Publish Readiness, keine Operator Acceptance fuer das Gesamtprojekt, keine Public-Launch-Freigabe, keine Monetarisierung, keine rechtliche Freigabe, keine Live-Analytics, kein Live-Feedback, keine neuen Quellen, keine neuen Claims, keine Accessibility-Tests und keine WCAG-Konformitaetsbehauptung.
+Dieser Patch implementiert den freigegebenen internen HTML/CSS-only Static-Preview-Skeleton unter `preview_static_internal/` und fuehrt einmalig einen minimalen P3-Governance-/Doc-Drift-Cleanup aus. Der Skeleton ist ein internes Review-Artefakt. Er ist keine Website-Runtime, keine Static Site Generation, kein Public Launch, keine Publish Readiness, keine Operator Acceptance fuer das Gesamtprojekt, keine Monetarisierung und keine Analytics-/Search-Console-/Feedback-Aktivierung.
 
 ## Git Traceability
 
 - branch: `main`
-- head_before: `f77f7d09c8b801401e69d79df0d238957f63dde5`
+- head_before: `bc156261e08c527b378b60677668fb5dc46e3f30`
 - intended_head_after: `assigned_after_commit`
-- origin_main_before: `f77f7d09c8b801401e69d79df0d238957f63dde5`
+- origin_main_before: `bc156261e08c527b378b60677668fb5dc46e3f30`
 - dirty_state_before: `clean`
 - dirty_state_after: `assigned_after_commit`
 
@@ -25,30 +25,51 @@ Hinweis: `head_after` wird nicht vorab als Commit-SHA eingetragen, weil ein Comm
 
 ## Scope Dieses Patches
 
-- `docs/operations/operator_decisions/HUMAN_OPERATOR_DECISION_STATIC_PREVIEW_SKELETON_IMPLEMENTATION.md` erstellt.
-- Human-Operator-Entscheidung dokumentiert: `approve_internal_html_css_skeleton_no_js`.
-- Brief-002-Rendering dokumentiert: `shell_only_no_article_body`.
-- JS-Entscheidung dokumentiert: `js_forbidden_first_skeleton`.
-- Statusbanner-Platzierung dokumentiert: `top_and_footer_on_every_page`.
-- Implementierungsort dokumentiert: `preview_static_internal/`.
-- Required Follow-Up dokumentiert: `STATIC_PREVIEW_SKELETON_REVIEW_PACKET_INTERNAL_ONLY`.
-- Empfohlener naechster Schritt: `STATIC_PREVIEW_SKELETON_INTERNAL_ONLY`.
-- Operator-Decisions-README, Website-Preview-README, Validation Requirements und `validate_content_contracts.py` um Human-Operator-Decision-Abdeckung ergaenzt.
+- `docs/operations/STATUS_REGISTRY.yaml` registriert fehlende granulare Website-Preview-Status-Keys konservativ.
+- `scripts/validate_content_contracts.py` verwendet praezisere Summary-Labels:
+  - `Content Pipeline V1 files`
+  - `Website Preview V1 files`
+- `scripts/validate_content_contracts.py` prueft den internen Skeleton auf genehmigte Dateien, Pflichtstatus, Brief-002-Shell-only-Grenze und verbotene Dateien/Fragmente.
+- `docs/engineering/VALIDATION_REQUIREMENTS.md` dokumentiert die neuen Checks.
+- `docs/operations/website_preview/README.md` verweist auf den internen Skeleton.
+- `preview_static_internal/` enthaelt genau die freigegebenen HTML/CSS-only Dateien.
+- `external_review_packet/00_READ_ME_FIRST.md` und dieses Handoff wurden auf den Patch aktualisiert.
+
+## Static Preview Skeleton Summary
+
+- implementation_location: `preview_static_internal/`
+- js_decision: `js_forbidden_first_skeleton`
+- brief_002_rendering_decision: `shell_only_no_article_body`
+- status_banner_placement: top and footer on every HTML page
+- required_follow_up_after_implementation: `STATIC_PREVIEW_SKELETON_REVIEW_PACKET_INTERNAL_ONLY`
+
+Created internal files:
+
+- `preview_static_internal/README.md`
+- `preview_static_internal/index.html`
+- `preview_static_internal/topics/index.html`
+- `preview_static_internal/topics/smartphone-bedienung.html`
+- `preview_static_internal/topics/whatsapp-sicherheit.html`
+- `preview_static_internal/articles/brief-002-preview.html`
+- `preview_static_internal/status/index.html`
+- `preview_static_internal/styles.css`
 
 ## Non-Scope
 
 - Keine Website-Runtime.
 - Keine Static Site Generation.
-- Keine HTML/CSS/JS-Dateien.
+- Keine JS-Dateien.
 - Keine Design-Asset-Dateien.
 - Keine Accessibility-Zertifizierung.
 - Keine WCAG-Konformitaetsbehauptung.
+- Keine Accessibility-Tests.
 - Keine Public Pages.
 - Kein Public Launch.
 - Keine Artikelveroeffentlichung.
+- Kein Brief-002-Artikelbody.
 - Keine neuen Article Candidates.
 - Keine Publish Readiness.
-- Keine Operator Acceptance.
+- Keine Operator Acceptance fuer das Gesamtprojekt.
 - Keine Monetarisierung.
 - Keine Affiliate-Inhalte.
 - Keine Ads.
@@ -63,22 +84,8 @@ Hinweis: `head_after` wird nicht vorab als Commit-SHA eingetragen, weil ein Comm
 - Keine echten Nutzerfeedback-Daten.
 - Keine SEO-/Keyword-/Ranking-/Traffic-/CTR-/Conversion-/Revenue-Daten.
 
-## Human Operator Static Preview Skeleton Implementation Decision Summary
+## Guardrails
 
-- decision_id: `HUMAN-OPERATOR-DECISION-STATIC-PREVIEW-SKELETON-IMPLEMENTATION`
-- decision_status: `approved_for_later_internal_html_css_skeleton_no_js`
-- implementation_decision_status: `approved_for_later_internal_html_css_skeleton_no_js`
-- implementation_status: `not_implemented`
-- skeleton_runtime_status: `not_implemented`
-- skeleton_generation_status: `not_implemented`
-- html_generation_status: `not_implemented`
-- css_generation_status: `not_implemented`
-- js_generation_status: `not_implemented`
-- asset_generation_status: `not_implemented`
-- accessibility_testing_status: `not_performed`
-- wcag_conformance_status: `not_claimed`
-- preview_runtime_status: `not_implemented`
-- static_generation_status: `not_implemented`
 - public_launch_status: `not_ready`
 - publish_readiness_status: `not_ready`
 - operator_acceptance_status: `not_accepted`
@@ -86,27 +93,13 @@ Hinweis: `head_after` wird nicht vorab als Commit-SHA eingetragen, weil ein Comm
 - analytics_status: `not_connected`
 - search_console_status: `not_connected`
 - user_feedback_status: `not_collected`
-- brief_002_rendering_decision: `shell_only_no_article_body`
-- js_decision: `js_forbidden_first_skeleton`
-- required_follow_up_after_implementation: `STATIC_PREVIEW_SKELETON_REVIEW_PACKET_INTERNAL_ONLY`
-
-## Guardrails
-
-- Kein Website Runtime.
-- Keine Static Site Generation.
-- Keine HTML/CSS/JS-Dateien.
-- Keine Design-Asset-Dateien.
-- Keine Accessibility-Zertifizierung.
-- Keine WCAG-Konformitaetsbehauptung.
-- Kein Public Launch.
-- Keine Publish Readiness.
-- Keine Operator Acceptance.
-- Keine Monetarisierung.
-- Keine Affiliate-Logik.
-- Keine Ads.
-- Keine Analytics-, Search-Console- oder Feedback-Aktivierung.
-- Keine erfundenen SEO-, Ranking-, Traffic-, CTR-, Conversion-, Revenue- oder Nutzerfeedback-Daten.
-- Blockierte Claims bleiben blockiert.
+- accessibility_testing_status: `not_performed`
+- wcag_conformance_status: `not_claimed`
+- SHO-CLAIM-007 remains blocked.
+- Brief 001 remains `blocked_before_draft`.
+- Brief 002 remains `final_article_candidate_prepared_not_publish_ready` and shell-only.
+- Brief 003 remains `draft_scaffold_only`.
+- Brief 004 remains `held_for_methodology`.
 
 ## Validation Commands
 
@@ -121,4 +114,4 @@ Hinweis: `head_after` wird nicht vorab als Commit-SHA eingetragen, weil ein Comm
 
 ## Keine finale Annahme durch Codex
 
-Human Operator Decision Static Preview Skeleton Implementation recorded for later internal HTML/CSS-only skeleton scope only, with no implementation performed, no website runtime, no static site generation, no HTML/CSS/JS/assets created by this patch, no accessibility tests, no WCAG conformance claim, no public launch, no publish readiness, no Operator Acceptance for the overall project, no monetization approval and no unlock of blocked claims. Finale Annahme bleibt beim Human Operator.
+Der Skeleton ist nur ein internes Review-Artefakt. Der naechste erforderliche Schritt ist `STATIC_PREVIEW_SKELETON_REVIEW_PACKET_INTERNAL_ONLY`.

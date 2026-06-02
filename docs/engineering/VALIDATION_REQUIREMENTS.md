@@ -627,7 +627,7 @@ Das Review-Artefakt muss mindestens diese Finding IDs enthalten:
 - Das Article Readiness Dashboard darf `source metadata reviewed from existing repo metadata not live verified` fuer Brief 002 dokumentieren, muss aber Publish Readiness, Operator Acceptance, Public Launch und Monetarisierung weiterhin blockiert halten.
 - User-Perspective-, Reader-Experience- und Feedback-Reviews duerfen durch diese Review nicht als abgeschlossen behauptet werden.
 
-## Content Pipeline Contract and Work Queue V1 Checks
+## Content Pipeline V1 Checks
 
 - Fuer die Content Pipeline muessen diese Artefakte existieren:
   - `docs/operations/content_pipeline/README.md`
@@ -662,7 +662,7 @@ Das Review-Artefakt muss mindestens diese Finding IDs enthalten:
 - Next Task Generator Spec muss forbidden data invention guardrail sichtbar halten.
 - Kein Runner- oder Generator-Artefakt darf live Analytics, Search Console, Feedback, Ranking, Traffic, Conversion, Revenue oder Monetization Data behaupten.
 
-## Website Information Architecture Internal Preview V1 Checks
+## Website Preview V1 Checks
 
 - `docs/operations/website_preview/WEBSITE_INFORMATION_ARCHITECTURE_INTERNAL_PREVIEW_V1.md` muss existieren.
 - Das Artefakt muss `artifact_status: internal_preview_structure_defined` enthalten.
@@ -856,6 +856,46 @@ Das Review-Artefakt muss mindestens diese Finding IDs enthalten:
 - Das Decision-Record muss Purpose, Decision Summary, Explicit Non-Acceptance, Approved Later Implementation Scope, Mandatory Later Implementation Constraints, Required Follow-Up, Risk Acceptance Boundary, Forbidden Outcomes und Recommended Next Step enthalten.
 - Das Decision-Record darf keine aktive Implementierung, keine JS-Freigabe, kein Full-Body-Rendering fuer Brief 002, keine aktiven Accessibility-Testing-, WCAG-, Skeleton-, HTML-, CSS-, JS-, Asset-, Launch-, Publish-, Acceptance-, Monetization-, Analytics-, Search-Console- oder Feedback-Statuswerte enthalten.
 - Das Decision-Record darf keine echten CSS-, HTML-, JS-, Bild-, Asset-, Build-, Deployment-, Tracking- oder Public-Website-Dateien erzeugen.
+
+## One-Time P3 Governance Cleanup Checks
+
+- `docs/operations/STATUS_REGISTRY.yaml` muss granulare Website-Preview-Status-Keys registrieren:
+  - `preview_runtime_status`
+  - `static_generation_status`
+  - `skeleton_runtime_status`
+  - `skeleton_generation_status`
+  - `design_runtime_status`
+  - `asset_generation_status`
+  - `html_generation_status`
+  - `css_generation_status`
+  - `js_generation_status`
+  - `accessibility_testing_status`
+  - `wcag_conformance_status`
+  - `implementation_status`
+  - `implementation_decision_status`
+  - `decision_status`
+  - `brief_002_rendering_decision`
+  - `js_decision`
+- Die registrierten Werte muessen konservativ bleiben und duerfen keine Runtime-, Public-Launch-, Publish-Readiness-, Monetization- oder Operator-Acceptance-Semantik freigeben.
+- Validator-Summary-Labels muessen `Content Pipeline V1 files` und `Website Preview V1 files` verwenden.
+
+## Static Preview Skeleton Internal Only Checks
+
+- Der genehmigte interne Skeleton muss genau diese Dateien enthalten:
+  - `preview_static_internal/README.md`
+  - `preview_static_internal/index.html`
+  - `preview_static_internal/topics/index.html`
+  - `preview_static_internal/topics/smartphone-bedienung.html`
+  - `preview_static_internal/topics/whatsapp-sicherheit.html`
+  - `preview_static_internal/articles/brief-002-preview.html`
+  - `preview_static_internal/status/index.html`
+  - `preview_static_internal/styles.css`
+- Unter `preview_static_internal/` duerfen keine JS-, Bild-, Asset-, Build-, Deployment- oder Tracking-Dateien existieren.
+- Jede HTML-Seite muss `internal_only`, `not_public`, `publish_readiness_status: not_ready`, `operator_acceptance_status: not_accepted`, `public_launch_status: not_ready`, `analytics_status: not_connected`, `monetization_status: not_approved`, `search_console_status: not_connected`, `user_feedback_status: not_collected`, `accessibility_testing_status: not_performed` und `wcag_conformance_status: not_claimed` enthalten.
+- `preview_static_internal/articles/brief-002-preview.html` muss `shell_only_no_article_body`, `final_article_candidate_prepared_not_publish_ready`, `no article body` und `SHO-CLAIM-007 remains blocked` enthalten.
+- Keine HTML-Seite darf aktive Publish-, Launch-, Acceptance-, Analytics-, Search-Console-, Feedback-, Accessibility-Testing- oder WCAG-Statuswerte enthalten.
+- Keine HTML-Seite darf Skripte, Forms, externe Abhaengigkeiten, Analytics-Skripte, Search-Console-Verification, Kontakt-/Newsletter-Forms, Affiliate-/Ads-/Product-Recommendation-Blocks oder WhatsApp block/report UI instructions enthalten.
+- `styles.css` muss intern bleiben, keine Imports oder externen Assets laden, sichtbare Statusbanner, Fokuszustand, mobile Einspaltigkeit und druckbare Statushinweise unterstuetzen.
 
 ## Reader Experience Quality Checks
 

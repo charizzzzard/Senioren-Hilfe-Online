@@ -215,6 +215,7 @@ decision_status:
   allowed:
     - proceed_to_source_citation_and_legal_wording_preparation
     - proceed_to_final_article_preparation_not_publish_ready
+    - approved_for_later_internal_html_css_skeleton_no_js
     - blocked
     - superseded
   forbidden_by_codex:
@@ -691,6 +692,209 @@ runtime_status:
     - accepted
     - approved_for_publish
     - publish_ready
+
+preview_runtime_status:
+  allowed:
+    - not_implemented
+    - blocked
+  forbidden_by_codex:
+    - implemented
+    - active
+    - live
+    - accepted
+    - operator_accepted
+    - approved_for_publish
+    - publish_ready
+    - public_launch_ready
+
+static_generation_status:
+  allowed:
+    - not_implemented
+    - blocked
+  forbidden_by_codex:
+    - implemented
+    - active
+    - live
+    - accepted
+    - operator_accepted
+    - approved_for_publish
+    - publish_ready
+    - public_launch_ready
+
+skeleton_runtime_status:
+  allowed:
+    - not_implemented
+    - blocked
+  forbidden_by_codex:
+    - implemented
+    - active
+    - live
+    - accepted
+    - operator_accepted
+    - approved_for_publish
+    - publish_ready
+    - public_launch_ready
+
+skeleton_generation_status:
+  allowed:
+    - not_implemented
+    - blocked
+  forbidden_by_codex:
+    - implemented
+    - active
+    - live
+    - accepted
+    - operator_accepted
+    - approved_for_publish
+    - publish_ready
+    - public_launch_ready
+
+design_runtime_status:
+  allowed:
+    - not_implemented
+    - blocked
+  forbidden_by_codex:
+    - implemented
+    - active
+    - live
+    - accepted
+    - operator_accepted
+    - approved_for_publish
+    - publish_ready
+    - public_launch_ready
+
+asset_generation_status:
+  allowed:
+    - not_implemented
+    - blocked
+  forbidden_by_codex:
+    - implemented
+    - active
+    - accepted
+    - operator_accepted
+    - approved_for_publish
+    - publish_ready
+    - public_launch_ready
+
+html_generation_status:
+  allowed:
+    - not_implemented
+    - blocked
+  forbidden_by_codex:
+    - implemented
+    - active
+    - accepted
+    - operator_accepted
+    - approved_for_publish
+    - publish_ready
+    - public_launch_ready
+
+css_generation_status:
+  allowed:
+    - not_implemented
+    - blocked
+  forbidden_by_codex:
+    - implemented
+    - active
+    - accepted
+    - operator_accepted
+    - approved_for_publish
+    - publish_ready
+    - public_launch_ready
+
+js_generation_status:
+  allowed:
+    - not_implemented
+    - blocked
+  forbidden_by_codex:
+    - implemented
+    - active
+    - accepted
+    - operator_accepted
+    - approved_for_publish
+    - publish_ready
+    - public_launch_ready
+
+accessibility_testing_status:
+  allowed:
+    - not_performed
+    - not_tested
+    - blocked
+  forbidden_by_codex:
+    - performed
+    - claimed
+    - compliant
+    - accepted
+    - operator_accepted
+    - approved_for_publish
+    - publish_ready
+    - public_launch_ready
+
+wcag_conformance_status:
+  allowed:
+    - not_claimed
+    - blocked
+  forbidden_by_codex:
+    - claimed
+    - compliant
+    - certified
+    - accepted
+    - operator_accepted
+    - approved_for_publish
+    - publish_ready
+    - public_launch_ready
+
+implementation_status:
+  allowed:
+    - not_implemented
+    - blocked
+  forbidden_by_codex:
+    - implemented
+    - active
+    - live
+    - accepted
+    - operator_accepted
+    - approved_for_publish
+    - publish_ready
+    - public_launch_ready
+
+implementation_decision_status:
+  allowed:
+    - pending_human_operator_decision
+    - approved_for_later_internal_html_css_skeleton_no_js
+    - blocked
+  forbidden_by_codex:
+    - accepted
+    - operator_accepted
+    - approved_for_publish
+    - publish_ready
+    - public_launch_ready
+    - monetization_approved
+
+brief_002_rendering_decision:
+  allowed:
+    - shell_only_no_article_body
+    - blocked
+  forbidden_by_codex:
+    - full_internal_candidate_text_with_not_publish_ready_banner
+    - accepted
+    - operator_accepted
+    - approved_for_publish
+    - publish_ready
+    - public_launch_ready
+
+js_decision:
+  allowed:
+    - js_forbidden_first_skeleton
+    - blocked
+  forbidden_by_codex:
+    - js_allowed
+    - js_allowed_for_internal_status_helpers_only
+    - accepted
+    - operator_accepted
+    - approved_for_publish
+    - publish_ready
+    - public_launch_ready
 
 queue_execution_status:
   allowed:

@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <title>Themen - Internal Preview Skeleton</title>
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Zum Inhalt springen</a>
+  <header class="site-header">
+    <div class="brand">Senioren-Hilfe Online</div>
+    <p>Interne Themenuebersicht fuer die Static Preview.</p>
+    <nav aria-label="Interne Preview-Navigation">
+      <a href="../index.html">Start</a>
+      <a href="index.html">Themen</a>
+      <a href="../articles/brief-002-preview.html">Brief 002 Shell</a>
+      <a href="../status/index.html">Status</a>
+    </nav>
+  </header>
+
+  <section class="status-banner" aria-label="Interner Status">
+    <strong>internal_only</strong>
+    <span>not_public</span>
+    <span>publish_readiness_status: not_ready</span>
+    <span>operator_acceptance_status: not_accepted</span>
+    <span>public_launch_status: not_ready</span>
+    <span>analytics_status: not_connected</span>
+    <span>monetization_status: not_approved</span>
+    <span>search_console_status: not_connected</span>
+    <span>user_feedback_status: not_collected</span>
+    <span>accessibility_testing_status: not_performed</span>
+    <span>wcag_conformance_status: not_claimed</span>
+  </section>
+
+  <main id="main-content" class="page-shell">
+    <h1>Interne Themenuebersicht</h1>
+    <p>Diese Uebersicht zeigt nur geplante Themenflaechen und Status. Sie erzeugt keine oeffentliche Navigation.</p>
+
+    <section class="grid" aria-label="Themenstatus">
+      <article class="card blocked">
+        <h2>WhatsApp &amp; Sicherheit</h2>
+        <p>topic_state: internal_shell</p>
+        <p>blocker_state: Brief 001 blocked_before_draft; SHO-CLAIM-007 remains blocked.</p>
+        <a href="whatsapp-sicherheit.html">WhatsApp-Sicherheit intern ansehen</a>
+      </article>
+      <article class="card">
+        <h2>Smartphone &amp; Bedienung</h2>
+        <p>topic_state: internal_shell</p>
+        <p>blocker_state: Brief 003 draft_scaffold_only; device/version/screenshot blocker visible.</p>
+        <a href="smartphone-bedienung.html">Smartphone-Bedienung intern ansehen</a>
+      </article>
+      <article class="card blocked">
+        <h2>Betrug erkennen / Sicherheit im digitalen Alltag</h2>
+        <p>topic_state: internal_shell</p>
+        <p>Brief 002 ist nur als interne Shell sichtbar und bleibt nicht publish-ready.</p>
+        <a href="../articles/brief-002-preview.html">Brief 002 Shell ansehen</a>
+      </article>
+      <article class="card">
+        <h2>Hilfen fuer Angehoerige</h2>
+        <p>topic_state: IA placeholder</p>
+        <p>blocker_state: keine eigene Artikelkandidatenflaeche in diesem Skeleton.</p>
+      </article>
+    </section>
+  </main>
+
+  <footer class="footer-status">
+    <p>internal-only, not public. No publish readiness, no Operator Acceptance, no analytics/search console/user feedback connection, no monetization/affiliate/ads, no WCAG conformance claim, no accessibility test performed.</p>
+  </footer>
+</body>
+</html>

@@ -2,32 +2,47 @@
 
 ## Zweck dieses Review-Pakets
 
-Dieses Review-Paket beschreibt den Patch `HUMAN_OPERATOR_DECISION_STATIC_PREVIEW_SKELETON_IMPLEMENTATION`.
+Dieses Review-Paket beschreibt den Patch `STATIC_PREVIEW_SKELETON_INTERNAL_ONLY_WITH_ONE_TIME_P3_DOC_DRIFT_GOVERNANCE_CLEANUP`.
 
-Der Patch dokumentiert die echte Human-Operator-Entscheidung fuer eine spaetere interne Static-Preview-Skeleton-Implementierung. Die Entscheidung erlaubt einen spaeteren separaten internen HTML/CSS-only Skeleton unter `preview_static_internal/`, verbietet JS fuer den ersten Skeleton, beschraenkt Brief 002 auf eine Shell ohne Artikelbody und verlangt Statusbanner oben und im Footer jeder Seite.
+Der Patch kombiniert genau zwei begrenzte Arbeiten:
 
-Der Patch implementiert noch keinen Skeleton, erzeugt keine HTML/CSS/JS-Dateien, keine Design Assets, keine Runtime, keine Static Site Generation, keine Public Pages, keinen Public Launch, keine Publish Readiness, keine Operator Acceptance fuer das Gesamtprojekt, keine Monetarisierung, keine Affiliate-Logik, keine Analytics-/Search-Console-/Feedback-Verbindung, keine Accessibility-Tests und keine WCAG-Konformitaetsbehauptung.
+- einmaliger minimaler P3-Governance-/Doc-Drift-Cleanup fuer Status Registry und Validator-Summary-Labels
+- Implementierung des freigegebenen internen HTML/CSS-only Static-Preview-Skeletons unter `preview_static_internal/`
+
+Der Human Operator hat diesen engen Skeleton-Umfang zuvor dokumentiert genehmigt: kein JS, Brief 002 nur als Shell ohne Artikelbody, Statusbanner oben und im Footer jeder HTML-Seite, Implementierungsort `preview_static_internal/`, direkter Folge-Review `STATIC_PREVIEW_SKELETON_REVIEW_PACKET_INTERNAL_ONLY`.
 
 ## Scope dieses Patches
 
-- Human-Operator-Decision-Record erstellen:
-  - `docs/operations/operator_decisions/HUMAN_OPERATOR_DECISION_STATIC_PREVIEW_SKELETON_IMPLEMENTATION.md`
-- Website-Preview-README und Operator-Decisions-README um den neuen Entscheidungsstand ergaenzen.
-- Validation Requirements und `validate_content_contracts.py` um Human-Operator-Decision-Checks ergaenzen.
+- `docs/operations/STATUS_REGISTRY.yaml` um fehlende granulare Website-Preview-Status-Keys konservativ ergaenzen.
+- `scripts/validate_content_contracts.py` um praezisere Summary-Labels und Skeleton-Checks ergaenzen.
+- `docs/engineering/VALIDATION_REQUIREMENTS.md` minimal an die neuen Checks anpassen.
+- `docs/operations/website_preview/README.md` um den internen Skeleton-Verweis ergaenzen.
+- Genehmigte interne Skeleton-Dateien erstellen:
+  - `preview_static_internal/README.md`
+  - `preview_static_internal/index.html`
+  - `preview_static_internal/topics/index.html`
+  - `preview_static_internal/topics/smartphone-bedienung.html`
+  - `preview_static_internal/topics/whatsapp-sicherheit.html`
+  - `preview_static_internal/articles/brief-002-preview.html`
+  - `preview_static_internal/status/index.html`
+  - `preview_static_internal/styles.css`
 - Externen Handoff-Kontext auf diesen Patch aktualisieren.
 
 ## Primaere Review-Dateien
 
+- `preview_static_internal/README.md`
+- `preview_static_internal/index.html`
+- `preview_static_internal/topics/index.html`
+- `preview_static_internal/topics/smartphone-bedienung.html`
+- `preview_static_internal/topics/whatsapp-sicherheit.html`
+- `preview_static_internal/articles/brief-002-preview.html`
+- `preview_static_internal/status/index.html`
+- `preview_static_internal/styles.css`
 - `docs/operations/operator_decisions/HUMAN_OPERATOR_DECISION_STATIC_PREVIEW_SKELETON_IMPLEMENTATION.md`
-- `docs/operations/website_preview/STATIC_PREVIEW_SKELETON_IMPLEMENTATION_DECISION_PACKET_INTERNAL_ONLY.md`
 - `docs/operations/website_preview/STATIC_PREVIEW_SKELETON_SPEC_INTERNAL_ONLY.md`
-- `docs/operations/website_preview/ACCESSIBILITY_REQUIREMENTS_REVIEW_PACKET_INTERNAL_ONLY.md`
-- `docs/operations/website_preview/ACCESSIBILITY_REQUIREMENTS_FOR_STATIC_PREVIEW_INTERNAL_ONLY.md`
-- `docs/operations/website_preview/VISUAL_DESIGN_SYSTEM_SPEC_INTERNAL_ONLY.md`
-- `docs/operations/website_preview/STATIC_PREVIEW_SPEC_INTERNAL_ONLY.md`
-- `docs/operations/website_preview/WEBSITE_INFORMATION_ARCHITECTURE_INTERNAL_PREVIEW_V1.md`
-- `docs/operations/website_preview/WEBSITE_PREVIEW_REVIEW_PACKET_INTERNAL_ONLY.md`
+- `docs/operations/website_preview/STATIC_PREVIEW_SKELETON_IMPLEMENTATION_DECISION_PACKET_INTERNAL_ONLY.md`
 - `docs/operations/website_preview/README.md`
+- `docs/operations/STATUS_REGISTRY.yaml`
 - `docs/engineering/VALIDATION_REQUIREMENTS.md`
 - `scripts/validate_content_contracts.py`
 - `external_review_packet/HANDOFF_LATEST_CONTEXT.md`
@@ -36,16 +51,17 @@ Der Patch implementiert noch keinen Skeleton, erzeugt keine HTML/CSS/JS-Dateien,
 
 - Keine Website-Runtime.
 - Keine Static Site Generation.
-- Keine HTML/CSS/JS-Dateien.
+- Keine JS-Dateien.
 - Keine Design-Asset-Dateien.
 - Keine Accessibility-Zertifizierung.
 - Keine WCAG-Konformitaetsbehauptung.
 - Keine Public Pages.
 - Kein Public Launch.
 - Keine Artikelveroeffentlichung.
+- Kein Brief-002-Artikelbody.
 - Keine neuen Article Candidates.
 - Keine Publish Readiness.
-- Keine Operator Acceptance.
+- Keine Operator Acceptance fuer das Gesamtprojekt.
 - Keine Monetarisierung.
 - Keine Affiliate-Inhalte.
 - Keine Ads.
@@ -70,4 +86,4 @@ Der Patch implementiert noch keinen Skeleton, erzeugt keine HTML/CSS/JS-Dateien,
 
 ## Operator Acceptance
 
-Der Human Operator bleibt finale Annahmeautoritaet. Dieses Paket ist eine interne Spezifikation, keine Implementierung, keine Runtime, keine finale Annahme und keine Freigabe.
+Der Human Operator bleibt finale Annahmeautoritaet. Dieser Patch erzeugt nur ein internes Review-Artefakt und keinen Launch-, Publish- oder Acceptance-Status.
