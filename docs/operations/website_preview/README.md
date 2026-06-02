@@ -16,6 +16,8 @@ Die Artefakte sind nicht live. Sie erstellen keine Website-Runtime, veroeffentli
   - Spezifikation fuer seniorengerechte visuelle Regeln einer spaeteren internen Preview; keine CSS-, Asset- oder Runtime-Erzeugung.
 - `ACCESSIBILITY_REQUIREMENTS_FOR_STATIC_PREVIEW_INTERNAL_ONLY.md`
   - Spezifikation fuer Accessibility- und Senior-UX-Anforderungen einer spaeteren internen Static Preview; keine Tests, keine WCAG-Konformitaetsbehauptung und keine Runtime.
+- `ACCESSIBILITY_REQUIREMENTS_REVIEW_PACKET_INTERNAL_ONLY.md`
+  - Internes Human-Operator-Review-Paket fuer die Accessibility-Requirements-Spec; keine Tests, keine Acceptance und keine WCAG-Konformitaetsbehauptung.
 
 ## Non-Acceptance
 

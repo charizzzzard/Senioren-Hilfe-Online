@@ -101,6 +101,7 @@ REQUIRED_DOCS = [
     "docs/operations/website_preview/STATIC_PREVIEW_SPEC_INTERNAL_ONLY.md",
     "docs/operations/website_preview/VISUAL_DESIGN_SYSTEM_SPEC_INTERNAL_ONLY.md",
     "docs/operations/website_preview/ACCESSIBILITY_REQUIREMENTS_FOR_STATIC_PREVIEW_INTERNAL_ONLY.md",
+    "docs/operations/website_preview/ACCESSIBILITY_REQUIREMENTS_REVIEW_PACKET_INTERNAL_ONLY.md",
     "scripts/validate_stage_transitions.py",
 ]
 
@@ -211,6 +212,9 @@ VISUAL_DESIGN_SYSTEM_SPEC_INTERNAL_ONLY_PATH = (
 )
 ACCESSIBILITY_REQUIREMENTS_FOR_STATIC_PREVIEW_INTERNAL_ONLY_PATH = (
     WEBSITE_PREVIEW_DIR / "ACCESSIBILITY_REQUIREMENTS_FOR_STATIC_PREVIEW_INTERNAL_ONLY.md"
+)
+ACCESSIBILITY_REQUIREMENTS_REVIEW_PACKET_INTERNAL_ONLY_PATH = (
+    WEBSITE_PREVIEW_DIR / "ACCESSIBILITY_REQUIREMENTS_REVIEW_PACKET_INTERNAL_ONLY.md"
 )
 SOURCE_REVIEW_PATH = ROOT / "docs/content/source_reviews/whatsapp-source-manual-review-batch-01.md"
 SOURCE_REVIEW_REL_PATH = "docs/content/source_reviews/whatsapp-source-manual-review-batch-01.md"
@@ -5513,6 +5517,7 @@ def validate_website_information_architecture_internal_preview_v1(
         STATIC_PREVIEW_SPEC_INTERNAL_ONLY_PATH,
         VISUAL_DESIGN_SYSTEM_SPEC_INTERNAL_ONLY_PATH,
         ACCESSIBILITY_REQUIREMENTS_FOR_STATIC_PREVIEW_INTERNAL_ONLY_PATH,
+        ACCESSIBILITY_REQUIREMENTS_REVIEW_PACKET_INTERNAL_ONLY_PATH,
     ]
     count = 0
     for path in required_paths:
@@ -5539,6 +5544,11 @@ def validate_website_information_architecture_internal_preview_v1(
     )
     accessibility_requirements_text = (
         ACCESSIBILITY_REQUIREMENTS_FOR_STATIC_PREVIEW_INTERNAL_ONLY_PATH.read_text(
+            encoding="utf-8"
+        )
+    )
+    accessibility_review_packet_text = (
+        ACCESSIBILITY_REQUIREMENTS_REVIEW_PACKET_INTERNAL_ONLY_PATH.read_text(
             encoding="utf-8"
         )
     )
@@ -5761,6 +5771,57 @@ def validate_website_information_architecture_internal_preview_v1(
                 f"{fragment}"
             )
 
+    required_accessibility_review_packet_fragments = [
+        "accessibility_review_packet_id: ACCESSIBILITY-REQUIREMENTS-REVIEW-PACKET-INTERNAL-ONLY",
+        "linked_accessibility_requirements_spec: docs/operations/website_preview/ACCESSIBILITY_REQUIREMENTS_FOR_STATIC_PREVIEW_INTERNAL_ONLY.md",
+        "linked_visual_design_system_spec: docs/operations/website_preview/VISUAL_DESIGN_SYSTEM_SPEC_INTERNAL_ONLY.md",
+        "linked_static_preview_spec: docs/operations/website_preview/STATIC_PREVIEW_SPEC_INTERNAL_ONLY.md",
+        "linked_ia_artifact: docs/operations/website_preview/WEBSITE_INFORMATION_ARCHITECTURE_INTERNAL_PREVIEW_V1.md",
+        "linked_website_preview_review_packet: docs/operations/website_preview/WEBSITE_PREVIEW_REVIEW_PACKET_INTERNAL_ONLY.md",
+        "review_packet_status: prepared_for_human_operator_review_not_acceptance",
+        "accessibility_testing_status: not_performed",
+        "wcag_conformance_status: not_claimed",
+        "preview_runtime_status: not_implemented",
+        "static_generation_status: not_implemented",
+        "css_generation_status: not_implemented",
+        "asset_generation_status: not_implemented",
+        "public_launch_status: not_ready",
+        "publish_readiness_status: not_ready",
+        "operator_acceptance_status: not_accepted",
+        "monetization_status: not_approved",
+        "analytics_status: not_connected",
+        "search_console_status: not_connected",
+        "user_feedback_status: not_collected",
+        "## Purpose",
+        "## Explicit Non-Acceptance",
+        "## Reviewed Artifact Summary",
+        "## Scope Confirmation",
+        "## Requirements Coverage Review",
+        "## Findings",
+        "## Human Operator Review Questions",
+        "## Allowed Outcomes",
+        "## Forbidden Outcomes",
+        "## Recommended Next Step",
+        "SHO-A11Y-REVIEW-001",
+        "SHO-A11Y-REVIEW-004",
+        "STATIC_PREVIEW_SKELETON_SPEC_INTERNAL_ONLY",
+        "This packet does not perform tests.",
+        "no accessibility tests",
+        "no WCAG conformance claim",
+        "no accessibility certification claim",
+        "no HTML/CSS/JS files",
+        "no design asset files",
+        "no new claims",
+        "no new sources",
+        "no WhatsApp block/report UI instructions",
+    ]
+    for fragment in required_accessibility_review_packet_fragments:
+        if fragment not in accessibility_review_packet_text:
+            failures.append(
+                "Accessibility Requirements Review Packet Internal Only must contain: "
+                f"{fragment}"
+            )
+
     required_queue_fragments = [
         "queue_item_id: CQ-V1-004",
         "docs/operations/website_preview/WEBSITE_INFORMATION_ARCHITECTURE_INTERNAL_PREVIEW_V1.md",
@@ -5849,6 +5910,13 @@ def validate_website_information_architecture_internal_preview_v1(
                 "Accessibility Requirements Static Preview Internal Only must not contain active forbidden marker: "
                 f"{fragment}"
             )
+    lower_accessibility_review_packet_text = accessibility_review_packet_text.lower()
+    for fragment in forbidden_accessibility_requirements_active_markers:
+        if fragment in lower_accessibility_review_packet_text:
+            failures.append(
+                "Accessibility Requirements Review Packet Internal Only must not contain active forbidden marker: "
+                f"{fragment}"
+            )
 
     forbidden_data_claims = [
         "real ranking data",
@@ -5885,6 +5953,11 @@ def validate_website_information_architecture_internal_preview_v1(
         if fragment in lower_accessibility_requirements_text:
             failures.append(
                 "Accessibility Requirements Static Preview Internal Only must not claim real metric data: "
+                f"{fragment}"
+            )
+        if fragment in lower_accessibility_review_packet_text:
+            failures.append(
+                "Accessibility Requirements Review Packet Internal Only must not claim real metric data: "
                 f"{fragment}"
             )
 

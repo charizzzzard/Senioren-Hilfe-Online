@@ -754,6 +754,28 @@ Das Review-Artefakt muss mindestens diese Finding IDs enthalten:
 - Die Spec darf keine aktiven Accessibility-Testing-, WCAG-, Runtime-, Static-Generation-, CSS-, Asset-, Launch-, Publish-, Acceptance-, Monetization-, Analytics-, Search-Console- oder Feedback-Statuswerte enthalten.
 - Die Spec darf keine echten CSS-, HTML-, JS-, Bild-, Asset-, Build-, Deployment-, Tracking- oder Public-Website-Dateien erzeugen.
 
+## Accessibility Requirements Review Packet Internal Only Checks
+
+- `docs/operations/website_preview/ACCESSIBILITY_REQUIREMENTS_REVIEW_PACKET_INTERNAL_ONLY.md` muss existieren.
+- Das Review-Paket muss `review_packet_status: prepared_for_human_operator_review_not_acceptance` enthalten.
+- Das Review-Paket muss `accessibility_testing_status: not_performed` enthalten.
+- Das Review-Paket muss `wcag_conformance_status: not_claimed` enthalten.
+- Das Review-Paket muss `preview_runtime_status: not_implemented` enthalten.
+- Das Review-Paket muss `static_generation_status: not_implemented` enthalten.
+- Das Review-Paket muss `css_generation_status: not_implemented` enthalten.
+- Das Review-Paket muss `asset_generation_status: not_implemented` enthalten.
+- Das Review-Paket muss `public_launch_status: not_ready` enthalten.
+- Das Review-Paket muss `publish_readiness_status: not_ready` enthalten.
+- Das Review-Paket muss `operator_acceptance_status: not_accepted` enthalten.
+- Das Review-Paket muss `monetization_status: not_approved` enthalten.
+- Das Review-Paket muss `analytics_status: not_connected` enthalten.
+- Das Review-Paket muss `search_console_status: not_connected` enthalten.
+- Das Review-Paket muss `user_feedback_status: not_collected` enthalten.
+- Das Review-Paket muss die Accessibility-Requirements-Spec, die Visual-Design-System-Spec, die Static-Preview-Spec, die Website-IA und das Website-Preview-Review-Paket verlinken.
+- Das Review-Paket muss Purpose, Explicit Non-Acceptance, Reviewed Artifact Summary, Scope Confirmation, Requirements Coverage Review, Findings, Human Operator Review Questions, Allowed Outcomes, Forbidden Outcomes und Recommended Next Step enthalten.
+- Das Review-Paket darf keine aktiven Accessibility-Testing-, WCAG-, Runtime-, Static-Generation-, CSS-, Asset-, Launch-, Publish-, Acceptance-, Monetization-, Analytics-, Search-Console- oder Feedback-Statuswerte enthalten.
+- Das Review-Paket darf keine echten CSS-, HTML-, JS-, Bild-, Asset-, Build-, Deployment-, Tracking- oder Public-Website-Dateien erzeugen.
+
 ## Reader Experience Quality Checks
 
 - Reader Experience ist ein eigenes Qualitaetsfeld neben Quellen, Claims, Safety, SEO und Accessibility.

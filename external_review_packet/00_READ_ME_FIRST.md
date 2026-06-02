@@ -2,22 +2,23 @@
 
 ## Zweck dieses Review-Pakets
 
-Dieses Review-Paket beschreibt den Patch `ACCESSIBILITY_REQUIREMENTS_FOR_STATIC_PREVIEW_INTERNAL_ONLY`.
+Dieses Review-Paket beschreibt den Patch `ACCESSIBILITY_REQUIREMENTS_REVIEW_PACKET_INTERNAL_ONLY`.
 
-Der Patch erstellt eine interne Accessibility- und Senior-UX-Anforderungsspezifikation fuer eine spaetere interne Static Preview von Senioren-Hilfe Online. Die Spezifikation definiert testbare Anforderungskategorien, Statusbanner-Accessibility-Regeln, Content-State-Accessibility-Mapping, Senior-UX-Schreib- und Labelregeln sowie eine spaetere manuelle Review-Checkliste.
+Der Patch erstellt ein internes Human-Operator-Review-Paket fuer die bestehende Accessibility- und Senior-UX-Anforderungsspezifikation einer spaeteren internen Static Preview. Das Paket dokumentiert Requirement Coverage, Findings, Human-Operator-Fragen, erlaubte/verbotene Outcomes und den naechsten konservativen Schritt.
 
-Der Patch implementiert keine Website-Runtime, keine Static Site Generation, keine HTML/CSS/JS-Dateien, keine Design Assets, keine Public Pages, keinen Public Launch, keine Publish Readiness, keine Operator Acceptance, keine Monetarisierung, keine Affiliate-Logik, keine Analytics-/Search-Console-/Feedback-Verbindung und keine WCAG-Konformitaetsbehauptung.
+Der Patch implementiert keine Website-Runtime, keine Static Site Generation, keine HTML/CSS/JS-Dateien, keine Design Assets, keine Public Pages, keinen Public Launch, keine Publish Readiness, keine Operator Acceptance, keine Monetarisierung, keine Affiliate-Logik, keine Analytics-/Search-Console-/Feedback-Verbindung, keine Accessibility-Tests und keine WCAG-Konformitaetsbehauptung.
 
 ## Scope dieses Patches
 
-- Accessibility-Anforderungsspezifikation erstellen:
-  - `docs/operations/website_preview/ACCESSIBILITY_REQUIREMENTS_FOR_STATIC_PREVIEW_INTERNAL_ONLY.md`
+- Accessibility-Requirements-Review-Paket erstellen:
+  - `docs/operations/website_preview/ACCESSIBILITY_REQUIREMENTS_REVIEW_PACKET_INTERNAL_ONLY.md`
 - Website-Preview-README um die neue Spezifikation ergaenzen.
-- Validation Requirements und `validate_content_contracts.py` um Accessibility-Requirements-Checks ergaenzen.
+- Validation Requirements und `validate_content_contracts.py` um Accessibility-Review-Packet-Checks ergaenzen.
 - Externen Handoff-Kontext auf diesen Patch aktualisieren.
 
 ## Primaere Review-Dateien
 
+- `docs/operations/website_preview/ACCESSIBILITY_REQUIREMENTS_REVIEW_PACKET_INTERNAL_ONLY.md`
 - `docs/operations/website_preview/ACCESSIBILITY_REQUIREMENTS_FOR_STATIC_PREVIEW_INTERNAL_ONLY.md`
 - `docs/operations/website_preview/VISUAL_DESIGN_SYSTEM_SPEC_INTERNAL_ONLY.md`
 - `docs/operations/website_preview/STATIC_PREVIEW_SPEC_INTERNAL_ONLY.md`
