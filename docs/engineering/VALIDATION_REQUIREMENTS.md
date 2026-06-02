@@ -732,6 +732,28 @@ Das Review-Artefakt muss mindestens diese Finding IDs enthalten:
 - Die Spec darf keine aktiven Design-Runtime-, Asset-, CSS-, Launch-, Publish-, Acceptance-, Monetization-, Analytics-, Search-Console- oder Feedback-Statuswerte enthalten.
 - Die Spec darf keine echten CSS-, HTML-, JS-, Bild-, Asset-, Build-, Deployment-, Tracking- oder Public-Website-Dateien erzeugen.
 
+## Accessibility Requirements Static Preview Internal Only Checks
+
+- `docs/operations/website_preview/ACCESSIBILITY_REQUIREMENTS_FOR_STATIC_PREVIEW_INTERNAL_ONLY.md` muss existieren.
+- Die Spec muss `spec_status: specification_only_not_implemented` enthalten.
+- Die Spec muss `accessibility_testing_status: not_performed` enthalten.
+- Die Spec muss `wcag_conformance_status: not_claimed` enthalten.
+- Die Spec muss `preview_runtime_status: not_implemented` enthalten.
+- Die Spec muss `static_generation_status: not_implemented` enthalten.
+- Die Spec muss `css_generation_status: not_implemented` enthalten.
+- Die Spec muss `asset_generation_status: not_implemented` enthalten.
+- Die Spec muss `public_launch_status: not_ready` enthalten.
+- Die Spec muss `publish_readiness_status: not_ready` enthalten.
+- Die Spec muss `operator_acceptance_status: not_accepted` enthalten.
+- Die Spec muss `monetization_status: not_approved` enthalten.
+- Die Spec muss `analytics_status: not_connected` enthalten.
+- Die Spec muss `search_console_status: not_connected` enthalten.
+- Die Spec muss `user_feedback_status: not_collected` enthalten.
+- Die Spec muss die Visual-Design-System-Spec, die Static-Preview-Spec, die Website-IA und das Website-Preview-Review-Paket verlinken.
+- Die Spec muss Purpose, Explicit Non-Acceptance, Current Baseline, Accessibility Requirement Categories, Testable Requirements Table, Status Banner Accessibility Rules, Content-State Accessibility Mapping, Senior-UX Writing and Label Rules, Later Manual Review Checklist, Forbidden Outcomes, Human Operator Decisions Needed Before Implementation und Allowed Outcomes enthalten.
+- Die Spec darf keine aktiven Accessibility-Testing-, WCAG-, Runtime-, Static-Generation-, CSS-, Asset-, Launch-, Publish-, Acceptance-, Monetization-, Analytics-, Search-Console- oder Feedback-Statuswerte enthalten.
+- Die Spec darf keine echten CSS-, HTML-, JS-, Bild-, Asset-, Build-, Deployment-, Tracking- oder Public-Website-Dateien erzeugen.
+
 ## Reader Experience Quality Checks
 
 - Reader Experience ist ein eigenes Qualitaetsfeld neben Quellen, Claims, Safety, SEO und Accessibility.

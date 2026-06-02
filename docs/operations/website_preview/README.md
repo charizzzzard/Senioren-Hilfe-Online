@@ -14,6 +14,8 @@ Die Artefakte sind nicht live. Sie erstellen keine Website-Runtime, veroeffentli
   - Spezifikation fuer eine spaetere interne statische Preview; keine Implementierung, keine Runtime und kein Launch.
 - `VISUAL_DESIGN_SYSTEM_SPEC_INTERNAL_ONLY.md`
   - Spezifikation fuer seniorengerechte visuelle Regeln einer spaeteren internen Preview; keine CSS-, Asset- oder Runtime-Erzeugung.
+- `ACCESSIBILITY_REQUIREMENTS_FOR_STATIC_PREVIEW_INTERNAL_ONLY.md`
+  - Spezifikation fuer Accessibility- und Senior-UX-Anforderungen einer spaeteren internen Static Preview; keine Tests, keine WCAG-Konformitaetsbehauptung und keine Runtime.
 
 ## Non-Acceptance
 

@@ -2,22 +2,23 @@
 
 ## Zweck dieses Review-Pakets
 
-Dieses Review-Paket beschreibt den Patch `VISUAL_DESIGN_SYSTEM_SPEC_INTERNAL_ONLY`.
+Dieses Review-Paket beschreibt den Patch `ACCESSIBILITY_REQUIREMENTS_FOR_STATIC_PREVIEW_INTERNAL_ONLY`.
 
-Der Patch erstellt eine interne Spezifikation fuer das Visual Design System einer spaeteren internen Static Preview von Senioren-Hilfe Online. Die Spezifikation definiert senior-first Designprinzipien, Typografie, semantische Farbrollen, Layout/Spacing, konzeptionelle Komponenten, Statusbanner-Regeln und Content-State-Mapping.
+Der Patch erstellt eine interne Accessibility- und Senior-UX-Anforderungsspezifikation fuer eine spaetere interne Static Preview von Senioren-Hilfe Online. Die Spezifikation definiert testbare Anforderungskategorien, Statusbanner-Accessibility-Regeln, Content-State-Accessibility-Mapping, Senior-UX-Schreib- und Labelregeln sowie eine spaetere manuelle Review-Checkliste.
 
-Der Patch implementiert keine Website-Runtime, keine Static Site Generation, keine HTML/CSS/JS-Dateien, keine Design Assets, keine Public Pages, keinen Public Launch, keine Publish Readiness, keine Operator Acceptance, keine Monetarisierung, keine Affiliate-Logik und keine Analytics-/Search-Console-/Feedback-Verbindung.
+Der Patch implementiert keine Website-Runtime, keine Static Site Generation, keine HTML/CSS/JS-Dateien, keine Design Assets, keine Public Pages, keinen Public Launch, keine Publish Readiness, keine Operator Acceptance, keine Monetarisierung, keine Affiliate-Logik, keine Analytics-/Search-Console-/Feedback-Verbindung und keine WCAG-Konformitaetsbehauptung.
 
 ## Scope dieses Patches
 
-- Visual-Design-System-Spezifikation erstellen:
-  - `docs/operations/website_preview/VISUAL_DESIGN_SYSTEM_SPEC_INTERNAL_ONLY.md`
+- Accessibility-Anforderungsspezifikation erstellen:
+  - `docs/operations/website_preview/ACCESSIBILITY_REQUIREMENTS_FOR_STATIC_PREVIEW_INTERNAL_ONLY.md`
 - Website-Preview-README um die neue Spezifikation ergaenzen.
-- Validation Requirements und `validate_content_contracts.py` um Visual-Design-Spec-Checks ergaenzen.
+- Validation Requirements und `validate_content_contracts.py` um Accessibility-Requirements-Checks ergaenzen.
 - Externen Handoff-Kontext auf diesen Patch aktualisieren.
 
 ## Primaere Review-Dateien
 
+- `docs/operations/website_preview/ACCESSIBILITY_REQUIREMENTS_FOR_STATIC_PREVIEW_INTERNAL_ONLY.md`
 - `docs/operations/website_preview/VISUAL_DESIGN_SYSTEM_SPEC_INTERNAL_ONLY.md`
 - `docs/operations/website_preview/STATIC_PREVIEW_SPEC_INTERNAL_ONLY.md`
 - `docs/operations/website_preview/WEBSITE_INFORMATION_ARCHITECTURE_INTERNAL_PREVIEW_V1.md`
@@ -33,6 +34,8 @@ Der Patch implementiert keine Website-Runtime, keine Static Site Generation, kei
 - Keine Static Site Generation.
 - Keine HTML/CSS/JS-Dateien.
 - Keine Design-Asset-Dateien.
+- Keine Accessibility-Zertifizierung.
+- Keine WCAG-Konformitaetsbehauptung.
 - Keine Public Pages.
 - Kein Public Launch.
 - Keine Artikelveroeffentlichung.
