@@ -2,30 +2,25 @@
 
 ## Zweck dieses Review-Pakets
 
-Dieses Review-Paket beschreibt den Patch `WEBSITE_INFORMATION_ARCHITECTURE_INTERNAL_PREVIEW_V1`.
+Dieses Review-Paket beschreibt den Patch `WEBSITE_PREVIEW_REVIEW_PACKET_INTERNAL_ONLY`.
 
-Der Patch definiert eine interne Website-Informationsarchitektur und Preview-Struktur fuer Senioren-Hilfe Online. Er schliesst das Build-Mode-Exit-Kriterium `Website preview structure defined` konservativ als internes Planungsartefakt, ohne eine Website-Runtime, Public Launch, Publish Readiness, Operator Acceptance, Analytics oder Monetarisierung zu aktivieren.
+Der Patch erstellt ein internes Review-Paket fuer die bereits definierte Website-Informationsarchitektur `WEBSITE_INFORMATION_ARCHITECTURE_INTERNAL_PREVIEW_V1`. Das Paket macht die IA reviewbar, sammelt Human-Operator-Fragen, dokumentiert Findings, erlaubte Outcomes und verbotene Outcomes.
+
+Der Patch implementiert keine Website-Runtime, keine Static Site Generation, keine Public Pages, keinen Public Launch, keine Publish Readiness, keine Operator Acceptance, keine Monetarisierung, keine Affiliate-Logik und keine Analytics-/Search-Console-/Feedback-Verbindung.
 
 ## Scope dieses Patches
 
-- Website-Preview-Ordner erstellen:
-  - `docs/operations/website_preview/README.md`
-  - `docs/operations/website_preview/WEBSITE_INFORMATION_ARCHITECTURE_INTERNAL_PREVIEW_V1.md`
-- Interne Website-IA, Preview-Navigation und Page-Template-Definitionen dokumentieren.
-- Current Batch Articles nach aktuellem Readiness-Status mappen.
-- Senior UX / Accessibility Principles fuer die interne IA dokumentieren.
-- Forbidden Outcomes fuer Launch, Publishing, Monetization, Analytics und Claim-Unlocks dokumentieren.
-- `CQ-V1-004` in `WORK_QUEUE_V1.yaml` konservativ als `completed_internal_planning` markieren.
-- Content Pipeline README, Status Registry, Validation Requirements und Validator minimal ergaenzen.
+- Website-Preview-Review-Paket erstellen:
+  - `docs/operations/website_preview/WEBSITE_PREVIEW_REVIEW_PACKET_INTERNAL_ONLY.md`
+- Website-Preview-README um das neue Review-Paket ergaenzen.
+- Validation Requirements und `validate_content_contracts.py` um Review-Packet-Checks ergaenzen.
 - Externen Handoff-Kontext auf diesen Patch aktualisieren.
 
 ## Primaere Review-Dateien
 
+- `docs/operations/website_preview/WEBSITE_PREVIEW_REVIEW_PACKET_INTERNAL_ONLY.md`
 - `docs/operations/website_preview/WEBSITE_INFORMATION_ARCHITECTURE_INTERNAL_PREVIEW_V1.md`
 - `docs/operations/website_preview/README.md`
-- `docs/operations/content_pipeline/WORK_QUEUE_V1.yaml`
-- `docs/operations/content_pipeline/README.md`
-- `docs/operations/STATUS_REGISTRY.yaml`
 - `docs/engineering/VALIDATION_REQUIREMENTS.md`
 - `scripts/validate_content_contracts.py`
 - `external_review_packet/HANDOFF_LATEST_CONTEXT.md`
@@ -33,13 +28,15 @@ Der Patch definiert eine interne Website-Informationsarchitektur und Preview-Str
 ## Nicht in Scope
 
 - Keine Website-Runtime.
+- Keine Static Site Generation.
+- Keine Public Pages.
 - Kein Public Launch.
 - Keine Artikelveroeffentlichung.
-- Keine Article Candidates.
+- Keine neuen Article Candidates.
 - Keine Publish Readiness.
 - Keine Operator Acceptance.
 - Keine Monetarisierung.
-- Keine Affiliate-Logik.
+- Keine Affiliate-Inhalte.
 - Keine Ads.
 - Keine neuen Quellen.
 - Keine neuen Claims.
@@ -61,4 +58,4 @@ Der Patch definiert eine interne Website-Informationsarchitektur und Preview-Str
 
 ## Operator Acceptance
 
-Der Human Operator bleibt finale Annahmeautoritaet. Dieses Paket ist eine interne Website-IA- und Preview-Struktur, keine Runtime, keine finale Annahme und keine Freigabe.
+Der Human Operator bleibt finale Annahmeautoritaet. Dieses Paket ist eine interne Review-Vorbereitung, keine Runtime, keine finale Annahme und keine Freigabe.

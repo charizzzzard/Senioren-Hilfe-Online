@@ -8,6 +8,8 @@ Die Artefakte sind nicht live. Sie erstellen keine Website-Runtime, veroeffentli
 
 - `WEBSITE_INFORMATION_ARCHITECTURE_INTERNAL_PREVIEW_V1.md`
   - Interne Website-IA, Preview-Navigation, Template-Definitionen und Batch-01-Content-Mapping fuer Review-Zwecke.
+- `WEBSITE_PREVIEW_REVIEW_PACKET_INTERNAL_ONLY.md`
+  - Internes Review-Paket fuer die Website-IA; vorbereitet fuer Human-Operator-Review, keine Acceptance.
 
 ## Non-Acceptance
 

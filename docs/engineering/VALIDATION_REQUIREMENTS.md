@@ -679,6 +679,22 @@ Das Review-Artefakt muss mindestens diese Finding IDs enthalten:
 - Das Artefakt darf keine realen SEO-, Ranking-, Traffic-, Revenue-, Conversion- oder Nutzerfeedbackdaten behaupten.
 - `CQ-V1-004` darf als `completed_internal_planning` markiert werden, aber nur mit weiterhin blockiertem Public Launch und nicht publish-ready.
 
+## Website Preview Review Packet Internal Only Checks
+
+- `docs/operations/website_preview/WEBSITE_PREVIEW_REVIEW_PACKET_INTERNAL_ONLY.md` muss existieren.
+- Das Review-Paket muss `review_packet_status: prepared_for_human_operator_review_not_acceptance` enthalten.
+- Das Review-Paket muss `public_launch_status: not_ready` enthalten.
+- Das Review-Paket muss `publish_readiness_status: not_ready` enthalten.
+- Das Review-Paket muss `operator_acceptance_status: not_accepted` enthalten.
+- Das Review-Paket muss `monetization_status: not_approved` enthalten.
+- Das Review-Paket muss `analytics_status: not_connected` enthalten.
+- Das Review-Paket muss `search_console_status: not_connected` enthalten.
+- Das Review-Paket muss `user_feedback_status: not_collected` enthalten.
+- Das Review-Paket muss `docs/operations/website_preview/WEBSITE_INFORMATION_ARCHITECTURE_INTERNAL_PREVIEW_V1.md` verlinken.
+- Das Review-Paket muss Purpose, Review Checklist, Human Operator Review Questions, Findings, Allowed Outcomes, Forbidden Outcomes und Explicit Non-Acceptance enthalten.
+- Das Review-Paket darf keine aktiven Launch-, Publish-, Acceptance-, Monetization-, Analytics-, Search-Console- oder Feedback-Statuswerte enthalten.
+- Das Review-Paket darf keine Website Runtime, keine Static Site Launch, keine Artikeltexte, keine neuen Claims, keine neuen Sources und keine WhatsApp block/report UI instructions freigeben.
+
 ## Reader Experience Quality Checks
 
 - Reader Experience ist ein eigenes Qualitaetsfeld neben Quellen, Claims, Safety, SEO und Accessibility.

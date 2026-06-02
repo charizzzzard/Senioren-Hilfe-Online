@@ -97,6 +97,7 @@ REQUIRED_DOCS = [
     "docs/operations/content_pipeline/NEXT_TASK_GENERATOR_SPEC_V1.md",
     "docs/operations/website_preview/README.md",
     "docs/operations/website_preview/WEBSITE_INFORMATION_ARCHITECTURE_INTERNAL_PREVIEW_V1.md",
+    "docs/operations/website_preview/WEBSITE_PREVIEW_REVIEW_PACKET_INTERNAL_ONLY.md",
     "scripts/validate_stage_transitions.py",
 ]
 
@@ -195,6 +196,9 @@ NEXT_TASK_GENERATOR_SPEC_V1_PATH = (
 WEBSITE_PREVIEW_DIR = ROOT / "docs/operations/website_preview"
 WEBSITE_INFORMATION_ARCHITECTURE_INTERNAL_PREVIEW_V1_PATH = (
     WEBSITE_PREVIEW_DIR / "WEBSITE_INFORMATION_ARCHITECTURE_INTERNAL_PREVIEW_V1.md"
+)
+WEBSITE_PREVIEW_REVIEW_PACKET_INTERNAL_ONLY_PATH = (
+    WEBSITE_PREVIEW_DIR / "WEBSITE_PREVIEW_REVIEW_PACKET_INTERNAL_ONLY.md"
 )
 SOURCE_REVIEW_PATH = ROOT / "docs/content/source_reviews/whatsapp-source-manual-review-batch-01.md"
 SOURCE_REVIEW_REL_PATH = "docs/content/source_reviews/whatsapp-source-manual-review-batch-01.md"
@@ -5493,6 +5497,7 @@ def validate_website_information_architecture_internal_preview_v1(
     required_paths = [
         WEBSITE_PREVIEW_DIR / "README.md",
         WEBSITE_INFORMATION_ARCHITECTURE_INTERNAL_PREVIEW_V1_PATH,
+        WEBSITE_PREVIEW_REVIEW_PACKET_INTERNAL_ONLY_PATH,
     ]
     count = 0
     for path in required_paths:
@@ -5506,6 +5511,9 @@ def validate_website_information_architecture_internal_preview_v1(
 
     readme_text = (WEBSITE_PREVIEW_DIR / "README.md").read_text(encoding="utf-8")
     ia_text = WEBSITE_INFORMATION_ARCHITECTURE_INTERNAL_PREVIEW_V1_PATH.read_text(
+        encoding="utf-8"
+    )
+    review_packet_text = WEBSITE_PREVIEW_REVIEW_PACKET_INTERNAL_ONLY_PATH.read_text(
         encoding="utf-8"
     )
     queue_text = WORK_QUEUE_V1_PATH.read_text(encoding="utf-8")
@@ -5557,6 +5565,41 @@ def validate_website_information_architecture_internal_preview_v1(
         if fragment not in readme_text:
             failures.append(f"Website preview README must contain: {fragment}")
 
+    required_review_packet_fragments = [
+        "review_packet_status: prepared_for_human_operator_review_not_acceptance",
+        "linked_artifact: docs/operations/website_preview/WEBSITE_INFORMATION_ARCHITECTURE_INTERNAL_PREVIEW_V1.md",
+        "public_launch_status: not_ready",
+        "publish_readiness_status: not_ready",
+        "operator_acceptance_status: not_accepted",
+        "monetization_status: not_approved",
+        "analytics_status: not_connected",
+        "search_console_status: not_connected",
+        "user_feedback_status: not_collected",
+        "## Purpose",
+        "## Explicit Non-Acceptance",
+        "## Review Checklist",
+        "## Human Operator Review Questions",
+        "## Findings",
+        "## Allowed Outcomes",
+        "## Forbidden Outcomes",
+        "STATIC_PREVIEW_SPEC_INTERNAL_ONLY",
+        "SHO-WEBPREVIEW-IA-001",
+        "SHO-WEBPREVIEW-IA-002",
+        "SHO-WEBPREVIEW-IA-003",
+        "no website runtime",
+        "no static site launch",
+        "no article text",
+        "no new claims",
+        "no new sources",
+        "no WhatsApp block/report UI instructions",
+    ]
+    for fragment in required_review_packet_fragments:
+        if fragment not in review_packet_text:
+            failures.append(
+                "Website Preview Review Packet Internal Only must contain: "
+                f"{fragment}"
+            )
+
     required_queue_fragments = [
         "queue_item_id: CQ-V1-004",
         "docs/operations/website_preview/WEBSITE_INFORMATION_ARCHITECTURE_INTERNAL_PREVIEW_V1.md",
@@ -5593,6 +5636,13 @@ def validate_website_information_architecture_internal_preview_v1(
                 "Website IA internal preview V1 must not contain active forbidden marker: "
                 f"{fragment}"
             )
+    lower_review_packet_text = review_packet_text.lower()
+    for fragment in forbidden_active_markers:
+        if fragment in lower_review_packet_text:
+            failures.append(
+                "Website Preview Review Packet Internal Only must not contain active forbidden marker: "
+                f"{fragment}"
+            )
 
     forbidden_data_claims = [
         "real ranking data",
@@ -5609,6 +5659,11 @@ def validate_website_information_architecture_internal_preview_v1(
         if fragment in lower_ia_text:
             failures.append(
                 "Website IA internal preview V1 must not claim real metric data: "
+                f"{fragment}"
+            )
+        if fragment in lower_review_packet_text:
+            failures.append(
+                "Website Preview Review Packet Internal Only must not claim real metric data: "
                 f"{fragment}"
             )
 
