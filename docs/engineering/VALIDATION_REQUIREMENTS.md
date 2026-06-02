@@ -802,6 +802,33 @@ Das Review-Artefakt muss mindestens diese Finding IDs enthalten:
 - Die Spec darf keine aktiven Skeleton-, HTML-, CSS-, JS-, Asset-, Accessibility-Testing-, WCAG-, Runtime-, Static-Generation-, Launch-, Publish-, Acceptance-, Monetization-, Analytics-, Search-Console- oder Feedback-Statuswerte enthalten.
 - Die Spec darf keine echten CSS-, HTML-, JS-, Bild-, Asset-, Build-, Deployment-, Tracking- oder Public-Website-Dateien erzeugen.
 
+## Static Preview Skeleton Implementation Decision Packet Internal Only Checks
+
+- `docs/operations/website_preview/STATIC_PREVIEW_SKELETON_IMPLEMENTATION_DECISION_PACKET_INTERNAL_ONLY.md` muss existieren.
+- Das Decision-Packet muss `decision_packet_status: prepared_for_human_operator_decision_not_acceptance` enthalten.
+- Das Decision-Packet muss `implementation_decision_status: pending_human_operator_decision` enthalten.
+- Das Decision-Packet muss `skeleton_runtime_status: not_implemented` enthalten.
+- Das Decision-Packet muss `skeleton_generation_status: not_implemented` enthalten.
+- Das Decision-Packet muss `preview_runtime_status: not_implemented` enthalten.
+- Das Decision-Packet muss `static_generation_status: not_implemented` enthalten.
+- Das Decision-Packet muss `html_generation_status: not_implemented` enthalten.
+- Das Decision-Packet muss `css_generation_status: not_implemented` enthalten.
+- Das Decision-Packet muss `js_generation_status: not_implemented` enthalten.
+- Das Decision-Packet muss `asset_generation_status: not_implemented` enthalten.
+- Das Decision-Packet muss `accessibility_testing_status: not_performed` enthalten.
+- Das Decision-Packet muss `wcag_conformance_status: not_claimed` enthalten.
+- Das Decision-Packet muss `public_launch_status: not_ready` enthalten.
+- Das Decision-Packet muss `publish_readiness_status: not_ready` enthalten.
+- Das Decision-Packet muss `operator_acceptance_status: not_accepted` enthalten.
+- Das Decision-Packet muss `monetization_status: not_approved` enthalten.
+- Das Decision-Packet muss `analytics_status: not_connected` enthalten.
+- Das Decision-Packet muss `search_console_status: not_connected` enthalten.
+- Das Decision-Packet muss `user_feedback_status: not_collected` enthalten.
+- Das Decision-Packet muss die Skeleton-Spec, das Accessibility-Review-Paket, die Accessibility-Requirements-Spec, die Visual-Design-System-Spec, die Static-Preview-Spec, die Website-IA und das Website-Preview-Review-Paket verlinken.
+- Das Decision-Packet muss Purpose, Explicit Non-Acceptance, Decision Context, Decision Needed, Recommended Safe Default, Proposed Allowed Scope If Approved Later, Mandatory Future Implementation Constraints, Brief Rendering Decision, JS Decision, Review and Acceptance After Later Implementation, Risk Register, Human Operator Decision Questions, Allowed Outcomes, Forbidden Outcomes und Recommended Next Step enthalten.
+- Das Decision-Packet darf keine aktive Implementierungsentscheidung, keine simulierte Human-Operator-Entscheidung und keine aktiven Skeleton-, HTML-, CSS-, JS-, Asset-, Accessibility-Testing-, WCAG-, Runtime-, Static-Generation-, Launch-, Publish-, Acceptance-, Monetization-, Analytics-, Search-Console- oder Feedback-Statuswerte enthalten.
+- Das Decision-Packet darf keine echten CSS-, HTML-, JS-, Bild-, Asset-, Build-, Deployment-, Tracking- oder Public-Website-Dateien erzeugen.
+
 ## Reader Experience Quality Checks
 
 - Reader Experience ist ein eigenes Qualitaetsfeld neben Quellen, Claims, Safety, SEO und Accessibility.

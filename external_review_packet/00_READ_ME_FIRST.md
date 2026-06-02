@@ -2,22 +2,23 @@
 
 ## Zweck dieses Review-Pakets
 
-Dieses Review-Paket beschreibt den Patch `STATIC_PREVIEW_SKELETON_SPEC_INTERNAL_ONLY`.
+Dieses Review-Paket beschreibt den Patch `STATIC_PREVIEW_SKELETON_IMPLEMENTATION_DECISION_PACKET_INTERNAL_ONLY`.
 
-Der Patch erstellt eine interne Spezifikation fuer einen spaeteren Static-Preview-Skeleton von Senioren-Hilfe Online. Die Spezifikation definiert planning-only Directory/Layout, Pflichtseiten, Template-to-Skeleton-Mapping, Statusbanner-Vertrag, Content-State-Regeln, Accessibility-/Visual-Design-Carry-Forward und Guardrails fuer eine spaetere separate Implementierung.
+Der Patch erstellt ein internes Human-Operator-Decision-Packet fuer eine moegliche spaetere Implementierung eines internen Static-Preview-Skeletons von Senioren-Hilfe Online. Das Packet formuliert Entscheidungsoptionen, einen konservativen Safe Default, erlaubten spaeteren Scope, Pflicht-Constraints, Brief-Rendering- und JS-Subentscheidungen, Risiken und Human-Operator-Fragen.
 
-Der Patch implementiert keine Website-Runtime, keine Static Site Generation, keine HTML/CSS/JS-Dateien, keine Design Assets, keine Public Pages, keinen Public Launch, keine Publish Readiness, keine Operator Acceptance, keine Monetarisierung, keine Affiliate-Logik, keine Analytics-/Search-Console-/Feedback-Verbindung, keine Accessibility-Tests und keine WCAG-Konformitaetsbehauptung.
+Der Patch genehmigt keine Implementierung, simuliert keine Human-Operator-Entscheidung, implementiert keine Website-Runtime, keine Static Site Generation, keine HTML/CSS/JS-Dateien, keine Design Assets, keine Public Pages, keinen Public Launch, keine Publish Readiness, keine Operator Acceptance, keine Monetarisierung, keine Affiliate-Logik, keine Analytics-/Search-Console-/Feedback-Verbindung, keine Accessibility-Tests und keine WCAG-Konformitaetsbehauptung.
 
 ## Scope dieses Patches
 
-- Static-Preview-Skeleton-Spezifikation erstellen:
-  - `docs/operations/website_preview/STATIC_PREVIEW_SKELETON_SPEC_INTERNAL_ONLY.md`
-- Website-Preview-README um die neue Spezifikation ergaenzen.
-- Validation Requirements und `validate_content_contracts.py` um Static-Preview-Skeleton-Spec-Checks ergaenzen.
+- Static-Preview-Skeleton-Implementation-Decision-Packet erstellen:
+  - `docs/operations/website_preview/STATIC_PREVIEW_SKELETON_IMPLEMENTATION_DECISION_PACKET_INTERNAL_ONLY.md`
+- Website-Preview-README um das neue Decision-Packet ergaenzen.
+- Validation Requirements und `validate_content_contracts.py` um Decision-Packet-Checks ergaenzen.
 - Externen Handoff-Kontext auf diesen Patch aktualisieren.
 
 ## Primaere Review-Dateien
 
+- `docs/operations/website_preview/STATIC_PREVIEW_SKELETON_IMPLEMENTATION_DECISION_PACKET_INTERNAL_ONLY.md`
 - `docs/operations/website_preview/STATIC_PREVIEW_SKELETON_SPEC_INTERNAL_ONLY.md`
 - `docs/operations/website_preview/ACCESSIBILITY_REQUIREMENTS_REVIEW_PACKET_INTERNAL_ONLY.md`
 - `docs/operations/website_preview/ACCESSIBILITY_REQUIREMENTS_FOR_STATIC_PREVIEW_INTERNAL_ONLY.md`

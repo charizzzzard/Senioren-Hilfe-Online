@@ -20,6 +20,8 @@ Die Artefakte sind nicht live. Sie erstellen keine Website-Runtime, veroeffentli
   - Internes Human-Operator-Review-Paket fuer die Accessibility-Requirements-Spec; keine Tests, keine Acceptance und keine WCAG-Konformitaetsbehauptung.
 - `STATIC_PREVIEW_SKELETON_SPEC_INTERNAL_ONLY.md`
   - Spezifikation fuer einen spaeteren internen Static-Preview-Skeleton; keine HTML-, CSS-, JS-, Asset- oder Runtime-Erzeugung.
+- `STATIC_PREVIEW_SKELETON_IMPLEMENTATION_DECISION_PACKET_INTERNAL_ONLY.md`
+  - Internes Human-Operator-Decision-Packet fuer eine moegliche spaetere Skeleton-Implementierung; keine Genehmigung, keine HTML-, CSS-, JS-, Asset- oder Runtime-Erzeugung.
 
 ## Non-Acceptance
 
