@@ -66,6 +66,7 @@ REQUIRED_DOCS = [
     "docs/content/article_reviews/betrugsnachrichten-auf-whatsapp-erkennen.final-legal-wording-review.md",
     "docs/content/article_reviews/betrugsnachrichten-auf-whatsapp-erkennen.final-source-list-review.md",
     "docs/content/article_reviews/betrugsnachrichten-auf-whatsapp-erkennen.accessibility-review.md",
+    "docs/content/article_reviews/betrugsnachrichten-auf-whatsapp-erkennen.final-source-metadata-review.md",
     "docs/operations/CONTENT_RESEARCH_OPERATING_PROTOCOL.md",
     "docs/operations/RESEARCH_BATCH_STAGE_MODEL.md",
     "docs/operations/CODEX_EXECUTOR_BOUNDARY.md",
@@ -167,6 +168,9 @@ FINAL_ARTICLE_CANDIDATE_BRIEF_002_PATH = (
 )
 ACCESSIBILITY_REVIEW_BRIEF_002_PATH = (
     ROOT / "docs/content/article_reviews/betrugsnachrichten-auf-whatsapp-erkennen.accessibility-review.md"
+)
+FINAL_SOURCE_METADATA_REVIEW_BRIEF_002_PATH = (
+    ROOT / "docs/content/article_reviews/betrugsnachrichten-auf-whatsapp-erkennen.final-source-metadata-review.md"
 )
 SOURCE_REVIEW_PATH = ROOT / "docs/content/source_reviews/whatsapp-source-manual-review-batch-01.md"
 SOURCE_REVIEW_REL_PATH = "docs/content/source_reviews/whatsapp-source-manual-review-batch-01.md"
@@ -599,6 +603,7 @@ def validate_protocol_automation_files(failures: list[str]) -> None:
             "article_draft_candidates:",
             "article_reviews:",
             "- docs/content/article_reviews/betrugsnachrichten-auf-whatsapp-erkennen.accessibility-review.md",
+            "- docs/content/article_reviews/betrugsnachrichten-auf-whatsapp-erkennen.final-source-metadata-review.md",
             "article_draft_candidate_fixes:",
             "final_article_candidates:",
             "- docs/content/final_article_candidates/betrugsnachrichten-auf-whatsapp-erkennen.final-article-candidate.md",
@@ -612,6 +617,7 @@ def validate_protocol_automation_files(failures: list[str]) -> None:
             "Brief 002 human operator review packet prepared, but no Operator Acceptance or Publish Readiness is set.",
             "Brief 002 Human Operator decision allows internal operator review candidate continuation, but no Publish Readiness or Operator Acceptance is set.",
             "Brief 002 dedicated accessibility review completed not publish-ready; Final Source Metadata Review and later Human Operator publish gates remain required.",
+            "Brief 002 final source metadata review completed not publish-ready; later Human Operator publish gates remain required.",
             "No publish-ready final article exists.",
             "serp_status: observed",
             "serp_observation_status: operator_research_observed",
@@ -673,6 +679,9 @@ def validate_protocol_automation_files(failures: list[str]) -> None:
             "feedback_not_collected",
             "accessibility_review_status:",
             "completed_not_publish_ready",
+            "final_source_metadata_review_status:",
+            "source_metadata_status:",
+            "reviewed_from_existing_repo_metadata_not_live_verified",
             "loop_status:",
             "baseline_defined_not_live",
             "reader_experience_status:",
@@ -1801,6 +1810,7 @@ def validate_article_reviews(failures: list[str]) -> int:
         path.name
         for path in ARTICLE_REVIEWS_DIR.glob("*.review.md")
         if not path.name.endswith(".accessibility-review.md")
+        and not path.name.endswith(".final-source-metadata-review.md")
     }
     expected_files = set(EXPECTED_ARTICLE_REVIEWS)
     if found_files != expected_files:
@@ -3298,8 +3308,8 @@ def validate_accessibility_review_brief_002(failures: list[str]) -> int:
         failures.append("Article readiness dashboard must mention dedicated accessibility review completed not publish-ready")
     if "accessibility_status: completed_not_publish_ready" not in dashboard_text:
         failures.append("Article readiness dashboard must show accessibility_status: completed_not_publish_ready for Brief 002")
-    if "Final Source Metadata Review before any publish-candidate step" not in dashboard_text:
-        failures.append("Article readiness dashboard must keep Final Source Metadata Review as required")
+    if "later Human Operator publish gates remain required" not in dashboard_text:
+        failures.append("Article readiness dashboard must keep later Human Operator publish gates required")
 
     forbidden_assignments = [
         "approved_for_publish: true",
@@ -3323,6 +3333,229 @@ def validate_accessibility_review_brief_002(failures: list[str]) -> int:
     for fragment in forbidden_assignments:
         if fragment in lower_text:
             failures.append(f"Accessibility review Brief 002 must not contain forbidden assignment: {fragment}")
+
+    return 1
+
+
+def validate_final_source_metadata_review_brief_002(failures: list[str]) -> int:
+    if not FINAL_SOURCE_METADATA_REVIEW_BRIEF_002_PATH.exists():
+        failures.append(
+            "Missing final source metadata review for Brief 002: "
+            "docs/content/article_reviews/betrugsnachrichten-auf-whatsapp-erkennen.final-source-metadata-review.md"
+        )
+        return 0
+
+    text = FINAL_SOURCE_METADATA_REVIEW_BRIEF_002_PATH.read_text(encoding="utf-8")
+    fields = parse_frontmatter_fields(text)
+
+    required_frontmatter_fragments = [
+        "final_source_metadata_review_id: SHO-FINAL-SOURCE-METADATA-REVIEW-BATCH01-BRIEF002",
+        "batch_id: MVP_BATCH_01",
+        "linked_brief_id: SHO-MVP-BRIEF-002",
+        "linked_final_article_candidate: docs/content/final_article_candidates/betrugsnachrichten-auf-whatsapp-erkennen.final-article-candidate.md",
+        "linked_source_pack: docs/content/source_packs/operator-research-source-pack-batch-01.md",
+        "linked_final_source_list_review: docs/content/article_reviews/betrugsnachrichten-auf-whatsapp-erkennen.final-source-list-review.md",
+        "linked_accessibility_review: docs/content/article_reviews/betrugsnachrichten-auf-whatsapp-erkennen.accessibility-review.md",
+        "linked_operator_decision: docs/operations/operator_decisions/HUMAN_OPERATOR_DECISION_FINAL_ARTICLE_CANDIDATE_BRIEF_002.md",
+        "final_source_metadata_review_status: completed_not_publish_ready",
+        "source_metadata_status: reviewed_from_existing_repo_metadata_not_live_verified",
+        "operator_acceptance_status: not_accepted",
+        "publish_readiness_status: not_ready",
+        "public_launch_status: not_ready",
+        "monetization_status: not_approved",
+        "legal_approval_status: not_approved",
+        "blocked_claims: SHO-CLAIM-007",
+        "batch_stage_after_review: claim_slots_mapped",
+    ]
+    required_sections = [
+        "Final Source Metadata Review: Betrugsnachrichten auf WhatsApp erkennen",
+        "Purpose",
+        "Reviewed Artifacts",
+        "Explicit Non-Acceptance",
+        "Source Metadata Scope",
+        "Source Metadata Review Table",
+        "Claim/Source Boundary Check",
+        "Findings",
+        "Source Metadata Review Outcome",
+        "Required Follow-Up",
+        "Guardrails Confirmed",
+    ]
+    required_scope_and_status = [
+        "SHO-SRC-005",
+        "SHO-SRC-006",
+        "SHO-SRC-007",
+        "SHO-SRC-001",
+        "SHO-SRC-002",
+        "SHO-SRC-003",
+        "SHO-SRC-004",
+        "SHO-SRC-013",
+        "SHO-CLAIM-007",
+        "live_source_verification_status: not_performed",
+        "citation_metadata_finality: reviewed_from_repo_metadata_not_publication_final",
+        "PASS_REPO_METADATA_PRESENT_NOT_LIVE_VERIFIED",
+        "publication_ready",
+        "Existing repo metadata present.",
+        "reviewed_from_existing_repo_metadata_not_live_verified",
+    ]
+    required_table_fields = [
+        "source_id",
+        "linked_brief_id",
+        "source_type",
+        "title_or_provider",
+        "url",
+        "retrieved_at",
+        "verification_status",
+        "source_status_after",
+        "linked_claims",
+        "metadata_review_result",
+        "publication_ready",
+        "notes",
+        "| SHO-SRC-005 | SHO-MVP-BRIEF-002 | official_authority |",
+        "| SHO-SRC-006 | SHO-MVP-BRIEF-002 | official_authority |",
+        "| SHO-SRC-007 | SHO-MVP-BRIEF-002 | consumer_protection |",
+    ]
+    required_non_acceptance = [
+        "This review is not Operator Acceptance.",
+        "This review is not Publish Readiness.",
+        "This review is not public launch approval.",
+        "This review is not monetization approval.",
+        "This review is not legal approval.",
+        "This review does not unlock SHO-CLAIM-007.",
+        "This review does not approve WhatsApp block/report UI instructions.",
+        "This review does not add new sources.",
+        "This review does not add new claims.",
+        "This review does not invent source metadata.",
+        "This review does not claim live source verification unless actually performed.",
+    ]
+    required_claim_boundary = [
+        "SHO-CLAIM-004 only uses allowed sources already mapped for Brief 002: SHO-SRC-005; SHO-SRC-006.",
+        "SHO-CLAIM-005 only uses allowed sources already mapped for Brief 002: SHO-SRC-005; SHO-SRC-006.",
+        "SHO-CLAIM-006 only uses allowed sources already mapped for Brief 002: SHO-SRC-007.",
+        "SHO-CLAIM-007 remains blocked.",
+        "No WhatsApp block/report UI instructions are approved.",
+        "No new source IDs introduced.",
+        "No new claims introduced.",
+        "No source metadata invented.",
+    ]
+    required_findings = [
+        "finding_id",
+        "category",
+        "severity",
+        "status",
+        "summary",
+        "required_action",
+        "SHO-SRCMETA-002-META-001",
+        "SHO-SRCMETA-002-LIVE-001",
+        "SHO-SRCMETA-002-CITE-001",
+        "SHO-SRCMETA-002-CLAIM-001",
+        "SHO-SRCMETA-002-BLOCK-001",
+        "SHO-SRCMETA-002-PUB-001",
+        "Existing repo metadata exists for SHO-SRC-005, SHO-SRC-006, SHO-SRC-007.",
+        "Live source verification was not performed.",
+        "Citation metadata is reviewed from repo metadata but not public-publication-final.",
+        "Publish Readiness remains blocked.",
+        "Later explicit Human Operator decision remains required before any publish-candidate status.",
+    ]
+    required_follow_up_and_guardrails = [
+        "Later Human Operator decision before any publish-candidate status.",
+        "Later Human Operator decision before Operator Acceptance.",
+        "No public launch without explicit later Human Operator decision.",
+        "No monetization without explicit later Human Operator decision.",
+        "Optional live source re-check before publication if repo policy requires freshness validation.",
+        "Optional final citation-format review once publication surface/layout exists.",
+        "current_stage remains claim_slots_mapped.",
+        "operator_acceptance_status remains not_accepted.",
+        "publish_readiness_status remains not_ready.",
+        "public_launch_status remains not_ready.",
+        "monetization_status remains not_approved.",
+        "legal_approval_status remains not_approved.",
+        "WhatsApp block/report UI instructions remain forbidden.",
+        "No new claims added.",
+        "No new sources added.",
+        "No source metadata invented.",
+        "No SEO, analytics, feedback, traffic, ranking, conversion or revenue data invented.",
+    ]
+    for fragment in (
+        required_frontmatter_fragments
+        + required_sections
+        + required_scope_and_status
+        + required_table_fields
+        + required_non_acceptance
+        + required_claim_boundary
+        + required_findings
+        + required_follow_up_and_guardrails
+    ):
+        if fragment not in text:
+            failures.append(f"Final source metadata review Brief 002 must contain: {fragment}")
+
+    if fields.get("final_source_metadata_review_id") != "SHO-FINAL-SOURCE-METADATA-REVIEW-BATCH01-BRIEF002":
+        failures.append("Final source metadata review Brief 002 has unexpected final_source_metadata_review_id")
+    if fields.get("linked_brief_id") != "SHO-MVP-BRIEF-002":
+        failures.append("Final source metadata review Brief 002 must link to Brief 002")
+    if normalized(fields.get("final_source_metadata_review_status")) != "completed_not_publish_ready":
+        failures.append(
+            "Final source metadata review Brief 002 must have final_source_metadata_review_status: "
+            "completed_not_publish_ready"
+        )
+    if normalized(fields.get("source_metadata_status")) != "reviewed_from_existing_repo_metadata_not_live_verified":
+        failures.append(
+            "Final source metadata review Brief 002 must have source_metadata_status: "
+            "reviewed_from_existing_repo_metadata_not_live_verified"
+        )
+    if normalized(fields.get("operator_acceptance_status")) != "not_accepted":
+        failures.append("Final source metadata review Brief 002 must have operator_acceptance_status: not_accepted")
+    if normalized(fields.get("publish_readiness_status")) != "not_ready":
+        failures.append("Final source metadata review Brief 002 must have publish_readiness_status: not_ready")
+    if normalized(fields.get("public_launch_status")) != "not_ready":
+        failures.append("Final source metadata review Brief 002 must have public_launch_status: not_ready")
+    if normalized(fields.get("monetization_status")) != "not_approved":
+        failures.append("Final source metadata review Brief 002 must have monetization_status: not_approved")
+    if normalized(fields.get("legal_approval_status")) != "not_approved":
+        failures.append("Final source metadata review Brief 002 must have legal_approval_status: not_approved")
+    if normalized(fields.get("batch_stage_after_review")) != "claim_slots_mapped":
+        failures.append("Final source metadata review Brief 002 must keep batch_stage_after_review: claim_slots_mapped")
+
+    batch_text = BATCH_MANIFEST_PATH.read_text(encoding="utf-8")
+    if "- docs/content/article_reviews/betrugsnachrichten-auf-whatsapp-erkennen.final-source-metadata-review.md" not in batch_text:
+        failures.append("Batch manifest must link final source metadata review Brief 002")
+    if "Brief 002 final source metadata review completed not publish-ready; later Human Operator publish gates remain required." not in batch_text:
+        failures.append("Batch manifest must carry final source metadata review not-publish-ready blocker")
+
+    dashboard_text = ARTICLE_READINESS_DASHBOARD_PATH.read_text(encoding="utf-8")
+    if "final source metadata review completed not publish-ready" not in dashboard_text:
+        failures.append("Article readiness dashboard must mention final source metadata review completed not publish-ready")
+    if "source metadata reviewed from existing repo metadata not live verified" not in dashboard_text:
+        failures.append("Article readiness dashboard must mention source metadata reviewed from existing repo metadata not live verified")
+    if "User-Perspective-, Reader-Experience- und Feedback-Status bleiben Platzhalter." not in dashboard_text:
+        failures.append("Article readiness dashboard must preserve user/reader/feedback placeholder wording")
+    if "Brief 002 Accessibility Review ist completed_not_publish_ready" not in dashboard_text:
+        failures.append("Article readiness dashboard must distinguish Brief 002 accessibility completion from placeholders")
+
+    forbidden_assignments = [
+        "approved_for_publish: true",
+        "operator_acceptance_status: accepted",
+        "publish_readiness_status: publish_candidate",
+        "publish_readiness_status: approved_for_publish",
+        "publish_ready: true",
+        "current_stage: review_ready",
+        "current_stage: publish_candidate",
+        "legal_approval: true",
+        "legal_approval_status: approved",
+        "public_launch_status: ready",
+        "public_launch_status: launched",
+        "monetization_status: approved",
+        "final_source_metadata_review_status: approved_for_publish",
+        "final_source_metadata_review_status: publish_ready",
+        "source_metadata_status: publication_final",
+        "live_source_verification_status: performed",
+        "citation_metadata_finality: publication_final",
+        "operator_accepted",
+        "wcag_compliance: true",
+    ]
+    lower_text = text.lower()
+    for fragment in forbidden_assignments:
+        if fragment in lower_text:
+            failures.append(f"Final source metadata review Brief 002 must not contain forbidden assignment: {fragment}")
 
     return 1
 
@@ -3613,7 +3846,7 @@ def validate_article_readiness_dashboard(failures: list[str]) -> int:
         "WhatsApp platform sources remain candidate / needs_manual_review",
         "WhatsApp UI-sensitive instructions remain blocked",
         "final_article_candidate_prepared_not_publish_ready",
-        "next internal review after scorecard",
+        "later Human Operator publish-candidate decision packet or another explicitly chosen internal gate",
         "SHO-CLAIM-004",
         "SHO-CLAIM-005",
         "SHO-CLAIM-006",
@@ -3624,6 +3857,7 @@ def validate_article_readiness_dashboard(failures: list[str]) -> int:
         "final article candidate exists",
         "scorecard review completed not publish-ready",
         "dedicated accessibility review completed not publish-ready",
+        "final source metadata review completed not publish-ready",
         "draft candidate exists",
         "re-review passed not publish-ready",
         "final source list review exists",
@@ -3666,6 +3900,8 @@ def validate_article_readiness_dashboard(failures: list[str]) -> int:
         "Dieses Dashboard setzt keine Publish Readiness.",
         "Dieses Dashboard genehmigt keine Monetarisierung.",
         "Dieses Dashboard erstellt keine Operator Acceptance.",
+        "User-Perspective-, Reader-Experience- und Feedback-Status bleiben Platzhalter.",
+        "Brief 002 Accessibility Review ist completed_not_publish_ready; andere Accessibility-Status bleiben pending, sofern nicht separat geprueft.",
         "Dieses Dashboard schliesst User-Perspective-, Reader-Experience- oder Feedback-Reviews nicht ab; Brief 002 Accessibility Review ist completed_not_publish_ready und nicht publish-ready.",
     ]
     for fragment in required_fragments:
@@ -4996,6 +5232,7 @@ def main() -> int:
     final_legal_wording_review_count = validate_final_legal_wording_reviews(failures)
     final_source_list_review_count = validate_final_source_list_reviews(failures)
     accessibility_review_brief_002_count = validate_accessibility_review_brief_002(failures)
+    final_source_metadata_review_brief_002_count = validate_final_source_metadata_review_brief_002(failures)
     mvp_operational_start_plan_count = validate_mvp_operational_start_plan(failures)
     roadmap_mvp_2026_count = validate_roadmap_mvp_2026(failures)
     article_readiness_dashboard_count = validate_article_readiness_dashboard(failures)
@@ -5040,6 +5277,7 @@ def main() -> int:
     print(f"- Batch 01 final legal wording review files: {final_legal_wording_review_count}")
     print(f"- Batch 01 final source list review files: {final_source_list_review_count}")
     print(f"- Batch 01 dedicated accessibility review Brief 002 files: {accessibility_review_brief_002_count}")
+    print(f"- Batch 01 final source metadata review Brief 002 files: {final_source_metadata_review_brief_002_count}")
     print(f"- Batch 01 MVP operational start plan files: {mvp_operational_start_plan_count}")
     print(f"- Batch 01 MVP roadmap files: {roadmap_mvp_2026_count}")
     print(f"- Batch 01 article readiness dashboard files: {article_readiness_dashboard_count}")

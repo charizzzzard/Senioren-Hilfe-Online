@@ -526,6 +526,32 @@ source_list_review_status:
     - approved_for_publish
     - publish_ready
 
+final_source_metadata_review_status:
+  allowed:
+    - completed_not_publish_ready
+    - needs_review
+    - blocked
+    - superseded
+  forbidden_by_codex:
+    - accepted
+    - operator_accepted
+    - approved_for_publish
+    - publish_ready
+    - public_launch_ready
+
+source_metadata_status:
+  allowed:
+    - reviewed_from_existing_repo_metadata_not_live_verified
+    - needs_live_review
+    - blocked
+    - superseded
+  forbidden_by_codex:
+    - accepted
+    - operator_accepted
+    - approved_for_publish
+    - publish_ready
+    - public_launch_ready
+
 forbidden_transitions:
   - from: scaffold_only
     to: approved_for_publish

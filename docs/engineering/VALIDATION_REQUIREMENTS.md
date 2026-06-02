@@ -606,6 +606,27 @@ Das Review-Artefakt muss mindestens diese Finding IDs enthalten:
 - Die Review darf keine neuen Claims, Sources, Source-Metadaten, SEO-, Analytics-, Feedback-, Traffic-, Ranking-, Conversion- oder Revenue-Daten erfinden.
 - Final Source Metadata Review und spaetere Human-Operator-Publish-Gates bleiben erforderlich.
 
+## Final Source Metadata Review Brief 002 Checks
+
+- Fuer Brief 002 muss genau eine dedizierte Final Source Metadata Review existieren:
+  - `docs/content/article_reviews/betrugsnachrichten-auf-whatsapp-erkennen.final-source-metadata-review.md`
+- Die Review muss `final_source_metadata_review_status: completed_not_publish_ready` enthalten.
+- Die Review muss `source_metadata_status: reviewed_from_existing_repo_metadata_not_live_verified` enthalten.
+- Die Review ist keine Operator Acceptance.
+- Die Review ist keine Publish Readiness.
+- Die Review genehmigt keinen Public Launch und keine Monetarisierung.
+- Die Review behauptet keine rechtliche Freigabe.
+- Die Review darf nur `SHO-SRC-005`, `SHO-SRC-006` und `SHO-SRC-007` als in-scope Quellen pruefen.
+- `SHO-SRC-001`, `SHO-SRC-002`, `SHO-SRC-003`, `SHO-SRC-004`, `SHO-SRC-013` und `SHO-CLAIM-007` muessen out of scope bleiben.
+- Die Review darf nur vorhandene Repo-Metadaten verwenden und keine Titel, Herausgeber, URLs, Abrufdaten, Frischebewertungen oder Source-Felder erfinden.
+- Wenn keine Live-Pruefung erfolgt, muss `live_source_verification_status: not_performed` sichtbar bleiben.
+- Wenn keine publikationsfinale Citation-Metadata-Freigabe erfolgt, muss `citation_metadata_finality: reviewed_from_repo_metadata_not_publication_final` sichtbar bleiben.
+- Alle geprueften Source-Zeilen muessen `publication_ready: no` behalten.
+- Die Review muss `SHO-CLAIM-007` blockiert halten und WhatsApp block/report UI instructions verboten halten.
+- Die Review darf keine neuen Claims, Sources, Source-Metadaten, SEO-, Analytics-, Feedback-, Traffic-, Ranking-, Conversion- oder Revenue-Daten erfinden.
+- Das Article Readiness Dashboard darf `source metadata reviewed from existing repo metadata not live verified` fuer Brief 002 dokumentieren, muss aber Publish Readiness, Operator Acceptance, Public Launch und Monetarisierung weiterhin blockiert halten.
+- User-Perspective-, Reader-Experience- und Feedback-Reviews duerfen durch diese Review nicht als abgeschlossen behauptet werden.
+
 ## Reader Experience Quality Checks
 
 - Reader Experience ist ein eigenes Qualitaetsfeld neben Quellen, Claims, Safety, SEO und Accessibility.
