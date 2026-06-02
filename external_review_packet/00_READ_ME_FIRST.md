@@ -2,31 +2,35 @@
 
 ## Zweck dieses Review-Pakets
 
-Dieses Review-Paket beschreibt den Patch `CONTENT_QUALITY_SCORECARD_TEMPLATE_BATCH_01`. Es dokumentiert ein wiederverwendbares Content Quality Scorecard Template fuer `MVP_BATCH_01`, ohne eine angewendete Artikelbewertung, Publish Readiness, Operator Acceptance, Live-Feedback, Analytics, SEO-Metriken oder Monetarisierung zu setzen.
+Dieses Review-Paket beschreibt den Patch `FINAL_ARTICLE_CANDIDATE_PREPARATION_BRIEF_002`. Es dokumentiert einen internen Final Article Candidate fuer Brief 002, ohne Publish Readiness, Operator Acceptance, Public Launch, Monetarisierung, neue Quellen, neue Claims oder Freischaltung von `SHO-CLAIM-007`.
 
 ## Scope dieses Patches
 
-- Neuer Ordner: `docs/content/article_quality_scorecards/`.
-- Neues README: `docs/content/article_quality_scorecards/README.md`.
-- Neues Scorecard Template: `docs/content/article_quality_scorecards/CONTENT_QUALITY_SCORECARD_TEMPLATE_BATCH_01.md`.
-- `scorecard_status: template_defined_not_applied` dokumentieren.
-- Core-Quality-, User-Perspective- und Reader-Experience-Felder als Review-Raster dokumentieren.
-- Safety-/Trust-, Accessibility-, SEO/Search-Intent-, Freshness-, Monetization-Risk-, Feedback- und Publish-Blocker-Felder als Platzhalter dokumentieren.
-- Keine Score-Werte erfinden.
-- Keine echten Nutzerfeedback-, E-Mail-, Analytics-, SEO-, Keyword- oder Monetarisierungsdaten behaupten.
-- `docs/operations/ARTICLE_READINESS_DASHBOARD_BATCH_01.md` minimal um `CONTENT_QUALITY_SCORECARD_TEMPLATE_BATCH_01` als Allowed Next Work ergaenzen.
-- Validator minimal erweitern, damit das Scorecard Template als erwartetes Artefakt geprueft wird.
+- Neuer Ordner: `docs/content/final_article_candidates/`.
+- Neues README: `docs/content/final_article_candidates/README.md`.
+- Genau ein neuer interner Final Article Candidate:
+  - `docs/content/final_article_candidates/betrugsnachrichten-auf-whatsapp-erkennen.final-article-candidate.md`
+- `article_status: final_article_candidate_not_publish_ready` dokumentieren.
+- `review_status: needs_scorecard_review` dokumentieren.
+- Nur erlaubte Claims verwenden: `SHO-CLAIM-004`, `SHO-CLAIM-005`, `SHO-CLAIM-006`.
+- Nur erlaubte Sources verwenden: `SHO-SRC-005`, `SHO-SRC-006`, `SHO-SRC-007`.
+- `SHO-CLAIM-007` sichtbar blockiert halten.
+- Batch Manifest und Article Readiness Dashboard minimal auf den neuen internen Artefaktstand aktualisieren.
+- Validator minimal erweitern, damit Candidate, Marker, Claim-/Source-Grenzen und verbotene Aktivierungsmarker geprueft werden.
 
 ## Primaere Review-Dateien
 
 - `external_review_packet/HANDOFF_LATEST_CONTEXT.md`
-- `docs/content/article_quality_scorecards/README.md`
+- `docs/content/final_article_candidates/README.md`
+- `docs/content/final_article_candidates/betrugsnachrichten-auf-whatsapp-erkennen.final-article-candidate.md`
+- `docs/content/article_draft_candidates/betrugsnachrichten-auf-whatsapp-erkennen.article-draft-candidate.md`
 - `docs/content/article_quality_scorecards/CONTENT_QUALITY_SCORECARD_TEMPLATE_BATCH_01.md`
-- `docs/operations/CONTENT_QUALITY_USER_PERSPECTIVE_READER_EXPERIENCE_AND_FEEDBACK_LOOP_BASELINE.md`
-- `docs/operations/USER_FEEDBACK_INTAKE_PROTOCOL_BASELINE.md`
-- `docs/operations/ARTICLE_READINESS_DASHBOARD_BATCH_01.md`
-- `docs/operations/ROADMAP_AND_MILESTONES_MVP_2026.md`
 - `docs/content/batches/MVP_BATCH_01.yaml`
+- `docs/operations/ARTICLE_READINESS_DASHBOARD_BATCH_01.md`
+- `docs/operations/CONTENT_QUALITY_USER_PERSPECTIVE_READER_EXPERIENCE_AND_FEEDBACK_LOOP_BASELINE.md`
+- `docs/operations/operator_decisions/HUMAN_OPERATOR_DECISION_BATCH01_BRIEF002_002.md`
+- `docs/content/claim_maps/source-to-claim-map-batch-01.md`
+- `docs/content/source_packs/operator-research-source-pack-batch-01.md`
 - `docs/operations/STATUS_REGISTRY.yaml`
 - `scripts/validate_content_contracts.py`
 - `scripts/validate_stage_transitions.py`
@@ -34,32 +38,28 @@ Dieses Review-Paket beschreibt den Patch `CONTENT_QUALITY_SCORECARD_TEMPLATE_BAT
 
 ## Wichtiger Hinweis
 
-Content quality scorecard template only. This is a reusable review raster, not an applied review, not publish readiness, not Operator Acceptance, not live analytics, not live feedback, not SEO metrics and not monetization approval.
+Final Article Candidate only. This is internal article candidate content for later scorecard review, not a published article, not publish readiness, not Operator Acceptance, not public launch and not monetization approval.
 
 ## Nicht in Scope
 
-- Angewendete Artikelbewertung.
-- Score-Werte fuer reale Artikel.
-- Neue Artikelabschnitte.
+- Publish Readiness.
+- Operator Acceptance.
+- Public Launch.
+- Monetarisierung.
+- Affiliate.
+- Produkt-Empfehlungen.
 - Neue Quellen.
 - Neue Claims.
-- Source Verification Changes.
 - Neue SERP-Daten.
 - Live-Analytics.
 - Live-Feedback.
 - E-Mail-Feedback-Verbindung.
 - Echte Nutzerfeedback-Daten.
-- Echte Reader-Experience-Feedback-Daten.
-- Ranking-, Traffic-, Revenue-, Suchvolumen- oder Keyword-Difficulty-Claims.
-- WhatsApp Blockieren-/Melden-UI-Anleitung.
-- Publish Readiness.
-- Operator Acceptance.
+- SEO-/Keyword-Metriken.
+- WhatsApp block/report UI instructions.
+- Freischaltung von `SHO-CLAIM-007`.
 - Rechtliche Freigabe.
-- Finale Quellenliste.
-- Finaler Artikeltext.
-- Public Launch.
-- Produktive Website.
-- Monetarisierung.
+- Finale Quellenmetadaten.
 
 ## Validation Commands
 

@@ -546,6 +546,21 @@ Das Review-Artefakt muss mindestens diese Finding IDs enthalten:
 - Das Scorecard Template muss SEO-, Feedback- und Monetarisierungsdaten als nicht verfuegbar halten, solange diese Daten nicht spaeter separat dokumentiert wurden.
 - Ein Score von 3 darf keine Publish Readiness, keine rechtliche Freigabe und keine Operator Acceptance implizieren.
 
+## Final Article Candidate Brief 002 Checks
+
+- Fuer Brief 002 muss genau ein interner Final Article Candidate existieren:
+  - `docs/content/final_article_candidates/betrugsnachrichten-auf-whatsapp-erkennen.final-article-candidate.md`
+- Der Final Article Candidate ist kein veroeffentlichter Artikel.
+- Der Final Article Candidate setzt keine Publish Readiness.
+- Der Final Article Candidate erstellt keine Operator Acceptance.
+- Der Final Article Candidate muss nur die erlaubten Claims `SHO-CLAIM-004`, `SHO-CLAIM-005` und `SHO-CLAIM-006` nutzen.
+- Der Final Article Candidate muss nur die erlaubten Sources `SHO-SRC-005`, `SHO-SRC-006` und `SHO-SRC-007` nutzen.
+- Der Final Article Candidate muss `SHO-CLAIM-007` blockiert halten.
+- Der Final Article Candidate darf keine WhatsApp block/report UI instructions enthalten.
+- Der Final Article Candidate muss Source-/Claim-Arbeitsmarker erhalten.
+- Der Final Article Candidate muss `review_status: needs_scorecard_review` behalten, bis eine separate Scorecard Review erfolgt.
+- Der Final Article Candidate aktiviert keine Analytics, kein Feedback, keine SEO-Metriken, keine Monetarisierung und keinen Public Launch.
+
 ## Reader Experience Quality Checks
 
 - Reader Experience ist ein eigenes Qualitaetsfeld neben Quellen, Claims, Safety, SEO und Accessibility.

@@ -129,6 +129,7 @@ article_status:
     - not_started
     - article_draft_scaffold
     - article_draft_candidate
+    - final_article_candidate_not_publish_ready
     - review_ready
     - publish_candidate
 
@@ -146,6 +147,7 @@ review_status:
     - needs_re_review_after_fix
     - re_review_passed
     - re_review_passed_not_publish_ready
+    - needs_scorecard_review
     - not_ready
     - blocked
     - approved_for_publish
@@ -423,6 +425,19 @@ scorecard_recommendation_status:
     - needs_targeted_revision
     - ready_for_next_internal_review
     - candidate_for_human_operator_review_not_publish_ready
+  forbidden_by_codex:
+    - accepted
+    - operator_accepted
+    - approved_for_publish
+    - publish_ready
+    - public_launch_ready
+
+final_article_candidate_status:
+  allowed:
+    - final_article_candidate_not_publish_ready
+    - needs_scorecard_review
+    - blocked
+    - superseded
   forbidden_by_codex:
     - accepted
     - operator_accepted

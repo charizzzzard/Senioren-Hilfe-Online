@@ -5,19 +5,19 @@
 - project_name: Senioren-Hilfe Online
 - system_name: Senioren-Hilfe Online OS
 - system_short_name: SHO-OS
-- patch_title: CONTENT_QUALITY_SCORECARD_TEMPLATE_BATCH_01
+- patch_title: FINAL_ARTICLE_CANDIDATE_PREPARATION_BRIEF_002
 - external_review_verdict: ACCEPTED_WITH_FINDINGS
 
 SHO-OS ist ein reproduzierbares Content-, Trust- und Publishing-System fuer seniorengerechte digitale Alltagshilfe in Deutschland.
 
-Dieser Patch dokumentiert ein wiederverwendbares Content Quality Scorecard Template fuer `MVP_BATCH_01`. Er setzt keine angewendete Review, keine Score-Werte, keine Publish Readiness, keine Operator Acceptance, keine Public-Launch-Freigabe, keine Monetarisierung, keine Live-Analytics, kein Live-Feedback und keine Batch-Stage-Hochstufung.
+Dieser Patch dokumentiert einen internen Final Article Candidate fuer Brief 002. Er setzt keine Publish Readiness, keine Operator Acceptance, keine Public-Launch-Freigabe, keine Monetarisierung, keine Live-Analytics, kein Live-Feedback, keine neuen Quellen, keine neuen Claims und keine Batch-Stage-Hochstufung.
 
 ## Git Traceability
 
 - branch: `main`
-- head_before: `523002daf379543c8364eb1416138c781bfb167c`
+- head_before: `938fa78876a8cae911a986d56d6dbe35cdb6b778`
 - intended_head_after: `assigned_after_commit`
-- origin_main_before: `523002daf379543c8364eb1416138c781bfb167c`
+- origin_main_before: `938fa78876a8cae911a986d56d6dbe35cdb6b778`
 - dirty_state_before: `clean`
 - dirty_state_after: `assigned_after_commit`
 - remote_url: `https://github.com/charizzzzard/Senioren-Hilfe-Online.git`
@@ -26,49 +26,50 @@ Hinweis: `head_after` wird nicht vorab als Commit-SHA eingetragen, weil ein Comm
 
 ## Scope Dieses Patches
 
-- Neuer Ordner erstellt: `docs/content/article_quality_scorecards/`.
-- Neues README erstellt: `docs/content/article_quality_scorecards/README.md`.
-- Neues Scorecard Template erstellt: `docs/content/article_quality_scorecards/CONTENT_QUALITY_SCORECARD_TEMPLATE_BATCH_01.md`.
-- `scorecard_template_id: SHO-CONTENT-QUALITY-SCORECARD-TEMPLATE-BATCH01` dokumentiert.
-- `scorecard_status: template_defined_not_applied` dokumentiert.
-- `loop_status: baseline_defined_not_live`, `user_feedback_status: not_collected`, `email_feedback_status: not_connected`, `reader_experience_feedback_status: not_collected`, `analytics_status: not_connected`, `keyword_validation_status: not_available` bleiben konservativ.
-- Core-Quality-, User-Perspective-, Reader-Experience-, Safety-/Trust-, Accessibility-, SEO/Search-Intent-, Freshness-, Monetization-Risk-, Feedback- und Publish-Blocker-Felder als Platzhalter dokumentiert.
-- `STATUS_REGISTRY.yaml` um `scorecard_status` und `scorecard_recommendation_status` ergaenzt.
-- `ARTICLE_READINESS_DASHBOARD_BATCH_01.md` minimal um `CONTENT_QUALITY_SCORECARD_TEMPLATE_BATCH_01` als Allowed Next Work ergaenzt.
-- `validate_content_contracts.py` um Scorecard-Template-Checks erweitert.
+- Neuer Ordner erstellt: `docs/content/final_article_candidates/`.
+- Neues README erstellt: `docs/content/final_article_candidates/README.md`.
+- Genau ein interner Final Article Candidate erstellt:
+  - `docs/content/final_article_candidates/betrugsnachrichten-auf-whatsapp-erkennen.final-article-candidate.md`
+- `final_article_candidate_id: SHO-FINAL-ARTICLE-CANDIDATE-BATCH01-BRIEF002` dokumentiert.
+- `article_status: final_article_candidate_not_publish_ready` dokumentiert.
+- `review_status: needs_scorecard_review` dokumentiert.
+- `scorecard_status: template_defined_not_applied` bleibt konservativ.
+- Erlaubte Claims: `SHO-CLAIM-004`, `SHO-CLAIM-005`, `SHO-CLAIM-006`.
+- Erlaubte Sources: `SHO-SRC-005`, `SHO-SRC-006`, `SHO-SRC-007`.
+- `SHO-CLAIM-007` bleibt blockiert und wird nicht als aktiver Arbeitsmarker genutzt.
+- Batch Manifest um `final_article_candidates` ergaenzt.
+- Article Readiness Dashboard fuer Brief 002 auf `final_article_candidate_prepared_not_publish_ready` aktualisiert.
+- `STATUS_REGISTRY.yaml` um `final_article_candidate_status` und notwendige erlaubte Statuswerte ergaenzt.
+- `validate_content_contracts.py` um Final-Article-Candidate-Brief-002-Checks erweitert.
 - Batch bleibt `current_stage: claim_slots_mapped`.
 
 ## Non-Scope
 
-- Keine angewendete Artikelbewertung.
-- Keine Score-Werte fuer reale Artikel.
-- Keine neuen Quellen.
-- Keine Source Verification Changes.
-- Keine neuen Claims.
-- Keine neuen SERP-Daten.
-- Keine WhatsApp Blockieren-/Melden-UI-Anleitung.
 - Keine Publish Readiness.
 - Keine Operator Acceptance Simulation.
-- Keine Website.
+- Kein Public Launch.
 - Keine Monetarisierung.
+- Keine Affiliate-Inhalte.
+- Keine Produkt-Empfehlungen.
+- Keine neuen Quellen.
+- Keine neuen Claims.
+- Keine neuen SERP-Daten.
+- Keine WhatsApp block/report UI instructions.
+- Keine Freischaltung von `SHO-CLAIM-007`.
 - Keine Live-Analytics.
 - Kein Live-Feedback.
 - Keine E-Mail-Feedback-Verbindung.
 - Keine echten Nutzerfeedback-Daten.
-- Keine echten Reader-Experience-Feedback-Daten.
-- Keine Ranking-, Traffic-, Revenue-, Suchvolumen- oder Keyword-Difficulty-Claims.
-- Keine finale Quellenliste.
-- Keine finale Citation-Freigabe.
+- Keine SEO-/Keyword-Metriken.
 - Keine rechtliche Freigabe.
-- Keine Publikationsfreigabe.
-- Kein finaler Artikeltext.
-- Kein Public Launch.
+- Keine finalen Quellenmetadaten.
 
-## Scorecard Template Summary
+## Final Article Candidate Summary
 
-- scorecard_template_id: `SHO-CONTENT-QUALITY-SCORECARD-TEMPLATE-BATCH01`
+- final_article_candidate_id: `SHO-FINAL-ARTICLE-CANDIDATE-BATCH01-BRIEF002`
+- article_status: `final_article_candidate_not_publish_ready`
+- review_status: `needs_scorecard_review`
 - scorecard_status: `template_defined_not_applied`
-- loop_status: `baseline_defined_not_live`
 - user_feedback_status: `not_collected`
 - email_feedback_status: `not_connected`
 - reader_experience_feedback_status: `not_collected`
@@ -81,20 +82,18 @@ Hinweis: `head_after` wird nicht vorab als Commit-SHA eingetragen, weil ein Comm
 
 ## Guardrails
 
-- Keine Score-Werte erfunden.
 - `SHO-CLAIM-007` bleibt blockiert.
+- Keine aktiven `SHO-CLAIM-007`-Arbeitsmarker.
+- Keine WhatsApp block/report UI instructions.
 - Keine neuen Quellen.
 - Keine neuen Claims.
-- Keine WhatsApp-UI-Anleitung.
 - Keine Monetarisierung.
 - Keine Publish Readiness.
 - Keine Operator Acceptance.
 - Keine rechtliche Freigabe.
-- Kein finaler Artikeltext.
 - Kein Public Launch.
 - Keine Live-Analytics.
 - Kein Live-Feedback.
-- Keine E-Mail-Feedback-Verbindung.
 - Keine erfundenen SEO-/Keyword-/Feedback-Daten.
 - Batch Stage bleibt `claim_slots_mapped`.
 
@@ -109,8 +108,9 @@ Hinweis: `head_after` wird nicht vorab als Commit-SHA eingetragen, weil ein Comm
 
 ## Files Changed Summary
 
-- `docs/content/article_quality_scorecards/README.md`
-- `docs/content/article_quality_scorecards/CONTENT_QUALITY_SCORECARD_TEMPLATE_BATCH_01.md`
+- `docs/content/final_article_candidates/README.md`
+- `docs/content/final_article_candidates/betrugsnachrichten-auf-whatsapp-erkennen.final-article-candidate.md`
+- `docs/content/batches/MVP_BATCH_01.yaml`
 - `docs/operations/ARTICLE_READINESS_DASHBOARD_BATCH_01.md`
 - `docs/operations/STATUS_REGISTRY.yaml`
 - `scripts/validate_content_contracts.py`
@@ -120,4 +120,4 @@ Hinweis: `head_after` wird nicht vorab als Commit-SHA eingetragen, weil ein Comm
 
 ## Keine finale Annahme durch Codex
 
-Content quality scorecard template recorded as reusable internal review raster only, with no applied article review, no live feedback, no live analytics, no public launch, no publish readiness, no monetization approval and no Operator Acceptance. Finale Annahme bleibt beim Human Operator.
+Final article candidate recorded as internal candidate content only, with no publish readiness, no Operator Acceptance, no public launch, no monetization approval and no unlock of `SHO-CLAIM-007`. Finale Annahme bleibt beim Human Operator.
