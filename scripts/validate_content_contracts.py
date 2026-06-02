@@ -95,6 +95,8 @@ REQUIRED_DOCS = [
     "docs/operations/content_pipeline/WORK_QUEUE_V1.yaml",
     "docs/operations/content_pipeline/CONTENT_PIPELINE_RUNNER_SPEC_V1.md",
     "docs/operations/content_pipeline/NEXT_TASK_GENERATOR_SPEC_V1.md",
+    "docs/operations/website_preview/README.md",
+    "docs/operations/website_preview/WEBSITE_INFORMATION_ARCHITECTURE_INTERNAL_PREVIEW_V1.md",
     "scripts/validate_stage_transitions.py",
 ]
 
@@ -189,6 +191,10 @@ CONTENT_PIPELINE_RUNNER_SPEC_V1_PATH = (
 )
 NEXT_TASK_GENERATOR_SPEC_V1_PATH = (
     CONTENT_PIPELINE_DIR / "NEXT_TASK_GENERATOR_SPEC_V1.md"
+)
+WEBSITE_PREVIEW_DIR = ROOT / "docs/operations/website_preview"
+WEBSITE_INFORMATION_ARCHITECTURE_INTERNAL_PREVIEW_V1_PATH = (
+    WEBSITE_PREVIEW_DIR / "WEBSITE_INFORMATION_ARCHITECTURE_INTERNAL_PREVIEW_V1.md"
 )
 SOURCE_REVIEW_PATH = ROOT / "docs/content/source_reviews/whatsapp-source-manual-review-batch-01.md"
 SOURCE_REVIEW_REL_PATH = "docs/content/source_reviews/whatsapp-source-manual-review-batch-01.md"
@@ -5481,6 +5487,134 @@ def validate_content_pipeline_contract_and_work_queue_v1(failures: list[str]) ->
     return count
 
 
+def validate_website_information_architecture_internal_preview_v1(
+    failures: list[str],
+) -> int:
+    required_paths = [
+        WEBSITE_PREVIEW_DIR / "README.md",
+        WEBSITE_INFORMATION_ARCHITECTURE_INTERNAL_PREVIEW_V1_PATH,
+    ]
+    count = 0
+    for path in required_paths:
+        if not path.exists():
+            failures.append(f"Missing website preview artifact: {path.relative_to(ROOT)}")
+        else:
+            count += 1
+
+    if count != len(required_paths):
+        return count
+
+    readme_text = (WEBSITE_PREVIEW_DIR / "README.md").read_text(encoding="utf-8")
+    ia_text = WEBSITE_INFORMATION_ARCHITECTURE_INTERNAL_PREVIEW_V1_PATH.read_text(
+        encoding="utf-8"
+    )
+    queue_text = WORK_QUEUE_V1_PATH.read_text(encoding="utf-8")
+
+    required_ia_fragments = [
+        "artifact_status: internal_preview_structure_defined",
+        "public_launch_status: not_ready",
+        "publish_readiness_status: not_ready",
+        "operator_acceptance_status: not_accepted",
+        "monetization_status: not_approved",
+        "analytics_status: not_connected",
+        "search_console_status: not_connected",
+        "user_feedback_status: not_collected",
+        "internal preview only",
+        "Proposed Internal Website Structure",
+        "Internal Preview Navigation",
+        "Page Template Definitions",
+        "Mapping to Current Batch Articles",
+        "Senior UX / Accessibility Principles",
+        "Forbidden Outcomes",
+        "Build-Mode-Exit Note",
+        "no public launch",
+        "no publish article",
+        "no publish candidate status",
+        "no approved_for_publish",
+        "no Operator Acceptance",
+        "no monetization",
+        "no affiliate",
+        "no ads",
+        "no Analytics/Search Console connection",
+        "no blocked claim unlock",
+        "no WhatsApp block/report UI instructions",
+    ]
+    for fragment in required_ia_fragments:
+        if fragment not in ia_text:
+            failures.append(
+                "Website IA internal preview V1 must contain required fragment: "
+                f"{fragment}"
+            )
+
+    required_readme_fragments = [
+        "interne Website-Informationsarchitektur",
+        "Keine Publish Readiness",
+        "Keine Operator Acceptance",
+        "Keine Monetarisierung",
+        "Blockierte Claims bleiben blockiert",
+    ]
+    for fragment in required_readme_fragments:
+        if fragment not in readme_text:
+            failures.append(f"Website preview README must contain: {fragment}")
+
+    required_queue_fragments = [
+        "queue_item_id: CQ-V1-004",
+        "docs/operations/website_preview/WEBSITE_INFORMATION_ARCHITECTURE_INTERNAL_PREVIEW_V1.md",
+        "allowed_next_action: prepare_internal_preview_review_packet_only",
+        "status: completed_internal_planning",
+        "activate_public_launch",
+        "publish_article",
+        "connect_analytics",
+    ]
+    for fragment in required_queue_fragments:
+        if fragment not in queue_text:
+            failures.append(f"Work Queue V1 CQ-V1-004 must contain: {fragment}")
+
+    forbidden_active_markers = [
+        "public_launch_status: ready",
+        "public_launch_status: launched",
+        "publish_readiness_status: publish_ready",
+        "operator_acceptance_status: accepted",
+        "monetization_status: approved",
+        "analytics_status: connected",
+        "search_console_status: connected",
+        "user_feedback_status: collected",
+        "publish_candidate: true",
+        "approved_for_publish: true",
+        "publish_ready: true",
+        "operator_accepted: true",
+        "public_launch_ready: true",
+        "monetization_approved: true",
+    ]
+    lower_ia_text = ia_text.lower()
+    for fragment in forbidden_active_markers:
+        if fragment in lower_ia_text:
+            failures.append(
+                "Website IA internal preview V1 must not contain active forbidden marker: "
+                f"{fragment}"
+            )
+
+    forbidden_data_claims = [
+        "real ranking data",
+        "real traffic data",
+        "real revenue data",
+        "real conversion data",
+        "real user feedback data",
+        "ranking_status: available",
+        "traffic_status: available",
+        "revenue_status: available",
+        "conversion_status: available",
+    ]
+    for fragment in forbidden_data_claims:
+        if fragment in lower_ia_text:
+            failures.append(
+                "Website IA internal preview V1 must not claim real metric data: "
+                f"{fragment}"
+            )
+
+    return count
+
+
 def main() -> int:
     failures: list[str] = []
 
@@ -5524,6 +5658,9 @@ def main() -> int:
     )
     content_pipeline_contract_and_work_queue_v1_count = (
         validate_content_pipeline_contract_and_work_queue_v1(failures)
+    )
+    website_information_architecture_internal_preview_v1_count = (
+        validate_website_information_architecture_internal_preview_v1(failures)
     )
 
     if failures:
@@ -5574,6 +5711,10 @@ def main() -> int:
     print(
         "- Content Pipeline Contract and Work Queue V1 files: "
         f"{content_pipeline_contract_and_work_queue_v1_count}"
+    )
+    print(
+        "- Website Information Architecture Internal Preview V1 files: "
+        f"{website_information_architecture_internal_preview_v1_count}"
     )
     print("- YAML/frontmatter parsing: dependency-free and text-based")
     return 0

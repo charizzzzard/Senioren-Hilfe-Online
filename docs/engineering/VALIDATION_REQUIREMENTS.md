@@ -662,6 +662,23 @@ Das Review-Artefakt muss mindestens diese Finding IDs enthalten:
 - Next Task Generator Spec muss forbidden data invention guardrail sichtbar halten.
 - Kein Runner- oder Generator-Artefakt darf live Analytics, Search Console, Feedback, Ranking, Traffic, Conversion, Revenue oder Monetization Data behaupten.
 
+## Website Information Architecture Internal Preview V1 Checks
+
+- `docs/operations/website_preview/WEBSITE_INFORMATION_ARCHITECTURE_INTERNAL_PREVIEW_V1.md` muss existieren.
+- Das Artefakt muss `artifact_status: internal_preview_structure_defined` enthalten.
+- Das Artefakt muss `public_launch_status: not_ready` enthalten.
+- Das Artefakt muss `publish_readiness_status: not_ready` enthalten.
+- Das Artefakt muss `operator_acceptance_status: not_accepted` enthalten.
+- Das Artefakt muss `monetization_status: not_approved` enthalten.
+- Das Artefakt muss `analytics_status: not_connected` enthalten.
+- Das Artefakt muss `search_console_status: not_connected` enthalten.
+- Das Artefakt muss `user_feedback_status: not_collected` enthalten.
+- Das Artefakt muss internal preview only bleiben.
+- Das Artefakt muss Forbidden Outcomes enthalten.
+- Das Artefakt darf keine aktiven Launch-, Publish-, Acceptance-, Monetization-, Analytics-, Search-Console- oder Feedback-Statuswerte enthalten.
+- Das Artefakt darf keine realen SEO-, Ranking-, Traffic-, Revenue-, Conversion- oder Nutzerfeedbackdaten behaupten.
+- `CQ-V1-004` darf als `completed_internal_planning` markiert werden, aber nur mit weiterhin blockiertem Public Launch und nicht publish-ready.
+
 ## Reader Experience Quality Checks
 
 - Reader Experience ist ein eigenes Qualitaetsfeld neben Quellen, Claims, Safety, SEO und Accessibility.

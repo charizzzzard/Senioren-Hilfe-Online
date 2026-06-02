@@ -87,18 +87,18 @@ queue_items:
       - docs/operations/ROADMAP_AND_MILESTONES_MVP_2026.md
       - docs/operations/ARTICLE_READINESS_DASHBOARD_BATCH_01.md
     produced_outputs:
-      - future_internal_preview_information_architecture
+      - docs/operations/website_preview/WEBSITE_INFORMATION_ARCHITECTURE_INTERNAL_PREVIEW_V1.md
     blockers:
       - no_public_launch_decision
       - no_publish_ready_content
-    allowed_next_action: define_internal_preview_structure_only
+    allowed_next_action: prepare_internal_preview_review_packet_only
     forbidden_actions:
       - activate_public_launch
       - publish_article
       - connect_analytics
     human_gate_required: yes
     automation_candidate: codex_assisted
-    status: pending_internal_planning
+    status: completed_internal_planning
 
   - queue_item_id: CQ-V1-005
     title: Pipeline runner / next task generator specification

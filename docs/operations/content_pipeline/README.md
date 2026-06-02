@@ -16,6 +16,8 @@ Die Artefakte sind interne Betriebs- und Planungsunterlagen. Sie erzeugen keine 
   - Spezifikation fuer einen spaeteren sicheren Runner; keine Runtime und keine Queue-Ausfuehrung.
 - `NEXT_TASK_GENERATOR_SPEC_V1.md`
   - Spezifikation fuer spaetere Prompt-Kandidaten aus Queue Items; stoppt bei Human Gates.
+- `../website_preview/WEBSITE_INFORMATION_ARCHITECTURE_INTERNAL_PREVIEW_V1.md`
+  - Interne Website-IA und Preview-Struktur; keine Website-Runtime und kein Public Launch.
 
 ## Non-Acceptance
 

@@ -606,6 +606,7 @@ queue_item_status:
     - pending_human_operator_gate
     - pending_human_operator_decision
     - pending_internal_planning
+    - completed_internal_planning
     - future_candidate
     - planning_only
     - blocked_until_human_operator_decision
@@ -633,6 +634,21 @@ automation_level:
     - auto_publish
     - auto_accept
     - auto_monetize
+
+website_preview_artifact_status:
+  allowed:
+    - internal_preview_structure_defined
+    - needs_internal_review
+    - blocked
+    - superseded
+  forbidden_by_codex:
+    - ready
+    - launched
+    - public_launch_ready
+    - publish_ready
+    - approved_for_publish
+    - operator_accepted
+    - monetization_approved
 
 runner_spec_status:
   allowed:
