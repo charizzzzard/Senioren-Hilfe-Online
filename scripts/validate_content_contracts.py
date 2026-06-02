@@ -74,6 +74,8 @@ REQUIRED_DOCS = [
     "docs/operations/MVP_OPERATIONAL_START_PLAN_BATCH_01.md",
     "docs/operations/ROADMAP_AND_MILESTONES_MVP_2026.md",
     "docs/operations/ARTICLE_READINESS_DASHBOARD_BATCH_01.md",
+    "docs/operations/CONTENT_QUALITY_USER_PERSPECTIVE_READER_EXPERIENCE_AND_FEEDBACK_LOOP_BASELINE.md",
+    "docs/operations/USER_FEEDBACK_INTAKE_PROTOCOL_BASELINE.md",
     "docs/content/BATCH_WORKFLOW_TEMPLATE.md",
     "docs/operations/NEXT_STAGE_DECISION_TREE.md",
     "docs/operations/STATUS_REGISTRY.yaml",
@@ -138,6 +140,10 @@ REVIEW_FINDINGS_REGISTER_PATH = ROOT / "docs/operations/REVIEW_FINDINGS_REGISTER
 MVP_OPERATIONAL_START_PLAN_PATH = ROOT / "docs/operations/MVP_OPERATIONAL_START_PLAN_BATCH_01.md"
 ROADMAP_MVP_2026_PATH = ROOT / "docs/operations/ROADMAP_AND_MILESTONES_MVP_2026.md"
 ARTICLE_READINESS_DASHBOARD_PATH = ROOT / "docs/operations/ARTICLE_READINESS_DASHBOARD_BATCH_01.md"
+CONTENT_QUALITY_FEEDBACK_LOOP_PATH = (
+    ROOT / "docs/operations/CONTENT_QUALITY_USER_PERSPECTIVE_READER_EXPERIENCE_AND_FEEDBACK_LOOP_BASELINE.md"
+)
+USER_FEEDBACK_INTAKE_PROTOCOL_PATH = ROOT / "docs/operations/USER_FEEDBACK_INTAKE_PROTOCOL_BASELINE.md"
 SOURCE_REVIEW_PATH = ROOT / "docs/content/source_reviews/whatsapp-source-manual-review-batch-01.md"
 SOURCE_REVIEW_REL_PATH = "docs/content/source_reviews/whatsapp-source-manual-review-batch-01.md"
 EVIDENCE_CAPTURE_PATH = ROOT / "docs/content/evidence_captures/whatsapp-line-evidence-capture-batch-01.md"
@@ -617,6 +623,19 @@ def validate_protocol_automation_files(failures: list[str]) -> None:
             "pending_reader_experience_baseline",
             "pending_accessibility_standard",
             "feedback_not_collected",
+            "loop_status:",
+            "baseline_defined_not_live",
+            "reader_experience_status:",
+            "baseline_defined",
+            "reader_experience_feedback_status:",
+            "not_collected",
+            "user_feedback_status:",
+            "email_feedback_status:",
+            "not_connected",
+            "feedback_protocol_status:",
+            "analytics_status:",
+            "keyword_validation_status:",
+            "not_available",
             "citation_text_status:",
             "legal_wording_review_status:",
             "wording_review_prepared_no_legal_approval",
@@ -3392,6 +3411,347 @@ def validate_article_readiness_dashboard(failures: list[str]) -> int:
     return 1
 
 
+def validate_content_quality_feedback_loop_baseline(failures: list[str]) -> int:
+    if not CONTENT_QUALITY_FEEDBACK_LOOP_PATH.exists():
+        failures.append(
+            "Missing content quality feedback loop baseline: "
+            "docs/operations/CONTENT_QUALITY_USER_PERSPECTIVE_READER_EXPERIENCE_AND_FEEDBACK_LOOP_BASELINE.md"
+        )
+        return 0
+
+    text = CONTENT_QUALITY_FEEDBACK_LOOP_PATH.read_text(encoding="utf-8")
+    fields = parse_frontmatter_fields(text)
+
+    required_fragments = [
+        "quality_loop_id: SHO-CONTENT-QUALITY-USER-PERSPECTIVE-READER-EXPERIENCE-FEEDBACK-LOOP-BASELINE",
+        "scope: MVP_BATCH_01",
+        "loop_status: baseline_defined_not_live",
+        "reader_experience_status: baseline_defined",
+        "user_feedback_status: not_collected",
+        "email_feedback_status: not_connected",
+        "analytics_status: not_connected",
+        "keyword_validation_status: not_available",
+        "monetization_status: not_approved",
+        "operator_acceptance_status: not_accepted",
+        "publish_readiness_status: not_ready",
+        "public_launch_status: not_ready",
+        "Purpose",
+        "Current System Baseline",
+        "Explicit Non-Acceptance",
+        "Quality Dimensions",
+        "User Perspective Dimensions",
+        "Reader Experience Dimensions",
+        "Target User Perspective Standard",
+        "Caregiver Perspective Standard",
+        "Real-World Situation Fit",
+        "Reader Experience Standard",
+        "Feedback Inputs Planned Later",
+        "Email Feedback Intake Baseline",
+        "Feedback Categories",
+        "Review Cadence",
+        "Refresh Triggers",
+        "Article Quality Scorecard Fields",
+        "Trust/Safety Guardrails",
+        "SEO Guardrails",
+        "Senior UX Guardrails",
+        "Accessibility Guardrails",
+        "Reader Experience Guardrails",
+        "Monetization Guardrails",
+        "Feedback Privacy Boundary Placeholder",
+        "Data Inputs Not Yet Available",
+        "Future Automation Opportunities",
+        "Required Human Decisions",
+        "Einfache Sprache bedeutet nicht anspruchslose Sprache. Inhalte sollen klar, freundlich und zugänglich sein, aber ältere Leserinnen und Leser als erwachsene, erfahrene und interessierte Menschen ernst nehmen.",
+        "Keine Live-Optimierung",
+        "Keine Live-Analytics",
+        "kein echtes Nutzerfeedback",
+        "kein Reader-Experience-Feedback",
+        "Keine Ranking Proofs",
+        "Keine Traffic Proofs",
+        "Keine Revenue Proofs",
+        "Keine Conversion Proofs",
+        "keine Publish Readiness",
+        "keine rechtliche Freigabe",
+        "keine Operator Acceptance",
+        "keine Monetarisierung",
+    ]
+    required_core_quality_dimensions = [
+        "evidence_quality",
+        "claim_source_alignment",
+        "senior_readability",
+        "safety_language",
+        "accessibility",
+        "search_intent_fit",
+        "freshness",
+        "trust_risk",
+        "monetization_risk",
+        "publish_blockers",
+    ]
+    required_user_perspective_dimensions = [
+        "target_user_empathy_fit",
+        "caregiver_perspective_fit",
+        "real_world_situation_fit",
+        "confusion_prevention",
+        "user_question_coverage",
+        "emotional_safety",
+        "practical_next_step_clarity",
+        "print_or_forward_usefulness",
+        "feedback_learnability",
+    ]
+    required_reader_experience_dimensions = [
+        "reader_experience_quality",
+        "reading_pleasure",
+        "text_flow",
+        "respectful_depth",
+        "adult_reader_tone",
+        "clarity_without_oversimplification",
+        "emotional_warmth",
+        "topic_engagement",
+        "narrative_coherence",
+        "calm_confident_voice",
+    ]
+    required_user_checks = [
+        "Does the article start from the real user problem?",
+        "Does it avoid shame, blame and panic?",
+        "Does it explain what to do first?",
+        "Does it avoid unnecessary technical jargon?",
+        "Does it include practical next steps?",
+        "Does it help a user who is uncertain or afraid of making a mistake?",
+        "Does it remain respectful and not patronizing?",
+    ]
+    required_caregiver_checks = [
+        "Can a relative or helper forward or print the article?",
+        "Does the article help someone explain the topic calmly?",
+        "Are helper notes needed?",
+        "Are common support situations documented?",
+        "Does the article avoid pressuring the senior user?",
+    ]
+    required_reader_checks = [
+        "Does the article read naturally and pleasantly?",
+        "Does the article have a calm, clear and confident voice?",
+        "Does the article avoid sounding like a dry technical manual?",
+        "Does the article avoid sounding childish, patronizing or oversimplified?",
+        "Does the article respect older readers as adult, experienced and interested readers?",
+        "Does the article provide enough depth to feel worthwhile?",
+        "Does the article maintain clarity without flattening the topic too much?",
+        "Does the article use transitions, examples and structure to support reading flow?",
+        "Does the article make the topic feel approachable rather than burdensome?",
+        "Does the article give the reader something useful and satisfying to take away?",
+    ]
+    required_feedback_categories = [
+        "comprehension_problem",
+        "ui_difference",
+        "safety_question",
+        "missing_explanation",
+        "readability_problem",
+        "caregiver_support_need",
+        "product_question",
+        "trust_question",
+        "print_or_forward_request",
+        "article_update_request",
+        "reading_experience_feedback",
+        "tone_feedback",
+    ]
+    required_missing_data = [
+        "Search Console data",
+        "analytics data",
+        "ranking data",
+        "keyword volume data",
+        "keyword difficulty data",
+        "conversion data",
+        "user feedback data",
+        "email feedback data",
+        "usability test data",
+        "reader experience feedback data",
+        "monetization performance data",
+    ]
+
+    for fragment in (
+        required_fragments
+        + required_core_quality_dimensions
+        + required_user_perspective_dimensions
+        + required_reader_experience_dimensions
+        + required_user_checks
+        + required_caregiver_checks
+        + required_reader_checks
+        + required_feedback_categories
+        + required_missing_data
+    ):
+        if fragment not in text:
+            failures.append(f"Content quality feedback loop baseline must contain: {fragment}")
+
+    if fields.get("quality_loop_id") != (
+        "SHO-CONTENT-QUALITY-USER-PERSPECTIVE-READER-EXPERIENCE-FEEDBACK-LOOP-BASELINE"
+    ):
+        failures.append("Content quality feedback loop baseline has unexpected quality_loop_id")
+    if normalized(fields.get("scope")) != "mvp_batch_01":
+        failures.append("Content quality feedback loop baseline must have scope: MVP_BATCH_01")
+    if normalized(fields.get("loop_status")) != "baseline_defined_not_live":
+        failures.append("Content quality feedback loop baseline must have loop_status: baseline_defined_not_live")
+    if normalized(fields.get("reader_experience_status")) != "baseline_defined":
+        failures.append("Content quality feedback loop baseline must have reader_experience_status: baseline_defined")
+    if normalized(fields.get("user_feedback_status")) != "not_collected":
+        failures.append("Content quality feedback loop baseline must have user_feedback_status: not_collected")
+    if normalized(fields.get("email_feedback_status")) != "not_connected":
+        failures.append("Content quality feedback loop baseline must have email_feedback_status: not_connected")
+    if normalized(fields.get("analytics_status")) != "not_connected":
+        failures.append("Content quality feedback loop baseline must have analytics_status: not_connected")
+    if normalized(fields.get("keyword_validation_status")) != "not_available":
+        failures.append("Content quality feedback loop baseline must have keyword_validation_status: not_available")
+    if normalized(fields.get("monetization_status")) != "not_approved":
+        failures.append("Content quality feedback loop baseline must have monetization_status: not_approved")
+    if normalized(fields.get("operator_acceptance_status")) != "not_accepted":
+        failures.append("Content quality feedback loop baseline must have operator_acceptance_status: not_accepted")
+    if normalized(fields.get("publish_readiness_status")) != "not_ready":
+        failures.append("Content quality feedback loop baseline must have publish_readiness_status: not_ready")
+    if normalized(fields.get("public_launch_status")) != "not_ready":
+        failures.append("Content quality feedback loop baseline must have public_launch_status: not_ready")
+
+    forbidden_assignments = [
+        "analytics_status: connected",
+        "loop_status: active",
+        "user_feedback_status: collected",
+        "email_feedback_status: connected",
+        "reader_experience_feedback_status: collected",
+        "feedback_protocol_status: active",
+        "keyword_validation_status: documented",
+        "monetization_status: approved",
+        "operator_acceptance_status: accepted",
+        "publish_readiness_status: approved_for_publish",
+        "public_launch_status: ready",
+        "public_launch_status: launched",
+        "approved_for_publish: true",
+        "publish_ready: true",
+    ]
+    lower_text = text.lower()
+    for fragment in forbidden_assignments:
+        if fragment in lower_text:
+            failures.append(
+                "Content quality feedback loop baseline must not contain forbidden activation marker: "
+                f"{fragment}"
+            )
+
+    return 1
+
+
+def validate_user_feedback_intake_protocol_baseline(failures: list[str]) -> int:
+    if not USER_FEEDBACK_INTAKE_PROTOCOL_PATH.exists():
+        failures.append("Missing user feedback intake protocol baseline: docs/operations/USER_FEEDBACK_INTAKE_PROTOCOL_BASELINE.md")
+        return 0
+
+    text = USER_FEEDBACK_INTAKE_PROTOCOL_PATH.read_text(encoding="utf-8")
+    fields = parse_frontmatter_fields(text)
+
+    required_fragments = [
+        "feedback_protocol_id: SHO-USER-FEEDBACK-INTAKE-PROTOCOL-BASELINE",
+        "feedback_protocol_status: baseline_defined_not_live",
+        "email_feedback_status: not_connected",
+        "user_feedback_status: not_collected",
+        "reader_experience_feedback_status: not_collected",
+        "privacy_review_status: required_before_live_use",
+        "operator_acceptance_status: not_accepted",
+        "publish_readiness_status: not_ready",
+        "public_launch_status: not_ready",
+        "Purpose",
+        "Explicit Non-Acceptance",
+        "Intended Later Sources",
+        "Email Feedback Categories",
+        "Reader Experience Feedback Categories",
+        "Feedback Register Fields",
+        "Safety Escalation Placeholder",
+        "Privacy Review Placeholder",
+        "Content Improvement Mapping",
+        "Reader Experience Improvement Mapping",
+        "Refresh Trigger Candidates",
+        "Forbidden Use",
+        "Required Human Decisions Before Live Use",
+        "kein E-Mail-Feedback",
+        "kein Nutzerfeedback",
+        "kein Reader-Experience-Feedback",
+        "Privacy-Review",
+    ]
+    required_feedback_register_fields = [
+        "feedback_id",
+        "received_at",
+        "article_slug",
+        "user_type",
+        "topic",
+        "problem_type",
+        "confusion_point",
+        "safety_relevance",
+        "reading_experience_signal",
+        "tone_signal",
+        "content_gap",
+        "suggested_action",
+        "privacy_sensitive",
+        "status",
+        "linked_refresh_patch",
+    ]
+    required_feedback_categories = [
+        "comprehension_problem",
+        "ui_difference",
+        "safety_question",
+        "missing_explanation",
+        "readability_problem",
+        "caregiver_support_need",
+        "product_question",
+        "trust_question",
+        "print_or_forward_request",
+        "article_update_request",
+        "reading_experience_feedback",
+        "tone_feedback",
+    ]
+
+    for fragment in required_fragments + required_feedback_register_fields + required_feedback_categories:
+        if fragment not in text:
+            failures.append(f"User feedback intake protocol baseline must contain: {fragment}")
+
+    if fields.get("feedback_protocol_id") != "SHO-USER-FEEDBACK-INTAKE-PROTOCOL-BASELINE":
+        failures.append("User feedback intake protocol baseline has unexpected feedback_protocol_id")
+    if normalized(fields.get("feedback_protocol_status")) != "baseline_defined_not_live":
+        failures.append("User feedback intake protocol baseline must have feedback_protocol_status: baseline_defined_not_live")
+    if normalized(fields.get("email_feedback_status")) != "not_connected":
+        failures.append("User feedback intake protocol baseline must have email_feedback_status: not_connected")
+    if normalized(fields.get("user_feedback_status")) != "not_collected":
+        failures.append("User feedback intake protocol baseline must have user_feedback_status: not_collected")
+    if normalized(fields.get("reader_experience_feedback_status")) != "not_collected":
+        failures.append("User feedback intake protocol baseline must have reader_experience_feedback_status: not_collected")
+    if normalized(fields.get("privacy_review_status")) != "required_before_live_use":
+        failures.append("User feedback intake protocol baseline must have privacy_review_status: required_before_live_use")
+    if normalized(fields.get("operator_acceptance_status")) != "not_accepted":
+        failures.append("User feedback intake protocol baseline must have operator_acceptance_status: not_accepted")
+    if normalized(fields.get("publish_readiness_status")) != "not_ready":
+        failures.append("User feedback intake protocol baseline must have publish_readiness_status: not_ready")
+    if normalized(fields.get("public_launch_status")) != "not_ready":
+        failures.append("User feedback intake protocol baseline must have public_launch_status: not_ready")
+
+    forbidden_assignments = [
+        "analytics_status: connected",
+        "loop_status: active",
+        "user_feedback_status: collected",
+        "email_feedback_status: connected",
+        "reader_experience_feedback_status: collected",
+        "feedback_protocol_status: active",
+        "keyword_validation_status: documented",
+        "monetization_status: approved",
+        "operator_acceptance_status: accepted",
+        "publish_readiness_status: approved_for_publish",
+        "public_launch_status: ready",
+        "public_launch_status: launched",
+        "approved_for_publish: true",
+        "publish_ready: true",
+    ]
+    lower_text = text.lower()
+    for fragment in forbidden_assignments:
+        if fragment in lower_text:
+            failures.append(
+                "User feedback intake protocol baseline must not contain forbidden activation marker: "
+                f"{fragment}"
+            )
+
+    return 1
+
+
 def main() -> int:
     failures: list[str] = []
 
@@ -3423,6 +3783,8 @@ def main() -> int:
     mvp_operational_start_plan_count = validate_mvp_operational_start_plan(failures)
     roadmap_mvp_2026_count = validate_roadmap_mvp_2026(failures)
     article_readiness_dashboard_count = validate_article_readiness_dashboard(failures)
+    content_quality_feedback_loop_count = validate_content_quality_feedback_loop_baseline(failures)
+    user_feedback_intake_protocol_count = validate_user_feedback_intake_protocol_baseline(failures)
 
     if failures:
         print("FAIL: SHO-OS content contract validation failed")
@@ -3458,6 +3820,8 @@ def main() -> int:
     print(f"- Batch 01 MVP operational start plan files: {mvp_operational_start_plan_count}")
     print(f"- Batch 01 MVP roadmap files: {roadmap_mvp_2026_count}")
     print(f"- Batch 01 article readiness dashboard files: {article_readiness_dashboard_count}")
+    print(f"- Batch 01 content quality feedback loop baseline files: {content_quality_feedback_loop_count}")
+    print(f"- Batch 01 user feedback intake protocol baseline files: {user_feedback_intake_protocol_count}")
     print("- YAML/frontmatter parsing: dependency-free and text-based")
     return 0
 

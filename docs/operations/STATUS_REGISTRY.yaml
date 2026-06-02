@@ -314,6 +314,94 @@ placeholder_status:
     - approved_for_publish
     - publish_ready
 
+loop_status:
+  allowed:
+    - baseline_defined_not_live
+    - active
+    - blocked
+  human_controlled:
+    - active
+  forbidden_by_codex:
+    - active
+    - accepted
+    - operator_accepted
+    - approved_for_publish
+    - publish_ready
+    - public_launch_ready
+
+reader_experience_status:
+  allowed:
+    - baseline_defined
+    - needs_review
+    - reviewed
+    - blocked
+  forbidden_by_codex:
+    - approved_for_publish
+    - publish_ready
+    - operator_accepted
+
+reader_experience_feedback_status:
+  allowed:
+    - not_collected
+    - collected
+    - blocked
+  human_controlled:
+    - collected
+  forbidden_by_codex:
+    - collected
+
+user_feedback_status:
+  allowed:
+    - not_collected
+    - collected
+    - blocked
+  human_controlled:
+    - collected
+  forbidden_by_codex:
+    - collected
+
+email_feedback_status:
+  allowed:
+    - not_connected
+    - connected
+    - blocked
+  human_controlled:
+    - connected
+  forbidden_by_codex:
+    - connected
+
+feedback_protocol_status:
+  allowed:
+    - baseline_defined_not_live
+    - active
+    - blocked
+  human_controlled:
+    - active
+  forbidden_by_codex:
+    - active
+
+analytics_status:
+  allowed:
+    - not_connected
+    - connected
+    - blocked
+  human_controlled:
+    - connected
+  forbidden_by_codex:
+    - connected
+
+keyword_validation_status:
+  allowed:
+    - not_available
+    - documented
+    - blocked
+  forbidden_by_codex:
+    - documented
+    - accepted
+    - operator_accepted
+    - approved_for_publish
+    - publish_ready
+
 citation_text_status:
   allowed:
     - prepared_not_final

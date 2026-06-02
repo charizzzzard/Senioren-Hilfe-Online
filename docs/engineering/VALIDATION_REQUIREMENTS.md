@@ -506,6 +506,41 @@ Das Review-Artefakt muss mindestens diese Finding IDs enthalten:
 - Das Dashboard muss `SHO-CLAIM-007` fuer Brief 002 blockiert halten.
 - Die Placeholder-Statuswerte muessen konservativ bleiben: `pending_quality_loop_baseline`, `pending_reader_experience_baseline`, `pending_accessibility_standard`, `feedback_not_collected`.
 
+## Content Quality User Perspective Reader Experience and Feedback Loop Baseline Checks
+
+- Fuer Batch 01 muss `docs/operations/CONTENT_QUALITY_USER_PERSPECTIVE_READER_EXPERIENCE_AND_FEEDBACK_LOOP_BASELINE.md` existieren.
+- User-perspective quality ist eine erforderliche Artikelqualitaetsdimension.
+- Reader experience quality ist eine erforderliche Artikelqualitaetsdimension.
+- Artikel sollen klar, nuetzlich und angenehm lesbar sein.
+- Einfache Sprache darf nicht anspruchslos, kindlich oder bevormundend werden.
+- Spaeteres Nutzer- oder E-Mail-Feedback kann Refresh-Patches informieren.
+- Spaeteres Reader-Experience-Feedback kann Ton, Struktur und Artikelqualitaet verbessern.
+- Es existiert noch kein echtes Feedback.
+- E-Mail-Feedback ist noch nicht verbunden.
+- Es existiert noch kein privacy-reviewed Live-Feedback-Verfahren.
+- Das Artefakt aktiviert keine Analytics, keine SEO-Metriken, keine Monetarisierung, keine Publikation und keine Operator Acceptance.
+- `loop_status` muss `baseline_defined_not_live` bleiben, solange keine spaetere Human-Operator-Entscheidung eine Aktivierung erlaubt.
+
+## User Feedback Intake Protocol Baseline Checks
+
+- Fuer Batch 01 muss `docs/operations/USER_FEEDBACK_INTAKE_PROTOCOL_BASELINE.md` existieren.
+- Das Feedback-Protokoll ist eine Baseline und kein Live-Prozess.
+- `feedback_protocol_status` muss `baseline_defined_not_live` bleiben.
+- `email_feedback_status` muss `not_connected` bleiben.
+- `user_feedback_status` muss `not_collected` bleiben.
+- `reader_experience_feedback_status` muss `not_collected` bleiben.
+- Das Protokoll muss Feedback-Register-Felder dokumentieren, darf aber keine echten E-Mails, Nutzerdaten oder Feedbackdaten behaupten.
+- Vor Live-Nutzung sind Privacy-Review und Human-Operator-Entscheidung erforderlich.
+- Das Artefakt aktiviert keine Analytics, keine SEO-Metriken, keine Monetarisierung, keine Publikation und keine Operator Acceptance.
+
+## Reader Experience Quality Checks
+
+- Reader Experience ist ein eigenes Qualitaetsfeld neben Quellen, Claims, Safety, SEO und Accessibility.
+- Artikel sollen aeltere Leserinnen und Leser als erwachsene, erfahrene und interessierte Menschen ernst nehmen.
+- Ein Artikel darf einfach und zugänglich sein, ohne flach oder bevormundend zu wirken.
+- Spaetere Reviews sollen Lesevergnuegen, Textfluss, respektvolle Tiefe, erwachsenen Ton, emotionale Waerme, Themeninteresse, narrative Kohärenz und ruhige sichere Stimme pruefen.
+- Reader-Experience-Feedback ist noch nicht gesammelt und darf nicht als vorhanden behauptet werden.
+
 ## Citation-Text-Prep-Checks
 
 - Fuer Brief 002 muss genau ein Citation-Text-Prep-Artefakt unter `docs/content/article_reviews/` existieren.

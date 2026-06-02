@@ -5,19 +5,19 @@
 - project_name: Senioren-Hilfe Online
 - system_name: Senioren-Hilfe Online OS
 - system_short_name: SHO-OS
-- patch_title: ARTICLE_READINESS_DASHBOARD_BATCH_01
+- patch_title: CONTENT_QUALITY_USER_PERSPECTIVE_READER_EXPERIENCE_AND_FEEDBACK_LOOP_BASELINE
 - external_review_verdict: ACCEPTED_WITH_FINDINGS
 
 SHO-OS ist ein reproduzierbares Content-, Trust- und Publishing-System fuer seniorengerechte digitale Alltagshilfe in Deutschland.
 
-Dieser Patch dokumentiert ein internes Article Readiness Dashboard fuer alle vier Batch-01-Briefs. Er setzt keine Publish Readiness, keine Operator Acceptance, keine Public-Launch-Freigabe, keine Monetarisierung und keine Batch-Stage-Hochstufung.
+Dieser Patch dokumentiert eine interne Baseline fuer Content-Qualitaet, Zielgruppenperspektive, Reader Experience und spaetere Feedback-Loops. Er setzt keine Publish Readiness, keine Operator Acceptance, keine Public-Launch-Freigabe, keine Monetarisierung, keine Live-Analytics, kein Live-Feedback und keine Batch-Stage-Hochstufung.
 
 ## Git Traceability
 
 - branch: `main`
-- head_before: `f00845b97c278a09eacebea07b2e456756bca291`
+- head_before: `603fae5c09a6b25ee64d9680ebd1e482166765ca`
 - intended_head_after: `assigned_after_commit`
-- origin_main_before: `f00845b97c278a09eacebea07b2e456756bca291`
+- origin_main_before: `603fae5c09a6b25ee64d9680ebd1e482166765ca`
 - dirty_state_before: `clean`
 - dirty_state_after: `assigned_after_commit`
 - remote_url: `https://github.com/charizzzzard/Senioren-Hilfe-Online.git`
@@ -26,17 +26,21 @@ Hinweis: `head_after` wird nicht vorab als Commit-SHA eingetragen, weil ein Comm
 
 ## Scope Dieses Patches
 
-- Neues Dashboard-Artefakt erstellt: `docs/operations/ARTICLE_READINESS_DASHBOARD_BATCH_01.md`.
-- `dashboard_status: internal_tracking_ready` dokumentiert.
-- Genau vier Batch-01-Briefs in einer Article Readiness Table dokumentiert.
-- Brief 001, Brief 003 und Brief 004 Blocker bleiben sichtbar.
-- Brief 002 bleibt final_article_preparation_allowed_not_publish_ready, aber nicht publish-ready.
-- User-Perspective-, Reader-Experience-, Accessibility- und Feedback-Status sind nur Platzhalter.
-- `public_launch_status: not_ready`, `publish_readiness_status: not_ready`, `monetization_status: not_approved` und `operator_acceptance_status: not_accepted` bleiben gesetzt.
-- Publish Readiness, approved_for_publish, Public Launch, Monetarisierung und Operator Acceptance bleiben ausgeschlossen.
-- `SHO-CLAIM-007` bleibt blockiert und WhatsApp block/report UI instructions bleiben ausgeschlossen.
-- `STATUS_REGISTRY.yaml` um `dashboard_status` und `placeholder_status` ergaenzt.
-- `validate_content_contracts.py` um Article-Readiness-Dashboard-Batch-01-Checks erweitert.
+- Neues Baseline-Artefakt erstellt: `docs/operations/CONTENT_QUALITY_USER_PERSPECTIVE_READER_EXPERIENCE_AND_FEEDBACK_LOOP_BASELINE.md`.
+- Neues Feedback-Protokoll-Artefakt erstellt: `docs/operations/USER_FEEDBACK_INTAKE_PROTOCOL_BASELINE.md`.
+- `loop_status: baseline_defined_not_live` dokumentiert.
+- `reader_experience_status: baseline_defined` dokumentiert.
+- `user_feedback_status: not_collected` dokumentiert.
+- `email_feedback_status: not_connected` dokumentiert.
+- `reader_experience_feedback_status: not_collected` dokumentiert.
+- `analytics_status: not_connected` dokumentiert.
+- `keyword_validation_status: not_available` dokumentiert.
+- `feedback_protocol_status: baseline_defined_not_live` dokumentiert.
+- `privacy_review_status: required_before_live_use` als Platzhalter dokumentiert.
+- User-Perspective-, Reader-Experience- und Feedback-Loop-Qualitaetsdimensionen fuer spaetere Reviews definiert.
+- Fehlende Daten explizit sichtbar gehalten: Search Console, Analytics, Ranking, Keyword-Volumen, Keyword-Difficulty, Conversion, Nutzerfeedback, E-Mail-Feedback, Usability-Tests, Reader-Experience-Feedback und Monetization Performance.
+- `STATUS_REGISTRY.yaml` um Nicht-Live-Status fuer Loop, Feedback, Analytics und Keyword Validation ergaenzt.
+- `validate_content_contracts.py` um Baseline-Checks fuer beide neuen Artefakte erweitert.
 - Batch bleibt `current_stage: claim_slots_mapped`.
 
 ## Non-Scope
@@ -46,11 +50,16 @@ Hinweis: `head_after` wird nicht vorab als Commit-SHA eingetragen, weil ein Comm
 - Keine neuen Claims.
 - Keine neuen SERP-Daten.
 - Keine WhatsApp Blockieren-/Melden-UI-Anleitung.
-- Kein Artikel fuer Brief 001, Brief 003 oder Brief 004.
 - Keine Publish Readiness.
 - Keine Operator Acceptance Simulation.
 - Keine Website.
 - Keine Monetarisierung.
+- Keine Live-Analytics.
+- Kein Live-Feedback.
+- Keine E-Mail-Feedback-Verbindung.
+- Keine echten Nutzerfeedback-Daten.
+- Keine echten Reader-Experience-Feedback-Daten.
+- Keine Ranking-, Traffic-, Revenue-, Suchvolumen- oder Keyword-Difficulty-Claims.
 - Keine Roadmap-Aktivierung.
 - Keine Dashboard-Aktivierung als Freigabe.
 - Keine finale Quellenliste.
@@ -59,22 +68,24 @@ Hinweis: `head_after` wird nicht vorab als Commit-SHA eingetragen, weil ein Comm
 - Keine Publikationsfreigabe.
 - Kein finaler Artikeltext.
 - Kein Public Launch.
-- Keine Ranking-, Traffic-, Revenue-, Suchvolumen- oder Keyword-Difficulty-Claims.
-- Keine Nutzerfeedback- oder E-Mail-Claims ohne echte Daten.
-- Keine abgeschlossenen User-Perspective-, Reader-Experience-, Accessibility- oder Feedback-Reviews.
 
-## Article Readiness Dashboard Summary
+## Baseline Summary
 
-- readiness_dashboard_id: `SHO-ARTICLE-READINESS-DASHBOARD-BATCH01`
-- dashboard_status: `internal_tracking_ready`
-- roadmap_status: `baseline_defined`
-- operational_status: `internal_operations_ready`
+- quality_loop_id: `SHO-CONTENT-QUALITY-USER-PERSPECTIVE-READER-EXPERIENCE-FEEDBACK-LOOP-BASELINE`
+- loop_status: `baseline_defined_not_live`
+- reader_experience_status: `baseline_defined`
+- user_feedback_status: `not_collected`
+- email_feedback_status: `not_connected`
+- analytics_status: `not_connected`
+- keyword_validation_status: `not_available`
+- feedback_protocol_id: `SHO-USER-FEEDBACK-INTAKE-PROTOCOL-BASELINE`
+- feedback_protocol_status: `baseline_defined_not_live`
+- reader_experience_feedback_status: `not_collected`
+- privacy_review_status: `required_before_live_use`
 - public_launch_status: `not_ready`
 - operator_acceptance_status: `not_accepted`
 - publish_readiness_status: `not_ready`
 - monetization_status: `not_approved`
-- dashboard_scope: four Batch 01 briefs, readiness table, placeholders, allowed next work and blocked work.
-- blocked: public launch, publish readiness, Operator Acceptance, monetization, affiliate, legal approval, WhatsApp UI block/report instructions, quantified SEO/user feedback claims without data.
 
 ## Guardrails
 
@@ -86,13 +97,12 @@ Hinweis: `head_after` wird nicht vorab als Commit-SHA eingetragen, weil ein Comm
 - Keine Publish Readiness.
 - Keine Operator Acceptance.
 - Keine rechtliche Freigabe.
-- Keine finale Quellenliste.
-- Keine finale Citation-Freigabe.
 - Kein finaler Artikeltext.
 - Kein Public Launch.
-- Keine Monetarisierung.
-- Keine erfundenen SEO-/Feedback-Daten.
-- Keine abgeschlossenen Reader-/Feedback-Reviews.
+- Keine Live-Analytics.
+- Kein Live-Feedback.
+- Keine E-Mail-Feedback-Verbindung.
+- Keine erfundenen SEO-/Keyword-/Feedback-Daten.
 - Batch Stage bleibt `claim_slots_mapped`.
 
 ## Validation Commands
@@ -103,11 +113,11 @@ Hinweis: `head_after` wird nicht vorab als Commit-SHA eingetragen, weil ein Comm
 - `python -m py_compile scripts/validate_stage_transitions.py`
 - `git status --short --branch`
 - `git diff --stat`
-- `git diff --name-status`
 
 ## Files Changed Summary
 
-- `docs/operations/ARTICLE_READINESS_DASHBOARD_BATCH_01.md`
+- `docs/operations/CONTENT_QUALITY_USER_PERSPECTIVE_READER_EXPERIENCE_AND_FEEDBACK_LOOP_BASELINE.md`
+- `docs/operations/USER_FEEDBACK_INTAKE_PROTOCOL_BASELINE.md`
 - `docs/operations/STATUS_REGISTRY.yaml`
 - `scripts/validate_content_contracts.py`
 - `docs/engineering/VALIDATION_REQUIREMENTS.md`
@@ -116,4 +126,4 @@ Hinweis: `head_after` wird nicht vorab als Commit-SHA eingetragen, weil ein Comm
 
 ## Keine finale Annahme durch Codex
 
-Article readiness dashboard recorded as internal tracking only, with no public launch, no publish readiness, no monetization approval and no Operator Acceptance. Finale Annahme bleibt beim Human Operator.
+Content quality, reader experience and feedback loop baseline recorded as internal baseline only, with no live feedback, no live analytics, no public launch, no publish readiness, no monetization approval and no Operator Acceptance. Finale Annahme bleibt beim Human Operator.
