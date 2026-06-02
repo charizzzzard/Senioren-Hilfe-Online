@@ -2,31 +2,27 @@
 
 ## Zweck dieses Review-Pakets
 
-Dieses Review-Paket beschreibt den Patch `CONTENT_PIPELINE_CONTRACT_AND_WORK_QUEUE_V1`.
+Dieses Review-Paket beschreibt den Patch `CONTENT_PIPELINE_RUNNER_SPEC_V1`.
 
-Der Patch ueberfuehrt das bestehende Content-Machine-Zielmodell in einen wiederholbaren, spaeter automatisierbaren Operating Contract mit Pipeline-Stages, Rollen-Grenzen, Work Queue und Validator-Erweiterung.
+Der Patch spezifiziert einen spaeter moeglichen sicheren Content Pipeline Runner und einen Next Task Generator fuer die Senioren-Hilfe Online Content Machine. Beide Artefakte sind Spezifikation-only und nicht live.
 
-Der Patch ist ein internes Operations-/Governance-Artefakt. Er setzt keine Publish Readiness, keine Operator Acceptance, keine Public-Launch-Freigabe, keine Monetarisierung und keine rechtliche Freigabe.
+Der Patch implementiert keinen Runtime Runner, startet keine Work Queue, erzeugt keine Artikel, setzt keine Publish Readiness, keine Operator Acceptance, keine Public-Launch-Freigabe, keine Monetarisierung und keine rechtliche Freigabe.
 
 ## Scope dieses Patches
 
-- Content Pipeline Ordner erstellen:
-  - `docs/operations/content_pipeline/README.md`
-  - `docs/operations/content_pipeline/CONTENT_PIPELINE_CONTRACT_V1.md`
-  - `docs/operations/content_pipeline/CONTENT_PRODUCTION_ROLE_BOUNDARIES_V1.md`
-  - `docs/operations/content_pipeline/WORK_QUEUE_V1.yaml`
-- Pipeline-Stages von Strategy Intake bis Refresh Loop und Monetization Gate dokumentieren.
-- Build Mode Exit Gate und Anti-Endless-Prompting Rules dokumentieren.
-- Rollen- und Entscheidungsgrenzen fuer Human Operator, ChatGPT, Codex, Validatoren, Future Runner und externe Datenquellen dokumentieren.
-- Conservative Work Queue fuer `MVP_BATCH_01` anlegen.
-- Status Registry, Validation Requirements und Validator minimal fuer Pipeline Contract / Work Queue ergaenzen.
+- Runner-Spezifikation erstellen:
+  - `docs/operations/content_pipeline/CONTENT_PIPELINE_RUNNER_SPEC_V1.md`
+- Next-Task-Generator-Spezifikation erstellen:
+  - `docs/operations/content_pipeline/NEXT_TASK_GENERATOR_SPEC_V1.md`
+- Content Pipeline README um die neuen Spec-only-Artefakte ergaenzen.
+- Status Registry um konservative Runner-/Generator-/Runtime-/Queue-Execution-Statuswerte ergaenzen.
+- Validation Requirements und `validate_content_contracts.py` um Runner-/Generator-Spec-Checks ergaenzen.
 - Externen Handoff-Kontext auf diesen Patch aktualisieren.
 
 ## Primaere Review-Dateien
 
-- `docs/operations/content_pipeline/CONTENT_PIPELINE_CONTRACT_V1.md`
-- `docs/operations/content_pipeline/CONTENT_PRODUCTION_ROLE_BOUNDARIES_V1.md`
-- `docs/operations/content_pipeline/WORK_QUEUE_V1.yaml`
+- `docs/operations/content_pipeline/CONTENT_PIPELINE_RUNNER_SPEC_V1.md`
+- `docs/operations/content_pipeline/NEXT_TASK_GENERATOR_SPEC_V1.md`
 - `docs/operations/content_pipeline/README.md`
 - `docs/operations/STATUS_REGISTRY.yaml`
 - `docs/engineering/VALIDATION_REQUIREMENTS.md`
@@ -35,6 +31,9 @@ Der Patch ist ein internes Operations-/Governance-Artefakt. Er setzt keine Publi
 
 ## Nicht in Scope
 
+- Kein Runtime Runner.
+- Keine Work-Queue-Ausfuehrung.
+- Kein `scripts/run_content_pipeline.py`.
 - Keine Artikeltexte.
 - Keine Article Candidates.
 - Keine Publish Readiness.
@@ -48,7 +47,6 @@ Der Patch ist ein internes Operations-/Governance-Artefakt. Er setzt keine Publi
 - Keine WhatsApp block/report UI instructions.
 - Keine Analytics-, Search-Console-, E-Mail-Feedback- oder externe Service-Verbindung.
 - Keine echten SEO-, Ranking-, Traffic-, CTR-, Conversion-, Revenue-, Nutzerfeedback- oder Source-Freshness-Daten.
-- Keine Runtime und kein Pipeline Runner.
 
 ## Validation Commands
 
@@ -61,4 +59,4 @@ Der Patch ist ein internes Operations-/Governance-Artefakt. Er setzt keine Publi
 
 ## Operator Acceptance
 
-Der Human Operator bleibt finale Annahmeautoritaet. Dieses Paket ist ein Operating-Baseline- und Review-Arbeitsstand, keine finale Annahme.
+Der Human Operator bleibt finale Annahmeautoritaet. Dieses Paket ist eine Runner-/Generator-Spezifikation fuer spaetere sichere Teilautomatisierung, keine Runtime, keine finale Annahme und keine Freigabe.

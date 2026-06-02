@@ -648,6 +648,20 @@ Das Review-Artefakt muss mindestens diese Finding IDs enthalten:
 - Build Mode Exit Gate und Anti-Endless-Prompting Rules muessen im Pipeline Contract sichtbar bleiben.
 - Die Work Queue muss fuer jedes Queue Item `queue_item_id`, `title`, `linked_stage_id`, `required_inputs`, `produced_outputs`, `blockers`, `allowed_next_action`, `forbidden_actions`, `human_gate_required`, `automation_candidate` und `status` enthalten.
 
+## Content Pipeline Runner Spec V1 Checks
+
+- `docs/operations/content_pipeline/CONTENT_PIPELINE_RUNNER_SPEC_V1.md` muss existieren.
+- `docs/operations/content_pipeline/NEXT_TASK_GENERATOR_SPEC_V1.md` muss existieren.
+- Runner Spec muss `runner_spec_status: specification_only_not_implemented` enthalten.
+- Runner Spec muss `runtime_status: not_implemented` enthalten.
+- Runner Spec muss `queue_execution_status: not_live` enthalten.
+- Runner Spec darf keinen implementierten Runtime-Status behaupten.
+- Runner Spec muss `auto_publish`, `auto_accept` und `auto_monetize` als verboten markieren.
+- Next Task Generator Spec muss bei `human_gate_required` stoppen.
+- Next Task Generator Spec muss non-acceptance guardrails erhalten.
+- Next Task Generator Spec muss forbidden data invention guardrail sichtbar halten.
+- Kein Runner- oder Generator-Artefakt darf live Analytics, Search Console, Feedback, Ranking, Traffic, Conversion, Revenue oder Monetization Data behaupten.
+
 ## Reader Experience Quality Checks
 
 - Reader Experience ist ein eigenes Qualitaetsfeld neben Quellen, Claims, Safety, SEO und Accessibility.

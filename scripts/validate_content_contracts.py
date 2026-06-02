@@ -93,6 +93,8 @@ REQUIRED_DOCS = [
     "docs/operations/content_pipeline/CONTENT_PIPELINE_CONTRACT_V1.md",
     "docs/operations/content_pipeline/CONTENT_PRODUCTION_ROLE_BOUNDARIES_V1.md",
     "docs/operations/content_pipeline/WORK_QUEUE_V1.yaml",
+    "docs/operations/content_pipeline/CONTENT_PIPELINE_RUNNER_SPEC_V1.md",
+    "docs/operations/content_pipeline/NEXT_TASK_GENERATOR_SPEC_V1.md",
     "scripts/validate_stage_transitions.py",
 ]
 
@@ -182,6 +184,12 @@ CONTENT_PRODUCTION_ROLE_BOUNDARIES_V1_PATH = (
     CONTENT_PIPELINE_DIR / "CONTENT_PRODUCTION_ROLE_BOUNDARIES_V1.md"
 )
 WORK_QUEUE_V1_PATH = CONTENT_PIPELINE_DIR / "WORK_QUEUE_V1.yaml"
+CONTENT_PIPELINE_RUNNER_SPEC_V1_PATH = (
+    CONTENT_PIPELINE_DIR / "CONTENT_PIPELINE_RUNNER_SPEC_V1.md"
+)
+NEXT_TASK_GENERATOR_SPEC_V1_PATH = (
+    CONTENT_PIPELINE_DIR / "NEXT_TASK_GENERATOR_SPEC_V1.md"
+)
 SOURCE_REVIEW_PATH = ROOT / "docs/content/source_reviews/whatsapp-source-manual-review-batch-01.md"
 SOURCE_REVIEW_REL_PATH = "docs/content/source_reviews/whatsapp-source-manual-review-batch-01.md"
 EVIDENCE_CAPTURE_PATH = ROOT / "docs/content/evidence_captures/whatsapp-line-evidence-capture-batch-01.md"
@@ -5219,6 +5227,8 @@ def validate_content_pipeline_contract_and_work_queue_v1(failures: list[str]) ->
         CONTENT_PIPELINE_CONTRACT_V1_PATH,
         CONTENT_PRODUCTION_ROLE_BOUNDARIES_V1_PATH,
         WORK_QUEUE_V1_PATH,
+        CONTENT_PIPELINE_RUNNER_SPEC_V1_PATH,
+        NEXT_TASK_GENERATOR_SPEC_V1_PATH,
     ]
     count = 0
     for path in required_paths:
@@ -5233,6 +5243,8 @@ def validate_content_pipeline_contract_and_work_queue_v1(failures: list[str]) ->
     contract_text = CONTENT_PIPELINE_CONTRACT_V1_PATH.read_text(encoding="utf-8")
     role_text = CONTENT_PRODUCTION_ROLE_BOUNDARIES_V1_PATH.read_text(encoding="utf-8")
     queue_text = WORK_QUEUE_V1_PATH.read_text(encoding="utf-8")
+    runner_text = CONTENT_PIPELINE_RUNNER_SPEC_V1_PATH.read_text(encoding="utf-8")
+    generator_text = NEXT_TASK_GENERATOR_SPEC_V1_PATH.read_text(encoding="utf-8")
 
     required_stage_ids = [
         "STAGE_00_STRATEGY_TRUST_PORTFOLIO_INTAKE",
@@ -5401,6 +5413,70 @@ def validate_content_pipeline_contract_and_work_queue_v1(failures: list[str]) ->
     for fragment in forbidden_data_claims:
         if fragment in lower_queue_text:
             failures.append(f"Work Queue V1 must not claim live data: {fragment}")
+
+    required_runner_fragments = [
+        "runner_spec_status: specification_only_not_implemented",
+        "runtime_status: not_implemented",
+        "queue_execution_status: not_live",
+        "This specification does not implement runtime execution.",
+        "inspect_only",
+        "validate_only",
+        "propose_next_task",
+        "generate_operator_packet_candidate",
+        "blocked_report_only",
+        "future_execute_template_stage",
+        "auto_publish",
+        "auto_accept",
+        "auto_monetize",
+        "operator_decision_required_report",
+        "no_safe_task_available_report",
+        "human_gate_required: yes",
+        "Never publish, accept, monetize, or connect live data.",
+    ]
+    for fragment in required_runner_fragments:
+        if fragment not in runner_text:
+            failures.append(f"Content Pipeline Runner Spec V1 must contain: {fragment}")
+
+    required_generator_fragments = [
+        "next_task_generator_spec_status: specification_only_not_implemented",
+        "runtime_status: not_implemented",
+        "queue_execution_status: not_live",
+        "human_gate_required",
+        "non_acceptance_guardrails",
+        "forbidden data invention guardrail",
+        "pending_human_operator_gate",
+        "pending_human_operator_decision",
+        "generate operator decision required report",
+        "blocked_until_human_operator_decision",
+        "keine erfundenen SEO-, Analytics-, Ranking-, Traffic-, CTR-, Conversion-, Revenue-, Nutzerfeedback- oder Source-Freshness-Daten",
+    ]
+    for fragment in required_generator_fragments:
+        if fragment not in generator_text:
+            failures.append(f"Next Task Generator Spec V1 must contain: {fragment}")
+
+    forbidden_runner_generator_markers = [
+        "runtime_status: implemented",
+        "runtime_status: active",
+        "queue_execution_status: live",
+        "analytics_status: connected",
+        "search_console_status: connected",
+        "user_feedback_status: collected",
+        "ranking_status: available",
+        "traffic_status: available",
+        "conversion_status: available",
+        "revenue_status: available",
+        "monetization_status: approved",
+        "operator_acceptance_status: accepted",
+        "publish_readiness_status: publish_ready",
+        "public_launch_status: public_launch_ready",
+    ]
+    lower_runner_generator_text = (runner_text + "\n" + generator_text).lower()
+    for fragment in forbidden_runner_generator_markers:
+        if fragment in lower_runner_generator_text:
+            failures.append(
+                "Runner/Generator specs must not contain active forbidden marker: "
+                f"{fragment}"
+            )
 
     return count
 

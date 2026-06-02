@@ -634,6 +634,60 @@ automation_level:
     - auto_accept
     - auto_monetize
 
+runner_spec_status:
+  allowed:
+    - specification_only_not_implemented
+    - blocked
+    - superseded
+  forbidden_by_codex:
+    - implemented
+    - active
+    - accepted
+    - operator_accepted
+    - approved_for_publish
+    - publish_ready
+    - public_launch_ready
+    - monetization_approved
+
+next_task_generator_spec_status:
+  allowed:
+    - specification_only_not_implemented
+    - blocked
+    - superseded
+  forbidden_by_codex:
+    - implemented
+    - active
+    - accepted
+    - operator_accepted
+    - approved_for_publish
+    - publish_ready
+    - public_launch_ready
+    - monetization_approved
+
+runtime_status:
+  allowed:
+    - not_implemented
+    - blocked
+  forbidden_by_codex:
+    - implemented
+    - active
+    - live
+    - accepted
+    - approved_for_publish
+    - publish_ready
+
+queue_execution_status:
+  allowed:
+    - not_live
+    - blocked
+  forbidden_by_codex:
+    - live
+    - active
+    - running
+    - auto_publish
+    - auto_accept
+    - auto_monetize
+
 forbidden_transitions:
   - from: scaffold_only
     to: approved_for_publish
