@@ -102,6 +102,7 @@ REQUIRED_DOCS = [
     "docs/operations/website_preview/VISUAL_DESIGN_SYSTEM_SPEC_INTERNAL_ONLY.md",
     "docs/operations/website_preview/ACCESSIBILITY_REQUIREMENTS_FOR_STATIC_PREVIEW_INTERNAL_ONLY.md",
     "docs/operations/website_preview/ACCESSIBILITY_REQUIREMENTS_REVIEW_PACKET_INTERNAL_ONLY.md",
+    "docs/operations/website_preview/STATIC_PREVIEW_SKELETON_SPEC_INTERNAL_ONLY.md",
     "scripts/validate_stage_transitions.py",
 ]
 
@@ -215,6 +216,9 @@ ACCESSIBILITY_REQUIREMENTS_FOR_STATIC_PREVIEW_INTERNAL_ONLY_PATH = (
 )
 ACCESSIBILITY_REQUIREMENTS_REVIEW_PACKET_INTERNAL_ONLY_PATH = (
     WEBSITE_PREVIEW_DIR / "ACCESSIBILITY_REQUIREMENTS_REVIEW_PACKET_INTERNAL_ONLY.md"
+)
+STATIC_PREVIEW_SKELETON_SPEC_INTERNAL_ONLY_PATH = (
+    WEBSITE_PREVIEW_DIR / "STATIC_PREVIEW_SKELETON_SPEC_INTERNAL_ONLY.md"
 )
 SOURCE_REVIEW_PATH = ROOT / "docs/content/source_reviews/whatsapp-source-manual-review-batch-01.md"
 SOURCE_REVIEW_REL_PATH = "docs/content/source_reviews/whatsapp-source-manual-review-batch-01.md"
@@ -5518,6 +5522,7 @@ def validate_website_information_architecture_internal_preview_v1(
         VISUAL_DESIGN_SYSTEM_SPEC_INTERNAL_ONLY_PATH,
         ACCESSIBILITY_REQUIREMENTS_FOR_STATIC_PREVIEW_INTERNAL_ONLY_PATH,
         ACCESSIBILITY_REQUIREMENTS_REVIEW_PACKET_INTERNAL_ONLY_PATH,
+        STATIC_PREVIEW_SKELETON_SPEC_INTERNAL_ONLY_PATH,
     ]
     count = 0
     for path in required_paths:
@@ -5551,6 +5556,9 @@ def validate_website_information_architecture_internal_preview_v1(
         ACCESSIBILITY_REQUIREMENTS_REVIEW_PACKET_INTERNAL_ONLY_PATH.read_text(
             encoding="utf-8"
         )
+    )
+    static_preview_skeleton_spec_text = (
+        STATIC_PREVIEW_SKELETON_SPEC_INTERNAL_ONLY_PATH.read_text(encoding="utf-8")
     )
     queue_text = WORK_QUEUE_V1_PATH.read_text(encoding="utf-8")
 
@@ -5822,6 +5830,64 @@ def validate_website_information_architecture_internal_preview_v1(
                 f"{fragment}"
             )
 
+    required_static_preview_skeleton_spec_fragments = [
+        "static_preview_skeleton_spec_id: STATIC-PREVIEW-SKELETON-SPEC-INTERNAL-ONLY",
+        "linked_accessibility_review_packet: docs/operations/website_preview/ACCESSIBILITY_REQUIREMENTS_REVIEW_PACKET_INTERNAL_ONLY.md",
+        "linked_accessibility_requirements_spec: docs/operations/website_preview/ACCESSIBILITY_REQUIREMENTS_FOR_STATIC_PREVIEW_INTERNAL_ONLY.md",
+        "linked_visual_design_system_spec: docs/operations/website_preview/VISUAL_DESIGN_SYSTEM_SPEC_INTERNAL_ONLY.md",
+        "linked_static_preview_spec: docs/operations/website_preview/STATIC_PREVIEW_SPEC_INTERNAL_ONLY.md",
+        "linked_ia_artifact: docs/operations/website_preview/WEBSITE_INFORMATION_ARCHITECTURE_INTERNAL_PREVIEW_V1.md",
+        "linked_website_preview_review_packet: docs/operations/website_preview/WEBSITE_PREVIEW_REVIEW_PACKET_INTERNAL_ONLY.md",
+        "spec_status: specification_only_not_implemented",
+        "skeleton_runtime_status: not_implemented",
+        "skeleton_generation_status: not_implemented",
+        "preview_runtime_status: not_implemented",
+        "static_generation_status: not_implemented",
+        "html_generation_status: not_implemented",
+        "css_generation_status: not_implemented",
+        "js_generation_status: not_implemented",
+        "asset_generation_status: not_implemented",
+        "accessibility_testing_status: not_performed",
+        "wcag_conformance_status: not_claimed",
+        "public_launch_status: not_ready",
+        "publish_readiness_status: not_ready",
+        "operator_acceptance_status: not_accepted",
+        "monetization_status: not_approved",
+        "analytics_status: not_connected",
+        "search_console_status: not_connected",
+        "user_feedback_status: not_collected",
+        "## Purpose",
+        "## Explicit Non-Acceptance",
+        "## Current Baseline",
+        "## Skeleton Concept",
+        "## Planning-Only Future Directory Layout",
+        "## Required Future Skeleton Pages",
+        "## Template-to-Skeleton Mapping",
+        "## Mandatory Status Banner Contract",
+        "## Content-State Skeleton Rules",
+        "## Accessibility Carry-Forward Requirements",
+        "## Visual Design Carry-Forward Requirements",
+        "## Implementation Guardrails for Later Skeleton Patch",
+        "## Later Manual Review Checklist",
+        "## Human Operator Decisions Needed Before Implementation",
+        "## Allowed Outcomes",
+        "## Forbidden Outcomes",
+        "## Recommended Next Step",
+        "These files are not created by this patch.",
+        "STATIC_PREVIEW_SKELETON_IMPLEMENTATION_DECISION_PACKET_INTERNAL_ONLY",
+        "no HTML/CSS/JS files",
+        "no design asset files",
+        "no new claims",
+        "no new sources",
+        "no WhatsApp block/report UI instructions",
+    ]
+    for fragment in required_static_preview_skeleton_spec_fragments:
+        if fragment not in static_preview_skeleton_spec_text:
+            failures.append(
+                "Static Preview Skeleton Spec Internal Only must contain: "
+                f"{fragment}"
+            )
+
     required_queue_fragments = [
         "queue_item_id: CQ-V1-004",
         "docs/operations/website_preview/WEBSITE_INFORMATION_ARCHITECTURE_INTERNAL_PREVIEW_V1.md",
@@ -5917,6 +5983,28 @@ def validate_website_information_architecture_internal_preview_v1(
                 "Accessibility Requirements Review Packet Internal Only must not contain active forbidden marker: "
                 f"{fragment}"
             )
+    forbidden_static_preview_skeleton_active_markers = forbidden_active_markers + [
+        "skeleton_runtime_status: implemented",
+        "skeleton_generation_status: implemented",
+        "preview_runtime_status: implemented",
+        "static_generation_status: implemented",
+        "html_generation_status: implemented",
+        "css_generation_status: implemented",
+        "js_generation_status: implemented",
+        "asset_generation_status: implemented",
+        "accessibility_testing_status: performed",
+        "wcag_conformance_status: claimed",
+        "wcag_conformance_status: compliant",
+        "public_launch_ready: true",
+        "publish_ready: true",
+    ]
+    lower_static_preview_skeleton_spec_text = static_preview_skeleton_spec_text.lower()
+    for fragment in forbidden_static_preview_skeleton_active_markers:
+        if fragment in lower_static_preview_skeleton_spec_text:
+            failures.append(
+                "Static Preview Skeleton Spec Internal Only must not contain active forbidden marker: "
+                f"{fragment}"
+            )
 
     forbidden_data_claims = [
         "real ranking data",
@@ -5958,6 +6046,11 @@ def validate_website_information_architecture_internal_preview_v1(
         if fragment in lower_accessibility_review_packet_text:
             failures.append(
                 "Accessibility Requirements Review Packet Internal Only must not claim real metric data: "
+                f"{fragment}"
+            )
+        if fragment in lower_static_preview_skeleton_spec_text:
+            failures.append(
+                "Static Preview Skeleton Spec Internal Only must not claim real metric data: "
                 f"{fragment}"
             )
 

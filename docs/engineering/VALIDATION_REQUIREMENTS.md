@@ -776,6 +776,32 @@ Das Review-Artefakt muss mindestens diese Finding IDs enthalten:
 - Das Review-Paket darf keine aktiven Accessibility-Testing-, WCAG-, Runtime-, Static-Generation-, CSS-, Asset-, Launch-, Publish-, Acceptance-, Monetization-, Analytics-, Search-Console- oder Feedback-Statuswerte enthalten.
 - Das Review-Paket darf keine echten CSS-, HTML-, JS-, Bild-, Asset-, Build-, Deployment-, Tracking- oder Public-Website-Dateien erzeugen.
 
+## Static Preview Skeleton Spec Internal Only Checks
+
+- `docs/operations/website_preview/STATIC_PREVIEW_SKELETON_SPEC_INTERNAL_ONLY.md` muss existieren.
+- Die Spec muss `spec_status: specification_only_not_implemented` enthalten.
+- Die Spec muss `skeleton_runtime_status: not_implemented` enthalten.
+- Die Spec muss `skeleton_generation_status: not_implemented` enthalten.
+- Die Spec muss `preview_runtime_status: not_implemented` enthalten.
+- Die Spec muss `static_generation_status: not_implemented` enthalten.
+- Die Spec muss `html_generation_status: not_implemented` enthalten.
+- Die Spec muss `css_generation_status: not_implemented` enthalten.
+- Die Spec muss `js_generation_status: not_implemented` enthalten.
+- Die Spec muss `asset_generation_status: not_implemented` enthalten.
+- Die Spec muss `accessibility_testing_status: not_performed` enthalten.
+- Die Spec muss `wcag_conformance_status: not_claimed` enthalten.
+- Die Spec muss `public_launch_status: not_ready` enthalten.
+- Die Spec muss `publish_readiness_status: not_ready` enthalten.
+- Die Spec muss `operator_acceptance_status: not_accepted` enthalten.
+- Die Spec muss `monetization_status: not_approved` enthalten.
+- Die Spec muss `analytics_status: not_connected` enthalten.
+- Die Spec muss `search_console_status: not_connected` enthalten.
+- Die Spec muss `user_feedback_status: not_collected` enthalten.
+- Die Spec muss das Accessibility-Review-Paket, die Accessibility-Requirements-Spec, die Visual-Design-System-Spec, die Static-Preview-Spec, die Website-IA und das Website-Preview-Review-Paket verlinken.
+- Die Spec muss Purpose, Explicit Non-Acceptance, Current Baseline, Skeleton Concept, Planning-Only Future Directory Layout, Required Future Skeleton Pages, Template-to-Skeleton Mapping, Mandatory Status Banner Contract, Content-State Skeleton Rules, Accessibility Carry-Forward Requirements, Visual Design Carry-Forward Requirements, Implementation Guardrails for Later Skeleton Patch, Later Manual Review Checklist, Human Operator Decisions Needed Before Implementation, Allowed Outcomes, Forbidden Outcomes und Recommended Next Step enthalten.
+- Die Spec darf keine aktiven Skeleton-, HTML-, CSS-, JS-, Asset-, Accessibility-Testing-, WCAG-, Runtime-, Static-Generation-, Launch-, Publish-, Acceptance-, Monetization-, Analytics-, Search-Console- oder Feedback-Statuswerte enthalten.
+- Die Spec darf keine echten CSS-, HTML-, JS-, Bild-, Asset-, Build-, Deployment-, Tracking- oder Public-Website-Dateien erzeugen.
+
 ## Reader Experience Quality Checks
 
 - Reader Experience ist ein eigenes Qualitaetsfeld neben Quellen, Claims, Safety, SEO und Accessibility.

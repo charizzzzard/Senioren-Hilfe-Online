@@ -5,19 +5,19 @@
 - project_name: Senioren-Hilfe Online
 - system_name: Senioren-Hilfe Online OS
 - system_short_name: SHO-OS
-- patch_title: ACCESSIBILITY_REQUIREMENTS_REVIEW_PACKET_INTERNAL_ONLY
+- patch_title: STATIC_PREVIEW_SKELETON_SPEC_INTERNAL_ONLY
 - external_review_verdict: PENDING_REVIEW
 
 SHO-OS ist ein reproduzierbares Content-, Trust- und Publishing-System fuer seniorengerechte digitale Alltagshilfe in Deutschland.
 
-Dieser Patch erstellt ein internes Human-Operator-Review-Paket fuer die Accessibility- und Senior-UX-Anforderungsspezifikation einer spaeteren Static Preview. Er implementiert keine Website-Runtime, keine Static Site Generation, keine HTML/CSS/JS-Dateien, keine Design Assets, keine Public Pages, veroeffentlicht keine Artikel, setzt keine Publish Readiness, keine Operator Acceptance, keine Public-Launch-Freigabe, keine Monetarisierung, keine rechtliche Freigabe, keine Live-Analytics, kein Live-Feedback, keine neuen Quellen, keine neuen Claims, keine Accessibility-Tests und keine WCAG-Konformitaetsbehauptung.
+Dieser Patch erstellt eine interne Spezifikation fuer einen spaeteren Static-Preview-Skeleton. Er implementiert keine Website-Runtime, keine Static Site Generation, keine HTML/CSS/JS-Dateien, keine Design Assets, keine Public Pages, veroeffentlicht keine Artikel, setzt keine Publish Readiness, keine Operator Acceptance, keine Public-Launch-Freigabe, keine Monetarisierung, keine rechtliche Freigabe, keine Live-Analytics, kein Live-Feedback, keine neuen Quellen, keine neuen Claims, keine Accessibility-Tests und keine WCAG-Konformitaetsbehauptung.
 
 ## Git Traceability
 
 - branch: `main`
-- head_before: `addf67255d6005d01d5a3d26db33b492b1603498`
+- head_before: `8d41ad862ca0a824ab4cef28988549026002695e`
 - intended_head_after: `assigned_after_commit`
-- origin_main_before: `addf67255d6005d01d5a3d26db33b492b1603498`
+- origin_main_before: `8d41ad862ca0a824ab4cef28988549026002695e`
 - dirty_state_before: `clean`
 - dirty_state_after: `assigned_after_commit`
 
@@ -25,13 +25,18 @@ Hinweis: `head_after` wird nicht vorab als Commit-SHA eingetragen, weil ein Comm
 
 ## Scope Dieses Patches
 
-- `docs/operations/website_preview/ACCESSIBILITY_REQUIREMENTS_REVIEW_PACKET_INTERNAL_ONLY.md` erstellt.
-- Requirements Coverage Review dokumentiert.
-- Findings `SHO-A11Y-REVIEW-001` bis `SHO-A11Y-REVIEW-004` dokumentiert.
+- `docs/operations/website_preview/STATIC_PREVIEW_SKELETON_SPEC_INTERNAL_ONLY.md` erstellt.
+- Planning-Only Future Directory Layout dokumentiert.
+- Required Future Skeleton Pages dokumentiert.
+- Template-to-Skeleton Mapping dokumentiert.
+- Mandatory Status Banner Contract dokumentiert.
+- Content-State Skeleton Rules dokumentiert.
+- Accessibility Carry-Forward Requirements dokumentiert.
+- Visual Design Carry-Forward Requirements dokumentiert.
+- Implementation Guardrails for Later Skeleton Patch dokumentiert.
 - Human Operator Decisions Needed Before Implementation dokumentiert.
-- Allowed Outcomes und Forbidden Outcomes dokumentiert.
-- Empfohlener naechster Schritt: `STATIC_PREVIEW_SKELETON_SPEC_INTERNAL_ONLY`.
-- Website-Preview-README, Validation Requirements und `validate_content_contracts.py` um Accessibility-Review-Packet-Abdeckung ergaenzt.
+- Empfohlener naechster Schritt: `STATIC_PREVIEW_SKELETON_IMPLEMENTATION_DECISION_PACKET_INTERNAL_ONLY`.
+- Website-Preview-README, Validation Requirements und `validate_content_contracts.py` um Static-Preview-Skeleton-Spec-Abdeckung ergaenzt.
 
 ## Non-Scope
 
@@ -61,16 +66,20 @@ Hinweis: `head_after` wird nicht vorab als Commit-SHA eingetragen, weil ein Comm
 - Keine echten Nutzerfeedback-Daten.
 - Keine SEO-/Keyword-/Ranking-/Traffic-/CTR-/Conversion-/Revenue-Daten.
 
-## Accessibility Requirements Review Packet Summary
+## Static Preview Skeleton Spec Summary
 
-- accessibility_review_packet_id: `ACCESSIBILITY-REQUIREMENTS-REVIEW-PACKET-INTERNAL-ONLY`
-- review_packet_status: `prepared_for_human_operator_review_not_acceptance`
+- static_preview_skeleton_spec_id: `STATIC-PREVIEW-SKELETON-SPEC-INTERNAL-ONLY`
+- spec_status: `specification_only_not_implemented`
+- skeleton_runtime_status: `not_implemented`
+- skeleton_generation_status: `not_implemented`
+- html_generation_status: `not_implemented`
+- css_generation_status: `not_implemented`
+- js_generation_status: `not_implemented`
+- asset_generation_status: `not_implemented`
 - accessibility_testing_status: `not_performed`
 - wcag_conformance_status: `not_claimed`
 - preview_runtime_status: `not_implemented`
 - static_generation_status: `not_implemented`
-- css_generation_status: `not_implemented`
-- asset_generation_status: `not_implemented`
 - public_launch_status: `not_ready`
 - publish_readiness_status: `not_ready`
 - operator_acceptance_status: `not_accepted`
@@ -110,4 +119,4 @@ Hinweis: `head_after` wird nicht vorab als Commit-SHA eingetragen, weil ein Comm
 
 ## Keine finale Annahme durch Codex
 
-Accessibility Requirements Review Packet Internal Only recorded for internal review preparation only, with no website runtime, no static site generation, no CSS/assets, no accessibility tests, no WCAG conformance claim, no public launch, no publish readiness, no Operator Acceptance, no monetization approval and no unlock of blocked claims. Finale Annahme bleibt beim Human Operator.
+Static Preview Skeleton Spec Internal Only recorded for internal specification only, with no website runtime, no static site generation, no HTML/CSS/JS/assets, no accessibility tests, no WCAG conformance claim, no public launch, no publish readiness, no Operator Acceptance, no monetization approval and no unlock of blocked claims. Finale Annahme bleibt beim Human Operator.
