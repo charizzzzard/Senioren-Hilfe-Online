@@ -2,33 +2,30 @@
 
 ## Zweck dieses Review-Pakets
 
-Dieses Review-Paket beschreibt den Patch `FINAL_ARTICLE_CANDIDATE_PREPARATION_BRIEF_002`. Es dokumentiert einen internen Final Article Candidate fuer Brief 002, ohne Publish Readiness, Operator Acceptance, Public Launch, Monetarisierung, neue Quellen, neue Claims oder Freischaltung von `SHO-CLAIM-007`.
+Dieses Review-Paket beschreibt den Patch `FINAL_ARTICLE_CANDIDATE_SCORECARD_REVIEW_BRIEF_002`. Es dokumentiert eine angewendete Content Quality Scorecard fuer den internen Final Article Candidate zu Brief 002.
+
+Die Scorecard ist ein interner Review-Schritt. Sie setzt keine Publish Readiness, keine Operator Acceptance, keine rechtliche Freigabe, keinen Public Launch und keine Monetarisierung.
 
 ## Scope dieses Patches
 
-- Neuer Ordner: `docs/content/final_article_candidates/`.
-- Neues README: `docs/content/final_article_candidates/README.md`.
-- Genau ein neuer interner Final Article Candidate:
-  - `docs/content/final_article_candidates/betrugsnachrichten-auf-whatsapp-erkennen.final-article-candidate.md`
-- `article_status: final_article_candidate_not_publish_ready` dokumentieren.
-- `review_status: needs_scorecard_review` dokumentieren.
-- Nur erlaubte Claims verwenden: `SHO-CLAIM-004`, `SHO-CLAIM-005`, `SHO-CLAIM-006`.
-- Nur erlaubte Sources verwenden: `SHO-SRC-005`, `SHO-SRC-006`, `SHO-SRC-007`.
-- `SHO-CLAIM-007` sichtbar blockiert halten.
-- Batch Manifest und Article Readiness Dashboard minimal auf den neuen internen Artefaktstand aktualisieren.
-- Validator minimal erweitern, damit Candidate, Marker, Claim-/Source-Grenzen und verbotene Aktivierungsmarker geprueft werden.
+- Genau eine angewendete Scorecard erstellen:
+  - `docs/content/article_quality_scorecards/betrugsnachrichten-auf-whatsapp-erkennen.final-article-candidate.scorecard.md`
+- Final Article Candidate mit `linked_applied_scorecard` verlinken.
+- Final Article Candidate auf `review_status: scorecard_review_completed_not_publish_ready` setzen.
+- Final Article Candidate auf `scorecard_status: review_completed_not_publish_ready` setzen.
+- Batch Manifest um `article_quality_scorecards` ergaenzen.
+- Article Readiness Dashboard fuer Brief 002 auf `scorecard review completed not publish-ready` aktualisieren.
+- Status Registry und Validator minimal fuer den angewendeten Scorecard-Review erweitern.
 
 ## Primaere Review-Dateien
 
 - `external_review_packet/HANDOFF_LATEST_CONTEXT.md`
-- `docs/content/final_article_candidates/README.md`
+- `docs/content/article_quality_scorecards/betrugsnachrichten-auf-whatsapp-erkennen.final-article-candidate.scorecard.md`
 - `docs/content/final_article_candidates/betrugsnachrichten-auf-whatsapp-erkennen.final-article-candidate.md`
-- `docs/content/article_draft_candidates/betrugsnachrichten-auf-whatsapp-erkennen.article-draft-candidate.md`
 - `docs/content/article_quality_scorecards/CONTENT_QUALITY_SCORECARD_TEMPLATE_BATCH_01.md`
 - `docs/content/batches/MVP_BATCH_01.yaml`
 - `docs/operations/ARTICLE_READINESS_DASHBOARD_BATCH_01.md`
 - `docs/operations/CONTENT_QUALITY_USER_PERSPECTIVE_READER_EXPERIENCE_AND_FEEDBACK_LOOP_BASELINE.md`
-- `docs/operations/operator_decisions/HUMAN_OPERATOR_DECISION_BATCH01_BRIEF002_002.md`
 - `docs/content/claim_maps/source-to-claim-map-batch-01.md`
 - `docs/content/source_packs/operator-research-source-pack-batch-01.md`
 - `docs/operations/STATUS_REGISTRY.yaml`
@@ -38,7 +35,7 @@ Dieses Review-Paket beschreibt den Patch `FINAL_ARTICLE_CANDIDATE_PREPARATION_BR
 
 ## Wichtiger Hinweis
 
-Final Article Candidate only. This is internal article candidate content for later scorecard review, not a published article, not publish readiness, not Operator Acceptance, not public launch and not monetization approval.
+Applied scorecard review only. This is not publish readiness, not Operator Acceptance, not public launch, not monetization approval and not legal approval.
 
 ## Nicht in Scope
 
@@ -50,6 +47,7 @@ Final Article Candidate only. This is internal article candidate content for lat
 - Produkt-Empfehlungen.
 - Neue Quellen.
 - Neue Claims.
+- Neue Source-Metadaten.
 - Neue SERP-Daten.
 - Live-Analytics.
 - Live-Feedback.

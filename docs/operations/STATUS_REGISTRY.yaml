@@ -148,6 +148,7 @@ review_status:
     - re_review_passed
     - re_review_passed_not_publish_ready
     - needs_scorecard_review
+    - scorecard_review_completed_not_publish_ready
     - not_ready
     - blocked
     - approved_for_publish

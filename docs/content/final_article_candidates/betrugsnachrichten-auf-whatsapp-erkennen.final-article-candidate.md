@@ -4,9 +4,10 @@ batch_id: MVP_BATCH_01
 linked_brief_id: SHO-MVP-BRIEF-002
 slug: betrugsnachrichten-auf-whatsapp-erkennen
 article_status: final_article_candidate_not_publish_ready
-review_status: needs_scorecard_review
-scorecard_status: template_defined_not_applied
+review_status: scorecard_review_completed_not_publish_ready
+scorecard_status: review_completed_not_publish_ready
 linked_scorecard_template: docs/content/article_quality_scorecards/CONTENT_QUALITY_SCORECARD_TEMPLATE_BATCH_01.md
+linked_applied_scorecard: docs/content/article_quality_scorecards/betrugsnachrichten-auf-whatsapp-erkennen.final-article-candidate.scorecard.md
 linked_article_draft_candidate: docs/content/article_draft_candidates/betrugsnachrichten-auf-whatsapp-erkennen.article-draft-candidate.md
 linked_article_readiness_dashboard: docs/operations/ARTICLE_READINESS_DASHBOARD_BATCH_01.md
 linked_quality_loop_baseline: docs/operations/CONTENT_QUALITY_USER_PERSPECTIVE_READER_EXPERIENCE_AND_FEEDBACK_LOOP_BASELINE.md
@@ -246,7 +247,7 @@ Er setzt keinen Public Launch.
 
 ## Required Later Reviews
 
-- needs_scorecard_review
+- scorecard_review_completed_not_publish_ready
 - Content Quality Scorecard Review.
 - Source/claim marker review.
 - Reader Experience Review.

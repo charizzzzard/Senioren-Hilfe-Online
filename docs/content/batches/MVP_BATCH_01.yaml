@@ -50,6 +50,9 @@ article_draft_candidate_fixes:
 final_article_candidates:
   - docs/content/final_article_candidates/betrugsnachrichten-auf-whatsapp-erkennen.final-article-candidate.md
 
+article_quality_scorecards:
+  - docs/content/article_quality_scorecards/betrugsnachrichten-auf-whatsapp-erkennen.final-article-candidate.scorecard.md
+
 not_enriched:
   - brief_id: SHO-MVP-BRIEF-001
     reason: WhatsApp line evidence unavailable; platform claims blocked.
@@ -61,7 +64,8 @@ known_blockers:
   - Article draft candidate exists only for Brief 002.
   - Brief 002 draft candidate reviewed with findings.
   - Brief 002 draft candidate fix re-review passed, but no publish readiness is set.
-  - Brief 002 final article candidate exists, but needs scorecard review and is not publish-ready.
+  - Brief 002 final article candidate exists and is not publish-ready.
+  - Brief 002 final article candidate has scorecard review completed, but remains not publish-ready.
   - Brief 003 has scaffold only, no text candidate.
   - No publish-ready final article exists.
   - WhatsApp line-level evidence is unavailable.

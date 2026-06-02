@@ -78,6 +78,7 @@ REQUIRED_DOCS = [
     "docs/operations/USER_FEEDBACK_INTAKE_PROTOCOL_BASELINE.md",
     "docs/content/article_quality_scorecards/README.md",
     "docs/content/article_quality_scorecards/CONTENT_QUALITY_SCORECARD_TEMPLATE_BATCH_01.md",
+    "docs/content/article_quality_scorecards/betrugsnachrichten-auf-whatsapp-erkennen.final-article-candidate.scorecard.md",
     "docs/content/final_article_candidates/README.md",
     "docs/content/final_article_candidates/betrugsnachrichten-auf-whatsapp-erkennen.final-article-candidate.md",
     "docs/content/BATCH_WORKFLOW_TEMPLATE.md",
@@ -150,6 +151,9 @@ CONTENT_QUALITY_FEEDBACK_LOOP_PATH = (
 USER_FEEDBACK_INTAKE_PROTOCOL_PATH = ROOT / "docs/operations/USER_FEEDBACK_INTAKE_PROTOCOL_BASELINE.md"
 ARTICLE_QUALITY_SCORECARD_TEMPLATE_PATH = (
     ROOT / "docs/content/article_quality_scorecards/CONTENT_QUALITY_SCORECARD_TEMPLATE_BATCH_01.md"
+)
+APPLIED_SCORECARD_BRIEF_002_PATH = (
+    ROOT / "docs/content/article_quality_scorecards/betrugsnachrichten-auf-whatsapp-erkennen.final-article-candidate.scorecard.md"
 )
 FINAL_ARTICLE_CANDIDATES_DIR = ROOT / "docs/content/final_article_candidates"
 FINAL_ARTICLE_CANDIDATE_BRIEF_002_PATH = (
@@ -580,8 +584,11 @@ def validate_protocol_automation_files(failures: list[str]) -> None:
             "article_draft_candidate_fixes:",
             "final_article_candidates:",
             "- docs/content/final_article_candidates/betrugsnachrichten-auf-whatsapp-erkennen.final-article-candidate.md",
+            "article_quality_scorecards:",
+            "- docs/content/article_quality_scorecards/betrugsnachrichten-auf-whatsapp-erkennen.final-article-candidate.scorecard.md",
             "Brief 002 draft candidate fix re-review passed, but no publish readiness is set.",
-            "Brief 002 final article candidate exists, but needs scorecard review and is not publish-ready.",
+            "Brief 002 final article candidate exists and is not publish-ready.",
+            "Brief 002 final article candidate has scorecard review completed, but remains not publish-ready.",
             "No publish-ready final article exists.",
             "serp_status: observed",
             "serp_observation_status: operator_research_observed",
@@ -657,6 +664,7 @@ def validate_protocol_automation_files(failures: list[str]) -> None:
             "final_article_candidate_status:",
             "final_article_candidate_not_publish_ready",
             "needs_scorecard_review",
+            "scorecard_review_completed_not_publish_ready",
             "citation_text_status:",
             "legal_wording_review_status:",
             "wording_review_prepared_no_legal_approval",
@@ -3330,7 +3338,7 @@ def validate_article_readiness_dashboard(failures: list[str]) -> int:
         "WhatsApp platform sources remain candidate / needs_manual_review",
         "WhatsApp UI-sensitive instructions remain blocked",
         "final_article_candidate_prepared_not_publish_ready",
-        "scorecard review for final article candidate",
+        "next internal review after scorecard",
         "SHO-CLAIM-004",
         "SHO-CLAIM-005",
         "SHO-CLAIM-006",
@@ -3339,7 +3347,7 @@ def validate_article_readiness_dashboard(failures: list[str]) -> int:
         "SHO-SRC-006",
         "SHO-SRC-007",
         "final article candidate exists",
-        "needs_scorecard_review",
+        "scorecard review completed not publish-ready",
         "draft candidate exists",
         "re-review passed not publish-ready",
         "final source list review exists",
@@ -4060,9 +4068,10 @@ def validate_final_article_candidate_brief_002(failures: list[str]) -> int:
         "linked_brief_id: SHO-MVP-BRIEF-002",
         "slug: betrugsnachrichten-auf-whatsapp-erkennen",
         "article_status: final_article_candidate_not_publish_ready",
-        "review_status: needs_scorecard_review",
-        "scorecard_status: template_defined_not_applied",
+        "review_status: scorecard_review_completed_not_publish_ready",
+        "scorecard_status: review_completed_not_publish_ready",
         "linked_scorecard_template: docs/content/article_quality_scorecards/CONTENT_QUALITY_SCORECARD_TEMPLATE_BATCH_01.md",
+        "linked_applied_scorecard: docs/content/article_quality_scorecards/betrugsnachrichten-auf-whatsapp-erkennen.final-article-candidate.scorecard.md",
         "linked_article_draft_candidate: docs/content/article_draft_candidates/betrugsnachrichten-auf-whatsapp-erkennen.article-draft-candidate.md",
         "linked_article_readiness_dashboard: docs/operations/ARTICLE_READINESS_DASHBOARD_BATCH_01.md",
         "linked_quality_loop_baseline: docs/operations/CONTENT_QUALITY_USER_PERSPECTIVE_READER_EXPERIENCE_AND_FEEDBACK_LOOP_BASELINE.md",
@@ -4139,7 +4148,7 @@ def validate_final_article_candidate_brief_002(failures: list[str]) -> int:
         "[claim: SHO-CLAIM-005 | sources: SHO-SRC-005, SHO-SRC-006]",
         "[claim: SHO-CLAIM-006 | sources: SHO-SRC-007]",
         "Die Arbeitsmarker im Artikel sind interne Review-Marker. Sie sind keine finalen Leserzitate.",
-        "needs_scorecard_review",
+        "scorecard_review_completed_not_publish_ready",
     ]
     for fragment in (
         required_frontmatter_fragments
@@ -4160,10 +4169,13 @@ def validate_final_article_candidate_brief_002(failures: list[str]) -> int:
         failures.append("Final article candidate Brief 002 must have linked_brief_id: SHO-MVP-BRIEF-002")
     if normalized(fields.get("article_status")) != "final_article_candidate_not_publish_ready":
         failures.append("Final article candidate Brief 002 must have article_status: final_article_candidate_not_publish_ready")
-    if normalized(fields.get("review_status")) != "needs_scorecard_review":
-        failures.append("Final article candidate Brief 002 must have review_status: needs_scorecard_review")
-    if normalized(fields.get("scorecard_status")) != "template_defined_not_applied":
-        failures.append("Final article candidate Brief 002 must have scorecard_status: template_defined_not_applied")
+    if normalized(fields.get("review_status")) != "scorecard_review_completed_not_publish_ready":
+        failures.append(
+            "Final article candidate Brief 002 must have review_status: "
+            "scorecard_review_completed_not_publish_ready"
+        )
+    if normalized(fields.get("scorecard_status")) != "review_completed_not_publish_ready":
+        failures.append("Final article candidate Brief 002 must have scorecard_status: review_completed_not_publish_ready")
     if normalized(fields.get("operator_acceptance_status")) != "not_accepted":
         failures.append("Final article candidate Brief 002 must have operator_acceptance_status: not_accepted")
     if normalized(fields.get("publish_readiness_status")) != "not_ready":
@@ -4227,6 +4239,263 @@ def validate_final_article_candidate_brief_002(failures: list[str]) -> int:
     return 1
 
 
+def validate_applied_scorecard_brief_002(failures: list[str]) -> int:
+    if not APPLIED_SCORECARD_BRIEF_002_PATH.exists():
+        failures.append(
+            "Missing applied scorecard for Brief 002: "
+            "docs/content/article_quality_scorecards/betrugsnachrichten-auf-whatsapp-erkennen.final-article-candidate.scorecard.md"
+        )
+        return 0
+
+    text = APPLIED_SCORECARD_BRIEF_002_PATH.read_text(encoding="utf-8")
+    fields = parse_frontmatter_fields(text)
+
+    required_frontmatter_fragments = [
+        "scorecard_id: SHO-SCORECARD-BATCH01-BRIEF002-FINAL-ARTICLE-CANDIDATE",
+        "batch_id: MVP_BATCH_01",
+        "linked_brief_id: SHO-MVP-BRIEF-002",
+        "linked_article_candidate_path: docs/content/final_article_candidates/betrugsnachrichten-auf-whatsapp-erkennen.final-article-candidate.md",
+        "linked_scorecard_template: docs/content/article_quality_scorecards/CONTENT_QUALITY_SCORECARD_TEMPLATE_BATCH_01.md",
+        "scorecard_status: review_completed_not_publish_ready",
+        "scorecard_recommendation_status: ready_for_next_internal_review",
+        "review_status: scorecard_review_completed_not_publish_ready",
+        "operator_acceptance_status: not_accepted",
+        "publish_readiness_status: not_ready",
+        "public_launch_status: not_ready",
+        "monetization_status: not_approved",
+        "analytics_status: not_connected",
+        "user_feedback_status: not_collected",
+        "email_feedback_status: not_connected",
+        "reader_experience_feedback_status: not_collected",
+        "keyword_validation_status: not_available",
+    ]
+    required_sections = [
+        "Purpose",
+        "Explicit Non-Acceptance",
+        "Reviewed Artifact",
+        "Review Method",
+        "Score Scale",
+        "Executive Review Summary",
+        "Core Quality Scores",
+        "User Perspective Scores",
+        "Reader Experience Scores",
+        "Safety and Trust Review",
+        "Accessibility Review",
+        "SEO/Search Intent Review",
+        "Freshness and Refresh Review",
+        "Monetization Risk Review",
+        "Feedback Review",
+        "Publish Blocker Review",
+        "Strengths",
+        "Findings",
+        "Required Follow-Up",
+        "Recommendation",
+        "Required Human Decisions",
+        "Forbidden Conclusions",
+    ]
+    required_score_scale = [
+        "0 = blocked / missing / unsafe",
+        "1 = weak / needs major revision",
+        "2 = usable but needs review or improvement",
+        "3 = strong for current stage, not automatically publish-ready",
+        "A score of 3 does not imply publish readiness, legal approval or Operator Acceptance.",
+    ]
+    required_core_quality_fields = [
+        "evidence_quality",
+        "claim_source_alignment",
+        "senior_readability",
+        "safety_language",
+        "accessibility",
+        "search_intent_fit",
+        "freshness",
+        "trust_risk",
+        "monetization_risk",
+        "publish_blockers",
+    ]
+    required_user_perspective_fields = [
+        "target_user_empathy_fit",
+        "caregiver_perspective_fit",
+        "real_world_situation_fit",
+        "confusion_prevention",
+        "user_question_coverage",
+        "emotional_safety",
+        "practical_next_step_clarity",
+        "print_or_forward_usefulness",
+        "feedback_learnability",
+    ]
+    required_reader_experience_fields = [
+        "reader_experience_quality",
+        "reading_pleasure",
+        "text_flow",
+        "respectful_depth",
+        "adult_reader_tone",
+        "clarity_without_oversimplification",
+        "emotional_warmth",
+        "topic_engagement",
+        "narrative_coherence",
+        "calm_confident_voice",
+    ]
+    required_safety_checks = [
+        "no panic amplification",
+        "no blame toward affected users",
+        "no guarantee that fraud is always detectable",
+        "no legal advice",
+        "no legal approval claim",
+        "no blocked WhatsApp UI instructions",
+        "no active use of SHO-CLAIM-007 as working marker",
+        "no source-less factual claims found within the reviewed scope, or list any found issues as findings",
+    ]
+    required_seo_fragments = [
+        "keyword_validation_status: not_available",
+        "search_volume_status: NOT_AVAILABLE",
+        "keyword_difficulty_status: NOT_AVAILABLE",
+        "ranking_data_status: NOT_AVAILABLE",
+        "traffic_data_status: NOT_AVAILABLE",
+        "no numeric SEO metrics were reviewed or invented",
+    ]
+    required_feedback_fragments = [
+        "user_feedback_status: not_collected",
+        "email_feedback_status: not_connected",
+        "reader_experience_feedback_status: not_collected",
+        "feedback_summary: NOT_AVAILABLE",
+        "feedback_source: NOT_AVAILABLE",
+        "privacy_review_status: required_before_live_use",
+        "no real user feedback or email feedback was reviewed or invented",
+    ]
+    required_publish_blocker_fragments = [
+        "publish_readiness_status: not_ready",
+        "operator_acceptance_status: not_accepted",
+        "public_launch_status: not_ready",
+        "legal_approval_status: not_approved",
+        "SHO-CLAIM-007 remains blocked",
+        "WhatsApp block/report UI instructions remain forbidden",
+        "scorecard review does not create publish readiness",
+    ]
+    required_finding_ids = [
+        "SHO-SCORECARD-002-SRC-001",
+        "SHO-SCORECARD-002-UX-001",
+        "SHO-SCORECARD-002-READ-001",
+        "SHO-SCORECARD-002-ACC-001",
+        "SHO-SCORECARD-002-SEO-001",
+        "SHO-SCORECARD-002-FB-001",
+        "SHO-SCORECARD-002-PUB-001",
+    ]
+    required_finding_columns = [
+        "finding_id",
+        "category",
+        "severity",
+        "status",
+        "summary",
+        "required_action",
+    ]
+    required_fragments = (
+        required_frontmatter_fragments
+        + required_sections
+        + required_score_scale
+        + required_core_quality_fields
+        + required_user_perspective_fields
+        + required_reader_experience_fields
+        + required_safety_checks
+        + required_seo_fragments
+        + required_feedback_fragments
+        + required_publish_blocker_fragments
+        + required_finding_ids
+        + required_finding_columns
+        + [
+            "Einfache Sprache bedeutet nicht anspruchslose Sprache. Inhalte sollen klar, freundlich und zugänglich sein, aber ältere Leserinnen und Leser als erwachsene, erfahrene und interessierte Menschen ernst nehmen.",
+            "Source/claim marker alignment reviewed; no new sources added; final citation metadata remains open.",
+            "Senior/user perspective is strong enough for next internal review but still requires later human review.",
+            "Reader experience is strong enough for next internal review but still requires later human review.",
+            "Accessibility requires later dedicated accessibility standard/review.",
+            "SEO metrics not available; no metrics invented.",
+            "Feedback not collected; no feedback invented.",
+            "Publish readiness remains blocked/not_ready.",
+            "ready_for_next_internal_review",
+        ]
+    )
+    for fragment in required_fragments:
+        if fragment not in text:
+            failures.append(f"Applied scorecard Brief 002 must contain: {fragment}")
+
+    if fields.get("scorecard_id") != "SHO-SCORECARD-BATCH01-BRIEF002-FINAL-ARTICLE-CANDIDATE":
+        failures.append("Applied scorecard Brief 002 has unexpected scorecard_id")
+    if normalized(fields.get("batch_id")) != "mvp_batch_01":
+        failures.append("Applied scorecard Brief 002 must have batch_id: MVP_BATCH_01")
+    if fields.get("linked_brief_id") != "SHO-MVP-BRIEF-002":
+        failures.append("Applied scorecard Brief 002 must have linked_brief_id: SHO-MVP-BRIEF-002")
+    if normalized(fields.get("scorecard_status")) != "review_completed_not_publish_ready":
+        failures.append("Applied scorecard Brief 002 must have scorecard_status: review_completed_not_publish_ready")
+    if normalized(fields.get("scorecard_recommendation_status")) != "ready_for_next_internal_review":
+        failures.append("Applied scorecard Brief 002 must have scorecard_recommendation_status: ready_for_next_internal_review")
+    if normalized(fields.get("review_status")) != "scorecard_review_completed_not_publish_ready":
+        failures.append("Applied scorecard Brief 002 must have review_status: scorecard_review_completed_not_publish_ready")
+    if normalized(fields.get("operator_acceptance_status")) != "not_accepted":
+        failures.append("Applied scorecard Brief 002 must have operator_acceptance_status: not_accepted")
+    if normalized(fields.get("publish_readiness_status")) != "not_ready":
+        failures.append("Applied scorecard Brief 002 must have publish_readiness_status: not_ready")
+    if normalized(fields.get("public_launch_status")) != "not_ready":
+        failures.append("Applied scorecard Brief 002 must have public_launch_status: not_ready")
+    if normalized(fields.get("monetization_status")) != "not_approved":
+        failures.append("Applied scorecard Brief 002 must have monetization_status: not_approved")
+    if normalized(fields.get("analytics_status")) != "not_connected":
+        failures.append("Applied scorecard Brief 002 must have analytics_status: not_connected")
+    if normalized(fields.get("user_feedback_status")) != "not_collected":
+        failures.append("Applied scorecard Brief 002 must have user_feedback_status: not_collected")
+    if normalized(fields.get("email_feedback_status")) != "not_connected":
+        failures.append("Applied scorecard Brief 002 must have email_feedback_status: not_connected")
+    if normalized(fields.get("reader_experience_feedback_status")) != "not_collected":
+        failures.append("Applied scorecard Brief 002 must have reader_experience_feedback_status: not_collected")
+    if normalized(fields.get("keyword_validation_status")) != "not_available":
+        failures.append("Applied scorecard Brief 002 must have keyword_validation_status: not_available")
+
+    candidate_text = FINAL_ARTICLE_CANDIDATE_BRIEF_002_PATH.read_text(encoding="utf-8")
+    if "linked_applied_scorecard: docs/content/article_quality_scorecards/betrugsnachrichten-auf-whatsapp-erkennen.final-article-candidate.scorecard.md" not in candidate_text:
+        failures.append("Final article candidate Brief 002 must link the applied scorecard")
+    if "publish_readiness_status: not_ready" not in candidate_text:
+        failures.append("Final article candidate Brief 002 must remain publish_readiness_status: not_ready")
+    if "operator_acceptance_status: not_accepted" not in candidate_text:
+        failures.append("Final article candidate Brief 002 must remain operator_acceptance_status: not_accepted")
+
+    batch_text = BATCH_MANIFEST_PATH.read_text(encoding="utf-8")
+    if "article_quality_scorecards:" not in batch_text:
+        failures.append("Batch manifest must contain article_quality_scorecards section")
+    if "- docs/content/article_quality_scorecards/betrugsnachrichten-auf-whatsapp-erkennen.final-article-candidate.scorecard.md" not in batch_text:
+        failures.append("Batch manifest must link applied scorecard Brief 002")
+
+    dashboard_text = ARTICLE_READINESS_DASHBOARD_PATH.read_text(encoding="utf-8")
+    if "scorecard review completed not publish-ready" not in dashboard_text:
+        failures.append("Article readiness dashboard must mention scorecard review completed not publish-ready")
+
+    forbidden_activation_markers = [
+        "article_status: publish_candidate",
+        "review_status: approved_for_publish",
+        "approved_for_publish: true",
+        "publish_ready: true",
+        "operator_acceptance_status: accepted",
+        "publish_readiness_status: approved_for_publish",
+        "public_launch_status: ready",
+        "public_launch_status: launched",
+        "monetization_status: approved",
+        "analytics_status: connected",
+        "user_feedback_status: collected",
+        "email_feedback_status: connected",
+        "reader_experience_feedback_status: collected",
+        "keyword_validation_status: documented",
+        "scorecard_recommendation_status: approved_for_publish",
+        "scorecard_recommendation_status: publish_ready",
+        "scorecard_recommendation_status: operator_accepted",
+    ]
+    lower_text = text.lower()
+    for fragment in forbidden_activation_markers:
+        if fragment in lower_text:
+            failures.append(
+                "Applied scorecard Brief 002 must not contain forbidden activation marker: "
+                f"{fragment}"
+            )
+
+    return 1
+
+
 def main() -> int:
     failures: list[str] = []
 
@@ -4262,6 +4531,7 @@ def main() -> int:
     user_feedback_intake_protocol_count = validate_user_feedback_intake_protocol_baseline(failures)
     content_quality_scorecard_template_count = validate_content_quality_scorecard_template_batch_01(failures)
     final_article_candidate_brief_002_count = validate_final_article_candidate_brief_002(failures)
+    applied_scorecard_brief_002_count = validate_applied_scorecard_brief_002(failures)
 
     if failures:
         print("FAIL: SHO-OS content contract validation failed")
@@ -4301,6 +4571,7 @@ def main() -> int:
     print(f"- Batch 01 user feedback intake protocol baseline files: {user_feedback_intake_protocol_count}")
     print(f"- Batch 01 content quality scorecard template files: {content_quality_scorecard_template_count}")
     print(f"- Batch 01 final article candidate Brief 002 files: {final_article_candidate_brief_002_count}")
+    print(f"- Batch 01 applied scorecard Brief 002 files: {applied_scorecard_brief_002_count}")
     print("- YAML/frontmatter parsing: dependency-free and text-based")
     return 0
 

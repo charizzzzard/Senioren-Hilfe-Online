@@ -561,6 +561,20 @@ Das Review-Artefakt muss mindestens diese Finding IDs enthalten:
 - Der Final Article Candidate muss `review_status: needs_scorecard_review` behalten, bis eine separate Scorecard Review erfolgt.
 - Der Final Article Candidate aktiviert keine Analytics, kein Feedback, keine SEO-Metriken, keine Monetarisierung und keinen Public Launch.
 
+## Final Article Candidate Scorecard Review Brief 002 Checks
+
+- Fuer Brief 002 muss genau eine angewendete Scorecard existieren:
+  - `docs/content/article_quality_scorecards/betrugsnachrichten-auf-whatsapp-erkennen.final-article-candidate.scorecard.md`
+- Die angewendete Scorecard ist keine Publish Readiness.
+- Die angewendete Scorecard ist keine Operator Acceptance.
+- Die angewendete Scorecard genehmigt keinen Public Launch und keine Monetarisierung.
+- Die angewendete Scorecard muss `SHO-CLAIM-007` blockiert halten.
+- Die angewendete Scorecard muss alle erforderlichen Core-Quality-, User-Perspective- und Reader-Experience-Dimensionen enthalten.
+- Die angewendete Scorecard muss die Finding IDs `SHO-SCORECARD-002-SRC-001`, `SHO-SCORECARD-002-UX-001`, `SHO-SCORECARD-002-READ-001`, `SHO-SCORECARD-002-ACC-001`, `SHO-SCORECARD-002-SEO-001`, `SHO-SCORECARD-002-FB-001` und `SHO-SCORECARD-002-PUB-001` enthalten.
+- Die angewendete Scorecard muss SEO-, Feedback-, Analytics- und Monetarisierungsdaten als nicht verfuegbar oder nicht verbunden erhalten.
+- Die angewendete Scorecard darf keine numerischen SEO-, Analytics-, Feedback- oder Monetarisierungsdaten erfinden.
+- Der Final Article Candidate darf nach angewendeter Scorecard `review_status: scorecard_review_completed_not_publish_ready` und `scorecard_status: review_completed_not_publish_ready` tragen, bleibt aber `publish_readiness_status: not_ready`.
+
 ## Reader Experience Quality Checks
 
 - Reader Experience ist ein eigenes Qualitaetsfeld neben Quellen, Claims, Safety, SEO und Accessibility.
