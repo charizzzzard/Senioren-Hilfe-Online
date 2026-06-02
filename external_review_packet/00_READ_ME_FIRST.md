@@ -2,26 +2,27 @@
 
 ## Zweck dieses Review-Pakets
 
-Dieses Review-Paket beschreibt den Patch `HUMAN_OPERATOR_DECISION_FINAL_ARTICLE_CANDIDATE_BRIEF_002`.
+Dieses Review-Paket beschreibt den Patch `DEDICATED_ACCESSIBILITY_REVIEW_BRIEF_002`.
 
-Der Patch dokumentiert die ausdrueckliche Human-Operator-Entscheidung, den Final Article Candidate fuer Brief 002 als internen Operator-Review-Kandidaten weiterzufuehren.
+Der Patch dokumentiert eine dedizierte Accessibility Review fuer den Final Article Candidate zu Brief 002.
 
-Die Entscheidung ist ein Governance-/Dokumentationsschritt. Sie setzt keine Publish Readiness, keine Operator Acceptance, keine rechtliche Freigabe, keinen Public Launch und keine Monetarisierung.
+Die Review ist ein interner Governance-/Review-Schritt. Sie setzt keine Publish Readiness, keine Operator Acceptance, keine rechtliche Freigabe, keinen Public Launch und keine Monetarisierung.
 
 ## Scope dieses Patches
 
-- Genau einen Human-Operator-Decision-Record erstellen:
-  - `docs/operations/operator_decisions/HUMAN_OPERATOR_DECISION_FINAL_ARTICLE_CANDIDATE_BRIEF_002.md`
-- Batch Manifest um den Decision Record ergaenzen.
-- Article Readiness Dashboard fuer Brief 002 um `proceed_to_operator_review_candidate_not_publish_ready` aktualisieren.
-- Operator-Decision-Validator minimal fuer den neuen Outcome-Record erweitern.
+- Genau eine dedizierte Accessibility Review erstellen:
+  - `docs/content/article_reviews/betrugsnachrichten-auf-whatsapp-erkennen.accessibility-review.md`
+- Batch Manifest um die Accessibility Review ergaenzen.
+- Article Readiness Dashboard fuer Brief 002 auf `accessibility_status: completed_not_publish_ready` aktualisieren.
+- Status Registry und Validator minimal fuer `accessibility_review_status: completed_not_publish_ready` erweitern.
 - Externe Handoff-Dateien auf den neuen Patch-Kontext aktualisieren.
 
 ## Primaere Review-Dateien
 
 - `external_review_packet/HANDOFF_LATEST_CONTEXT.md`
-- `docs/operations/operator_decisions/HUMAN_OPERATOR_DECISION_FINAL_ARTICLE_CANDIDATE_BRIEF_002.md`
+- `docs/content/article_reviews/betrugsnachrichten-auf-whatsapp-erkennen.accessibility-review.md`
 - `docs/operations/operator_review_packets/HUMAN_OPERATOR_REVIEW_PACKET_FINAL_ARTICLE_CANDIDATE_BRIEF_002.md`
+- `docs/operations/operator_decisions/HUMAN_OPERATOR_DECISION_FINAL_ARTICLE_CANDIDATE_BRIEF_002.md`
 - `docs/content/article_quality_scorecards/betrugsnachrichten-auf-whatsapp-erkennen.final-article-candidate.scorecard.md`
 - `docs/content/final_article_candidates/betrugsnachrichten-auf-whatsapp-erkennen.final-article-candidate.md`
 - `docs/content/article_quality_scorecards/CONTENT_QUALITY_SCORECARD_TEMPLATE_BATCH_01.md`
@@ -37,7 +38,7 @@ Die Entscheidung ist ein Governance-/Dokumentationsschritt. Sie setzt keine Publ
 
 ## Wichtiger Hinweis
 
-Human Operator decision record only. This is not publish readiness, not Operator Acceptance, not public launch, not monetization approval and not legal approval.
+Dedicated accessibility review only. This is not publish readiness, not Operator Acceptance, not public launch, not monetization approval, not legal approval and not a WCAG compliance claim.
 
 ## Nicht in Scope
 
@@ -61,6 +62,8 @@ Human Operator decision record only. This is not publish readiness, not Operator
 - Rechtliche Freigabe.
 - Finale Quellenmetadaten.
 - Operator Acceptance.
+- WCAG-Konformitaetsbehauptung.
+- Echte Screen-Reader-/Device-/Browser-Testergebnisse.
 
 ## Validation Commands
 

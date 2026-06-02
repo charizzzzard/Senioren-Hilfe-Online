@@ -344,6 +344,20 @@ placeholder_status:
     - approved_for_publish
     - publish_ready
 
+accessibility_review_status:
+  allowed:
+    - completed_not_publish_ready
+    - needs_review
+    - not_tested
+    - blocked
+    - superseded
+  forbidden_by_codex:
+    - accepted
+    - operator_accepted
+    - approved_for_publish
+    - publish_ready
+    - public_launch_ready
+
 loop_status:
   allowed:
     - baseline_defined_not_live

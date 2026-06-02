@@ -503,7 +503,8 @@ Das Review-Artefakt muss mindestens diese Finding IDs enthalten:
 - Das Dashboard setzt keine Publish Readiness.
 - Das Dashboard genehmigt keine Monetarisierung.
 - Das Dashboard erstellt keine Operator Acceptance.
-- Das Dashboard schliesst User-Perspective-, Reader-Experience-, Accessibility- oder Feedback-Reviews nicht ab.
+- Das Dashboard schliesst User-Perspective-, Reader-Experience- oder Feedback-Reviews nicht ab.
+- Das Dashboard darf fuer Brief 002 `accessibility_status: completed_not_publish_ready` dokumentieren, wenn die dedizierte Accessibility Review existiert und weiterhin keine Publish Readiness gesetzt wird.
 - Das Dashboard muss genau die vier Batch-01-Briefs `SHO-MVP-BRIEF-001`, `SHO-MVP-BRIEF-002`, `SHO-MVP-BRIEF-003` und `SHO-MVP-BRIEF-004` enthalten.
 - Das Dashboard muss Brief 001, Brief 003 und Brief 004 Blocker sichtbar halten.
 - Das Dashboard muss `SHO-CLAIM-007` fuer Brief 002 blockiert halten.
@@ -589,6 +590,21 @@ Das Review-Artefakt muss mindestens diese Finding IDs enthalten:
 - Das Packet muss WhatsApp block/report UI instructions verboten halten.
 - Das Packet muss moegliche Human-Operator-Outcomes und fuer Codex verbotene Outcomes dokumentieren.
 - Das Packet darf keine Analytics-, SEO-Metriken, Nutzerfeedback- oder Source-Daten erfinden.
+
+## Dedicated Accessibility Review Brief 002 Checks
+
+- Fuer Brief 002 muss genau eine dedizierte Accessibility Review existieren:
+  - `docs/content/article_reviews/betrugsnachrichten-auf-whatsapp-erkennen.accessibility-review.md`
+- Die Review muss `accessibility_review_status: completed_not_publish_ready` enthalten.
+- Die Review ist keine Operator Acceptance.
+- Die Review ist keine Publish Readiness.
+- Die Review genehmigt keinen Public Launch und keine Monetarisierung.
+- Die Review behauptet keine rechtliche Freigabe und keine WCAG-Konformitaet.
+- Die Review muss Reading Structure, Plain-Language Quality, Cognitive Accessibility, Mobile Readability, Print/Forward Usefulness und Safety Accessibility pruefen.
+- Die Review muss nicht getestete Bereiche wie Senior User Testing, Screen Reader, Device/Browser und WCAG sichtbar als `NOT_TESTED` oder Limitation fuehren.
+- Die Review muss `SHO-CLAIM-007` blockiert halten und WhatsApp block/report UI instructions verboten halten.
+- Die Review darf keine neuen Claims, Sources, Source-Metadaten, SEO-, Analytics-, Feedback-, Traffic-, Ranking-, Conversion- oder Revenue-Daten erfinden.
+- Final Source Metadata Review und spaetere Human-Operator-Publish-Gates bleiben erforderlich.
 
 ## Reader Experience Quality Checks
 

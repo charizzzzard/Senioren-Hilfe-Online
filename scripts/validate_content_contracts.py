@@ -65,6 +65,7 @@ REQUIRED_DOCS = [
     "docs/content/article_reviews/betrugsnachrichten-auf-whatsapp-erkennen.citation-text-prep.md",
     "docs/content/article_reviews/betrugsnachrichten-auf-whatsapp-erkennen.final-legal-wording-review.md",
     "docs/content/article_reviews/betrugsnachrichten-auf-whatsapp-erkennen.final-source-list-review.md",
+    "docs/content/article_reviews/betrugsnachrichten-auf-whatsapp-erkennen.accessibility-review.md",
     "docs/operations/CONTENT_RESEARCH_OPERATING_PROTOCOL.md",
     "docs/operations/RESEARCH_BATCH_STAGE_MODEL.md",
     "docs/operations/CODEX_EXECUTOR_BOUNDARY.md",
@@ -163,6 +164,9 @@ HUMAN_OPERATOR_REVIEW_PACKET_FINAL_ARTICLE_CANDIDATE_BRIEF_002_PATH = (
 FINAL_ARTICLE_CANDIDATES_DIR = ROOT / "docs/content/final_article_candidates"
 FINAL_ARTICLE_CANDIDATE_BRIEF_002_PATH = (
     ROOT / "docs/content/final_article_candidates/betrugsnachrichten-auf-whatsapp-erkennen.final-article-candidate.md"
+)
+ACCESSIBILITY_REVIEW_BRIEF_002_PATH = (
+    ROOT / "docs/content/article_reviews/betrugsnachrichten-auf-whatsapp-erkennen.accessibility-review.md"
 )
 SOURCE_REVIEW_PATH = ROOT / "docs/content/source_reviews/whatsapp-source-manual-review-batch-01.md"
 SOURCE_REVIEW_REL_PATH = "docs/content/source_reviews/whatsapp-source-manual-review-batch-01.md"
@@ -594,6 +598,7 @@ def validate_protocol_automation_files(failures: list[str]) -> None:
             f"- {ARTICLE_REVIEW_REL_PATH}",
             "article_draft_candidates:",
             "article_reviews:",
+            "- docs/content/article_reviews/betrugsnachrichten-auf-whatsapp-erkennen.accessibility-review.md",
             "article_draft_candidate_fixes:",
             "final_article_candidates:",
             "- docs/content/final_article_candidates/betrugsnachrichten-auf-whatsapp-erkennen.final-article-candidate.md",
@@ -605,6 +610,8 @@ def validate_protocol_automation_files(failures: list[str]) -> None:
             "Brief 002 final article candidate exists and is not publish-ready.",
             "Brief 002 final article candidate has scorecard review completed, but remains not publish-ready.",
             "Brief 002 human operator review packet prepared, but no Operator Acceptance or Publish Readiness is set.",
+            "Brief 002 Human Operator decision allows internal operator review candidate continuation, but no Publish Readiness or Operator Acceptance is set.",
+            "Brief 002 dedicated accessibility review completed not publish-ready; Final Source Metadata Review and later Human Operator publish gates remain required.",
             "No publish-ready final article exists.",
             "serp_status: observed",
             "serp_observation_status: operator_research_observed",
@@ -664,6 +671,8 @@ def validate_protocol_automation_files(failures: list[str]) -> None:
             "pending_reader_experience_baseline",
             "pending_accessibility_standard",
             "feedback_not_collected",
+            "accessibility_review_status:",
+            "completed_not_publish_ready",
             "loop_status:",
             "baseline_defined_not_live",
             "reader_experience_status:",
@@ -1788,7 +1797,11 @@ def validate_article_reviews(failures: list[str]) -> int:
         if not path.exists():
             failures.append(f"Missing article review file: {path.relative_to(ROOT).as_posix()}")
 
-    found_files = {path.name for path in ARTICLE_REVIEWS_DIR.glob("*.review.md")}
+    found_files = {
+        path.name
+        for path in ARTICLE_REVIEWS_DIR.glob("*.review.md")
+        if not path.name.endswith(".accessibility-review.md")
+    }
     expected_files = set(EXPECTED_ARTICLE_REVIEWS)
     if found_files != expected_files:
         failures.append(
@@ -3126,6 +3139,194 @@ def validate_final_source_list_reviews(failures: list[str]) -> int:
     return len(found_files)
 
 
+def validate_accessibility_review_brief_002(failures: list[str]) -> int:
+    if not ACCESSIBILITY_REVIEW_BRIEF_002_PATH.exists():
+        failures.append(
+            "Missing dedicated accessibility review for Brief 002: "
+            "docs/content/article_reviews/betrugsnachrichten-auf-whatsapp-erkennen.accessibility-review.md"
+        )
+        return 0
+
+    text = ACCESSIBILITY_REVIEW_BRIEF_002_PATH.read_text(encoding="utf-8")
+    fields = parse_frontmatter_fields(text)
+
+    required_frontmatter_fragments = [
+        "accessibility_review_id: SHO-ACCESSIBILITY-REVIEW-BATCH01-BRIEF002",
+        "batch_id: MVP_BATCH_01",
+        "linked_brief_id: SHO-MVP-BRIEF-002",
+        "linked_final_article_candidate: docs/content/final_article_candidates/betrugsnachrichten-auf-whatsapp-erkennen.final-article-candidate.md",
+        "linked_scorecard: docs/content/article_quality_scorecards/betrugsnachrichten-auf-whatsapp-erkennen.final-article-candidate.scorecard.md",
+        "linked_operator_decision: docs/operations/operator_decisions/HUMAN_OPERATOR_DECISION_FINAL_ARTICLE_CANDIDATE_BRIEF_002.md",
+        "accessibility_review_status: completed_not_publish_ready",
+        "operator_acceptance_status: not_accepted",
+        "publish_readiness_status: not_ready",
+        "public_launch_status: not_ready",
+        "monetization_status: not_approved",
+        "legal_approval_status: not_approved",
+        "blocked_claims: SHO-CLAIM-007",
+        "batch_stage_after_review: claim_slots_mapped",
+    ]
+    required_sections = [
+        "Dedicated Accessibility Review: Betrugsnachrichten auf WhatsApp erkennen",
+        "Purpose",
+        "Reviewed Artifact",
+        "Explicit Non-Acceptance",
+        "Accessibility Criteria",
+        "Findings",
+        "Accessibility Review Outcome",
+        "Remaining Limitations",
+        "Required Follow-Up",
+        "Guardrails Confirmed",
+    ]
+    required_criteria = [
+        "Reading structure",
+        "Plain-language quality",
+        "Cognitive accessibility",
+        "Mobile readability",
+        "Print / forward usefulness",
+        "Safety accessibility",
+        "Screen-reader validation",
+        "WCAG compliance",
+        "criterion",
+        "result",
+        "note",
+        "required_follow_up",
+        "PASS",
+        "PASS_WITH_REVIEW_NEEDED",
+        "NEEDS_REVIEW",
+        "NOT_TESTED",
+        "BLOCKED",
+    ]
+    required_findings = [
+        "finding_id",
+        "category",
+        "severity",
+        "status",
+        "summary",
+        "required_action",
+        "SHO-ACCESS-002-STRUCT-001",
+        "SHO-ACCESS-002-PLAIN-001",
+        "SHO-ACCESS-002-COG-001",
+        "SHO-ACCESS-002-MOBILE-001",
+        "SHO-ACCESS-002-PRINT-001",
+        "SHO-ACCESS-002-TEST-001",
+        "SHO-ACCESS-002-SR-001",
+        "SHO-ACCESS-002-SRC-001",
+        "SHO-ACCESS-002-PUB-001",
+        "No real senior user accessibility test was performed.",
+        "No screen-reader/device/browser validation was performed.",
+        "Final Source Metadata Review remains separate and required.",
+        "Publish Readiness remains blocked.",
+    ]
+    required_non_acceptance = [
+        "This review is not Operator Acceptance.",
+        "This review is not Publish Readiness.",
+        "This review is not public launch approval.",
+        "This review is not monetization approval.",
+        "This review is not legal approval.",
+        "This review does not unlock SHO-CLAIM-007.",
+        "This review does not approve WhatsApp block/report UI instructions.",
+        "This review does not invent user feedback, analytics, SEO or accessibility test data.",
+        "Diese Review ist kein WCAG compliance claim.",
+    ]
+    required_limitations_and_follow_up = [
+        "no real user testing performed",
+        "no analytics or feedback data used",
+        "no screen-reader test performed",
+        "no device/browser testing performed",
+        "no WCAG compliance claim",
+        "Final Source Metadata Review before any publish-candidate step.",
+        "Later Human Operator decision before any publish-candidate status.",
+        "Later Human Operator decision before Operator Acceptance.",
+        "Optional later real-reader/senior UX review.",
+        "Optional later mobile/print rendering review.",
+        "Optional later screen-reader/browser/device validation.",
+    ]
+    required_guardrails = [
+        "current_stage remains claim_slots_mapped.",
+        "operator_acceptance_status remains not_accepted.",
+        "publish_readiness_status remains not_ready.",
+        "public_launch_status remains not_ready.",
+        "monetization_status remains not_approved.",
+        "legal_approval_status remains not_approved.",
+        "SHO-CLAIM-007 remains blocked.",
+        "WhatsApp block/report UI instructions remain forbidden.",
+        "No new claims added.",
+        "No new sources added.",
+        "No source metadata invented.",
+        "No SEO, analytics, feedback, traffic, ranking, conversion or revenue data invented.",
+    ]
+    for fragment in (
+        required_frontmatter_fragments
+        + required_sections
+        + required_criteria
+        + required_findings
+        + required_non_acceptance
+        + required_limitations_and_follow_up
+        + required_guardrails
+    ):
+        if fragment not in text:
+            failures.append(f"Accessibility review Brief 002 must contain: {fragment}")
+
+    if fields.get("accessibility_review_id") != "SHO-ACCESSIBILITY-REVIEW-BATCH01-BRIEF002":
+        failures.append("Accessibility review Brief 002 has unexpected accessibility_review_id")
+    if fields.get("linked_brief_id") != "SHO-MVP-BRIEF-002":
+        failures.append("Accessibility review Brief 002 must link to Brief 002")
+    if normalized(fields.get("accessibility_review_status")) != "completed_not_publish_ready":
+        failures.append("Accessibility review Brief 002 must have accessibility_review_status: completed_not_publish_ready")
+    if normalized(fields.get("operator_acceptance_status")) != "not_accepted":
+        failures.append("Accessibility review Brief 002 must have operator_acceptance_status: not_accepted")
+    if normalized(fields.get("publish_readiness_status")) != "not_ready":
+        failures.append("Accessibility review Brief 002 must have publish_readiness_status: not_ready")
+    if normalized(fields.get("public_launch_status")) != "not_ready":
+        failures.append("Accessibility review Brief 002 must have public_launch_status: not_ready")
+    if normalized(fields.get("monetization_status")) != "not_approved":
+        failures.append("Accessibility review Brief 002 must have monetization_status: not_approved")
+    if normalized(fields.get("legal_approval_status")) != "not_approved":
+        failures.append("Accessibility review Brief 002 must have legal_approval_status: not_approved")
+    if normalized(fields.get("batch_stage_after_review")) != "claim_slots_mapped":
+        failures.append("Accessibility review Brief 002 must keep batch_stage_after_review: claim_slots_mapped")
+
+    batch_text = BATCH_MANIFEST_PATH.read_text(encoding="utf-8")
+    if "- docs/content/article_reviews/betrugsnachrichten-auf-whatsapp-erkennen.accessibility-review.md" not in batch_text:
+        failures.append("Batch manifest must link dedicated accessibility review Brief 002")
+    if "Brief 002 dedicated accessibility review completed not publish-ready; Final Source Metadata Review and later Human Operator publish gates remain required." not in batch_text:
+        failures.append("Batch manifest must carry accessibility review not-publish-ready blocker")
+
+    dashboard_text = ARTICLE_READINESS_DASHBOARD_PATH.read_text(encoding="utf-8")
+    if "dedicated accessibility review completed not publish-ready" not in dashboard_text:
+        failures.append("Article readiness dashboard must mention dedicated accessibility review completed not publish-ready")
+    if "accessibility_status: completed_not_publish_ready" not in dashboard_text:
+        failures.append("Article readiness dashboard must show accessibility_status: completed_not_publish_ready for Brief 002")
+    if "Final Source Metadata Review before any publish-candidate step" not in dashboard_text:
+        failures.append("Article readiness dashboard must keep Final Source Metadata Review as required")
+
+    forbidden_assignments = [
+        "approved_for_publish: true",
+        "operator_acceptance_status: accepted",
+        "publish_readiness_status: publish_candidate",
+        "publish_readiness_status: approved_for_publish",
+        "publish_ready: true",
+        "current_stage: review_ready",
+        "current_stage: publish_candidate",
+        "legal_approval: true",
+        "legal_approval_status: approved",
+        "public_launch_status: ready",
+        "public_launch_status: launched",
+        "monetization_status: approved",
+        "accessibility_review_status: approved_for_publish",
+        "accessibility_review_status: publish_ready",
+        "operator_accepted",
+        "wcag_compliance: true",
+    ]
+    lower_text = text.lower()
+    for fragment in forbidden_assignments:
+        if fragment in lower_text:
+            failures.append(f"Accessibility review Brief 002 must not contain forbidden assignment: {fragment}")
+
+    return 1
+
+
 def validate_mvp_operational_start_plan(failures: list[str]) -> int:
     if not MVP_OPERATIONAL_START_PLAN_PATH.exists():
         failures.append("Missing MVP operational start plan: docs/operations/MVP_OPERATIONAL_START_PLAN_BATCH_01.md")
@@ -3422,6 +3623,7 @@ def validate_article_readiness_dashboard(failures: list[str]) -> int:
         "SHO-SRC-007",
         "final article candidate exists",
         "scorecard review completed not publish-ready",
+        "dedicated accessibility review completed not publish-ready",
         "draft candidate exists",
         "re-review passed not publish-ready",
         "final source list review exists",
@@ -3439,6 +3641,7 @@ def validate_article_readiness_dashboard(failures: list[str]) -> int:
         "pending_quality_loop_baseline",
         "pending_reader_experience_baseline",
         "pending_accessibility_standard",
+        "completed_not_publish_ready",
         "feedback_not_collected",
         "Einfache Sprache bedeutet nicht anspruchslose Sprache. Inhalte sollen klar, freundlich und zugänglich sein, aber ältere Leserinnen und Leser als erwachsene, erfahrene und interessierte Menschen ernst nehmen.",
         "CONTENT_QUALITY_USER_PERSPECTIVE_READER_EXPERIENCE_AND_FEEDBACK_LOOP_BASELINE",
@@ -3463,7 +3666,7 @@ def validate_article_readiness_dashboard(failures: list[str]) -> int:
         "Dieses Dashboard setzt keine Publish Readiness.",
         "Dieses Dashboard genehmigt keine Monetarisierung.",
         "Dieses Dashboard erstellt keine Operator Acceptance.",
-        "Dieses Dashboard schliesst User-Perspective-, Reader-Experience-, Accessibility- oder Feedback-Reviews nicht ab.",
+        "Dieses Dashboard schliesst User-Perspective-, Reader-Experience- oder Feedback-Reviews nicht ab; Brief 002 Accessibility Review ist completed_not_publish_ready und nicht publish-ready.",
     ]
     for fragment in required_fragments:
         if fragment not in text:
@@ -4792,6 +4995,7 @@ def main() -> int:
     citation_text_prep_count = validate_citation_text_preps(failures)
     final_legal_wording_review_count = validate_final_legal_wording_reviews(failures)
     final_source_list_review_count = validate_final_source_list_reviews(failures)
+    accessibility_review_brief_002_count = validate_accessibility_review_brief_002(failures)
     mvp_operational_start_plan_count = validate_mvp_operational_start_plan(failures)
     roadmap_mvp_2026_count = validate_roadmap_mvp_2026(failures)
     article_readiness_dashboard_count = validate_article_readiness_dashboard(failures)
@@ -4835,6 +5039,7 @@ def main() -> int:
     print(f"- Batch 01 citation text prep files: {citation_text_prep_count}")
     print(f"- Batch 01 final legal wording review files: {final_legal_wording_review_count}")
     print(f"- Batch 01 final source list review files: {final_source_list_review_count}")
+    print(f"- Batch 01 dedicated accessibility review Brief 002 files: {accessibility_review_brief_002_count}")
     print(f"- Batch 01 MVP operational start plan files: {mvp_operational_start_plan_count}")
     print(f"- Batch 01 MVP roadmap files: {roadmap_mvp_2026_count}")
     print(f"- Batch 01 article readiness dashboard files: {article_readiness_dashboard_count}")
