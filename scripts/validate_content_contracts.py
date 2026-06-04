@@ -105,6 +105,7 @@ REQUIRED_DOCS = [
     "docs/operations/website_preview/ACCESSIBILITY_REQUIREMENTS_REVIEW_PACKET_INTERNAL_ONLY.md",
     "docs/operations/website_preview/STATIC_PREVIEW_SKELETON_SPEC_INTERNAL_ONLY.md",
     "docs/operations/website_preview/STATIC_PREVIEW_SKELETON_IMPLEMENTATION_DECISION_PACKET_INTERNAL_ONLY.md",
+    "docs/operations/website_preview/STATIC_PREVIEW_SKELETON_REVIEW_PACKET_INTERNAL_ONLY.md",
     "preview_static_internal/README.md",
     "preview_static_internal/index.html",
     "preview_static_internal/topics/index.html",
@@ -233,6 +234,9 @@ STATIC_PREVIEW_SKELETON_SPEC_INTERNAL_ONLY_PATH = (
 STATIC_PREVIEW_SKELETON_IMPLEMENTATION_DECISION_PACKET_INTERNAL_ONLY_PATH = (
     WEBSITE_PREVIEW_DIR
     / "STATIC_PREVIEW_SKELETON_IMPLEMENTATION_DECISION_PACKET_INTERNAL_ONLY.md"
+)
+STATIC_PREVIEW_SKELETON_REVIEW_PACKET_INTERNAL_ONLY_PATH = (
+    WEBSITE_PREVIEW_DIR / "STATIC_PREVIEW_SKELETON_REVIEW_PACKET_INTERNAL_ONLY.md"
 )
 PREVIEW_STATIC_INTERNAL_DIR = ROOT / "preview_static_internal"
 PREVIEW_STATIC_INTERNAL_FILES = [
@@ -5753,6 +5757,7 @@ def validate_website_information_architecture_internal_preview_v1(
         ACCESSIBILITY_REQUIREMENTS_REVIEW_PACKET_INTERNAL_ONLY_PATH,
         STATIC_PREVIEW_SKELETON_SPEC_INTERNAL_ONLY_PATH,
         STATIC_PREVIEW_SKELETON_IMPLEMENTATION_DECISION_PACKET_INTERNAL_ONLY_PATH,
+        STATIC_PREVIEW_SKELETON_REVIEW_PACKET_INTERNAL_ONLY_PATH,
     ]
     count = 0
     for path in required_paths:
@@ -5792,6 +5797,11 @@ def validate_website_information_architecture_internal_preview_v1(
     )
     static_preview_skeleton_decision_packet_text = (
         STATIC_PREVIEW_SKELETON_IMPLEMENTATION_DECISION_PACKET_INTERNAL_ONLY_PATH.read_text(
+            encoding="utf-8"
+        )
+    )
+    static_preview_skeleton_review_packet_text = (
+        STATIC_PREVIEW_SKELETON_REVIEW_PACKET_INTERNAL_ONLY_PATH.read_text(
             encoding="utf-8"
         )
     )
@@ -6187,6 +6197,55 @@ def validate_website_information_architecture_internal_preview_v1(
                 f"must contain: {fragment}"
             )
 
+    required_static_preview_skeleton_review_packet_fragments = [
+        "review_packet_id: STATIC-PREVIEW-SKELETON-REVIEW-PACKET-INTERNAL-ONLY",
+        "linked_operator_decision: docs/operations/operator_decisions/HUMAN_OPERATOR_DECISION_STATIC_PREVIEW_SKELETON_IMPLEMENTATION.md",
+        "linked_skeleton_spec: docs/operations/website_preview/STATIC_PREVIEW_SKELETON_SPEC_INTERNAL_ONLY.md",
+        "linked_skeleton_readme: preview_static_internal/README.md",
+        "review_packet_status: prepared_for_human_operator_review_not_acceptance",
+        "skeleton_review_status: reviewed_internal_only_not_accepted",
+        "skeleton_runtime_status: not_implemented",
+        "static_generation_status: not_implemented",
+        "js_generation_status: not_implemented",
+        "asset_generation_status: not_implemented",
+        "accessibility_testing_status: not_performed",
+        "wcag_conformance_status: not_claimed",
+        "public_launch_status: not_ready",
+        "publish_readiness_status: not_ready",
+        "operator_acceptance_status: not_accepted",
+        "monetization_status: not_approved",
+        "analytics_status: not_connected",
+        "search_console_status: not_connected",
+        "user_feedback_status: not_collected",
+        "## Purpose",
+        "## Explicit Non-Acceptance",
+        "## Reviewed Files",
+        "## Approved Scope Compliance Review",
+        "## Page-by-Page Review",
+        "## Brief State Review",
+        "## Accessibility / Senior-UX Review Status",
+        "## Governance Cleanup Review",
+        "## Findings",
+        "## Residual Risks",
+        "## Allowed Outcomes",
+        "## Forbidden Outcomes",
+        "## Recommended Next Step",
+        "HUMAN_OPERATOR_REVIEW_STATIC_PREVIEW_SKELETON_INTERNAL_ONLY",
+        "SHO-SKEL-REVIEW-001",
+        "SHO-SKEL-REVIEW-005",
+        "shell_only_no_article_body",
+        "SHO-CLAIM-007 remains blocked",
+        "no article body",
+        "No accessibility test performed.",
+        "No WCAG conformance claimed.",
+    ]
+    for fragment in required_static_preview_skeleton_review_packet_fragments:
+        if fragment not in static_preview_skeleton_review_packet_text:
+            failures.append(
+                "Static Preview Skeleton Review Packet Internal Only must contain: "
+                f"{fragment}"
+            )
+
     required_queue_fragments = [
         "queue_item_id: CQ-V1-004",
         "docs/operations/website_preview/WEBSITE_INFORMATION_ARCHITECTURE_INTERNAL_PREVIEW_V1.md",
@@ -6321,6 +6380,25 @@ def validate_website_information_architecture_internal_preview_v1(
                 "must not contain active forbidden marker: "
                 f"{fragment}"
             )
+    forbidden_static_preview_skeleton_review_packet_active_markers = (
+        forbidden_static_preview_skeleton_active_markers
+        + [
+            "skeleton_review_status: accepted",
+            "publish_readiness_status: publish_candidate",
+            "publish_readiness_status: approved_for_publish",
+            "monetization_status: approved",
+        ]
+    )
+    lower_static_preview_skeleton_review_packet_text = (
+        static_preview_skeleton_review_packet_text.lower()
+    )
+    for fragment in forbidden_static_preview_skeleton_review_packet_active_markers:
+        if fragment in lower_static_preview_skeleton_review_packet_text:
+            failures.append(
+                "Static Preview Skeleton Review Packet Internal Only "
+                "must not contain active forbidden marker: "
+                f"{fragment}"
+            )
 
     forbidden_data_claims = [
         "real ranking data",
@@ -6372,6 +6450,12 @@ def validate_website_information_architecture_internal_preview_v1(
         if fragment in lower_static_preview_skeleton_decision_packet_text:
             failures.append(
                 "Static Preview Skeleton Implementation Decision Packet Internal Only "
+                "must not claim real metric data: "
+                f"{fragment}"
+            )
+        if fragment in lower_static_preview_skeleton_review_packet_text:
+            failures.append(
+                "Static Preview Skeleton Review Packet Internal Only "
                 "must not claim real metric data: "
                 f"{fragment}"
             )

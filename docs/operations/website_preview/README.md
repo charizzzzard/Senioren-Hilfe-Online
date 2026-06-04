@@ -22,6 +22,8 @@ Die Artefakte sind nicht live. Sie erstellen keine Website-Runtime, veroeffentli
   - Spezifikation fuer einen spaeteren internen Static-Preview-Skeleton; keine HTML-, CSS-, JS-, Asset- oder Runtime-Erzeugung.
 - `STATIC_PREVIEW_SKELETON_IMPLEMENTATION_DECISION_PACKET_INTERNAL_ONLY.md`
   - Internes Human-Operator-Decision-Packet fuer eine moegliche spaetere Skeleton-Implementierung; keine Genehmigung, keine HTML-, CSS-, JS-, Asset- oder Runtime-Erzeugung.
+- `STATIC_PREVIEW_SKELETON_REVIEW_PACKET_INTERNAL_ONLY.md`
+  - Internes Review-Paket fuer den implementierten HTML/CSS-only Static-Preview-Skeleton; vorbereitet fuer Human-Operator-Review, keine Acceptance, keine Publish Readiness und kein Launch.
 
 ## Verwandte Operator-Decision-Artefakte
 

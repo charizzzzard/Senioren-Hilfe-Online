@@ -5,19 +5,19 @@
 - project_name: Senioren-Hilfe Online
 - system_name: Senioren-Hilfe Online OS
 - system_short_name: SHO-OS
-- patch_title: STATIC_PREVIEW_SKELETON_INTERNAL_ONLY_WITH_ONE_TIME_P3_DOC_DRIFT_GOVERNANCE_CLEANUP
+- patch_title: STATIC_PREVIEW_SKELETON_REVIEW_PACKET_INTERNAL_ONLY
 - external_review_verdict: PENDING_REVIEW
 
 SHO-OS ist ein reproduzierbares Content-, Trust- und Publishing-System fuer seniorengerechte digitale Alltagshilfe in Deutschland.
 
-Dieser Patch implementiert den freigegebenen internen HTML/CSS-only Static-Preview-Skeleton unter `preview_static_internal/` und fuehrt einmalig einen minimalen P3-Governance-/Doc-Drift-Cleanup aus. Der Skeleton ist ein internes Review-Artefakt. Er ist keine Website-Runtime, keine Static Site Generation, kein Public Launch, keine Publish Readiness, keine Operator Acceptance fuer das Gesamtprojekt, keine Monetarisierung und keine Analytics-/Search-Console-/Feedback-Aktivierung.
+Dieser Patch erstellt das interne Review-Paket fuer den bereits implementierten HTML/CSS-only Static-Preview-Skeleton unter `preview_static_internal/`. Das Paket reviewt den Skeleton gegen die Human-Operator-Entscheidung und dokumentiert Dateiumfang, Statusbanner, Brief-Status, Accessibility-Not-Tested-Grenze, No-WCAG-Claim-Grenze, P3-Governance-Cleanup und den naechsten konservativen Schritt.
 
 ## Git Traceability
 
 - branch: `main`
-- head_before: `bc156261e08c527b378b60677668fb5dc46e3f30`
+- head_before: `bbe4db911ebbfb18dfc8e33605b2ec959305989f`
 - intended_head_after: `assigned_after_commit`
-- origin_main_before: `bc156261e08c527b378b60677668fb5dc46e3f30`
+- origin_main_before: `bbe4db911ebbfb18dfc8e33605b2ec959305989f`
 - dirty_state_before: `clean`
 - dirty_state_after: `assigned_after_commit`
 
@@ -25,44 +25,23 @@ Hinweis: `head_after` wird nicht vorab als Commit-SHA eingetragen, weil ein Comm
 
 ## Scope Dieses Patches
 
-- `docs/operations/STATUS_REGISTRY.yaml` registriert fehlende granulare Website-Preview-Status-Keys konservativ.
-- `scripts/validate_content_contracts.py` verwendet praezisere Summary-Labels:
-  - `Content Pipeline V1 files`
-  - `Website Preview V1 files`
-- `scripts/validate_content_contracts.py` prueft den internen Skeleton auf genehmigte Dateien, Pflichtstatus, Brief-002-Shell-only-Grenze und verbotene Dateien/Fragmente.
-- `docs/engineering/VALIDATION_REQUIREMENTS.md` dokumentiert die neuen Checks.
-- `docs/operations/website_preview/README.md` verweist auf den internen Skeleton.
-- `preview_static_internal/` enthaelt genau die freigegebenen HTML/CSS-only Dateien.
-- `external_review_packet/00_READ_ME_FIRST.md` und dieses Handoff wurden auf den Patch aktualisiert.
-
-## Static Preview Skeleton Summary
-
-- implementation_location: `preview_static_internal/`
-- js_decision: `js_forbidden_first_skeleton`
-- brief_002_rendering_decision: `shell_only_no_article_body`
-- status_banner_placement: top and footer on every HTML page
-- required_follow_up_after_implementation: `STATIC_PREVIEW_SKELETON_REVIEW_PACKET_INTERNAL_ONLY`
-
-Created internal files:
-
-- `preview_static_internal/README.md`
-- `preview_static_internal/index.html`
-- `preview_static_internal/topics/index.html`
-- `preview_static_internal/topics/smartphone-bedienung.html`
-- `preview_static_internal/topics/whatsapp-sicherheit.html`
-- `preview_static_internal/articles/brief-002-preview.html`
-- `preview_static_internal/status/index.html`
-- `preview_static_internal/styles.css`
+- `docs/operations/website_preview/STATIC_PREVIEW_SKELETON_REVIEW_PACKET_INTERNAL_ONLY.md` erstellt.
+- Skeleton-Dateiumfang dokumentiert: genau acht genehmigte Dateien.
+- Page-by-Page-Review dokumentiert.
+- Brief-001/002/003/004-Zustaende dokumentiert.
+- Brief 002 als `shell_only_no_article_body` bestaetigt.
+- SHO-CLAIM-007 bleibt blockiert.
+- Accessibility bleibt `not_performed`; WCAG bleibt `not_claimed`.
+- DD-01/DD-02 P3-Governance-Cleanup als ohne funktionale Drift dokumentiert.
+- Website-Preview-README, Validation Requirements und `validate_content_contracts.py` um Review-Paket-Abdeckung ergaenzt.
 
 ## Non-Scope
 
-- Keine Website-Runtime.
-- Keine Static Site Generation.
+- Keine HTML/CSS/JS-Erweiterung.
 - Keine JS-Dateien.
 - Keine Design-Asset-Dateien.
-- Keine Accessibility-Zertifizierung.
-- Keine WCAG-Konformitaetsbehauptung.
-- Keine Accessibility-Tests.
+- Keine Website-Runtime.
+- Keine Static Site Generation.
 - Keine Public Pages.
 - Kein Public Launch.
 - Keine Artikelveroeffentlichung.
@@ -78,11 +57,22 @@ Created internal files:
 - Keine neuen Claims.
 - Keine Entsperrung blockierter Claims.
 - Keine WhatsApp block/report UI instructions.
+- Keine Accessibility-Zertifizierung.
+- Keine WCAG-Konformitaetsbehauptung.
+- Keine Accessibility-Tests.
 - Keine Live-Analytics.
 - Kein Live-Feedback.
 - Keine E-Mail-Feedback-Verbindung.
 - Keine echten Nutzerfeedback-Daten.
 - Keine SEO-/Keyword-/Ranking-/Traffic-/CTR-/Conversion-/Revenue-Daten.
+
+## Review Packet Summary
+
+- review_packet_id: `STATIC-PREVIEW-SKELETON-REVIEW-PACKET-INTERNAL-ONLY`
+- review_packet_status: `prepared_for_human_operator_review_not_acceptance`
+- skeleton_review_status: `reviewed_internal_only_not_accepted`
+- reviewed_skeleton_root: `preview_static_internal/`
+- recommended_next_step: `HUMAN_OPERATOR_REVIEW_STATIC_PREVIEW_SKELETON_INTERNAL_ONLY`
 
 ## Guardrails
 
@@ -107,11 +97,11 @@ Created internal files:
 - `python scripts/validate_stage_transitions.py`
 - `python -m py_compile scripts/validate_content_contracts.py`
 - `python -m py_compile scripts/validate_stage_transitions.py`
+- `find preview_static_internal -type f` oder PowerShell-Aequivalent
 - `git diff --check`
 - `git diff --cached --check`
 - `git status --short --branch`
-- `git diff --stat`
 
 ## Keine finale Annahme durch Codex
 
-Der Skeleton ist nur ein internes Review-Artefakt. Der naechste erforderliche Schritt ist `STATIC_PREVIEW_SKELETON_REVIEW_PACKET_INTERNAL_ONLY`.
+Der Skeleton bleibt ein internes Review-Artefakt. Der naechste empfohlene Schritt ist `HUMAN_OPERATOR_REVIEW_STATIC_PREVIEW_SKELETON_INTERNAL_ONLY`.

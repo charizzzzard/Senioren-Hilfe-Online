@@ -897,6 +897,26 @@ Das Review-Artefakt muss mindestens diese Finding IDs enthalten:
 - Keine HTML-Seite darf Skripte, Forms, externe Abhaengigkeiten, Analytics-Skripte, Search-Console-Verification, Kontakt-/Newsletter-Forms, Affiliate-/Ads-/Product-Recommendation-Blocks oder WhatsApp block/report UI instructions enthalten.
 - `styles.css` muss intern bleiben, keine Imports oder externen Assets laden, sichtbare Statusbanner, Fokuszustand, mobile Einspaltigkeit und druckbare Statushinweise unterstuetzen.
 
+## Static Preview Skeleton Review Packet Internal Only Checks
+
+- `docs/operations/website_preview/STATIC_PREVIEW_SKELETON_REVIEW_PACKET_INTERNAL_ONLY.md` muss existieren.
+- Das Review-Paket muss `review_packet_status: prepared_for_human_operator_review_not_acceptance` enthalten.
+- Das Review-Paket muss `skeleton_review_status: reviewed_internal_only_not_accepted` enthalten.
+- Das Review-Paket muss `accessibility_testing_status: not_performed` enthalten.
+- Das Review-Paket muss `wcag_conformance_status: not_claimed` enthalten.
+- Das Review-Paket muss `public_launch_status: not_ready` enthalten.
+- Das Review-Paket muss `publish_readiness_status: not_ready` enthalten.
+- Das Review-Paket muss `operator_acceptance_status: not_accepted` enthalten.
+- Das Review-Paket muss `monetization_status: not_approved` enthalten.
+- Das Review-Paket muss `analytics_status: not_connected` enthalten.
+- Das Review-Paket muss `search_console_status: not_connected` enthalten.
+- Das Review-Paket muss `user_feedback_status: not_collected` enthalten.
+- Das Review-Paket muss den Human-Operator-Decision-Record, die Skeleton-Spec und `preview_static_internal/README.md` verlinken.
+- Das Review-Paket muss Purpose, Explicit Non-Acceptance, Reviewed Files, Approved Scope Compliance Review, Page-by-Page Review, Brief State Review, Accessibility / Senior-UX Review Status, Governance Cleanup Review, Findings, Residual Risks, Allowed Outcomes, Forbidden Outcomes und Recommended Next Step enthalten.
+- Das Review-Paket muss Brief 002 als `shell_only_no_article_body` und ohne Artikelbody bestaetigen.
+- Das Review-Paket muss SHO-CLAIM-007 blockiert halten.
+- Das Review-Paket darf keine Operator Acceptance, keine Publish Readiness, keinen Public Launch, keine Accessibility-Zertifizierung, keine WCAG-Konformitaetsbehauptung, keine Accessibility-Testing-Durchfuehrung und keine neuen Claims/Sources/Artikeltexte setzen.
+
 ## Reader Experience Quality Checks
 
 - Reader Experience ist ein eigenes Qualitaetsfeld neben Quellen, Claims, Safety, SEO und Accessibility.
