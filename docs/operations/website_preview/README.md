@@ -26,6 +26,8 @@ Die Artefakte sind nicht live. Sie erstellen keine Website-Runtime, veroeffentli
   - Internes Review-Paket fuer den implementierten HTML/CSS-only Static-Preview-Skeleton; vorbereitet fuer Human-Operator-Review, keine Acceptance, keine Publish Readiness und kein Launch.
 - `STATIC_PREVIEW_VISUAL_AND_ACCESSIBILITY_REVIEW_PLANNING_INTERNAL_ONLY.md`
   - Internes Planungsartefakt fuer spaetere Visual-, Senior-UX- und Accessibility-orientierte Reviews; keine Tests, keine WCAG-Konformitaetsbehauptung, keine Runtime und keine Freigabe.
+- `STATIC_PREVIEW_VISUAL_REVIEW_PACKET_INTERNAL_ONLY_READ_ONLY.md`
+  - Read-only Source-Level-Review-Paket fuer visuelle Klarheit, Senior-UX und Trust-Governance des Static-Preview-Skeletons; kein Browser-Rendering, keine Screenshots, keine Accessibility-Tests und keine Freigabe.
 
 ## Verwandte Operator-Decision-Artefakte
 
@@ -40,7 +42,7 @@ Die Artefakte sind nicht live. Sie erstellen keine Website-Runtime, veroeffentli
   - Interner HTML/CSS-only Static-Preview-Skeleton fuer Review-Zwecke nach Human-Operator-Entscheidung.
   - Kein JS, keine Runtime, keine Static Site Generation, keine Public Pages und keine Publish Readiness.
   - Brief 002 wird nur als `shell_only_no_article_body` dargestellt.
-  - Aktueller naechster Planungsschritt: `STATIC_PREVIEW_VISUAL_REVIEW_PACKET_INTERNAL_ONLY_READ_ONLY`.
+  - Aktueller naechster Planungsschritt: `STATIC_PREVIEW_MANUAL_SCREENSHOT_REVIEW_CHECKLIST_INTERNAL_ONLY`.
 
 ## Non-Acceptance
 
