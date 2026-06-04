@@ -24,7 +24,7 @@ Diese Roadmap dokumentiert eine konservative Arbeitsgrundlage fuer das Senioren-
 - public_launch_status remains not_ready.
 - publish_readiness_status remains not_ready.
 - operator_acceptance_status remains not_accepted.
-- No final article draft exists.
+- No publish-ready final article exists. Brief 002 has a Final Article Candidate that remains not publish-ready and not accepted.
 - No content is publish-ready.
 - No public launch.
 - No monetization.

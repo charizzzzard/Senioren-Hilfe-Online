@@ -108,11 +108,13 @@ queue_items:
       - docs/operations/content_pipeline/CONTENT_PIPELINE_CONTRACT_V1.md
       - docs/operations/content_pipeline/WORK_QUEUE_V1.yaml
     produced_outputs:
-      - future_pipeline_runner_spec
+      - docs/operations/content_pipeline/CONTENT_PIPELINE_RUNNER_SPEC_V1.md
+      - docs/operations/content_pipeline/NEXT_TASK_GENERATOR_SPEC_V1.md
     blockers:
-      - runner_not_defined
+      - runner_runtime_not_implemented
+      - queue_execution_not_live
       - no_runtime_execution_policy
-    allowed_next_action: specify_runner_without_execution
+    allowed_next_action: keep_specs_as_specification_only_or_prepare_later_human_operator_runtime_decision
     forbidden_actions:
       - auto_publish
       - auto_accept
