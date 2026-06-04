@@ -121,6 +121,10 @@ Aktueller Stand: blocked / target capability. Keine Monetarisierung und keine Af
 
 ## Mermaid Flowchart
 
+Dedicated canonical flowchart reference: `docs/architecture/CONTENT_MACHINE_FLOWCHART.md`.
+
+This target capability map remains the broader explanatory architecture document. The dedicated flowchart file is for direct reference plus node-to-stage and node-to-queue mapping. This reference creates no status escalation, no runtime and no live implementation.
+
 ```mermaid
 flowchart TD
 

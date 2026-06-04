@@ -48,6 +48,7 @@ Detailed moving status belongs to the Dashboard, Batch Manifest and Work Queue, 
 - [System Map](docs/architecture/SYSTEM_MAP.md)
 - [Content Pipeline](docs/architecture/CONTENT_PIPELINE.md)
 - [Content Machine Target Capability Map](docs/architecture/CONTENT_MACHINE_TARGET_CAPABILITY_MAP.md)
+- [Content Machine Flowchart](docs/architecture/CONTENT_MACHINE_FLOWCHART.md)
 - [Content Machine Gate Model](docs/architecture/CONTENT_MACHINE_GATE_MODEL.md)
 - [Content Machine Status Overlay](docs/architecture/CONTENT_MACHINE_STATUS_OVERLAY.md)
 
