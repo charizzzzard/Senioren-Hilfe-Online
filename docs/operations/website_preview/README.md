@@ -29,6 +29,8 @@ Die Artefakte sind nicht live. Sie erstellen keine Website-Runtime, veroeffentli
 
 - `docs/operations/operator_decisions/HUMAN_OPERATOR_DECISION_STATIC_PREVIEW_SKELETON_IMPLEMENTATION.md`
   - Human-Operator-Entscheidung fuer eine spaetere interne HTML/CSS-only Skeleton-Implementierung; keine Umsetzung in diesem Decision-Record.
+- `docs/operations/operator_decisions/HUMAN_OPERATOR_REVIEW_STATIC_PREVIEW_SKELETON_INTERNAL_ONLY.md`
+  - Human-Operator-Review-Record: Skeleton akzeptiert als internes Review-Artefakt only; keine Publish Readiness, keine Operator Acceptance, kein Public Launch, keine Runtime und keine Accessibility-/WCAG-Behauptung.
 
 ## Interner Static-Preview-Skeleton
 
