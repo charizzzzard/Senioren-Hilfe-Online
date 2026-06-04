@@ -20,6 +20,8 @@ Die Artefakte sind interne Betriebs- und Planungsunterlagen. Sie erzeugen keine 
   - Specification-only Readiness-Matrix fuer Runner- und Next-Task-Modi; keine Runtime, keine Queue-Ausfuehrung, keine Statuseskalation, nur inspect/validate/propose/report-Planung.
 - `NEXT_TASK_GENERATOR_OUTPUT_CONTRACT_SPECIFICATION_ONLY_INTERNAL.md`
   - Specification-only Output Contract fuer spaetere Next-Task-Generator-Reports; keine Runtime, keine Queue-Ausfuehrung und keine Queue-Statusaenderung.
+- `NEXT_TASK_GENERATOR_PROMPT_TEMPLATE_SPECIFICATION_ONLY_INTERNAL.md`
+  - Specification-only Prompt Template fuer spaetere sichere Next-Task-Outputs; keine Runtime, keine Queue-Ausfuehrung und keine Statusaenderung.
 - `../website_preview/WEBSITE_INFORMATION_ARCHITECTURE_INTERNAL_PREVIEW_V1.md`
   - Interne Website-IA und Preview-Struktur; keine Website-Runtime und kein Public Launch.
 
