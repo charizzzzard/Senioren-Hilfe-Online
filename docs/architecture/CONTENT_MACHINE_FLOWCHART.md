@@ -79,7 +79,7 @@ flowchart TD
   %% NEW SEO ENGINE
   %% =========================
   subgraph K["1. SEO & Keyword Research Engine"]
-    K1["Keyword Discovery<br/>Seed, Pain Point, Senioren, AngehÃ¶rige, App/GerÃ¤t, Safety"]
+    K1["Keyword Discovery<br/>Seed, Pain Point, Senioren, Angehörige, App/Gerät, Safety"]
     K2["Keyword Qualification<br/>Intent, Funnel, Suitability, Trust, Competition, Evidence"]
     K3["Keyword Cluster Map<br/>Hub, Supporting, FAQ, Glossary, Checklist, Safety, Product"]
     K4["Keyword-to-Content-Type Mapping"]
