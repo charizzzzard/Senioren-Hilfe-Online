@@ -65,19 +65,23 @@ queue_items:
       - docs/operations/device_version_scope_decisions/BRIEF_003_DEVICE_VERSION_SCOPE_DECISION_PACKET.md
       - docs/operations/screenshot_evidence_requirements/BRIEF_003_SCREENSHOT_EVIDENCE_REQUIREMENTS_CHECKLIST.md
     produced_outputs:
-      - future_human_operator_scope_decision_record
+      - docs/operations/device_version_scope_decisions/BRIEF_003_SCOPE_DECISION_RECORD_INTERNAL_ONLY.md
     blockers:
-      - device_version_scope_unresolved
       - screenshot_evidence_not_available
-      - no_text_candidate
-    allowed_next_action: human_operator_selects_scope_option
+      - ui_paths_not_validated
+      - exact_device_specific_claims_blocked
+    allowed_next_action: use_recorded_android_first_scope_for_internal_evidence_or_next_gate_only
     forbidden_actions:
       - validate_android_path_without_evidence
       - validate_ios_path_without_evidence
-      - create_article_candidate_before_scope_decision
+      - claim_screenshot_evidence
+      - add_ios_steps
+      - set_publish_readiness
+      - set_operator_acceptance
+      - activate_public_launch
     human_gate_required: yes
     automation_candidate: human_controlled
-    status: pending_human_operator_decision
+    status: completed_internal_decision_recorded
 
   - queue_item_id: CQ-V1-004
     title: Website information architecture / internal preview structure
@@ -167,3 +171,36 @@ queue_items:
     human_gate_required: yes
     automation_candidate: human_controlled
     status: blocked_until_human_operator_decision
+
+  - queue_item_id: CQ-V1-008
+    title: Brief 003 Android revision review next gate
+    linked_stage_id: STAGE_03_SOURCE_DISCOVERY_EVIDENCE_GATE
+    linked_brief_id: SHO-MVP-BRIEF-003
+    required_inputs:
+      - docs/content/article_draft_candidates/BRIEF_003_ANDROID_ARTICLE_DRAFT_CANDIDATE_REVISION_INTERNAL_ONLY.md
+      - docs/content/article_reviews/BRIEF_003_ANDROID_ARTICLE_DRAFT_CANDIDATE_REVISION_REVIEW_INTERNAL_ONLY.md
+      - docs/content/article_reviews/BRIEF_003_ANDROID_ARTICLE_DRAFT_CANDIDATE_REVISION_PACKET_INTERNAL_ONLY.md
+      - docs/operations/android_evidence_preparation/BRIEF_003_ANDROID_OFFICIAL_SOURCE_UI_EVIDENCE_PREPARATION_INTERNAL_ONLY.md
+      - docs/operations/android_evidence_preparation/BRIEF_003_ANDROID_SCREENSHOT_EVIDENCE_STRATEGY_REVISION_INTERNAL_ONLY.md
+    produced_outputs:
+      - future_internal_next_gate_decision_or_screenshot_evidence_path
+    blockers:
+      - screenshot_evidence_not_available
+      - ui_paths_not_validated
+      - exact_device_specific_claims_blocked
+      - accessibility_testing_not_performed
+      - no_publish_gate
+      - no_operator_acceptance
+    allowed_next_action: choose_conservative_internal_next_gate_or_screenshot_evidence_review_path_only
+    forbidden_actions:
+      - set_publish_readiness
+      - set_operator_acceptance
+      - activate_public_launch
+      - add_monetization
+      - claim_screenshot_evidence
+      - validate_exact_ui_paths_without_evidence
+      - add_ios_steps
+      - execute_queue
+    human_gate_required: yes
+    automation_candidate: codex_assisted
+    status: pending_internal_next_gate_decision

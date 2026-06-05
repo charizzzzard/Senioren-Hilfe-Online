@@ -40,11 +40,18 @@ article_draft_scaffolds:
 
 article_draft_candidates:
   - docs/content/article_draft_candidates/betrugsnachrichten-auf-whatsapp-erkennen.article-draft-candidate.md
+  - docs/content/article_draft_candidates/BRIEF_003_ANDROID_ARTICLE_DRAFT_CANDIDATE_INTERNAL_ONLY.md
+  - docs/content/article_draft_candidates/BRIEF_003_ANDROID_ARTICLE_DRAFT_CANDIDATE_REVISION_INTERNAL_ONLY.md
 
 article_reviews:
   - docs/content/article_reviews/betrugsnachrichten-auf-whatsapp-erkennen.review.md
   - docs/content/article_reviews/betrugsnachrichten-auf-whatsapp-erkennen.accessibility-review.md
   - docs/content/article_reviews/betrugsnachrichten-auf-whatsapp-erkennen.final-source-metadata-review.md
+  - docs/content/article_reviews/BRIEF_003_ANDROID_ARTICLE_SCAFFOLD_REVIEW_INTERNAL_ONLY.md
+  - docs/content/article_reviews/BRIEF_003_ANDROID_ARTICLE_DRAFT_CANDIDATE_PREPARATION_PACKET_INTERNAL_ONLY.md
+  - docs/content/article_reviews/BRIEF_003_ANDROID_ARTICLE_DRAFT_CANDIDATE_REVIEW_INTERNAL_ONLY.md
+  - docs/content/article_reviews/BRIEF_003_ANDROID_ARTICLE_DRAFT_CANDIDATE_REVISION_PACKET_INTERNAL_ONLY.md
+  - docs/content/article_reviews/BRIEF_003_ANDROID_ARTICLE_DRAFT_CANDIDATE_REVISION_REVIEW_INTERNAL_ONLY.md
 
 article_draft_candidate_fixes:
   - docs/content/article_draft_candidates/betrugsnachrichten-auf-whatsapp-erkennen.article-draft-candidate.md
@@ -80,7 +87,11 @@ known_blockers:
   - Brief 002 Human Operator decision allows internal operator review candidate continuation, but no Publish Readiness or Operator Acceptance is set.
   - Brief 002 dedicated accessibility review completed not publish-ready; Final Source Metadata Review and later Human Operator publish gates remain required.
   - Brief 002 final source metadata review completed not publish-ready; later Human Operator publish gates remain required.
-  - Brief 003 has scaffold only, no text candidate.
+  - Brief 003 has Android-first scaffold, draft candidate, draft candidate review, revision packet, revised draft candidate and revision review, all internal only and not publish-ready.
+  - Brief 003 still lacks screenshot evidence and validated UI paths.
+  - Exact device-specific UI claims remain blocked.
+  - Accessibility testing remains not performed.
+  - No Operator Acceptance and no Publish Readiness.
   - No publish-ready final article exists.
   - WhatsApp line-level evidence is unavailable.
   - WhatsApp Brief 001 remains blocked by missing line evidence.
