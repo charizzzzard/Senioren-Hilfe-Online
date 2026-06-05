@@ -215,7 +215,7 @@ queue_items:
       - docs/operations/android_evidence_preparation/BRIEF_003_ANDROID_OFFICIAL_SOURCE_UI_EVIDENCE_PREPARATION_INTERNAL_ONLY.md
       - docs/content/article_reviews/BRIEF_003_ANDROID_ARTICLE_DRAFT_CANDIDATE_REVISION_REVIEW_INTERNAL_ONLY.md
     produced_outputs:
-      - future_BRIEF_003_ANDROID_SCREENSHOT_CANDIDATE_REGISTER_INTERNAL_ONLY
+      - docs/operations/android_evidence_preparation/BRIEF_003_ANDROID_SCREENSHOT_CANDIDATE_REGISTER_INTERNAL_ONLY.md
     blockers:
       - screenshot_evidence_not_available
       - ui_paths_not_validated
@@ -233,6 +233,39 @@ queue_items:
       - add_monetization
       - treat_external_screenshots_as_evidence_without_review
       - treat_generated_visuals_as_evidence
+      - add_ios_steps
+      - execute_queue
+    human_gate_required: yes
+    automation_candidate: codex_assisted
+    status: completed_internal_register_prepared
+
+  - queue_item_id: CQ-V1-010
+    title: Brief 003 own screenshot capture checklist
+    linked_stage_id: STAGE_03_SOURCE_DISCOVERY_EVIDENCE_GATE
+    linked_brief_id: SHO-MVP-BRIEF-003
+    required_inputs:
+      - docs/operations/android_evidence_preparation/BRIEF_003_ANDROID_SCREENSHOT_CANDIDATE_REGISTER_INTERNAL_ONLY.md
+      - docs/operations/android_evidence_preparation/BRIEF_003_ANDROID_SCREENSHOT_EVIDENCE_DECISION_INTERNAL_ONLY.md
+      - docs/operations/android_evidence_preparation/BRIEF_003_ANDROID_REFERENCE_DEVICE_DECISION_INTERNAL_ONLY.md
+      - docs/operations/android_evidence_preparation/BRIEF_003_ANDROID_SCREENSHOT_EVIDENCE_CAPTURE_PLAN_INTERNAL_ONLY.md
+    produced_outputs:
+      - future_BRIEF_003_ANDROID_OWN_SCREENSHOT_CAPTURE_CHECKLIST_INTERNAL_ONLY
+    blockers:
+      - screenshot_evidence_not_available
+      - ui_paths_not_validated
+      - own_device_capture_not_performed
+      - license_review_required_for_external_candidates
+      - privacy_review_required
+    allowed_next_action: prepare_own_screenshot_capture_checklist_only
+    forbidden_actions:
+      - claim_screenshot_evidence
+      - validate_exact_ui_paths
+      - set_publish_readiness
+      - set_operator_acceptance
+      - activate_public_launch
+      - add_monetization
+      - use_external_screenshot_as_evidence
+      - use_generated_visual_as_evidence
       - add_ios_steps
       - execute_queue
     human_gate_required: yes
