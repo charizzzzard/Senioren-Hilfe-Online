@@ -52,6 +52,37 @@ It is specification-only. It does not implement a runner. It does not execute th
 | blocked_until_human_operator_decision | A later explicit Human Operator decision is required before any implementation or activation. |
 | forbidden_without_human_gate | The action is forbidden unless a documented Human Operator gate explicitly allows it. |
 
+## Task-Type Category: MINIMAL_DOCUMENTATION_QUALITY_PATCH
+
+`MINIMAL_DOCUMENTATION_QUALITY_PATCH` is a small documentation-quality patch category.
+
+It may only improve clarity, references, naming, terminology consistency, Recommended-Next-Step pointers, Markdown structure, Documentation Map entries or documentation-drift reduction.
+
+Allowed:
+
+- update stale Recommended-Next-Step pointers
+- correctly link artifacts that already exist
+- improve small terminology consistency
+- add or correct Documentation Map references
+- clarify scope boundaries
+- clarify Non-Acceptance language
+- synchronize existing specification chains
+
+Forbidden:
+
+- execute the queue
+- mark queue items as completed
+- set Stage Advancement
+- set Publish Readiness
+- set Operator Acceptance
+- prepare or activate Public Launch
+- activate monetization
+- implement runtime
+- create or finalize articles
+- create Evidence or unlock claims
+- create, claim or validate screenshots
+- invent external data, SEO volume, ranking, traffic, revenue or feedback
+
 ## Runner Mode Readiness Matrix
 
 | Runner Mode | Intended Function | Allowed Inputs | Allowed Outputs | Readiness Class | Human Gate Required | Forbidden Actions | Required Validation |
@@ -135,6 +166,7 @@ It is specification-only. It does not implement a runner. It does not execute th
 - Create a later runner dry-run design prompt.
 - Create a later blocked-report-only template.
 - Create a later next-task proposal template.
+- `MINIMAL_DOCUMENTATION_QUALITY_PATCH` may be integrated into future safe specification-only patches when it only reduces documentation drift and does not change status, queue, runtime, gate, article, publish, launch or monetization state.
 - Keep all runtime execution blocked.
 
 ## Forbidden Next Steps
@@ -155,6 +187,6 @@ It is specification-only. It does not implement a runner. It does not execute th
 
 ## Recommended Next Step
 
-`NEXT_TASK_GENERATOR_OUTPUT_CONTRACT_SPECIFICATION_ONLY_INTERNAL`
+`NEXT_TASK_GENERATOR_DRY_RUN_APPLICATION_OR_TRUST_PRIORITIZATION_REVIEW_INTERNAL_ONLY`
 
-Reason: After runner readiness boundaries exist, the next safe step is to define the exact output contract for `propose_next_task` / `blocked_report_only` without implementing runtime or executing the queue.
+Reason: Output Contract, Prompt Template and Dry-Run Design already exist. The next safe use is a report-only application or prioritization review, not another runtime or queue execution step.

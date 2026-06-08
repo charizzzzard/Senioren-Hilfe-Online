@@ -53,6 +53,7 @@ The template describes how an LLM or Codex may read committed repository state, 
 - Check `human_gate_required`.
 - Select exactly one allowed output type from the Output Contract.
 - Produce a specification-only report or candidate.
+- A later prompt may propose `MINIMAL_DOCUMENTATION_QUALITY_PATCH` only for documentation drift reduction and specification consistency.
 
 ## Forbidden Use
 
@@ -68,6 +69,7 @@ The template describes how an LLM or Codex may read committed repository state, 
 - Activate Analytics, Search Console or User Feedback.
 - Unlock blocked claims.
 - Invent source, SEO, ranking, traffic, conversion, revenue, user-feedback or freshness data.
+- Use minimal documentation cleanup as a backdoor for queue completion, stage advancement, acceptance, publishing, runtime, evidence creation or monetization.
 
 ## Prompt Template
 
@@ -141,6 +143,8 @@ Selection order is deterministic:
 3. Else if the requested scope is validation-only, emit `output_type: validation_report_candidate`.
 4. Else if a safe planning/documentation task is possible, emit `output_type: next_task_candidate`.
 5. Else emit `output_type: no_safe_task_available_report`.
+
+If the requested scope is only stale pointer cleanup, Documentation Map alignment or terminology consistency, and no status, queue, runtime or content changes are required, the candidate may use `task_type: MINIMAL_DOCUMENTATION_QUALITY_PATCH`.
 
 Human Gate and blocker handling have priority over `next_task_candidate`. The output must not mark queue items complete, advance stages, set publish/launch/acceptance/monetization status, unlock blocked claims or imply runtime.
 
@@ -247,6 +251,6 @@ Forbidden: runtime, queue execution, queue status change, stage_advanced, publis
 
 ## Recommended Next Step
 
-`NEXT_TASK_GENERATOR_DRY_RUN_DESIGN_SPECIFICATION_ONLY_INTERNAL`
+`NEXT_TASK_GENERATOR_REPORT_ONLY_APPLICATION_REVIEW_INTERNAL_ONLY`
 
-Reason: The prompt template now defines how a later LLM may format specification-only Next-Task outputs. The next safe step is a dry-run design that describes how such outputs would be produced and checked without implementing runtime, executing the queue or changing statuses.
+Reason: The prompt template and dry-run design already exist. The next safe step is report-only application review without implementing runtime, executing the queue or changing statuses.

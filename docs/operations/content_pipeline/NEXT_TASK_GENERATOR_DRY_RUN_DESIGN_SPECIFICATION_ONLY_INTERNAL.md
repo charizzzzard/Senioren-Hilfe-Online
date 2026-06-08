@@ -283,6 +283,54 @@ dry_run_report:
   specification_only: true
 ```
 
+### Example 5: minimal documentation quality patch candidate
+
+```yaml
+dry_run_report:
+  dry_run_id: dry_run_example_minimal_documentation_quality_patch
+  dry_run_mode: dry_run_propose_next_task
+  repo_ref: committed_repo_ref_only
+  source_documents:
+    - docs/operations/content_pipeline/RUNNER_READINESS_MATRIX_SPECIFICATION_ONLY_INTERNAL.md
+    - docs/operations/content_pipeline/NEXT_TASK_GENERATOR_OUTPUT_CONTRACT_SPECIFICATION_ONLY_INTERNAL.md
+    - docs/DOCUMENTATION_MAP.md
+  selected_output_type: next_task_candidate
+  source_queue_item_id: not_applicable_for_doc_quality_cleanup
+  linked_stage_id: specification_only_governance_cleanup
+  required_inputs:
+    - existing_specification_chain
+    - stale_pointer_finding
+  missing_inputs: []
+  blockers: []
+  human_gate_required: false
+  allowed_actions:
+    - update_stale_recommended_next_step_pointer
+    - align_documentation_map_reference
+    - clarify_non_acceptance_boundary
+  forbidden_actions:
+    - execute_queue
+    - change_queue_status
+    - set_publish_readiness
+    - set_operator_acceptance
+    - activate_public_launch
+    - activate_monetization
+    - implement_runtime
+  emitted_candidate:
+    task_type: MINIMAL_DOCUMENTATION_QUALITY_PATCH
+    task_status: specification_only
+  stop_reason: none_for_documentation_drift_cleanup
+  guardrails_confirmed:
+    - no runtime
+    - no queue execution
+    - no queue status change
+    - no stage advancement
+    - no acceptance
+    - no publish readiness
+    - no public launch
+  recommended_next_step: NEXT_TASK_GENERATOR_REPORT_ONLY_PRIORITIZATION_REVIEW_INTERNAL_ONLY
+  specification_only: true
+```
+
 ## Dry Run Validation
 
 A later dry run should be validated by checking:
@@ -295,6 +343,7 @@ A later dry run should be validated by checking:
 - no queue status changes
 - validators pass
 - report-only confirmation
+- `MINIMAL_DOCUMENTATION_QUALITY_PATCH` is allowed as a safe next-task candidate only when the finding is documentation drift or stale next-step pointer cleanup and no queue, status, runtime, gate, article, screenshot, publish, launch or monetization work is requested
 
 Required validation commands remain existing checks only unless a later prompt explicitly changes validation:
 
@@ -320,6 +369,6 @@ A dry run is not an implicit runtime approval path. Any later runtime requires:
 
 ## Recommended Next Step
 
-`TRUST_ASSET_SCORECARD_SPECIFICATION_ONLY_INTERNAL`
+`APPLY_EXISTING_NEXT_TASK_AND_TRUST_SCORECARD_CONTRACTS_TO_SAFE_NON_RUNTIME_PRIORITIZATION_INTERNAL_ONLY`
 
-Reason: The dry-run design now defines report-only behavior. The next highest-trust specification-only step is a Trust Asset Scorecard that can evaluate whether future tasks strengthen senior-first trust before any publish, launch, runtime, analytics or monetization gate is considered.
+Reason: Dry-Run Design, Trust Asset Scorecard, Scorecard Application Template and Next Work Items application already exist. The next safe phase should use them as report-only prioritization input without runtime or queue execution.

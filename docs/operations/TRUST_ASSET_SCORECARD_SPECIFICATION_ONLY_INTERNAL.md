@@ -328,6 +328,6 @@ The following examples show how the scorecard could be used later. They are not 
 
 ## Recommended Next Step
 
-`TRUST_ASSET_SCORECARD_APPLICATION_TEMPLATE_INTERNAL_ONLY`
+`NEXT_TASK_GENERATOR_REPORT_ONLY_PRIORITIZATION_REVIEW_INTERNAL_ONLY`
 
-Reason: After this scorecard exists, the smallest safe next step is an application template that shows exactly how to apply the scorecard to one future work item without turning the score into Operator Acceptance, Publish Readiness, Public Launch, runtime execution or queue execution.
+Reason: The scorecard, application template and next-work-items application already exist. The next safe use is a report-only prioritization review that applies existing contracts without turning a score into Operator Acceptance, Publish Readiness, Public Launch, runtime execution or queue execution.

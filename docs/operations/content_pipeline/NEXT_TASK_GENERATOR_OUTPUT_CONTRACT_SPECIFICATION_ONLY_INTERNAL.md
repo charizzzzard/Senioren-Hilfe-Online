@@ -196,6 +196,50 @@ recommended_next_step: KEYWORD_VALIDATION_PLANNING_REVIEW_SPECIFICATION_ONLY
 specification_only: true
 ```
 
+### Allowed Task Type: MINIMAL_DOCUMENTATION_QUALITY_PATCH
+
+`MINIMAL_DOCUMENTATION_QUALITY_PATCH` may be emitted only as a `next_task_candidate`.
+
+It is allowed only when:
+
+- `specification_only: true`
+- no queue is executed
+- no status value is escalated
+- no Human Gate is simulated
+- no article, screenshot, Evidence, publish, launch, monetization or runtime work is created
+
+Allowed scope:
+
+- stale Recommended-Next-Step pointer cleanup
+- Documentation Map reference alignment
+- terminology consistency
+- Markdown structure cleanup
+- scope-boundary clarification
+- Non-Acceptance clarification
+- specification-chain drift reduction
+
+Example:
+
+```yaml
+output_type: next_task_candidate
+task_type: MINIMAL_DOCUMENTATION_QUALITY_PATCH
+task_status: specification_only
+allowed_actions:
+  - update_stale_recommended_next_step_pointer
+  - align_documentation_map_reference
+  - clarify_non_acceptance_boundary
+forbidden_actions:
+  - execute_queue
+  - change_queue_status
+  - set_publish_readiness
+  - set_operator_acceptance
+  - activate_public_launch
+  - activate_monetization
+  - implement_runtime
+  - create_or_publish_article
+specification_only: true
+```
+
 ## Output Type Contract: blocker_report
 
 | Contract Field | Definition |
@@ -415,6 +459,6 @@ These terms are allowed in this contract only as forbidden semantics, guardrails
 
 ## Recommended Next Step
 
-`NEXT_TASK_GENERATOR_PROMPT_TEMPLATE_SPECIFICATION_ONLY_INTERNAL`
+`NEXT_TASK_GENERATOR_REPORT_ONLY_APPLICATION_REVIEW_INTERNAL_ONLY`
 
-Reason: After the output contract exists, the next safe step is a specification-only prompt template that uses these output schemas without implementing runtime or executing the queue.
+Reason: The Output Contract and Prompt Template exist. The next safe step is to apply them in a report-only review or prioritization context without runtime or queue execution.

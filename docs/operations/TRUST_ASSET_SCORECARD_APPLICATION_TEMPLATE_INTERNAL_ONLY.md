@@ -397,6 +397,6 @@ P. Non-Acceptance Confirmation
 
 ## Recommended Next Step
 
-`APPLY_TRUST_ASSET_SCORECARD_TO_NEXT_WORK_ITEMS_INTERNAL_ONLY`
+`NEXT_TASK_GENERATOR_REPORT_ONLY_PRIORITIZATION_REVIEW_INTERNAL_ONLY`
 
-Reason: The scorecard and this application template now define how to evaluate trust contribution safely. The next useful step should be the first controlled application across concrete next-work candidates: Brief 002 Decision Packet, Brief 003 Scope Decision, Static Preview Review, Article Template V1 and Dry-Run Report Template.
+Reason: The scorecard application template and the next-work-items application already exist. The next useful step should be report-only prioritization review using the existing contracts, without queue execution, status changes or Human Operator decision simulation.

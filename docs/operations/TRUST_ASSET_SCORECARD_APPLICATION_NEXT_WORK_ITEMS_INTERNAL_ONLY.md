@@ -505,17 +505,15 @@ Rank is an internal prioritization recommendation only. Rank does not change que
 ## I. Recommended Next Work Item
 
 ```yaml
-recommended_next_work_item: BRIEF_003_SCOPE_DECISION_RECORD_INTERNAL_ONLY
+recommended_next_work_item: NEXT_TASK_GENERATOR_REPORT_ONLY_PRIORITIZATION_REVIEW_INTERNAL_ONLY
 ```
 
 Reason:
 
-- It is the highest-scoring candidate under the Scorecard application.
-- It addresses a current repo blocker in `CQ-V1-003`: `device_version_scope_unresolved`, `screenshot_evidence_not_available`, and `no_text_candidate`.
-- It improves evidence and Senior-UX safety before any Brief 003 article body exists.
-- It is more concrete than another abstract automation/report template.
-- It carries a clear Human Gate and therefore does not imply article creation, Publish Readiness, Operator Acceptance or queue execution.
-- It has lower immediate publish-confusion risk than Brief 002, which sits at a publish-candidate decision gate.
+- This is a drift-sync update only; it does not recalculate the historical scorecard comparison.
+- The previously recommended Brief 003 Scope Decision artifact already exists.
+- The next safe use of this application is report-only prioritization review using current repo state.
+- It must not continue Brief 003, execute the queue, change queue status, set Publish Readiness, set Operator Acceptance or advance a stage.
 
 ## J. Why This Is Not Acceptance
 
