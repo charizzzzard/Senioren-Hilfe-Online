@@ -73,6 +73,7 @@ REQUIRED_DOCS = [
     "docs/operations/operator_decisions/README.md",
     "docs/operations/operator_decisions/HUMAN_OPERATOR_DECISION_BATCH01_BRIEF002_001.md",
     "docs/operations/operator_decisions/HUMAN_OPERATOR_DECISION_BATCH01_BRIEF002_002.md",
+    "docs/operations/operator_decisions/HUMAN_OPERATOR_DECISION_BRIEF_003_NO_SCREENSHOT_PATH_OPTION_C_INTERNAL_ONLY.md",
     "docs/operations/operator_decisions/HUMAN_OPERATOR_DECISION_FINAL_ARTICLE_CANDIDATE_BRIEF_002.md",
     "docs/operations/operator_decisions/HUMAN_OPERATOR_DECISION_STATIC_PREVIEW_SKELETON_IMPLEMENTATION.md",
     "docs/operations/operator_review_packets/HUMAN_OPERATOR_REVIEW_PACKET_FINAL_ARTICLE_CANDIDATE_BRIEF_002.md",
@@ -388,6 +389,13 @@ EXPECTED_OPERATOR_DECISIONS = {
         "linked_final_legal_wording_review": FINAL_LEGAL_WORDING_REVIEW_REL_PATH,
         "linked_final_article_prep_gate_review": FINAL_ARTICLE_PREP_GATE_REVIEW_REL_PATH,
         "decision_status": "proceed_to_final_article_preparation_not_publish_ready",
+    },
+    "HUMAN_OPERATOR_DECISION_BRIEF_003_NO_SCREENSHOT_PATH_OPTION_C_INTERNAL_ONLY.md": {
+        "decision_id": "HUMAN_OPERATOR_DECISION_BRIEF_003_NO_SCREENSHOT_PATH_OPTION_C_INTERNAL_ONLY",
+        "linked_brief_id": "SHO-MVP-BRIEF-003",
+        "selected_option": "C",
+        "selected_option_label": "pivot_to_another_screenshot_independent_work_item",
+        "decision_status": "recorded",
     },
     "HUMAN_OPERATOR_DECISION_FINAL_ARTICLE_CANDIDATE_BRIEF_002.md": {
         "operator_decision_id": "HUMAN_OPERATOR_DECISION_FINAL_ARTICLE_CANDIDATE_BRIEF_002",
@@ -2247,6 +2255,122 @@ def validate_operator_decisions(failures: list[str]) -> int:
         text = path.read_text(encoding="utf-8")
         fields = parse_frontmatter_fields(text)
         expected = EXPECTED_OPERATOR_DECISIONS[file_name]
+
+        if file_name == "HUMAN_OPERATOR_DECISION_BRIEF_003_NO_SCREENSHOT_PATH_OPTION_C_INTERNAL_ONLY.md":
+            required_fragments = [
+                f"decision_id: {expected['decision_id']}",
+                f"decision_status: {expected['decision_status']}",
+                "decision_scope: brief_003_no_screenshot_path",
+                f"linked_brief_id: {expected['linked_brief_id']}",
+                f"selected_option: {expected['selected_option']}",
+                f"selected_option_label: {expected['selected_option_label']}",
+                "artifact_status: internal_only",
+                "screenshot_evidence_status: not_available",
+                "ui_path_status: not_validated",
+                "own_capture_status: not_performed",
+                "accessibility_testing_status: not_performed",
+                "wcag_conformance_status: not_claimed",
+                "brief_003_publish_readiness_status: not_ready",
+                "operator_acceptance_status: not_accepted",
+                "public_launch_status: not_ready",
+                "monetization_status: not_approved",
+                "analytics_status: not_connected",
+                "search_console_status: not_connected",
+                "user_feedback_status: not_collected",
+                "stage_advancement_status: not_advanced",
+                "queue_execution_status: not_live",
+                "pivot_to_another_screenshot_independent_work_item",
+                "pivot_to_next_screenshot_independent_work_item_only",
+                "screenshot_evidence_not_available",
+                "ui_paths_not_validated",
+                "exact_device_specific_claims_blocked",
+                "accessibility_testing_not_performed",
+                "no_publish_gate",
+                "no_operator_acceptance",
+                "Brief 003 remains internal-only",
+                "Brief 003 is not advanced to final article",
+                "Brief 003 is not publish-ready",
+                "no screenshot evidence exists",
+                "no own screenshots were captured",
+                "no external screenshots are used as evidence",
+                "no generated visuals are used as evidence",
+                "no exact Android / Samsung / One UI paths are validated",
+                "no accessibility testing is claimed",
+                "no WCAG conformance is claimed",
+                "no Operator Acceptance is set",
+                "no Public Launch is activated",
+                "no Monetization is activated",
+                "Brief 002 publish-candidate pre-gate decision packet preparation",
+                "Keyword/source planning without invented metrics",
+            ]
+            for fragment in required_fragments:
+                if fragment not in text:
+                    failures.append(
+                        f"Operator decision {file_name} must contain: {fragment}"
+                    )
+
+            if fields.get("decision_id") != expected["decision_id"]:
+                failures.append(f"Operator decision {file_name} has unexpected decision_id")
+            if normalized(fields.get("decision_status")) != expected["decision_status"]:
+                failures.append(f"Operator decision {file_name} must have decision_status recorded")
+            if fields.get("linked_brief_id") != expected["linked_brief_id"]:
+                failures.append(f"Operator decision {file_name} must link to Brief 003")
+            if normalized(fields.get("selected_option")) != expected["selected_option"].lower():
+                failures.append(f"Operator decision {file_name} must select Option C")
+            if normalized(fields.get("selected_option_label")) != expected["selected_option_label"]:
+                failures.append(f"Operator decision {file_name} must select the Option C pivot label")
+            if normalized(fields.get("screenshot_evidence_status")) != "not_available":
+                failures.append(f"Operator decision {file_name} must keep screenshot evidence unavailable")
+            if normalized(fields.get("ui_path_status")) != "not_validated":
+                failures.append(f"Operator decision {file_name} must keep UI paths not validated")
+            if normalized(fields.get("own_capture_status")) != "not_performed":
+                failures.append(f"Operator decision {file_name} must keep own capture not performed")
+            if normalized(fields.get("accessibility_testing_status")) != "not_performed":
+                failures.append(f"Operator decision {file_name} must keep accessibility testing not performed")
+            if normalized(fields.get("wcag_conformance_status")) != "not_claimed":
+                failures.append(f"Operator decision {file_name} must keep WCAG conformance not claimed")
+            if normalized(fields.get("brief_003_publish_readiness_status")) != "not_ready":
+                failures.append(f"Operator decision {file_name} must keep Brief 003 not publish-ready")
+            if normalized(fields.get("operator_acceptance_status")) != "not_accepted":
+                failures.append(f"Operator decision {file_name} must keep Operator Acceptance not accepted")
+            if normalized(fields.get("public_launch_status")) != "not_ready":
+                failures.append(f"Operator decision {file_name} must keep public launch not ready")
+            if normalized(fields.get("monetization_status")) != "not_approved":
+                failures.append(f"Operator decision {file_name} must keep monetization not approved")
+            if normalized(fields.get("analytics_status")) != "not_connected":
+                failures.append(f"Operator decision {file_name} must keep analytics not connected")
+            if normalized(fields.get("search_console_status")) != "not_connected":
+                failures.append(f"Operator decision {file_name} must keep Search Console not connected")
+            if normalized(fields.get("user_feedback_status")) != "not_collected":
+                failures.append(f"Operator decision {file_name} must keep user feedback not collected")
+            if normalized(fields.get("stage_advancement_status")) != "not_advanced":
+                failures.append(f"Operator decision {file_name} must keep stage not advanced")
+            if normalized(fields.get("queue_execution_status")) != "not_live":
+                failures.append(f"Operator decision {file_name} must keep queue execution not live")
+
+            forbidden_fragments = [
+                "screenshot_evidence_status: available",
+                "ui_path_status: validated",
+                "own_capture_status: performed",
+                "accessibility_testing_status: performed",
+                "wcag_conformance_status: claimed",
+                "brief_003_publish_readiness_status: ready",
+                "operator_acceptance_status: accepted",
+                "public_launch_status: ready",
+                "monetization_status: approved",
+                "analytics_status: connected",
+                "search_console_status: connected",
+                "user_feedback_status: collected",
+                "stage_advancement_status: advanced",
+                "queue_execution_status: live",
+            ]
+            lower_text = text.lower()
+            for fragment in forbidden_fragments:
+                if fragment in lower_text:
+                    failures.append(
+                        f"Operator decision {file_name} must not contain active forbidden marker: {fragment}"
+                    )
+            continue
 
         if file_name == "HUMAN_OPERATOR_DECISION_STATIC_PREVIEW_SKELETON_IMPLEMENTATION.md":
             required_fragments = [
