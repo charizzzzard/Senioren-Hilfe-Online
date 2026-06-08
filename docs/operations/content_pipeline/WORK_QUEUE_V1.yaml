@@ -180,18 +180,22 @@ queue_items:
       - docs/content/article_draft_candidates/BRIEF_003_ANDROID_ARTICLE_DRAFT_CANDIDATE_REVISION_INTERNAL_ONLY.md
       - docs/content/article_reviews/BRIEF_003_ANDROID_ARTICLE_DRAFT_CANDIDATE_REVISION_REVIEW_INTERNAL_ONLY.md
       - docs/content/article_reviews/BRIEF_003_ANDROID_ARTICLE_DRAFT_CANDIDATE_REVISION_PACKET_INTERNAL_ONLY.md
+      - docs/content/article_reviews/BRIEF_003_ANDROID_NO_SCREENSHOT_READER_EXPERIENCE_REVIEW_INTERNAL_ONLY.md
+      - docs/operations/android_evidence_preparation/BRIEF_003_ANDROID_SCREENSHOT_CAPTURE_UNAVAILABLE_BLOCKER_RECORD_INTERNAL_ONLY.md
       - docs/operations/android_evidence_preparation/BRIEF_003_ANDROID_OFFICIAL_SOURCE_UI_EVIDENCE_PREPARATION_INTERNAL_ONLY.md
       - docs/operations/android_evidence_preparation/BRIEF_003_ANDROID_SCREENSHOT_EVIDENCE_STRATEGY_REVISION_INTERNAL_ONLY.md
     produced_outputs:
-      - future_internal_next_gate_decision_or_screenshot_evidence_path
+      - docs/operations/android_evidence_preparation/BRIEF_003_ANDROID_NO_SCREENSHOT_PATH_DECISION_PACKET_INTERNAL_ONLY.md
+      - future_human_operator_decision_on_screenshot_less_path
     blockers:
       - screenshot_evidence_not_available
       - ui_paths_not_validated
       - exact_device_specific_claims_blocked
       - accessibility_testing_not_performed
+      - human_operator_decision_required
       - no_publish_gate
       - no_operator_acceptance
-    allowed_next_action: choose_conservative_internal_next_gate_or_screenshot_evidence_review_path_only
+    allowed_next_action: human_operator_decision_on_screenshot_less_path_only
     forbidden_actions:
       - set_publish_readiness
       - set_operator_acceptance
@@ -203,7 +207,7 @@ queue_items:
       - execute_queue
     human_gate_required: yes
     automation_candidate: codex_assisted
-    status: pending_internal_next_gate_decision
+    status: pending_human_operator_decision
 
   - queue_item_id: CQ-V1-009
     title: Brief 003 screenshot candidate register or evidence decision follow-up
