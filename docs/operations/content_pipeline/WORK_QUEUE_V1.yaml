@@ -280,16 +280,18 @@ queue_items:
       - docs/operations/android_evidence_preparation/BRIEF_003_ANDROID_OWN_SCREENSHOT_CAPTURE_CHECKLIST_INTERNAL_ONLY.md
       - docs/operations/android_evidence_preparation/BRIEF_003_ANDROID_SCREENSHOT_CANDIDATE_REGISTER_INTERNAL_ONLY.md
       - docs/operations/android_evidence_preparation/BRIEF_003_ANDROID_REFERENCE_DEVICE_DECISION_INTERNAL_ONLY.md
+      - docs/operations/android_evidence_preparation/BRIEF_003_ANDROID_SCREENSHOT_CAPTURE_UNAVAILABLE_BLOCKER_RECORD_INTERNAL_ONLY.md
     produced_outputs:
       - future_manual_screenshot_files_not_created_by_codex
       - future_BRIEF_003_ANDROID_OWN_SCREENSHOT_CAPTURE_LOG_INTERNAL_ONLY
     blockers:
+      - human_operator_capture_unavailable
       - own_device_capture_not_performed
       - screenshot_evidence_not_available
       - ui_paths_not_validated
       - privacy_review_required
       - metadata_review_required
-    allowed_next_action: human_operator_manual_capture_only
+    allowed_next_action: screenshot_independent_work_queue_triage_only
     forbidden_actions:
       - claim_screenshot_evidence
       - validate_exact_ui_paths
@@ -303,4 +305,4 @@ queue_items:
       - execute_queue
     human_gate_required: yes
     automation_candidate: human_controlled
-    status: manual_only_pending_operator
+    status: blocked_by_human_operator_input_unavailable
