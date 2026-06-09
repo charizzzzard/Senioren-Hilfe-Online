@@ -488,6 +488,18 @@ final_article_candidate_status:
     - publish_ready
     - public_launch_ready
 
+internal_candidate_status:
+  allowed:
+    - internal_only
+    - internal_spinoff_candidate_not_official_batch_brief
+    - final_article_candidate_preparation_decision_recorded_internal_only
+  forbidden_by_codex:
+    - publish_ready
+    - operator_accepted
+    - approved_for_publish
+    - public_launch_ready
+    - monetization_approved
+
 citation_text_status:
   allowed:
     - prepared_not_final
@@ -607,10 +619,21 @@ queue_item_status:
     - pending_human_operator_gate
     - pending_human_operator_decision
     - pending_internal_planning
+    - completed_internal_decision_recorded
     - completed_internal_planning
     - future_candidate
     - planning_only
     - blocked_until_human_operator_decision
+    - blocked_by_human_operator_input_unavailable
+    - completed_internal_register_prepared
+    - completed_internal_checklist_prepared
+    - internal_review_prepared
+    - internal_draft_candidate_prepared
+    - internal_draft_candidate_review_prepared
+    - internal_revision_candidate_prepared
+    - internal_revision_candidate_review_prepared
+    - final_article_preparation_gate_review_prepared_internal_only
+    - human_operator_decision_recorded_internal_only
     - blocked
     - superseded
   forbidden_by_codex:
@@ -620,6 +643,17 @@ queue_item_status:
     - publish_ready
     - public_launch_ready
     - monetization_approved
+    - queue_executed_live
+
+stage_mapping_note_status:
+  allowed:
+    - acceptable_temporary_conservative_mapping
+    - dedicated_stage_not_defined
+    - cleanup_recommended_not_required_for_safety
+  forbidden_by_codex:
+    - stage_advanced
+    - publish_ready
+    - operator_accepted
 
 automation_level:
   allowed:

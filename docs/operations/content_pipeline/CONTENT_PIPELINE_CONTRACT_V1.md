@@ -29,7 +29,8 @@ Der Contract ist nicht live. Er erzeugt keine Artikel, keine Publish Readiness, 
 - Keine rechtliche Freigabe.
 - Keine echten Analytics-, Search-Console-, Keyword-, Ranking-, Traffic-, CTR-, Conversion-, Revenue- oder Nutzerfeedbackdaten.
 - Brief 002 hat einen Final Article Candidate, bleibt aber nicht publish-ready.
-- Brief 003 hat Scaffold, SEO-Planung, Scope-Packet und Screenshot-Requirements, aber keinen Text Candidate.
+- Brief 003 hat interne Android-first Draft-Candidate-, Revision-Candidate- und Review-Artefakte sowie eine No-Screenshot-Pivot-Entscheidung; Brief 003 bleibt nicht publish-ready, weil Screenshot Evidence, validierte UI-Pfade, exakte device-spezifische Claims, Accessibility Testing, Publish Gate und Operator Acceptance weiterhin unresolved sind.
+- `SHO-INTERNAL-CANDIDATE-001` ist ein interner WhatsApp-Fraud-Checklist Spin-off Candidate nach Brief-003-Option-C-Pivot und Brief-002-Claim-Boundaries. Er ist kein offizieller MVP-Batch-Brief und nicht `SHO-MVP-BRIEF-005`.
 - Brief 001 und Brief 004 behalten ihre Blocker.
 
 ## Automation Level Values

@@ -16,6 +16,35 @@ briefs:
   - brief_id: SHO-MVP-BRIEF-004
     path: docs/content/briefs/smartphone-fuer-senioren-einrichten.md
 
+internal_candidates:
+  - candidate_id: SHO-INTERNAL-CANDIDATE-001
+    title: WhatsApp fraud checklist
+    status: internal_only
+    internal_candidate_label: WhatsApp fraud checklist
+    official_mvp_brief_status: not_assigned
+    batch_membership_status: internal_spinoff_candidate_not_official_batch_brief
+    origin: Brief 003 Option C no-screenshot pivot / Brief 002 WhatsApp fraud claim boundaries
+    produced_outputs:
+      - docs/content/source_inventories/SOURCE_INVENTORY_WHATSAPP_FRAUD_CHECKLIST_BATCH_01_INTERNAL_ONLY.md
+      - docs/content/brief_candidates/BRIEF_CANDIDATE_WHATSAPP_FRAUD_CHECKLIST_BATCH_01_INTERNAL_ONLY.md
+      - docs/content/brief_reviews/BRIEF_CANDIDATE_REVIEW_WHATSAPP_FRAUD_CHECKLIST_BATCH_01_INTERNAL_ONLY.md
+      - docs/content/article_draft_candidates/whatsapp-fraud-checklist.internal-draft-candidate.md
+      - docs/content/article_reviews/whatsapp-fraud-checklist.internal-draft-candidate-review.md
+      - docs/content/article_revision_candidates/whatsapp-fraud-checklist.internal-revision-candidate.md
+      - docs/content/article_reviews/whatsapp-fraud-checklist.internal-revision-candidate-review.md
+      - docs/content/article_reviews/whatsapp-fraud-checklist.final-article-preparation-gate-review.md
+      - docs/operations/operator_decisions/HUMAN_OPERATOR_DECISION_WHATSAPP_FRAUD_CHECKLIST_FINAL_ARTICLE_CANDIDATE_PREPARATION_INTERNAL_ONLY.md
+    allowed_next_action: prepare_final_article_candidate_internal_only
+    forbidden_actions:
+      - set_publish_readiness
+      - set_operator_acceptance
+      - activate_public_launch
+      - activate_monetization
+      - unlock_SHO_CLAIM_007
+      - add_WhatsApp_UI_block_report_steps
+      - add_exact_WhatsApp_UI_paths
+      - invent_SEO_metrics
+
 research_inputs:
   - docs/content/research_inputs/whatsapp-fuer-senioren-sicher-einrichten.research.md
   - docs/content/research_inputs/betrugsnachrichten-auf-whatsapp-erkennen.research.md
@@ -78,7 +107,8 @@ not_enriched:
 
 known_blockers:
   - Article draft scaffolds exist only for Brief 002 and Brief 003.
-  - Article draft candidate exists only for Brief 002.
+  - Official Batch Brief draft candidates exist for Brief 002 and Brief 003 internal-only.
+  - SHO-INTERNAL-CANDIDATE-001 exists separately as an internal spin-off candidate, not an official batch brief.
   - Brief 002 draft candidate reviewed with findings.
   - Brief 002 draft candidate fix re-review passed, but no publish readiness is set.
   - Brief 002 final article candidate exists and is not publish-ready.

@@ -2,6 +2,11 @@
 brief_candidate_id: BRIEF-CANDIDATE-WHATSAPP-FRAUD-CHECKLIST-BATCH-01-INTERNAL-ONLY
 brief_candidate_type: selected_topic_direction_brief_preparation
 selected_topic_direction: WhatsApp fraud warning and calm checklist support for older readers and relatives
+internal_candidate_id: SHO-INTERNAL-CANDIDATE-001
+internal_candidate_label: WhatsApp fraud checklist
+internal_candidate_status: internal_only
+official_mvp_brief_status: not_assigned
+batch_membership_status: internal_spinoff_candidate_not_official_batch_brief
 primary_cluster: SEO-CLUSTER-B01-SAFETY-WHATSAPP-FRAUD
 supporting_keyword_candidates:
   - SEO-SEED-B01-CHK-001

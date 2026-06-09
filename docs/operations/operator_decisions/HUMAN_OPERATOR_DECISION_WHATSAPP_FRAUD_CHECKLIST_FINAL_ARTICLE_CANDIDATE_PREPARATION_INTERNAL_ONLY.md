@@ -5,6 +5,11 @@ decision_scope: final_article_candidate_preparation_decision
 selected_option: proceed_to_final_article_candidate_preparation_internal_only
 linked_gate_review: docs/content/article_reviews/whatsapp-fraud-checklist.final-article-preparation-gate-review.md
 linked_revision_candidate: docs/content/article_revision_candidates/whatsapp-fraud-checklist.internal-revision-candidate.md
+internal_candidate_id: SHO-INTERNAL-CANDIDATE-001
+internal_candidate_label: WhatsApp fraud checklist
+internal_candidate_status: internal_only
+official_mvp_brief_status: not_assigned
+batch_membership_status: internal_spinoff_candidate_not_official_batch_brief
 artifact_status: internal_only
 final_article_candidate_created: false
 final_article_created: false

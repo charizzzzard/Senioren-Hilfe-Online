@@ -3,6 +3,11 @@ revision_candidate_id: WHATSAPP_FRAUD_CHECKLIST_INTERNAL_REVISION_CANDIDATE_BATC
 revision_candidate_status: internal_only
 linked_draft_candidate: docs/content/article_draft_candidates/whatsapp-fraud-checklist.internal-draft-candidate.md
 linked_draft_candidate_review: docs/content/article_reviews/whatsapp-fraud-checklist.internal-draft-candidate-review.md
+internal_candidate_id: SHO-INTERNAL-CANDIDATE-001
+internal_candidate_label: WhatsApp fraud checklist
+internal_candidate_status: internal_only
+official_mvp_brief_status: not_assigned
+batch_membership_status: internal_spinoff_candidate_not_official_batch_brief
 artifact_status: internal_only
 article_status: not_final
 final_article_candidate_status: not_created

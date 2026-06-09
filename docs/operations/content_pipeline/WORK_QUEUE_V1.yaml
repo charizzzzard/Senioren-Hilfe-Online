@@ -345,7 +345,10 @@ queue_items:
   - queue_item_id: CQ-V1-013
     title: WhatsApp fraud checklist brief candidate review
     linked_stage_id: STAGE_02_KEYWORD_QUALIFICATION
-    linked_brief_id: internal_candidate
+    linked_brief_id: SHO-INTERNAL-CANDIDATE-001
+    internal_candidate_id: SHO-INTERNAL-CANDIDATE-001
+    internal_candidate_status: internal_only
+    batch_membership_status: internal_spinoff_candidate_not_official_batch_brief
     required_inputs:
       - docs/content/brief_candidates/BRIEF_CANDIDATE_WHATSAPP_FRAUD_CHECKLIST_BATCH_01_INTERNAL_ONLY.md
       - docs/operations/operator_decisions/HUMAN_OPERATOR_DECISION_BRIEF_003_NO_SCREENSHOT_PATH_OPTION_C_INTERNAL_ONLY.md
@@ -375,7 +378,10 @@ queue_items:
   - queue_item_id: CQ-V1-014
     title: WhatsApp fraud checklist internal draft candidate preparation
     linked_stage_id: STAGE_04_DRAFT_CANDIDATE_PREPARATION
-    linked_brief_id: internal_candidate
+    linked_brief_id: SHO-INTERNAL-CANDIDATE-001
+    internal_candidate_id: SHO-INTERNAL-CANDIDATE-001
+    internal_candidate_status: internal_only
+    batch_membership_status: internal_spinoff_candidate_not_official_batch_brief
     required_inputs:
       - docs/content/brief_candidates/BRIEF_CANDIDATE_WHATSAPP_FRAUD_CHECKLIST_BATCH_01_INTERNAL_ONLY.md
       - docs/content/brief_reviews/BRIEF_CANDIDATE_REVIEW_WHATSAPP_FRAUD_CHECKLIST_BATCH_01_INTERNAL_ONLY.md
@@ -405,7 +411,10 @@ queue_items:
   - queue_item_id: CQ-V1-015
     title: WhatsApp fraud checklist internal draft candidate review
     linked_stage_id: STAGE_05_DRAFT_CANDIDATE_REVIEW
-    linked_brief_id: internal_candidate
+    linked_brief_id: SHO-INTERNAL-CANDIDATE-001
+    internal_candidate_id: SHO-INTERNAL-CANDIDATE-001
+    internal_candidate_status: internal_only
+    batch_membership_status: internal_spinoff_candidate_not_official_batch_brief
     required_inputs:
       - docs/content/article_draft_candidates/whatsapp-fraud-checklist.internal-draft-candidate.md
       - docs/content/brief_reviews/BRIEF_CANDIDATE_REVIEW_WHATSAPP_FRAUD_CHECKLIST_BATCH_01_INTERNAL_ONLY.md
@@ -435,7 +444,11 @@ queue_items:
   - queue_item_id: CQ-V1-016
     title: WhatsApp fraud checklist internal revision candidate preparation
     linked_stage_id: STAGE_05_DRAFT_CANDIDATE_REVIEW
-    linked_brief_id: internal_candidate
+    stage_mapping_note: "Temporary conservative mapping: no dedicated revision/final-preparation gate stage currently defined; no stage advancement claimed."
+    linked_brief_id: SHO-INTERNAL-CANDIDATE-001
+    internal_candidate_id: SHO-INTERNAL-CANDIDATE-001
+    internal_candidate_status: internal_only
+    batch_membership_status: internal_spinoff_candidate_not_official_batch_brief
     required_inputs:
       - docs/content/article_draft_candidates/whatsapp-fraud-checklist.internal-draft-candidate.md
       - docs/content/article_reviews/whatsapp-fraud-checklist.internal-draft-candidate-review.md
@@ -468,7 +481,11 @@ queue_items:
   - queue_item_id: CQ-V1-017
     title: WhatsApp fraud checklist internal revision candidate review
     linked_stage_id: STAGE_05_DRAFT_CANDIDATE_REVIEW
-    linked_brief_id: internal_candidate
+    stage_mapping_note: "Temporary conservative mapping: no dedicated revision/final-preparation gate stage currently defined; no stage advancement claimed."
+    linked_brief_id: SHO-INTERNAL-CANDIDATE-001
+    internal_candidate_id: SHO-INTERNAL-CANDIDATE-001
+    internal_candidate_status: internal_only
+    batch_membership_status: internal_spinoff_candidate_not_official_batch_brief
     required_inputs:
       - docs/content/article_revision_candidates/whatsapp-fraud-checklist.internal-revision-candidate.md
       - docs/content/article_reviews/whatsapp-fraud-checklist.internal-draft-candidate-review.md
@@ -501,7 +518,11 @@ queue_items:
   - queue_item_id: CQ-V1-018
     title: WhatsApp fraud checklist final article preparation gate review
     linked_stage_id: STAGE_05_DRAFT_CANDIDATE_REVIEW
-    linked_brief_id: internal_candidate
+    stage_mapping_note: "Temporary conservative mapping: no dedicated revision/final-preparation gate stage currently defined; no stage advancement claimed."
+    linked_brief_id: SHO-INTERNAL-CANDIDATE-001
+    internal_candidate_id: SHO-INTERNAL-CANDIDATE-001
+    internal_candidate_status: internal_only
+    batch_membership_status: internal_spinoff_candidate_not_official_batch_brief
     required_inputs:
       - docs/content/article_revision_candidates/whatsapp-fraud-checklist.internal-revision-candidate.md
       - docs/content/article_reviews/whatsapp-fraud-checklist.internal-revision-candidate-review.md
@@ -535,7 +556,11 @@ queue_items:
   - queue_item_id: CQ-V1-019
     title: WhatsApp fraud checklist Human Operator decision for final article candidate preparation
     linked_stage_id: STAGE_05_DRAFT_CANDIDATE_REVIEW
-    linked_brief_id: internal_candidate
+    stage_mapping_note: "Temporary conservative mapping: no dedicated revision/final-preparation gate stage currently defined; no stage advancement claimed."
+    linked_brief_id: SHO-INTERNAL-CANDIDATE-001
+    internal_candidate_id: SHO-INTERNAL-CANDIDATE-001
+    internal_candidate_status: internal_only
+    batch_membership_status: internal_spinoff_candidate_not_official_batch_brief
     required_inputs:
       - docs/content/article_reviews/whatsapp-fraud-checklist.final-article-preparation-gate-review.md
     produced_outputs:

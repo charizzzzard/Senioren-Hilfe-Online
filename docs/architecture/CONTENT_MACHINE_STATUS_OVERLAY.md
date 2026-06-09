@@ -37,6 +37,7 @@ Dieses Status Overlay ist keine Freigabe. Es aktiviert keine Runtime, keine Webs
 - `implemented_documented` bedeutet nicht live.
 - `partially_implemented` bedeutet nicht publish-ready.
 - `target_capability` bedeutet nicht gestartet.
+- Interner Candidate bedeutet nicht Publish Readiness und nicht offizieller MVP-Brief.
 - `blocked` ist ein aktiver Schutzstatus, kein Fehler, der automatisch umgangen werden darf.
 - `human_controlled` darf durch Codex nicht in einen Freigabezustand geaendert werden.
 - `not_live` bedeutet, dass keine echten Daten behauptet werden duerfen.
@@ -48,8 +49,9 @@ Dieses Status Overlay ist keine Freigabe. Es aktiviert keine Runtime, keine Webs
 | `MVP_BATCH_01` | `partially_implemented` | Batch steht auf `claim_slots_mapped`. |
 | Brief 001 | `blocked` | WhatsApp Line Evidence fehlt. |
 | Brief 002 | `partially_implemented` / `blocked` | Final Article Candidate und Reviews existieren, aber keine Publish Readiness und keine Operator Acceptance. |
-| Brief 003 | `partially_implemented` | Draft Scaffold existiert, kein Text Candidate. |
+| Brief 003 | `partially_implemented` / `blocked` | Android-first Draft Candidate, Revision Candidate/Review und No-Screenshot-Pivot existieren intern; Screenshot Evidence, validierte UI-Pfade und Operator Acceptance fehlen. |
 | Brief 004 | `blocked` | Commercial-/Affiliate-Risiko und Product Recommendation Methodology offen. |
+| SHO-INTERNAL-CANDIDATE-001 | `partially_implemented` / `internal_only` | WhatsApp-Fraud-Checklist Spin-off Candidate mit interner Gate-Entscheidung fuer spaetere Final Article Candidate Preparation; kein offizieller MVP-Brief, nicht publish-ready. |
 | Search Console | `not_live` | Keine echte Datenquelle verbunden. |
 | Analytics | `not_live` | Keine echte Datenquelle verbunden. |
 | Feedback | `not_live` | Kein Nutzer- oder E-Mail-Feedback gesammelt. |
