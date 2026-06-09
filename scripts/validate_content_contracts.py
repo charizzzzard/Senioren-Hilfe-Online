@@ -398,6 +398,15 @@ EXPECTED_OPERATOR_DECISIONS = {
         "selected_followup_artifact": "docs/content/brief_candidates/BRIEF_CANDIDATE_WHATSAPP_FRAUD_CHECKLIST_BATCH_01_INTERNAL_ONLY.md",
         "decision_status": "recorded",
     },
+    "HUMAN_OPERATOR_DECISION_WHATSAPP_FRAUD_CHECKLIST_FINAL_ARTICLE_CANDIDATE_PREPARATION_INTERNAL_ONLY.md": {
+        "decision_id": "HUMAN_OPERATOR_DECISION_WHATSAPP_FRAUD_CHECKLIST_FINAL_ARTICLE_CANDIDATE_PREPARATION_INTERNAL_ONLY",
+        "decision_status": "recorded_internal_only",
+        "decision_scope": "final_article_candidate_preparation_decision",
+        "selected_option": "proceed_to_final_article_candidate_preparation_internal_only",
+        "linked_gate_review": "docs/content/article_reviews/whatsapp-fraud-checklist.final-article-preparation-gate-review.md",
+        "linked_revision_candidate": "docs/content/article_revision_candidates/whatsapp-fraud-checklist.internal-revision-candidate.md",
+        "allowed_next_action": "prepare_final_article_candidate_internal_only",
+    },
     "HUMAN_OPERATOR_DECISION_FINAL_ARTICLE_CANDIDATE_BRIEF_002.md": {
         "operator_decision_id": "HUMAN_OPERATOR_DECISION_FINAL_ARTICLE_CANDIDATE_BRIEF_002",
         "brief_id": "SHO-MVP-BRIEF-002",
@@ -2368,6 +2377,129 @@ def validate_operator_decisions(failures: list[str]) -> int:
                 "user_feedback_status: collected",
                 "stage_advancement_status: advanced",
                 "queue_execution_status: live",
+            ]
+            lower_text = text.lower()
+            for fragment in forbidden_fragments:
+                if fragment in lower_text:
+                    failures.append(
+                        f"Operator decision {file_name} must not contain active forbidden marker: {fragment}"
+                    )
+            continue
+
+        if file_name == "HUMAN_OPERATOR_DECISION_WHATSAPP_FRAUD_CHECKLIST_FINAL_ARTICLE_CANDIDATE_PREPARATION_INTERNAL_ONLY.md":
+            required_fragments = [
+                f"decision_id: {expected['decision_id']}",
+                f"decision_status: {expected['decision_status']}",
+                f"decision_scope: {expected['decision_scope']}",
+                f"selected_option: {expected['selected_option']}",
+                f"linked_gate_review: {expected['linked_gate_review']}",
+                f"linked_revision_candidate: {expected['linked_revision_candidate']}",
+                "artifact_status: internal_only",
+                "final_article_candidate_created: false",
+                "final_article_created: false",
+                "publish_candidate_status: not_set",
+                "publish_readiness_status: not_ready",
+                "operator_acceptance_status: not_accepted",
+                "public_launch_status: not_ready",
+                "monetization_status: not_approved",
+                "analytics_status: not_connected",
+                "search_console_status: not_connected",
+                "user_feedback_status: not_collected",
+                "seo_metric_status: not_available",
+                "source_verification_status: repo_sources_only_not_live_verified",
+                "sho_claim_007_status: blocked",
+                "whatsapp_ui_instruction_status: blocked",
+                "legal_advice_status: not_provided",
+                "queue_execution_status: not_live",
+                "stage_advancement_status: not_advanced",
+                f"allowed_next_action: {expected['allowed_next_action']}",
+                "Option A",
+                "This selection allows only a later separate internal Final Article Candidate Preparation task.",
+                "It does not create that candidate in this decision record.",
+                "SHO-CLAIM-004",
+                "SHO-CLAIM-005",
+                "SHO-CLAIM-006",
+                "SHO-CLAIM-007 remains blocked",
+                "SHO-SRC-005",
+                "SHO-SRC-006",
+                "SHO-SRC-007",
+                "SHO-SRC-004 remains blocked UI context only",
+                "no Final Article Candidate created",
+                "no Publish Readiness set",
+                "no Operator Acceptance set",
+                "no queue execution",
+                "no stage advancement",
+            ]
+            for fragment in required_fragments:
+                if fragment not in text:
+                    failures.append(
+                        f"Operator decision {file_name} must contain: {fragment}"
+                    )
+
+            if fields.get("decision_id") != expected["decision_id"]:
+                failures.append(f"Operator decision {file_name} has unexpected decision_id")
+            if normalized(fields.get("decision_status")) != expected["decision_status"]:
+                failures.append(f"Operator decision {file_name} must have decision_status recorded_internal_only")
+            if normalized(fields.get("decision_scope")) != expected["decision_scope"]:
+                failures.append(f"Operator decision {file_name} must have final article candidate preparation decision scope")
+            if normalized(fields.get("selected_option")) != expected["selected_option"]:
+                failures.append(f"Operator decision {file_name} must select the internal preparation option")
+            if fields.get("linked_gate_review") != expected["linked_gate_review"]:
+                failures.append(f"Operator decision {file_name} must link the gate review")
+            if fields.get("linked_revision_candidate") != expected["linked_revision_candidate"]:
+                failures.append(f"Operator decision {file_name} must link the revision candidate")
+            if normalized(fields.get("allowed_next_action")) != expected["allowed_next_action"]:
+                failures.append(f"Operator decision {file_name} must allow only internal final article candidate preparation")
+            if normalized(fields.get("final_article_candidate_created")) != "false":
+                failures.append(f"Operator decision {file_name} must not create a Final Article Candidate")
+            if normalized(fields.get("final_article_created")) != "false":
+                failures.append(f"Operator decision {file_name} must not create a final article")
+            if normalized(fields.get("publish_candidate_status")) != "not_set":
+                failures.append(f"Operator decision {file_name} must not set publish candidate status")
+            if normalized(fields.get("publish_readiness_status")) != "not_ready":
+                failures.append(f"Operator decision {file_name} must keep Publish Readiness not ready")
+            if normalized(fields.get("operator_acceptance_status")) != "not_accepted":
+                failures.append(f"Operator decision {file_name} must keep Operator Acceptance not accepted")
+            if normalized(fields.get("public_launch_status")) != "not_ready":
+                failures.append(f"Operator decision {file_name} must keep Public Launch not ready")
+            if normalized(fields.get("monetization_status")) != "not_approved":
+                failures.append(f"Operator decision {file_name} must keep Monetization not approved")
+            if normalized(fields.get("analytics_status")) != "not_connected":
+                failures.append(f"Operator decision {file_name} must keep Analytics not connected")
+            if normalized(fields.get("search_console_status")) != "not_connected":
+                failures.append(f"Operator decision {file_name} must keep Search Console not connected")
+            if normalized(fields.get("user_feedback_status")) != "not_collected":
+                failures.append(f"Operator decision {file_name} must keep User Feedback not collected")
+            if normalized(fields.get("seo_metric_status")) != "not_available":
+                failures.append(f"Operator decision {file_name} must keep SEO metrics unavailable")
+            if normalized(fields.get("source_verification_status")) != "repo_sources_only_not_live_verified":
+                failures.append(f"Operator decision {file_name} must keep source verification repo-only")
+            if normalized(fields.get("sho_claim_007_status")) != "blocked":
+                failures.append(f"Operator decision {file_name} must keep SHO-CLAIM-007 blocked")
+            if normalized(fields.get("whatsapp_ui_instruction_status")) != "blocked":
+                failures.append(f"Operator decision {file_name} must keep WhatsApp UI instructions blocked")
+            if normalized(fields.get("queue_execution_status")) != "not_live":
+                failures.append(f"Operator decision {file_name} must keep queue execution not live")
+            if normalized(fields.get("stage_advancement_status")) != "not_advanced":
+                failures.append(f"Operator decision {file_name} must keep stage advancement not advanced")
+
+            forbidden_fragments = [
+                "final_article_candidate_created: true",
+                "final_article_created: true",
+                "publish_candidate_status: publish_candidate",
+                "publish_readiness_status: ready",
+                "operator_acceptance_status: accepted",
+                "public_launch_status: ready",
+                "monetization_status: approved",
+                "analytics_status: connected",
+                "search_console_status: connected",
+                "user_feedback_status: collected",
+                "seo_metric_status: available",
+                "source_verification_status: live_verified",
+                "sho_claim_007_status: unlocked",
+                "whatsapp_ui_instruction_status: allowed",
+                "queue_execution_status: live",
+                "stage_advancement_status: advanced",
             ]
             lower_text = text.lower()
             for fragment in forbidden_fragments:
