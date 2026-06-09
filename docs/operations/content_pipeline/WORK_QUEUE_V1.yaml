@@ -341,3 +341,33 @@ queue_items:
     human_gate_required: yes
     automation_candidate: codex_assisted
     status: internal_review_prepared
+
+  - queue_item_id: CQ-V1-013
+    title: WhatsApp fraud checklist brief candidate review
+    linked_stage_id: STAGE_02_KEYWORD_QUALIFICATION
+    linked_brief_id: internal_candidate
+    required_inputs:
+      - docs/content/brief_candidates/BRIEF_CANDIDATE_WHATSAPP_FRAUD_CHECKLIST_BATCH_01_INTERNAL_ONLY.md
+      - docs/operations/operator_decisions/HUMAN_OPERATOR_DECISION_BRIEF_003_NO_SCREENSHOT_PATH_OPTION_C_INTERNAL_ONLY.md
+    produced_outputs:
+      - docs/content/brief_reviews/BRIEF_CANDIDATE_REVIEW_WHATSAPP_FRAUD_CHECKLIST_BATCH_01_INTERNAL_ONLY.md
+    blockers:
+      - no_publish_gate
+      - no_operator_acceptance
+      - SHO_CLAIM_007_blocked
+      - no_live_source_verification
+      - no_real_seo_metrics
+    allowed_next_action: prepare_internal_draft_candidate_only_after_review_if_boundaries_pass
+    forbidden_actions:
+      - create_final_article
+      - set_publish_readiness
+      - set_operator_acceptance
+      - activate_public_launch
+      - activate_monetization
+      - unlock_SHO_CLAIM_007
+      - add_WhatsApp_UI_block_report_steps
+      - invent_SEO_metrics
+      - execute_queue
+    human_gate_required: yes
+    automation_candidate: codex_assisted
+    status: internal_review_prepared

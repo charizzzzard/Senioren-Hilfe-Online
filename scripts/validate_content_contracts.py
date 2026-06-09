@@ -395,6 +395,7 @@ EXPECTED_OPERATOR_DECISIONS = {
         "linked_brief_id": "SHO-MVP-BRIEF-003",
         "selected_option": "C",
         "selected_option_label": "pivot_to_another_screenshot_independent_work_item",
+        "selected_followup_artifact": "docs/content/brief_candidates/BRIEF_CANDIDATE_WHATSAPP_FRAUD_CHECKLIST_BATCH_01_INTERNAL_ONLY.md",
         "decision_status": "recorded",
     },
     "HUMAN_OPERATOR_DECISION_FINAL_ARTICLE_CANDIDATE_BRIEF_002.md": {
@@ -2264,6 +2265,7 @@ def validate_operator_decisions(failures: list[str]) -> int:
                 f"linked_brief_id: {expected['linked_brief_id']}",
                 f"selected_option: {expected['selected_option']}",
                 f"selected_option_label: {expected['selected_option_label']}",
+                f"selected_followup_artifact: {expected['selected_followup_artifact']}",
                 "artifact_status: internal_only",
                 "screenshot_evidence_status: not_available",
                 "ui_path_status: not_validated",
@@ -2280,7 +2282,8 @@ def validate_operator_decisions(failures: list[str]) -> int:
                 "stage_advancement_status: not_advanced",
                 "queue_execution_status: not_live",
                 "pivot_to_another_screenshot_independent_work_item",
-                "pivot_to_next_screenshot_independent_work_item_only",
+                "review_selected_screenshot_independent_brief_candidate_only",
+                "BRIEF_CANDIDATE_WHATSAPP_FRAUD_CHECKLIST_BATCH_01_INTERNAL_ONLY",
                 "screenshot_evidence_not_available",
                 "ui_paths_not_validated",
                 "exact_device_specific_claims_blocked",
@@ -2300,8 +2303,8 @@ def validate_operator_decisions(failures: list[str]) -> int:
                 "no Operator Acceptance is set",
                 "no Public Launch is activated",
                 "no Monetization is activated",
-                "Brief 002 publish-candidate pre-gate decision packet preparation",
-                "Keyword/source planning without invented metrics",
+                "The project pivots to another screenshot-independent work item: the internal WhatsApp fraud checklist brief candidate for older readers and relatives.",
+                "no unlock of `SHO-CLAIM-007`",
             ]
             for fragment in required_fragments:
                 if fragment not in text:
@@ -2319,6 +2322,8 @@ def validate_operator_decisions(failures: list[str]) -> int:
                 failures.append(f"Operator decision {file_name} must select Option C")
             if normalized(fields.get("selected_option_label")) != expected["selected_option_label"]:
                 failures.append(f"Operator decision {file_name} must select the Option C pivot label")
+            if fields.get("selected_followup_artifact") != expected["selected_followup_artifact"]:
+                failures.append(f"Operator decision {file_name} must link the selected WhatsApp brief candidate follow-up")
             if normalized(fields.get("screenshot_evidence_status")) != "not_available":
                 failures.append(f"Operator decision {file_name} must keep screenshot evidence unavailable")
             if normalized(fields.get("ui_path_status")) != "not_validated":

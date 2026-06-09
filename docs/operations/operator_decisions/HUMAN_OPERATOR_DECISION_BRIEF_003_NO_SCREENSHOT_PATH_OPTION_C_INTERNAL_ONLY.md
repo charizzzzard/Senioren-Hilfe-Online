@@ -5,6 +5,7 @@ decision_scope: brief_003_no_screenshot_path
 linked_brief_id: SHO-MVP-BRIEF-003
 selected_option: C
 selected_option_label: pivot_to_another_screenshot_independent_work_item
+selected_followup_artifact: docs/content/brief_candidates/BRIEF_CANDIDATE_WHATSAPP_FRAUD_CHECKLIST_BATCH_01_INTERNAL_ONLY.md
 artifact_status: internal_only
 screenshot_evidence_status: not_available
 ui_path_status: not_validated
@@ -35,17 +36,20 @@ It records only the Human Operator-provided selection. Codex does not decide, ap
 ```yaml
 human_operator_decision:
   selected_option: C
-  decision_status: pivot_to_another_screenshot_independent_work_item
-  allowed_next_action: pivot_to_next_screenshot_independent_work_item_only
+  selected_option_label: pivot_to_another_screenshot_independent_work_item
+  decision_status: recorded
+  decision_scope: brief_003_no_screenshot_path
+  selected_followup_artifact: docs/content/brief_candidates/BRIEF_CANDIDATE_WHATSAPP_FRAUD_CHECKLIST_BATCH_01_INTERNAL_ONLY.md
+  allowed_next_action: review_selected_screenshot_independent_brief_candidate_only
 ```
 
-Selected Option C means the project pivots away from further Brief 003 advancement for now and chooses another screenshot-independent work item.
+Selected Option C means the project pivots away from further Brief 003 advancement and reviews the existing internal WhatsApp-Fraud-Checklist Brief Candidate as the selected screenshot-independent follow-up artifact.
 
 ## 3. Decision Rationale
 
-The Human Operator currently cannot capture own Android screenshots. Therefore Brief 003 must not be advanced toward final article, Screenshot Evidence, exact UI path validation, Publish Readiness or Operator Acceptance.
+The Human Operator currently cannot capture own Android screenshots. Therefore Brief 003 must remain internal-only and must not be advanced toward final article, Screenshot Evidence, exact UI path validation, Publish Readiness or Operator Acceptance.
 
-Brief 003 remains preserved as internal-only. The project should pivot to another screenshot-independent work item, preferably Brief 002 pre-gate preparation or a minimal status / queue consistency sync.
+The project pivots to another screenshot-independent work item: the internal WhatsApp fraud checklist brief candidate for older readers and relatives.
 
 ## 4. What Option C Allows
 
@@ -54,10 +58,9 @@ Option C allows:
 - preserve Brief 003 as internal-only
 - keep all Brief 003 screenshot and UI-path blockers active
 - pivot to another screenshot-independent work item
-- prepare Brief 002 publish-candidate pre-gate decision packet
-- perform minimal Batch 01 status / queue consistency sync
-- prepare Brief 004 monetization methodology decision packet
-- continue keyword/source planning without invented metrics
+- review the selected WhatsApp-Fraud-Checklist Brief Candidate internally
+- continue source/claim/reader-experience review without creating an article
+- keep `SHO-CLAIM-007` blocked
 
 ## 5. What Option C Does Not Allow
 
@@ -72,6 +75,8 @@ Option C does not allow:
 - iOS steps
 - Accessibility Testing claims
 - WCAG conformance claims
+- WhatsApp block/report UI instructions
+- unlock of `SHO-CLAIM-007`
 - Operator Acceptance
 - Public Launch
 - Monetization
@@ -103,7 +108,7 @@ brief_003_preserved_state:
   queue_execution_status: not_live
 ```
 
-Brief 003 remains an internal Android-first evidence and draft chain. It is not a final article and not publish-ready.
+Brief 003 remains an internal Android-first evidence and draft chain. It is not a final article, not a draft advancement, not publish-ready and not accepted by the Operator.
 
 ## 7. Required Blockers Carried Forward
 
@@ -119,35 +124,39 @@ required_blockers_carried_forward:
 
 These blockers remain true after this decision record. This decision does not remove or resolve them.
 
-## 8. Recommended Next Screenshot-Independent Work
-
-Candidate next work items, not executed by this record:
-
-1. Brief 002 publish-candidate pre-gate decision packet preparation
-2. Minimal Batch 01 status / queue consistency sync
-3. Brief 004 monetization methodology decision packet preparation
-4. Keyword/source planning without invented metrics
-
-Recommended immediate direction:
+## 8. Selected Screenshot-Independent Follow-Up Work
 
 ```yaml
-recommended_next_screenshot_independent_work:
-  primary_candidate: Brief 002 publish-candidate pre-gate decision packet preparation
-  existing_queue_reference: CQ-V1-002
-  boundary: prepare_pre_gate_decision_packet_only_no_publish_readiness_no_operator_acceptance
+selected_screenshot_independent_follow_up:
+  artifact: docs/content/brief_candidates/BRIEF_CANDIDATE_WHATSAPP_FRAUD_CHECKLIST_BATCH_01_INTERNAL_ONLY.md
+  work_type: internal_brief_candidate_review
+  allowed_next_action: review_selected_screenshot_independent_brief_candidate_only
+  boundaries:
+    - no article creation
+    - no draft candidate creation
+    - no final article creation
+    - no publish readiness
+    - no operator acceptance
+    - no queue execution
+    - no unlock of SHO-CLAIM-007
 ```
+
+The selected follow-up work is the existing internal WhatsApp-Fraud-Checklist Brief Candidate for older readers and relatives. Reviewing it does not advance Brief 003 and does not create a new article artifact.
 
 ## 9. Explicit Forbidden Actions
 
 Forbidden:
 
 - create a final article
+- create an article draft candidate
 - create screenshots
 - claim screenshot evidence
 - use external screenshots as evidence
 - treat generated visuals as evidence
 - validate exact UI paths
 - add iOS steps
+- add WhatsApp block/report UI instructions
+- unlock `SHO-CLAIM-007`
 - claim accessibility testing
 - claim WCAG conformance
 - set publish_candidate
@@ -183,5 +192,7 @@ Forbidden:
 - Search Console remains not connected
 - User Feedback remains not collected
 - no queue execution
-- no queue status advancement beyond recording this internal decision
+- no queue status advancement beyond recording and reviewing internal artifacts
 - no stage advancement
+- no unlock of `SHO-CLAIM-007`
+- `SHO-CLAIM-007` remains blocked
