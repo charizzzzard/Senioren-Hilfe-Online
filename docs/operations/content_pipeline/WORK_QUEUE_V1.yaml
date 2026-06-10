@@ -985,3 +985,54 @@ queue_items:
     human_gate_required: no
     automation_candidate: codex_assisted
     status: internal_review_prepared
+
+  - queue_item_id: CQ-V1-029
+    title: SHO-INTERNAL-CANDIDATE-001 source metadata freshness review
+    linked_stage_id: STAGE_09_QUALITY_READER_ACCESSIBILITY_SAFETY_REVIEWS
+    linked_brief_id: SHO-INTERNAL-CANDIDATE-001
+    internal_candidate_id: SHO-INTERNAL-CANDIDATE-001
+    internal_candidate_status: internal_only
+    batch_membership_status: internal_spinoff_candidate_not_official_batch_brief
+    required_inputs:
+      - docs/content/final_article_candidates/whatsapp-fraud-checklist.final-article-candidate.md
+      - docs/content/article_reviews/whatsapp-fraud-checklist.final-article-candidate-review.md
+      - docs/content/article_reviews/whatsapp-fraud-checklist.final-article-preparation-gate-review.md
+      - docs/operations/operator_decisions/HUMAN_OPERATOR_DECISION_WHATSAPP_FRAUD_CHECKLIST_FINAL_ARTICLE_CANDIDATE_PREPARATION_INTERNAL_ONLY.md
+    produced_outputs:
+      - docs/content/article_reviews/whatsapp-fraud-checklist.source-metadata-freshness-review.md
+    blockers:
+      - no_publish_gate
+      - no_operator_acceptance
+      - no_public_launch
+      - no_monetization_approval
+      - no_live_source_verification
+      - no_real_seo_metrics
+      - SHO_CLAIM_007_blocked
+      - whatsapp_ui_instruction_blocked
+      - exact_ui_path_blocked
+    allowed_next_action: prepare_accessibility_senior_reader_review_internal_only
+    forbidden_actions:
+      - create_final_article
+      - create_publish_candidate
+      - set_publish_readiness
+      - set_operator_acceptance
+      - activate_public_launch
+      - activate_monetization
+      - activate_analytics
+      - activate_search_console
+      - claim_user_feedback
+      - claim_live_source_verification
+      - claim_source_freshness
+      - invent_SEO_metrics
+      - claim_traffic
+      - claim_ranking
+      - claim_revenue
+      - unlock_SHO_CLAIM_007
+      - add_WhatsApp_UI_block_report_steps
+      - add_exact_WhatsApp_UI_paths
+      - promote_to_MVP_Brief_005
+      - execute_queue
+      - advance_stage
+    human_gate_required: no
+    automation_candidate: codex_assisted
+    status: internal_review_prepared
