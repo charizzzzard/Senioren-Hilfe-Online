@@ -99,6 +99,7 @@ REQUIRED_DOCS = [
     "docs/operations/content_pipeline/CONTENT_PIPELINE_RUNNER_SPEC_V1.md",
     "docs/operations/content_pipeline/NEXT_TASK_GENERATOR_SPEC_V1.md",
     "docs/operations/content_pipeline/CODEX_AUTONOMY_OPERATING_MODEL_V0_1.md",
+    "docs/operations/content_pipeline/CODEX_AUTONOMY_VALIDATOR_ENHANCEMENT_REVIEW_INTERNAL_ONLY.md",
     "docs/operations/website_preview/README.md",
     "docs/operations/website_preview/WEBSITE_INFORMATION_ARCHITECTURE_INTERNAL_PREVIEW_V1.md",
     "docs/operations/website_preview/WEBSITE_PREVIEW_REVIEW_PACKET_INTERNAL_ONLY.md",
@@ -934,6 +935,42 @@ def validate_codex_autonomy_operating_model(failures: list[str]) -> int:
         for fragment in required_queue_item_fragments:
             if fragment not in queue_item_text:
                 failures.append(f"Work Queue CQ-V1-021 missing: {fragment}")
+
+    queue_item_match = re.search(
+        r"(?ms)^  - queue_item_id: CQ-V1-022\n"
+        r"(?P<body>.*?)(?=^  - queue_item_id: |\Z)",
+        queue_text,
+    )
+    if not queue_item_match:
+        failures.append("Work Queue V1 missing CQ-V1-022")
+    else:
+        queue_item_text = "queue_item_id: CQ-V1-022\n" + queue_item_match.group("body")
+        required_queue_item_fragments = [
+            "queue_item_id: CQ-V1-022",
+            "title: Codex autonomy validator enhancement",
+            "produced_outputs:",
+            "scripts/validate_content_contracts.py",
+            "allowed_next_action: prepare_next_task_report_template_only_after_validator_enhancement_review",
+            "status: completed_internal_planning",
+            "create_final_article",
+            "create_final_article_candidate",
+            "create_publish_candidate",
+            "set_publish_readiness",
+            "set_operator_acceptance",
+            "activate_public_launch",
+            "activate_monetization",
+            "activate_analytics",
+            "activate_search_console",
+            "claim_user_feedback",
+            "claim_live_source_verification",
+            "invent_SEO_metrics",
+            "unlock_SHO_CLAIM_007",
+            "execute_queue",
+            "advance_stage",
+        ]
+        for fragment in required_queue_item_fragments:
+            if fragment not in queue_item_text:
+                failures.append(f"Work Queue CQ-V1-022 missing: {fragment}")
 
     queue_item_blocks = re.split(r"(?m)^  - queue_item_id: ", queue_text)[1:]
     for split_out_path in CODEX_AUTONOMY_FUTURE_SPLIT_OUT_PATHS:
