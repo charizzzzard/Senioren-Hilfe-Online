@@ -5,8 +5,8 @@
 - project_name: Senioren-Hilfe Online
 - system_name: Senioren-Hilfe Online OS
 - system_short_name: SHO-OS
-- patch_title: SHO_INTERNAL_CANDIDATE_001_SOURCE_METADATA_FRESHNESS_REVIEW_INTERNAL_ONLY
-- external_review_verdict: SOURCE_METADATA_FRESHNESS_REVIEW_PASSED_WITH_FINDINGS_NOT_PUBLISH_READY
+- patch_title: SHO_INTERNAL_CANDIDATE_001_ACCESSIBILITY_SENIOR_READER_REVIEW_INTERNAL_ONLY
+- external_review_verdict: ACCESSIBILITY_SENIOR_READER_REVIEW_PASSED_WITH_FINDINGS_NOT_PUBLISH_READY
 
 SHO-OS ist ein reproduzierbares Content-, Trust- und Publishing-System fuer seniorengerechte digitale Alltagshilfe in Deutschland.
 
@@ -15,9 +15,9 @@ Dieser Handoff beschreibt den aktuellen internen Repo-Kontext nach der internen 
 ## Git Traceability
 
 - branch: `main`
-- head_before_current_patch: `37430d2ac4ac9a886975176329f8680bce63d36a`
+- head_before_current_patch: `bd5a2523d4f73619019466bcd22041ec6d09a217`
 - intended_head_after: `assigned_after_commit`
-- origin_main_before_current_patch: `37430d2ac4ac9a886975176329f8680bce63d36a`
+- origin_main_before_current_patch: `bd5a2523d4f73619019466bcd22041ec6d09a217`
 - dirty_state_before_current_patch: `clean`
 - dirty_state_after_current_patch: `assigned_after_commit`
 
@@ -52,8 +52,11 @@ Hinweis: `head_after` wird nicht vorab als Commit-SHA eingetragen, weil ein Comm
 - `CQ-V1-029` records the repo-only Source Metadata / Freshness Review.
 - The source review verdict is `source_metadata_freshness_review_passed_with_findings_not_publish_ready`; no P0 or P1 finding was identified.
 - Repo metadata for `SHO-SRC-005`, `SHO-SRC-006` and `SHO-SRC-007` is traceable, but no live source verification was performed and no current source freshness is claimed.
+- `CQ-V1-030` records the text-only Accessibility / Senior Reader Review.
+- The accessibility review verdict is `accessibility_senior_reader_review_passed_with_findings_not_publish_ready`; no P0 or P1 finding was identified.
+- No real user testing, assistive-technology testing or WCAG conformance is claimed.
 - The candidate remains not publish-ready, not accepted and not live.
-- The next allowed action is `prepare_accessibility_senior_reader_review_internal_only`.
+- The next allowed action is `prepare_content_quality_scorecard_internal_only`.
 
 ## Internal Candidate Status
 
@@ -64,10 +67,14 @@ internal_candidate:
   internal_candidate_status: internal_only
   official_mvp_brief_status: not_assigned
   batch_membership_status: internal_spinoff_candidate_not_official_batch_brief
-  current_artifact_level: source_metadata_freshness_review_completed_not_publish_ready
+  current_artifact_level: accessibility_senior_reader_review_completed_not_publish_ready
   final_article_candidate_created: true
   final_article_candidate_review_status: final_article_candidate_review_passed_with_findings_not_publish_ready
   source_metadata_freshness_review_status: source_metadata_freshness_review_passed_with_findings_not_publish_ready
+  accessibility_senior_reader_review_status: accessibility_senior_reader_review_passed_with_findings_not_publish_ready
+  real_user_testing_status: not_performed
+  assistive_technology_testing_status: not_performed
+  wcag_conformance_status: not_tested
   live_source_verification_status: not_performed
   source_freshness_claim_status: not_claimed
   final_article_created: false
@@ -100,7 +107,7 @@ This internal candidate is not an official fifth MVP brief and is not `SHO-MVP-B
 ## Non-Scope / Non-Acceptance
 
 - No final article.
-- One internal Final Article Candidate, one candidate review and one repo-only source metadata / freshness review exist for `SHO-INTERNAL-CANDIDATE-001`; the reviews passed with findings, and the candidate remains not publish-ready and not accepted.
+- One internal Final Article Candidate plus candidate, repo-only source metadata / freshness and text-only Accessibility / Senior Reader reviews exist for `SHO-INTERNAL-CANDIDATE-001`; the reviews passed with findings, and the candidate remains not publish-ready and not accepted.
 - No Publish Candidate.
 - No Publish Readiness.
 - No Operator Acceptance.
@@ -112,6 +119,8 @@ This internal candidate is not an official fifth MVP brief and is not `SHO-MVP-B
 - No Search Console activation.
 - No user feedback claimed.
 - No live source verification claimed.
+- No real user testing or assistive-technology testing claimed.
+- No WCAG conformance claimed.
 - No SEO metrics.
 - No ranking, traffic, conversion, revenue or feedback claims.
 - No `SHO-CLAIM-007` unlock.
@@ -146,7 +155,7 @@ The Human Operator decision now accepts the cleaned internal baseline as an inte
 
 ## Recommended Next Safe Outputs
 
-- `SHO_INTERNAL_CANDIDATE_001_ACCESSIBILITY_SENIOR_READER_REVIEW_INTERNAL_ONLY`
+- `SHO_INTERNAL_CANDIDATE_001_CONTENT_QUALITY_SCORECARD_INTERNAL_ONLY`
 - `BRIEF_002_PUBLISH_CANDIDATE_DECISION_PACKET_INTERNAL_ONLY`
 - `WEBSITE_RELEASE_READINESS_GAP_REVIEW_INTERNAL_ONLY`
 

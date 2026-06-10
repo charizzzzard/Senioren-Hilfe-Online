@@ -106,6 +106,7 @@ REQUIRED_DOCS = [
     "docs/content/final_article_candidates/whatsapp-fraud-checklist.final-article-candidate.md",
     "docs/content/article_reviews/whatsapp-fraud-checklist.final-article-candidate-review.md",
     "docs/content/article_reviews/whatsapp-fraud-checklist.source-metadata-freshness-review.md",
+    "docs/content/article_reviews/whatsapp-fraud-checklist.accessibility-senior-reader-review.md",
     "docs/operations/website_preview/README.md",
     "docs/operations/website_preview/WEBSITE_INFORMATION_ARCHITECTURE_INTERNAL_PREVIEW_V1.md",
     "docs/operations/website_preview/WEBSITE_PREVIEW_REVIEW_PACKET_INTERNAL_ONLY.md",
@@ -209,6 +210,9 @@ FINAL_ARTICLE_CANDIDATE_REVIEW_INTERNAL_CANDIDATE_001_PATH = (
 )
 SOURCE_METADATA_FRESHNESS_REVIEW_INTERNAL_CANDIDATE_001_PATH = (
     ROOT / "docs/content/article_reviews/whatsapp-fraud-checklist.source-metadata-freshness-review.md"
+)
+ACCESSIBILITY_SENIOR_READER_REVIEW_INTERNAL_CANDIDATE_001_PATH = (
+    ROOT / "docs/content/article_reviews/whatsapp-fraud-checklist.accessibility-senior-reader-review.md"
 )
 ACCESSIBILITY_REVIEW_BRIEF_002_PATH = (
     ROOT / "docs/content/article_reviews/betrugsnachrichten-auf-whatsapp-erkennen.accessibility-review.md"
@@ -6190,8 +6194,8 @@ def validate_final_article_candidate_internal_candidate_001(
 
     required_dashboard_fragments = [
         "SHO-INTERNAL-CANDIDATE-001",
-        "source_metadata_freshness_review_completed_not_publish_ready",
-        "prepare_accessibility_senior_reader_review_internal_only",
+        "accessibility_senior_reader_review_completed_not_publish_ready",
+        "prepare_content_quality_scorecard_internal_only",
         "final_article_candidate_not_publish_ready",
     ]
     for fragment in required_dashboard_fragments:
@@ -6206,9 +6210,10 @@ def validate_final_article_candidate_internal_candidate_001(
         "docs/content/final_article_candidates/whatsapp-fraud-checklist.final-article-candidate.md",
         "final_article_candidate_status: prepared_internal_only",
         "source_metadata_freshness_review_status: passed_with_findings_internal_only",
+        "accessibility_senior_reader_review_status: passed_with_findings_internal_only",
         "publish_readiness_status: not_ready",
         "operator_acceptance_status: not_accepted",
-        "allowed_next_action: prepare_accessibility_senior_reader_review_internal_only",
+        "allowed_next_action: prepare_content_quality_scorecard_internal_only",
     ]
     for fragment in required_batch_fragments:
         if fragment not in batch_text:
@@ -6427,8 +6432,8 @@ def validate_final_article_candidate_review_internal_candidate_001(
 
     required_dashboard_fragments = [
         "SHO-INTERNAL-CANDIDATE-001",
-        "source_metadata_freshness_review_completed_not_publish_ready",
-        "prepare_accessibility_senior_reader_review_internal_only",
+        "accessibility_senior_reader_review_completed_not_publish_ready",
+        "prepare_content_quality_scorecard_internal_only",
         "final_article_candidate_not_publish_ready",
     ]
     for fragment in required_dashboard_fragments:
@@ -6443,9 +6448,10 @@ def validate_final_article_candidate_review_internal_candidate_001(
         "docs/content/article_reviews/whatsapp-fraud-checklist.final-article-candidate-review.md",
         "final_article_candidate_review_status: passed_with_findings_internal_only",
         "source_metadata_freshness_review_status: passed_with_findings_internal_only",
+        "accessibility_senior_reader_review_status: passed_with_findings_internal_only",
         "publish_readiness_status: not_ready",
         "operator_acceptance_status: not_accepted",
-        "allowed_next_action: prepare_accessibility_senior_reader_review_internal_only",
+        "allowed_next_action: prepare_content_quality_scorecard_internal_only",
     ]
     for fragment in required_batch_fragments:
         if fragment not in batch_text:
@@ -6695,10 +6701,11 @@ def validate_source_metadata_freshness_review_internal_candidate_001(
 
     required_dashboard_fragments = [
         "SHO-INTERNAL-CANDIDATE-001",
-        "source_metadata_freshness_review_completed_not_publish_ready",
-        "prepare_accessibility_senior_reader_review_internal_only",
-        "live_source_verification_status not_performed",
-        "source freshness not claimed",
+        "accessibility_senior_reader_review_completed_not_publish_ready",
+        "prepare_content_quality_scorecard_internal_only",
+        "real_user_testing_status not_performed",
+        "assistive_technology_testing_status not_performed",
+        "wcag_conformance_status not_tested",
     ]
     for fragment in required_dashboard_fragments:
         if fragment not in dashboard_text:
@@ -6711,11 +6718,15 @@ def validate_source_metadata_freshness_review_internal_candidate_001(
         "candidate_id: SHO-INTERNAL-CANDIDATE-001",
         "docs/content/article_reviews/whatsapp-fraud-checklist.source-metadata-freshness-review.md",
         "source_metadata_freshness_review_status: passed_with_findings_internal_only",
+        "accessibility_senior_reader_review_status: passed_with_findings_internal_only",
+        "real_user_testing_status: not_performed",
+        "assistive_technology_testing_status: not_performed",
+        "wcag_conformance_status: not_tested",
         "live_source_verification_status: not_performed",
         "source_freshness_claim_status: not_claimed",
         "publish_readiness_status: not_ready",
         "operator_acceptance_status: not_accepted",
-        "allowed_next_action: prepare_accessibility_senior_reader_review_internal_only",
+        "allowed_next_action: prepare_content_quality_scorecard_internal_only",
     ]
     for fragment in required_batch_fragments:
         if fragment not in batch_text:
@@ -6762,6 +6773,287 @@ def validate_source_metadata_freshness_review_internal_candidate_001(
         for fragment in required_queue_fragments:
             if fragment not in queue_item_text:
                 failures.append(f"Work Queue CQ-V1-029 missing: {fragment}")
+
+    return 1
+
+
+def validate_accessibility_senior_reader_review_internal_candidate_001(
+    failures: list[str],
+) -> int:
+    path = ACCESSIBILITY_SENIOR_READER_REVIEW_INTERNAL_CANDIDATE_001_PATH
+    if not path.exists():
+        failures.append(
+            "Missing Accessibility / Senior Reader Review for "
+            "SHO-INTERNAL-CANDIDATE-001: "
+            "docs/content/article_reviews/"
+            "whatsapp-fraud-checklist.accessibility-senior-reader-review.md"
+        )
+        return 0
+
+    text = path.read_text(encoding="utf-8")
+    fields = parse_frontmatter_fields(text)
+    candidate_text = (
+        FINAL_ARTICLE_CANDIDATE_INTERNAL_CANDIDATE_001_PATH.read_text(
+            encoding="utf-8"
+        )
+        if FINAL_ARTICLE_CANDIDATE_INTERNAL_CANDIDATE_001_PATH.exists()
+        else ""
+    )
+    queue_text = (
+        WORK_QUEUE_V1_PATH.read_text(encoding="utf-8")
+        if WORK_QUEUE_V1_PATH.exists()
+        else ""
+    )
+    dashboard_text = (
+        ARTICLE_READINESS_DASHBOARD_PATH.read_text(encoding="utf-8")
+        if ARTICLE_READINESS_DASHBOARD_PATH.exists()
+        else ""
+    )
+    batch_text = (
+        BATCH_MANIFEST_PATH.read_text(encoding="utf-8")
+        if BATCH_MANIFEST_PATH.exists()
+        else ""
+    )
+
+    required_frontmatter_fragments = [
+        "review_id: SHO-INTERNAL-CANDIDATE-001-ACCESSIBILITY-SENIOR-READER-REVIEW",
+        "internal_candidate_id: SHO-INTERNAL-CANDIDATE-001",
+        "artifact_status: internal_only",
+        "review_status: accessibility_senior_reader_review_passed_with_findings_not_publish_ready",
+        "review_scope: accessibility_senior_reader_review_text_only_no_user_testing",
+        "linked_final_article_candidate: docs/content/final_article_candidates/whatsapp-fraud-checklist.final-article-candidate.md",
+        "linked_final_article_candidate_review: docs/content/article_reviews/whatsapp-fraud-checklist.final-article-candidate-review.md",
+        "linked_source_metadata_freshness_review: docs/content/article_reviews/whatsapp-fraud-checklist.source-metadata-freshness-review.md",
+        "publish_readiness_status: not_ready",
+        "operator_acceptance_status: not_accepted",
+        "public_launch_status: not_ready",
+        "monetization_status: not_approved",
+        "analytics_status: not_connected",
+        "search_console_status: not_connected",
+        "user_feedback_status: not_collected",
+        "real_user_testing_status: not_performed",
+        "assistive_technology_testing_status: not_performed",
+        "wcag_conformance_status: not_tested",
+        "live_source_verification_status: not_performed",
+        "source_freshness_claim_status: not_claimed",
+        "seo_metrics_status: not_available",
+        "traffic_data_status: not_available",
+        "ranking_data_status: not_available",
+        "conversion_data_status: not_available",
+        "revenue_data_status: not_available",
+        "sho_claim_007_status: blocked",
+        "whatsapp_ui_instruction_status: blocked",
+        "exact_ui_path_status: blocked",
+        "queue_execution_status: not_live",
+        "stage_advancement_status: not_advanced",
+    ]
+    required_sections = [
+        "## 1. Purpose",
+        "## 2. Reviewed Scope",
+        "## 3. Candidate Accessibility Status Summary",
+        "## 4. Plain Language / Senior Reader Review",
+        "## 5. Structure and Scannability Review",
+        "## 6. Cognitive Load Review",
+        "## 7. Actionability and Safety Review",
+        "## 8. Relatives / Support Context Review",
+        "## 9. Accessibility Boundary Review",
+        "## 10. Findings",
+        "## 11. Verdict",
+        "## 12. Allowed Next Step",
+        "## 13. Explicit Non-Acceptance",
+    ]
+    required_review_fragments = [
+        "Es bestehen keine P0- oder P1-Findings.",
+        "review_verdict: accessibility_senior_reader_review_passed_with_findings_not_publish_ready",
+        "blocking_findings: none",
+        "allowed_next_action: prepare_content_quality_scorecard_internal_only",
+        "real_user_testing_status: not_performed",
+        "assistive_technology_testing_status: not_performed",
+        "wcag_conformance_status: not_tested",
+        "FAC-IC001-SAFE-001",
+        "ASR-IC001-PLAIN-001",
+        "ASR-IC001-STRUCT-001",
+        "ASR-IC001-COG-001",
+        "ASR-IC001-SAFE-001",
+        "ASR-IC001-REL-001",
+        "ASR-IC001-GATE-001",
+        "keine realen Nutzertests",
+        "keine Assistenztechnik-Tests",
+        "keine WCAG-Konformitaetsbehauptung",
+        "kein Publish Candidate",
+        "keine Publish Readiness",
+        "keine Operator Acceptance",
+        "keine Queue-Ausfuehrung",
+        "kein Stage Advancement",
+    ]
+    for fragment in (
+        required_frontmatter_fragments
+        + required_sections
+        + required_review_fragments
+    ):
+        if fragment not in text:
+            failures.append(
+                "Accessibility / Senior Reader Review "
+                f"SHO-INTERNAL-CANDIDATE-001 must contain: {fragment}"
+            )
+
+    expected_fields = {
+        "review_id": "sho-internal-candidate-001-accessibility-senior-reader-review",
+        "internal_candidate_id": "sho-internal-candidate-001",
+        "artifact_status": "internal_only",
+        "review_status": "accessibility_senior_reader_review_passed_with_findings_not_publish_ready",
+        "review_scope": "accessibility_senior_reader_review_text_only_no_user_testing",
+        "publish_readiness_status": "not_ready",
+        "operator_acceptance_status": "not_accepted",
+        "public_launch_status": "not_ready",
+        "monetization_status": "not_approved",
+        "analytics_status": "not_connected",
+        "search_console_status": "not_connected",
+        "user_feedback_status": "not_collected",
+        "real_user_testing_status": "not_performed",
+        "assistive_technology_testing_status": "not_performed",
+        "wcag_conformance_status": "not_tested",
+        "live_source_verification_status": "not_performed",
+        "source_freshness_claim_status": "not_claimed",
+        "seo_metrics_status": "not_available",
+        "sho_claim_007_status": "blocked",
+        "whatsapp_ui_instruction_status": "blocked",
+        "exact_ui_path_status": "blocked",
+        "queue_execution_status": "not_live",
+        "stage_advancement_status": "not_advanced",
+    }
+    for field_name, expected_value in expected_fields.items():
+        if normalized(fields.get(field_name)) != expected_value:
+            failures.append(
+                "Accessibility / Senior Reader Review "
+                f"SHO-INTERNAL-CANDIDATE-001 must have "
+                f"{field_name}: {expected_value}"
+            )
+
+    candidate_required_fragments = [
+        "## Das Wichtigste zuerst",
+        "## Ruhiger 3-Schritte-Check",
+        "## Typische Warnzeichen",
+        "## Was Sie besser nicht sofort tun",
+        "## Wie Angehoerige helfen koennen",
+        "## Kurze Checkliste zum Ausdrucken oder Weitergeben",
+        "Oeffnen Sie keinen Link, solange Sie den Absender nicht sicher geprueft haben.",
+        "Phishing",
+        "Smishing",
+        "[claim: SHO-CLAIM-004",
+        "[claim: SHO-CLAIM-005",
+        "[claim: SHO-CLAIM-006",
+    ]
+    for fragment in candidate_required_fragments:
+        if fragment not in candidate_text:
+            failures.append(
+                "Final article candidate missing text reviewed by Accessibility / "
+                f"Senior Reader Review: {fragment}"
+            )
+
+    forbidden_activation_markers = [
+        "review_status: approved_for_publish",
+        "approved_for_publish: true",
+        "publish_ready: true",
+        "operator_acceptance_status: accepted",
+        "operator_acceptance_status: operator_accepted",
+        "publish_readiness_status: approved_for_publish",
+        "public_launch_status: ready",
+        "public_launch_status: launched",
+        "monetization_status: approved",
+        "analytics_status: connected",
+        "search_console_status: connected",
+        "user_feedback_status: collected",
+        "real_user_testing_status: performed",
+        "assistive_technology_testing_status: performed",
+        "wcag_conformance_status: claimed",
+        "wcag_conformance_status: compliant",
+        "live_source_verification_status: performed",
+        "source_freshness_claim_status: claimed",
+    ]
+    lower_text = text.lower()
+    for fragment in forbidden_activation_markers:
+        if fragment in lower_text:
+            failures.append(
+                "Accessibility / Senior Reader Review "
+                "SHO-INTERNAL-CANDIDATE-001 must not contain forbidden "
+                f"activation marker: {fragment}"
+            )
+
+    required_dashboard_fragments = [
+        "SHO-INTERNAL-CANDIDATE-001",
+        "accessibility_senior_reader_review_completed_not_publish_ready",
+        "prepare_content_quality_scorecard_internal_only",
+        "real_user_testing_status not_performed",
+        "assistive_technology_testing_status not_performed",
+        "wcag_conformance_status not_tested",
+    ]
+    for fragment in required_dashboard_fragments:
+        if fragment not in dashboard_text:
+            failures.append(
+                "Article readiness dashboard missing Accessibility / Senior "
+                f"Reader Review status: {fragment}"
+            )
+
+    required_batch_fragments = [
+        "candidate_id: SHO-INTERNAL-CANDIDATE-001",
+        "docs/content/article_reviews/whatsapp-fraud-checklist.accessibility-senior-reader-review.md",
+        "accessibility_senior_reader_review_status: passed_with_findings_internal_only",
+        "real_user_testing_status: not_performed",
+        "assistive_technology_testing_status: not_performed",
+        "wcag_conformance_status: not_tested",
+        "publish_readiness_status: not_ready",
+        "operator_acceptance_status: not_accepted",
+        "allowed_next_action: prepare_content_quality_scorecard_internal_only",
+    ]
+    for fragment in required_batch_fragments:
+        if fragment not in batch_text:
+            failures.append(
+                "Batch manifest missing Accessibility / Senior Reader Review "
+                f"status: {fragment}"
+            )
+
+    queue_item_match = re.search(
+        r"(?ms)^  - queue_item_id: CQ-V1-030\n"
+        r"(?P<body>.*?)(?=^  - queue_item_id: |\Z)",
+        queue_text,
+    )
+    if not queue_item_match:
+        failures.append("Work Queue V1 missing CQ-V1-030")
+    else:
+        queue_item_text = "queue_item_id: CQ-V1-030\n" + queue_item_match.group("body")
+        required_queue_fragments = [
+            "queue_item_id: CQ-V1-030",
+            "title: SHO-INTERNAL-CANDIDATE-001 accessibility senior reader review",
+            "linked_brief_id: SHO-INTERNAL-CANDIDATE-001",
+            "docs/content/article_reviews/whatsapp-fraud-checklist.accessibility-senior-reader-review.md",
+            "allowed_next_action: prepare_content_quality_scorecard_internal_only",
+            "status: internal_review_prepared",
+            "create_final_article",
+            "create_publish_candidate",
+            "set_publish_readiness",
+            "set_operator_acceptance",
+            "activate_public_launch",
+            "activate_monetization",
+            "activate_analytics",
+            "activate_search_console",
+            "claim_user_feedback",
+            "claim_live_source_verification",
+            "claim_source_freshness",
+            "claim_real_user_testing",
+            "claim_assistive_technology_testing",
+            "claim_wcag_conformance",
+            "invent_SEO_metrics",
+            "unlock_SHO_CLAIM_007",
+            "add_WhatsApp_UI_block_report_steps",
+            "add_exact_WhatsApp_UI_paths",
+            "promote_to_MVP_Brief_005",
+            "execute_queue",
+            "advance_stage",
+        ]
+        for fragment in required_queue_fragments:
+            if fragment not in queue_item_text:
+                failures.append(f"Work Queue CQ-V1-030 missing: {fragment}")
 
     return 1
 
@@ -8441,6 +8733,9 @@ def main() -> int:
     source_metadata_freshness_review_internal_candidate_001_count = (
         validate_source_metadata_freshness_review_internal_candidate_001(failures)
     )
+    accessibility_senior_reader_review_internal_candidate_001_count = (
+        validate_accessibility_senior_reader_review_internal_candidate_001(failures)
+    )
     applied_scorecard_brief_002_count = validate_applied_scorecard_brief_002(failures)
     human_operator_review_packet_final_article_candidate_brief_002_count = (
         validate_human_operator_review_packet_final_article_candidate_brief_002(failures)
@@ -8522,6 +8817,10 @@ def main() -> int:
     print(
         "- Internal candidate Source Metadata / Freshness review files: "
         f"{source_metadata_freshness_review_internal_candidate_001_count}"
+    )
+    print(
+        "- Internal candidate Accessibility / Senior Reader review files: "
+        f"{accessibility_senior_reader_review_internal_candidate_001_count}"
     )
     print(f"- Batch 01 applied scorecard Brief 002 files: {applied_scorecard_brief_002_count}")
     print(

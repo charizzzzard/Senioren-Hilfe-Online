@@ -43,7 +43,7 @@ Dieses Dashboard ist ein internes Steuerungsartefakt fuer `MVP_BATCH_01`. Es mac
 - Brief 002 ist final_article_candidate_prepared_not_publish_ready, mit Scorecard Review, Human-Operator-Review-Packet, Human-Operator-Entscheidung, Dedicated Accessibility Review und Final Source Metadata Review vorbereitet, aber nicht publish-ready.
 - Brief 003 ist android_draft_candidate_revision_reviewed_internal_only: Scaffold, Draft Candidate, Draft Candidate Review, Revision Packet, revised Draft Candidate und Revision Review existieren intern, aber Brief 003 ist nicht publish-ready.
 - Brief 004 ist held_for_methodology wegen commercial/affiliate risk und offener product recommendation methodology.
-- `SHO-INTERNAL-CANDIDATE-001` ist ein interner WhatsApp-Fraud-Checklist Spin-off Candidate nach Brief-003-Option-C-Pivot und Brief-002-Claim-Boundaries; Final Article Candidate, Candidate Review und Repo-only Source Metadata / Freshness Review existieren, bleiben nicht publish-ready und bilden keinen offiziellen fuenften MVP-Brief.
+- `SHO-INTERNAL-CANDIDATE-001` ist ein interner WhatsApp-Fraud-Checklist Spin-off Candidate nach Brief-003-Option-C-Pivot und Brief-002-Claim-Boundaries; Final Article Candidate, Candidate Review, Repo-only Source Metadata / Freshness Review und textbasiertes Accessibility / Senior Reader Review existieren, bleiben nicht publish-ready und bilden keinen offiziellen fuenften MVP-Brief.
 - User-Perspective-, Reader-Experience- und Feedback-Status bleiben Platzhalter. Brief 002 Accessibility Review ist completed_not_publish_ready; andere Accessibility-Status bleiben pending, sofern nicht separat geprueft.
 
 ## Article Readiness Table
@@ -61,7 +61,7 @@ Diese Tabelle ist getrennt von den offiziellen Batch-01-Briefs. Sie fuehrt inter
 
 | internal_candidate_id | title | current_artifact_level | official_mvp_brief_status | batch_membership_status | allowed_next_step | source_state | review_state | final_article_candidate_status | publish_readiness | operator_acceptance | public_launch_status | monetization_status | primary_boundaries |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| SHO-INTERNAL-CANDIDATE-001 | WhatsApp-Fraud-Checklist | source_metadata_freshness_review_completed_not_publish_ready | not_assigned | internal_spinoff_candidate_not_official_batch_brief | prepare_accessibility_senior_reader_review_internal_only | repo metadata for SHO-SRC-005, SHO-SRC-006 and SHO-SRC-007 is traceable; retrieved_at 2026-06-01; live_source_verification_status not_performed; source freshness not claimed; SHO-SRC-004 blocked UI context only | source inventory, brief candidate/review, draft/review, revision/review, gate review, Human Operator decision A, Final Article Candidate, Candidate Review and Source Metadata / Freshness Review exist; latest review passed with P2/P3 findings and no P0/P1 | final_article_candidate_not_publish_ready | not_ready | not_accepted | not_ready | not_approved | SHO-CLAIM-007 blocked; candidate-specific final source selection and current freshness remain unresolved before publish path; no WhatsApp block/report UI instructions; no exact WhatsApp UI paths; no live source verification; no SEO metrics; no official MVP Brief 005 promotion |
+| SHO-INTERNAL-CANDIDATE-001 | WhatsApp-Fraud-Checklist | accessibility_senior_reader_review_completed_not_publish_ready | not_assigned | internal_spinoff_candidate_not_official_batch_brief | prepare_content_quality_scorecard_internal_only | repo metadata for SHO-SRC-005, SHO-SRC-006 and SHO-SRC-007 is traceable; live_source_verification_status not_performed; source freshness not claimed; SHO-SRC-004 blocked UI context only | Final Article Candidate, Candidate Review, Source Metadata / Freshness Review and Accessibility / Senior Reader Review exist; latest text-only review passed with P2/P3 findings and no P0/P1; real_user_testing_status not_performed; assistive_technology_testing_status not_performed; wcag_conformance_status not_tested | final_article_candidate_not_publish_ready | not_ready | not_accepted | not_ready | not_approved | SHO-CLAIM-007 blocked; no real user or assistive-technology testing; no WCAG conformance claim; candidate-specific source freshness unresolved; no WhatsApp UI instructions or exact paths; no official MVP Brief 005 promotion |
 
 ## Brief-Level Status Details
 
@@ -121,7 +121,7 @@ Legacy validator anchors retained as superseded strings, not current status:
 - CONTENT_QUALITY_SCORECARD_TEMPLATE_BATCH_01
 - FINAL_ARTICLE_CANDIDATE_BRIEF_002
 - BRIEF_003_ANDROID_NEXT_GATE_DECISION_INTERNAL_ONLY
-- SHO_INTERNAL_CANDIDATE_001_ACCESSIBILITY_SENIOR_READER_REVIEW_INTERNAL_ONLY
+- SHO_INTERNAL_CANDIDATE_001_CONTENT_QUALITY_SCORECARD_INTERNAL_ONLY
 - WEBSITE_INFORMATION_ARCHITECTURE_MVP
 - KEYWORD_VALIDATION_FRAMEWORK_BATCH_01
 
