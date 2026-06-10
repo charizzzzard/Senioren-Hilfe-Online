@@ -5,8 +5,8 @@
 - project_name: Senioren-Hilfe Online
 - system_name: Senioren-Hilfe Online OS
 - system_short_name: SHO-OS
-- patch_title: NEXT_TASK_REPORT_TEMPLATE_V0_1_PREPARATION_INTERNAL_ONLY
-- external_review_verdict: INTERNAL_TEMPLATE_PREPARED_NOT_EXECUTED
+- patch_title: NEXT_TASK_REPORT_TEMPLATE_V0_1_REVIEW_INTERNAL_ONLY
+- external_review_verdict: INTERNAL_TEMPLATE_REVIEW_PASSED_WITH_MINOR_FINDINGS
 
 SHO-OS ist ein reproduzierbares Content-, Trust- und Publishing-System fuer seniorengerechte digitale Alltagshilfe in Deutschland.
 
@@ -15,9 +15,9 @@ Dieser Handoff beschreibt den aktuellen internen Repo-Kontext nach der internen 
 ## Git Traceability
 
 - branch: `main`
-- head_before_current_patch: `27b52c1e357a1dcfdaad0cf3a4b4e9649c783c17`
+- head_before_current_patch: `c48a9815434e712c920ce73e9ee5c54377fef434`
 - intended_head_after: `assigned_after_commit`
-- origin_main_before_current_patch: `27b52c1e357a1dcfdaad0cf3a4b4e9649c783c17`
+- origin_main_before_current_patch: `c48a9815434e712c920ce73e9ee5c54377fef434`
 - dirty_state_before_current_patch: `clean`
 - dirty_state_after_current_patch: `assigned_after_commit`
 
@@ -41,6 +41,8 @@ Hinweis: `head_after` wird nicht vorab als Commit-SHA eingetragen, weil ein Comm
 - The review found no P0 or P1 issue. It accepts limited text-fragment brittleness for v0.1 and allows a later separate internal preparation of `NEXT_TASK_REPORT_TEMPLATE_V0_1.md`.
 - `CQ-V1-024` records the internal-only Next Task Report Template v0.1 preparation.
 - `NEXT_TASK_REPORT_TEMPLATE_V0_1.md` standardizes recommendations only. It does not execute tasks, run the queue, implement runtime or decide Human Gates.
+- `CQ-V1-025` records the internal Next Task Report Template review.
+- The template review found no P0 or P1 issue. It records minor schema-format findings and allows a separate first report-only application.
 
 ## Internal Candidate Status
 
@@ -129,7 +131,7 @@ The Human Operator decision now accepts the cleaned internal baseline as an inte
 
 ## Recommended Next Safe Outputs
 
-- `NEXT_TASK_REPORT_TEMPLATE_V0_1_REVIEW_INTERNAL_ONLY`
+- `APPLY_NEXT_TASK_REPORT_TEMPLATE_TO_GENERATE_FIRST_CONTROL_PLANE_NEXT_TASK_REPORT_INTERNAL_ONLY`
 - `FINAL_ARTICLE_CANDIDATE_PREPARATION_FOR_SHO_INTERNAL_CANDIDATE_001_INTERNAL_ONLY`
 - `BRIEF_002_PUBLISH_CANDIDATE_DECISION_PACKET_INTERNAL_ONLY`
 - `DEDICATED_STAGE_GOVERNANCE_CLEANUP_INTERNAL_ONLY`

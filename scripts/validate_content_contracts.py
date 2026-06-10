@@ -101,6 +101,7 @@ REQUIRED_DOCS = [
     "docs/operations/content_pipeline/CODEX_AUTONOMY_OPERATING_MODEL_V0_1.md",
     "docs/operations/content_pipeline/CODEX_AUTONOMY_VALIDATOR_ENHANCEMENT_REVIEW_INTERNAL_ONLY.md",
     "docs/operations/content_pipeline/NEXT_TASK_REPORT_TEMPLATE_V0_1.md",
+    "docs/operations/content_pipeline/NEXT_TASK_REPORT_TEMPLATE_REVIEW_INTERNAL_ONLY.md",
     "docs/operations/website_preview/README.md",
     "docs/operations/website_preview/WEBSITE_INFORMATION_ARCHITECTURE_INTERNAL_PREVIEW_V1.md",
     "docs/operations/website_preview/WEBSITE_PREVIEW_REVIEW_PACKET_INTERNAL_ONLY.md",
@@ -219,6 +220,9 @@ CODEX_AUTONOMY_OPERATING_MODEL_V0_1_PATH = (
 )
 NEXT_TASK_REPORT_TEMPLATE_V0_1_PATH = (
     CONTENT_PIPELINE_DIR / "NEXT_TASK_REPORT_TEMPLATE_V0_1.md"
+)
+NEXT_TASK_REPORT_TEMPLATE_REVIEW_INTERNAL_ONLY_PATH = (
+    CONTENT_PIPELINE_DIR / "NEXT_TASK_REPORT_TEMPLATE_REVIEW_INTERNAL_ONLY.md"
 )
 CODEX_AUTONOMY_FUTURE_SPLIT_OUT_PATHS = [
     CONTENT_PIPELINE_DIR / "TASK_TYPE_REGISTRY_V0_1.yaml",
@@ -1107,6 +1111,93 @@ def validate_next_task_report_template_v0_1(failures: list[str]) -> int:
         for fragment in required_queue_fragments:
             if fragment not in queue_item_text:
                 failures.append(f"Work Queue CQ-V1-024 missing: {fragment}")
+
+    return 1
+
+
+def validate_next_task_report_template_review_internal_only(
+    failures: list[str],
+) -> int:
+    path = NEXT_TASK_REPORT_TEMPLATE_REVIEW_INTERNAL_ONLY_PATH
+    if not path.exists():
+        failures.append(
+            "Missing Next Task Report Template review: "
+            f"{path.relative_to(ROOT).as_posix()}"
+        )
+        return 0
+
+    text = path.read_text(encoding="utf-8")
+    queue_text = (
+        WORK_QUEUE_V1_PATH.read_text(encoding="utf-8")
+        if WORK_QUEUE_V1_PATH.exists()
+        else ""
+    )
+
+    required_fragments = [
+        "review_id: NEXT_TASK_REPORT_TEMPLATE_REVIEW_INTERNAL_ONLY",
+        "review_status: next_task_report_template_review_passed_with_minor_findings_ready_for_first_application",
+        "artifact_status: internal_only",
+        "linked_template: docs/operations/content_pipeline/NEXT_TASK_REPORT_TEMPLATE_V0_1.md",
+        "linked_queue_item: CQ-V1-024",
+        "public_launch_status: not_ready",
+        "publish_readiness_status: not_ready",
+        "operator_acceptance_status: not_accepted",
+        "monetization_status: not_approved",
+        "analytics_status: not_connected",
+        "search_console_status: not_connected",
+        "user_feedback_status: not_collected",
+        "queue_execution_status: not_live",
+        "stage_advancement_status: not_advanced",
+        "template_review_verdict: next_task_report_template_review_passed_with_minor_findings_ready_for_first_application",
+        "## Explicit Non-Acceptance",
+        "kein finaler Artikel erstellt",
+        "kein Final Article Candidate erstellt",
+        "kein Publish Candidate erstellt",
+        "keine Publish Readiness gesetzt",
+        "keine Artikel-Operator-Acceptance gesetzt",
+        "kein Public Launch aktiviert",
+        "keine Monetarisierung aktiviert",
+        "keine Queue-Ausfuehrung",
+        "kein Stage Advancement",
+    ]
+    for fragment in required_fragments:
+        if fragment not in text:
+            failures.append(f"Next Task Report Template review missing: {fragment}")
+
+    queue_item_match = re.search(
+        r"(?ms)^  - queue_item_id: CQ-V1-025\n"
+        r"(?P<body>.*?)(?=^  - queue_item_id: |\Z)",
+        queue_text,
+    )
+    if not queue_item_match:
+        failures.append("Work Queue V1 missing CQ-V1-025")
+    else:
+        queue_item_text = "queue_item_id: CQ-V1-025\n" + queue_item_match.group("body")
+        required_queue_fragments = [
+            "queue_item_id: CQ-V1-025",
+            "title: Next task report template review",
+            "docs/operations/content_pipeline/NEXT_TASK_REPORT_TEMPLATE_REVIEW_INTERNAL_ONLY.md",
+            "allowed_next_action: apply_next_task_report_template_to_generate_first_control_plane_next_task_report_internal_only",
+            "status: internal_review_prepared",
+            "create_final_article",
+            "create_final_article_candidate",
+            "create_publish_candidate",
+            "set_publish_readiness",
+            "set_operator_acceptance",
+            "activate_public_launch",
+            "activate_monetization",
+            "activate_analytics",
+            "activate_search_console",
+            "claim_user_feedback",
+            "claim_live_source_verification",
+            "invent_SEO_metrics",
+            "unlock_SHO_CLAIM_007",
+            "execute_queue",
+            "advance_stage",
+        ]
+        for fragment in required_queue_fragments:
+            if fragment not in queue_item_text:
+                failures.append(f"Work Queue CQ-V1-025 missing: {fragment}")
 
     return 1
 
@@ -7432,6 +7523,9 @@ def main() -> int:
     next_task_report_template_v0_1_count = validate_next_task_report_template_v0_1(
         failures
     )
+    next_task_report_template_review_count = (
+        validate_next_task_report_template_review_internal_only(failures)
+    )
     validate_protocol_automation_files(failures)
     validate_review_findings_register(failures)
     backlog_count = validate_backlog(failures)
@@ -7495,6 +7589,10 @@ def main() -> int:
     print(
         "- Next Task Report Template V0.1 files: "
         f"{next_task_report_template_v0_1_count}"
+    )
+    print(
+        "- Next Task Report Template review files: "
+        f"{next_task_report_template_review_count}"
     )
     print(f"- MVP backlog article entries: {backlog_count}")
     print(f"- Batch 01 brief scaffold files: {brief_count}")
