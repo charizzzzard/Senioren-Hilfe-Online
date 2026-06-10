@@ -5,12 +5,12 @@
 - project_name: Senioren-Hilfe Online
 - system_name: Senioren-Hilfe Online OS
 - system_short_name: SHO-OS
-- patch_title: PROJECT_FREEZE_BASELINE_ACCEPTANCE_DECISION_INTERNAL_ONLY
+- patch_title: CODEX_AUTONOMY_OPERATING_MODEL_V0_1_INTERNAL_ONLY
 - external_review_verdict: PENDING_REVIEW
 
 SHO-OS ist ein reproduzierbares Content-, Trust- und Publishing-System fuer seniorengerechte digitale Alltagshilfe in Deutschland.
 
-Dieser Handoff beschreibt den aktuellen internen Repo-Kontext nach der WhatsApp-Fraud-Checklist Human-Operator-Entscheidung A, dem Freeze-Cleanup-Baseline-Abgleich und der Human-Operator-Entscheidung zur internen Freeze-Baseline-Akzeptanz.
+Dieser Handoff beschreibt den aktuellen internen Repo-Kontext nach der internen Freeze-Baseline-Akzeptanz und der Vorbereitung des Codex Autonomy Operating Model v0.1 als specification-only Control-Plane-Artefakt.
 
 ## Git Traceability
 
@@ -33,6 +33,8 @@ Hinweis: `head_after` wird nicht vorab als Commit-SHA eingetragen, weil ein Comm
 - `CQ-V1-019` records Human Operator Decision A for `SHO-INTERNAL-CANDIDATE-001`: `proceed_to_final_article_candidate_preparation_internal_only`.
 - The allowed next action for `SHO-INTERNAL-CANDIDATE-001` is `prepare_final_article_candidate_internal_only`.
 - `CQ-V1-020` records the Human Operator decision to accept the cleaned internal project baseline as an internal freeze baseline only.
+- `CQ-V1-021` records the specification-only Codex Autonomy Operating Model v0.1.
+- The model classifies bounded work as GREEN, YELLOW or RED and does not implement runtime, queue execution or gate decisions.
 
 ## Internal Candidate Status
 
@@ -121,6 +123,7 @@ The Human Operator decision now accepts the cleaned internal baseline as an inte
 
 ## Recommended Next Safe Outputs
 
+- `CODEX_AUTONOMY_VALIDATOR_ENHANCEMENT_INTERNAL_ONLY`
 - `FINAL_ARTICLE_CANDIDATE_PREPARATION_FOR_SHO_INTERNAL_CANDIDATE_001_INTERNAL_ONLY`
 - `BRIEF_002_PUBLISH_CANDIDATE_DECISION_PACKET_INTERNAL_ONLY`
 - `DEDICATED_STAGE_GOVERNANCE_CLEANUP_INTERNAL_ONLY`

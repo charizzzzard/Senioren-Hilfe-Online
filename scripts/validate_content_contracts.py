@@ -98,6 +98,7 @@ REQUIRED_DOCS = [
     "docs/operations/content_pipeline/WORK_QUEUE_V1.yaml",
     "docs/operations/content_pipeline/CONTENT_PIPELINE_RUNNER_SPEC_V1.md",
     "docs/operations/content_pipeline/NEXT_TASK_GENERATOR_SPEC_V1.md",
+    "docs/operations/content_pipeline/CODEX_AUTONOMY_OPERATING_MODEL_V0_1.md",
     "docs/operations/website_preview/README.md",
     "docs/operations/website_preview/WEBSITE_INFORMATION_ARCHITECTURE_INTERNAL_PREVIEW_V1.md",
     "docs/operations/website_preview/WEBSITE_PREVIEW_REVIEW_PACKET_INTERNAL_ONLY.md",
@@ -210,6 +211,9 @@ CONTENT_PIPELINE_RUNNER_SPEC_V1_PATH = (
 )
 NEXT_TASK_GENERATOR_SPEC_V1_PATH = (
     CONTENT_PIPELINE_DIR / "NEXT_TASK_GENERATOR_SPEC_V1.md"
+)
+CODEX_AUTONOMY_OPERATING_MODEL_V0_1_PATH = (
+    CONTENT_PIPELINE_DIR / "CODEX_AUTONOMY_OPERATING_MODEL_V0_1.md"
 )
 WEBSITE_PREVIEW_DIR = ROOT / "docs/operations/website_preview"
 WEBSITE_INFORMATION_ARCHITECTURE_INTERNAL_PREVIEW_V1_PATH = (
@@ -5853,6 +5857,7 @@ def validate_content_pipeline_contract_and_work_queue_v1(failures: list[str]) ->
         WORK_QUEUE_V1_PATH,
         CONTENT_PIPELINE_RUNNER_SPEC_V1_PATH,
         NEXT_TASK_GENERATOR_SPEC_V1_PATH,
+        CODEX_AUTONOMY_OPERATING_MODEL_V0_1_PATH,
     ]
     count = 0
     for path in required_paths:
@@ -5869,6 +5874,7 @@ def validate_content_pipeline_contract_and_work_queue_v1(failures: list[str]) ->
     queue_text = WORK_QUEUE_V1_PATH.read_text(encoding="utf-8")
     runner_text = CONTENT_PIPELINE_RUNNER_SPEC_V1_PATH.read_text(encoding="utf-8")
     generator_text = NEXT_TASK_GENERATOR_SPEC_V1_PATH.read_text(encoding="utf-8")
+    autonomy_model_text = CODEX_AUTONOMY_OPERATING_MODEL_V0_1_PATH.read_text(encoding="utf-8")
 
     required_stage_ids = [
         "STAGE_00_STRATEGY_TRUST_PORTFOLIO_INTAKE",
@@ -5943,6 +5949,30 @@ def validate_content_pipeline_contract_and_work_queue_v1(failures: list[str]) ->
     for fragment in required_role_fragments:
         if fragment not in role_text:
             failures.append(f"Content Production Role Boundaries V1 must contain: {fragment}")
+
+    required_autonomy_model_fragments = [
+        "model_id: CODEX_AUTONOMY_OPERATING_MODEL_V0_1",
+        "model_status: specification_only_internal",
+        "freeze_baseline_status: accepted_internal_baseline_only",
+        "queue_execution_status: not_live",
+        "stage_advancement_status: not_advanced",
+        "## 5. Autonomy Classes",
+        "### GREEN",
+        "### YELLOW",
+        "### RED",
+        "## 9. Mandatory Pre-Patch Disclosure",
+        "## 12. Stop Conditions",
+        "## 13. Human Gate Rules",
+        "## 18. Non-Acceptance Confirmation",
+        "Repo = Control Plane",
+        "Codex = controlled executor + validator",
+        "Human Operator = gate authority",
+        "SHO-INTERNAL-CANDIDATE-001",
+        "SHO-CLAIM-007",
+    ]
+    for fragment in required_autonomy_model_fragments:
+        if fragment not in autonomy_model_text:
+            failures.append(f"Codex Autonomy Operating Model v0.1 must contain: {fragment}")
 
     required_queue_metadata = [
         "queue_id: CONTENT-WORK-QUEUE-V1",
