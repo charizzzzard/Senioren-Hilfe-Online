@@ -5,8 +5,8 @@
 - project_name: Senioren-Hilfe Online
 - system_name: Senioren-Hilfe Online OS
 - system_short_name: SHO-OS
-- patch_title: SHO_INTERNAL_CANDIDATE_001_CONTENT_QUALITY_SCORECARD_INTERNAL_ONLY
-- external_review_verdict: CONTENT_QUALITY_SCORECARD_PASSED_WITH_FINDINGS_NOT_PUBLISH_READY
+- patch_title: SHO_INTERNAL_CANDIDATE_001_TARGETED_REVISION_PACKET_INTERNAL_ONLY
+- external_review_verdict: TARGETED_REVISION_PACKET_PREPARED_INTERNAL_ONLY
 
 SHO-OS ist ein reproduzierbares Content-, Trust- und Publishing-System fuer seniorengerechte digitale Alltagshilfe in Deutschland.
 
@@ -15,9 +15,9 @@ Dieser Handoff beschreibt den aktuellen internen Repo-Kontext nach der internen 
 ## Git Traceability
 
 - branch: `main`
-- head_before_current_patch: `f04c620b90e2c7febec20ad8fdc861ee59a3e48c`
+- head_before_current_patch: `f86380c06b70961f28b6ee8464ea6f93bc2ead2e`
 - intended_head_after: `assigned_after_commit`
-- origin_main_before_current_patch: `f04c620b90e2c7febec20ad8fdc861ee59a3e48c`
+- origin_main_before_current_patch: `f86380c06b70961f28b6ee8464ea6f93bc2ead2e`
 - dirty_state_before_current_patch: `clean`
 - dirty_state_after_current_patch: `assigned_after_commit`
 
@@ -58,8 +58,10 @@ Hinweis: `head_after` wird nicht vorab als Commit-SHA eingetragen, weil ein Comm
 - `CQ-V1-031` records the applied internal Content Quality Scorecard.
 - The scorecard verdict is `content_quality_scorecard_passed_with_findings_not_publish_ready`; no P0 or P1 finding was identified.
 - The unweighted internal averages are Core Quality `1.90`, User Perspective `2.33` and Reader Experience `2.50`; they are not a publish score.
+- `CQ-V1-032` records the internal Targeted Revision Packet.
+- The packet translates existing P2/P3 findings into bounded instructions and does not modify the Final Article Candidate.
 - The candidate remains not publish-ready, not accepted and not live.
-- The next allowed action is `prepare_targeted_revision_packet_internal_only`.
+- The next allowed action is `prepare_targeted_revision_candidate_internal_only`.
 
 ## Internal Candidate Status
 
@@ -70,12 +72,14 @@ internal_candidate:
   internal_candidate_status: internal_only
   official_mvp_brief_status: not_assigned
   batch_membership_status: internal_spinoff_candidate_not_official_batch_brief
-  current_artifact_level: content_quality_scorecard_completed_not_publish_ready
+  current_artifact_level: targeted_revision_packet_prepared_internal_only
   final_article_candidate_created: true
   final_article_candidate_review_status: final_article_candidate_review_passed_with_findings_not_publish_ready
   source_metadata_freshness_review_status: source_metadata_freshness_review_passed_with_findings_not_publish_ready
   accessibility_senior_reader_review_status: accessibility_senior_reader_review_passed_with_findings_not_publish_ready
   content_quality_scorecard_status: content_quality_scorecard_passed_with_findings_not_publish_ready
+  targeted_revision_packet_status: prepared_internal_only
+  targeted_revision_candidate_created: false
   real_user_testing_status: not_performed
   assistive_technology_testing_status: not_performed
   wcag_conformance_status: not_tested
@@ -111,7 +115,7 @@ This internal candidate is not an official fifth MVP brief and is not `SHO-MVP-B
 ## Non-Scope / Non-Acceptance
 
 - No final article.
-- One internal Final Article Candidate plus candidate, repo-only source metadata / freshness and text-only Accessibility / Senior Reader reviews and one applied Content Quality Scorecard exist for `SHO-INTERNAL-CANDIDATE-001`; all passed with findings, and the candidate remains not publish-ready and not accepted.
+- One unchanged internal Final Article Candidate plus candidate, repo-only source metadata / freshness and text-only Accessibility / Senior Reader reviews, one applied Content Quality Scorecard and one Targeted Revision Packet exist for `SHO-INTERNAL-CANDIDATE-001`; no revised candidate exists, and the candidate remains not publish-ready and not accepted.
 - No Publish Candidate.
 - No Publish Readiness.
 - No Operator Acceptance.
