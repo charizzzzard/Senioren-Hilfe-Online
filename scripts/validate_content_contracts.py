@@ -102,6 +102,7 @@ REQUIRED_DOCS = [
     "docs/operations/content_pipeline/CODEX_AUTONOMY_VALIDATOR_ENHANCEMENT_REVIEW_INTERNAL_ONLY.md",
     "docs/operations/content_pipeline/NEXT_TASK_REPORT_TEMPLATE_V0_1.md",
     "docs/operations/content_pipeline/NEXT_TASK_REPORT_TEMPLATE_REVIEW_INTERNAL_ONLY.md",
+    "docs/operations/content_pipeline/FIRST_CONTROL_PLANE_NEXT_TASK_REPORT_INTERNAL_ONLY.md",
     "docs/operations/website_preview/README.md",
     "docs/operations/website_preview/WEBSITE_INFORMATION_ARCHITECTURE_INTERNAL_PREVIEW_V1.md",
     "docs/operations/website_preview/WEBSITE_PREVIEW_REVIEW_PACKET_INTERNAL_ONLY.md",
@@ -223,6 +224,9 @@ NEXT_TASK_REPORT_TEMPLATE_V0_1_PATH = (
 )
 NEXT_TASK_REPORT_TEMPLATE_REVIEW_INTERNAL_ONLY_PATH = (
     CONTENT_PIPELINE_DIR / "NEXT_TASK_REPORT_TEMPLATE_REVIEW_INTERNAL_ONLY.md"
+)
+FIRST_CONTROL_PLANE_NEXT_TASK_REPORT_INTERNAL_ONLY_PATH = (
+    CONTENT_PIPELINE_DIR / "FIRST_CONTROL_PLANE_NEXT_TASK_REPORT_INTERNAL_ONLY.md"
 )
 CODEX_AUTONOMY_FUTURE_SPLIT_OUT_PATHS = [
     CONTENT_PIPELINE_DIR / "TASK_TYPE_REGISTRY_V0_1.yaml",
@@ -1198,6 +1202,104 @@ def validate_next_task_report_template_review_internal_only(
         for fragment in required_queue_fragments:
             if fragment not in queue_item_text:
                 failures.append(f"Work Queue CQ-V1-025 missing: {fragment}")
+
+    return 1
+
+
+def validate_first_control_plane_next_task_report_internal_only(
+    failures: list[str],
+) -> int:
+    path = FIRST_CONTROL_PLANE_NEXT_TASK_REPORT_INTERNAL_ONLY_PATH
+    if not path.exists():
+        failures.append(
+            "Missing first Control-Plane Next Task Report: "
+            f"{path.relative_to(ROOT).as_posix()}"
+        )
+        return 0
+
+    text = path.read_text(encoding="utf-8")
+    queue_text = (
+        WORK_QUEUE_V1_PATH.read_text(encoding="utf-8")
+        if WORK_QUEUE_V1_PATH.exists()
+        else ""
+    )
+
+    required_fragments = [
+        "report_id: FIRST_CONTROL_PLANE_NEXT_TASK_REPORT_INTERNAL_ONLY",
+        "report_status: generated_internal_only",
+        "artifact_status: internal_only",
+        "template_used: docs/operations/content_pipeline/NEXT_TASK_REPORT_TEMPLATE_V0_1.md",
+        "linked_template_review: docs/operations/content_pipeline/NEXT_TASK_REPORT_TEMPLATE_REVIEW_INTERNAL_ONLY.md",
+        "source_queue_item: CQ-V1-025",
+        "public_launch_status: not_ready",
+        "publish_readiness_status: not_ready",
+        "operator_acceptance_status: not_accepted",
+        "monetization_status: not_approved",
+        "analytics_status: not_connected",
+        "search_console_status: not_connected",
+        "user_feedback_status: not_collected",
+        "queue_execution_status: not_live",
+        "stage_advancement_status: not_advanced",
+        "next_task_report:",
+        "recommended_next_task:",
+        'task_type: "SHO_INTERNAL_CANDIDATE_001_FINAL_ARTICLE_CANDIDATE_PREPARATION_INTERNAL_ONLY"',
+        'human_gate_required: "yes_before_execution"',
+        "status_escalation_stopper: pass",
+        "claim_boundary_stopper: pass",
+        "data_truth_stopper: pass",
+        "scope_drift_stopper: pass",
+        "source_freshness_stopper: pass",
+        "human_gate_stopper: pass",
+        "website_launch_stopper: pass",
+        "monetization_trust_stopper: pass",
+        "status: false",
+        'reason: "A safe report-only next task recommendation is available."',
+        "no_publish_readiness",
+        "no_operator_acceptance",
+        "no_public_launch",
+        "no_monetization",
+        "no_live_data_activation",
+        "Der empfohlene Task wird nicht ausgefuehrt.",
+        "Keine Queue-Ausfuehrung und kein Stage Advancement.",
+    ]
+    for fragment in required_fragments:
+        if fragment not in text:
+            failures.append(f"First Control-Plane Next Task Report missing: {fragment}")
+
+    queue_item_match = re.search(
+        r"(?ms)^  - queue_item_id: CQ-V1-026\n"
+        r"(?P<body>.*?)(?=^  - queue_item_id: |\Z)",
+        queue_text,
+    )
+    if not queue_item_match:
+        failures.append("Work Queue V1 missing CQ-V1-026")
+    else:
+        queue_item_text = "queue_item_id: CQ-V1-026\n" + queue_item_match.group("body")
+        required_queue_fragments = [
+            "queue_item_id: CQ-V1-026",
+            "title: First control-plane next task report",
+            "docs/operations/content_pipeline/FIRST_CONTROL_PLANE_NEXT_TASK_REPORT_INTERNAL_ONLY.md",
+            "allowed_next_action: use_first_control_plane_next_task_report_to_choose_next_internal_task",
+            "status: completed_internal_planning",
+            "create_final_article",
+            "create_final_article_candidate",
+            "create_publish_candidate",
+            "set_publish_readiness",
+            "set_operator_acceptance",
+            "activate_public_launch",
+            "activate_monetization",
+            "activate_analytics",
+            "activate_search_console",
+            "claim_user_feedback",
+            "claim_live_source_verification",
+            "invent_SEO_metrics",
+            "unlock_SHO_CLAIM_007",
+            "execute_queue",
+            "advance_stage",
+        ]
+        for fragment in required_queue_fragments:
+            if fragment not in queue_item_text:
+                failures.append(f"Work Queue CQ-V1-026 missing: {fragment}")
 
     return 1
 
@@ -7526,6 +7628,9 @@ def main() -> int:
     next_task_report_template_review_count = (
         validate_next_task_report_template_review_internal_only(failures)
     )
+    first_control_plane_next_task_report_count = (
+        validate_first_control_plane_next_task_report_internal_only(failures)
+    )
     validate_protocol_automation_files(failures)
     validate_review_findings_register(failures)
     backlog_count = validate_backlog(failures)
@@ -7593,6 +7698,10 @@ def main() -> int:
     print(
         "- Next Task Report Template review files: "
         f"{next_task_report_template_review_count}"
+    )
+    print(
+        "- First Control-Plane Next Task Report files: "
+        f"{first_control_plane_next_task_report_count}"
     )
     print(f"- MVP backlog article entries: {backlog_count}")
     print(f"- Batch 01 brief scaffold files: {brief_count}")
