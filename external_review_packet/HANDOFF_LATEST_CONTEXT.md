@@ -5,8 +5,8 @@
 - project_name: Senioren-Hilfe Online
 - system_name: Senioren-Hilfe Online OS
 - system_short_name: SHO-OS
-- patch_title: SHO_INTERNAL_CANDIDATE_001_FINAL_ARTICLE_CANDIDATE_PREPARATION_INTERNAL_ONLY
-- external_review_verdict: INTERNAL_FINAL_ARTICLE_CANDIDATE_PREPARED_NOT_PUBLISH_READY
+- patch_title: SHO_INTERNAL_CANDIDATE_001_FINAL_ARTICLE_CANDIDATE_REVIEW_INTERNAL_ONLY
+- external_review_verdict: FINAL_ARTICLE_CANDIDATE_REVIEW_PASSED_WITH_FINDINGS_NOT_PUBLISH_READY
 
 SHO-OS ist ein reproduzierbares Content-, Trust- und Publishing-System fuer seniorengerechte digitale Alltagshilfe in Deutschland.
 
@@ -15,9 +15,9 @@ Dieser Handoff beschreibt den aktuellen internen Repo-Kontext nach der internen 
 ## Git Traceability
 
 - branch: `main`
-- head_before_current_patch: `d12d73d75d5ae20f382ea81d5e55a0a355f13a64`
+- head_before_current_patch: `6be6ded08da7ed13d028145d644e6dec4e02600c`
 - intended_head_after: `assigned_after_commit`
-- origin_main_before_current_patch: `d12d73d75d5ae20f382ea81d5e55a0a355f13a64`
+- origin_main_before_current_patch: `6be6ded08da7ed13d028145d644e6dec4e02600c`
 - dirty_state_before_current_patch: `clean`
 - dirty_state_after_current_patch: `assigned_after_commit`
 
@@ -47,8 +47,10 @@ Hinweis: `head_after` wird nicht vorab als Commit-SHA eingetragen, weil ein Comm
 - The report recommends `SHO_INTERNAL_CANDIDATE_001_FINAL_ARTICLE_CANDIDATE_PREPARATION_INTERNAL_ONLY` as the primary separate next task.
 - The Human Operator explicitly instructed execution of that bounded YELLOW-B preparation task.
 - `CQ-V1-027` records one internal Final Article Candidate for `SHO-INTERNAL-CANDIDATE-001`.
-- The candidate is not reviewed, not publish-ready, not accepted and not live.
-- The next allowed action is `prepare_final_article_candidate_review_internal_only`.
+- `CQ-V1-028` records the internal Final Article Candidate Review.
+- The review verdict is `final_article_candidate_review_passed_with_findings_not_publish_ready`; no P0 or P1 finding was identified.
+- The candidate remains not publish-ready, not accepted and not live.
+- The next allowed action is `prepare_source_metadata_freshness_review_internal_only`.
 
 ## Internal Candidate Status
 
@@ -59,8 +61,9 @@ internal_candidate:
   internal_candidate_status: internal_only
   official_mvp_brief_status: not_assigned
   batch_membership_status: internal_spinoff_candidate_not_official_batch_brief
-  current_artifact_level: final_article_candidate_prepared_internal_only
+  current_artifact_level: final_article_candidate_review_completed_not_publish_ready
   final_article_candidate_created: true
+  final_article_candidate_review_status: final_article_candidate_review_passed_with_findings_not_publish_ready
   final_article_created: false
   publish_readiness_status: not_ready
   operator_acceptance_status: not_accepted
@@ -91,7 +94,7 @@ This internal candidate is not an official fifth MVP brief and is not `SHO-MVP-B
 ## Non-Scope / Non-Acceptance
 
 - No final article.
-- One internal Final Article Candidate exists for `SHO-INTERNAL-CANDIDATE-001`; it is not reviewed, not publish-ready and not accepted.
+- One internal Final Article Candidate and one internal review exist for `SHO-INTERNAL-CANDIDATE-001`; the review passed with findings, and the candidate remains not publish-ready and not accepted.
 - No Publish Candidate.
 - No Publish Readiness.
 - No Operator Acceptance.
@@ -137,7 +140,7 @@ The Human Operator decision now accepts the cleaned internal baseline as an inte
 
 ## Recommended Next Safe Outputs
 
-- `SHO_INTERNAL_CANDIDATE_001_FINAL_ARTICLE_CANDIDATE_REVIEW_INTERNAL_ONLY`
+- `SHO_INTERNAL_CANDIDATE_001_SOURCE_METADATA_FRESHNESS_REVIEW_INTERNAL_ONLY`
 - `BRIEF_002_PUBLISH_CANDIDATE_DECISION_PACKET_INTERNAL_ONLY`
 - `WEBSITE_RELEASE_READINESS_GAP_REVIEW_INTERNAL_ONLY`
 

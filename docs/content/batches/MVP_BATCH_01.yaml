@@ -35,10 +35,12 @@ internal_candidates:
       - docs/content/article_reviews/whatsapp-fraud-checklist.final-article-preparation-gate-review.md
       - docs/operations/operator_decisions/HUMAN_OPERATOR_DECISION_WHATSAPP_FRAUD_CHECKLIST_FINAL_ARTICLE_CANDIDATE_PREPARATION_INTERNAL_ONLY.md
       - docs/content/final_article_candidates/whatsapp-fraud-checklist.final-article-candidate.md
+      - docs/content/article_reviews/whatsapp-fraud-checklist.final-article-candidate-review.md
     final_article_candidate_status: prepared_internal_only
+    final_article_candidate_review_status: passed_with_findings_internal_only
     publish_readiness_status: not_ready
     operator_acceptance_status: not_accepted
-    allowed_next_action: prepare_final_article_candidate_review_internal_only
+    allowed_next_action: prepare_source_metadata_freshness_review_internal_only
     forbidden_actions:
       - set_publish_readiness
       - set_operator_acceptance
@@ -113,7 +115,7 @@ known_blockers:
   - Article draft scaffolds exist only for Brief 002 and Brief 003.
   - Official Batch Brief draft candidates exist for Brief 002 and Brief 003 internal-only.
   - SHO-INTERNAL-CANDIDATE-001 exists separately as an internal spin-off candidate, not an official batch brief.
-  - SHO-INTERNAL-CANDIDATE-001 has one internal Final Article Candidate prepared, not reviewed and not publish-ready.
+  - SHO-INTERNAL-CANDIDATE-001 has one internal Final Article Candidate and one internal review with non-blocking findings; it remains not publish-ready.
   - Brief 002 draft candidate reviewed with findings.
   - Brief 002 draft candidate fix re-review passed, but no publish readiness is set.
   - Brief 002 final article candidate exists and is not publish-ready.
