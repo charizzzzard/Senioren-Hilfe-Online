@@ -5,21 +5,21 @@
 - project_name: Senioren-Hilfe Online
 - system_name: Senioren-Hilfe Online OS
 - system_short_name: SHO-OS
-- patch_title: PROJECT_FREEZE_CLEANUP_BASELINE_CONTEXT_INTERNAL_ONLY
+- patch_title: PROJECT_FREEZE_BASELINE_ACCEPTANCE_DECISION_INTERNAL_ONLY
 - external_review_verdict: PENDING_REVIEW
 
 SHO-OS ist ein reproduzierbares Content-, Trust- und Publishing-System fuer seniorengerechte digitale Alltagshilfe in Deutschland.
 
-Dieser Handoff beschreibt den aktuellen internen Repo-Kontext nach der WhatsApp-Fraud-Checklist Human-Operator-Entscheidung A und dem Freeze-Cleanup-Baseline-Abgleich.
+Dieser Handoff beschreibt den aktuellen internen Repo-Kontext nach der WhatsApp-Fraud-Checklist Human-Operator-Entscheidung A, dem Freeze-Cleanup-Baseline-Abgleich und der Human-Operator-Entscheidung zur internen Freeze-Baseline-Akzeptanz.
 
 ## Git Traceability
 
 - branch: `main`
-- head_before_cleanup_patch: `1ea5dce6876e17ef29d95771d5246589385fa385`
+- head_before_freeze_acceptance_patch: `d155e8b149c44eefd2487f438ff5eec8df2fc517`
 - intended_head_after: `assigned_after_commit`
-- origin_main_before_cleanup_patch: `1ea5dce6876e17ef29d95771d5246589385fa385`
-- dirty_state_before_cleanup_patch: `clean`
-- dirty_state_after_cleanup_patch: `assigned_after_commit`
+- origin_main_before_freeze_acceptance_patch: `d155e8b149c44eefd2487f438ff5eec8df2fc517`
+- dirty_state_before_freeze_acceptance_patch: `clean`
+- dirty_state_after_freeze_acceptance_patch: `assigned_after_commit`
 
 Hinweis: `head_after` wird nicht vorab als Commit-SHA eingetragen, weil ein Commit seine eigene finale SHA nicht stabil im Inhalt referenzieren kann.
 
@@ -32,6 +32,7 @@ Hinweis: `head_after` wird nicht vorab als Commit-SHA eingetragen, weil ein Comm
 - `SHO-INTERNAL-CANDIDATE-001` is the stable internal candidate identity for the WhatsApp-Fraud-Checklist path.
 - `CQ-V1-019` records Human Operator Decision A for `SHO-INTERNAL-CANDIDATE-001`: `proceed_to_final_article_candidate_preparation_internal_only`.
 - The allowed next action for `SHO-INTERNAL-CANDIDATE-001` is `prepare_final_article_candidate_internal_only`.
+- `CQ-V1-020` records the Human Operator decision to accept the cleaned internal project baseline as an internal freeze baseline only.
 
 ## Internal Candidate Status
 
@@ -69,6 +70,7 @@ This internal candidate is not an official fifth MVP brief and is not `SHO-MVP-B
 - cashflow_asset_status: `not_established`
 - seo_performance_status: `not_validated`
 - queue_execution_status: `not_live`
+- freeze_acceptance_status: `accepted_internal_baseline_only`
 
 ## Non-Scope / Non-Acceptance
 
@@ -93,7 +95,7 @@ This internal candidate is not an official fifth MVP brief and is not `SHO-MVP-B
 - No screenshot evidence claim.
 - No queue execution.
 - No stage advancement.
-- No freeze acceptance.
+- Internal freeze baseline acceptance only; no article acceptance, no Publish Readiness, no Public Launch and no Monetization.
 
 ## Freeze Cleanup Context
 
@@ -103,7 +105,7 @@ The GPT-5.5 Pro macro-freeze review verdict before cleanup was:
 freeze_verdict_before_cleanup: freeze_blocked_until_cleanup
 ```
 
-This cleanup prepares the repo for a later Human Operator freeze acceptance decision by synchronizing:
+The cleanup prepared the repo for Human Operator freeze baseline acceptance by synchronizing:
 
 - Dashboard
 - Batch Manifest
@@ -115,11 +117,10 @@ This cleanup prepares the repo for a later Human Operator freeze acceptance deci
 - External Handoff
 - Freeze Baseline Review Packet
 
-The cleanup does not mark the freeze as accepted.
+The Human Operator decision now accepts the cleaned internal baseline as an internal freeze baseline only. This does not accept any article, create a Final Article Candidate, set Publish Readiness, set article Operator Acceptance, activate Public Launch or activate Monetization.
 
 ## Recommended Next Safe Outputs
 
-- `HUMAN_OPERATOR_FREEZE_ACCEPTANCE_DECISION_PACKET_INTERNAL_ONLY`
 - `FINAL_ARTICLE_CANDIDATE_PREPARATION_FOR_SHO_INTERNAL_CANDIDATE_001_INTERNAL_ONLY`
 - `BRIEF_002_PUBLISH_CANDIDATE_DECISION_PACKET_INTERNAL_ONLY`
 - `DEDICATED_STAGE_GOVERNANCE_CLEANUP_INTERNAL_ONLY`

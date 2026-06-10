@@ -75,6 +75,7 @@ REQUIRED_DOCS = [
     "docs/operations/operator_decisions/HUMAN_OPERATOR_DECISION_BATCH01_BRIEF002_002.md",
     "docs/operations/operator_decisions/HUMAN_OPERATOR_DECISION_BRIEF_003_NO_SCREENSHOT_PATH_OPTION_C_INTERNAL_ONLY.md",
     "docs/operations/operator_decisions/HUMAN_OPERATOR_DECISION_FINAL_ARTICLE_CANDIDATE_BRIEF_002.md",
+    "docs/operations/operator_decisions/HUMAN_OPERATOR_DECISION_PROJECT_FREEZE_BASELINE_ACCEPTANCE_INTERNAL_ONLY.md",
     "docs/operations/operator_decisions/HUMAN_OPERATOR_DECISION_STATIC_PREVIEW_SKELETON_IMPLEMENTATION.md",
     "docs/operations/operator_review_packets/HUMAN_OPERATOR_REVIEW_PACKET_FINAL_ARTICLE_CANDIDATE_BRIEF_002.md",
     "docs/operations/MVP_OPERATIONAL_START_PLAN_BATCH_01.md",
@@ -406,6 +407,14 @@ EXPECTED_OPERATOR_DECISIONS = {
         "linked_gate_review": "docs/content/article_reviews/whatsapp-fraud-checklist.final-article-preparation-gate-review.md",
         "linked_revision_candidate": "docs/content/article_revision_candidates/whatsapp-fraud-checklist.internal-revision-candidate.md",
         "allowed_next_action": "prepare_final_article_candidate_internal_only",
+    },
+    "HUMAN_OPERATOR_DECISION_PROJECT_FREEZE_BASELINE_ACCEPTANCE_INTERNAL_ONLY.md": {
+        "decision_id": "HUMAN_OPERATOR_DECISION_PROJECT_FREEZE_BASELINE_ACCEPTANCE_INTERNAL_ONLY",
+        "decision_status": "recorded_internal_only",
+        "decision_scope": "internal_project_baseline_freeze",
+        "linked_freeze_baseline_review": "docs/operations/PROJECT_FREEZE_BASELINE_REVIEW_INTERNAL_ONLY.md",
+        "selected_option": "accept_cleaned_internal_project_freeze_baseline",
+        "freeze_acceptance_status": "accepted_internal_baseline_only",
     },
     "HUMAN_OPERATOR_DECISION_FINAL_ARTICLE_CANDIDATE_BRIEF_002.md": {
         "operator_decision_id": "HUMAN_OPERATOR_DECISION_FINAL_ARTICLE_CANDIDATE_BRIEF_002",
@@ -2377,6 +2386,97 @@ def validate_operator_decisions(failures: list[str]) -> int:
                 "user_feedback_status: collected",
                 "stage_advancement_status: advanced",
                 "queue_execution_status: live",
+            ]
+            lower_text = text.lower()
+            for fragment in forbidden_fragments:
+                if fragment in lower_text:
+                    failures.append(
+                        f"Operator decision {file_name} must not contain active forbidden marker: {fragment}"
+                    )
+            continue
+
+        if file_name == "HUMAN_OPERATOR_DECISION_PROJECT_FREEZE_BASELINE_ACCEPTANCE_INTERNAL_ONLY.md":
+            required_fragments = [
+                f"decision_id: {expected['decision_id']}",
+                f"decision_status: {expected['decision_status']}",
+                f"decision_scope: {expected['decision_scope']}",
+                f"linked_freeze_baseline_review: {expected['linked_freeze_baseline_review']}",
+                f"selected_option: {expected['selected_option']}",
+                "artifact_status: internal_only",
+                f"freeze_acceptance_status: {expected['freeze_acceptance_status']}",
+                "content_publish_readiness_status: not_ready",
+                "operator_acceptance_status: not_accepted",
+                "public_launch_status: not_ready",
+                "monetization_status: not_approved",
+                "analytics_status: not_connected",
+                "search_console_status: not_connected",
+                "user_feedback_status: not_collected",
+                "market_validation_status: not_validated",
+                "cashflow_asset_status: not_established",
+                "queue_execution_status: not_live",
+                "stage_advancement_status: not_advanced",
+                "Governance-ready MVP with internal proof asset candidate signal",
+                "not a validated Internal Proof Asset",
+                "not a Content Asset",
+                "not a Data Asset",
+                "not a Cashflow Asset",
+                "no article Operator Acceptance",
+                "no Publish Readiness",
+                "no Public Launch",
+                "no Monetization approval",
+                "SHO-INTERNAL-CANDIDATE-001",
+                "not official MVP Brief 005",
+                "Brief 002 remains not publish-ready",
+                "Brief 003 remains blocked/pivoted",
+                "no `SHO-CLAIM-007` unlock",
+            ]
+            for fragment in required_fragments:
+                if fragment not in text:
+                    failures.append(
+                        f"Operator decision {file_name} must contain: {fragment}"
+                    )
+
+            if fields.get("decision_id") != expected["decision_id"]:
+                failures.append(f"Operator decision {file_name} has unexpected decision_id")
+            if normalized(fields.get("decision_status")) != expected["decision_status"]:
+                failures.append(f"Operator decision {file_name} must have decision_status recorded_internal_only")
+            if normalized(fields.get("decision_scope")) != expected["decision_scope"]:
+                failures.append(f"Operator decision {file_name} must keep internal freeze scope")
+            if fields.get("linked_freeze_baseline_review") != expected["linked_freeze_baseline_review"]:
+                failures.append(f"Operator decision {file_name} must link freeze baseline review")
+            if normalized(fields.get("selected_option")) != expected["selected_option"]:
+                failures.append(f"Operator decision {file_name} must select cleaned freeze baseline acceptance")
+            if normalized(fields.get("freeze_acceptance_status")) != expected["freeze_acceptance_status"]:
+                failures.append(f"Operator decision {file_name} must accept only the internal baseline")
+            if normalized(fields.get("content_publish_readiness_status")) != "not_ready":
+                failures.append(f"Operator decision {file_name} must keep content not publish-ready")
+            if normalized(fields.get("operator_acceptance_status")) != "not_accepted":
+                failures.append(f"Operator decision {file_name} must not set article Operator Acceptance")
+            if normalized(fields.get("public_launch_status")) != "not_ready":
+                failures.append(f"Operator decision {file_name} must keep public launch not ready")
+            if normalized(fields.get("monetization_status")) != "not_approved":
+                failures.append(f"Operator decision {file_name} must keep monetization not approved")
+            if normalized(fields.get("analytics_status")) != "not_connected":
+                failures.append(f"Operator decision {file_name} must keep analytics not connected")
+            if normalized(fields.get("search_console_status")) != "not_connected":
+                failures.append(f"Operator decision {file_name} must keep Search Console not connected")
+            if normalized(fields.get("user_feedback_status")) != "not_collected":
+                failures.append(f"Operator decision {file_name} must keep user feedback not collected")
+            if normalized(fields.get("queue_execution_status")) != "not_live":
+                failures.append(f"Operator decision {file_name} must keep queue execution not live")
+            if normalized(fields.get("stage_advancement_status")) != "not_advanced":
+                failures.append(f"Operator decision {file_name} must keep stage not advanced")
+
+            forbidden_fragments = [
+                "content_publish_readiness_status: ready",
+                "operator_acceptance_status: accepted",
+                "public_launch_status: ready",
+                "monetization_status: approved",
+                "analytics_status: connected",
+                "search_console_status: connected",
+                "user_feedback_status: collected",
+                "queue_execution_status: live",
+                "stage_advancement_status: advanced",
             ]
             lower_text = text.lower()
             for fragment in forbidden_fragments:

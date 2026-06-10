@@ -587,3 +587,44 @@ queue_items:
     human_gate_required: yes
     automation_candidate: codex_assisted
     status: human_operator_decision_recorded_internal_only
+
+  - queue_item_id: CQ-V1-020
+    title: Project freeze baseline Human Operator acceptance decision
+    linked_stage_id: STAGE_00_STRATEGY_TRUST_PORTFOLIO_INTAKE
+    linked_brief_id: not_applicable
+    required_inputs:
+      - docs/operations/PROJECT_FREEZE_BASELINE_REVIEW_INTERNAL_ONLY.md
+    produced_outputs:
+      - docs/operations/operator_decisions/HUMAN_OPERATOR_DECISION_PROJECT_FREEZE_BASELINE_ACCEPTANCE_INTERNAL_ONLY.md
+    blockers:
+      - no_publish_gate
+      - no_operator_acceptance
+      - no_public_launch
+      - no_monetization_approval
+      - no_market_validation
+      - no_cashflow_asset
+    allowed_next_action: choose_next_internal_post_freeze_work_only
+    forbidden_actions:
+      - create_final_article
+      - create_final_article_candidate
+      - create_publish_candidate
+      - set_publish_readiness
+      - set_article_operator_acceptance
+      - activate_public_launch
+      - activate_monetization
+      - activate_analytics
+      - activate_search_console
+      - claim_user_feedback
+      - claim_live_source_verification
+      - invent_SEO_metrics
+      - claim_traffic
+      - claim_ranking
+      - claim_revenue
+      - unlock_SHO_CLAIM_007
+      - add_WhatsApp_UI_block_report_steps
+      - add_exact_WhatsApp_UI_paths
+      - execute_queue
+      - advance_stage
+    human_gate_required: yes
+    automation_candidate: codex_assisted
+    status: human_operator_decision_recorded_internal_only
