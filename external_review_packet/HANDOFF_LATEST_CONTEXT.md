@@ -5,21 +5,21 @@
 - project_name: Senioren-Hilfe Online
 - system_name: Senioren-Hilfe Online OS
 - system_short_name: SHO-OS
-- patch_title: CODEX_AUTONOMY_OPERATING_MODEL_V0_1_INTERNAL_ONLY
+- patch_title: CODEX_AUTONOMY_VALIDATOR_ENHANCEMENT_INTERNAL_ONLY
 - external_review_verdict: PENDING_REVIEW
 
 SHO-OS ist ein reproduzierbares Content-, Trust- und Publishing-System fuer seniorengerechte digitale Alltagshilfe in Deutschland.
 
-Dieser Handoff beschreibt den aktuellen internen Repo-Kontext nach der internen Freeze-Baseline-Akzeptanz und der Vorbereitung des Codex Autonomy Operating Model v0.1 als specification-only Control-Plane-Artefakt.
+Dieser Handoff beschreibt den aktuellen internen Repo-Kontext nach der internen Freeze-Baseline-Akzeptanz, dem Codex Autonomy Operating Model v0.1 und seiner deterministischen Validator-Abdeckung.
 
 ## Git Traceability
 
 - branch: `main`
-- head_before_freeze_acceptance_patch: `d155e8b149c44eefd2487f438ff5eec8df2fc517`
+- head_before_current_patch: `23986a088af5f9bd7d7ef532bc692bda861b2390`
 - intended_head_after: `assigned_after_commit`
-- origin_main_before_freeze_acceptance_patch: `d155e8b149c44eefd2487f438ff5eec8df2fc517`
-- dirty_state_before_freeze_acceptance_patch: `clean`
-- dirty_state_after_freeze_acceptance_patch: `assigned_after_commit`
+- origin_main_before_current_patch: `23986a088af5f9bd7d7ef532bc692bda861b2390`
+- dirty_state_before_current_patch: `clean`
+- dirty_state_after_current_patch: `assigned_after_commit`
 
 Hinweis: `head_after` wird nicht vorab als Commit-SHA eingetragen, weil ein Commit seine eigene finale SHA nicht stabil im Inhalt referenzieren kann.
 
@@ -35,6 +35,8 @@ Hinweis: `head_after` wird nicht vorab als Commit-SHA eingetragen, weil ein Comm
 - `CQ-V1-020` records the Human Operator decision to accept the cleaned internal project baseline as an internal freeze baseline only.
 - `CQ-V1-021` records the specification-only Codex Autonomy Operating Model v0.1.
 - The model classifies bounded work as GREEN, YELLOW or RED and does not implement runtime, queue execution or gate decisions.
+- `CQ-V1-022` records the focused validator enhancement for the Operating Model.
+- The validator checks required model structure, task types, disclosure fields, stop conditions, Human Gates, CQ-V1-021 and unauthorized split-out creation.
 
 ## Internal Candidate Status
 
@@ -123,7 +125,7 @@ The Human Operator decision now accepts the cleaned internal baseline as an inte
 
 ## Recommended Next Safe Outputs
 
-- `CODEX_AUTONOMY_VALIDATOR_ENHANCEMENT_INTERNAL_ONLY`
+- `NEXT_TASK_REPORT_TEMPLATE_V0_1_PREPARATION_INTERNAL_ONLY`
 - `FINAL_ARTICLE_CANDIDATE_PREPARATION_FOR_SHO_INTERNAL_CANDIDATE_001_INTERNAL_ONLY`
 - `BRIEF_002_PUBLISH_CANDIDATE_DECISION_PACKET_INTERNAL_ONLY`
 - `DEDICATED_STAGE_GOVERNANCE_CLEANUP_INTERNAL_ONLY`

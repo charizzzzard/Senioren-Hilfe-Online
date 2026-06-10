@@ -215,6 +215,11 @@ NEXT_TASK_GENERATOR_SPEC_V1_PATH = (
 CODEX_AUTONOMY_OPERATING_MODEL_V0_1_PATH = (
     CONTENT_PIPELINE_DIR / "CODEX_AUTONOMY_OPERATING_MODEL_V0_1.md"
 )
+CODEX_AUTONOMY_FUTURE_SPLIT_OUT_PATHS = [
+    CONTENT_PIPELINE_DIR / "TASK_TYPE_REGISTRY_V0_1.yaml",
+    CONTENT_PIPELINE_DIR / "NEXT_TASK_REPORT_TEMPLATE_V0_1.md",
+    CONTENT_PIPELINE_DIR / "PATCH_CONTRACT_TEMPLATE_V0_1.md",
+]
 WEBSITE_PREVIEW_DIR = ROOT / "docs/operations/website_preview"
 WEBSITE_INFORMATION_ARCHITECTURE_INTERNAL_PREVIEW_V1_PATH = (
     WEBSITE_PREVIEW_DIR / "WEBSITE_INFORMATION_ARCHITECTURE_INTERNAL_PREVIEW_V1.md"
@@ -702,6 +707,250 @@ def validate_required_docs(failures: list[str]) -> None:
     for rel_path in REQUIRED_DOCS:
         if not (ROOT / rel_path).exists():
             failures.append(f"Missing required file: {rel_path}")
+
+
+def validate_codex_autonomy_operating_model(failures: list[str]) -> int:
+    path = CODEX_AUTONOMY_OPERATING_MODEL_V0_1_PATH
+    if not path.exists():
+        failures.append(
+            "Missing Codex Autonomy Operating Model: "
+            f"{path.relative_to(ROOT).as_posix()}"
+        )
+        return 0
+
+    text = path.read_text(encoding="utf-8")
+    queue_text = (
+        WORK_QUEUE_V1_PATH.read_text(encoding="utf-8")
+        if WORK_QUEUE_V1_PATH.exists()
+        else ""
+    )
+
+    required_frontmatter = [
+        "model_id: CODEX_AUTONOMY_OPERATING_MODEL_V0_1",
+        "model_status: specification_only_internal",
+        "artifact_status: internal_only",
+        "freeze_baseline_status: accepted_internal_baseline_only",
+        "public_launch_status: not_ready",
+        "publish_readiness_status: not_ready",
+        "operator_acceptance_status: not_accepted",
+        "monetization_status: not_approved",
+        "analytics_status: not_connected",
+        "search_console_status: not_connected",
+        "user_feedback_status: not_collected",
+        "queue_execution_status: not_live",
+        "stage_advancement_status: not_advanced",
+    ]
+    required_sections = [
+        f"## {index}. {title}"
+        for index, title in enumerate(
+            [
+                "Purpose",
+                "Current Baseline",
+                "Operating Principle",
+                "Role Model",
+                "Autonomy Classes",
+                "Autonomy Subtypes",
+                "Task Type Table",
+                "Mandatory Read Order",
+                "Mandatory Pre-Patch Disclosure",
+                "Allowed Outputs by Class",
+                "Forbidden Outputs by Class",
+                "Stop Conditions",
+                "Human Gate Rules",
+                "Validation Requirements",
+                "Final Report Baseline",
+                "Safe Examples",
+                "Unsafe Examples",
+                "Non-Acceptance Confirmation",
+                "Relationship to Existing Specs",
+                "Future Split-Out Candidates",
+            ],
+            start=1,
+        )
+    ]
+    required_role_terms = [
+        "Repo = Control Plane",
+        "Codex = controlled executor + validator",
+        "Human Operator = gate authority",
+        "ChatGPT/Pro = macro-audit and exception review layer",
+    ]
+    required_autonomy_terms = [
+        "### GREEN",
+        "### YELLOW",
+        "### RED",
+        "### GREEN-A: Inspect / Report Only",
+        "### GREEN-B: Deterministic Sync Patch",
+        "### YELLOW-A: Preparation Packet",
+        "### YELLOW-B: Content Candidate / Review Work",
+        "### RED: Gate / External / Live / Commercial / Legal",
+    ]
+    required_task_types = [
+        "NEXT_TASK_REPORT",
+        "DOCUMENTATION_MAP_SYNC",
+        "DASHBOARD_NON_READINESS_SYNC",
+        "WORK_QUEUE_STATUS_SYNC",
+        "STATUS_REGISTRY_VOCABULARY_SYNC",
+        "EXTERNAL_HANDOFF_UPDATE",
+        "INTERNAL_DRIFT_REPORT",
+        "FREEZE_BASELINE_REPORT",
+        "VALIDATION_REPORT",
+        "FINAL_ARTICLE_CANDIDATE_PREPARATION",
+        "FINAL_ARTICLE_CANDIDATE_REVIEW",
+        "SOURCE_FRESHNESS_REVIEW_PREPARATION",
+        "ACCESSIBILITY_SENIOR_READER_REVIEW",
+        "WEBSITE_READINESS_PACKAGE",
+        "PUBLISH_CANDIDATE_DECISION_PACKET",
+        "SEARCH_CONSOLE_ACTIVATION_DECISION_PACKET",
+        "FEEDBACK_INTAKE_PROTOCOL_PREPARATION",
+        "PRODUCT_MONETIZATION_METHODOLOGY_DECISION_PACKET",
+        "HUMAN_OPERATOR_DECISION_RECORD",
+        "PUBLIC_LAUNCH_DECISION",
+        "MONETIZATION_APPROVAL",
+        "ANALYTICS_SEARCH_CONSOLE_ACTIVATION",
+        "BLOCKED_CLAIM_UNLOCK",
+    ]
+    required_disclosure_fields = [
+        "selected_task_type:",
+        "autonomy_class:",
+        "autonomy_subtype:",
+        "source_queue_item_or_reason_none:",
+        "required_inputs_checked:",
+        "allowed_outputs:",
+        "forbidden_outputs:",
+        "stop_conditions_checked:",
+        "validation_plan:",
+        "expected_files_changed:",
+        "human_gate_required:",
+        "rollback_note:",
+    ]
+    required_stop_conditions = [
+        "status_escalation_stopper",
+        "claim_boundary_stopper",
+        "data_truth_stopper",
+        "scope_drift_stopper",
+        "source_freshness_stopper",
+        "human_gate_stopper",
+        "website_launch_stopper",
+        "monetization_trust_stopper",
+    ]
+    required_guardrail_terms = [
+        "Publish Readiness setzen",
+        "Operator Acceptance setzen",
+        "Public Launch aktivieren",
+        "Monetarisierung aktivieren",
+        "Analytics, Search Console oder User Feedback aktivieren",
+        "SEO-Metriken erfinden",
+        "Traffic-, Ranking-, Conversion-, Revenue- oder Feedbackclaims",
+        "SHO-CLAIM-007",
+        "WhatsApp block/report UI instructions",
+        "exakte WhatsApp UI paths",
+        "SHO-INTERNAL-CANDIDATE-001",
+        "Queue als Runtime",
+        "Stage ohne explizites Gate",
+    ]
+    required_human_gate_terms = [
+        "Freeze Acceptance",
+        "Publish Candidate decision",
+        "Publish Readiness",
+        "Operator Acceptance",
+        "Public Launch",
+        "Monetization approval",
+        "Analytics-/Search-Console-Aktivierung",
+        "User-Feedback-Collection-Aktivierung",
+        "Legal approval",
+        "blocked claim unlock",
+        "SHO-CLAIM-007` unlock",
+        "WhatsApp UI-sensitive instruction unlock",
+        "Market-validation claims",
+        "Cashflow-, Data- und SEO-Asset-Claims",
+    ]
+    required_spec_references = [
+        "CONTENT_PIPELINE_CONTRACT_V1.md",
+        "CONTENT_PIPELINE_RUNNER_SPEC_V1.md",
+        "NEXT_TASK_GENERATOR_SPEC_V1.md",
+        "CONTENT_PRODUCTION_ROLE_BOUNDARIES_V1.md",
+        "STATUS_REGISTRY.yaml",
+        "WORK_QUEUE_V1.yaml",
+        "CONTENT_MACHINE_GATE_MODEL.md",
+    ]
+    required_future_split_out_terms = [
+        "TASK_TYPE_REGISTRY_V0_1.yaml",
+        "NEXT_TASK_REPORT_TEMPLATE_V0_1.md",
+        "PATCH_CONTRACT_TEMPLATE_V0_1.md",
+    ]
+
+    fragment_groups = [
+        ("frontmatter/status", required_frontmatter),
+        ("section", required_sections),
+        ("role model", required_role_terms),
+        ("autonomy class/subtype", required_autonomy_terms),
+        ("task type", required_task_types),
+        ("pre-patch disclosure", required_disclosure_fields),
+        ("stop condition", required_stop_conditions),
+        ("guardrail", required_guardrail_terms),
+        ("human gate", required_human_gate_terms),
+        ("existing spec reference", required_spec_references),
+        ("future split-out reference", required_future_split_out_terms),
+    ]
+    for label, fragments in fragment_groups:
+        for fragment in fragments:
+            if fragment not in text:
+                failures.append(
+                    f"Codex Autonomy Operating Model missing {label}: {fragment}"
+                )
+
+    queue_item_match = re.search(
+        r"(?ms)^  - queue_item_id: CQ-V1-021\n"
+        r"(?P<body>.*?)(?=^  - queue_item_id: |\Z)",
+        queue_text,
+    )
+    if not queue_item_match:
+        failures.append("Work Queue V1 missing CQ-V1-021")
+    else:
+        queue_item_text = "queue_item_id: CQ-V1-021\n" + queue_item_match.group("body")
+        required_queue_item_fragments = [
+            "queue_item_id: CQ-V1-021",
+            "title: Codex autonomy operating model v0.1",
+            "produced_outputs:",
+            "docs/operations/content_pipeline/CODEX_AUTONOMY_OPERATING_MODEL_V0_1.md",
+            "allowed_next_action: prepare_validator_enhancement_for_codex_autonomy_only",
+            "status: completed_internal_planning",
+            "create_final_article",
+            "create_final_article_candidate",
+            "create_publish_candidate",
+            "set_publish_readiness",
+            "set_operator_acceptance",
+            "activate_public_launch",
+            "activate_monetization",
+            "activate_analytics",
+            "activate_search_console",
+            "claim_user_feedback",
+            "claim_live_source_verification",
+            "invent_SEO_metrics",
+            "unlock_SHO_CLAIM_007",
+            "execute_queue",
+            "advance_stage",
+        ]
+        for fragment in required_queue_item_fragments:
+            if fragment not in queue_item_text:
+                failures.append(f"Work Queue CQ-V1-021 missing: {fragment}")
+
+    queue_item_blocks = re.split(r"(?m)^  - queue_item_id: ", queue_text)[1:]
+    for split_out_path in CODEX_AUTONOMY_FUTURE_SPLIT_OUT_PATHS:
+        if not split_out_path.exists():
+            continue
+        rel_path = split_out_path.relative_to(ROOT).as_posix()
+        authorized = any(
+            "produced_outputs:" in block and rel_path in block
+            for block in queue_item_blocks
+        )
+        if not authorized:
+            failures.append(
+                "Future Codex autonomy split-out exists without explicit Work "
+                f"Queue produced-output authorization: {rel_path}"
+            )
+
+    return 1
 
 
 def validate_protocol_automation_files(failures: list[str]) -> None:
@@ -5857,7 +6106,6 @@ def validate_content_pipeline_contract_and_work_queue_v1(failures: list[str]) ->
         WORK_QUEUE_V1_PATH,
         CONTENT_PIPELINE_RUNNER_SPEC_V1_PATH,
         NEXT_TASK_GENERATOR_SPEC_V1_PATH,
-        CODEX_AUTONOMY_OPERATING_MODEL_V0_1_PATH,
     ]
     count = 0
     for path in required_paths:
@@ -5874,7 +6122,6 @@ def validate_content_pipeline_contract_and_work_queue_v1(failures: list[str]) ->
     queue_text = WORK_QUEUE_V1_PATH.read_text(encoding="utf-8")
     runner_text = CONTENT_PIPELINE_RUNNER_SPEC_V1_PATH.read_text(encoding="utf-8")
     generator_text = NEXT_TASK_GENERATOR_SPEC_V1_PATH.read_text(encoding="utf-8")
-    autonomy_model_text = CODEX_AUTONOMY_OPERATING_MODEL_V0_1_PATH.read_text(encoding="utf-8")
 
     required_stage_ids = [
         "STAGE_00_STRATEGY_TRUST_PORTFOLIO_INTAKE",
@@ -5949,30 +6196,6 @@ def validate_content_pipeline_contract_and_work_queue_v1(failures: list[str]) ->
     for fragment in required_role_fragments:
         if fragment not in role_text:
             failures.append(f"Content Production Role Boundaries V1 must contain: {fragment}")
-
-    required_autonomy_model_fragments = [
-        "model_id: CODEX_AUTONOMY_OPERATING_MODEL_V0_1",
-        "model_status: specification_only_internal",
-        "freeze_baseline_status: accepted_internal_baseline_only",
-        "queue_execution_status: not_live",
-        "stage_advancement_status: not_advanced",
-        "## 5. Autonomy Classes",
-        "### GREEN",
-        "### YELLOW",
-        "### RED",
-        "## 9. Mandatory Pre-Patch Disclosure",
-        "## 12. Stop Conditions",
-        "## 13. Human Gate Rules",
-        "## 18. Non-Acceptance Confirmation",
-        "Repo = Control Plane",
-        "Codex = controlled executor + validator",
-        "Human Operator = gate authority",
-        "SHO-INTERNAL-CANDIDATE-001",
-        "SHO-CLAIM-007",
-    ]
-    for fragment in required_autonomy_model_fragments:
-        if fragment not in autonomy_model_text:
-            failures.append(f"Codex Autonomy Operating Model v0.1 must contain: {fragment}")
 
     required_queue_metadata = [
         "queue_id: CONTENT-WORK-QUEUE-V1",
@@ -7045,6 +7268,9 @@ def main() -> int:
     failures: list[str] = []
 
     validate_required_docs(failures)
+    codex_autonomy_operating_model_count = validate_codex_autonomy_operating_model(
+        failures
+    )
     validate_protocol_automation_files(failures)
     validate_review_findings_register(failures)
     backlog_count = validate_backlog(failures)
@@ -7101,6 +7327,10 @@ def main() -> int:
 
     print("PASS: SHO-OS content contract validation passed")
     print(f"- Required documentation files present: {len(REQUIRED_DOCS)}")
+    print(
+        "- Codex Autonomy Operating Model files: "
+        f"{codex_autonomy_operating_model_count}"
+    )
     print(f"- MVP backlog article entries: {backlog_count}")
     print(f"- Batch 01 brief scaffold files: {brief_count}")
     print(f"- Batch 01 research input files: {research_count}")

@@ -670,3 +670,45 @@ queue_items:
     human_gate_required: no
     automation_candidate: codex_assisted
     status: completed_internal_planning
+
+  - queue_item_id: CQ-V1-022
+    title: Codex autonomy validator enhancement
+    linked_stage_id: STAGE_00_STRATEGY_TRUST_PORTFOLIO_INTAKE
+    linked_brief_id: not_applicable
+    required_inputs:
+      - docs/operations/content_pipeline/CODEX_AUTONOMY_OPERATING_MODEL_V0_1.md
+      - docs/operations/content_pipeline/WORK_QUEUE_V1.yaml
+    produced_outputs:
+      - scripts/validate_content_contracts.py
+    blockers:
+      - no_publish_gate
+      - no_operator_acceptance
+      - no_public_launch
+      - no_monetization_approval
+      - no_live_data_activation
+      - no_runtime_implementation
+    allowed_next_action: prepare_next_task_report_template_only_after_validator_enhancement_review
+    forbidden_actions:
+      - create_final_article
+      - create_final_article_candidate
+      - create_publish_candidate
+      - set_publish_readiness
+      - set_operator_acceptance
+      - activate_public_launch
+      - activate_monetization
+      - activate_analytics
+      - activate_search_console
+      - claim_user_feedback
+      - claim_live_source_verification
+      - invent_SEO_metrics
+      - claim_traffic
+      - claim_ranking
+      - claim_revenue
+      - unlock_SHO_CLAIM_007
+      - add_WhatsApp_UI_block_report_steps
+      - add_exact_WhatsApp_UI_paths
+      - execute_queue
+      - advance_stage
+    human_gate_required: no
+    automation_candidate: codex_assisted
+    status: completed_internal_planning
