@@ -245,6 +245,10 @@ ADOPTED_WORKING_BASIS_READINESS_REVIEW_INTERNAL_CANDIDATE_001_PATH = (
     ROOT
     / "docs/content/article_reviews/whatsapp-fraud-checklist.adopted-working-basis-readiness-review.md"
 )
+INTERNAL_PRE_GATE_GAP_REVIEW_INTERNAL_CANDIDATE_001_PATH = (
+    ROOT
+    / "docs/content/article_reviews/whatsapp-fraud-checklist.internal-pre-gate-gap-review.md"
+)
 ACCESSIBILITY_REVIEW_BRIEF_002_PATH = (
     ROOT / "docs/content/article_reviews/betrugsnachrichten-auf-whatsapp-erkennen.accessibility-review.md"
 )
@@ -8991,6 +8995,321 @@ def validate_adopted_working_basis_readiness_review_internal_candidate_001(
     return 1
 
 
+def validate_internal_pre_gate_gap_review_internal_candidate_001(
+    failures: list[str],
+) -> int:
+    path = INTERNAL_PRE_GATE_GAP_REVIEW_INTERNAL_CANDIDATE_001_PATH
+    if not path.exists():
+        failures.append(
+            "Missing Internal Pre-Gate Gap Review for SHO-INTERNAL-CANDIDATE-001"
+        )
+        return 0
+
+    matching_files = list(
+        path.parent.glob("whatsapp-fraud-checklist.internal-pre-gate-gap-review.md")
+    )
+    if len(matching_files) != 1:
+        failures.append(
+            "Expected exactly one Internal Pre-Gate Gap Review for "
+            f"SHO-INTERNAL-CANDIDATE-001, found {len(matching_files)}"
+        )
+
+    text = path.read_text(encoding="utf-8")
+    fields = parse_frontmatter_fields(text)
+    queue_text = (
+        WORK_QUEUE_V1_PATH.read_text(encoding="utf-8")
+        if WORK_QUEUE_V1_PATH.exists()
+        else ""
+    )
+    dashboard_text = (
+        ARTICLE_READINESS_DASHBOARD_PATH.read_text(encoding="utf-8")
+        if ARTICLE_READINESS_DASHBOARD_PATH.exists()
+        else ""
+    )
+    batch_text = (
+        BATCH_MANIFEST_PATH.read_text(encoding="utf-8")
+        if BATCH_MANIFEST_PATH.exists()
+        else ""
+    )
+    documentation_map_path = ROOT / "docs/DOCUMENTATION_MAP.md"
+    documentation_map_text = (
+        documentation_map_path.read_text(encoding="utf-8")
+        if documentation_map_path.exists()
+        else ""
+    )
+    handoff_path = ROOT / "external_review_packet/HANDOFF_LATEST_CONTEXT.md"
+    handoff_text = (
+        handoff_path.read_text(encoding="utf-8") if handoff_path.exists() else ""
+    )
+
+    required_frontmatter_fragments = [
+        "review_id: SHO-INTERNAL-CANDIDATE-001-INTERNAL-PRE-GATE-GAP-REVIEW",
+        "internal_candidate_id: SHO-INTERNAL-CANDIDATE-001",
+        "artifact_status: internal_only",
+        "review_status: internal_pre_gate_gap_review_completed_no_p0_p1_with_open_p2_gaps",
+        "review_scope: internal_pre_gate_gap_review_for_adopted_working_basis",
+        "linked_human_operator_adoption_decision: docs/operations/operator_decisions/HUMAN_OPERATOR_DECISION_SHO_INTERNAL_CANDIDATE_001_REVISION_CANDIDATE_ADOPTION_INTERNAL_ONLY.md",
+        "linked_adopted_working_basis: docs/content/article_revision_candidates/whatsapp-fraud-checklist.targeted-revision-candidate.md",
+        "linked_adopted_working_basis_readiness_review: docs/content/article_reviews/whatsapp-fraud-checklist.adopted-working-basis-readiness-review.md",
+        "linked_targeted_revision_candidate_review: docs/content/article_reviews/whatsapp-fraud-checklist.targeted-revision-candidate-review.md",
+        "linked_historical_final_article_candidate: docs/content/final_article_candidates/whatsapp-fraud-checklist.final-article-candidate.md",
+        "linked_content_quality_scorecard: docs/content/article_quality_scorecards/whatsapp-fraud-checklist.final-article-candidate.scorecard.md",
+        "publish_readiness_status: not_ready",
+        "operator_acceptance_status: not_accepted",
+        "article_operator_acceptance_status: not_accepted",
+        "public_launch_status: not_ready",
+        "monetization_status: not_approved",
+        "analytics_status: not_connected",
+        "search_console_status: not_connected",
+        "user_feedback_status: not_collected",
+        "real_user_testing_status: not_performed",
+        "assistive_technology_testing_status: not_performed",
+        "wcag_conformance_status: not_tested",
+        "live_source_verification_status: not_performed",
+        "source_freshness_claim_status: not_claimed",
+        "seo_metrics_status: not_available",
+        "traffic_data_status: not_available",
+        "ranking_data_status: not_available",
+        "conversion_data_status: not_available",
+        "revenue_data_status: not_available",
+        "sho_claim_007_status: blocked",
+        "whatsapp_ui_instruction_status: blocked",
+        "exact_ui_path_status: blocked",
+        "queue_execution_status: not_live",
+        "stage_advancement_status: not_advanced",
+    ]
+    required_sections = [
+        "## 1. Purpose",
+        "## 2. Reviewed Scope",
+        "## 3. Current Adopted Working Basis",
+        "## 4. Pre-Gate Gap Categories",
+        "## 5. Gap Inventory",
+        "## 6. P0/P1 Internal Sequence Blockers",
+        "## 7. P2 Publish-Path Gaps",
+        "## 8. P3 Traceability / Production Notes",
+        "## 9. Gap Resolution Order",
+        "## 10. Pre-Gate Eligibility Assessment",
+        "## 11. Verdict",
+        "## 12. Allowed Next Step",
+        "## 13. Explicit Non-Acceptance",
+    ]
+    required_gap_fragments = [
+        "source_inventory_gap",
+        "source_freshness_gap",
+        "claim_boundary_gap",
+        "UI_instruction_gap",
+        "accessibility_testing_gap",
+        "reader_feedback_gap",
+        "SEO_data_gap",
+        "legal_or_regulatory_review_gap",
+        "governance_gate_gap",
+        "production_format_gap",
+        "monetization_trust_gap",
+        "PGR-IC001-SRC-001",
+        "PGR-IC001-FRESH-001",
+        "PGR-IC001-CLAIM-001",
+        "PGR-IC001-UI-001",
+        "PGR-IC001-A11Y-001",
+        "PGR-IC001-FEEDBACK-001",
+        "PGR-IC001-SEO-001",
+        "PGR-IC001-LEGAL-001",
+        "PGR-IC001-GATE-001",
+        "PGR-IC001-PROD-001",
+        "PGR-IC001-MON-001",
+        "SRC-GAP-WF-006",
+        "no_p0_p1_blockers_for_internal_gap_resolution_planning",
+        "review_verdict: internal_pre_gate_gap_review_completed_no_p0_p1_with_open_p2_gaps",
+        "allowed_next_action: prepare_source_freshness_gap_resolution_packet_internal_only",
+        "kein Candidate geaendert",
+        "kein finaler Artikel",
+        "kein Publish Candidate",
+        "kein Publish-Candidate-Vorbereitungspaket",
+        "keine Publish Readiness",
+        "keine Artikel-Operator-Acceptance",
+        "kein Public Launch",
+        "keine Monetarisierung",
+        "keine Queue-Ausfuehrung",
+        "kein Stage Advancement",
+    ]
+    for fragment in (
+        required_frontmatter_fragments + required_sections + required_gap_fragments
+    ):
+        if fragment not in text:
+            failures.append(
+                "Internal Pre-Gate Gap Review SHO-INTERNAL-CANDIDATE-001 "
+                f"must contain: {fragment}"
+            )
+
+    expected_fields = {
+        "review_id": "sho-internal-candidate-001-internal-pre-gate-gap-review",
+        "internal_candidate_id": "sho-internal-candidate-001",
+        "artifact_status": "internal_only",
+        "review_status": (
+            "internal_pre_gate_gap_review_completed_no_p0_p1_with_open_p2_gaps"
+        ),
+        "review_scope": "internal_pre_gate_gap_review_for_adopted_working_basis",
+        "publish_readiness_status": "not_ready",
+        "operator_acceptance_status": "not_accepted",
+        "article_operator_acceptance_status": "not_accepted",
+        "public_launch_status": "not_ready",
+        "monetization_status": "not_approved",
+        "analytics_status": "not_connected",
+        "search_console_status": "not_connected",
+        "user_feedback_status": "not_collected",
+        "real_user_testing_status": "not_performed",
+        "assistive_technology_testing_status": "not_performed",
+        "wcag_conformance_status": "not_tested",
+        "live_source_verification_status": "not_performed",
+        "source_freshness_claim_status": "not_claimed",
+        "seo_metrics_status": "not_available",
+        "traffic_data_status": "not_available",
+        "ranking_data_status": "not_available",
+        "conversion_data_status": "not_available",
+        "revenue_data_status": "not_available",
+        "sho_claim_007_status": "blocked",
+        "whatsapp_ui_instruction_status": "blocked",
+        "exact_ui_path_status": "blocked",
+        "queue_execution_status": "not_live",
+        "stage_advancement_status": "not_advanced",
+    }
+    for field_name, expected_value in expected_fields.items():
+        if normalized(fields.get(field_name)) != expected_value:
+            failures.append(
+                "Internal Pre-Gate Gap Review SHO-INTERNAL-CANDIDATE-001 "
+                f"must have {field_name}: {expected_value}"
+            )
+
+    forbidden_activation_markers = [
+        "publish_ready: true",
+        "approved_for_publish: true",
+        "operator_acceptance_status: accepted",
+        "article_operator_acceptance_status: accepted",
+        "public_launch_status: ready",
+        "public_launch_status: launched",
+        "monetization_status: approved",
+        "analytics_status: connected",
+        "search_console_status: connected",
+        "user_feedback_status: collected",
+        "real_user_testing_status: performed",
+        "assistive_technology_testing_status: performed",
+        "wcag_conformance_status: claimed",
+        "wcag_conformance_status: compliant",
+        "live_source_verification_status: performed",
+        "source_freshness_claim_status: claimed",
+    ]
+    lower_text = text.lower()
+    for fragment in forbidden_activation_markers:
+        if fragment in lower_text:
+            failures.append(
+                "Internal Pre-Gate Gap Review SHO-INTERNAL-CANDIDATE-001 "
+                f"must not contain forbidden activation marker: {fragment}"
+            )
+
+    required_dashboard_fragments = [
+        "SHO-INTERNAL-CANDIDATE-001",
+        "internal_pre_gate_gap_review_completed_not_publish_ready",
+        "current_internal_working_basis: docs/content/article_revision_candidates/whatsapp-fraud-checklist.targeted-revision-candidate.md",
+        "prepare_source_freshness_gap_resolution_packet_internal_only",
+        "not_ready",
+        "not_accepted",
+    ]
+    for fragment in required_dashboard_fragments:
+        if fragment not in dashboard_text:
+            failures.append(
+                "Article readiness dashboard missing Internal Pre-Gate "
+                f"Gap Review status: {fragment}"
+            )
+
+    required_batch_fragments = [
+        "candidate_id: SHO-INTERNAL-CANDIDATE-001",
+        "docs/content/article_reviews/whatsapp-fraud-checklist.internal-pre-gate-gap-review.md",
+        "internal_pre_gate_gap_review_status: completed_no_p0_p1_with_open_p2_gaps_internal_only",
+        "current_internal_working_basis: docs/content/article_revision_candidates/whatsapp-fraud-checklist.targeted-revision-candidate.md",
+        "historical_final_article_candidate: docs/content/final_article_candidates/whatsapp-fraud-checklist.final-article-candidate.md",
+        "publish_readiness_status: not_ready",
+        "operator_acceptance_status: not_accepted",
+        "allowed_next_action: prepare_source_freshness_gap_resolution_packet_internal_only",
+    ]
+    for fragment in required_batch_fragments:
+        if fragment not in batch_text:
+            failures.append(
+                "Batch manifest missing Internal Pre-Gate Gap Review "
+                f"status: {fragment}"
+            )
+
+    if (
+        "whatsapp-fraud-checklist.internal-pre-gate-gap-review.md"
+        not in documentation_map_text
+    ):
+        failures.append("Documentation Map missing Internal Pre-Gate Gap Review")
+
+    required_handoff_fragments = [
+        "INTERNAL_PRE_GATE_GAP_REVIEW_COMPLETED_NO_P0_P1_WITH_OPEN_P2_GAPS",
+        "internal_pre_gate_gap_review_completed_no_p0_p1_with_open_p2_gaps",
+        "current_internal_working_basis: docs/content/article_revision_candidates/whatsapp-fraud-checklist.targeted-revision-candidate.md",
+        "prepare_source_freshness_gap_resolution_packet_internal_only",
+    ]
+    for fragment in required_handoff_fragments:
+        if fragment not in handoff_text:
+            failures.append(
+                "Handoff missing Internal Pre-Gate Gap Review "
+                f"status: {fragment}"
+            )
+
+    queue_item_match = re.search(
+        r"(?ms)^  - queue_item_id: CQ-V1-038\n"
+        r"(?P<body>.*?)(?=^  - queue_item_id: |\Z)",
+        queue_text,
+    )
+    if not queue_item_match:
+        failures.append("Work Queue V1 missing CQ-V1-038")
+    else:
+        queue_item_text = "queue_item_id: CQ-V1-038\n" + queue_item_match.group(
+            "body"
+        )
+        required_queue_fragments = [
+            "title: SHO-INTERNAL-CANDIDATE-001 internal pre-gate gap review for adopted working basis",
+            "linked_stage_id: STAGE_09_QUALITY_READER_ACCESSIBILITY_SAFETY_REVIEWS",
+            "linked_brief_id: SHO-INTERNAL-CANDIDATE-001",
+            "docs/content/article_reviews/whatsapp-fraud-checklist.internal-pre-gate-gap-review.md",
+            "allowed_next_action: prepare_source_freshness_gap_resolution_packet_internal_only",
+            "human_gate_required: no",
+            "status: internal_review_prepared",
+            "modify_adopted_working_basis",
+            "modify_historical_final_article_candidate",
+            "create_final_article",
+            "create_publish_candidate",
+            "prepare_publish_candidate",
+            "set_publish_readiness",
+            "set_operator_acceptance",
+            "activate_public_launch",
+            "activate_monetization",
+            "activate_analytics",
+            "activate_search_console",
+            "claim_user_feedback",
+            "claim_live_source_verification",
+            "claim_source_freshness",
+            "claim_real_user_testing",
+            "claim_assistive_technology_testing",
+            "claim_wcag_conformance",
+            "invent_SEO_metrics",
+            "claim_traffic",
+            "claim_ranking",
+            "claim_revenue",
+            "unlock_SHO_CLAIM_007",
+            "add_WhatsApp_UI_block_report_steps",
+            "add_exact_WhatsApp_UI_paths",
+            "promote_to_MVP_Brief_005",
+            "execute_queue",
+            "advance_stage",
+        ]
+        for fragment in required_queue_fragments:
+            if fragment not in queue_item_text:
+                failures.append(f"Work Queue CQ-V1-038 missing: {fragment}")
+
+    return 1
+
+
 def validate_applied_scorecard_brief_002(failures: list[str]) -> int:
     if not APPLIED_SCORECARD_BRIEF_002_PATH.exists():
         failures.append(
@@ -10696,6 +11015,9 @@ def main() -> int:
             failures
         )
     )
+    internal_pre_gate_gap_review_internal_candidate_001_count = (
+        validate_internal_pre_gate_gap_review_internal_candidate_001(failures)
+    )
     applied_scorecard_brief_002_count = validate_applied_scorecard_brief_002(failures)
     human_operator_review_packet_final_article_candidate_brief_002_count = (
         validate_human_operator_review_packet_final_article_candidate_brief_002(failures)
@@ -10810,6 +11132,10 @@ def main() -> int:
     print(
         "- Internal candidate Adopted Working Basis Readiness Review files: "
         f"{adopted_working_basis_readiness_review_internal_candidate_001_count}"
+    )
+    print(
+        "- Internal candidate Internal Pre-Gate Gap Review files: "
+        f"{internal_pre_gate_gap_review_internal_candidate_001_count}"
     )
     print(f"- Batch 01 applied scorecard Brief 002 files: {applied_scorecard_brief_002_count}")
     print(

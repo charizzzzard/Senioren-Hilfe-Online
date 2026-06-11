@@ -1508,3 +1508,63 @@ queue_items:
     human_gate_required: no
     automation_candidate: codex_assisted
     status: internal_review_prepared
+
+  - queue_item_id: CQ-V1-038
+    title: SHO-INTERNAL-CANDIDATE-001 internal pre-gate gap review for adopted working basis
+    linked_stage_id: STAGE_09_QUALITY_READER_ACCESSIBILITY_SAFETY_REVIEWS
+    linked_brief_id: SHO-INTERNAL-CANDIDATE-001
+    internal_candidate_id: SHO-INTERNAL-CANDIDATE-001
+    internal_candidate_status: internal_only
+    batch_membership_status: internal_spinoff_candidate_not_official_batch_brief
+    required_inputs:
+      - docs/operations/operator_decisions/HUMAN_OPERATOR_DECISION_SHO_INTERNAL_CANDIDATE_001_REVISION_CANDIDATE_ADOPTION_INTERNAL_ONLY.md
+      - docs/content/article_revision_candidates/whatsapp-fraud-checklist.targeted-revision-candidate.md
+      - docs/content/article_reviews/whatsapp-fraud-checklist.adopted-working-basis-readiness-review.md
+    produced_outputs:
+      - docs/content/article_reviews/whatsapp-fraud-checklist.internal-pre-gate-gap-review.md
+    blockers:
+      - no_publish_gate
+      - no_operator_acceptance
+      - no_public_launch
+      - no_monetization_approval
+      - no_live_source_verification
+      - no_source_freshness_claim
+      - no_real_seo_metrics
+      - no_real_user_testing
+      - no_assistive_technology_testing
+      - no_wcag_conformance_claim
+      - SHO_CLAIM_007_blocked
+      - whatsapp_ui_instruction_blocked
+      - exact_ui_path_blocked
+    allowed_next_action: prepare_source_freshness_gap_resolution_packet_internal_only
+    forbidden_actions:
+      - modify_adopted_working_basis
+      - modify_historical_final_article_candidate
+      - create_final_article
+      - create_publish_candidate
+      - prepare_publish_candidate
+      - set_publish_readiness
+      - set_operator_acceptance
+      - activate_public_launch
+      - activate_monetization
+      - activate_analytics
+      - activate_search_console
+      - claim_user_feedback
+      - claim_live_source_verification
+      - claim_source_freshness
+      - claim_real_user_testing
+      - claim_assistive_technology_testing
+      - claim_wcag_conformance
+      - invent_SEO_metrics
+      - claim_traffic
+      - claim_ranking
+      - claim_revenue
+      - unlock_SHO_CLAIM_007
+      - add_WhatsApp_UI_block_report_steps
+      - add_exact_WhatsApp_UI_paths
+      - promote_to_MVP_Brief_005
+      - execute_queue
+      - advance_stage
+    human_gate_required: no
+    automation_candidate: codex_assisted
+    status: internal_review_prepared

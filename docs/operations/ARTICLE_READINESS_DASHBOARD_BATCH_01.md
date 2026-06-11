@@ -43,7 +43,7 @@ Dieses Dashboard ist ein internes Steuerungsartefakt fuer `MVP_BATCH_01`. Es mac
 - Brief 002 ist final_article_candidate_prepared_not_publish_ready, mit Scorecard Review, Human-Operator-Review-Packet, Human-Operator-Entscheidung, Dedicated Accessibility Review und Final Source Metadata Review vorbereitet, aber nicht publish-ready.
 - Brief 003 ist android_draft_candidate_revision_reviewed_internal_only: Scaffold, Draft Candidate, Draft Candidate Review, Revision Packet, revised Draft Candidate und Revision Review existieren intern, aber Brief 003 ist nicht publish-ready.
 - Brief 004 ist held_for_methodology wegen commercial/affiliate risk und offener product recommendation methodology.
-- `SHO-INTERNAL-CANDIDATE-001` ist ein interner WhatsApp-Fraud-Checklist Spin-off Candidate nach Brief-003-Option-C-Pivot und Brief-002-Claim-Boundaries. Der Human Operator hat Option A gewaehlt; das Adopted Working Basis Readiness Review ist mit Findings abgeschlossen. Die unveraenderte Arbeitsgrundlage ist fuer eine spaetere interne Pre-Gate-Gap-Pruefung stabil, bleibt aber nicht publish-ready, nicht akzeptiert und kein offizieller fuenfter MVP-Brief.
+- `SHO-INTERNAL-CANDIDATE-001` ist ein interner WhatsApp-Fraud-Checklist Spin-off Candidate nach Brief-003-Option-C-Pivot und Brief-002-Claim-Boundaries. Der Human Operator hat Option A gewaehlt; das Internal Pre-Gate Gap Review ist ohne P0/P1 und mit offenen P2-Gaps abgeschlossen. Die unveraenderte Arbeitsgrundlage ist fuer interne Gap-Aufloesungsplanung stabil, bleibt aber nicht publish-ready, nicht akzeptiert und kein offizieller fuenfter MVP-Brief.
 - User-Perspective-, Reader-Experience- und Feedback-Status bleiben Platzhalter. Brief 002 Accessibility Review ist completed_not_publish_ready; andere Accessibility-Status bleiben pending, sofern nicht separat geprueft.
 
 ## Article Readiness Table
@@ -61,7 +61,7 @@ Diese Tabelle ist getrennt von den offiziellen Batch-01-Briefs. Sie fuehrt inter
 
 | internal_candidate_id | title | current_artifact_level | official_mvp_brief_status | batch_membership_status | allowed_next_step | source_state | review_state | final_article_candidate_status | publish_readiness | operator_acceptance | public_launch_status | monetization_status | primary_boundaries |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| SHO-INTERNAL-CANDIDATE-001 | WhatsApp-Fraud-Checklist | adopted_working_basis_readiness_review_completed_not_publish_ready | not_assigned | internal_spinoff_candidate_not_official_batch_brief | prepare_internal_pre_gate_gap_review_for_adopted_working_basis | repo metadata for SHO-SRC-005, SHO-SRC-006 and SHO-SRC-007 is traceable; live_source_verification_status not_performed; source freshness not claimed; SHO-SRC-004 blocked UI context only | Adopted Working Basis Readiness Review passed with findings and no P0/P1; Human Operator selected Option A; working_basis_decision_status adopted_internal_working_basis_only; Targeted Revision Candidate remains the unchanged current internal working basis; Original Final Article Candidate remains unchanged and historical; real_user_testing_status not_performed; assistive_technology_testing_status not_performed; wcag_conformance_status not_tested | final_article_candidate_not_publish_ready | not_ready | not_accepted | not_ready | not_approved | SHO-CLAIM-007 blocked; no Publish Gate, live freshness, real tests, WhatsApp UI instructions, exact paths or official MVP Brief 005 promotion |
+| SHO-INTERNAL-CANDIDATE-001 | WhatsApp-Fraud-Checklist | internal_pre_gate_gap_review_completed_not_publish_ready | not_assigned | internal_spinoff_candidate_not_official_batch_brief | prepare_source_freshness_gap_resolution_packet_internal_only | repo metadata for SHO-SRC-005, SHO-SRC-006 and SHO-SRC-007 is traceable; live_source_verification_status not_performed; source freshness not claimed; candidate-specific final source selection and SRC-GAP-WF-006 remain open; SHO-SRC-004 blocked UI context only | Internal Pre-Gate Gap Review completed with no P0/P1 and open P2 publish-path gaps; Human Operator selected Option A; current working basis and historical candidate remain unchanged; direct Publish Candidate path blocked; real_user_testing_status not_performed; assistive_technology_testing_status not_performed; wcag_conformance_status not_tested | final_article_candidate_not_publish_ready | not_ready | not_accepted | not_ready | not_approved | SHO-CLAIM-007 blocked; no Publish Gate, live freshness, final source selection, real tests, WhatsApp UI instructions, exact paths or official MVP Brief 005 promotion |
 
 - current_internal_working_basis: docs/content/article_revision_candidates/whatsapp-fraud-checklist.targeted-revision-candidate.md
 - working_basis_decision_status: adopted_internal_working_basis_only
@@ -76,9 +76,12 @@ Legacy validator anchors retained as superseded historical state:
 - superseded_packet_allowed_next_step: record_human_operator_revision_candidate_adoption_decision_internal_only
 - superseded_packet_decision_note: decision_status not_decided; no adoption recorded
 - protected_candidate_note: Targeted Revision Candidate remains unchanged
+- protected_historical_candidate_note: Original Final Article Candidate remains unchanged
 - protected_review_note: Targeted Revision Candidate Review passed with findings and no P0/P1
 - superseded_adoption_artifact_level: revision_candidate_adoption_decision_recorded_internal_working_basis_only
 - superseded_adoption_allowed_next_step: prepare_adopted_revision_working_basis_readiness_review_internal_only
+- superseded_readiness_artifact_level: adopted_working_basis_readiness_review_completed_not_publish_ready
+- superseded_readiness_allowed_next_step: prepare_internal_pre_gate_gap_review_for_adopted_working_basis
 
 ## Brief-Level Status Details
 
