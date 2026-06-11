@@ -5,8 +5,8 @@
 - project_name: Senioren-Hilfe Online
 - system_name: Senioren-Hilfe Online OS
 - system_short_name: SHO-OS
-- patch_title: HUMAN_OPERATOR_REVISION_CANDIDATE_ADOPTION_DECISION_INTERNAL_ONLY
-- external_review_verdict: HUMAN_OPERATOR_OPTION_A_RECORDED_INTERNAL_WORKING_BASIS_ONLY
+- patch_title: SHO_INTERNAL_CANDIDATE_001_ADOPTED_REVISION_WORKING_BASIS_READINESS_REVIEW_INTERNAL_ONLY
+- external_review_verdict: ADOPTED_WORKING_BASIS_READINESS_REVIEW_PASSED_WITH_FINDINGS_NOT_PUBLISH_READY
 
 SHO-OS ist ein reproduzierbares Content-, Trust- und Publishing-System fuer seniorengerechte digitale Alltagshilfe in Deutschland.
 
@@ -15,9 +15,9 @@ Dieser Handoff beschreibt den aktuellen internen Repo-Kontext nach der internen 
 ## Git Traceability
 
 - branch: `main`
-- head_before_current_patch: `6ff9e17c56f32050ae716f96fbe0b17713c9d3da`
+- head_before_current_patch: `2649c7962a52e546b650b8bbe92f3e8097cd81ee`
 - intended_head_after: `assigned_after_commit`
-- origin_main_before_current_patch: `6ff9e17c56f32050ae716f96fbe0b17713c9d3da`
+- origin_main_before_current_patch: `2649c7962a52e546b650b8bbe92f3e8097cd81ee`
 - dirty_state_before_current_patch: `clean`
 - dirty_state_after_current_patch: `assigned_after_commit`
 
@@ -71,8 +71,11 @@ Hinweis: `head_after` wird nicht vorab als Commit-SHA eingetragen, weil ein Comm
 - The Targeted Revision Candidate is now the current internal working basis only.
 - Neither the Targeted Revision Candidate nor the original Final Article Candidate was modified.
 - The original Final Article Candidate remains the historical internal artifact.
+- `CQ-V1-037` records the internal Adopted Working Basis Readiness Review.
+- The verdict is `adopted_working_basis_readiness_review_passed_with_findings_not_publish_ready`; no P0 or P1 finding was identified.
+- The unchanged adopted working basis is stable enough only for preparation of a later internal pre-gate gap review.
 - The candidate remains not publish-ready, not accepted and not live.
-- The next allowed action is `prepare_adopted_revision_working_basis_readiness_review_internal_only`.
+- The next allowed action is `prepare_internal_pre_gate_gap_review_for_adopted_working_basis`.
 
 ## Internal Candidate Status
 
@@ -83,7 +86,7 @@ internal_candidate:
   internal_candidate_status: internal_only
   official_mvp_brief_status: not_assigned
   batch_membership_status: internal_spinoff_candidate_not_official_batch_brief
-  current_artifact_level: revision_candidate_adoption_decision_recorded_internal_working_basis_only
+  current_artifact_level: adopted_working_basis_readiness_review_completed_not_publish_ready
   final_article_candidate_created: true
   final_article_candidate_review_status: final_article_candidate_review_passed_with_findings_not_publish_ready
   source_metadata_freshness_review_status: source_metadata_freshness_review_passed_with_findings_not_publish_ready
@@ -99,6 +102,7 @@ internal_candidate:
   current_internal_working_basis: docs/content/article_revision_candidates/whatsapp-fraud-checklist.targeted-revision-candidate.md
   historical_final_article_candidate: docs/content/final_article_candidates/whatsapp-fraud-checklist.final-article-candidate.md
   targeted_revision_candidate_adopted: internal_working_basis_only
+  adopted_working_basis_readiness_review_status: adopted_working_basis_readiness_review_passed_with_findings_not_publish_ready
   real_user_testing_status: not_performed
   assistive_technology_testing_status: not_performed
   wcag_conformance_status: not_tested
@@ -134,7 +138,7 @@ This internal candidate is not an official fifth MVP brief and is not `SHO-MVP-B
 ## Non-Scope / Non-Acceptance
 
 - No final article.
-- One unchanged historical internal Final Article Candidate plus candidate, repo-only source metadata / freshness and text-only Accessibility / Senior Reader reviews, one applied Content Quality Scorecard, one Targeted Revision Packet, one unchanged Targeted Revision Candidate, its review, one Adoption Decision Packet and one Human Operator Option-A decision exist for `SHO-INTERNAL-CANDIDATE-001`; the Targeted Revision Candidate is adopted only as the internal working basis, and the path remains not publish-ready and not accepted.
+- One unchanged historical internal Final Article Candidate plus candidate, repo-only source metadata / freshness and text-only Accessibility / Senior Reader reviews, one applied Content Quality Scorecard, one Targeted Revision Packet, one unchanged Targeted Revision Candidate, its review, one Adoption Decision Packet, one Human Operator Option-A decision and one Adopted Working Basis Readiness Review exist for `SHO-INTERNAL-CANDIDATE-001`; the review passed with findings only for later internal pre-gate gap review preparation, and the path remains not publish-ready and not accepted.
 - No Publish Candidate.
 - No Publish Readiness.
 - No Operator Acceptance.
@@ -182,9 +186,14 @@ The Human Operator decision now accepts the cleaned internal baseline as an inte
 
 ## Recommended Next Safe Outputs
 
-- `SHO_INTERNAL_CANDIDATE_001_ADOPTED_REVISION_WORKING_BASIS_READINESS_REVIEW_INTERNAL_ONLY`
+- `SHO_INTERNAL_CANDIDATE_001_INTERNAL_PRE_GATE_GAP_REVIEW_FOR_ADOPTED_WORKING_BASIS`
 - `BRIEF_002_PUBLISH_CANDIDATE_DECISION_PACKET_INTERNAL_ONLY`
 - `WEBSITE_RELEASE_READINESS_GAP_REVIEW_INTERNAL_ONLY`
+
+Superseded validator anchors retained as historical context:
+
+- superseded_external_review_verdict: HUMAN_OPERATOR_OPTION_A_RECORDED_INTERNAL_WORKING_BASIS_ONLY
+- superseded_allowed_next_action: prepare_adopted_revision_working_basis_readiness_review_internal_only
 
 ## Validation Commands
 

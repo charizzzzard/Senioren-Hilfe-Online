@@ -44,6 +44,7 @@ internal_candidates:
       - docs/content/article_reviews/whatsapp-fraud-checklist.targeted-revision-candidate-review.md
       - docs/operations/operator_decisions/REVISION_CANDIDATE_ADOPTION_DECISION_PACKET_SHO_INTERNAL_CANDIDATE_001_INTERNAL_ONLY.md
       - docs/operations/operator_decisions/HUMAN_OPERATOR_DECISION_SHO_INTERNAL_CANDIDATE_001_REVISION_CANDIDATE_ADOPTION_INTERNAL_ONLY.md
+      - docs/content/article_reviews/whatsapp-fraud-checklist.adopted-working-basis-readiness-review.md
     final_article_candidate_status: prepared_internal_only
     final_article_candidate_review_status: passed_with_findings_internal_only
     source_metadata_freshness_review_status: passed_with_findings_internal_only
@@ -54,6 +55,7 @@ internal_candidates:
     targeted_revision_candidate_review_status: passed_with_findings_internal_only
     revision_candidate_adoption_decision_packet_status: prepared_for_human_operator_decision
     revision_candidate_adoption_decision_status: adopted_internal_working_basis_only
+    adopted_working_basis_readiness_review_status: passed_with_findings_internal_only
     current_internal_working_basis: docs/content/article_revision_candidates/whatsapp-fraud-checklist.targeted-revision-candidate.md
     historical_final_article_candidate: docs/content/final_article_candidates/whatsapp-fraud-checklist.final-article-candidate.md
     real_user_testing_status: not_performed
@@ -66,7 +68,8 @@ internal_candidates:
     superseded_allowed_next_action: prepare_revision_candidate_adoption_decision_packet_internal_only
     superseded_revision_candidate_adoption_decision_status: not_decided
     superseded_packet_allowed_next_action: record_human_operator_revision_candidate_adoption_decision_internal_only
-    allowed_next_action: prepare_adopted_revision_working_basis_readiness_review_internal_only
+    superseded_adoption_allowed_next_action: prepare_adopted_revision_working_basis_readiness_review_internal_only
+    allowed_next_action: prepare_internal_pre_gate_gap_review_for_adopted_working_basis
     forbidden_actions:
       - set_publish_readiness
       - set_operator_acceptance
@@ -141,7 +144,7 @@ known_blockers:
   - Article draft scaffolds exist only for Brief 002 and Brief 003.
   - Official Batch Brief draft candidates exist for Brief 002 and Brief 003 internal-only.
   - SHO-INTERNAL-CANDIDATE-001 exists separately as an internal spin-off candidate, not an official batch brief.
-  - SHO-INTERNAL-CANDIDATE-001 has one unchanged historical internal Final Article Candidate plus candidate, source metadata / freshness, text-only Accessibility / Senior Reader reviews, one applied Content Quality Scorecard, one Targeted Revision Packet, one unchanged Targeted Revision Candidate, its review, one Adoption Decision Packet and one Human Operator adoption decision. Option A adopts the Targeted Revision Candidate only as the current internal working basis; no live verification, freshness claim, real user testing, assistive-technology testing or WCAG conformance claim exists, and it remains not publish-ready.
+  - SHO-INTERNAL-CANDIDATE-001 has one unchanged historical internal Final Article Candidate plus candidate, source metadata / freshness, text-only Accessibility / Senior Reader reviews, one applied Content Quality Scorecard, one Targeted Revision Packet, one unchanged Targeted Revision Candidate, its review, one Adoption Decision Packet, one Human Operator adoption decision and one Adopted Working Basis Readiness Review. Option A adopts the Targeted Revision Candidate only as the current internal working basis; the readiness review passed with findings for a later internal pre-gate gap review, while live verification, freshness, real testing, Publish Readiness and Operator Acceptance remain absent.
   - Brief 002 draft candidate reviewed with findings.
   - Brief 002 draft candidate fix re-review passed, but no publish readiness is set.
   - Brief 002 final article candidate exists and is not publish-ready.
