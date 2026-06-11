@@ -110,6 +110,7 @@ REQUIRED_DOCS = [
     "docs/content/article_quality_scorecards/whatsapp-fraud-checklist.final-article-candidate.scorecard.md",
     "docs/content/article_reviews/whatsapp-fraud-checklist.targeted-revision-packet.md",
     "docs/content/article_revision_candidates/whatsapp-fraud-checklist.targeted-revision-candidate.md",
+    "docs/content/article_reviews/whatsapp-fraud-checklist.targeted-revision-candidate-review.md",
     "docs/operations/website_preview/README.md",
     "docs/operations/website_preview/WEBSITE_INFORMATION_ARCHITECTURE_INTERNAL_PREVIEW_V1.md",
     "docs/operations/website_preview/WEBSITE_PREVIEW_REVIEW_PACKET_INTERNAL_ONLY.md",
@@ -225,6 +226,9 @@ TARGETED_REVISION_PACKET_INTERNAL_CANDIDATE_001_PATH = (
 )
 TARGETED_REVISION_CANDIDATE_INTERNAL_CANDIDATE_001_PATH = (
     ROOT / "docs/content/article_revision_candidates/whatsapp-fraud-checklist.targeted-revision-candidate.md"
+)
+TARGETED_REVISION_CANDIDATE_REVIEW_INTERNAL_CANDIDATE_001_PATH = (
+    ROOT / "docs/content/article_reviews/whatsapp-fraud-checklist.targeted-revision-candidate-review.md"
 )
 ACCESSIBILITY_REVIEW_BRIEF_002_PATH = (
     ROOT / "docs/content/article_reviews/betrugsnachrichten-auf-whatsapp-erkennen.accessibility-review.md"
@@ -6206,8 +6210,8 @@ def validate_final_article_candidate_internal_candidate_001(
 
     required_dashboard_fragments = [
         "SHO-INTERNAL-CANDIDATE-001",
-        "targeted_revision_candidate_prepared_internal_only",
-        "prepare_targeted_revision_candidate_review_internal_only",
+        "targeted_revision_candidate_review_completed_not_publish_ready",
+        "prepare_revision_candidate_adoption_decision_packet_internal_only",
         "final_article_candidate_not_publish_ready",
     ]
     for fragment in required_dashboard_fragments:
@@ -6226,9 +6230,10 @@ def validate_final_article_candidate_internal_candidate_001(
         "content_quality_scorecard_status: passed_with_findings_internal_only",
         "targeted_revision_packet_status: prepared_internal_only",
         "targeted_revision_candidate_status: prepared_internal_only",
+        "targeted_revision_candidate_review_status: passed_with_findings_internal_only",
         "publish_readiness_status: not_ready",
         "operator_acceptance_status: not_accepted",
-        "allowed_next_action: prepare_targeted_revision_candidate_review_internal_only",
+        "allowed_next_action: prepare_revision_candidate_adoption_decision_packet_internal_only",
     ]
     for fragment in required_batch_fragments:
         if fragment not in batch_text:
@@ -6447,8 +6452,8 @@ def validate_final_article_candidate_review_internal_candidate_001(
 
     required_dashboard_fragments = [
         "SHO-INTERNAL-CANDIDATE-001",
-        "targeted_revision_candidate_prepared_internal_only",
-        "prepare_targeted_revision_candidate_review_internal_only",
+        "targeted_revision_candidate_review_completed_not_publish_ready",
+        "prepare_revision_candidate_adoption_decision_packet_internal_only",
         "final_article_candidate_not_publish_ready",
     ]
     for fragment in required_dashboard_fragments:
@@ -6467,9 +6472,10 @@ def validate_final_article_candidate_review_internal_candidate_001(
         "content_quality_scorecard_status: passed_with_findings_internal_only",
         "targeted_revision_packet_status: prepared_internal_only",
         "targeted_revision_candidate_status: prepared_internal_only",
+        "targeted_revision_candidate_review_status: passed_with_findings_internal_only",
         "publish_readiness_status: not_ready",
         "operator_acceptance_status: not_accepted",
-        "allowed_next_action: prepare_targeted_revision_candidate_review_internal_only",
+        "allowed_next_action: prepare_revision_candidate_adoption_decision_packet_internal_only",
     ]
     for fragment in required_batch_fragments:
         if fragment not in batch_text:
@@ -6719,8 +6725,8 @@ def validate_source_metadata_freshness_review_internal_candidate_001(
 
     required_dashboard_fragments = [
         "SHO-INTERNAL-CANDIDATE-001",
-        "targeted_revision_candidate_prepared_internal_only",
-        "prepare_targeted_revision_candidate_review_internal_only",
+        "targeted_revision_candidate_review_completed_not_publish_ready",
+        "prepare_revision_candidate_adoption_decision_packet_internal_only",
         "real_user_testing_status not_performed",
         "assistive_technology_testing_status not_performed",
         "wcag_conformance_status not_tested",
@@ -6740,6 +6746,7 @@ def validate_source_metadata_freshness_review_internal_candidate_001(
         "content_quality_scorecard_status: passed_with_findings_internal_only",
         "targeted_revision_packet_status: prepared_internal_only",
         "targeted_revision_candidate_status: prepared_internal_only",
+        "targeted_revision_candidate_review_status: passed_with_findings_internal_only",
         "real_user_testing_status: not_performed",
         "assistive_technology_testing_status: not_performed",
         "wcag_conformance_status: not_tested",
@@ -6747,7 +6754,7 @@ def validate_source_metadata_freshness_review_internal_candidate_001(
         "source_freshness_claim_status: not_claimed",
         "publish_readiness_status: not_ready",
         "operator_acceptance_status: not_accepted",
-        "allowed_next_action: prepare_targeted_revision_candidate_review_internal_only",
+        "allowed_next_action: prepare_revision_candidate_adoption_decision_packet_internal_only",
     ]
     for fragment in required_batch_fragments:
         if fragment not in batch_text:
@@ -7003,8 +7010,8 @@ def validate_accessibility_senior_reader_review_internal_candidate_001(
 
     required_dashboard_fragments = [
         "SHO-INTERNAL-CANDIDATE-001",
-        "targeted_revision_candidate_prepared_internal_only",
-        "prepare_targeted_revision_candidate_review_internal_only",
+        "targeted_revision_candidate_review_completed_not_publish_ready",
+        "prepare_revision_candidate_adoption_decision_packet_internal_only",
         "real_user_testing_status not_performed",
         "assistive_technology_testing_status not_performed",
         "wcag_conformance_status not_tested",
@@ -7023,12 +7030,13 @@ def validate_accessibility_senior_reader_review_internal_candidate_001(
         "content_quality_scorecard_status: passed_with_findings_internal_only",
         "targeted_revision_packet_status: prepared_internal_only",
         "targeted_revision_candidate_status: prepared_internal_only",
+        "targeted_revision_candidate_review_status: passed_with_findings_internal_only",
         "real_user_testing_status: not_performed",
         "assistive_technology_testing_status: not_performed",
         "wcag_conformance_status: not_tested",
         "publish_readiness_status: not_ready",
         "operator_acceptance_status: not_accepted",
-        "allowed_next_action: prepare_targeted_revision_candidate_review_internal_only",
+        "allowed_next_action: prepare_revision_candidate_adoption_decision_packet_internal_only",
     ]
     for fragment in required_batch_fragments:
         if fragment not in batch_text:
@@ -7264,8 +7272,8 @@ def validate_content_quality_scorecard_internal_candidate_001(
 
     required_dashboard_fragments = [
         "SHO-INTERNAL-CANDIDATE-001",
-        "targeted_revision_candidate_prepared_internal_only",
-        "prepare_targeted_revision_candidate_review_internal_only",
+        "targeted_revision_candidate_review_completed_not_publish_ready",
+        "prepare_revision_candidate_adoption_decision_packet_internal_only",
         "reader text has no inline claim/source markers",
     ]
     for fragment in required_dashboard_fragments:
@@ -7281,9 +7289,10 @@ def validate_content_quality_scorecard_internal_candidate_001(
         "content_quality_scorecard_status: passed_with_findings_internal_only",
         "targeted_revision_packet_status: prepared_internal_only",
         "targeted_revision_candidate_status: prepared_internal_only",
+        "targeted_revision_candidate_review_status: passed_with_findings_internal_only",
         "publish_readiness_status: not_ready",
         "operator_acceptance_status: not_accepted",
-        "allowed_next_action: prepare_targeted_revision_candidate_review_internal_only",
+        "allowed_next_action: prepare_revision_candidate_adoption_decision_packet_internal_only",
     ]
     for fragment in required_batch_fragments:
         if fragment not in batch_text:
@@ -7508,10 +7517,10 @@ def validate_targeted_revision_packet_internal_candidate_001(
 
     required_dashboard_fragments = [
         "SHO-INTERNAL-CANDIDATE-001",
-        "targeted_revision_candidate_prepared_internal_only",
-        "prepare_targeted_revision_candidate_review_internal_only",
+        "targeted_revision_candidate_review_completed_not_publish_ready",
+        "prepare_revision_candidate_adoption_decision_packet_internal_only",
         "Original Final Article Candidate remains unchanged",
-        "one Targeted Revision Candidate exist",
+        "Targeted Revision Candidate Review passed with findings and no P0/P1",
     ]
     for fragment in required_dashboard_fragments:
         if fragment not in dashboard_text:
@@ -7525,9 +7534,10 @@ def validate_targeted_revision_packet_internal_candidate_001(
         "docs/content/article_reviews/whatsapp-fraud-checklist.targeted-revision-packet.md",
         "targeted_revision_packet_status: prepared_internal_only",
         "targeted_revision_candidate_status: prepared_internal_only",
+        "targeted_revision_candidate_review_status: passed_with_findings_internal_only",
         "publish_readiness_status: not_ready",
         "operator_acceptance_status: not_accepted",
-        "allowed_next_action: prepare_targeted_revision_candidate_review_internal_only",
+        "allowed_next_action: prepare_revision_candidate_adoption_decision_packet_internal_only",
     ]
     for fragment in required_batch_fragments:
         if fragment not in batch_text:
@@ -7767,8 +7777,8 @@ def validate_targeted_revision_candidate_internal_candidate_001(
 
     required_dashboard_fragments = [
         "SHO-INTERNAL-CANDIDATE-001",
-        "targeted_revision_candidate_prepared_internal_only",
-        "prepare_targeted_revision_candidate_review_internal_only",
+        "targeted_revision_candidate_review_completed_not_publish_ready",
+        "prepare_revision_candidate_adoption_decision_packet_internal_only",
         "Original Final Article Candidate remains unchanged",
         "reader text has no inline claim/source markers",
     ]
@@ -7783,9 +7793,10 @@ def validate_targeted_revision_candidate_internal_candidate_001(
         "candidate_id: SHO-INTERNAL-CANDIDATE-001",
         "docs/content/article_revision_candidates/whatsapp-fraud-checklist.targeted-revision-candidate.md",
         "targeted_revision_candidate_status: prepared_internal_only",
+        "targeted_revision_candidate_review_status: passed_with_findings_internal_only",
         "publish_readiness_status: not_ready",
         "operator_acceptance_status: not_accepted",
-        "allowed_next_action: prepare_targeted_revision_candidate_review_internal_only",
+        "allowed_next_action: prepare_revision_candidate_adoption_decision_packet_internal_only",
     ]
     for fragment in required_batch_fragments:
         if fragment not in batch_text:
@@ -7836,6 +7847,250 @@ def validate_targeted_revision_candidate_internal_candidate_001(
         for fragment in required_queue_fragments:
             if fragment not in queue_item_text:
                 failures.append(f"Work Queue CQ-V1-033 missing: {fragment}")
+
+    return 1
+
+
+def validate_targeted_revision_candidate_review_internal_candidate_001(
+    failures: list[str],
+) -> int:
+    path = TARGETED_REVISION_CANDIDATE_REVIEW_INTERNAL_CANDIDATE_001_PATH
+    if not path.exists():
+        failures.append(
+            "Missing Targeted Revision Candidate Review for "
+            "SHO-INTERNAL-CANDIDATE-001: docs/content/article_reviews/"
+            "whatsapp-fraud-checklist.targeted-revision-candidate-review.md"
+        )
+        return 0
+
+    text = path.read_text(encoding="utf-8")
+    fields = parse_frontmatter_fields(text)
+    queue_text = (
+        WORK_QUEUE_V1_PATH.read_text(encoding="utf-8")
+        if WORK_QUEUE_V1_PATH.exists()
+        else ""
+    )
+    dashboard_text = (
+        ARTICLE_READINESS_DASHBOARD_PATH.read_text(encoding="utf-8")
+        if ARTICLE_READINESS_DASHBOARD_PATH.exists()
+        else ""
+    )
+    batch_text = (
+        BATCH_MANIFEST_PATH.read_text(encoding="utf-8")
+        if BATCH_MANIFEST_PATH.exists()
+        else ""
+    )
+
+    required_frontmatter_fragments = [
+        "review_id: SHO-INTERNAL-CANDIDATE-001-TARGETED-REVISION-CANDIDATE-REVIEW",
+        "internal_candidate_id: SHO-INTERNAL-CANDIDATE-001",
+        "artifact_status: internal_only",
+        "review_status: targeted_revision_candidate_review_passed_with_findings_not_publish_ready",
+        "review_scope: targeted_revision_candidate_internal_review",
+        "linked_targeted_revision_candidate: docs/content/article_revision_candidates/whatsapp-fraud-checklist.targeted-revision-candidate.md",
+        "linked_targeted_revision_packet: docs/content/article_reviews/whatsapp-fraud-checklist.targeted-revision-packet.md",
+        "linked_original_final_article_candidate: docs/content/final_article_candidates/whatsapp-fraud-checklist.final-article-candidate.md",
+        "linked_content_quality_scorecard: docs/content/article_quality_scorecards/whatsapp-fraud-checklist.final-article-candidate.scorecard.md",
+        "publish_readiness_status: not_ready",
+        "operator_acceptance_status: not_accepted",
+        "public_launch_status: not_ready",
+        "monetization_status: not_approved",
+        "analytics_status: not_connected",
+        "search_console_status: not_connected",
+        "user_feedback_status: not_collected",
+        "real_user_testing_status: not_performed",
+        "assistive_technology_testing_status: not_performed",
+        "wcag_conformance_status: not_tested",
+        "live_source_verification_status: not_performed",
+        "source_freshness_claim_status: not_claimed",
+        "sho_claim_007_status: blocked",
+        "whatsapp_ui_instruction_status: blocked",
+        "exact_ui_path_status: blocked",
+        "queue_execution_status: not_live",
+        "stage_advancement_status: not_advanced",
+    ]
+    required_sections = [
+        "## 1. Purpose",
+        "## 2. Reviewed Scope",
+        "## 3. Candidate Status Summary",
+        "## 4. Revision Packet Compliance Review",
+        "## 5. Source and Claim Boundary Review",
+        "## 6. Reader Experience Delta Review",
+        "## 7. Safety and Trust Review",
+        "## 8. Accessibility / Senior Reader Boundary Review",
+        "## 9. Remaining Limitations",
+        "## 10. Findings",
+        "## 11. Verdict",
+        "## 12. Allowed Next Step",
+        "## 13. Explicit Non-Acceptance",
+    ]
+    required_review_fragments = [
+        "Link warning precision | implemented",
+        "Phishing / Smishing explanation | implemented",
+        "Internal marker separation | implemented",
+        "Source / freshness limitation preservation | implemented",
+        "Repetition / clarity review | implemented",
+        "Relatives / support framing preservation | implemented",
+        "`SHO-CLAIM-007`",
+        "`SHO-SRC-004`",
+        "TRC-IC001-PACKET-001",
+        "TRC-IC001-CLAIM-001",
+        "TRC-IC001-READER-001",
+        "TRC-IC001-SAFE-001",
+        "TRC-IC001-A11Y-001",
+        "TRC-IC001-GATE-001",
+        "Es bestehen keine P0- oder P1-Findings.",
+        "review_verdict: targeted_revision_candidate_review_passed_with_findings_not_publish_ready",
+        "allowed_next_action: prepare_revision_candidate_adoption_decision_packet_internal_only",
+        "kein Candidate durch dieses Review geaendert",
+        "keine Publish Readiness",
+        "keine Operator Acceptance",
+        "keine Queue-Ausfuehrung",
+        "kein Stage Advancement",
+    ]
+    for fragment in (
+        required_frontmatter_fragments + required_sections + required_review_fragments
+    ):
+        if fragment not in text:
+            failures.append(
+                "Targeted Revision Candidate Review SHO-INTERNAL-CANDIDATE-001 "
+                f"must contain: {fragment}"
+            )
+
+    expected_fields = {
+        "review_id": "sho-internal-candidate-001-targeted-revision-candidate-review",
+        "internal_candidate_id": "sho-internal-candidate-001",
+        "artifact_status": "internal_only",
+        "review_status": "targeted_revision_candidate_review_passed_with_findings_not_publish_ready",
+        "review_scope": "targeted_revision_candidate_internal_review",
+        "publish_readiness_status": "not_ready",
+        "operator_acceptance_status": "not_accepted",
+        "public_launch_status": "not_ready",
+        "monetization_status": "not_approved",
+        "analytics_status": "not_connected",
+        "search_console_status": "not_connected",
+        "user_feedback_status": "not_collected",
+        "real_user_testing_status": "not_performed",
+        "assistive_technology_testing_status": "not_performed",
+        "wcag_conformance_status": "not_tested",
+        "live_source_verification_status": "not_performed",
+        "source_freshness_claim_status": "not_claimed",
+        "sho_claim_007_status": "blocked",
+        "whatsapp_ui_instruction_status": "blocked",
+        "exact_ui_path_status": "blocked",
+        "queue_execution_status": "not_live",
+        "stage_advancement_status": "not_advanced",
+    }
+    for field_name, expected_value in expected_fields.items():
+        if normalized(fields.get(field_name)) != expected_value:
+            failures.append(
+                "Targeted Revision Candidate Review SHO-INTERNAL-CANDIDATE-001 "
+                f"must have {field_name}: {expected_value}"
+            )
+
+    forbidden_activation_markers = [
+        "approved_for_publish: true",
+        "publish_ready: true",
+        "publish_candidate: true",
+        "operator_acceptance_status: accepted",
+        "operator_acceptance_status: operator_accepted",
+        "public_launch_status: ready",
+        "public_launch_status: launched",
+        "monetization_status: approved",
+        "analytics_status: connected",
+        "search_console_status: connected",
+        "user_feedback_status: collected",
+        "real_user_testing_status: performed",
+        "assistive_technology_testing_status: performed",
+        "wcag_conformance_status: claimed",
+        "wcag_conformance_status: compliant",
+        "live_source_verification_status: performed",
+        "source_freshness_claim_status: claimed",
+    ]
+    lower_text = text.lower()
+    for fragment in forbidden_activation_markers:
+        if fragment in lower_text:
+            failures.append(
+                "Targeted Revision Candidate Review SHO-INTERNAL-CANDIDATE-001 "
+                f"must not contain forbidden activation marker: {fragment}"
+            )
+
+    required_dashboard_fragments = [
+        "SHO-INTERNAL-CANDIDATE-001",
+        "targeted_revision_candidate_review_completed_not_publish_ready",
+        "prepare_revision_candidate_adoption_decision_packet_internal_only",
+        "Targeted Revision Candidate Review passed with findings and no P0/P1",
+        "Targeted Revision Candidate remains unchanged",
+    ]
+    for fragment in required_dashboard_fragments:
+        if fragment not in dashboard_text:
+            failures.append(
+                "Article readiness dashboard missing Targeted Revision Candidate "
+                f"Review status: {fragment}"
+            )
+
+    required_batch_fragments = [
+        "candidate_id: SHO-INTERNAL-CANDIDATE-001",
+        "docs/content/article_reviews/whatsapp-fraud-checklist.targeted-revision-candidate-review.md",
+        "targeted_revision_candidate_status: prepared_internal_only",
+        "targeted_revision_candidate_review_status: passed_with_findings_internal_only",
+        "publish_readiness_status: not_ready",
+        "operator_acceptance_status: not_accepted",
+        "allowed_next_action: prepare_revision_candidate_adoption_decision_packet_internal_only",
+    ]
+    for fragment in required_batch_fragments:
+        if fragment not in batch_text:
+            failures.append(
+                "Batch manifest missing Targeted Revision Candidate Review status: "
+                f"{fragment}"
+            )
+
+    queue_item_match = re.search(
+        r"(?ms)^  - queue_item_id: CQ-V1-034\n"
+        r"(?P<body>.*?)(?=^  - queue_item_id: |\Z)",
+        queue_text,
+    )
+    if not queue_item_match:
+        failures.append("Work Queue V1 missing CQ-V1-034")
+    else:
+        queue_item_text = "queue_item_id: CQ-V1-034\n" + queue_item_match.group("body")
+        required_queue_fragments = [
+            "title: SHO-INTERNAL-CANDIDATE-001 targeted revision candidate review",
+            "linked_stage_id: STAGE_09_QUALITY_READER_ACCESSIBILITY_SAFETY_REVIEWS",
+            "linked_brief_id: SHO-INTERNAL-CANDIDATE-001",
+            "docs/content/article_reviews/whatsapp-fraud-checklist.targeted-revision-candidate-review.md",
+            "allowed_next_action: prepare_revision_candidate_adoption_decision_packet_internal_only",
+            "status: internal_review_prepared",
+            "modify_targeted_revision_candidate",
+            "modify_original_final_article_candidate",
+            "create_final_article",
+            "create_publish_candidate",
+            "set_publish_readiness",
+            "set_operator_acceptance",
+            "activate_public_launch",
+            "activate_monetization",
+            "activate_analytics",
+            "activate_search_console",
+            "claim_user_feedback",
+            "claim_live_source_verification",
+            "claim_source_freshness",
+            "claim_real_user_testing",
+            "claim_assistive_technology_testing",
+            "claim_wcag_conformance",
+            "invent_SEO_metrics",
+            "claim_traffic",
+            "claim_ranking",
+            "claim_revenue",
+            "unlock_SHO_CLAIM_007",
+            "add_WhatsApp_UI_block_report_steps",
+            "add_exact_WhatsApp_UI_paths",
+            "promote_to_MVP_Brief_005",
+            "execute_queue",
+            "advance_stage",
+        ]
+        for fragment in required_queue_fragments:
+            if fragment not in queue_item_text:
+                failures.append(f"Work Queue CQ-V1-034 missing: {fragment}")
 
     return 1
 
@@ -9527,6 +9782,9 @@ def main() -> int:
     targeted_revision_candidate_internal_candidate_001_count = (
         validate_targeted_revision_candidate_internal_candidate_001(failures)
     )
+    targeted_revision_candidate_review_internal_candidate_001_count = (
+        validate_targeted_revision_candidate_review_internal_candidate_001(failures)
+    )
     applied_scorecard_brief_002_count = validate_applied_scorecard_brief_002(failures)
     human_operator_review_packet_final_article_candidate_brief_002_count = (
         validate_human_operator_review_packet_final_article_candidate_brief_002(failures)
@@ -9624,6 +9882,10 @@ def main() -> int:
     print(
         "- Internal candidate Targeted Revision Candidate files: "
         f"{targeted_revision_candidate_internal_candidate_001_count}"
+    )
+    print(
+        "- Internal candidate Targeted Revision Candidate review files: "
+        f"{targeted_revision_candidate_review_internal_candidate_001_count}"
     )
     print(f"- Batch 01 applied scorecard Brief 002 files: {applied_scorecard_brief_002_count}")
     print(

@@ -41,6 +41,7 @@ internal_candidates:
       - docs/content/article_quality_scorecards/whatsapp-fraud-checklist.final-article-candidate.scorecard.md
       - docs/content/article_reviews/whatsapp-fraud-checklist.targeted-revision-packet.md
       - docs/content/article_revision_candidates/whatsapp-fraud-checklist.targeted-revision-candidate.md
+      - docs/content/article_reviews/whatsapp-fraud-checklist.targeted-revision-candidate-review.md
     final_article_candidate_status: prepared_internal_only
     final_article_candidate_review_status: passed_with_findings_internal_only
     source_metadata_freshness_review_status: passed_with_findings_internal_only
@@ -48,6 +49,7 @@ internal_candidates:
     content_quality_scorecard_status: passed_with_findings_internal_only
     targeted_revision_packet_status: prepared_internal_only
     targeted_revision_candidate_status: prepared_internal_only
+    targeted_revision_candidate_review_status: passed_with_findings_internal_only
     real_user_testing_status: not_performed
     assistive_technology_testing_status: not_performed
     wcag_conformance_status: not_tested
@@ -55,7 +57,7 @@ internal_candidates:
     source_freshness_claim_status: not_claimed
     publish_readiness_status: not_ready
     operator_acceptance_status: not_accepted
-    allowed_next_action: prepare_targeted_revision_candidate_review_internal_only
+    allowed_next_action: prepare_revision_candidate_adoption_decision_packet_internal_only
     forbidden_actions:
       - set_publish_readiness
       - set_operator_acceptance
@@ -130,7 +132,7 @@ known_blockers:
   - Article draft scaffolds exist only for Brief 002 and Brief 003.
   - Official Batch Brief draft candidates exist for Brief 002 and Brief 003 internal-only.
   - SHO-INTERNAL-CANDIDATE-001 exists separately as an internal spin-off candidate, not an official batch brief.
-  - SHO-INTERNAL-CANDIDATE-001 has one unchanged internal Final Article Candidate plus candidate, source metadata / freshness, text-only Accessibility / Senior Reader reviews, one applied Content Quality Scorecard, one Targeted Revision Packet and one Targeted Revision Candidate; no live verification, freshness claim, real user testing, assistive-technology testing or WCAG conformance claim exists, and it remains not publish-ready.
+  - SHO-INTERNAL-CANDIDATE-001 has one unchanged internal Final Article Candidate plus candidate, source metadata / freshness, text-only Accessibility / Senior Reader reviews, one applied Content Quality Scorecard, one Targeted Revision Packet, one Targeted Revision Candidate and its review; neither candidate was modified by the review, no live verification, freshness claim, real user testing, assistive-technology testing or WCAG conformance claim exists, and it remains not publish-ready.
   - Brief 002 draft candidate reviewed with findings.
   - Brief 002 draft candidate fix re-review passed, but no publish readiness is set.
   - Brief 002 final article candidate exists and is not publish-ready.
