@@ -1327,3 +1327,66 @@ queue_items:
     human_gate_required: no
     automation_candidate: codex_assisted
     status: internal_review_prepared
+
+  - queue_item_id: CQ-V1-035
+    title: SHO-INTERNAL-CANDIDATE-001 revision candidate adoption decision packet
+    linked_stage_id: STAGE_09_QUALITY_READER_ACCESSIBILITY_SAFETY_REVIEWS
+    linked_brief_id: SHO-INTERNAL-CANDIDATE-001
+    internal_candidate_id: SHO-INTERNAL-CANDIDATE-001
+    internal_candidate_status: internal_only
+    batch_membership_status: internal_spinoff_candidate_not_official_batch_brief
+    required_inputs:
+      - docs/content/article_revision_candidates/whatsapp-fraud-checklist.targeted-revision-candidate.md
+      - docs/content/article_reviews/whatsapp-fraud-checklist.targeted-revision-candidate-review.md
+      - docs/content/article_reviews/whatsapp-fraud-checklist.targeted-revision-packet.md
+      - docs/content/final_article_candidates/whatsapp-fraud-checklist.final-article-candidate.md
+    produced_outputs:
+      - docs/operations/operator_decisions/REVISION_CANDIDATE_ADOPTION_DECISION_PACKET_SHO_INTERNAL_CANDIDATE_001_INTERNAL_ONLY.md
+    blockers:
+      - no_human_operator_decision_recorded_yet
+      - no_publish_gate
+      - no_operator_acceptance
+      - no_public_launch
+      - no_monetization_approval
+      - no_live_source_verification
+      - no_source_freshness_claim
+      - no_real_seo_metrics
+      - no_real_user_testing
+      - no_assistive_technology_testing
+      - no_wcag_conformance_claim
+      - SHO_CLAIM_007_blocked
+      - whatsapp_ui_instruction_blocked
+      - exact_ui_path_blocked
+    allowed_next_action: record_human_operator_revision_candidate_adoption_decision_internal_only
+    forbidden_actions:
+      - adopt_revision_candidate_without_human_operator_decision
+      - modify_targeted_revision_candidate
+      - modify_original_final_article_candidate
+      - create_final_article
+      - create_publish_candidate
+      - set_publish_readiness
+      - set_operator_acceptance
+      - activate_public_launch
+      - activate_monetization
+      - activate_analytics
+      - activate_search_console
+      - claim_user_feedback
+      - claim_live_source_verification
+      - claim_source_freshness
+      - claim_real_user_testing
+      - claim_assistive_technology_testing
+      - claim_wcag_conformance
+      - invent_SEO_metrics
+      - claim_traffic
+      - claim_ranking
+      - claim_revenue
+      - unlock_SHO_CLAIM_007
+      - add_WhatsApp_UI_block_report_steps
+      - add_exact_WhatsApp_UI_paths
+      - promote_to_MVP_Brief_005
+      - execute_queue
+      - advance_stage
+    human_gate_required: yes_for_adoption_decision
+    automation_candidate: codex_assisted
+    status_note: decision_packet_prepared_internal_only is not registered; internal_review_prepared is used conservatively
+    status: internal_review_prepared
