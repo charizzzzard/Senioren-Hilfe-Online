@@ -5,8 +5,8 @@
 - project_name: Senioren-Hilfe Online
 - system_name: Senioren-Hilfe Online OS
 - system_short_name: SHO-OS
-- patch_title: SHO_INTERNAL_CANDIDATE_001_REVISION_CANDIDATE_ADOPTION_DECISION_PACKET_INTERNAL_ONLY
-- external_review_verdict: REVISION_CANDIDATE_ADOPTION_DECISION_PACKET_PREPARED_INTERNAL_ONLY_NO_DECISION
+- patch_title: HUMAN_OPERATOR_REVISION_CANDIDATE_ADOPTION_DECISION_INTERNAL_ONLY
+- external_review_verdict: HUMAN_OPERATOR_OPTION_A_RECORDED_INTERNAL_WORKING_BASIS_ONLY
 
 SHO-OS ist ein reproduzierbares Content-, Trust- und Publishing-System fuer seniorengerechte digitale Alltagshilfe in Deutschland.
 
@@ -15,9 +15,9 @@ Dieser Handoff beschreibt den aktuellen internen Repo-Kontext nach der internen 
 ## Git Traceability
 
 - branch: `main`
-- head_before_current_patch: `b3b0bd15e99791d38aceca04af8f60e47efe002e`
+- head_before_current_patch: `6ff9e17c56f32050ae716f96fbe0b17713c9d3da`
 - intended_head_after: `assigned_after_commit`
-- origin_main_before_current_patch: `b3b0bd15e99791d38aceca04af8f60e47efe002e`
+- origin_main_before_current_patch: `6ff9e17c56f32050ae716f96fbe0b17713c9d3da`
 - dirty_state_before_current_patch: `clean`
 - dirty_state_after_current_patch: `assigned_after_commit`
 
@@ -67,10 +67,12 @@ Hinweis: `head_after` wird nicht vorab als Commit-SHA eingetragen, weil ein Comm
 - Neither the Targeted Revision Candidate nor the original Final Article Candidate was modified by the review.
 - `CQ-V1-035` records the internal Revision Candidate Adoption Decision Packet.
 - The packet presents Options A, B and C for the Human Operator and records `decision_status: not_decided`.
-- No adoption decision was recorded, and neither the Targeted Revision Candidate nor the original Final Article Candidate was modified.
+- `CQ-V1-036` records the explicit Human Operator selection of Option A: `adopt_targeted_revision_candidate_as_internal_working_basis`.
+- The Targeted Revision Candidate is now the current internal working basis only.
+- Neither the Targeted Revision Candidate nor the original Final Article Candidate was modified.
+- The original Final Article Candidate remains the historical internal artifact.
 - The candidate remains not publish-ready, not accepted and not live.
-- The Human Operator must decide whether to adopt, reject or defer the internal working-basis change.
-- The next allowed action is `record_human_operator_revision_candidate_adoption_decision_internal_only`.
+- The next allowed action is `prepare_adopted_revision_working_basis_readiness_review_internal_only`.
 
 ## Internal Candidate Status
 
@@ -81,7 +83,7 @@ internal_candidate:
   internal_candidate_status: internal_only
   official_mvp_brief_status: not_assigned
   batch_membership_status: internal_spinoff_candidate_not_official_batch_brief
-  current_artifact_level: revision_candidate_adoption_decision_packet_prepared_internal_only
+  current_artifact_level: revision_candidate_adoption_decision_recorded_internal_working_basis_only
   final_article_candidate_created: true
   final_article_candidate_review_status: final_article_candidate_review_passed_with_findings_not_publish_ready
   source_metadata_freshness_review_status: source_metadata_freshness_review_passed_with_findings_not_publish_ready
@@ -92,8 +94,11 @@ internal_candidate:
   targeted_revision_candidate_created: true
   targeted_revision_candidate_review_status: targeted_revision_candidate_review_passed_with_findings_not_publish_ready
   revision_candidate_adoption_decision_packet_status: prepared_for_human_operator_decision
-  revision_candidate_adoption_decision_status: not_decided
-  targeted_revision_candidate_adopted: false
+  revision_candidate_adoption_decision_status: adopted_internal_working_basis_only
+  selected_option: adopt_targeted_revision_candidate_as_internal_working_basis
+  current_internal_working_basis: docs/content/article_revision_candidates/whatsapp-fraud-checklist.targeted-revision-candidate.md
+  historical_final_article_candidate: docs/content/final_article_candidates/whatsapp-fraud-checklist.final-article-candidate.md
+  targeted_revision_candidate_adopted: internal_working_basis_only
   real_user_testing_status: not_performed
   assistive_technology_testing_status: not_performed
   wcag_conformance_status: not_tested
@@ -129,7 +134,7 @@ This internal candidate is not an official fifth MVP brief and is not `SHO-MVP-B
 ## Non-Scope / Non-Acceptance
 
 - No final article.
-- One unchanged internal Final Article Candidate plus candidate, repo-only source metadata / freshness and text-only Accessibility / Senior Reader reviews, one applied Content Quality Scorecard, one Targeted Revision Packet, one Targeted Revision Candidate, its review and one Adoption Decision Packet exist for `SHO-INTERNAL-CANDIDATE-001`; no adoption decision is recorded, neither candidate was modified, and the path remains not publish-ready and not accepted.
+- One unchanged historical internal Final Article Candidate plus candidate, repo-only source metadata / freshness and text-only Accessibility / Senior Reader reviews, one applied Content Quality Scorecard, one Targeted Revision Packet, one unchanged Targeted Revision Candidate, its review, one Adoption Decision Packet and one Human Operator Option-A decision exist for `SHO-INTERNAL-CANDIDATE-001`; the Targeted Revision Candidate is adopted only as the internal working basis, and the path remains not publish-ready and not accepted.
 - No Publish Candidate.
 - No Publish Readiness.
 - No Operator Acceptance.
@@ -177,7 +182,7 @@ The Human Operator decision now accepts the cleaned internal baseline as an inte
 
 ## Recommended Next Safe Outputs
 
-- `HUMAN_OPERATOR_REVISION_CANDIDATE_ADOPTION_DECISION_INTERNAL_ONLY`
+- `SHO_INTERNAL_CANDIDATE_001_ADOPTED_REVISION_WORKING_BASIS_READINESS_REVIEW_INTERNAL_ONLY`
 - `BRIEF_002_PUBLISH_CANDIDATE_DECISION_PACKET_INTERNAL_ONLY`
 - `WEBSITE_RELEASE_READINESS_GAP_REVIEW_INTERNAL_ONLY`
 

@@ -112,6 +112,7 @@ REQUIRED_DOCS = [
     "docs/content/article_revision_candidates/whatsapp-fraud-checklist.targeted-revision-candidate.md",
     "docs/content/article_reviews/whatsapp-fraud-checklist.targeted-revision-candidate-review.md",
     "docs/operations/operator_decisions/REVISION_CANDIDATE_ADOPTION_DECISION_PACKET_SHO_INTERNAL_CANDIDATE_001_INTERNAL_ONLY.md",
+    "docs/operations/operator_decisions/HUMAN_OPERATOR_DECISION_SHO_INTERNAL_CANDIDATE_001_REVISION_CANDIDATE_ADOPTION_INTERNAL_ONLY.md",
     "docs/operations/website_preview/README.md",
     "docs/operations/website_preview/WEBSITE_INFORMATION_ARCHITECTURE_INTERNAL_PREVIEW_V1.md",
     "docs/operations/website_preview/WEBSITE_PREVIEW_REVIEW_PACKET_INTERNAL_ONLY.md",
@@ -234,6 +235,10 @@ TARGETED_REVISION_CANDIDATE_REVIEW_INTERNAL_CANDIDATE_001_PATH = (
 REVISION_CANDIDATE_ADOPTION_DECISION_PACKET_INTERNAL_CANDIDATE_001_PATH = (
     ROOT
     / "docs/operations/operator_decisions/REVISION_CANDIDATE_ADOPTION_DECISION_PACKET_SHO_INTERNAL_CANDIDATE_001_INTERNAL_ONLY.md"
+)
+HUMAN_OPERATOR_REVISION_CANDIDATE_ADOPTION_DECISION_INTERNAL_CANDIDATE_001_PATH = (
+    ROOT
+    / "docs/operations/operator_decisions/HUMAN_OPERATOR_DECISION_SHO_INTERNAL_CANDIDATE_001_REVISION_CANDIDATE_ADOPTION_INTERNAL_ONLY.md"
 )
 ACCESSIBILITY_REVIEW_BRIEF_002_PATH = (
     ROOT / "docs/content/article_reviews/betrugsnachrichten-auf-whatsapp-erkennen.accessibility-review.md"
@@ -2902,7 +2907,14 @@ def validate_operator_decisions(failures: list[str]) -> int:
     if not readme.exists():
         failures.append("Missing operator decisions README: docs/operations/operator_decisions/README.md")
 
-    found_files = {path.name for path in OPERATOR_DECISIONS_DIR.glob("HUMAN_OPERATOR_DECISION_*.md")}
+    separately_validated_decisions = {
+        "HUMAN_OPERATOR_DECISION_SHO_INTERNAL_CANDIDATE_001_REVISION_CANDIDATE_ADOPTION_INTERNAL_ONLY.md"
+    }
+    found_files = {
+        path.name
+        for path in OPERATOR_DECISIONS_DIR.glob("HUMAN_OPERATOR_DECISION_*.md")
+        if path.name not in separately_validated_decisions
+    }
     expected_files = set(EXPECTED_OPERATOR_DECISIONS)
     if found_files != expected_files:
         failures.append(
@@ -8353,6 +8365,317 @@ def validate_revision_candidate_adoption_decision_packet_internal_candidate_001(
     return 1
 
 
+def validate_human_operator_revision_candidate_adoption_decision_internal_candidate_001(
+    failures: list[str],
+) -> int:
+    path = (
+        HUMAN_OPERATOR_REVISION_CANDIDATE_ADOPTION_DECISION_INTERNAL_CANDIDATE_001_PATH
+    )
+    if not path.exists():
+        failures.append(
+            "Missing Human Operator Revision Candidate Adoption Decision for "
+            "SHO-INTERNAL-CANDIDATE-001"
+        )
+        return 0
+
+    matching_files = list(
+        path.parent.glob(
+            "HUMAN_OPERATOR_DECISION_SHO_INTERNAL_CANDIDATE_001_"
+            "REVISION_CANDIDATE_ADOPTION_INTERNAL_ONLY.md"
+        )
+    )
+    if len(matching_files) != 1:
+        failures.append(
+            "Expected exactly one Human Operator Revision Candidate Adoption "
+            f"Decision for SHO-INTERNAL-CANDIDATE-001, found {len(matching_files)}"
+        )
+
+    text = path.read_text(encoding="utf-8")
+    fields = parse_frontmatter_fields(text)
+    queue_text = (
+        WORK_QUEUE_V1_PATH.read_text(encoding="utf-8")
+        if WORK_QUEUE_V1_PATH.exists()
+        else ""
+    )
+    dashboard_text = (
+        ARTICLE_READINESS_DASHBOARD_PATH.read_text(encoding="utf-8")
+        if ARTICLE_READINESS_DASHBOARD_PATH.exists()
+        else ""
+    )
+    batch_text = (
+        BATCH_MANIFEST_PATH.read_text(encoding="utf-8")
+        if BATCH_MANIFEST_PATH.exists()
+        else ""
+    )
+    documentation_map_path = ROOT / "docs/DOCUMENTATION_MAP.md"
+    documentation_map_text = (
+        documentation_map_path.read_text(encoding="utf-8")
+        if documentation_map_path.exists()
+        else ""
+    )
+    handoff_path = ROOT / "external_review_packet/HANDOFF_LATEST_CONTEXT.md"
+    handoff_text = (
+        handoff_path.read_text(encoding="utf-8") if handoff_path.exists() else ""
+    )
+
+    required_frontmatter_fragments = [
+        "decision_id: HUMAN-OPERATOR-DECISION-SHO-INTERNAL-CANDIDATE-001-REVISION-CANDIDATE-ADOPTION",
+        "internal_candidate_id: SHO-INTERNAL-CANDIDATE-001",
+        "artifact_status: internal_only",
+        "decision_status: adopted_internal_working_basis_only",
+        "selected_option: adopt_targeted_revision_candidate_as_internal_working_basis",
+        "decision_scope: internal_working_basis_only",
+        "linked_decision_packet: docs/operations/operator_decisions/REVISION_CANDIDATE_ADOPTION_DECISION_PACKET_SHO_INTERNAL_CANDIDATE_001_INTERNAL_ONLY.md",
+        "linked_adopted_working_basis: docs/content/article_revision_candidates/whatsapp-fraud-checklist.targeted-revision-candidate.md",
+        "linked_historical_final_article_candidate: docs/content/final_article_candidates/whatsapp-fraud-checklist.final-article-candidate.md",
+        "linked_targeted_revision_candidate_review: docs/content/article_reviews/whatsapp-fraud-checklist.targeted-revision-candidate-review.md",
+        "publish_readiness_status: not_ready",
+        "operator_acceptance_status: not_accepted",
+        "article_operator_acceptance_status: not_accepted",
+        "public_launch_status: not_ready",
+        "monetization_status: not_approved",
+        "analytics_status: not_connected",
+        "search_console_status: not_connected",
+        "user_feedback_status: not_collected",
+        "real_user_testing_status: not_performed",
+        "assistive_technology_testing_status: not_performed",
+        "wcag_conformance_status: not_tested",
+        "live_source_verification_status: not_performed",
+        "source_freshness_claim_status: not_claimed",
+        "seo_metrics_status: not_available",
+        "traffic_data_status: not_available",
+        "ranking_data_status: not_available",
+        "conversion_data_status: not_available",
+        "revenue_data_status: not_available",
+        "sho_claim_007_status: blocked",
+        "whatsapp_ui_instruction_status: blocked",
+        "exact_ui_path_status: blocked",
+        "queue_execution_status: not_live",
+        "stage_advancement_status: not_advanced",
+    ]
+    required_sections = [
+        "## 1. Human Operator Decision",
+        "## 2. Decision Basis",
+        "## 3. Adopted Internal Working Basis",
+        "## 4. Historical Artifact Preservation",
+        "## 5. Boundaries",
+        "## 6. Consequences",
+        "## 7. Allowed Next Step",
+        "## 8. Explicit Non-Acceptance",
+    ]
+    required_decision_fragments = [
+        "decision_status: decided",
+        "selected_option: adopt_targeted_revision_candidate_as_internal_working_basis",
+        "decision_effect: targeted_revision_candidate_becomes_current_internal_working_basis",
+        "Codex hat die Entscheidung nicht selbst getroffen",
+        "Alle sechs Anweisungen des Targeted Revision Packets wurden umgesetzt",
+        "Es bestehen keine P0- oder P1-Findings",
+        "ist ab dieser Human-Operator-Entscheidung die aktuelle interne",
+        "bleibt der historische interne Final Article Candidate",
+        "allowed_next_action: prepare_adopted_revision_working_basis_readiness_review_internal_only",
+        "kein finaler Artikel",
+        "kein Publish Candidate",
+        "keine Publish Readiness",
+        "keine Artikel-Operator-Acceptance",
+        "kein Public Launch",
+        "keine Monetarisierung",
+        "kein Unlock von `SHO-CLAIM-007`",
+        "keine Queue-Ausfuehrung",
+        "kein Stage Advancement",
+    ]
+    for fragment in (
+        required_frontmatter_fragments
+        + required_sections
+        + required_decision_fragments
+    ):
+        if fragment not in text:
+            failures.append(
+                "Human Operator Revision Candidate Adoption Decision "
+                f"SHO-INTERNAL-CANDIDATE-001 must contain: {fragment}"
+            )
+
+    expected_fields = {
+        "decision_id": (
+            "human-operator-decision-sho-internal-candidate-001-"
+            "revision-candidate-adoption"
+        ),
+        "internal_candidate_id": "sho-internal-candidate-001",
+        "artifact_status": "internal_only",
+        "decision_status": "adopted_internal_working_basis_only",
+        "selected_option": (
+            "adopt_targeted_revision_candidate_as_internal_working_basis"
+        ),
+        "decision_scope": "internal_working_basis_only",
+        "publish_readiness_status": "not_ready",
+        "operator_acceptance_status": "not_accepted",
+        "article_operator_acceptance_status": "not_accepted",
+        "public_launch_status": "not_ready",
+        "monetization_status": "not_approved",
+        "analytics_status": "not_connected",
+        "search_console_status": "not_connected",
+        "user_feedback_status": "not_collected",
+        "real_user_testing_status": "not_performed",
+        "assistive_technology_testing_status": "not_performed",
+        "wcag_conformance_status": "not_tested",
+        "live_source_verification_status": "not_performed",
+        "source_freshness_claim_status": "not_claimed",
+        "seo_metrics_status": "not_available",
+        "traffic_data_status": "not_available",
+        "ranking_data_status": "not_available",
+        "conversion_data_status": "not_available",
+        "revenue_data_status": "not_available",
+        "sho_claim_007_status": "blocked",
+        "whatsapp_ui_instruction_status": "blocked",
+        "exact_ui_path_status": "blocked",
+        "queue_execution_status": "not_live",
+        "stage_advancement_status": "not_advanced",
+    }
+    for field_name, expected_value in expected_fields.items():
+        if normalized(fields.get(field_name)) != expected_value:
+            failures.append(
+                "Human Operator Revision Candidate Adoption Decision "
+                f"SHO-INTERNAL-CANDIDATE-001 must have "
+                f"{field_name}: {expected_value}"
+            )
+
+    forbidden_activation_markers = [
+        "publish_ready: true",
+        "approved_for_publish: true",
+        "operator_acceptance_status: accepted",
+        "operator_acceptance_status: operator_accepted",
+        "article_operator_acceptance_status: accepted",
+        "public_launch_status: ready",
+        "public_launch_status: launched",
+        "monetization_status: approved",
+        "analytics_status: connected",
+        "search_console_status: connected",
+        "user_feedback_status: collected",
+        "real_user_testing_status: performed",
+        "assistive_technology_testing_status: performed",
+        "wcag_conformance_status: claimed",
+        "wcag_conformance_status: compliant",
+        "live_source_verification_status: performed",
+        "source_freshness_claim_status: claimed",
+    ]
+    lower_text = text.lower()
+    for fragment in forbidden_activation_markers:
+        if fragment in lower_text:
+            failures.append(
+                "Human Operator Revision Candidate Adoption Decision "
+                "SHO-INTERNAL-CANDIDATE-001 must not contain forbidden "
+                f"activation marker: {fragment}"
+            )
+
+    required_dashboard_fragments = [
+        "SHO-INTERNAL-CANDIDATE-001",
+        "revision_candidate_adoption_decision_recorded_internal_working_basis_only",
+        "current_internal_working_basis: docs/content/article_revision_candidates/whatsapp-fraud-checklist.targeted-revision-candidate.md",
+        "working_basis_decision_status: adopted_internal_working_basis_only",
+        "prepare_adopted_revision_working_basis_readiness_review_internal_only",
+        "not_ready",
+        "not_accepted",
+    ]
+    for fragment in required_dashboard_fragments:
+        if fragment not in dashboard_text:
+            failures.append(
+                "Article readiness dashboard missing Human Operator Revision "
+                f"Candidate Adoption Decision status: {fragment}"
+            )
+
+    required_batch_fragments = [
+        "candidate_id: SHO-INTERNAL-CANDIDATE-001",
+        "docs/operations/operator_decisions/HUMAN_OPERATOR_DECISION_SHO_INTERNAL_CANDIDATE_001_REVISION_CANDIDATE_ADOPTION_INTERNAL_ONLY.md",
+        "revision_candidate_adoption_decision_status: adopted_internal_working_basis_only",
+        "current_internal_working_basis: docs/content/article_revision_candidates/whatsapp-fraud-checklist.targeted-revision-candidate.md",
+        "historical_final_article_candidate: docs/content/final_article_candidates/whatsapp-fraud-checklist.final-article-candidate.md",
+        "publish_readiness_status: not_ready",
+        "operator_acceptance_status: not_accepted",
+        "allowed_next_action: prepare_adopted_revision_working_basis_readiness_review_internal_only",
+    ]
+    for fragment in required_batch_fragments:
+        if fragment not in batch_text:
+            failures.append(
+                "Batch manifest missing Human Operator Revision Candidate "
+                f"Adoption Decision status: {fragment}"
+            )
+
+    decision_path_fragment = (
+        "HUMAN_OPERATOR_DECISION_SHO_INTERNAL_CANDIDATE_001_"
+        "REVISION_CANDIDATE_ADOPTION_INTERNAL_ONLY.md"
+    )
+    if decision_path_fragment not in documentation_map_text:
+        failures.append(
+            "Documentation Map missing Human Operator Revision Candidate "
+            "Adoption Decision"
+        )
+
+    required_handoff_fragments = [
+        "HUMAN_OPERATOR_OPTION_A_RECORDED_INTERNAL_WORKING_BASIS_ONLY",
+        "adopt_targeted_revision_candidate_as_internal_working_basis",
+        "current_internal_working_basis: docs/content/article_revision_candidates/whatsapp-fraud-checklist.targeted-revision-candidate.md",
+        "historical_final_article_candidate: docs/content/final_article_candidates/whatsapp-fraud-checklist.final-article-candidate.md",
+        "prepare_adopted_revision_working_basis_readiness_review_internal_only",
+    ]
+    for fragment in required_handoff_fragments:
+        if fragment not in handoff_text:
+            failures.append(
+                "Handoff missing Human Operator Revision Candidate Adoption "
+                f"Decision status: {fragment}"
+            )
+
+    queue_item_match = re.search(
+        r"(?ms)^  - queue_item_id: CQ-V1-036\n"
+        r"(?P<body>.*?)(?=^  - queue_item_id: |\Z)",
+        queue_text,
+    )
+    if not queue_item_match:
+        failures.append("Work Queue V1 missing CQ-V1-036")
+    else:
+        queue_item_text = "queue_item_id: CQ-V1-036\n" + queue_item_match.group(
+            "body"
+        )
+        required_queue_fragments = [
+            "title: SHO-INTERNAL-CANDIDATE-001 human operator revision candidate adoption decision",
+            "linked_stage_id: STAGE_09_QUALITY_READER_ACCESSIBILITY_SAFETY_REVIEWS",
+            "linked_brief_id: SHO-INTERNAL-CANDIDATE-001",
+            "docs/operations/operator_decisions/HUMAN_OPERATOR_DECISION_SHO_INTERNAL_CANDIDATE_001_REVISION_CANDIDATE_ADOPTION_INTERNAL_ONLY.md",
+            "allowed_next_action: prepare_adopted_revision_working_basis_readiness_review_internal_only",
+            "human_gate_required: satisfied",
+            "status: completed_internal_planning",
+            "modify_targeted_revision_candidate",
+            "modify_original_final_article_candidate",
+            "create_final_article",
+            "create_publish_candidate",
+            "set_publish_readiness",
+            "set_operator_acceptance",
+            "activate_public_launch",
+            "activate_monetization",
+            "activate_analytics",
+            "activate_search_console",
+            "claim_user_feedback",
+            "claim_live_source_verification",
+            "claim_source_freshness",
+            "claim_real_user_testing",
+            "claim_assistive_technology_testing",
+            "claim_wcag_conformance",
+            "invent_SEO_metrics",
+            "claim_traffic",
+            "claim_ranking",
+            "claim_revenue",
+            "unlock_SHO_CLAIM_007",
+            "add_WhatsApp_UI_block_report_steps",
+            "add_exact_WhatsApp_UI_paths",
+            "promote_to_MVP_Brief_005",
+            "execute_queue",
+            "advance_stage",
+        ]
+        for fragment in required_queue_fragments:
+            if fragment not in queue_item_text:
+                failures.append(f"Work Queue CQ-V1-036 missing: {fragment}")
+
+    return 1
+
+
 def validate_applied_scorecard_brief_002(failures: list[str]) -> int:
     if not APPLIED_SCORECARD_BRIEF_002_PATH.exists():
         failures.append(
@@ -10048,6 +10371,11 @@ def main() -> int:
             failures
         )
     )
+    human_operator_revision_candidate_adoption_decision_internal_candidate_001_count = (
+        validate_human_operator_revision_candidate_adoption_decision_internal_candidate_001(
+            failures
+        )
+    )
     applied_scorecard_brief_002_count = validate_applied_scorecard_brief_002(failures)
     human_operator_review_packet_final_article_candidate_brief_002_count = (
         validate_human_operator_review_packet_final_article_candidate_brief_002(failures)
@@ -10153,6 +10481,11 @@ def main() -> int:
     print(
         "- Internal candidate Revision Candidate Adoption Decision Packet files: "
         f"{revision_candidate_adoption_decision_packet_internal_candidate_001_count}"
+    )
+    print(
+        "- Internal candidate Human Operator Revision Candidate Adoption "
+        "Decision files: "
+        f"{human_operator_revision_candidate_adoption_decision_internal_candidate_001_count}"
     )
     print(f"- Batch 01 applied scorecard Brief 002 files: {applied_scorecard_brief_002_count}")
     print(
