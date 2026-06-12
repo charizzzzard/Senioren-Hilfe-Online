@@ -1822,3 +1822,74 @@ queue_items:
     automation_candidate: codex_assisted
     status_note: no template-specific queue status is registered; internal_review_prepared is used conservatively
     status: internal_review_prepared
+
+  - queue_item_id: CQ-V1-043
+    title: SHO-INTERNAL-CANDIDATE-001 prepare Human Operator decision for actual source freshness live verification
+    linked_stage_id: STAGE_09_QUALITY_READER_ACCESSIBILITY_SAFETY_REVIEWS
+    linked_brief_id: SHO-INTERNAL-CANDIDATE-001
+    internal_candidate_id: SHO-INTERNAL-CANDIDATE-001
+    internal_candidate_status: internal_only
+    batch_membership_status: internal_spinoff_candidate_not_official_batch_brief
+    required_inputs:
+      - docs/content/article_reviews/whatsapp-fraud-checklist.candidate-source-freshness-live-verification-record-template.md
+      - docs/content/article_reviews/whatsapp-fraud-checklist.candidate-source-freshness-live-verification-checklist.md
+      - docs/content/article_reviews/whatsapp-fraud-checklist.candidate-specific-final-source-selection-packet.md
+      - docs/content/article_revision_candidates/whatsapp-fraud-checklist.targeted-revision-candidate.md
+      - docs/content/source_inventories/SOURCE_INVENTORY_WHATSAPP_FRAUD_CHECKLIST_BATCH_01_INTERNAL_ONLY.md
+      - docs/content/claim_maps/source-to-claim-map-batch-01.md
+    produced_outputs:
+      - docs/operations/operator_decisions/HUMAN_OPERATOR_DECISION_PREPARATION_CANDIDATE_SOURCE_FRESHNESS_LIVE_VERIFICATION_INTERNAL_ONLY.md
+    blockers:
+      - human_operator_decision_not_recorded
+      - no_live_source_verification
+      - no_external_browsing
+      - no_live_data_population
+      - no_source_freshness_claim
+      - no_final_publish_source_set_approval
+      - claim_recheck_not_performed
+      - SRC_GAP_WF_006_open
+      - SHO_CLAIM_007_blocked
+      - SHO_SRC_004_ui_context_blocked
+      - whatsapp_ui_path_validation_not_performed
+      - no_publish_gate
+      - no_operator_acceptance
+    allowed_next_action: await_human_operator_decision_on_actual_candidate_source_freshness_live_verification_internal_only
+    forbidden_actions:
+      - record_human_operator_decision_without_explicit_selection
+      - authorize_live_verification_without_human_operator_decision
+      - modify_adopted_working_basis
+      - modify_historical_final_article_candidate
+      - modify_article_content
+      - add_new_external_sources
+      - browse_external_sources
+      - perform_live_source_verification
+      - populate_live_source_data
+      - add_observed_live_source_data
+      - add_actual_source_access_date
+      - claim_live_source_verification
+      - claim_source_freshness
+      - approve_final_publish_source_set
+      - create_final_article
+      - create_publish_candidate
+      - set_publish_readiness
+      - set_operator_acceptance
+      - activate_public_launch
+      - activate_monetization
+      - activate_analytics
+      - activate_search_console
+      - claim_user_feedback
+      - claim_wcag_conformance
+      - invent_SEO_metrics
+      - claim_traffic
+      - claim_ranking
+      - claim_conversion
+      - claim_revenue
+      - unlock_SHO_CLAIM_007
+      - validate_WhatsApp_UI_paths
+      - add_WhatsApp_UI_block_report_steps
+      - add_exact_WhatsApp_UI_paths
+      - execute_queue
+      - advance_stage
+    human_gate_required: yes
+    automation_candidate: human_controlled
+    status: pending_human_operator_decision

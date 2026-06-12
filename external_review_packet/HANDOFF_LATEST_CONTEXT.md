@@ -5,8 +5,8 @@
 - project_name: Senioren-Hilfe Online
 - system_name: Senioren-Hilfe Online OS
 - system_short_name: SHO-OS
-- patch_title: SHO_INTERNAL_CANDIDATE_001_PREPARE_CANDIDATE_SOURCE_FRESHNESS_LIVE_VERIFICATION_RECORD_TEMPLATE_INTERNAL_ONLY
-- external_review_verdict: CANDIDATE_SOURCE_FRESHNESS_LIVE_VERIFICATION_RECORD_TEMPLATE_PREPARED_INTERNAL_ONLY
+- patch_title: SHO_INTERNAL_CANDIDATE_001_OPERATOR_DECISION_PREPARE_ACTUAL_CANDIDATE_SOURCE_FRESHNESS_LIVE_VERIFICATION_INTERNAL_ONLY
+- external_review_verdict: CANDIDATE_SOURCE_FRESHNESS_LIVE_VERIFICATION_HUMAN_OPERATOR_DECISION_PREPARATION_PREPARED_INTERNAL_ONLY
 
 SHO-OS ist ein reproduzierbares Content-, Trust- und Publishing-System fuer seniorengerechte digitale Alltagshilfe in Deutschland.
 
@@ -85,9 +85,11 @@ Hinweis: `head_after` wird nicht vorab als Commit-SHA eingetragen, weil ein Comm
 - The checklist contains only future verification requirements and an empty evidence schema. No external source was opened and no observed live data was recorded.
 - `CQ-V1-042` records the Candidate Source Freshness Live Verification Record Template.
 - The record template contains only blank placeholders for a later separately authorized verification. No external browsing, live verification, observed source metadata, access date or freshness decision was recorded.
+- `CQ-V1-043` records the Human Operator Decision Preparation Packet for possible later actual source freshness live verification.
+- The packet presents Options A-D and a non-binding conservative scope. No option was selected and no Human Operator decision or authorization was recorded.
 - `SHO-SRC-004` and `SHO-CLAIM-007` remain blocked. `SRC-GAP-WF-006` remains open for the publish path.
 - The direct Publish Candidate path remains blocked; the candidate remains not publish-ready, not accepted and not live.
-- The next allowed action is `operator_decision_prepare_actual_candidate_source_freshness_live_verification_internal_only`.
+- The next allowed action is `await_human_operator_decision_on_actual_candidate_source_freshness_live_verification_internal_only`.
 
 ## Internal Candidate Status
 
@@ -98,7 +100,7 @@ internal_candidate:
   internal_candidate_status: internal_only
   official_mvp_brief_status: not_assigned
   batch_membership_status: internal_spinoff_candidate_not_official_batch_brief
-  current_artifact_level: candidate_source_freshness_live_verification_record_template_prepared_internal_only
+  current_artifact_level: candidate_source_freshness_live_verification_decision_preparation_packet_prepared_internal_only
   final_article_candidate_created: true
   final_article_candidate_review_status: final_article_candidate_review_passed_with_findings_not_publish_ready
   source_metadata_freshness_review_status: source_metadata_freshness_review_passed_with_findings_not_publish_ready
@@ -122,6 +124,8 @@ internal_candidate:
   final_publish_source_set_status: not_approved
   candidate_source_freshness_live_verification_checklist_status: prepared_internal_only
   candidate_source_freshness_live_verification_record_template_status: prepared_internal_only
+  candidate_source_freshness_live_verification_decision_preparation_status: prepared_internal_only
+  candidate_source_freshness_live_verification_human_operator_decision_status: not_recorded
   live_verification_status: not_performed
   live_data_population_status: not_performed
   claim_recheck_status: not_performed
@@ -208,12 +212,15 @@ The Human Operator decision now accepts the cleaned internal baseline as an inte
 
 ## Recommended Next Safe Outputs
 
-- `SHO_INTERNAL_CANDIDATE_001_OPERATOR_DECISION_PREPARE_ACTUAL_CANDIDATE_SOURCE_FRESHNESS_LIVE_VERIFICATION_INTERNAL_ONLY`
+- `AWAIT_HUMAN_OPERATOR_DECISION_ON_ACTUAL_CANDIDATE_SOURCE_FRESHNESS_LIVE_VERIFICATION_INTERNAL_ONLY`
 - `BRIEF_002_PUBLISH_CANDIDATE_DECISION_PACKET_INTERNAL_ONLY`
 - `WEBSITE_RELEASE_READINESS_GAP_REVIEW_INTERNAL_ONLY`
 
 Superseded validator anchors retained as historical context:
 
+- superseded_external_review_verdict: CANDIDATE_SOURCE_FRESHNESS_LIVE_VERIFICATION_RECORD_TEMPLATE_PREPARED_INTERNAL_ONLY
+- superseded_record_template_status: candidate_source_freshness_live_verification_record_template_status: prepared_internal_only
+- superseded_record_template_allowed_next_action: operator_decision_prepare_actual_candidate_source_freshness_live_verification_internal_only
 - superseded_external_review_verdict: CANDIDATE_SOURCE_FRESHNESS_LIVE_VERIFICATION_CHECKLIST_PREPARED_INTERNAL_ONLY
 - superseded_live_verification_checklist_status: candidate_source_freshness_live_verification_checklist_status: prepared_internal_only
 - superseded_live_verification_checklist_allowed_next_action: prepare_candidate_source_freshness_live_verification_record_template_internal_only

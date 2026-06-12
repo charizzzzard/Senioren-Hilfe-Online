@@ -265,6 +265,10 @@ CANDIDATE_SOURCE_FRESHNESS_LIVE_VERIFICATION_RECORD_TEMPLATE_INTERNAL_CANDIDATE_
     ROOT
     / "docs/content/article_reviews/whatsapp-fraud-checklist.candidate-source-freshness-live-verification-record-template.md"
 )
+CANDIDATE_SOURCE_FRESHNESS_LIVE_VERIFICATION_DECISION_PREPARATION_INTERNAL_CANDIDATE_001_PATH = (
+    ROOT
+    / "docs/operations/operator_decisions/HUMAN_OPERATOR_DECISION_PREPARATION_CANDIDATE_SOURCE_FRESHNESS_LIVE_VERIFICATION_INTERNAL_ONLY.md"
+)
 ACCESSIBILITY_REVIEW_BRIEF_002_PATH = (
     ROOT / "docs/content/article_reviews/betrugsnachrichten-auf-whatsapp-erkennen.accessibility-review.md"
 )
@@ -2933,7 +2937,8 @@ def validate_operator_decisions(failures: list[str]) -> int:
         failures.append("Missing operator decisions README: docs/operations/operator_decisions/README.md")
 
     separately_validated_decisions = {
-        "HUMAN_OPERATOR_DECISION_SHO_INTERNAL_CANDIDATE_001_REVISION_CANDIDATE_ADOPTION_INTERNAL_ONLY.md"
+        "HUMAN_OPERATOR_DECISION_SHO_INTERNAL_CANDIDATE_001_REVISION_CANDIDATE_ADOPTION_INTERNAL_ONLY.md",
+        "HUMAN_OPERATOR_DECISION_PREPARATION_CANDIDATE_SOURCE_FRESHNESS_LIVE_VERIFICATION_INTERNAL_ONLY.md",
     }
     found_files = {
         path.name
@@ -10369,6 +10374,269 @@ def validate_candidate_source_freshness_live_verification_record_template_intern
     return 1
 
 
+def validate_candidate_source_freshness_live_verification_decision_preparation_internal_candidate_001(
+    failures: list[str],
+) -> int:
+    path = (
+        CANDIDATE_SOURCE_FRESHNESS_LIVE_VERIFICATION_DECISION_PREPARATION_INTERNAL_CANDIDATE_001_PATH
+    )
+    if not path.exists():
+        failures.append(
+            "Missing Candidate Source Freshness Live Verification Human Operator "
+            "Decision Preparation Packet for SHO-INTERNAL-CANDIDATE-001"
+        )
+        return 0
+
+    matching_files = list(
+        path.parent.glob(
+            "HUMAN_OPERATOR_DECISION_PREPARATION_CANDIDATE_SOURCE_FRESHNESS_LIVE_VERIFICATION_INTERNAL_ONLY.md"
+        )
+    )
+    if len(matching_files) != 1:
+        failures.append(
+            "Expected exactly one Candidate Source Freshness Live Verification "
+            "Human Operator Decision Preparation Packet for "
+            f"SHO-INTERNAL-CANDIDATE-001, found {len(matching_files)}"
+        )
+
+    text = path.read_text(encoding="utf-8")
+    fields = parse_frontmatter_fields(text)
+    queue_text = WORK_QUEUE_V1_PATH.read_text(encoding="utf-8")
+    dashboard_text = ARTICLE_READINESS_DASHBOARD_PATH.read_text(encoding="utf-8")
+    batch_text = BATCH_MANIFEST_PATH.read_text(encoding="utf-8")
+    documentation_map_text = (ROOT / "docs/DOCUMENTATION_MAP.md").read_text(
+        encoding="utf-8"
+    )
+    handoff_text = (
+        ROOT / "external_review_packet/HANDOFF_LATEST_CONTEXT.md"
+    ).read_text(encoding="utf-8")
+
+    expected_fields = {
+        "decision_preparation_id": (
+            "sho-internal-candidate-001-candidate-source-freshness-live-verification-decision-preparation"
+        ),
+        "task_type": (
+            "sho_internal_candidate_001_operator_decision_prepare_actual_candidate_source_freshness_live_verification_internal_only"
+        ),
+        "autonomy_class": "yellow-b",
+        "internal_candidate_id": "sho-internal-candidate-001",
+        "artifact_status": "internal_only",
+        "decision_preparation_status": "prepared",
+        "human_operator_decision_status": "not_recorded",
+        "selected_option_status": "pending",
+        "live_verification_status": "not_performed",
+        "external_browsing_status": "not_performed",
+        "live_data_population_status": "not_performed",
+        "source_freshness_status": "not_verified",
+        "source_freshness_claim_status": "not_claimed",
+        "final_source_approval_status": "not_approved",
+        "claim_recheck_status": "not_performed",
+        "new_external_sources_status": "not_added",
+        "publish_readiness_status": "not_ready",
+        "operator_acceptance_status": "not_accepted",
+        "public_launch_status": "not_ready",
+        "monetization_status": "not_approved",
+        "analytics_status": "not_connected",
+        "search_console_status": "not_connected",
+        "user_feedback_status": "not_collected",
+        "wcag_conformance_status": "not_tested",
+        "sho_claim_007_status": "blocked",
+        "sho_src_004_ui_context_status": "blocked",
+        "whatsapp_ui_path_validation_status": "not_performed",
+        "queue_execution_status": "not_live",
+        "stage_advancement_status": "not_advanced",
+    }
+    for field_name, expected_value in expected_fields.items():
+        if normalized(fields.get(field_name)) != expected_value:
+            failures.append(
+                "Candidate Source Freshness Live Verification Decision "
+                f"Preparation Packet must have {field_name}: {expected_value}"
+            )
+
+    required_fragments = [
+        "created_from_record_template: docs/content/article_reviews/whatsapp-fraud-checklist.candidate-source-freshness-live-verification-record-template.md",
+        "## 1. Executive Verdict",
+        "## 2. Decision Question",
+        "## 3. Current Source / Claim Scope Reminder",
+        "## 4. Human Operator Decision Options",
+        "### Option A:",
+        "### Option B:",
+        "### Option C:",
+        "### Option D:",
+        "Dieses Packet waehlt keine Option.",
+        "## 5. Non-Binding Conservative Recommendation",
+        "## 6. Required Evidence and Controls",
+        "## 7. Required Post-Verification Gates",
+        "## 8. Risk Controls",
+        "## 9. Pending Human Operator Decision",
+        "## 11. Explicit Non-Goals",
+        "SHO-SRC-004",
+        "SHO-SRC-005",
+        "SHO-SRC-006",
+        "SHO-SRC-007",
+        "SHO-CLAIM-004",
+        "SHO-CLAIM-005",
+        "SHO-CLAIM-006",
+        "SHO-CLAIM-007",
+        "SRC-GAP-WF-006",
+        "decision_status: pending",
+        "selected_option: pending",
+        "authorize_strict_internal_live_verification",
+        "do_not_authorize_live_verification_yet",
+        "authorize_narrower_internal_live_verification_scope",
+        "pause_candidate_path",
+        "Candidate Source Freshness Review",
+        "Claim Mapping Recheck",
+        "Final Source Metadata Review",
+        "allowed_next_action: await_human_operator_decision_on_actual_candidate_source_freshness_live_verification_internal_only",
+        "keine finale Human-Operator-Entscheidung aufgezeichnet",
+        "keine Live-Quellenverifikation",
+        "kein externes Browsing",
+        "keine Live-Datenpopulation",
+        "kein Source-Freshness-Claim",
+        "keine Source-Freigabe fuer Publikation",
+        "keine neuen externen Sources",
+        "kein Publish Candidate",
+        "keine Publish Readiness",
+        "keine Operator Acceptance",
+        "kein WCAG-Claim",
+        "keine Queue-Ausfuehrung",
+        "kein Stage Advancement",
+    ]
+    for fragment in required_fragments:
+        if fragment not in text:
+            failures.append(
+                "Candidate Source Freshness Live Verification Decision "
+                f"Preparation Packet must contain: {fragment}"
+            )
+
+    forbidden_activation_markers = [
+        "human_operator_decision_status: accepted",
+        "human_operator_decision_status: approved",
+        "human_operator_decision_status: recorded",
+        "selected_option_status: selected",
+        "publish_ready: true",
+        "approved_for_publish: true",
+        "operator_acceptance_status: accepted",
+        "public_launch_status: ready",
+        "public_launch_status: launched",
+        "monetization_status: approved",
+        "analytics_status: connected",
+        "search_console_status: connected",
+        "user_feedback_status: collected",
+        "live_verification_status: performed",
+        "external_browsing_status: performed",
+        "live_data_population_status: completed",
+        "source_freshness_status: verified",
+        "source_freshness_claim_status: claimed",
+        "final_source_approval_status: approved",
+        "claim_recheck_status: completed",
+        "new_external_sources_status: added",
+        "wcag_conformance_status: passed",
+    ]
+    lower_text = text.lower()
+    for fragment in forbidden_activation_markers:
+        if fragment in lower_text:
+            failures.append(
+                "Candidate Source Freshness Live Verification Decision "
+                f"Preparation Packet contains forbidden activation marker: {fragment}"
+            )
+
+    actual_access_date = re.search(
+        r"(?m)^\s*access_date:\s*[\"']?20\d{2}-\d{2}-\d{2}[\"']?\s*$",
+        text,
+    )
+    if actual_access_date:
+        failures.append(
+            "Candidate Source Freshness Live Verification Decision Preparation "
+            "Packet must not contain an actual source access date"
+        )
+
+    tracking_fragments = {
+        "dashboard": (
+            dashboard_text,
+            [
+                "candidate_source_freshness_live_verification_decision_preparation_packet_prepared_internal_only",
+                "await_human_operator_decision_on_actual_candidate_source_freshness_live_verification_internal_only",
+                "human_operator_decision_status not_recorded",
+                "SRC-GAP-WF-006 remains open",
+            ],
+        ),
+        "batch": (
+            batch_text,
+            [
+                "candidate_source_freshness_live_verification_decision_preparation_status: prepared_internal_only",
+                "candidate_source_freshness_live_verification_human_operator_decision_status: not_recorded",
+                "allowed_next_action: await_human_operator_decision_on_actual_candidate_source_freshness_live_verification_internal_only",
+            ],
+        ),
+        "handoff": (
+            handoff_text,
+            [
+                "CANDIDATE_SOURCE_FRESHNESS_LIVE_VERIFICATION_HUMAN_OPERATOR_DECISION_PREPARATION_PREPARED_INTERNAL_ONLY",
+                "candidate_source_freshness_live_verification_decision_preparation_status: prepared_internal_only",
+                "candidate_source_freshness_live_verification_human_operator_decision_status: not_recorded",
+                "await_human_operator_decision_on_actual_candidate_source_freshness_live_verification_internal_only",
+            ],
+        ),
+        "documentation map": (
+            documentation_map_text,
+            [
+                "HUMAN_OPERATOR_DECISION_PREPARATION_CANDIDATE_SOURCE_FRESHNESS_LIVE_VERIFICATION_INTERNAL_ONLY.md"
+            ],
+        ),
+    }
+    for area, (area_text, fragments) in tracking_fragments.items():
+        for fragment in fragments:
+            if fragment not in area_text:
+                failures.append(
+                    f"{area} missing Candidate Source Freshness Live "
+                    f"Verification Decision Preparation status: {fragment}"
+                )
+
+    queue_item_match = re.search(
+        r"(?ms)^  - queue_item_id: CQ-V1-043\n"
+        r"(?P<body>.*?)(?=^  - queue_item_id: |\Z)",
+        queue_text,
+    )
+    if not queue_item_match:
+        failures.append("Work Queue V1 missing CQ-V1-043")
+    else:
+        queue_item_text = queue_item_match.group("body")
+        required_queue_fragments = [
+            "HUMAN_OPERATOR_DECISION_PREPARATION_CANDIDATE_SOURCE_FRESHNESS_LIVE_VERIFICATION_INTERNAL_ONLY.md",
+            "allowed_next_action: await_human_operator_decision_on_actual_candidate_source_freshness_live_verification_internal_only",
+            "human_operator_decision_not_recorded",
+            "no_live_source_verification",
+            "no_external_browsing",
+            "no_live_data_population",
+            "no_source_freshness_claim",
+            "SRC_GAP_WF_006_open",
+            "SHO_CLAIM_007_blocked",
+            "record_human_operator_decision_without_explicit_selection",
+            "authorize_live_verification_without_human_operator_decision",
+            "browse_external_sources",
+            "perform_live_source_verification",
+            "populate_live_source_data",
+            "claim_source_freshness",
+            "approve_final_publish_source_set",
+            "create_publish_candidate",
+            "set_publish_readiness",
+            "set_operator_acceptance",
+            "unlock_SHO_CLAIM_007",
+            "validate_WhatsApp_UI_paths",
+            "execute_queue",
+            "advance_stage",
+            "human_gate_required: yes",
+            "status: pending_human_operator_decision",
+        ]
+        for fragment in required_queue_fragments:
+            if fragment not in queue_item_text:
+                failures.append(f"Work Queue CQ-V1-043 missing: {fragment}")
+
+    return 1
+
+
 def validate_applied_scorecard_brief_002(failures: list[str]) -> int:
     if not APPLIED_SCORECARD_BRIEF_002_PATH.exists():
         failures.append(
@@ -12097,6 +12365,11 @@ def main() -> int:
             failures
         )
     )
+    candidate_source_freshness_live_verification_decision_preparation_internal_candidate_001_count = (
+        validate_candidate_source_freshness_live_verification_decision_preparation_internal_candidate_001(
+            failures
+        )
+    )
     applied_scorecard_brief_002_count = validate_applied_scorecard_brief_002(failures)
     human_operator_review_packet_final_article_candidate_brief_002_count = (
         validate_human_operator_review_packet_final_article_candidate_brief_002(failures)
@@ -12234,6 +12507,11 @@ def main() -> int:
         "- Internal candidate Candidate Source Freshness Live Verification "
         "Record Template files: "
         f"{candidate_source_freshness_live_verification_record_template_internal_candidate_001_count}"
+    )
+    print(
+        "- Internal candidate Candidate Source Freshness Live Verification "
+        "Human Operator Decision Preparation Packet files: "
+        f"{candidate_source_freshness_live_verification_decision_preparation_internal_candidate_001_count}"
     )
     print(f"- Batch 01 applied scorecard Brief 002 files: {applied_scorecard_brief_002_count}")
     print(
