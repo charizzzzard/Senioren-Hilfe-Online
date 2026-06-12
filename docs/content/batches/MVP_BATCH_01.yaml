@@ -54,6 +54,7 @@ internal_candidates:
       - docs/operations/operator_decisions/HUMAN_OPERATOR_DECISION_CANDIDATE_SOURCE_FRESHNESS_LIVE_VERIFICATION_OPTION_A_INTERNAL_ONLY.md
       - docs/content/article_reviews/whatsapp-fraud-checklist.candidate-source-freshness-live-verification-records.md
       - docs/content/article_reviews/whatsapp-fraud-checklist.candidate-source-freshness-review-packet.md
+      - docs/content/article_reviews/whatsapp-fraud-checklist.candidate-claim-mapping-recheck-packet.md
     final_article_candidate_status: prepared_internal_only
     final_article_candidate_review_status: passed_with_findings_internal_only
     source_metadata_freshness_review_status: passed_with_findings_internal_only
@@ -78,10 +79,12 @@ internal_candidates:
     candidate_source_freshness_live_verification_authorization_status: authorized_for_future_internal_only_task
     candidate_source_freshness_live_verification_records_status: evidence_recorded_internal_only
     candidate_source_freshness_review_packet_status: completed_internal_only_with_findings
+    candidate_claim_mapping_recheck_packet_status: completed_internal_only_with_findings
     live_verification_status: performed_internal_only
     live_data_population_status: evidence_records_created_authorized_scope_only
     source_freshness_status: reviewed_internal_only_with_limitations_not_finally_verified
-    claim_recheck_status: pending
+    claim_recheck_status: completed_internal_only_with_findings
+    final_claim_approval_status: not_approved
     current_internal_working_basis: docs/content/article_revision_candidates/whatsapp-fraud-checklist.targeted-revision-candidate.md
     historical_final_article_candidate: docs/content/final_article_candidates/whatsapp-fraud-checklist.final-article-candidate.md
     real_user_testing_status: not_performed
@@ -95,7 +98,7 @@ internal_candidates:
     superseded_revision_candidate_adoption_decision_status: not_decided
     superseded_packet_allowed_next_action: record_human_operator_revision_candidate_adoption_decision_internal_only
     superseded_adoption_allowed_next_action: prepare_adopted_revision_working_basis_readiness_review_internal_only
-    allowed_next_action: prepare_candidate_claim_mapping_recheck_packet_internal_only
+    allowed_next_action: prepare_candidate_final_source_metadata_review_packet_internal_only
     superseded_readiness_review_allowed_next_action: prepare_internal_pre_gate_gap_review_for_adopted_working_basis
     superseded_gap_review_allowed_next_action: prepare_source_freshness_gap_resolution_packet_internal_only
     superseded_source_freshness_packet_allowed_next_action: prepare_candidate_specific_final_source_selection_packet_internal_only
@@ -111,6 +114,8 @@ internal_candidates:
     superseded_pre_evidence_live_source_verification_status_anchor: "live_source_verification_status: not_performed"
     superseded_live_evidence_source_freshness_status_anchor: "source_freshness_status: preliminary_evidence_recorded_pending_review"
     superseded_live_evidence_allowed_next_action: prepare_candidate_source_freshness_review_packet_internal_only
+    superseded_source_freshness_review_claim_recheck_status_anchor: "claim_recheck_status: pending"
+    superseded_source_freshness_review_allowed_next_action: prepare_candidate_claim_mapping_recheck_packet_internal_only
     forbidden_actions:
       - set_publish_readiness
       - set_operator_acceptance
