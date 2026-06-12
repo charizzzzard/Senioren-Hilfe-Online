@@ -5,8 +5,8 @@
 - project_name: Senioren-Hilfe Online
 - system_name: Senioren-Hilfe Online OS
 - system_short_name: SHO-OS
-- patch_title: SHO_INTERNAL_CANDIDATE_001_SOURCE_FRESHNESS_GAP_RESOLUTION_PACKET_INTERNAL_ONLY
-- external_review_verdict: SOURCE_FRESHNESS_GAP_RESOLUTION_PACKET_PREPARED_INTERNAL_ONLY
+- patch_title: SHO_INTERNAL_CANDIDATE_001_PREPARE_CANDIDATE_SPECIFIC_FINAL_SOURCE_SELECTION_PACKET_INTERNAL_ONLY
+- external_review_verdict: CANDIDATE_SPECIFIC_FINAL_SOURCE_SELECTION_PACKET_PREPARED_INTERNAL_ONLY
 
 SHO-OS ist ein reproduzierbares Content-, Trust- und Publishing-System fuer seniorengerechte digitale Alltagshilfe in Deutschland.
 
@@ -15,9 +15,9 @@ Dieser Handoff beschreibt den aktuellen internen Repo-Kontext nach der internen 
 ## Git Traceability
 
 - branch: `main`
-- head_before_current_patch: `1104ca0208123db3695dfcc00ae95c6e4759dc96`
+- head_before_current_patch: `2d1cf61ded6e4dfb45926a57cad047c9bbd51bc0`
 - intended_head_after: `assigned_after_commit`
-- origin_main_before_current_patch: `1104ca0208123db3695dfcc00ae95c6e4759dc96`
+- origin_main_before_current_patch: `2d1cf61ded6e4dfb45926a57cad047c9bbd51bc0`
 - dirty_state_before_current_patch: `clean`
 - dirty_state_after_current_patch: `assigned_after_commit`
 
@@ -79,8 +79,11 @@ Hinweis: `head_after` wird nicht vorab als Commit-SHA eingetragen, weil ein Comm
 - No P0/P1 blocker prevents internal gap-resolution planning. Source/Freshness, final source selection, claim/UI, accessibility/testing, feedback/data, governance and production-format P2 gaps remain open.
 - `CQ-V1-039` records the Source/Freshness Gap Resolution Packet.
 - The packet translates the open source-selection and freshness gaps into later bounded requirements. It performs no live verification, claims no freshness and adds no external source.
+- `CQ-V1-040` records the Candidate-Specific Final Source Selection Packet.
+- The packet documents only the existing repo-supported mapping of `SHO-SRC-005/006` to `SHO-CLAIM-004/005` and `SHO-SRC-007` to `SHO-CLAIM-006` for later verification.
+- `SHO-SRC-004` and `SHO-CLAIM-007` remain blocked. `SRC-GAP-WF-006` remains open for the publish path.
 - The direct Publish Candidate path remains blocked; the candidate remains not publish-ready, not accepted and not live.
-- The next allowed action is `prepare_candidate_specific_final_source_selection_packet_internal_only`.
+- The next allowed action is `prepare_candidate_source_freshness_live_verification_checklist_internal_only`.
 
 ## Internal Candidate Status
 
@@ -91,7 +94,7 @@ internal_candidate:
   internal_candidate_status: internal_only
   official_mvp_brief_status: not_assigned
   batch_membership_status: internal_spinoff_candidate_not_official_batch_brief
-  current_artifact_level: source_freshness_gap_resolution_packet_prepared_internal_only
+  current_artifact_level: candidate_specific_final_source_selection_packet_prepared_internal_only
   final_article_candidate_created: true
   final_article_candidate_review_status: final_article_candidate_review_passed_with_findings_not_publish_ready
   source_metadata_freshness_review_status: source_metadata_freshness_review_passed_with_findings_not_publish_ready
@@ -110,6 +113,9 @@ internal_candidate:
   adopted_working_basis_readiness_review_status: adopted_working_basis_readiness_review_passed_with_findings_not_publish_ready
   internal_pre_gate_gap_review_status: internal_pre_gate_gap_review_completed_no_p0_p1_with_open_p2_gaps
   source_freshness_gap_resolution_packet_status: prepared_internal_only
+  candidate_specific_final_source_selection_packet_status: prepared_internal_only
+  candidate_specific_source_mapping_status: documented_for_later_verification_not_approved_for_publication
+  final_publish_source_set_status: not_approved
   real_user_testing_status: not_performed
   assistive_technology_testing_status: not_performed
   wcag_conformance_status: not_tested
@@ -145,7 +151,7 @@ This internal candidate is not an official fifth MVP brief and is not `SHO-MVP-B
 ## Non-Scope / Non-Acceptance
 
 - No final article.
-- One unchanged historical internal Final Article Candidate plus candidate, repo-only source metadata / freshness and text-only Accessibility / Senior Reader reviews, one applied Content Quality Scorecard, one Targeted Revision Packet, one unchanged Targeted Revision Candidate, its review, one Adoption Decision Packet, one Human Operator Option-A decision, one Adopted Working Basis Readiness Review, one Internal Pre-Gate Gap Review and one Source/Freshness Gap Resolution Packet exist for `SHO-INTERNAL-CANDIDATE-001`; the packet is planning-only, performs no live verification, claims no freshness, adds no source, and the path remains not publish-ready and not accepted.
+- One unchanged historical internal Final Article Candidate plus candidate, repo-only source metadata / freshness and text-only Accessibility / Senior Reader reviews, one applied Content Quality Scorecard, one Targeted Revision Packet, one unchanged Targeted Revision Candidate, its review, one Adoption Decision Packet, one Human Operator Option-A decision, one Adopted Working Basis Readiness Review, one Internal Pre-Gate Gap Review, one Source/Freshness Gap Resolution Packet and one Candidate-Specific Final Source Selection Packet exist for `SHO-INTERNAL-CANDIDATE-001`; the latest packet documents only an internal mapping for later verification, performs no live verification, claims no freshness, approves no publication source set, and the path remains not publish-ready and not accepted.
 - No Publish Candidate.
 - No Publish Readiness.
 - No Operator Acceptance.
@@ -193,12 +199,15 @@ The Human Operator decision now accepts the cleaned internal baseline as an inte
 
 ## Recommended Next Safe Outputs
 
-- `SHO_INTERNAL_CANDIDATE_001_CANDIDATE_SPECIFIC_FINAL_SOURCE_SELECTION_PACKET_INTERNAL_ONLY`
+- `SHO_INTERNAL_CANDIDATE_001_CANDIDATE_SOURCE_FRESHNESS_LIVE_VERIFICATION_CHECKLIST_INTERNAL_ONLY`
 - `BRIEF_002_PUBLISH_CANDIDATE_DECISION_PACKET_INTERNAL_ONLY`
 - `WEBSITE_RELEASE_READINESS_GAP_REVIEW_INTERNAL_ONLY`
 
 Superseded validator anchors retained as historical context:
 
+- superseded_external_review_verdict: SOURCE_FRESHNESS_GAP_RESOLUTION_PACKET_PREPARED_INTERNAL_ONLY
+- superseded_source_freshness_packet_status: source_freshness_gap_resolution_packet_status: prepared_internal_only
+- superseded_source_freshness_allowed_next_action: prepare_candidate_specific_final_source_selection_packet_internal_only
 - superseded_external_review_verdict: INTERNAL_PRE_GATE_GAP_REVIEW_COMPLETED_NO_P0_P1_WITH_OPEN_P2_GAPS
 - superseded_gap_review_verdict: internal_pre_gate_gap_review_completed_no_p0_p1_with_open_p2_gaps
 - superseded_gap_review_allowed_next_action: prepare_source_freshness_gap_resolution_packet_internal_only
