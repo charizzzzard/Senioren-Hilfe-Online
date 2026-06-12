@@ -273,6 +273,10 @@ CANDIDATE_SOURCE_FRESHNESS_LIVE_VERIFICATION_OPTION_A_DECISION_INTERNAL_CANDIDAT
     ROOT
     / "docs/operations/operator_decisions/HUMAN_OPERATOR_DECISION_CANDIDATE_SOURCE_FRESHNESS_LIVE_VERIFICATION_OPTION_A_INTERNAL_ONLY.md"
 )
+CANDIDATE_SOURCE_FRESHNESS_LIVE_VERIFICATION_RECORDS_INTERNAL_CANDIDATE_001_PATH = (
+    ROOT
+    / "docs/content/article_reviews/whatsapp-fraud-checklist.candidate-source-freshness-live-verification-records.md"
+)
 ACCESSIBILITY_REVIEW_BRIEF_002_PATH = (
     ROOT / "docs/content/article_reviews/betrugsnachrichten-auf-whatsapp-erkennen.accessibility-review.md"
 )
@@ -10898,6 +10902,266 @@ def validate_candidate_source_freshness_live_verification_option_a_decision_inte
     return 1
 
 
+def validate_candidate_source_freshness_live_verification_records_internal_candidate_001(
+    failures: list[str],
+) -> int:
+    path = (
+        CANDIDATE_SOURCE_FRESHNESS_LIVE_VERIFICATION_RECORDS_INTERNAL_CANDIDATE_001_PATH
+    )
+    if not path.exists():
+        failures.append(
+            "Missing Candidate Source Freshness Live Verification Records for "
+            "SHO-INTERNAL-CANDIDATE-001"
+        )
+        return 0
+
+    matching_files = list(
+        path.parent.glob(
+            "whatsapp-fraud-checklist.candidate-source-freshness-live-verification-records.md"
+        )
+    )
+    if len(matching_files) != 1:
+        failures.append(
+            "Expected exactly one Candidate Source Freshness Live Verification "
+            f"Records file for SHO-INTERNAL-CANDIDATE-001, found {len(matching_files)}"
+        )
+
+    text = path.read_text(encoding="utf-8")
+    fields = parse_frontmatter_fields(text)
+    queue_text = WORK_QUEUE_V1_PATH.read_text(encoding="utf-8")
+    dashboard_text = ARTICLE_READINESS_DASHBOARD_PATH.read_text(encoding="utf-8")
+    batch_text = BATCH_MANIFEST_PATH.read_text(encoding="utf-8")
+    documentation_map_text = (ROOT / "docs/DOCUMENTATION_MAP.md").read_text(
+        encoding="utf-8"
+    )
+    handoff_text = (
+        ROOT / "external_review_packet/HANDOFF_LATEST_CONTEXT.md"
+    ).read_text(encoding="utf-8")
+
+    expected_fields = {
+        "verification_packet_id": (
+            "sho-internal-candidate-001-candidate-source-freshness-live-verification-records"
+        ),
+        "task_type": (
+            "sho_internal_candidate_001_perform_actual_candidate_source_freshness_live_verification_internal_only"
+        ),
+        "autonomy_class": "yellow-b",
+        "internal_candidate_id": "sho-internal-candidate-001",
+        "artifact_status": "internal_only",
+        "live_verification_status": "performed_internal_only",
+        "source_freshness_status": "preliminary_evidence_recorded_pending_review",
+        "final_source_approval_status": "not_approved",
+        "claim_recheck_status": "pending",
+        "new_external_sources_status": "not_added",
+        "publish_readiness_status": "not_ready",
+        "operator_acceptance_status": "not_accepted",
+        "public_launch_status": "not_ready",
+        "monetization_status": "not_approved",
+        "analytics_status": "not_connected",
+        "search_console_status": "not_connected",
+        "user_feedback_status": "not_collected",
+        "wcag_conformance_status": "not_tested",
+        "sho_claim_007_status": "blocked",
+        "sho_src_004_ui_context_status": "blocked",
+        "whatsapp_ui_path_validation_status": "not_performed",
+        "queue_execution_status": "not_live",
+        "stage_advancement_status": "not_advanced",
+        "verification_date": "2026-06-12",
+        "timezone": "europe/berlin",
+    }
+    for field_name, expected_value in expected_fields.items():
+        if normalized(fields.get(field_name)) != expected_value:
+            failures.append(
+                "Candidate Source Freshness Live Verification Records must have "
+                f"{field_name}: {expected_value}"
+            )
+
+    required_fragments = [
+        "created_from_human_operator_decision: docs/operations/operator_decisions/HUMAN_OPERATOR_DECISION_CANDIDATE_SOURCE_FRESHNESS_LIVE_VERIFICATION_OPTION_A_INTERNAL_ONLY.md",
+        "created_from_record_template: docs/content/article_reviews/whatsapp-fraud-checklist.candidate-source-freshness-live-verification-record-template.md",
+        "## 1. Executive Verdict",
+        "## 2. Authorized Scope Confirmation",
+        "## 3. Per-Source Evidence Records",
+        "## 4. Per-Claim Live Verification Notes",
+        "## 5. Source / Claim Outcome Summary",
+        "## 6. Required Later Gates",
+        "## 7. Allowed Next Step",
+        "## 8. Explicit Non-Goals",
+        "SHO-IC001-LIVE-SRC-005-20260612",
+        "SHO-IC001-LIVE-SRC-006-20260612",
+        "SHO-IC001-LIVE-SRC-007-20260612",
+        "source_id: SHO-SRC-005",
+        "source_id: SHO-SRC-006",
+        "source_id: SHO-SRC-007",
+        "SHO-CLAIM-004",
+        "SHO-CLAIM-005",
+        "SHO-CLAIM-006",
+        "SHO-CLAIM-007",
+        "SRC-GAP-WF-006",
+        "final_publish_use_allowed",
+        "not_allowed_pending_later_gates",
+        "allowed_next_action: prepare_candidate_source_freshness_review_packet_internal_only",
+    ]
+    for fragment in required_fragments:
+        if fragment not in text:
+            failures.append(
+                "Candidate Source Freshness Live Verification Records must contain: "
+                f"{fragment}"
+            )
+
+    record_fields = [
+        "verification_record_id:",
+        "mapped_claim_ids_checked:",
+        "reviewer:",
+        "access_date:",
+        "access_time_timezone:",
+        "source_url_or_location_observed:",
+        "source_access_status:",
+        "source_title_observed:",
+        "publisher_observed:",
+        "publication_date_observed:",
+        "last_updated_date_observed:",
+        "relevant_section_observed:",
+        "claim_support_summary:",
+        "freshness_assessment_preliminary:",
+        "limitations:",
+        "decision_for_later_review:",
+        "follow_up_required:",
+        "reviewer_notes:",
+    ]
+    for source_id in ("SHO-SRC-005", "SHO-SRC-006", "SHO-SRC-007"):
+        record_match = re.search(
+            rf"(?ms)^### [A-C]\. {source_id}\n(?P<body>.*?)(?=^### [A-C]\. |\Z)",
+            text,
+        )
+        if not record_match:
+            failures.append(
+                "Candidate Source Freshness Live Verification Records missing "
+                f"evidence section for {source_id}"
+            )
+            continue
+        record_text = record_match.group("body")
+        for field_name in record_fields:
+            if field_name not in record_text:
+                failures.append(
+                    f"Live verification record for {source_id} missing: {field_name}"
+                )
+
+    if re.search(
+        r"(?m)^verification_record_id:.*SHO-SRC-004|^source_id:\s*SHO-SRC-004",
+        text,
+    ):
+        failures.append(
+            "Candidate Source Freshness Live Verification Records must not contain "
+            "a verification record for blocked SHO-SRC-004"
+        )
+
+    forbidden_activation_markers = [
+        "source_freshness_status: verified",
+        "final_source_approval_status: approved",
+        "claim_recheck_status: completed",
+        "publish_readiness_status: ready",
+        "operator_acceptance_status: accepted",
+        "public_launch_status: ready",
+        "public_launch_status: launched",
+        "monetization_status: approved",
+        "analytics_status: connected",
+        "search_console_status: connected",
+        "user_feedback_status: collected",
+        "new_external_sources_status: added",
+        "wcag_conformance_status: passed",
+        "sho_claim_007_status: unblocked",
+        "sho_src_004_ui_context_status: unblocked",
+    ]
+    lower_text = text.lower()
+    for fragment in forbidden_activation_markers:
+        if fragment in lower_text:
+            failures.append(
+                "Candidate Source Freshness Live Verification Records contain "
+                f"forbidden activation marker: {fragment}"
+            )
+
+    tracking_fragments = {
+        "dashboard": (
+            dashboard_text,
+            [
+                "candidate_source_freshness_live_verification_evidence_recorded_internal_only",
+                "prepare_candidate_source_freshness_review_packet_internal_only",
+                "SRC-GAP-WF-006 remains open",
+            ],
+        ),
+        "batch": (
+            batch_text,
+            [
+                "candidate_source_freshness_live_verification_records_status: evidence_recorded_internal_only",
+                "source_freshness_status: preliminary_evidence_recorded_pending_review",
+                "allowed_next_action: prepare_candidate_source_freshness_review_packet_internal_only",
+            ],
+        ),
+        "handoff": (
+            handoff_text,
+            [
+                "CANDIDATE_SOURCE_FRESHNESS_LIVE_VERIFICATION_EVIDENCE_RECORDED_INTERNAL_ONLY",
+                "candidate_source_freshness_live_verification_records_status: evidence_recorded_internal_only",
+                "prepare_candidate_source_freshness_review_packet_internal_only",
+            ],
+        ),
+        "documentation map": (
+            documentation_map_text,
+            [
+                "whatsapp-fraud-checklist.candidate-source-freshness-live-verification-records.md"
+            ],
+        ),
+    }
+    for area, (area_text, fragments) in tracking_fragments.items():
+        for fragment in fragments:
+            if fragment not in area_text:
+                failures.append(
+                    f"{area} missing Candidate Source Freshness Live Verification "
+                    f"Records status: {fragment}"
+                )
+
+    queue_item_match = re.search(
+        r"(?ms)^  - queue_item_id: CQ-V1-045\n"
+        r"(?P<body>.*?)(?=^  - queue_item_id: |\Z)",
+        queue_text,
+    )
+    if not queue_item_match:
+        failures.append("Work Queue V1 missing CQ-V1-045")
+    else:
+        queue_item_text = queue_item_match.group("body")
+        required_queue_fragments = [
+            "whatsapp-fraud-checklist.candidate-source-freshness-live-verification-records.md",
+            "SHO-SRC-005",
+            "SHO-SRC-006",
+            "SHO-SRC-007",
+            "SHO-CLAIM-004",
+            "SHO-CLAIM-005",
+            "SHO-CLAIM-006",
+            "SHO-CLAIM-007",
+            "SHO-SRC-004",
+            "final_source_freshness_review_pending",
+            "final_source_approval_not_approved",
+            "claim_recheck_pending",
+            "SRC_GAP_WF_006_open",
+            "allowed_next_action: prepare_candidate_source_freshness_review_packet_internal_only",
+            "verify_SHO_SRC_004",
+            "unlock_SHO_CLAIM_007",
+            "claim_final_source_freshness",
+            "approve_final_publish_source_set",
+            "set_publish_readiness",
+            "set_operator_acceptance",
+            "execute_queue",
+            "advance_stage",
+            "status: internal_review_prepared",
+        ]
+        for fragment in required_queue_fragments:
+            if fragment not in queue_item_text:
+                failures.append(f"Work Queue CQ-V1-045 missing: {fragment}")
+
+    return 1
+
+
 def validate_applied_scorecard_brief_002(failures: list[str]) -> int:
     if not APPLIED_SCORECARD_BRIEF_002_PATH.exists():
         failures.append(
@@ -12636,6 +12900,11 @@ def main() -> int:
             failures
         )
     )
+    candidate_source_freshness_live_verification_records_internal_candidate_001_count = (
+        validate_candidate_source_freshness_live_verification_records_internal_candidate_001(
+            failures
+        )
+    )
     applied_scorecard_brief_002_count = validate_applied_scorecard_brief_002(failures)
     human_operator_review_packet_final_article_candidate_brief_002_count = (
         validate_human_operator_review_packet_final_article_candidate_brief_002(failures)
@@ -12783,6 +13052,11 @@ def main() -> int:
         "- Internal candidate Candidate Source Freshness Live Verification "
         "Human Operator Option-A Decision files: "
         f"{candidate_source_freshness_live_verification_option_a_decision_internal_candidate_001_count}"
+    )
+    print(
+        "- Internal candidate Candidate Source Freshness Live Verification "
+        "Records files: "
+        f"{candidate_source_freshness_live_verification_records_internal_candidate_001_count}"
     )
     print(f"- Batch 01 applied scorecard Brief 002 files: {applied_scorecard_brief_002_count}")
     print(

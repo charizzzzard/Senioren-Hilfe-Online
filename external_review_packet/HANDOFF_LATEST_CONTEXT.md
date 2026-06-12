@@ -5,8 +5,8 @@
 - project_name: Senioren-Hilfe Online
 - system_name: Senioren-Hilfe Online OS
 - system_short_name: SHO-OS
-- patch_title: SHO_INTERNAL_CANDIDATE_001_RECORD_HUMAN_OPERATOR_DECISION_AUTHORIZE_ACTUAL_CANDIDATE_SOURCE_FRESHNESS_LIVE_VERIFICATION_INTERNAL_ONLY
-- external_review_verdict: CANDIDATE_SOURCE_FRESHNESS_LIVE_VERIFICATION_OPTION_A_HUMAN_OPERATOR_DECISION_RECORDED_INTERNAL_ONLY
+- patch_title: SHO_INTERNAL_CANDIDATE_001_PERFORM_ACTUAL_CANDIDATE_SOURCE_FRESHNESS_LIVE_VERIFICATION_INTERNAL_ONLY
+- external_review_verdict: CANDIDATE_SOURCE_FRESHNESS_LIVE_VERIFICATION_EVIDENCE_RECORDED_INTERNAL_ONLY
 
 SHO-OS ist ein reproduzierbares Content-, Trust- und Publishing-System fuer seniorengerechte digitale Alltagshilfe in Deutschland.
 
@@ -15,9 +15,9 @@ Dieser Handoff beschreibt den aktuellen internen Repo-Kontext nach der internen 
 ## Git Traceability
 
 - branch: `main`
-- head_before_current_patch: `5e64227163208d3215b4ff8592d5883188af2ff7`
+- head_before_current_patch: `a29a236da78c0024674f668eb27045494f89c490`
 - intended_head_after: `assigned_after_commit`
-- origin_main_before_current_patch: `5e64227163208d3215b4ff8592d5883188af2ff7`
+- origin_main_before_current_patch: `a29a236da78c0024674f668eb27045494f89c490`
 - dirty_state_before_current_patch: `clean`
 - dirty_state_after_current_patch: `assigned_after_commit`
 
@@ -91,8 +91,11 @@ Hinweis: `head_after` wird nicht vorab als Commit-SHA eingetragen, weil ein Comm
 - A future internal-only evidence-record-based verification task is authorized only for `SHO-SRC-005`, `SHO-SRC-006`, `SHO-SRC-007` and `SHO-CLAIM-004`, `SHO-CLAIM-005`, `SHO-CLAIM-006`.
 - This decision record performs no external browsing, live verification or live-data population and claims no freshness or final source approval.
 - `SHO-SRC-004` and `SHO-CLAIM-007` remain blocked. `SRC-GAP-WF-006` remains open for the publish path.
+- `CQ-V1-045` records the internal evidence from the authorized live access to `SHO-SRC-005`, `SHO-SRC-006` and `SHO-SRC-007`.
+- All three permitted source locations were accessible on 2026-06-12. `SHO-SRC-005` and `SHO-SRC-006` exposed no clear publication/update date on the reviewed pages. `SHO-SRC-007` displayed `Stand: 10. Juni 2026` while its visible warning table included entries dated 12 June 2026; this requires a separate freshness review.
+- The captured observations are preliminary evidence only. No final freshness decision, claim recheck, final source metadata approval or publication source approval was made.
 - The direct Publish Candidate path remains blocked; the candidate remains not publish-ready, not accepted and not live.
-- The next allowed action is `perform_actual_candidate_source_freshness_live_verification_internal_only`.
+- The next allowed action is `prepare_candidate_source_freshness_review_packet_internal_only`.
 
 ## Internal Candidate Status
 
@@ -103,7 +106,7 @@ internal_candidate:
   internal_candidate_status: internal_only
   official_mvp_brief_status: not_assigned
   batch_membership_status: internal_spinoff_candidate_not_official_batch_brief
-  current_artifact_level: candidate_source_freshness_live_verification_human_operator_decision_recorded_internal_only
+  current_artifact_level: candidate_source_freshness_live_verification_evidence_recorded_internal_only
   final_article_candidate_created: true
   final_article_candidate_review_status: final_article_candidate_review_passed_with_findings_not_publish_ready
   source_metadata_freshness_review_status: source_metadata_freshness_review_passed_with_findings_not_publish_ready
@@ -131,13 +134,15 @@ internal_candidate:
   candidate_source_freshness_live_verification_human_operator_decision_status: recorded
   candidate_source_freshness_live_verification_selected_option: option_a
   candidate_source_freshness_live_verification_authorization_status: authorized_for_future_internal_only_task
-  live_verification_status: not_performed
-  live_data_population_status: not_performed
-  claim_recheck_status: not_performed
+  candidate_source_freshness_live_verification_records_status: evidence_recorded_internal_only
+  live_verification_status: performed_internal_only
+  live_data_population_status: evidence_records_created_authorized_scope_only
+  source_freshness_status: preliminary_evidence_recorded_pending_review
+  claim_recheck_status: pending
   real_user_testing_status: not_performed
   assistive_technology_testing_status: not_performed
   wcag_conformance_status: not_tested
-  live_source_verification_status: not_performed
+  live_source_verification_status: performed_internal_only_evidence_only
   source_freshness_claim_status: not_claimed
   final_article_created: false
   publish_readiness_status: not_ready
@@ -169,7 +174,7 @@ This internal candidate is not an official fifth MVP brief and is not `SHO-MVP-B
 ## Non-Scope / Non-Acceptance
 
 - No final article.
-- One unchanged historical internal Final Article Candidate plus candidate, repo-only source metadata / freshness and text-only Accessibility / Senior Reader reviews, one applied Content Quality Scorecard, one Targeted Revision Packet, one unchanged Targeted Revision Candidate, its review, one Adoption Decision Packet, one Human Operator working-basis decision, one Adopted Working Basis Readiness Review, one Internal Pre-Gate Gap Review, one Source/Freshness Gap Resolution Packet, one Candidate-Specific Final Source Selection Packet, one Candidate Source Freshness Live Verification Checklist, one blank Record Template, one Decision Preparation Packet and one Human Operator Option-A live-verification authorization decision exist for `SHO-INTERNAL-CANDIDATE-001`; the new decision authorizes only a future internal evidence-record task, performs no browsing or live verification, claims no freshness, approves no publication source set, and the path remains not publish-ready and not accepted.
+- One unchanged historical internal Final Article Candidate plus candidate, repo-only source metadata / freshness and text-only Accessibility / Senior Reader reviews, one applied Content Quality Scorecard, one Targeted Revision Packet, one unchanged Targeted Revision Candidate, its review, one Adoption Decision Packet, one Human Operator working-basis decision, one Adopted Working Basis Readiness Review, one Internal Pre-Gate Gap Review, one Source/Freshness Gap Resolution Packet, one Candidate-Specific Final Source Selection Packet, one Candidate Source Freshness Live Verification Checklist, one blank Record Template, one Decision Preparation Packet, one Human Operator Option-A authorization decision and one internal live-verification evidence record exist for `SHO-INTERNAL-CANDIDATE-001`; the evidence remains preliminary, approves no final freshness or publication source set, and the path remains not publish-ready and not accepted.
 - No Publish Candidate.
 - No Publish Readiness.
 - No Operator Acceptance.
@@ -180,7 +185,7 @@ This internal candidate is not an official fifth MVP brief and is not `SHO-MVP-B
 - No Analytics activation.
 - No Search Console activation.
 - No user feedback claimed.
-- No live source verification claimed.
+- Internal-only live access evidence exists for the authorized sources; no final source freshness is claimed.
 - No real user testing or assistive-technology testing claimed.
 - No WCAG conformance claimed.
 - No SEO metrics.
@@ -217,12 +222,16 @@ The Human Operator decision now accepts the cleaned internal baseline as an inte
 
 ## Recommended Next Safe Outputs
 
-- `PERFORM_ACTUAL_CANDIDATE_SOURCE_FRESHNESS_LIVE_VERIFICATION_INTERNAL_ONLY`
+- `PREPARE_CANDIDATE_SOURCE_FRESHNESS_REVIEW_PACKET_INTERNAL_ONLY`
 - `BRIEF_002_PUBLISH_CANDIDATE_DECISION_PACKET_INTERNAL_ONLY`
 - `WEBSITE_RELEASE_READINESS_GAP_REVIEW_INTERNAL_ONLY`
 
 Superseded validator anchors retained as historical context:
 
+- superseded_external_review_verdict: CANDIDATE_SOURCE_FRESHNESS_LIVE_VERIFICATION_OPTION_A_HUMAN_OPERATOR_DECISION_RECORDED_INTERNAL_ONLY
+- superseded_option_a_decision_status: candidate_source_freshness_live_verification_human_operator_decision_status: recorded
+- superseded_option_a_selected_option: candidate_source_freshness_live_verification_selected_option: option_a
+- superseded_option_a_allowed_next_action: perform_actual_candidate_source_freshness_live_verification_internal_only
 - superseded_external_review_verdict: CANDIDATE_SOURCE_FRESHNESS_LIVE_VERIFICATION_HUMAN_OPERATOR_DECISION_PREPARATION_PREPARED_INTERNAL_ONLY
 - superseded_decision_preparation_status: candidate_source_freshness_live_verification_decision_preparation_status: prepared_internal_only
 - superseded_decision_preparation_human_operator_decision_status: candidate_source_freshness_live_verification_human_operator_decision_status: not_recorded

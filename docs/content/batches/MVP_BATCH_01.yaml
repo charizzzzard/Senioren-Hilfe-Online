@@ -51,6 +51,8 @@ internal_candidates:
       - docs/content/article_reviews/whatsapp-fraud-checklist.candidate-source-freshness-live-verification-checklist.md
       - docs/content/article_reviews/whatsapp-fraud-checklist.candidate-source-freshness-live-verification-record-template.md
       - docs/operations/operator_decisions/HUMAN_OPERATOR_DECISION_PREPARATION_CANDIDATE_SOURCE_FRESHNESS_LIVE_VERIFICATION_INTERNAL_ONLY.md
+      - docs/operations/operator_decisions/HUMAN_OPERATOR_DECISION_CANDIDATE_SOURCE_FRESHNESS_LIVE_VERIFICATION_OPTION_A_INTERNAL_ONLY.md
+      - docs/content/article_reviews/whatsapp-fraud-checklist.candidate-source-freshness-live-verification-records.md
     final_article_candidate_status: prepared_internal_only
     final_article_candidate_review_status: passed_with_findings_internal_only
     source_metadata_freshness_review_status: passed_with_findings_internal_only
@@ -73,15 +75,17 @@ internal_candidates:
     candidate_source_freshness_live_verification_human_operator_decision_status: recorded
     candidate_source_freshness_live_verification_selected_option: option_a
     candidate_source_freshness_live_verification_authorization_status: authorized_for_future_internal_only_task
-    live_verification_status: not_performed
-    live_data_population_status: not_performed
-    claim_recheck_status: not_performed
+    candidate_source_freshness_live_verification_records_status: evidence_recorded_internal_only
+    live_verification_status: performed_internal_only
+    live_data_population_status: evidence_records_created_authorized_scope_only
+    source_freshness_status: preliminary_evidence_recorded_pending_review
+    claim_recheck_status: pending
     current_internal_working_basis: docs/content/article_revision_candidates/whatsapp-fraud-checklist.targeted-revision-candidate.md
     historical_final_article_candidate: docs/content/final_article_candidates/whatsapp-fraud-checklist.final-article-candidate.md
     real_user_testing_status: not_performed
     assistive_technology_testing_status: not_performed
     wcag_conformance_status: not_tested
-    live_source_verification_status: not_performed
+    live_source_verification_status: performed_internal_only_evidence_only
     source_freshness_claim_status: not_claimed
     publish_readiness_status: not_ready
     operator_acceptance_status: not_accepted
@@ -89,7 +93,7 @@ internal_candidates:
     superseded_revision_candidate_adoption_decision_status: not_decided
     superseded_packet_allowed_next_action: record_human_operator_revision_candidate_adoption_decision_internal_only
     superseded_adoption_allowed_next_action: prepare_adopted_revision_working_basis_readiness_review_internal_only
-    allowed_next_action: perform_actual_candidate_source_freshness_live_verification_internal_only
+    allowed_next_action: prepare_candidate_source_freshness_review_packet_internal_only
     superseded_readiness_review_allowed_next_action: prepare_internal_pre_gate_gap_review_for_adopted_working_basis
     superseded_gap_review_allowed_next_action: prepare_source_freshness_gap_resolution_packet_internal_only
     superseded_source_freshness_packet_allowed_next_action: prepare_candidate_specific_final_source_selection_packet_internal_only
@@ -98,6 +102,11 @@ internal_candidates:
     superseded_record_template_allowed_next_action: operator_decision_prepare_actual_candidate_source_freshness_live_verification_internal_only
     superseded_decision_preparation_human_operator_decision_status_anchor: "candidate_source_freshness_live_verification_human_operator_decision_status: not_recorded"
     superseded_decision_preparation_allowed_next_action: await_human_operator_decision_on_actual_candidate_source_freshness_live_verification_internal_only
+    superseded_option_a_decision_allowed_next_action: perform_actual_candidate_source_freshness_live_verification_internal_only
+    superseded_pre_evidence_live_verification_status_anchor: "live_verification_status: not_performed"
+    superseded_pre_evidence_live_data_population_status_anchor: "live_data_population_status: not_performed"
+    superseded_pre_evidence_claim_recheck_status_anchor: "claim_recheck_status: not_performed"
+    superseded_pre_evidence_live_source_verification_status_anchor: "live_source_verification_status: not_performed"
     forbidden_actions:
       - set_publish_readiness
       - set_operator_acceptance
@@ -172,7 +181,7 @@ known_blockers:
   - Article draft scaffolds exist only for Brief 002 and Brief 003.
   - Official Batch Brief draft candidates exist for Brief 002 and Brief 003 internal-only.
   - SHO-INTERNAL-CANDIDATE-001 exists separately as an internal spin-off candidate, not an official batch brief.
-  - SHO-INTERNAL-CANDIDATE-001 has one unchanged historical internal Final Article Candidate plus candidate, source metadata / freshness, text-only Accessibility / Senior Reader reviews, one applied Content Quality Scorecard, one Targeted Revision Packet, one unchanged Targeted Revision Candidate, its review, one Adoption Decision Packet, one Human Operator adoption decision, one Adopted Working Basis Readiness Review, one Internal Pre-Gate Gap Review, one Source/Freshness Gap Resolution Packet, one Candidate-Specific Final Source Selection Packet, one Candidate Source Freshness Live Verification Checklist, one blank Candidate Source Freshness Live Verification Record Template, one Human Operator Decision Preparation Packet and one recorded Human Operator Option-A decision. A future internal-only verification task is authorized only for SHO-SRC-005/006/007 and SHO-CLAIM-004/005/006; no browsing, live verification, live data, freshness claim, new-source addition, final publication source approval, Publish Readiness or Operator Acceptance exists.
+  - SHO-INTERNAL-CANDIDATE-001 has one unchanged historical internal Final Article Candidate plus candidate, source metadata / freshness, text-only Accessibility / Senior Reader reviews, one applied Content Quality Scorecard, one Targeted Revision Packet, one unchanged Targeted Revision Candidate, its review, one Adoption Decision Packet, one Human Operator adoption decision, one Adopted Working Basis Readiness Review, one Internal Pre-Gate Gap Review, one Source/Freshness Gap Resolution Packet, one Candidate-Specific Final Source Selection Packet, one Candidate Source Freshness Live Verification Checklist, one blank Candidate Source Freshness Live Verification Record Template, one Human Operator Decision Preparation Packet, one recorded Human Operator Option-A decision and one internal evidence record for the authorized live checks. SHO-SRC-005/006/007 were accessible and evidence was recorded for SHO-CLAIM-004/005/006; final freshness, claim recheck and publication source approval remain pending. SHO-SRC-004 and SHO-CLAIM-007 remain blocked; no new source, Publish Readiness or Operator Acceptance exists.
   - Brief 002 draft candidate reviewed with findings.
   - Brief 002 draft candidate fix re-review passed, but no publish readiness is set.
   - Brief 002 final article candidate exists and is not publish-ready.
