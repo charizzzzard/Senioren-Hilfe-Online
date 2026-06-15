@@ -64,6 +64,7 @@ internal_candidates:
       - docs/operations/operator_decisions/HUMAN_OPERATOR_DECISION_PREPARATION_FINAL_ARTICLE_CANDIDATE_CREATION_CANDIDATE_001_INTERNAL_ONLY.md
       - docs/operations/operator_decisions/HUMAN_OPERATOR_DECISION_FINAL_ARTICLE_CANDIDATE_CREATION_OPTION_A_CANDIDATE_001_INTERNAL_ONLY.md
       - docs/content/final_article_candidates/whatsapp-fraud-checklist.final-article-candidate-option-a-internal-only.md
+      - docs/content/article_reviews/whatsapp-fraud-checklist.final-article-candidate-option-a-review-internal-only.md
     final_article_candidate_status: prepared_internal_only
     final_article_candidate_review_status: passed_with_findings_internal_only
     source_metadata_freshness_review_status: passed_with_findings_internal_only
@@ -105,6 +106,8 @@ internal_candidates:
     final_article_candidate_creation_authorization_status: authorized_internal_only_with_limitations
     new_final_article_candidate_status: prepared_internal_only_with_limitations
     new_final_article_candidate: docs/content/final_article_candidates/whatsapp-fraud-checklist.final-article-candidate-option-a-internal-only.md
+    final_article_candidate_option_a_review_status: completed_internal_only_with_findings
+    final_article_candidate_option_a_review_verdict_summary: pass_with_findings_not_publication_ready
     post_source_claim_final_article_status: not_created
     publish_candidate_status: not_created
     live_verification_status: performed_internal_only
@@ -132,7 +135,8 @@ internal_candidates:
     superseded_revision_candidate_adoption_decision_status: not_decided
     superseded_packet_allowed_next_action: record_human_operator_revision_candidate_adoption_decision_internal_only
     superseded_adoption_allowed_next_action: prepare_adopted_revision_working_basis_readiness_review_internal_only
-    allowed_next_action: review_internal_final_article_candidate_with_limitations_only
+    allowed_next_action: prepare_human_operator_review_packet_for_internal_final_article_candidate_with_limitations_only
+    superseded_final_article_candidate_option_a_allowed_next_action: review_internal_final_article_candidate_with_limitations_only
     superseded_option_a_final_article_candidate_creation_allowed_next_action: prepare_internal_final_article_candidate_with_limitations_only
     superseded_option_a_final_article_candidate_creation_status_anchor: "new_final_article_candidate_status: not_created"
     superseded_human_operator_final_article_candidate_creation_decision_status: not_recorded
