@@ -289,6 +289,10 @@ CANDIDATE_FINAL_SOURCE_METADATA_REVIEW_PACKET_INTERNAL_CANDIDATE_001_PATH = (
     ROOT
     / "docs/content/article_reviews/whatsapp-fraud-checklist.candidate-final-source-metadata-review-packet.md"
 )
+CANDIDATE_SOURCE_AND_CLAIM_FINAL_REVIEW_PACKET_INTERNAL_CANDIDATE_001_PATH = (
+    ROOT
+    / "docs/content/article_reviews/whatsapp-fraud-checklist.candidate-source-and-claim-final-review-packet.md"
+)
 ACCESSIBILITY_REVIEW_BRIEF_002_PATH = (
     ROOT / "docs/content/article_reviews/betrugsnachrichten-auf-whatsapp-erkennen.accessibility-review.md"
 )
@@ -11925,6 +11929,274 @@ def validate_candidate_final_source_metadata_review_packet_internal_candidate_00
     return 1
 
 
+def validate_candidate_source_and_claim_final_review_packet_internal_candidate_001(
+    failures: list[str],
+) -> int:
+    path = (
+        CANDIDATE_SOURCE_AND_CLAIM_FINAL_REVIEW_PACKET_INTERNAL_CANDIDATE_001_PATH
+    )
+    if not path.exists():
+        failures.append(
+            "Missing Candidate Source and Claim Final Review Packet for "
+            "SHO-INTERNAL-CANDIDATE-001"
+        )
+        return 0
+
+    matching_files = list(
+        path.parent.glob(
+            "whatsapp-fraud-checklist.candidate-source-and-claim-final-review-packet.md"
+        )
+    )
+    if len(matching_files) != 1:
+        failures.append(
+            "Expected exactly one Candidate Source and Claim Final Review "
+            f"Packet for SHO-INTERNAL-CANDIDATE-001, found {len(matching_files)}"
+        )
+
+    text = path.read_text(encoding="utf-8")
+    fields = parse_frontmatter_fields(text)
+    queue_text = WORK_QUEUE_V1_PATH.read_text(encoding="utf-8")
+    dashboard_text = ARTICLE_READINESS_DASHBOARD_PATH.read_text(encoding="utf-8")
+    batch_text = BATCH_MANIFEST_PATH.read_text(encoding="utf-8")
+    documentation_map_text = (ROOT / "docs/DOCUMENTATION_MAP.md").read_text(
+        encoding="utf-8"
+    )
+    handoff_text = (
+        ROOT / "external_review_packet/HANDOFF_LATEST_CONTEXT.md"
+    ).read_text(encoding="utf-8")
+
+    expected_fields = {
+        "final_review_packet_id": (
+            "sho-internal-candidate-001-candidate-source-and-claim-final-review-packet"
+        ),
+        "task_type": (
+            "sho_internal_candidate_001_prepare_candidate_source_and_claim_final_review_packet_internal_only"
+        ),
+        "autonomy_class": "yellow-b",
+        "internal_candidate_id": "sho-internal-candidate-001",
+        "artifact_status": "internal_only",
+        "source_and_claim_final_review_status": (
+            "completed_internal_only_with_findings"
+        ),
+        "source_freshness_review_status": "completed_internal_only_with_findings",
+        "claim_mapping_recheck_status": "completed_internal_only_with_findings",
+        "final_source_metadata_review_status": (
+            "completed_internal_only_with_findings"
+        ),
+        "source_freshness_status": (
+            "reviewed_internal_only_with_limitations_not_finally_verified"
+        ),
+        "final_source_approval_status": "not_approved",
+        "final_claim_approval_status": "not_approved",
+        "final_citation_label_approval_status": "not_approved",
+        "human_operator_review_status": "pending",
+        "new_external_sources_status": "not_added",
+        "new_source_evidence_status": "not_added",
+        "publish_readiness_status": "not_ready",
+        "operator_acceptance_status": "not_accepted",
+        "public_launch_status": "not_ready",
+        "monetization_status": "not_approved",
+        "analytics_status": "not_connected",
+        "search_console_status": "not_connected",
+        "user_feedback_status": "not_collected",
+        "wcag_conformance_status": "not_tested",
+        "sho_claim_007_status": "blocked",
+        "sho_src_004_ui_context_status": "blocked",
+        "whatsapp_ui_path_validation_status": "not_performed",
+        "queue_execution_status": "not_live",
+        "stage_advancement_status": "not_advanced",
+        "review_date": "2026-06-15",
+        "timezone": "europe/berlin",
+    }
+    for field_name, expected_value in expected_fields.items():
+        if normalized(fields.get(field_name)) != expected_value:
+            failures.append(
+                "Candidate Source and Claim Final Review Packet must have "
+                f"{field_name}: {expected_value}"
+            )
+
+    required_fragments = [
+        "created_from_final_source_metadata_review_packet: docs/content/article_reviews/whatsapp-fraud-checklist.candidate-final-source-metadata-review-packet.md",
+        "## 1. Executive Verdict",
+        "## 2. Review Basis",
+        "## 3. Consolidated Source Review Table",
+        "## 4. Consolidated Claim Review Table",
+        "## 5. Blocker Review",
+        "## 6. Human Operator Review Readiness",
+        "## 7. Findings",
+        "## 8. Outcome and Recommended Next Gate",
+        "## 9. Required Later Gates",
+        "## 10. Explicit Non-Goals",
+        "SHO-SRC-004",
+        "SHO-SRC-005",
+        "SHO-SRC-006",
+        "SHO-SRC-007",
+        "SHO-CLAIM-004",
+        "SHO-CLAIM-005",
+        "SHO-CLAIM-006",
+        "SHO-CLAIM-007",
+        "SRC-GAP-WF-006",
+        "ready_for_human_operator_source_claim_review_with_limitations",
+        "blocked_not_reviewed_out_of_scope",
+        "not_allowed_pending_later_gates",
+        "final_review_verdict: source_and_claim_final_review_completed_internal_only_with_findings",
+        "allowed_next_action: prepare_human_operator_source_claim_review_packet_internal_only",
+        "keine neue Live-Quellenverifikation",
+        "kein externes Browsing",
+        "keine neue Source-Evidenz",
+        "keine finale Source-Freigabe",
+        "keine finale Claim-Freigabe",
+        "keine finale Citation-Label-Freigabe fuer Publikation",
+        "keine Publish Readiness",
+        "keine Operator Acceptance",
+        "kein Unlock von `SHO-CLAIM-007`",
+        "keine Queue-Ausfuehrung",
+        "kein Stage Advancement",
+    ]
+    for fragment in required_fragments:
+        if fragment not in text:
+            failures.append(
+                "Candidate Source and Claim Final Review Packet must contain: "
+                f"{fragment}"
+            )
+
+    for source_id in ("SHO-SRC-004", "SHO-SRC-005", "SHO-SRC-006", "SHO-SRC-007"):
+        if text.count(f"`{source_id}`") < 2:
+            failures.append(
+                "Candidate Source and Claim Final Review Packet must include "
+                f"consolidated source coverage for {source_id}"
+            )
+
+    for claim_id in (
+        "SHO-CLAIM-004",
+        "SHO-CLAIM-005",
+        "SHO-CLAIM-006",
+        "SHO-CLAIM-007",
+    ):
+        if text.count(f"`{claim_id}`") < 2:
+            failures.append(
+                "Candidate Source and Claim Final Review Packet must include "
+                f"consolidated claim coverage for {claim_id}"
+            )
+
+    forbidden_activation_markers = [
+        "final_source_approval_status: approved",
+        "final_claim_approval_status: approved",
+        "final_citation_label_approval_status: approved",
+        "human_operator_review_status: completed",
+        "| approved |",
+        "publish_readiness_status: ready",
+        "operator_acceptance_status: accepted",
+        "public_launch_status: ready",
+        "public_launch_status: launched",
+        "monetization_status: approved",
+        "analytics_status: connected",
+        "search_console_status: connected",
+        "user_feedback_status: collected",
+        "new_external_sources_status: added",
+        "new_source_evidence_status: added",
+        "wcag_conformance_status: passed",
+        "sho_claim_007_status: unblocked",
+        "sho_src_004_ui_context_status: unblocked",
+        "source_freshness_status: verified",
+    ]
+    lower_text = text.lower()
+    for fragment in forbidden_activation_markers:
+        if fragment in lower_text:
+            failures.append(
+                "Candidate Source and Claim Final Review Packet contains "
+                f"forbidden activation marker: {fragment}"
+            )
+
+    tracking_fragments = {
+        "dashboard": (
+            dashboard_text,
+            [
+                "candidate_source_and_claim_final_review_completed_internal_only_with_findings",
+                "prepare_human_operator_source_claim_review_packet_internal_only",
+                "ready_for_human_operator_source_claim_review_with_limitations",
+                "SRC-GAP-WF-006 remains open",
+            ],
+        ),
+        "batch": (
+            batch_text,
+            [
+                "candidate_source_and_claim_final_review_packet_status: completed_internal_only_with_findings",
+                "source_and_claim_final_review_status: completed_internal_only_with_findings",
+                "final_source_approval_status: not_approved",
+                "final_claim_approval_status: not_approved",
+                "human_operator_source_claim_review_status: pending",
+                "allowed_next_action: prepare_human_operator_source_claim_review_packet_internal_only",
+            ],
+        ),
+        "handoff": (
+            handoff_text,
+            [
+                "CANDIDATE_SOURCE_AND_CLAIM_FINAL_REVIEW_COMPLETED_INTERNAL_ONLY_WITH_FINDINGS",
+                "candidate_source_and_claim_final_review_packet_status: completed_internal_only_with_findings",
+                "human_operator_source_claim_review_readiness: ready_for_human_operator_source_claim_review_with_limitations",
+                "prepare_human_operator_source_claim_review_packet_internal_only",
+            ],
+        ),
+        "documentation map": (
+            documentation_map_text,
+            [
+                "whatsapp-fraud-checklist.candidate-source-and-claim-final-review-packet.md"
+            ],
+        ),
+    }
+    for area, (area_text, fragments) in tracking_fragments.items():
+        for fragment in fragments:
+            if fragment not in area_text:
+                failures.append(
+                    f"{area} missing Candidate Source and Claim Final Review "
+                    f"Packet status: {fragment}"
+                )
+
+    queue_item_match = re.search(
+        r"(?ms)^  - queue_item_id: CQ-V1-049\n"
+        r"(?P<body>.*?)(?=^  - queue_item_id: |\Z)",
+        queue_text,
+    )
+    if not queue_item_match:
+        failures.append("Work Queue V1 missing CQ-V1-049")
+    else:
+        queue_item_text = queue_item_match.group("body")
+        required_queue_fragments = [
+            "whatsapp-fraud-checklist.candidate-source-and-claim-final-review-packet.md",
+            "source_and_claim_final_review_status: completed_internal_only_with_findings",
+            "human_operator_review_readiness: ready_for_human_operator_source_claim_review_with_limitations",
+            "human_operator_review_status: pending",
+            "final_source_approval_status: not_approved",
+            "final_claim_approval_status: not_approved",
+            "final_citation_label_approval_status: not_approved",
+            "SHO-SRC-005",
+            "SHO-SRC-006",
+            "SHO-SRC-007",
+            "SHO-SRC-004",
+            "SHO-CLAIM-007",
+            "SRC_GAP_WF_006_open",
+            "allowed_next_action: prepare_human_operator_source_claim_review_packet_internal_only",
+            "perform_new_live_source_verification",
+            "browse_external_sources",
+            "verify_SHO_SRC_004",
+            "unlock_SHO_CLAIM_007",
+            "approve_final_publish_source_set",
+            "approve_final_claim_use",
+            "approve_final_publication_citation_labels",
+            "set_publish_readiness",
+            "set_operator_acceptance",
+            "execute_queue",
+            "advance_stage",
+            "status: internal_review_prepared",
+        ]
+        for fragment in required_queue_fragments:
+            if fragment not in queue_item_text:
+                failures.append(f"Work Queue CQ-V1-049 missing: {fragment}")
+
+    return 1
+
+
 def validate_applied_scorecard_brief_002(failures: list[str]) -> int:
     if not APPLIED_SCORECARD_BRIEF_002_PATH.exists():
         failures.append(
@@ -13683,6 +13955,11 @@ def main() -> int:
             failures
         )
     )
+    candidate_source_and_claim_final_review_packet_internal_candidate_001_count = (
+        validate_candidate_source_and_claim_final_review_packet_internal_candidate_001(
+            failures
+        )
+    )
     applied_scorecard_brief_002_count = validate_applied_scorecard_brief_002(failures)
     human_operator_review_packet_final_article_candidate_brief_002_count = (
         validate_human_operator_review_packet_final_article_candidate_brief_002(failures)
@@ -13848,6 +14125,11 @@ def main() -> int:
         "- Internal candidate Candidate Final Source Metadata Review Packet "
         "files: "
         f"{candidate_final_source_metadata_review_packet_internal_candidate_001_count}"
+    )
+    print(
+        "- Internal candidate Candidate Source and Claim Final Review Packet "
+        "files: "
+        f"{candidate_source_and_claim_final_review_packet_internal_candidate_001_count}"
     )
     print(f"- Batch 01 applied scorecard Brief 002 files: {applied_scorecard_brief_002_count}")
     print(
