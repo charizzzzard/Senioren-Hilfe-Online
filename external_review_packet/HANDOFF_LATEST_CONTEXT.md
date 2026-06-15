@@ -5,8 +5,8 @@
 - project_name: Senioren-Hilfe Online
 - system_name: Senioren-Hilfe Online OS
 - system_short_name: SHO-OS
-- patch_title: SHO_INTERNAL_CANDIDATE_001_PREPARE_NEXT_INTERNAL_CANDIDATE_GATE_PACKET_WITH_LIMITATIONS_ONLY
-- external_review_verdict: NEXT_INTERNAL_CANDIDATE_GATE_PACKET_PREPARED_INTERNAL_ONLY
+- patch_title: SHO_INTERNAL_CANDIDATE_001_PREPARE_CANDIDATE_SOURCE_CLAIM_CITATION_BOUNDARY_REVIEW_INTERNAL_ONLY
+- external_review_verdict: SOURCE_CLAIM_CITATION_BOUNDARY_REVIEW_REQUIRES_METADATA_FOLLOW_UP_BEFORE_PUBLISH_PATH
 
 SHO-OS ist ein reproduzierbares Content-, Trust- und Publishing-System fuer seniorengerechte digitale Alltagshilfe in Deutschland.
 
@@ -15,9 +15,9 @@ Dieser Handoff beschreibt den aktuellen internen Repo-Kontext nach der internen 
 ## Git Traceability
 
 - branch: `main`
-- head_before_current_patch: `f200cbf3d9a731ca7e66a53e2224286885a0871d`
+- head_before_current_patch: `9d7b4bd58b08edbb2573d6fe39675ca51dd97d21`
 - intended_head_after: `assigned_after_commit`
-- origin_main_before_current_patch: `f200cbf3d9a731ca7e66a53e2224286885a0871d`
+- origin_main_before_current_patch: `9d7b4bd58b08edbb2573d6fe39675ca51dd97d21`
 - dirty_state_before_current_patch: `clean`
 - dirty_state_after_current_patch: `assigned_after_commit`
 
@@ -177,6 +177,11 @@ Hinweis: `head_after` wird nicht vorab als Commit-SHA eingetragen, weil ein Comm
 - Candidate content and the historical Final Article Candidate remain unchanged. No final article, Publish Candidate, Publish Readiness, Operator Acceptance or final source/claim/citation approval was created.
 - The next allowed action is `prepare_candidate_source_claim_citation_boundary_review_internal_only`.
 - superseded_external_review_verdict: HUMAN_OPERATOR_REVIEW_DECISION_FINAL_ARTICLE_CANDIDATE_OPTION_A_RECORDED_INTERNAL_ONLY
+- `CQ-V1-061` records the Source/Claim/Citation Boundary Review for Final Article Candidate Option A.
+- The verdict is `requires_metadata_follow_up_before_publish_path`; no P0/P1 was found, while P2 source-date, context and citation-label risks remain.
+- Candidate content and the historical Final Article Candidate remain unchanged. No browsing, live verification, final source/claim/citation approval or publish state was created.
+- The next allowed action is `prepare_source_metadata_and_citation_follow_up_packet_internal_only`.
+- superseded_external_review_verdict: NEXT_INTERNAL_CANDIDATE_GATE_PACKET_PREPARED_INTERNAL_ONLY
 
 ## Internal Candidate Status
 
@@ -187,7 +192,7 @@ internal_candidate:
   internal_candidate_status: internal_only
   official_mvp_brief_status: not_assigned
   batch_membership_status: internal_spinoff_candidate_not_official_batch_brief
-  current_artifact_level: final_article_candidate_option_a_next_internal_gate_packet_prepared_internal_only
+  current_artifact_level: source_claim_citation_boundary_review_completed_internal_only_with_findings
   final_article_candidate_created: true
   final_article_candidate_review_status: final_article_candidate_review_passed_with_findings_not_publish_ready
   source_metadata_freshness_review_status: source_metadata_freshness_review_passed_with_findings_not_publish_ready
@@ -246,9 +251,14 @@ internal_candidate:
   final_article_candidate_option_a_next_internal_gate_packet_status: prepared_internal_only
   final_article_candidate_option_a_next_internal_gate_packet: docs/content/article_reviews/whatsapp-fraud-checklist.final-article-candidate-option-a-next-internal-gate-packet-internal-only.md
   next_internal_gate: candidate_source_claim_citation_boundary_gate_internal_only
+  final_article_candidate_option_a_boundary_review_status: completed_internal_only_with_findings
+  final_article_candidate_option_a_boundary_review_verdict: requires_metadata_follow_up_before_publish_path
+  final_article_candidate_option_a_boundary_review: docs/content/article_reviews/whatsapp-fraud-checklist.final-article-candidate-option-a-source-claim-citation-boundary-review-internal-only.md
   post_source_claim_final_article_status: not_created
   publish_candidate_status: not_created
-  allowed_next_action: prepare_candidate_source_claim_citation_boundary_review_internal_only
+  allowed_next_action: prepare_source_metadata_and_citation_follow_up_packet_internal_only
+  superseded_next_internal_gate_packet_artifact_level: "current_artifact_level: final_article_candidate_option_a_next_internal_gate_packet_prepared_internal_only"
+  superseded_next_internal_gate_packet_allowed_next_action: prepare_candidate_source_claim_citation_boundary_review_internal_only
   superseded_human_operator_review_decision_artifact_level: "current_artifact_level: human_operator_review_decision_final_article_candidate_option_a_recorded_internal_only"
   superseded_human_operator_review_decision_allowed_next_action: prepare_next_internal_candidate_gate_packet_with_limitations_only
   superseded_human_operator_review_packet_artifact_level: "current_artifact_level: human_operator_review_packet_final_article_candidate_option_a_prepared_internal_only"
@@ -367,7 +377,7 @@ The Human Operator decision now accepts the cleaned internal baseline as an inte
 
 ## Recommended Next Safe Outputs
 
-- `PREPARE_CANDIDATE_SOURCE_CLAIM_CITATION_BOUNDARY_REVIEW_INTERNAL_ONLY`
+- `PREPARE_SOURCE_METADATA_AND_CITATION_FOLLOW_UP_PACKET_INTERNAL_ONLY`
 - `BRIEF_002_PUBLISH_CANDIDATE_DECISION_PACKET_INTERNAL_ONLY`
 - `WEBSITE_RELEASE_READINESS_GAP_REVIEW_INTERNAL_ONLY`
 

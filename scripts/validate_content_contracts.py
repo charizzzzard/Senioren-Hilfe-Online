@@ -337,6 +337,10 @@ FINAL_ARTICLE_CANDIDATE_OPTION_A_NEXT_INTERNAL_GATE_PACKET_INTERNAL_CANDIDATE_00
     ROOT
     / "docs/content/article_reviews/whatsapp-fraud-checklist.final-article-candidate-option-a-next-internal-gate-packet-internal-only.md"
 )
+FINAL_ARTICLE_CANDIDATE_OPTION_A_SOURCE_CLAIM_CITATION_BOUNDARY_REVIEW_INTERNAL_CANDIDATE_001_PATH = (
+    ROOT
+    / "docs/content/article_reviews/whatsapp-fraud-checklist.final-article-candidate-option-a-source-claim-citation-boundary-review-internal-only.md"
+)
 ACCESSIBILITY_REVIEW_BRIEF_002_PATH = (
     ROOT / "docs/content/article_reviews/betrugsnachrichten-auf-whatsapp-erkennen.accessibility-review.md"
 )
@@ -15290,6 +15294,330 @@ def validate_final_article_candidate_option_a_next_internal_gate_packet_internal
     return 1
 
 
+def validate_final_article_candidate_option_a_source_claim_citation_boundary_review_internal_candidate_001(
+    failures: list[str],
+) -> int:
+    path = (
+        FINAL_ARTICLE_CANDIDATE_OPTION_A_SOURCE_CLAIM_CITATION_BOUNDARY_REVIEW_INTERNAL_CANDIDATE_001_PATH
+    )
+    if not path.exists():
+        failures.append(
+            "Missing Source/Claim/Citation Boundary Review for Final Article "
+            "Candidate Option A / SHO-INTERNAL-CANDIDATE-001"
+        )
+        return 0
+
+    matching_files = list(
+        path.parent.glob(
+            "whatsapp-fraud-checklist.final-article-candidate-option-a-source-claim-citation-boundary-review-internal-only.md"
+        )
+    )
+    if len(matching_files) != 1:
+        failures.append(
+            "Expected exactly one canonical Source/Claim/Citation Boundary "
+            f"Review for Final Article Candidate Option A, found {len(matching_files)}"
+        )
+
+    text = path.read_text(encoding="utf-8")
+    fields = parse_frontmatter_fields(text)
+    queue_text = WORK_QUEUE_V1_PATH.read_text(encoding="utf-8")
+    dashboard_text = ARTICLE_READINESS_DASHBOARD_PATH.read_text(encoding="utf-8")
+    batch_text = BATCH_MANIFEST_PATH.read_text(encoding="utf-8")
+    documentation_map_text = (ROOT / "docs/DOCUMENTATION_MAP.md").read_text(
+        encoding="utf-8"
+    )
+    handoff_text = (
+        ROOT / "external_review_packet/HANDOFF_LATEST_CONTEXT.md"
+    ).read_text(encoding="utf-8")
+
+    expected_fields = {
+        "review_id": (
+            "sho-internal-candidate-001-source-claim-citation-boundary-review-001"
+        ),
+        "task_type": (
+            "sho_internal_candidate_001_prepare_candidate_source_claim_citation_boundary_review_internal_only"
+        ),
+        "autonomy_class": "yellow-b",
+        "internal_candidate_id": "sho-internal-candidate-001",
+        "candidate_slug": "whatsapp-fraud-checklist",
+        "reviewed_candidate": (
+            "docs/content/final_article_candidates/whatsapp-fraud-checklist.final-article-candidate-option-a-internal-only.md"
+        ),
+        "created_from_gate_packet": (
+            "docs/content/article_reviews/whatsapp-fraud-checklist.final-article-candidate-option-a-next-internal-gate-packet-internal-only.md"
+        ),
+        "artifact_status": "internal_only",
+        "boundary_review_status": "completed_internal_only_with_findings",
+        "boundary_review_verdict": "requires_metadata_follow_up_before_publish_path",
+        "final_article_candidate_status": "prepared_internal_only_with_limitations",
+        "final_article_status": "not_created",
+        "publish_candidate_status": "not_created",
+        "publish_readiness_status": "not_ready",
+        "operator_acceptance_status": "not_accepted",
+        "public_launch_status": "not_ready",
+        "monetization_status": "not_approved",
+        "analytics_status": "not_connected",
+        "search_console_status": "not_connected",
+        "user_feedback_status": "not_collected",
+        "wcag_conformance_status": "not_tested",
+        "final_source_approval_status": "not_approved",
+        "final_claim_approval_status": "not_approved",
+        "final_citation_label_approval_status": "not_approved",
+        "sho_claim_007_status": "blocked",
+        "sho_src_004_ui_context_status": "blocked",
+        "whatsapp_ui_path_validation_status": "not_performed",
+        "source_freshness_status": "not_finally_approved",
+        "citation_label_status": "not_finally_approved",
+        "queue_execution_status": "not_live",
+        "stage_advancement_status": "not_advanced",
+        "reviewer": "codex",
+        "review_date": "2026-06-15",
+        "timezone": "europe/berlin",
+    }
+    for field_name, expected_value in expected_fields.items():
+        if normalized(fields.get(field_name)) != expected_value:
+            failures.append(
+                "Source/Claim/Citation Boundary Review must have "
+                f"{field_name}: {expected_value}"
+            )
+
+    allowed_verdicts = {
+        "pass_with_findings_not_publish_ready",
+        "requires_metadata_follow_up_before_publish_path",
+        "blocked_requires_scope_revision_internal_only",
+    }
+    actual_verdict = normalized(fields.get("boundary_review_verdict"))
+    if actual_verdict not in allowed_verdicts:
+        failures.append(
+            "Source/Claim/Citation Boundary Review verdict must be one of "
+            f"{sorted(allowed_verdicts)}"
+        )
+
+    next_action_by_verdict = {
+        "pass_with_findings_not_publish_ready": (
+            "prepare_human_operator_boundary_review_packet_internal_only"
+        ),
+        "requires_metadata_follow_up_before_publish_path": (
+            "prepare_source_metadata_and_citation_follow_up_packet_internal_only"
+        ),
+        "blocked_requires_scope_revision_internal_only": (
+            "prepare_internal_candidate_scope_revision_packet_with_limitations_only"
+        ),
+    }
+    expected_next_action = next_action_by_verdict.get(actual_verdict, "")
+
+    required_fragments = [
+        "## 1. Executive Verdict",
+        "## 2. Review Scope",
+        "## 3. Current Candidate Basis",
+        "## 4. Allowed Source and Claim Scope",
+        "## 5. Candidate-to-Claim Boundary Review",
+        "## 6. Source Boundary Review",
+        "## 7. Citation Boundary Review",
+        "## 8. Forbidden Content and Scope Review",
+        "## 9. Findings Table",
+        "## 10. Boundary Review Verdict",
+        "## 11. Allowed Next Step",
+        "## 12. Explicit Non-Goals",
+        "`SHO-SRC-005`",
+        "`SHO-SRC-006`",
+        "`SHO-SRC-007`",
+        "`SHO-CLAIM-004`",
+        "`SHO-CLAIM-005`",
+        "`SHO-CLAIM-006`",
+        "`SHO-SRC-004`",
+        "`SHO-CLAIM-007`",
+        "no Claim-Ausweitung ueber `SHO-CLAIM-004/005/006`",
+        "`SHO-SRC-004` remains blocked",
+        "`SHO-CLAIM-007` remains blocked",
+        "Citation Labels sind nicht final",
+        "Citation Labels sind nicht publication-ready",
+        "keine finale Citation-Label Approval",
+        "keine finale Source Approval",
+        "keine finale Claim Approval",
+        "browsing or live verification in this review",
+        "Es bestehen keine P0- oder P1-Findings.",
+        "boundary_review_verdict: requires_metadata_follow_up_before_publish_path",
+        f"allowed_next_action: {expected_next_action}",
+        "no `SHO-CLAIM-007` unlock",
+        "no `SHO-SRC-004` positive support",
+        "no WhatsApp block/report UI instructions",
+        "no exact WhatsApp UI paths",
+        "no browsing",
+        "no live verification",
+    ]
+    for fragment in required_fragments:
+        if fragment not in text:
+            failures.append(
+                f"Source/Claim/Citation Boundary Review must contain: {fragment}"
+            )
+
+    if not FINAL_ARTICLE_CANDIDATE_OPTION_A_INTERNAL_CANDIDATE_001_PATH.exists():
+        failures.append("Reviewed Final Article Candidate Option A file is missing")
+    if not FINAL_ARTICLE_CANDIDATE_OPTION_A_NEXT_INTERNAL_GATE_PACKET_INTERNAL_CANDIDATE_001_PATH.exists():
+        failures.append("Source next internal candidate gate packet is missing")
+
+    lower_text = text.lower()
+    forbidden_activation_markers = [
+        "final_article_status: created",
+        "publish_candidate_status: created",
+        "publish_readiness_status: ready",
+        "operator_acceptance_status: accepted",
+        "public_launch_status: ready",
+        "public_launch_status: launched",
+        "monetization_status: approved",
+        "analytics_status: connected",
+        "search_console_status: connected",
+        "user_feedback_status: collected",
+        "wcag_conformance_status: passed",
+        "final_source_approval_status: approved",
+        "final_claim_approval_status: approved",
+        "final_citation_label_approval_status: approved",
+        "sho_claim_007_status: unblocked",
+        "sho_claim_007_status: unlocked",
+        "sho_src_004_ui_context_status: unblocked",
+        "sho_src_004_ui_context_status: verified",
+        "source_approved_for_publication",
+        "claim_approved_for_publication",
+        "final_source_set_approved",
+        "final_citation_labels_approved",
+        "freshness_verified",
+        "browsing_status: performed",
+        "live_verification_status: performed",
+    ]
+    for fragment in forbidden_activation_markers:
+        if fragment in lower_text:
+            failures.append(
+                "Source/Claim/Citation Boundary Review contains forbidden "
+                f"activation marker: {fragment}"
+            )
+
+    forbidden_ui_fragments = [
+        "tippen sie auf blockieren",
+        "tippen sie auf melden",
+        "chat melden",
+        "kontakt blockieren",
+        "blockieren und melden",
+        "meldung senden",
+        "menue >",
+        "einstellungen >",
+    ]
+    for fragment in forbidden_ui_fragments:
+        if fragment in lower_text:
+            failures.append(
+                "Source/Claim/Citation Boundary Review contains forbidden "
+                f"WhatsApp UI workflow fragment: {fragment}"
+            )
+
+    tracking_fragments = {
+        "documentation map": (
+            documentation_map_text,
+            [
+                path.name,
+                "requires_metadata_follow_up_before_publish_path",
+                "no final source, claim or citation approval",
+            ],
+        ),
+        "dashboard": (
+            dashboard_text,
+            [
+                "source_claim_citation_boundary_review_completed_internal_only_with_findings",
+                "requires_metadata_follow_up_before_publish_path",
+                expected_next_action,
+                "not_ready",
+                "not_accepted",
+            ],
+        ),
+        "batch": (
+            batch_text,
+            [
+                f"docs/content/article_reviews/{path.name}",
+                "final_article_candidate_option_a_boundary_review_status: completed_internal_only_with_findings",
+                "final_article_candidate_option_a_boundary_review_verdict: requires_metadata_follow_up_before_publish_path",
+                f"allowed_next_action: {expected_next_action}",
+                "publish_candidate_status: not_created",
+                "publish_readiness_status: not_ready",
+                "operator_acceptance_status: not_accepted",
+                "final_source_approval_status: not_approved",
+                "final_claim_approval_status: not_approved",
+                "final_publication_citation_labels_status: not_approved",
+            ],
+        ),
+        "handoff": (
+            handoff_text,
+            [
+                "SOURCE_CLAIM_CITATION_BOUNDARY_REVIEW_REQUIRES_METADATA_FOLLOW_UP_BEFORE_PUBLISH_PATH",
+                "current_artifact_level: source_claim_citation_boundary_review_completed_internal_only_with_findings",
+                "final_article_candidate_option_a_boundary_review_status: completed_internal_only_with_findings",
+                "final_article_candidate_option_a_boundary_review_verdict: requires_metadata_follow_up_before_publish_path",
+                f"allowed_next_action: {expected_next_action}",
+            ],
+        ),
+    }
+    for area, (area_text, fragments) in tracking_fragments.items():
+        for fragment in fragments:
+            if fragment not in area_text:
+                failures.append(
+                    f"{area} missing Source/Claim/Citation Boundary Review "
+                    f"status: {fragment}"
+                )
+
+    queue_item_match = re.search(
+        r"(?ms)^  - queue_item_id: CQ-V1-061\n"
+        r"(?P<body>.*?)(?=^  - queue_item_id: |\Z)",
+        queue_text,
+    )
+    if not queue_item_match:
+        failures.append("Work Queue V1 missing CQ-V1-061")
+    else:
+        queue_item_text = queue_item_match.group("body")
+        required_queue_fragments = [
+            path.name,
+            "boundary_review_status: completed_internal_only_with_findings",
+            "boundary_review_verdict: requires_metadata_follow_up_before_publish_path",
+            "candidate_content_modified: false",
+            "browsing_status: not_performed",
+            "live_verification_status: not_performed",
+            "final_article_status: not_created",
+            "publish_candidate_status: not_created",
+            "final_source_approval_status: not_approved",
+            "final_claim_approval_status: not_approved",
+            "final_citation_label_approval_status: not_approved",
+            "publish_readiness_status: not_ready",
+            "operator_acceptance_status: not_accepted",
+            "sho_claim_007_status: blocked",
+            "sho_src_004_ui_context_status: blocked",
+            f"allowed_next_action: {expected_next_action}",
+            "modify_candidate_content",
+            "create_final_article",
+            "create_publish_candidate",
+            "set_publish_readiness",
+            "set_operator_acceptance",
+            "activate_public_launch",
+            "activate_monetization",
+            "activate_analytics",
+            "activate_search_console",
+            "claim_user_feedback",
+            "claim_wcag_conformance",
+            "invent_SEO_metrics",
+            "approve_final_source_set",
+            "approve_final_claim_use",
+            "approve_final_citation_labels",
+            "unlock_SHO_CLAIM_007",
+            "verify_SHO_SRC_004",
+            "add_WhatsApp_UI_block_report_steps",
+            "add_exact_WhatsApp_UI_paths",
+            "browse_external_sources",
+            "perform_live_verification",
+            "status: source_claim_citation_boundary_review_completed_internal_only_with_findings",
+        ]
+        for fragment in required_queue_fragments:
+            if fragment not in queue_item_text:
+                failures.append(f"Work Queue CQ-V1-061 missing: {fragment}")
+
+    return 1
+
+
 def validate_applied_scorecard_brief_002(failures: list[str]) -> int:
     if not APPLIED_SCORECARD_BRIEF_002_PATH.exists():
         failures.append(
@@ -17106,6 +17434,11 @@ def main() -> int:
             failures
         )
     )
+    final_article_candidate_option_a_source_claim_citation_boundary_review_internal_candidate_001_count = (
+        validate_final_article_candidate_option_a_source_claim_citation_boundary_review_internal_candidate_001(
+            failures
+        )
+    )
     applied_scorecard_brief_002_count = validate_applied_scorecard_brief_002(failures)
     human_operator_review_packet_final_article_candidate_brief_002_count = (
         validate_human_operator_review_packet_final_article_candidate_brief_002(failures)
@@ -17328,6 +17661,11 @@ def main() -> int:
         "- Internal candidate Final Article Candidate Option A next internal "
         "gate packet files: "
         f"{final_article_candidate_option_a_next_internal_gate_packet_internal_candidate_001_count}"
+    )
+    print(
+        "- Internal candidate Final Article Candidate Option A source/claim/"
+        "citation boundary review files: "
+        f"{final_article_candidate_option_a_source_claim_citation_boundary_review_internal_candidate_001_count}"
     )
     print(f"- Batch 01 applied scorecard Brief 002 files: {applied_scorecard_brief_002_count}")
     print(

@@ -3399,3 +3399,94 @@ queue_items:
     automation_candidate: codex_assisted
     status_note: Next internal candidate gate packet prepared; boundary gate not executed; candidate unchanged and no publish state created
     status: next_internal_candidate_gate_packet_prepared_internal_only
+
+  - queue_item_id: CQ-V1-061
+    title: SHO-INTERNAL-CANDIDATE-001 source claim citation boundary review
+    linked_stage_id: STAGE_09_QUALITY_READER_ACCESSIBILITY_SAFETY_REVIEWS
+    linked_brief_id: SHO-INTERNAL-CANDIDATE-001
+    internal_candidate_id: SHO-INTERNAL-CANDIDATE-001
+    internal_candidate_status: internal_only
+    batch_membership_status: internal_spinoff_candidate_not_official_batch_brief
+    required_inputs:
+      - docs/content/article_reviews/whatsapp-fraud-checklist.final-article-candidate-option-a-next-internal-gate-packet-internal-only.md
+      - docs/content/final_article_candidates/whatsapp-fraud-checklist.final-article-candidate-option-a-internal-only.md
+      - docs/content/article_reviews/whatsapp-fraud-checklist.candidate-final-source-metadata-review-packet.md
+      - docs/content/article_reviews/whatsapp-fraud-checklist.candidate-claim-mapping-recheck-packet.md
+    produced_outputs:
+      - docs/content/article_reviews/whatsapp-fraud-checklist.final-article-candidate-option-a-source-claim-citation-boundary-review-internal-only.md
+    boundary_review_outcome:
+      boundary_review_status: completed_internal_only_with_findings
+      boundary_review_verdict: requires_metadata_follow_up_before_publish_path
+      candidate_content_modified: false
+      browsing_status: not_performed
+      live_verification_status: not_performed
+      final_article_status: not_created
+      publish_candidate_status: not_created
+      final_source_approval_status: not_approved
+      final_claim_approval_status: not_approved
+      final_citation_label_approval_status: not_approved
+      source_freshness_status: not_finally_approved
+      citation_label_status: not_finally_approved
+      publish_readiness_status: not_ready
+      operator_acceptance_status: not_accepted
+      public_launch_status: not_ready
+      monetization_status: not_approved
+      analytics_status: not_connected
+      search_console_status: not_connected
+      user_feedback_status: not_collected
+      wcag_conformance_status: not_tested
+      sho_claim_007_status: blocked
+      sho_src_004_ui_context_status: blocked
+      whatsapp_ui_path_validation_status: not_performed
+    findings:
+      - P2_source_005_006_visible_date_metadata_missing
+      - P2_source_007_date_context_and_general_scope_limitation
+      - P2_citation_labels_not_finally_approved
+      - P3_candidate_claim_boundaries_maintained
+      - P3_blocked_source_and_claim_remain_excluded
+    blockers:
+      - source_005_date_metadata_not_visible
+      - source_006_date_metadata_not_visible
+      - source_007_date_context_limitation
+      - source_007_general_phishing_scope_only
+      - final_source_approval_not_approved
+      - final_claim_approval_not_approved
+      - final_citation_label_approval_not_approved
+      - SRC_GAP_WF_006_open_for_publish_path
+      - SHO_CLAIM_007_blocked
+      - SHO_SRC_004_ui_context_blocked
+      - no_publish_gate
+      - no_operator_acceptance
+    allowed_next_action: prepare_source_metadata_and_citation_follow_up_packet_internal_only
+    forbidden_actions:
+      - modify_candidate_content
+      - create_final_article
+      - create_publish_candidate
+      - set_publish_readiness
+      - set_operator_acceptance
+      - activate_public_launch
+      - activate_monetization
+      - activate_analytics
+      - activate_search_console
+      - claim_user_feedback
+      - claim_wcag_conformance
+      - invent_SEO_metrics
+      - claim_traffic
+      - claim_ranking
+      - claim_conversion
+      - claim_revenue
+      - approve_final_source_set
+      - approve_final_claim_use
+      - approve_final_citation_labels
+      - unlock_SHO_CLAIM_007
+      - verify_SHO_SRC_004
+      - add_WhatsApp_UI_block_report_steps
+      - add_exact_WhatsApp_UI_paths
+      - browse_external_sources
+      - perform_live_verification
+      - execute_queue
+      - advance_stage
+    human_gate_required: yes_before_any_publish_candidate_or_final_approval
+    automation_candidate: codex_assisted
+    status_note: Boundary review completed with P2 metadata and citation findings; candidate unchanged; no browsing, live verification, final approval or publish state
+    status: source_claim_citation_boundary_review_completed_internal_only_with_findings
