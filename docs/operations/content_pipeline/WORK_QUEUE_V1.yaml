@@ -3138,3 +3138,95 @@ queue_items:
     automation_candidate: codex_assisted
     status_note: internal review completed with findings; candidate content unchanged; no final article or Publish Candidate created
     status: internal_final_article_candidate_review_completed_with_findings
+
+  - queue_item_id: CQ-V1-058
+    title: SHO-INTERNAL-CANDIDATE-001 Human Operator review packet for Final Article Candidate Option A
+    linked_stage_id: STAGE_09_QUALITY_READER_ACCESSIBILITY_SAFETY_REVIEWS
+    linked_brief_id: SHO-INTERNAL-CANDIDATE-001
+    internal_candidate_id: SHO-INTERNAL-CANDIDATE-001
+    internal_candidate_status: internal_only
+    batch_membership_status: internal_spinoff_candidate_not_official_batch_brief
+    required_inputs:
+      - docs/content/article_reviews/whatsapp-fraud-checklist.final-article-candidate-option-a-review-internal-only.md
+      - docs/content/final_article_candidates/whatsapp-fraud-checklist.final-article-candidate-option-a-internal-only.md
+      - docs/operations/operator_decisions/HUMAN_OPERATOR_DECISION_FINAL_ARTICLE_CANDIDATE_CREATION_OPTION_A_CANDIDATE_001_INTERNAL_ONLY.md
+      - docs/content/article_reviews/whatsapp-fraud-checklist.final-article-preparation-packet-internal-only.md
+      - docs/content/article_reviews/whatsapp-fraud-checklist.candidate-source-and-claim-final-review-packet.md
+      - docs/content/article_reviews/whatsapp-fraud-checklist.candidate-final-source-metadata-review-packet.md
+      - docs/content/source_inventories/SOURCE_INVENTORY_WHATSAPP_FRAUD_CHECKLIST_BATCH_01_INTERNAL_ONLY.md
+      - docs/content/claim_maps/source-to-claim-map-batch-01.md
+    produced_outputs:
+      - docs/operations/operator_decisions/HUMAN_OPERATOR_REVIEW_PACKET_FINAL_ARTICLE_CANDIDATE_OPTION_A_CANDIDATE_001_INTERNAL_ONLY.md
+    review_packet_outcome:
+      human_operator_review_packet_status: prepared_internal_only
+      human_operator_decision_status: not_recorded
+      selected_option_status: pending
+      review_verdict_basis: pass_with_findings_not_publish_ready
+      final_article_candidate_status: prepared_internal_only_with_limitations
+      candidate_content_modified: false
+      final_article_status: not_created
+      publish_candidate_status: not_created
+      final_source_approval_status: not_approved
+      final_claim_approval_status: not_approved
+      final_citation_label_approval_status: not_approved
+      publish_readiness_status: not_ready
+      operator_acceptance_status: not_accepted
+      public_launch_status: not_ready
+      monetization_status: not_approved
+      analytics_status: not_connected
+      search_console_status: not_connected
+      user_feedback_status: not_collected
+      wcag_conformance_status: not_tested
+      sho_claim_007_status: blocked
+      sho_src_004_ui_context_status: blocked
+      whatsapp_ui_path_validation_status: not_performed
+    decision_options:
+      - option_a_accept_for_next_internal_gate_with_limitations
+      - option_b_require_revision_packet_before_next_gate
+      - option_c_narrow_candidate_scope_before_next_gate
+      - option_d_pause_candidate_path
+    blockers:
+      - human_operator_decision_not_recorded
+      - selected_option_pending
+      - final_article_not_created
+      - publish_candidate_not_created
+      - final_source_approval_not_approved
+      - final_claim_approval_not_approved
+      - final_citation_label_approval_not_approved
+      - source_005_date_metadata_not_visible
+      - source_006_date_metadata_not_visible
+      - source_007_date_context_limitation
+      - source_007_general_phishing_scope_only
+      - SRC_GAP_WF_006_open_for_publish_path
+      - SHO_CLAIM_007_blocked
+      - SHO_SRC_004_ui_context_blocked
+      - no_publish_gate
+      - no_operator_acceptance
+    allowed_next_action: await_human_operator_review_decision_for_internal_final_article_candidate_option_a
+    forbidden_actions:
+      - modify_candidate_content
+      - create_final_article
+      - create_publish_candidate
+      - set_publish_readiness
+      - set_operator_acceptance
+      - activate_public_launch
+      - activate_monetization
+      - activate_analytics
+      - activate_search_console
+      - claim_user_feedback
+      - claim_wcag_conformance
+      - invent_SEO_metrics
+      - claim_traffic
+      - claim_ranking
+      - claim_conversion
+      - claim_revenue
+      - unlock_SHO_CLAIM_007
+      - verify_SHO_SRC_004
+      - add_WhatsApp_UI_block_report_steps
+      - add_exact_WhatsApp_UI_paths
+      - execute_queue
+      - advance_stage
+    human_gate_required: yes_awaiting_review_decision
+    automation_candidate: codex_assisted
+    status_note: Human Operator review packet prepared; no decision recorded, option pending and candidate content unchanged
+    status: human_operator_review_packet_prepared_internal_only

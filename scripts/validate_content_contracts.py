@@ -325,6 +325,10 @@ FINAL_ARTICLE_CANDIDATE_OPTION_A_REVIEW_INTERNAL_CANDIDATE_001_PATH = (
     ROOT
     / "docs/content/article_reviews/whatsapp-fraud-checklist.final-article-candidate-option-a-review-internal-only.md"
 )
+HUMAN_OPERATOR_REVIEW_PACKET_FINAL_ARTICLE_CANDIDATE_OPTION_A_INTERNAL_CANDIDATE_001_PATH = (
+    ROOT
+    / "docs/operations/operator_decisions/HUMAN_OPERATOR_REVIEW_PACKET_FINAL_ARTICLE_CANDIDATE_OPTION_A_CANDIDATE_001_INTERNAL_ONLY.md"
+)
 ACCESSIBILITY_REVIEW_BRIEF_002_PATH = (
     ROOT / "docs/content/article_reviews/betrugsnachrichten-auf-whatsapp-erkennen.accessibility-review.md"
 )
@@ -14391,6 +14395,299 @@ def validate_final_article_candidate_option_a_review_internal_candidate_001(
     return 1
 
 
+def validate_human_operator_review_packet_final_article_candidate_option_a_internal_candidate_001(
+    failures: list[str],
+) -> int:
+    path = (
+        HUMAN_OPERATOR_REVIEW_PACKET_FINAL_ARTICLE_CANDIDATE_OPTION_A_INTERNAL_CANDIDATE_001_PATH
+    )
+    if not path.exists():
+        failures.append(
+            "Missing Human Operator Review Packet for Final Article Candidate "
+            "Option A / SHO-INTERNAL-CANDIDATE-001"
+        )
+        return 0
+
+    matching_files = list(
+        path.parent.glob(
+            "HUMAN_OPERATOR_REVIEW_PACKET_FINAL_ARTICLE_CANDIDATE_OPTION_A_CANDIDATE_001_INTERNAL_ONLY.md"
+        )
+    )
+    if len(matching_files) != 1:
+        failures.append(
+            "Expected exactly one canonical Human Operator Review Packet for "
+            "Final Article Candidate Option A, found "
+            f"{len(matching_files)}"
+        )
+
+    text = path.read_text(encoding="utf-8")
+    fields = parse_frontmatter_fields(text)
+    queue_text = WORK_QUEUE_V1_PATH.read_text(encoding="utf-8")
+    dashboard_text = ARTICLE_READINESS_DASHBOARD_PATH.read_text(encoding="utf-8")
+    batch_text = BATCH_MANIFEST_PATH.read_text(encoding="utf-8")
+    documentation_map_text = (ROOT / "docs/DOCUMENTATION_MAP.md").read_text(
+        encoding="utf-8"
+    )
+    handoff_text = (
+        ROOT / "external_review_packet/HANDOFF_LATEST_CONTEXT.md"
+    ).read_text(encoding="utf-8")
+
+    expected_fields = {
+        "review_packet_id": (
+            "sho-internal-candidate-001-human-operator-review-packet-final-article-candidate-option-a"
+        ),
+        "task_type": (
+            "sho_internal_candidate_001_prepare_human_operator_review_packet_for_internal_final_article_candidate_with_limitations_only"
+        ),
+        "autonomy_class": "yellow-b",
+        "internal_candidate_id": "sho-internal-candidate-001",
+        "candidate_slug": "whatsapp-fraud-checklist",
+        "reviewed_candidate": (
+            "docs/content/final_article_candidates/whatsapp-fraud-checklist.final-article-candidate-option-a-internal-only.md"
+        ),
+        "source_review": (
+            "docs/content/article_reviews/whatsapp-fraud-checklist.final-article-candidate-option-a-review-internal-only.md"
+        ),
+        "artifact_status": "internal_only",
+        "human_operator_review_packet_status": "prepared_internal_only",
+        "human_operator_decision_status": "not_recorded",
+        "selected_option_status": "pending",
+        "review_verdict_basis": "pass_with_findings_not_publish_ready",
+        "final_article_candidate_status": "prepared_internal_only_with_limitations",
+        "final_article_status": "not_created",
+        "publish_candidate_status": "not_created",
+        "publish_readiness_status": "not_ready",
+        "operator_acceptance_status": "not_accepted",
+        "public_launch_status": "not_ready",
+        "monetization_status": "not_approved",
+        "analytics_status": "not_connected",
+        "search_console_status": "not_connected",
+        "user_feedback_status": "not_collected",
+        "wcag_conformance_status": "not_tested",
+        "final_source_approval_status": "not_approved",
+        "final_claim_approval_status": "not_approved",
+        "final_citation_label_approval_status": "not_approved",
+        "sho_claim_007_status": "blocked",
+        "sho_src_004_ui_context_status": "blocked",
+        "whatsapp_ui_path_validation_status": "not_performed",
+        "queue_execution_status": "not_live",
+        "stage_advancement_status": "not_advanced",
+        "reviewer": "codex",
+        "review_date": "2026-06-15",
+        "timezone": "europe/berlin",
+    }
+    for field_name, expected_value in expected_fields.items():
+        if normalized(fields.get(field_name)) != expected_value:
+            failures.append(
+                "Human Operator Review Packet Final Article Candidate Option A "
+                f"must have {field_name}: {expected_value}"
+            )
+
+    required_fragments = [
+        "## 1. Executive Verdict",
+        "## 2. Human Operator Review Question",
+        "## 3. Review Basis",
+        "## 4. Decision Options",
+        "## 5. Recommended Option",
+        "## 6. Candidate Strengths",
+        "## 7. Limitations Carried Forward",
+        "## 8. Mandatory Boundaries",
+        "## 9. Required Human Operator Input Format",
+        "## 10. Allowed Next Step",
+        "### Option A: `accept_for_next_internal_gate_with_limitations`",
+        "### Option B: `require_revision_packet_before_next_gate`",
+        "### Option C: `narrow_candidate_scope_before_next_gate`",
+        "### Option D: `pause_candidate_path`",
+        "Dieses Packet waehlt keine Option.",
+        "human_operator_decision_status: not_recorded",
+        "selected_option_status: pending",
+        "review_verdict_basis: pass_with_findings_not_publish_ready",
+        "Es wurden keine P0- oder P1-Blocker festgestellt.",
+        "Der Candidate-Text wurde waehrend des Reviews nicht geaendert.",
+        "missing visible publication/update metadata for `SHO-SRC-005`",
+        "missing visible publication/update metadata for `SHO-SRC-006`",
+        "date/context limitation for `SHO-SRC-007`",
+        "general phishing scope only for `SHO-SRC-007`",
+        "`SRC-GAP-WF-006` remains open for publish path",
+        "no `SHO-CLAIM-007` unlock",
+        "no `SHO-SRC-004` positive support",
+        "no WhatsApp block/report UI instructions",
+        "no exact WhatsApp UI paths",
+        "template_only_no_selection_recorded: true",
+        "allowed_next_action: await_human_operator_review_decision_for_internal_final_article_candidate_option_a",
+    ]
+    for fragment in required_fragments:
+        if fragment not in text:
+            failures.append(
+                "Human Operator Review Packet Final Article Candidate Option A "
+                f"must contain: {fragment}"
+            )
+
+    if text.count("### Option ") != 4:
+        failures.append(
+            "Human Operator Review Packet Final Article Candidate Option A "
+            "must contain exactly four decision options"
+        )
+
+    if not FINAL_ARTICLE_CANDIDATE_OPTION_A_INTERNAL_CANDIDATE_001_PATH.exists():
+        failures.append(
+            "Human Operator Review Packet reviewed Final Article Candidate "
+            "Option A file is missing"
+        )
+    if not FINAL_ARTICLE_CANDIDATE_OPTION_A_REVIEW_INTERNAL_CANDIDATE_001_PATH.exists():
+        failures.append(
+            "Human Operator Review Packet source review file is missing"
+        )
+
+    forbidden_activation_markers = [
+        "final_article_status: created",
+        "publish_candidate_status: created",
+        "publish_readiness_status: ready",
+        "operator_acceptance_status: accepted",
+        "public_launch_status: ready",
+        "public_launch_status: launched",
+        "monetization_status: approved",
+        "analytics_status: connected",
+        "search_console_status: connected",
+        "user_feedback_status: collected",
+        "wcag_conformance_status: passed",
+        "sho_claim_007_status: unblocked",
+        "sho_claim_007_status: unlocked",
+        "sho_src_004_ui_context_status: unblocked",
+        "sho_src_004_ui_context_status: verified",
+        "source_approved_for_publication",
+        "claim_approved_for_publication",
+        "final_source_set_approved",
+        "final_citation_labels_approved",
+        "freshness_verified",
+    ]
+    lower_text = text.lower()
+    for fragment in forbidden_activation_markers:
+        if fragment in lower_text:
+            failures.append(
+                "Human Operator Review Packet Final Article Candidate Option A "
+                f"contains forbidden activation marker: {fragment}"
+            )
+
+    forbidden_ui_fragments = [
+        "tippen sie auf blockieren",
+        "tippen sie auf melden",
+        "chat melden",
+        "kontakt blockieren",
+        "blockieren und melden",
+        "meldung senden",
+        "menue >",
+        "einstellungen >",
+    ]
+    for fragment in forbidden_ui_fragments:
+        if fragment in lower_text:
+            failures.append(
+                "Human Operator Review Packet Final Article Candidate Option A "
+                f"contains forbidden WhatsApp UI workflow fragment: {fragment}"
+            )
+
+    expected_next_action = (
+        "await_human_operator_review_decision_for_internal_final_article_candidate_option_a"
+    )
+    tracking_fragments = {
+        "documentation map": (
+            documentation_map_text,
+            [
+                "HUMAN_OPERATOR_REVIEW_PACKET_FINAL_ARTICLE_CANDIDATE_OPTION_A_CANDIDATE_001_INTERNAL_ONLY.md",
+                "decision not recorded and selection pending",
+            ],
+        ),
+        "dashboard": (
+            dashboard_text,
+            [
+                "human_operator_review_packet_final_article_candidate_option_a_prepared_internal_only",
+                "human_operator_review_packet_status prepared_internal_only",
+                "human_operator_decision_status not_recorded",
+                "selected_option_status pending",
+                expected_next_action,
+            ],
+        ),
+        "batch": (
+            batch_text,
+            [
+                "docs/operations/operator_decisions/HUMAN_OPERATOR_REVIEW_PACKET_FINAL_ARTICLE_CANDIDATE_OPTION_A_CANDIDATE_001_INTERNAL_ONLY.md",
+                "human_operator_final_article_candidate_option_a_review_packet_status: prepared_internal_only",
+                "human_operator_final_article_candidate_option_a_decision_status: not_recorded",
+                "human_operator_final_article_candidate_option_a_selected_option_status: pending",
+                f"allowed_next_action: {expected_next_action}",
+                "publish_candidate_status: not_created",
+                "publish_readiness_status: not_ready",
+                "operator_acceptance_status: not_accepted",
+            ],
+        ),
+        "handoff": (
+            handoff_text,
+            [
+                "HUMAN_OPERATOR_REVIEW_PACKET_FINAL_ARTICLE_CANDIDATE_OPTION_A_PREPARED_INTERNAL_ONLY",
+                "current_artifact_level: human_operator_review_packet_final_article_candidate_option_a_prepared_internal_only",
+                "human_operator_final_article_candidate_option_a_review_packet_status: prepared_internal_only",
+                "human_operator_final_article_candidate_option_a_decision_status: not_recorded",
+                "human_operator_final_article_candidate_option_a_selected_option_status: pending",
+                f"allowed_next_action: {expected_next_action}",
+            ],
+        ),
+    }
+    for area, (area_text, fragments) in tracking_fragments.items():
+        for fragment in fragments:
+            if fragment not in area_text:
+                failures.append(
+                    f"{area} missing Human Operator Review Packet Final "
+                    f"Article Candidate Option A status: {fragment}"
+                )
+
+    queue_item_match = re.search(
+        r"(?ms)^  - queue_item_id: CQ-V1-058\n"
+        r"(?P<body>.*?)(?=^  - queue_item_id: |\Z)",
+        queue_text,
+    )
+    if not queue_item_match:
+        failures.append("Work Queue V1 missing CQ-V1-058")
+    else:
+        queue_item_text = queue_item_match.group("body")
+        required_queue_fragments = [
+            "HUMAN_OPERATOR_REVIEW_PACKET_FINAL_ARTICLE_CANDIDATE_OPTION_A_CANDIDATE_001_INTERNAL_ONLY.md",
+            "human_operator_review_packet_status: prepared_internal_only",
+            "human_operator_decision_status: not_recorded",
+            "selected_option_status: pending",
+            "review_verdict_basis: pass_with_findings_not_publish_ready",
+            "candidate_content_modified: false",
+            "final_article_status: not_created",
+            "publish_candidate_status: not_created",
+            "publish_readiness_status: not_ready",
+            "operator_acceptance_status: not_accepted",
+            "sho_claim_007_status: blocked",
+            "sho_src_004_ui_context_status: blocked",
+            f"allowed_next_action: {expected_next_action}",
+            "modify_candidate_content",
+            "create_final_article",
+            "create_publish_candidate",
+            "set_publish_readiness",
+            "set_operator_acceptance",
+            "activate_public_launch",
+            "activate_monetization",
+            "activate_analytics",
+            "activate_search_console",
+            "claim_user_feedback",
+            "claim_wcag_conformance",
+            "invent_SEO_metrics",
+            "unlock_SHO_CLAIM_007",
+            "verify_SHO_SRC_004",
+            "add_WhatsApp_UI_block_report_steps",
+            "add_exact_WhatsApp_UI_paths",
+            "status: human_operator_review_packet_prepared_internal_only",
+        ]
+        for fragment in required_queue_fragments:
+            if fragment not in queue_item_text:
+                failures.append(f"Work Queue CQ-V1-058 missing: {fragment}")
+
+    return 1
+
+
 def validate_applied_scorecard_brief_002(failures: list[str]) -> int:
     if not APPLIED_SCORECARD_BRIEF_002_PATH.exists():
         failures.append(
@@ -16192,6 +16489,11 @@ def main() -> int:
             failures
         )
     )
+    human_operator_review_packet_final_article_candidate_option_a_internal_candidate_001_count = (
+        validate_human_operator_review_packet_final_article_candidate_option_a_internal_candidate_001(
+            failures
+        )
+    )
     applied_scorecard_brief_002_count = validate_applied_scorecard_brief_002(failures)
     human_operator_review_packet_final_article_candidate_brief_002_count = (
         validate_human_operator_review_packet_final_article_candidate_brief_002(failures)
@@ -16399,6 +16701,11 @@ def main() -> int:
     print(
         "- Internal candidate Final Article Candidate Option A review files: "
         f"{final_article_candidate_option_a_review_internal_candidate_001_count}"
+    )
+    print(
+        "- Internal candidate Human Operator Review Packet Final Article "
+        "Candidate Option A files: "
+        f"{human_operator_review_packet_final_article_candidate_option_a_internal_candidate_001_count}"
     )
     print(f"- Batch 01 applied scorecard Brief 002 files: {applied_scorecard_brief_002_count}")
     print(
