@@ -309,6 +309,10 @@ CANDIDATE_FINAL_ARTICLE_PREPARATION_PACKET_INTERNAL_CANDIDATE_001_PATH = (
     ROOT
     / "docs/content/article_reviews/whatsapp-fraud-checklist.final-article-preparation-packet-internal-only.md"
 )
+HUMAN_OPERATOR_DECISION_PREPARATION_FINAL_ARTICLE_CANDIDATE_CREATION_INTERNAL_CANDIDATE_001_PATH = (
+    ROOT
+    / "docs/operations/operator_decisions/HUMAN_OPERATOR_DECISION_PREPARATION_FINAL_ARTICLE_CANDIDATE_CREATION_CANDIDATE_001_INTERNAL_ONLY.md"
+)
 ACCESSIBILITY_REVIEW_BRIEF_002_PATH = (
     ROOT / "docs/content/article_reviews/betrugsnachrichten-auf-whatsapp-erkennen.accessibility-review.md"
 )
@@ -2980,6 +2984,7 @@ def validate_operator_decisions(failures: list[str]) -> int:
         "HUMAN_OPERATOR_DECISION_SHO_INTERNAL_CANDIDATE_001_REVISION_CANDIDATE_ADOPTION_INTERNAL_ONLY.md",
         "HUMAN_OPERATOR_DECISION_PREPARATION_CANDIDATE_SOURCE_FRESHNESS_LIVE_VERIFICATION_INTERNAL_ONLY.md",
         "HUMAN_OPERATOR_DECISION_CANDIDATE_SOURCE_FRESHNESS_LIVE_VERIFICATION_OPTION_A_INTERNAL_ONLY.md",
+        "HUMAN_OPERATOR_DECISION_PREPARATION_FINAL_ARTICLE_CANDIDATE_CREATION_CANDIDATE_001_INTERNAL_ONLY.md",
     }
     found_files = {
         path.name
@@ -13302,6 +13307,259 @@ def validate_candidate_final_article_preparation_packet_internal_candidate_001(
     return 1
 
 
+def validate_human_operator_decision_preparation_final_article_candidate_creation_internal_candidate_001(
+    failures: list[str],
+) -> int:
+    path = (
+        HUMAN_OPERATOR_DECISION_PREPARATION_FINAL_ARTICLE_CANDIDATE_CREATION_INTERNAL_CANDIDATE_001_PATH
+    )
+    if not path.exists():
+        failures.append(
+            "Missing Human Operator Decision Preparation Packet for "
+            "Final Article Candidate creation for SHO-INTERNAL-CANDIDATE-001"
+        )
+        return 0
+
+    matching_files = list(
+        path.parent.glob(
+            "HUMAN_OPERATOR_DECISION_PREPARATION_FINAL_ARTICLE_CANDIDATE_CREATION_CANDIDATE_001_INTERNAL_ONLY.md"
+        )
+    )
+    if len(matching_files) != 1:
+        failures.append(
+            "Expected exactly one Human Operator Decision Preparation Packet "
+            "for Final Article Candidate creation for SHO-INTERNAL-CANDIDATE-001, "
+            f"found {len(matching_files)}"
+        )
+
+    text = path.read_text(encoding="utf-8")
+    fields = parse_frontmatter_fields(text)
+    queue_text = WORK_QUEUE_V1_PATH.read_text(encoding="utf-8")
+    dashboard_text = ARTICLE_READINESS_DASHBOARD_PATH.read_text(encoding="utf-8")
+    batch_text = BATCH_MANIFEST_PATH.read_text(encoding="utf-8")
+    documentation_map_text = (ROOT / "docs/DOCUMENTATION_MAP.md").read_text(
+        encoding="utf-8"
+    )
+    handoff_text = (
+        ROOT / "external_review_packet/HANDOFF_LATEST_CONTEXT.md"
+    ).read_text(encoding="utf-8")
+
+    expected_fields = {
+        "decision_preparation_id": (
+            "sho-internal-candidate-001-human-operator-decision-preparation-final-article-candidate-creation"
+        ),
+        "task_type": (
+            "sho_internal_candidate_001_prepare_human_operator_decision_for_final_article_candidate_creation_internal_only"
+        ),
+        "autonomy_class": "yellow-b",
+        "internal_candidate_id": "sho-internal-candidate-001",
+        "candidate_slug": "whatsapp-fraud-checklist",
+        "artifact_status": "internal_only",
+        "human_operator_decision_status": "not_recorded",
+        "selected_option_status": "pending",
+        "final_article_candidate_status": "not_created",
+        "final_article_status": "not_created",
+        "publish_candidate_status": "not_created",
+        "publish_readiness_status": "not_ready",
+        "operator_acceptance_status": "not_accepted",
+        "public_launch_status": "not_ready",
+        "monetization_status": "not_approved",
+        "analytics_status": "not_connected",
+        "search_console_status": "not_connected",
+        "user_feedback_status": "not_collected",
+        "wcag_conformance_status": "not_tested",
+        "final_source_approval_status": "not_approved",
+        "final_claim_approval_status": "not_approved",
+        "final_citation_label_approval_status": "not_approved",
+        "sho_claim_007_status": "blocked",
+        "sho_src_004_ui_context_status": "blocked",
+        "whatsapp_ui_path_validation_status": "not_performed",
+        "queue_execution_status": "not_live",
+        "stage_advancement_status": "not_advanced",
+        "reviewer": "codex",
+        "review_date": "2026-06-15",
+        "timezone": "europe/berlin",
+    }
+    for field_name, expected_value in expected_fields.items():
+        if normalized(fields.get(field_name)) != expected_value:
+            failures.append(
+                "Final Article Candidate decision preparation must have "
+                f"{field_name}: {expected_value}"
+            )
+
+    required_fragments = [
+        "created_from_packet: docs/content/article_reviews/whatsapp-fraud-checklist.final-article-preparation-packet-internal-only.md",
+        "## 1. Executive Verdict",
+        "## 2. Decision Question",
+        "Should the Human Operator authorize a later internal-only task to prepare a new Final Article Candidate",
+        "## 3. Current Basis",
+        "## 4. Decision Options",
+        "Option A: `authorize_internal_final_article_candidate_preparation_with_limitations`",
+        "Option B: `require_follow_up_before_candidate_creation`",
+        "Option C: `narrow_scope_before_candidate_creation`",
+        "Option D: `pause_final_article_candidate_path`",
+        "## 5. Recommended Option",
+        "## 6. Mandatory Boundaries If Option A Is Later Selected",
+        "## 7. Limitations Carried Forward",
+        "## 8. Required Human Operator Input Format",
+        "template_only_no_selection_recorded: true",
+        "## 9. Explicit Non-Goals",
+        "## 10. Allowed Next Step",
+        "human_operator_decision_status: recorded",
+        "selected_option: option_a | option_b | option_c | option_d",
+        "allowed_next_action: await_human_operator_decision_on_final_article_candidate_creation_internal_only",
+        "SHO-SRC-004",
+        "SHO-SRC-005",
+        "SHO-SRC-006",
+        "SHO-SRC-007",
+        "SHO-CLAIM-004",
+        "SHO-CLAIM-005",
+        "SHO-CLAIM-006",
+        "SHO-CLAIM-007",
+        "SRC-GAP-WF-006",
+        "no WCAG conformance claim",
+        "no SEO metrics",
+        "no traffic, ranking, conversion, revenue or feedback claims",
+    ]
+    for fragment in required_fragments:
+        if fragment not in text:
+            failures.append(
+                "Final Article Candidate decision preparation must contain: "
+                f"{fragment}"
+            )
+
+    forbidden_activation_markers = [
+        "final_article_candidate_status: created",
+        "final_article_status: created",
+        "publish_candidate_status: created",
+        "publish_readiness_status: ready",
+        "operator_acceptance_status: accepted",
+        "public_launch_status: ready",
+        "public_launch_status: launched",
+        "monetization_status: approved",
+        "analytics_status: connected",
+        "search_console_status: connected",
+        "user_feedback_status: collected",
+        "wcag_conformance_status: passed",
+        "sho_claim_007_status: unblocked",
+        "sho_claim_007_status: unlocked",
+        "sho_src_004_ui_context_status: unblocked",
+        "sho_src_004_ui_context_status: verified",
+        "source_approved_for_publication",
+        "claim_approved_for_publication",
+        "final_source_set_approved",
+        "final_citation_labels_approved",
+        "freshness_verified",
+    ]
+    lower_text = text.lower()
+    for fragment in forbidden_activation_markers:
+        if fragment in lower_text:
+            failures.append(
+                "Final Article Candidate decision preparation contains "
+                f"forbidden activation marker: {fragment}"
+            )
+
+    tracking_fragments = {
+        "dashboard": (
+            dashboard_text,
+            [
+                "human_operator_final_article_candidate_creation_decision_preparation_prepared_internal_only",
+                "await_human_operator_decision_on_final_article_candidate_creation_internal_only",
+                "Decision preparation is complete but no decision is recorded",
+                "new_final_article_candidate_status not_created",
+                "SHO-CLAIM-007 blocked",
+            ],
+        ),
+        "batch": (
+            batch_text,
+            [
+                "human_operator_final_article_candidate_creation_decision_preparation_status: prepared_internal_only",
+                "human_operator_final_article_candidate_creation_decision_status: not_recorded",
+                "human_operator_final_article_candidate_creation_selected_option_status: pending",
+                "final_article_candidate_creation_authorization_status: not_authorized",
+                "new_final_article_candidate_status: not_created",
+                "allowed_next_action: await_human_operator_decision_on_final_article_candidate_creation_internal_only",
+            ],
+        ),
+        "handoff": (
+            handoff_text,
+            [
+                "HUMAN_OPERATOR_DECISION_PREPARATION_FINAL_ARTICLE_CANDIDATE_CREATION_PREPARED_INTERNAL_ONLY",
+                "current_artifact_level: human_operator_final_article_candidate_creation_decision_preparation_prepared_internal_only",
+                "human_operator_final_article_candidate_creation_decision_status: not_recorded",
+                "human_operator_final_article_candidate_creation_selected_option_status: pending",
+                "await_human_operator_decision_on_final_article_candidate_creation_internal_only",
+            ],
+        ),
+        "documentation map": (
+            documentation_map_text,
+            [
+                "HUMAN_OPERATOR_DECISION_PREPARATION_FINAL_ARTICLE_CANDIDATE_CREATION_CANDIDATE_001_INTERNAL_ONLY.md"
+            ],
+        ),
+    }
+    for area, (area_text, fragments) in tracking_fragments.items():
+        for fragment in fragments:
+            if fragment not in area_text:
+                failures.append(
+                    f"{area} missing Final Article Candidate decision "
+                    f"preparation status: {fragment}"
+                )
+
+    queue_item_match = re.search(
+        r"(?ms)^  - queue_item_id: CQ-V1-054\n"
+        r"(?P<body>.*?)(?=^  - queue_item_id: |\Z)",
+        queue_text,
+    )
+    if not queue_item_match:
+        failures.append("Work Queue V1 missing CQ-V1-054")
+    else:
+        queue_item_text = queue_item_match.group("body")
+        required_queue_fragments = [
+            "HUMAN_OPERATOR_DECISION_PREPARATION_FINAL_ARTICLE_CANDIDATE_CREATION_CANDIDATE_001_INTERNAL_ONLY.md",
+            "human_operator_decision_preparation_status: prepared_internal_only",
+            "human_operator_decision_status: not_recorded",
+            "selected_option_status: pending",
+            "final_article_candidate_status: not_created",
+            "final_article_status: not_created",
+            "publish_candidate_status: not_created",
+            "final_source_approval_status: not_approved",
+            "final_claim_approval_status: not_approved",
+            "final_citation_label_approval_status: not_approved",
+            "publish_readiness_status: not_ready",
+            "operator_acceptance_status: not_accepted",
+            "public_launch_status: not_ready",
+            "option_a_authorize_internal_final_article_candidate_preparation_with_limitations",
+            "option_b_require_follow_up_before_candidate_creation",
+            "option_c_narrow_scope_before_candidate_creation",
+            "option_d_pause_final_article_candidate_path",
+            "SHO_CLAIM_007_blocked",
+            "SHO_SRC_004_ui_context_blocked",
+            "allowed_next_action: await_human_operator_decision_on_final_article_candidate_creation_internal_only",
+            "create_final_article_candidate",
+            "create_final_article",
+            "create_publish_candidate",
+            "set_publish_readiness",
+            "set_operator_acceptance",
+            "activate_public_launch",
+            "activate_monetization",
+            "activate_analytics",
+            "activate_search_console",
+            "claim_user_feedback",
+            "claim_wcag_conformance",
+            "invent_SEO_metrics",
+            "unlock_SHO_CLAIM_007",
+            "verify_SHO_SRC_004",
+            "human_gate_required: yes_awaiting_decision",
+            "status: internal_review_prepared",
+        ]
+        for fragment in required_queue_fragments:
+            if fragment not in queue_item_text:
+                failures.append(f"Work Queue CQ-V1-054 missing: {fragment}")
+
+    return 1
+
+
 def validate_applied_scorecard_brief_002(failures: list[str]) -> int:
     if not APPLIED_SCORECARD_BRIEF_002_PATH.exists():
         failures.append(
@@ -15085,6 +15343,11 @@ def main() -> int:
             failures
         )
     )
+    human_operator_decision_preparation_final_article_candidate_creation_internal_candidate_001_count = (
+        validate_human_operator_decision_preparation_final_article_candidate_creation_internal_candidate_001(
+            failures
+        )
+    )
     applied_scorecard_brief_002_count = validate_applied_scorecard_brief_002(failures)
     human_operator_review_packet_final_article_candidate_brief_002_count = (
         validate_human_operator_review_packet_final_article_candidate_brief_002(failures)
@@ -15274,6 +15537,11 @@ def main() -> int:
     print(
         "- Internal candidate Final Article Preparation Packet files: "
         f"{candidate_final_article_preparation_packet_internal_candidate_001_count}"
+    )
+    print(
+        "- Internal candidate Human Operator Decision Preparation Packet for "
+        "Final Article Candidate creation files: "
+        f"{human_operator_decision_preparation_final_article_candidate_creation_internal_candidate_001_count}"
     )
     print(f"- Batch 01 applied scorecard Brief 002 files: {applied_scorecard_brief_002_count}")
     print(

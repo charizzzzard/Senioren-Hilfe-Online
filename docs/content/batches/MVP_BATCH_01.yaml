@@ -61,6 +61,7 @@ internal_candidates:
       - docs/operations/operator_decisions/HUMAN_OPERATOR_SOURCE_CLAIM_REVIEW_DECISION_OPTION_A_CANDIDATE_001_INTERNAL_ONLY.md
       - docs/content/article_reviews/whatsapp-fraud-checklist.candidate-final-article-preparation-gate-review-post-source-claim-decision.md
       - docs/content/article_reviews/whatsapp-fraud-checklist.final-article-preparation-packet-internal-only.md
+      - docs/operations/operator_decisions/HUMAN_OPERATOR_DECISION_PREPARATION_FINAL_ARTICLE_CANDIDATE_CREATION_CANDIDATE_001_INTERNAL_ONLY.md
     final_article_candidate_status: prepared_internal_only
     final_article_candidate_review_status: passed_with_findings_internal_only
     source_metadata_freshness_review_status: passed_with_findings_internal_only
@@ -96,6 +97,11 @@ internal_candidates:
     candidate_final_article_preparation_gate_review_post_source_claim_decision_status: completed_internal_only_with_findings
     candidate_final_article_preparation_gate_review_verdict: pass_for_internal_final_article_preparation_packet_with_limitations
     candidate_final_article_preparation_packet_status: prepared_internal_only
+    human_operator_final_article_candidate_creation_decision_preparation_status: prepared_internal_only
+    human_operator_final_article_candidate_creation_decision_status: not_recorded
+    human_operator_final_article_candidate_creation_selected_option_status: pending
+    final_article_candidate_creation_authorization_status: not_authorized
+    new_final_article_candidate_status: not_created
     post_source_claim_final_article_status: not_created
     publish_candidate_status: not_created
     live_verification_status: performed_internal_only
@@ -123,7 +129,8 @@ internal_candidates:
     superseded_revision_candidate_adoption_decision_status: not_decided
     superseded_packet_allowed_next_action: record_human_operator_revision_candidate_adoption_decision_internal_only
     superseded_adoption_allowed_next_action: prepare_adopted_revision_working_basis_readiness_review_internal_only
-    allowed_next_action: prepare_human_operator_decision_for_final_article_candidate_creation_internal_only
+    allowed_next_action: await_human_operator_decision_on_final_article_candidate_creation_internal_only
+    superseded_final_article_preparation_packet_allowed_next_action: prepare_human_operator_decision_for_final_article_candidate_creation_internal_only
     superseded_readiness_review_allowed_next_action: prepare_internal_pre_gate_gap_review_for_adopted_working_basis
     superseded_gap_review_allowed_next_action: prepare_source_freshness_gap_resolution_packet_internal_only
     superseded_source_freshness_packet_allowed_next_action: prepare_candidate_specific_final_source_selection_packet_internal_only
