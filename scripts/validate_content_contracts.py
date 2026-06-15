@@ -301,6 +301,10 @@ HUMAN_OPERATOR_SOURCE_CLAIM_REVIEW_DECISION_OPTION_A_INTERNAL_CANDIDATE_001_PATH
     ROOT
     / "docs/operations/operator_decisions/HUMAN_OPERATOR_SOURCE_CLAIM_REVIEW_DECISION_OPTION_A_CANDIDATE_001_INTERNAL_ONLY.md"
 )
+CANDIDATE_FINAL_ARTICLE_PREPARATION_GATE_REVIEW_POST_SOURCE_CLAIM_DECISION_INTERNAL_CANDIDATE_001_PATH = (
+    ROOT
+    / "docs/content/article_reviews/whatsapp-fraud-checklist.candidate-final-article-preparation-gate-review-post-source-claim-decision.md"
+)
 ACCESSIBILITY_REVIEW_BRIEF_002_PATH = (
     ROOT / "docs/content/article_reviews/betrugsnachrichten-auf-whatsapp-erkennen.accessibility-review.md"
 )
@@ -12770,6 +12774,286 @@ def validate_human_operator_source_claim_review_decision_option_a_internal_candi
     return 1
 
 
+def validate_candidate_final_article_preparation_gate_review_post_source_claim_decision_internal_candidate_001(
+    failures: list[str],
+) -> int:
+    path = (
+        CANDIDATE_FINAL_ARTICLE_PREPARATION_GATE_REVIEW_POST_SOURCE_CLAIM_DECISION_INTERNAL_CANDIDATE_001_PATH
+    )
+    if not path.exists():
+        failures.append(
+            "Missing post-source/claim-decision Final Article Preparation "
+            "Gate Review for SHO-INTERNAL-CANDIDATE-001"
+        )
+        return 0
+
+    matching_files = list(
+        path.parent.glob(
+            "whatsapp-fraud-checklist.candidate-final-article-preparation-gate-review-post-source-claim-decision.md"
+        )
+    )
+    if len(matching_files) != 1:
+        failures.append(
+            "Expected exactly one post-source/claim-decision Final Article "
+            "Preparation Gate Review for SHO-INTERNAL-CANDIDATE-001, found "
+            f"{len(matching_files)}"
+        )
+
+    historical_gate_path = (
+        ROOT
+        / "docs/content/article_reviews/whatsapp-fraud-checklist.final-article-preparation-gate-review.md"
+    )
+    if not historical_gate_path.exists():
+        failures.append(
+            "Post-source/claim-decision gate review must retain the historical "
+            "Final Article Preparation Gate Review"
+        )
+
+    text = path.read_text(encoding="utf-8")
+    fields = parse_frontmatter_fields(text)
+    queue_text = WORK_QUEUE_V1_PATH.read_text(encoding="utf-8")
+    dashboard_text = ARTICLE_READINESS_DASHBOARD_PATH.read_text(encoding="utf-8")
+    batch_text = BATCH_MANIFEST_PATH.read_text(encoding="utf-8")
+    documentation_map_text = (ROOT / "docs/DOCUMENTATION_MAP.md").read_text(
+        encoding="utf-8"
+    )
+    handoff_text = (
+        ROOT / "external_review_packet/HANDOFF_LATEST_CONTEXT.md"
+    ).read_text(encoding="utf-8")
+
+    expected_fields = {
+        "gate_review_id": (
+            "sho-internal-candidate-001-final-article-preparation-gate-review-post-source-claim-decision"
+        ),
+        "task_type": (
+            "sho_internal_candidate_001_prepare_candidate_final_article_preparation_gate_review_internal_only"
+        ),
+        "autonomy_class": "yellow-b",
+        "internal_candidate_id": "sho-internal-candidate-001",
+        "artifact_status": "internal_only",
+        "gate_review_context": "post_source_claim_decision",
+        "final_article_preparation_gate_review_status": (
+            "completed_internal_only_with_findings"
+        ),
+        "final_article_preparation_packet_status": "not_created",
+        "final_article_status": "not_created",
+        "publish_candidate_status": "not_created",
+        "final_source_approval_status": "not_approved",
+        "final_claim_approval_status": "not_approved",
+        "final_citation_label_approval_status": "not_approved",
+        "new_external_sources_status": "not_added",
+        "new_source_evidence_status": "not_added",
+        "publish_readiness_status": "not_ready",
+        "operator_acceptance_status": "not_accepted",
+        "public_launch_status": "not_ready",
+        "monetization_status": "not_approved",
+        "analytics_status": "not_connected",
+        "search_console_status": "not_connected",
+        "user_feedback_status": "not_collected",
+        "wcag_conformance_status": "not_tested",
+        "sho_claim_007_status": "blocked",
+        "sho_src_004_ui_context_status": "blocked",
+        "whatsapp_ui_path_validation_status": "not_performed",
+        "queue_execution_status": "not_live",
+        "stage_advancement_status": "not_advanced",
+        "review_date": "2026-06-15",
+        "timezone": "europe/berlin",
+    }
+    for field_name, expected_value in expected_fields.items():
+        if normalized(fields.get(field_name)) != expected_value:
+            failures.append(
+                "Post-source/claim-decision Final Article Preparation Gate "
+                f"Review must have {field_name}: {expected_value}"
+            )
+
+    required_fragments = [
+        "created_from_human_operator_source_claim_decision: docs/operations/operator_decisions/HUMAN_OPERATOR_SOURCE_CLAIM_REVIEW_DECISION_OPTION_A_CANDIDATE_001_INTERNAL_ONLY.md",
+        "historical_gate_review: docs/content/article_reviews/whatsapp-fraud-checklist.final-article-preparation-gate-review.md",
+        "## 1. Executive Verdict",
+        "Post-Source/Claim-Decision-Artefakt",
+        "pass_for_internal_final_article_preparation_packet_with_limitations",
+        "## 2. Gate Question",
+        "## 3. Review Basis Summary",
+        "## 4. Gate Criteria Table",
+        "criterion_id",
+        "gate_result",
+        "pass_with_required_follow_up_before_packet",
+        "## 5. Limitations to Carry Forward",
+        "## 6. Required Constraints for Later Final Article Preparation Packet",
+        "## 7. Outcome and Next Allowed Step",
+        "gate_review_verdict: pass_for_internal_final_article_preparation_packet_with_limitations",
+        "final_article_preparation_packet_status: not_created",
+        "final_article_status: not_created",
+        "publish_candidate_status: not_created",
+        "allowed_next_action: prepare_candidate_final_article_preparation_packet_internal_only",
+        "src_gap_wf_006_status: open_for_publish_path_carried_into_preparation_packet",
+        "## 8. Required Later Gates",
+        "## 9. Explicit Non-Goals",
+        "SHO-SRC-004",
+        "SHO-SRC-005",
+        "SHO-SRC-006",
+        "SHO-SRC-007",
+        "SHO-CLAIM-004",
+        "SHO-CLAIM-005",
+        "SHO-CLAIM-006",
+        "SHO-CLAIM-007",
+        "SRC-GAP-WF-006",
+        "keine Erstellung eines finalen Artikels",
+        "keine Aenderung des Artikelkandidaten",
+        "keine Erstellung eines Publish Candidate",
+        "keine neue Live-Quellenverifikation",
+        "kein externes Browsing",
+        "keine neue Source-Evidenz",
+        "keine finale Source-Freigabe",
+        "keine finale Claim-Freigabe",
+        "keine finale Citation-Label-Freigabe fuer Publikation",
+        "keine Publish Readiness",
+        "keine Operator Acceptance",
+        "kein Unlock von `SHO-CLAIM-007`",
+        "keine Queue-Ausfuehrung",
+        "kein Stage Advancement",
+    ]
+    for fragment in required_fragments:
+        if fragment not in text:
+            failures.append(
+                "Post-source/claim-decision Final Article Preparation Gate "
+                f"Review must contain: {fragment}"
+            )
+
+    forbidden_activation_markers = [
+        "final_article_created",
+        "publish_candidate_created",
+        "final_article_status: created",
+        "publish_candidate_status: created",
+        "final_source_approval_status: approved",
+        "final_claim_approval_status: approved",
+        "final_citation_label_approval_status: approved",
+        "publish_readiness_status: ready",
+        "operator_acceptance_status: accepted",
+        "public_launch_status: ready",
+        "public_launch_status: launched",
+        "monetization_status: approved",
+        "analytics_status: connected",
+        "search_console_status: connected",
+        "user_feedback_status: collected",
+        "new_external_sources_status: added",
+        "new_source_evidence_status: added",
+        "wcag_conformance_status: passed",
+        "sho_claim_007_status: unblocked",
+        "sho_src_004_ui_context_status: unblocked",
+        "source_approved_for_publication",
+        "claim_approved_for_publication",
+        "final_source_set_approved",
+        "final_citation_labels_approved",
+        "freshness_verified",
+    ]
+    lower_text = text.lower()
+    for fragment in forbidden_activation_markers:
+        if fragment in lower_text:
+            failures.append(
+                "Post-source/claim-decision Final Article Preparation Gate "
+                f"Review contains forbidden activation marker: {fragment}"
+            )
+
+    tracking_fragments = {
+        "dashboard": (
+            dashboard_text,
+            [
+                "candidate_final_article_preparation_gate_review_post_source_claim_decision_completed_internal_only_with_findings",
+                "pass_for_internal_final_article_preparation_packet_with_limitations",
+                "prepare_candidate_final_article_preparation_packet_internal_only",
+                "SRC-GAP-WF-006 remains open for publish path",
+            ],
+        ),
+        "batch": (
+            batch_text,
+            [
+                "candidate_final_article_preparation_gate_review_post_source_claim_decision_status: completed_internal_only_with_findings",
+                "candidate_final_article_preparation_gate_review_verdict: pass_for_internal_final_article_preparation_packet_with_limitations",
+                "candidate_final_article_preparation_packet_status: not_created",
+                "post_source_claim_final_article_status: not_created",
+                "publish_candidate_status: not_created",
+                "final_source_approval_status: not_approved",
+                "final_claim_approval_status: not_approved",
+                "allowed_next_action: prepare_candidate_final_article_preparation_packet_internal_only",
+            ],
+        ),
+        "handoff": (
+            handoff_text,
+            [
+                "CANDIDATE_FINAL_ARTICLE_PREPARATION_GATE_REVIEW_POST_SOURCE_CLAIM_DECISION_COMPLETED_INTERNAL_ONLY_WITH_FINDINGS",
+                "candidate_final_article_preparation_gate_review_post_source_claim_decision_status: completed_internal_only_with_findings",
+                "candidate_final_article_preparation_gate_review_verdict: pass_for_internal_final_article_preparation_packet_with_limitations",
+                "candidate_final_article_preparation_packet_status: not_created",
+                "prepare_candidate_final_article_preparation_packet_internal_only",
+            ],
+        ),
+        "documentation map": (
+            documentation_map_text,
+            [
+                "whatsapp-fraud-checklist.candidate-final-article-preparation-gate-review-post-source-claim-decision.md"
+            ],
+        ),
+    }
+    for area, (area_text, fragments) in tracking_fragments.items():
+        for fragment in fragments:
+            if fragment not in area_text:
+                failures.append(
+                    f"{area} missing post-source/claim-decision Final Article "
+                    f"Preparation Gate Review status: {fragment}"
+                )
+
+    queue_item_match = re.search(
+        r"(?ms)^  - queue_item_id: CQ-V1-052\n"
+        r"(?P<body>.*?)(?=^  - queue_item_id: |\Z)",
+        queue_text,
+    )
+    if not queue_item_match:
+        failures.append("Work Queue V1 missing CQ-V1-052")
+    else:
+        queue_item_text = queue_item_match.group("body")
+        required_queue_fragments = [
+            "whatsapp-fraud-checklist.candidate-final-article-preparation-gate-review-post-source-claim-decision.md",
+            "final_article_preparation_gate_review_status: completed_internal_only_with_findings",
+            "gate_review_context: post_source_claim_decision",
+            "gate_review_verdict: pass_for_internal_final_article_preparation_packet_with_limitations",
+            "final_article_preparation_packet_status: not_created",
+            "final_article_status: not_created",
+            "publish_candidate_status: not_created",
+            "final_source_approval_status: not_approved",
+            "final_claim_approval_status: not_approved",
+            "final_citation_label_approval_status: not_approved",
+            "publish_readiness_status: not_ready",
+            "operator_acceptance_status: not_accepted",
+            "SHO-SRC-004",
+            "SHO-SRC-005",
+            "SHO-SRC-006",
+            "SHO-SRC-007",
+            "SHO-CLAIM-004",
+            "SHO-CLAIM-005",
+            "SHO-CLAIM-006",
+            "SHO-CLAIM-007",
+            "SRC_GAP_WF_006_open_for_publish_path",
+            "allowed_next_action: prepare_candidate_final_article_preparation_packet_internal_only",
+            "create_final_article",
+            "create_publish_candidate",
+            "approve_final_publish_source_set",
+            "approve_final_claim_use",
+            "approve_final_publication_citation_labels",
+            "set_publish_readiness",
+            "set_operator_acceptance",
+            "execute_queue",
+            "advance_stage",
+            "human_gate_required: no_for_internal_gate_review",
+            "status: final_article_preparation_gate_review_prepared_internal_only",
+        ]
+        for fragment in required_queue_fragments:
+            if fragment not in queue_item_text:
+                failures.append(f"Work Queue CQ-V1-052 missing: {fragment}")
+
+    return 1
+
+
 def validate_applied_scorecard_brief_002(failures: list[str]) -> int:
     if not APPLIED_SCORECARD_BRIEF_002_PATH.exists():
         failures.append(
@@ -14543,6 +14827,11 @@ def main() -> int:
             failures
         )
     )
+    candidate_final_article_preparation_gate_review_post_source_claim_decision_internal_candidate_001_count = (
+        validate_candidate_final_article_preparation_gate_review_post_source_claim_decision_internal_candidate_001(
+            failures
+        )
+    )
     applied_scorecard_brief_002_count = validate_applied_scorecard_brief_002(failures)
     human_operator_review_packet_final_article_candidate_brief_002_count = (
         validate_human_operator_review_packet_final_article_candidate_brief_002(failures)
@@ -14723,6 +15012,11 @@ def main() -> int:
         "- Internal candidate Human Operator Source/Claim Review Decision "
         "Option A files: "
         f"{human_operator_source_claim_review_decision_option_a_internal_candidate_001_count}"
+    )
+    print(
+        "- Internal candidate post-source/claim-decision Final Article "
+        "Preparation Gate Review files: "
+        f"{candidate_final_article_preparation_gate_review_post_source_claim_decision_internal_candidate_001_count}"
     )
     print(f"- Batch 01 applied scorecard Brief 002 files: {applied_scorecard_brief_002_count}")
     print(
