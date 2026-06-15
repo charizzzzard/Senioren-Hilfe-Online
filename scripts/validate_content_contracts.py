@@ -313,6 +313,10 @@ HUMAN_OPERATOR_DECISION_PREPARATION_FINAL_ARTICLE_CANDIDATE_CREATION_INTERNAL_CA
     ROOT
     / "docs/operations/operator_decisions/HUMAN_OPERATOR_DECISION_PREPARATION_FINAL_ARTICLE_CANDIDATE_CREATION_CANDIDATE_001_INTERNAL_ONLY.md"
 )
+HUMAN_OPERATOR_DECISION_FINAL_ARTICLE_CANDIDATE_CREATION_OPTION_A_INTERNAL_CANDIDATE_001_PATH = (
+    ROOT
+    / "docs/operations/operator_decisions/HUMAN_OPERATOR_DECISION_FINAL_ARTICLE_CANDIDATE_CREATION_OPTION_A_CANDIDATE_001_INTERNAL_ONLY.md"
+)
 ACCESSIBILITY_REVIEW_BRIEF_002_PATH = (
     ROOT / "docs/content/article_reviews/betrugsnachrichten-auf-whatsapp-erkennen.accessibility-review.md"
 )
@@ -2985,6 +2989,7 @@ def validate_operator_decisions(failures: list[str]) -> int:
         "HUMAN_OPERATOR_DECISION_PREPARATION_CANDIDATE_SOURCE_FRESHNESS_LIVE_VERIFICATION_INTERNAL_ONLY.md",
         "HUMAN_OPERATOR_DECISION_CANDIDATE_SOURCE_FRESHNESS_LIVE_VERIFICATION_OPTION_A_INTERNAL_ONLY.md",
         "HUMAN_OPERATOR_DECISION_PREPARATION_FINAL_ARTICLE_CANDIDATE_CREATION_CANDIDATE_001_INTERNAL_ONLY.md",
+        "HUMAN_OPERATOR_DECISION_FINAL_ARTICLE_CANDIDATE_CREATION_OPTION_A_CANDIDATE_001_INTERNAL_ONLY.md",
     }
     found_files = {
         path.name
@@ -13560,6 +13565,265 @@ def validate_human_operator_decision_preparation_final_article_candidate_creatio
     return 1
 
 
+def validate_human_operator_decision_final_article_candidate_creation_option_a_internal_candidate_001(
+    failures: list[str],
+) -> int:
+    path = (
+        HUMAN_OPERATOR_DECISION_FINAL_ARTICLE_CANDIDATE_CREATION_OPTION_A_INTERNAL_CANDIDATE_001_PATH
+    )
+    if not path.exists():
+        failures.append(
+            "Missing Human Operator Decision Option A record for Final "
+            "Article Candidate creation for SHO-INTERNAL-CANDIDATE-001"
+        )
+        return 0
+
+    matching_files = list(
+        path.parent.glob(
+            "HUMAN_OPERATOR_DECISION_FINAL_ARTICLE_CANDIDATE_CREATION_OPTION_A_CANDIDATE_001_INTERNAL_ONLY.md"
+        )
+    )
+    if len(matching_files) != 1:
+        failures.append(
+            "Expected exactly one Human Operator Decision Option A record "
+            "for Final Article Candidate creation for SHO-INTERNAL-CANDIDATE-001, "
+            f"found {len(matching_files)}"
+        )
+
+    text = path.read_text(encoding="utf-8")
+    fields = parse_frontmatter_fields(text)
+    queue_text = WORK_QUEUE_V1_PATH.read_text(encoding="utf-8")
+    dashboard_text = ARTICLE_READINESS_DASHBOARD_PATH.read_text(encoding="utf-8")
+    batch_text = BATCH_MANIFEST_PATH.read_text(encoding="utf-8")
+    documentation_map_text = (ROOT / "docs/DOCUMENTATION_MAP.md").read_text(
+        encoding="utf-8"
+    )
+    handoff_text = (
+        ROOT / "external_review_packet/HANDOFF_LATEST_CONTEXT.md"
+    ).read_text(encoding="utf-8")
+
+    expected_fields = {
+        "decision_id": (
+            "sho-internal-candidate-001-human-operator-decision-final-article-candidate-creation-option-a"
+        ),
+        "task_type": (
+            "sho_internal_candidate_001_record_human_operator_final_article_candidate_creation_decision_option_a_internal_only"
+        ),
+        "autonomy_class": "yellow-b",
+        "internal_candidate_id": "sho-internal-candidate-001",
+        "candidate_slug": "whatsapp-fraud-checklist",
+        "artifact_status": "internal_only",
+        "human_operator_decision_status": "recorded",
+        "selected_option": "option_a",
+        "selected_option_label": (
+            "authorize_internal_final_article_candidate_preparation_with_limitations"
+        ),
+        "final_article_candidate_creation_authorization_status": (
+            "authorized_internal_only_with_limitations"
+        ),
+        "final_article_candidate_status": "not_created",
+        "final_article_status": "not_created",
+        "publish_candidate_status": "not_created",
+        "publish_readiness_status": "not_ready",
+        "operator_acceptance_status": "not_accepted",
+        "public_launch_status": "not_ready",
+        "monetization_status": "not_approved",
+        "analytics_status": "not_connected",
+        "search_console_status": "not_connected",
+        "user_feedback_status": "not_collected",
+        "wcag_conformance_status": "not_tested",
+        "final_source_approval_status": "not_approved",
+        "final_claim_approval_status": "not_approved",
+        "final_citation_label_approval_status": "not_approved",
+        "sho_claim_007_status": "blocked",
+        "sho_src_004_ui_context_status": "blocked",
+        "whatsapp_ui_path_validation_status": "not_performed",
+        "queue_execution_status": "not_live",
+        "stage_advancement_status": "not_advanced",
+        "reviewer": "codex",
+        "review_date": "2026-06-15",
+        "timezone": "europe/berlin",
+    }
+    for field_name, expected_value in expected_fields.items():
+        if normalized(fields.get(field_name)) != expected_value:
+            failures.append(
+                "Final Article Candidate Option A decision must have "
+                f"{field_name}: {expected_value}"
+            )
+
+    required_fragments = [
+        "created_from_decision_preparation: docs/operations/operator_decisions/HUMAN_OPERATOR_DECISION_PREPARATION_FINAL_ARTICLE_CANDIDATE_CREATION_CANDIDATE_001_INTERNAL_ONLY.md",
+        "## 1. Executive Verdict",
+        "## 2. Recorded Human Operator Decision",
+        "human_operator_decision_status: recorded",
+        "selected_option: option_a",
+        "selected_option_label: authorize_internal_final_article_candidate_preparation_with_limitations",
+        "operator_note: \"Authorize a later internal-only Final Article Candidate preparation task for SHO-INTERNAL-CANDIDATE-001 with all documented limitations preserved. No Publish Candidate, no Publish Readiness, no Operator Acceptance, no claim unlock and no UI-path expansion are authorized.\"",
+        "## 3. Decision Meaning",
+        "## 4. Authorized Scope",
+        "## 5. Mandatory Boundaries Carried Forward",
+        "## 6. Limitations Carried Forward",
+        "## 7. Explicit Non-Goals",
+        "## 8. Allowed Next Step",
+        "final_article_candidate_creation_authorization_status: authorized_internal_only_with_limitations",
+        "final_article_candidate_status: not_created",
+        "final_article_status: not_created",
+        "publish_candidate_status: not_created",
+        "allowed_next_action: prepare_internal_final_article_candidate_with_limitations_only",
+        "SHO-SRC-004",
+        "SHO-SRC-005",
+        "SHO-SRC-006",
+        "SHO-SRC-007",
+        "SHO-CLAIM-004",
+        "SHO-CLAIM-005",
+        "SHO-CLAIM-006",
+        "SHO-CLAIM-007",
+        "SRC-GAP-WF-006",
+        "no WhatsApp block/report UI instructions",
+        "no exact WhatsApp UI paths",
+        "no WCAG conformance claim",
+        "no SEO metrics",
+        "no traffic, ranking, conversion, revenue or feedback claims",
+    ]
+    for fragment in required_fragments:
+        if fragment not in text:
+            failures.append(
+                "Final Article Candidate Option A decision must contain: "
+                f"{fragment}"
+            )
+
+    forbidden_activation_markers = [
+        "final_article_candidate_status: created",
+        "final_article_status: created",
+        "publish_candidate_status: created",
+        "publish_readiness_status: ready",
+        "operator_acceptance_status: accepted",
+        "public_launch_status: ready",
+        "public_launch_status: launched",
+        "monetization_status: approved",
+        "analytics_status: connected",
+        "search_console_status: connected",
+        "user_feedback_status: collected",
+        "wcag_conformance_status: passed",
+        "sho_claim_007_status: unblocked",
+        "sho_claim_007_status: unlocked",
+        "sho_src_004_ui_context_status: unblocked",
+        "sho_src_004_ui_context_status: verified",
+        "source_approved_for_publication",
+        "claim_approved_for_publication",
+        "final_source_set_approved",
+        "final_citation_labels_approved",
+        "freshness_verified",
+    ]
+    lower_text = text.lower()
+    for fragment in forbidden_activation_markers:
+        if fragment in lower_text:
+            failures.append(
+                "Final Article Candidate Option A decision contains "
+                f"forbidden activation marker: {fragment}"
+            )
+
+    tracking_fragments = {
+        "dashboard": (
+            dashboard_text,
+            [
+                "human_operator_final_article_candidate_creation_decision_option_a_recorded_internal_only",
+                "prepare_internal_final_article_candidate_with_limitations_only",
+                "Option A is recorded",
+                "new_final_article_candidate_status not_created",
+                "SHO-CLAIM-007 blocked",
+            ],
+        ),
+        "batch": (
+            batch_text,
+            [
+                "human_operator_final_article_candidate_creation_decision_status: recorded",
+                "human_operator_final_article_candidate_creation_selected_option: option_a",
+                "final_article_candidate_creation_authorization_status: authorized_internal_only_with_limitations",
+                "new_final_article_candidate_status: not_created",
+                "allowed_next_action: prepare_internal_final_article_candidate_with_limitations_only",
+            ],
+        ),
+        "handoff": (
+            handoff_text,
+            [
+                "HUMAN_OPERATOR_DECISION_FINAL_ARTICLE_CANDIDATE_CREATION_OPTION_A_RECORDED_INTERNAL_ONLY",
+                "current_artifact_level: human_operator_final_article_candidate_creation_decision_option_a_recorded_internal_only",
+                "human_operator_final_article_candidate_creation_decision_status: recorded",
+                "human_operator_final_article_candidate_creation_selected_option: option_a",
+                "prepare_internal_final_article_candidate_with_limitations_only",
+            ],
+        ),
+        "documentation map": (
+            documentation_map_text,
+            [
+                "HUMAN_OPERATOR_DECISION_FINAL_ARTICLE_CANDIDATE_CREATION_OPTION_A_CANDIDATE_001_INTERNAL_ONLY.md"
+            ],
+        ),
+    }
+    for area, (area_text, fragments) in tracking_fragments.items():
+        for fragment in fragments:
+            if fragment not in area_text:
+                failures.append(
+                    f"{area} missing Final Article Candidate Option A "
+                    f"decision status: {fragment}"
+                )
+
+    queue_item_match = re.search(
+        r"(?ms)^  - queue_item_id: CQ-V1-055\n"
+        r"(?P<body>.*?)(?=^  - queue_item_id: |\Z)",
+        queue_text,
+    )
+    if not queue_item_match:
+        failures.append("Work Queue V1 missing CQ-V1-055")
+    else:
+        queue_item_text = queue_item_match.group("body")
+        required_queue_fragments = [
+            "HUMAN_OPERATOR_DECISION_FINAL_ARTICLE_CANDIDATE_CREATION_OPTION_A_CANDIDATE_001_INTERNAL_ONLY.md",
+            "human_operator_decision_status: recorded",
+            "selected_option: option_a",
+            "selected_option_label: authorize_internal_final_article_candidate_preparation_with_limitations",
+            "final_article_candidate_creation_authorization_status: authorized_internal_only_with_limitations",
+            "final_article_candidate_status: not_created",
+            "final_article_status: not_created",
+            "publish_candidate_status: not_created",
+            "final_source_approval_status: not_approved",
+            "final_claim_approval_status: not_approved",
+            "final_citation_label_approval_status: not_approved",
+            "publish_readiness_status: not_ready",
+            "operator_acceptance_status: not_accepted",
+            "public_launch_status: not_ready",
+            "SHO-SRC-005",
+            "SHO-SRC-006",
+            "SHO-SRC-007",
+            "SHO-CLAIM-004",
+            "SHO-CLAIM-005",
+            "SHO-CLAIM-006",
+            "SHO_CLAIM_007_blocked",
+            "SHO_SRC_004_ui_context_blocked",
+            "allowed_next_action: prepare_internal_final_article_candidate_with_limitations_only",
+            "create_final_article",
+            "create_publish_candidate",
+            "set_publish_readiness",
+            "set_operator_acceptance",
+            "activate_public_launch",
+            "activate_monetization",
+            "activate_analytics",
+            "activate_search_console",
+            "claim_user_feedback",
+            "claim_wcag_conformance",
+            "invent_SEO_metrics",
+            "unlock_SHO_CLAIM_007",
+            "verify_SHO_SRC_004",
+            "status: decision_recorded_internal_only",
+        ]
+        for fragment in required_queue_fragments:
+            if fragment not in queue_item_text:
+                failures.append(f"Work Queue CQ-V1-055 missing: {fragment}")
+
+    return 1
+
+
 def validate_applied_scorecard_brief_002(failures: list[str]) -> int:
     if not APPLIED_SCORECARD_BRIEF_002_PATH.exists():
         failures.append(
@@ -15348,6 +15612,11 @@ def main() -> int:
             failures
         )
     )
+    human_operator_decision_final_article_candidate_creation_option_a_internal_candidate_001_count = (
+        validate_human_operator_decision_final_article_candidate_creation_option_a_internal_candidate_001(
+            failures
+        )
+    )
     applied_scorecard_brief_002_count = validate_applied_scorecard_brief_002(failures)
     human_operator_review_packet_final_article_candidate_brief_002_count = (
         validate_human_operator_review_packet_final_article_candidate_brief_002(failures)
@@ -15542,6 +15811,11 @@ def main() -> int:
         "- Internal candidate Human Operator Decision Preparation Packet for "
         "Final Article Candidate creation files: "
         f"{human_operator_decision_preparation_final_article_candidate_creation_internal_candidate_001_count}"
+    )
+    print(
+        "- Internal candidate Human Operator Decision Option A for Final "
+        "Article Candidate creation files: "
+        f"{human_operator_decision_final_article_candidate_creation_option_a_internal_candidate_001_count}"
     )
     print(f"- Batch 01 applied scorecard Brief 002 files: {applied_scorecard_brief_002_count}")
     print(
