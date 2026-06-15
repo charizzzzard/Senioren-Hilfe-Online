@@ -5,8 +5,8 @@
 - project_name: Senioren-Hilfe Online
 - system_name: Senioren-Hilfe Online OS
 - system_short_name: SHO-OS
-- patch_title: SHO_INTERNAL_CANDIDATE_001_PREPARE_CANDIDATE_SOURCE_AND_CLAIM_FINAL_REVIEW_PACKET_INTERNAL_ONLY
-- external_review_verdict: CANDIDATE_SOURCE_AND_CLAIM_FINAL_REVIEW_COMPLETED_INTERNAL_ONLY_WITH_FINDINGS
+- patch_title: SHO_INTERNAL_CANDIDATE_001_PREPARE_HUMAN_OPERATOR_SOURCE_CLAIM_REVIEW_PACKET_INTERNAL_ONLY
+- external_review_verdict: HUMAN_OPERATOR_SOURCE_CLAIM_REVIEW_PACKET_PREPARED_INTERNAL_ONLY_DECISION_NOT_RECORDED
 
 SHO-OS ist ein reproduzierbares Content-, Trust- und Publishing-System fuer seniorengerechte digitale Alltagshilfe in Deutschland.
 
@@ -15,9 +15,9 @@ Dieser Handoff beschreibt den aktuellen internen Repo-Kontext nach der internen 
 ## Git Traceability
 
 - branch: `main`
-- head_before_current_patch: `a516df97badfc77419a8bc9bee491343235d3067`
+- head_before_current_patch: `f3805f4a78e266053ae021194aa894a53c184c37`
 - intended_head_after: `assigned_after_commit`
-- origin_main_before_current_patch: `a516df97badfc77419a8bc9bee491343235d3067`
+- origin_main_before_current_patch: `f3805f4a78e266053ae021194aa894a53c184c37`
 - dirty_state_before_current_patch: `clean`
 - dirty_state_after_current_patch: `assigned_after_commit`
 
@@ -121,6 +121,12 @@ Hinweis: `head_after` wird nicht vorab als Commit-SHA eingetragen, weil ein Comm
 - No final source, claim or citation-label approval was granted. `SRC-GAP-WF-006`, `SHO-SRC-004` and `SHO-CLAIM-007` remain open or blocked.
 - The direct Publish Candidate path remains blocked; the candidate remains not publish-ready, not accepted and not live.
 - The next allowed action is `prepare_human_operator_source_claim_review_packet_internal_only`.
+- `CQ-V1-050` records the internal Human Operator Source/Claim Review Packet.
+- The packet presents Options A-D and a non-binding recommendation for limited internal Option A handling.
+- No Human Operator option or decision was recorded.
+- No final source, claim or citation-label approval was granted. `SRC-GAP-WF-006`, `SHO-SRC-004` and `SHO-CLAIM-007` remain open or blocked.
+- The direct Publish Candidate path remains blocked; the candidate remains not publish-ready, not accepted and not live.
+- The next allowed action is `record_human_operator_source_claim_review_decision_internal_only`.
 
 ## Internal Candidate Status
 
@@ -131,7 +137,7 @@ internal_candidate:
   internal_candidate_status: internal_only
   official_mvp_brief_status: not_assigned
   batch_membership_status: internal_spinoff_candidate_not_official_batch_brief
-  current_artifact_level: candidate_source_and_claim_final_review_completed_internal_only_with_findings
+  current_artifact_level: human_operator_source_claim_review_packet_prepared_internal_only
   final_article_candidate_created: true
   final_article_candidate_review_status: final_article_candidate_review_passed_with_findings_not_publish_ready
   source_metadata_freshness_review_status: source_metadata_freshness_review_passed_with_findings_not_publish_ready
@@ -164,6 +170,7 @@ internal_candidate:
   candidate_claim_mapping_recheck_packet_status: completed_internal_only_with_findings
   candidate_final_source_metadata_review_packet_status: completed_internal_only_with_findings
   candidate_source_and_claim_final_review_packet_status: completed_internal_only_with_findings
+  human_operator_source_claim_review_packet_status: prepared_internal_only
   live_verification_status: performed_internal_only
   live_data_population_status: evidence_records_created_authorized_scope_only
   source_freshness_status: reviewed_internal_only_with_limitations_not_finally_verified
@@ -176,6 +183,7 @@ internal_candidate:
   final_citation_label_approval_status: not_approved
   human_operator_source_claim_review_status: pending
   human_operator_source_claim_review_readiness: ready_for_human_operator_source_claim_review_with_limitations
+  human_operator_source_claim_decision_status: not_recorded
   real_user_testing_status: not_performed
   assistive_technology_testing_status: not_performed
   wcag_conformance_status: not_tested
@@ -259,12 +267,15 @@ The Human Operator decision now accepts the cleaned internal baseline as an inte
 
 ## Recommended Next Safe Outputs
 
-- `PREPARE_HUMAN_OPERATOR_SOURCE_CLAIM_REVIEW_PACKET_INTERNAL_ONLY`
+- `RECORD_HUMAN_OPERATOR_SOURCE_CLAIM_REVIEW_DECISION_INTERNAL_ONLY`
 - `BRIEF_002_PUBLISH_CANDIDATE_DECISION_PACKET_INTERNAL_ONLY`
 - `WEBSITE_RELEASE_READINESS_GAP_REVIEW_INTERNAL_ONLY`
 
 Superseded validator anchors retained as historical context:
 
+- superseded_external_review_verdict: CANDIDATE_SOURCE_AND_CLAIM_FINAL_REVIEW_COMPLETED_INTERNAL_ONLY_WITH_FINDINGS
+- superseded_source_and_claim_final_review_status: candidate_source_and_claim_final_review_packet_status: completed_internal_only_with_findings
+- superseded_source_and_claim_final_review_allowed_next_action: prepare_human_operator_source_claim_review_packet_internal_only
 - superseded_external_review_verdict: CANDIDATE_FINAL_SOURCE_METADATA_REVIEW_COMPLETED_INTERNAL_ONLY_WITH_FINDINGS
 - superseded_final_source_metadata_review_status: candidate_final_source_metadata_review_packet_status: completed_internal_only_with_findings
 - superseded_final_source_metadata_review_allowed_next_action: prepare_candidate_source_and_claim_final_review_packet_internal_only

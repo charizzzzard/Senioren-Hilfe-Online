@@ -293,6 +293,10 @@ CANDIDATE_SOURCE_AND_CLAIM_FINAL_REVIEW_PACKET_INTERNAL_CANDIDATE_001_PATH = (
     ROOT
     / "docs/content/article_reviews/whatsapp-fraud-checklist.candidate-source-and-claim-final-review-packet.md"
 )
+HUMAN_OPERATOR_SOURCE_CLAIM_REVIEW_PACKET_INTERNAL_CANDIDATE_001_PATH = (
+    ROOT
+    / "docs/operations/operator_decisions/HUMAN_OPERATOR_SOURCE_CLAIM_REVIEW_PACKET_CANDIDATE_001_INTERNAL_ONLY.md"
+)
 ACCESSIBILITY_REVIEW_BRIEF_002_PATH = (
     ROOT / "docs/content/article_reviews/betrugsnachrichten-auf-whatsapp-erkennen.accessibility-review.md"
 )
@@ -12197,6 +12201,287 @@ def validate_candidate_source_and_claim_final_review_packet_internal_candidate_0
     return 1
 
 
+def validate_human_operator_source_claim_review_packet_internal_candidate_001(
+    failures: list[str],
+) -> int:
+    path = HUMAN_OPERATOR_SOURCE_CLAIM_REVIEW_PACKET_INTERNAL_CANDIDATE_001_PATH
+    if not path.exists():
+        failures.append(
+            "Missing Human Operator Source/Claim Review Packet for "
+            "SHO-INTERNAL-CANDIDATE-001"
+        )
+        return 0
+
+    matching_files = list(
+        path.parent.glob(
+            "HUMAN_OPERATOR_SOURCE_CLAIM_REVIEW_PACKET_CANDIDATE_001_INTERNAL_ONLY.md"
+        )
+    )
+    if len(matching_files) != 1:
+        failures.append(
+            "Expected exactly one Human Operator Source/Claim Review Packet "
+            f"for SHO-INTERNAL-CANDIDATE-001, found {len(matching_files)}"
+        )
+
+    text = path.read_text(encoding="utf-8")
+    fields = parse_frontmatter_fields(text)
+    queue_text = WORK_QUEUE_V1_PATH.read_text(encoding="utf-8")
+    dashboard_text = ARTICLE_READINESS_DASHBOARD_PATH.read_text(encoding="utf-8")
+    batch_text = BATCH_MANIFEST_PATH.read_text(encoding="utf-8")
+    documentation_map_text = (ROOT / "docs/DOCUMENTATION_MAP.md").read_text(
+        encoding="utf-8"
+    )
+    handoff_text = (
+        ROOT / "external_review_packet/HANDOFF_LATEST_CONTEXT.md"
+    ).read_text(encoding="utf-8")
+
+    expected_fields = {
+        "human_operator_review_packet_id": (
+            "sho-internal-candidate-001-human-operator-source-claim-review-packet"
+        ),
+        "task_type": (
+            "sho_internal_candidate_001_prepare_human_operator_source_claim_review_packet_internal_only"
+        ),
+        "autonomy_class": "yellow-b",
+        "internal_candidate_id": "sho-internal-candidate-001",
+        "artifact_status": "internal_only",
+        "human_operator_review_packet_status": "prepared_internal_only",
+        "human_operator_decision_status": "not_recorded",
+        "selected_option_status": "pending",
+        "source_and_claim_final_review_status": (
+            "ready_for_human_operator_source_claim_review_with_limitations"
+        ),
+        "final_source_approval_status": "not_approved",
+        "final_claim_approval_status": "not_approved",
+        "final_citation_label_approval_status": "not_approved",
+        "new_external_sources_status": "not_added",
+        "new_source_evidence_status": "not_added",
+        "publish_readiness_status": "not_ready",
+        "operator_acceptance_status": "not_accepted",
+        "public_launch_status": "not_ready",
+        "monetization_status": "not_approved",
+        "analytics_status": "not_connected",
+        "search_console_status": "not_connected",
+        "user_feedback_status": "not_collected",
+        "wcag_conformance_status": "not_tested",
+        "sho_claim_007_status": "blocked",
+        "sho_src_004_ui_context_status": "blocked",
+        "whatsapp_ui_path_validation_status": "not_performed",
+        "queue_execution_status": "not_live",
+        "stage_advancement_status": "not_advanced",
+        "packet_date": "2026-06-15",
+        "timezone": "europe/berlin",
+    }
+    for field_name, expected_value in expected_fields.items():
+        if normalized(fields.get(field_name)) != expected_value:
+            failures.append(
+                "Human Operator Source/Claim Review Packet must have "
+                f"{field_name}: {expected_value}"
+            )
+
+    required_fragments = [
+        "created_from_source_and_claim_final_review_packet: docs/content/article_reviews/whatsapp-fraud-checklist.candidate-source-and-claim-final-review-packet.md",
+        "## 1. Executive Verdict",
+        "## 2. Human Operator Decision Question",
+        "## 3. Review Basis Summary",
+        "## 4. Human Operator Decision Options",
+        "### Option A:",
+        "### Option B:",
+        "### Option C:",
+        "### Option D:",
+        "Dieses Paket waehlt keine Option.",
+        "## 5. Recommended Conservative Option",
+        "unverbindlich",
+        "## 6. Source Decision Summary for Human Operator",
+        "## 7. Claim Decision Summary for Human Operator",
+        "## 8. Limitation and Blocker Summary",
+        "## 9. Pending Human Operator Decision",
+        "decision_status: pending",
+        "selected_option: pending",
+        "## 10. Outcome and Next Allowed Step",
+        "## 11. Required Later Gates",
+        "## 12. Explicit Non-Goals",
+        "SHO-SRC-004",
+        "SHO-SRC-005",
+        "SHO-SRC-006",
+        "SHO-SRC-007",
+        "SHO-CLAIM-004",
+        "SHO-CLAIM-005",
+        "SHO-CLAIM-006",
+        "SHO-CLAIM-007",
+        "SRC-GAP-WF-006",
+        "blocked_not_reviewed_out_of_scope",
+        "not_allowed_pending_later_gates",
+        "packet_outcome: human_operator_source_claim_review_packet_prepared_internal_only",
+        "allowed_next_action: record_human_operator_source_claim_review_decision_internal_only",
+        "keine Human-Operator-Entscheidung aufgezeichnet",
+        "keine neue Live-Quellenverifikation",
+        "kein externes Browsing",
+        "keine neue Source-Evidenz",
+        "keine finale Source-Freigabe",
+        "keine finale Claim-Freigabe",
+        "keine finale Citation-Label-Freigabe fuer Publikation",
+        "keine Publish Readiness",
+        "keine Operator Acceptance",
+        "kein Unlock von `SHO-CLAIM-007`",
+        "keine Queue-Ausfuehrung",
+        "kein Stage Advancement",
+    ]
+    for fragment in required_fragments:
+        if fragment not in text:
+            failures.append(
+                "Human Operator Source/Claim Review Packet must contain: "
+                f"{fragment}"
+            )
+
+    for source_id in ("SHO-SRC-004", "SHO-SRC-005", "SHO-SRC-006", "SHO-SRC-007"):
+        if text.count(f"`{source_id}`") < 2:
+            failures.append(
+                "Human Operator Source/Claim Review Packet must include "
+                f"source decision coverage for {source_id}"
+            )
+
+    for claim_id in (
+        "SHO-CLAIM-004",
+        "SHO-CLAIM-005",
+        "SHO-CLAIM-006",
+        "SHO-CLAIM-007",
+    ):
+        if text.count(f"`{claim_id}`") < 2:
+            failures.append(
+                "Human Operator Source/Claim Review Packet must include "
+                f"claim decision coverage for {claim_id}"
+            )
+
+    forbidden_activation_markers = [
+        "human_operator_decision_status: recorded",
+        "human_operator_decision_status: accepted",
+        "human_operator_decision_status: approved",
+        "selected_option_status: selected",
+        "final_source_approval_status: approved",
+        "final_claim_approval_status: approved",
+        "final_citation_label_approval_status: approved",
+        "| approved |",
+        "publish_readiness_status: ready",
+        "operator_acceptance_status: accepted",
+        "public_launch_status: ready",
+        "public_launch_status: launched",
+        "monetization_status: approved",
+        "analytics_status: connected",
+        "search_console_status: connected",
+        "user_feedback_status: collected",
+        "new_external_sources_status: added",
+        "new_source_evidence_status: added",
+        "wcag_conformance_status: passed",
+        "sho_claim_007_status: unblocked",
+        "sho_src_004_ui_context_status: unblocked",
+    ]
+    lower_text = text.lower()
+    for fragment in forbidden_activation_markers:
+        if fragment in lower_text:
+            failures.append(
+                "Human Operator Source/Claim Review Packet contains "
+                f"forbidden activation marker: {fragment}"
+            )
+
+    tracking_fragments = {
+        "dashboard": (
+            dashboard_text,
+            [
+                "human_operator_source_claim_review_packet_prepared_internal_only",
+                "record_human_operator_source_claim_review_decision_internal_only",
+                "human_operator_decision_status not_recorded",
+                "SRC-GAP-WF-006 remains open",
+            ],
+        ),
+        "batch": (
+            batch_text,
+            [
+                "human_operator_source_claim_review_packet_status: prepared_internal_only",
+                "human_operator_source_claim_decision_status: not_recorded",
+                "final_source_approval_status: not_approved",
+                "final_claim_approval_status: not_approved",
+                "allowed_next_action: record_human_operator_source_claim_review_decision_internal_only",
+            ],
+        ),
+        "handoff": (
+            handoff_text,
+            [
+                "HUMAN_OPERATOR_SOURCE_CLAIM_REVIEW_PACKET_PREPARED_INTERNAL_ONLY_DECISION_NOT_RECORDED",
+                "human_operator_source_claim_review_packet_status: prepared_internal_only",
+                "human_operator_source_claim_decision_status: not_recorded",
+                "record_human_operator_source_claim_review_decision_internal_only",
+            ],
+        ),
+        "documentation map": (
+            documentation_map_text,
+            [
+                "HUMAN_OPERATOR_SOURCE_CLAIM_REVIEW_PACKET_CANDIDATE_001_INTERNAL_ONLY.md"
+            ],
+        ),
+    }
+    for area, (area_text, fragments) in tracking_fragments.items():
+        for fragment in fragments:
+            if fragment not in area_text:
+                failures.append(
+                    f"{area} missing Human Operator Source/Claim Review "
+                    f"Packet status: {fragment}"
+                )
+
+    queue_item_match = re.search(
+        r"(?ms)^  - queue_item_id: CQ-V1-050\n"
+        r"(?P<body>.*?)(?=^  - queue_item_id: |\Z)",
+        queue_text,
+    )
+    if not queue_item_match:
+        failures.append("Work Queue V1 missing CQ-V1-050")
+    else:
+        queue_item_text = queue_item_match.group("body")
+        required_queue_fragments = [
+            "HUMAN_OPERATOR_SOURCE_CLAIM_REVIEW_PACKET_CANDIDATE_001_INTERNAL_ONLY.md",
+            "human_operator_review_packet_status: prepared_internal_only",
+            "human_operator_decision_status: not_recorded",
+            "selected_option_status: pending",
+            "source_and_claim_final_review_status: ready_for_human_operator_source_claim_review_with_limitations",
+            "final_source_approval_status: not_approved",
+            "final_claim_approval_status: not_approved",
+            "final_citation_label_approval_status: not_approved",
+            "option_a_accept_with_limitations",
+            "option_b_require_follow_up",
+            "option_c_accept_narrowed_package",
+            "option_d_pause_candidate_path",
+            "SHO-SRC-004",
+            "SHO-SRC-005",
+            "SHO-SRC-006",
+            "SHO-SRC-007",
+            "SHO-CLAIM-004",
+            "SHO-CLAIM-005",
+            "SHO-CLAIM-006",
+            "SHO-CLAIM-007",
+            "SRC_GAP_WF_006_open",
+            "allowed_next_action: record_human_operator_source_claim_review_decision_internal_only",
+            "record_human_operator_decision_without_explicit_operator_input",
+            "perform_new_live_source_verification",
+            "browse_external_sources",
+            "verify_SHO_SRC_004",
+            "unlock_SHO_CLAIM_007",
+            "approve_final_publish_source_set",
+            "approve_final_claim_use",
+            "approve_final_publication_citation_labels",
+            "set_publish_readiness",
+            "set_operator_acceptance",
+            "execute_queue",
+            "advance_stage",
+            "human_gate_required: yes_for_decision_recording",
+            "status: internal_review_prepared",
+        ]
+        for fragment in required_queue_fragments:
+            if fragment not in queue_item_text:
+                failures.append(f"Work Queue CQ-V1-050 missing: {fragment}")
+
+    return 1
+
+
 def validate_applied_scorecard_brief_002(failures: list[str]) -> int:
     if not APPLIED_SCORECARD_BRIEF_002_PATH.exists():
         failures.append(
@@ -13960,6 +14245,11 @@ def main() -> int:
             failures
         )
     )
+    human_operator_source_claim_review_packet_internal_candidate_001_count = (
+        validate_human_operator_source_claim_review_packet_internal_candidate_001(
+            failures
+        )
+    )
     applied_scorecard_brief_002_count = validate_applied_scorecard_brief_002(failures)
     human_operator_review_packet_final_article_candidate_brief_002_count = (
         validate_human_operator_review_packet_final_article_candidate_brief_002(failures)
@@ -14130,6 +14420,11 @@ def main() -> int:
         "- Internal candidate Candidate Source and Claim Final Review Packet "
         "files: "
         f"{candidate_source_and_claim_final_review_packet_internal_candidate_001_count}"
+    )
+    print(
+        "- Internal candidate Human Operator Source/Claim Review Packet "
+        "files: "
+        f"{human_operator_source_claim_review_packet_internal_candidate_001_count}"
     )
     print(f"- Batch 01 applied scorecard Brief 002 files: {applied_scorecard_brief_002_count}")
     print(
