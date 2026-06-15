@@ -5,8 +5,8 @@
 - project_name: Senioren-Hilfe Online
 - system_name: Senioren-Hilfe Online OS
 - system_short_name: SHO-OS
-- patch_title: SHO_INTERNAL_CANDIDATE_001_PREPARE_HUMAN_OPERATOR_REVIEW_PACKET_FOR_INTERNAL_FINAL_ARTICLE_CANDIDATE_WITH_LIMITATIONS_ONLY
-- external_review_verdict: HUMAN_OPERATOR_REVIEW_PACKET_FINAL_ARTICLE_CANDIDATE_OPTION_A_PREPARED_INTERNAL_ONLY
+- patch_title: SHO_INTERNAL_CANDIDATE_001_RECORD_HUMAN_OPERATOR_REVIEW_DECISION_FINAL_ARTICLE_CANDIDATE_OPTION_A_INTERNAL_ONLY
+- external_review_verdict: HUMAN_OPERATOR_REVIEW_DECISION_FINAL_ARTICLE_CANDIDATE_OPTION_A_RECORDED_INTERNAL_ONLY
 
 SHO-OS ist ein reproduzierbares Content-, Trust- und Publishing-System fuer seniorengerechte digitale Alltagshilfe in Deutschland.
 
@@ -15,9 +15,9 @@ Dieser Handoff beschreibt den aktuellen internen Repo-Kontext nach der internen 
 ## Git Traceability
 
 - branch: `main`
-- head_before_current_patch: `3f0d0ebc050c6fcfe0018e821ee74d178af2bddb`
+- head_before_current_patch: `6cc6160e0788fca98acfc5f10a90a6e73894dd00`
 - intended_head_after: `assigned_after_commit`
-- origin_main_before_current_patch: `3f0d0ebc050c6fcfe0018e821ee74d178af2bddb`
+- origin_main_before_current_patch: `6cc6160e0788fca98acfc5f10a90a6e73894dd00`
 - dirty_state_before_current_patch: `clean`
 - dirty_state_after_current_patch: `assigned_after_commit`
 
@@ -167,6 +167,11 @@ Hinweis: `head_after` wird nicht vorab als Commit-SHA eingetragen, weil ein Comm
 - The packet prepares exactly four options and records no Human Operator decision; `selected_option_status` remains `pending`.
 - Candidate content was not modified. No final article, Publish Candidate, Publish Readiness, Operator Acceptance or final source/claim/citation approval was created.
 - The next allowed action is `await_human_operator_review_decision_for_internal_final_article_candidate_option_a`.
+- superseded_external_review_verdict: HUMAN_OPERATOR_REVIEW_PACKET_FINAL_ARTICLE_CANDIDATE_OPTION_A_PREPARED_INTERNAL_ONLY
+- `CQ-V1-059` records the explicit Human Operator Review selection of Option A for Final Article Candidate Option A.
+- The Candidate may proceed only to the next internal gate with all documented limitations preserved.
+- Candidate content was not modified. No final article, Publish Candidate, Publish Readiness, Operator Acceptance or final source/claim/citation approval was created.
+- The next allowed action is `prepare_next_internal_candidate_gate_packet_with_limitations_only`.
 
 ## Internal Candidate Status
 
@@ -177,7 +182,7 @@ internal_candidate:
   internal_candidate_status: internal_only
   official_mvp_brief_status: not_assigned
   batch_membership_status: internal_spinoff_candidate_not_official_batch_brief
-  current_artifact_level: human_operator_review_packet_final_article_candidate_option_a_prepared_internal_only
+  current_artifact_level: human_operator_review_decision_final_article_candidate_option_a_recorded_internal_only
   final_article_candidate_created: true
   final_article_candidate_review_status: final_article_candidate_review_passed_with_findings_not_publish_ready
   source_metadata_freshness_review_status: source_metadata_freshness_review_passed_with_findings_not_publish_ready
@@ -229,11 +234,19 @@ internal_candidate:
   final_article_candidate_option_a_review: docs/content/article_reviews/whatsapp-fraud-checklist.final-article-candidate-option-a-review-internal-only.md
   human_operator_final_article_candidate_option_a_review_packet_status: prepared_internal_only
   human_operator_final_article_candidate_option_a_review_packet: docs/operations/operator_decisions/HUMAN_OPERATOR_REVIEW_PACKET_FINAL_ARTICLE_CANDIDATE_OPTION_A_CANDIDATE_001_INTERNAL_ONLY.md
-  human_operator_final_article_candidate_option_a_decision_status: not_recorded
-  human_operator_final_article_candidate_option_a_selected_option_status: pending
+  human_operator_final_article_candidate_option_a_decision_status: recorded
+  human_operator_final_article_candidate_option_a_selected_option: option_a
+  human_operator_final_article_candidate_option_a_decision: docs/operations/operator_decisions/HUMAN_OPERATOR_REVIEW_DECISION_FINAL_ARTICLE_CANDIDATE_OPTION_A_ACCEPT_NEXT_GATE_CANDIDATE_001_INTERNAL_ONLY.md
+  internal_next_gate_authorization_status: authorized_internal_only_with_limitations
   post_source_claim_final_article_status: not_created
   publish_candidate_status: not_created
-  allowed_next_action: await_human_operator_review_decision_for_internal_final_article_candidate_option_a
+  allowed_next_action: prepare_next_internal_candidate_gate_packet_with_limitations_only
+  superseded_human_operator_review_packet_artifact_level: "current_artifact_level: human_operator_review_packet_final_article_candidate_option_a_prepared_internal_only"
+  superseded_human_operator_review_packet_allowed_next_action: await_human_operator_review_decision_for_internal_final_article_candidate_option_a
+  superseded_human_operator_review_packet_decision_status: not_recorded
+  superseded_human_operator_review_packet_selected_option_status: pending
+  superseded_human_operator_review_packet_decision_status_anchor: "human_operator_final_article_candidate_option_a_decision_status: not_recorded"
+  superseded_human_operator_review_packet_selected_option_status_anchor: "human_operator_final_article_candidate_option_a_selected_option_status: pending"
   superseded_final_article_candidate_option_a_review_artifact_level: "current_artifact_level: internal_final_article_candidate_option_a_review_completed_with_findings"
   superseded_final_article_candidate_option_a_review_allowed_next_action: prepare_human_operator_review_packet_for_internal_final_article_candidate_with_limitations_only
   superseded_final_article_candidate_option_a_review_verdict: INTERNAL_FINAL_ARTICLE_CANDIDATE_OPTION_A_REVIEW_PASS_WITH_FINDINGS_NOT_PUBLISH_READY
@@ -296,7 +309,7 @@ This internal candidate is not an official fifth MVP brief and is not `SHO-MVP-B
 ## Non-Scope / Non-Acceptance
 
 - No final article.
-- One unchanged historical internal Final Article Candidate plus a new internal Final Article Candidate Option A exists for `SHO-INTERNAL-CANDIDATE-001`. The new candidate has been reviewed with verdict `pass_with_findings_not_publish_ready`, and an internal Human Operator Review Packet is prepared. No Human Operator decision is recorded and no option is selected. The candidate remains unchanged, is not a final article or Publish Candidate, approves no final freshness, citation label, source, claim or publication use, and remains not publish-ready and not accepted.
+- One unchanged historical internal Final Article Candidate plus a new internal Final Article Candidate Option A exists for `SHO-INTERNAL-CANDIDATE-001`. The new candidate has been reviewed with verdict `pass_with_findings_not_publish_ready`; Human Operator Review Option A is recorded for the next internal gate with limitations only. The candidate remains unchanged, is not a final article or Publish Candidate, approves no final freshness, citation label, source, claim or publication use, and remains not publish-ready and not accepted.
 - No Publish Candidate.
 - No Publish Readiness.
 - No Operator Acceptance.
