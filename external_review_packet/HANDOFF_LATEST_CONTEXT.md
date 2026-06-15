@@ -5,8 +5,8 @@
 - project_name: Senioren-Hilfe Online
 - system_name: Senioren-Hilfe Online OS
 - system_short_name: SHO-OS
-- patch_title: SHO_INTERNAL_CANDIDATE_001_PREPARE_CANDIDATE_FINAL_ARTICLE_PREPARATION_GATE_REVIEW_INTERNAL_ONLY
-- external_review_verdict: CANDIDATE_FINAL_ARTICLE_PREPARATION_GATE_REVIEW_POST_SOURCE_CLAIM_DECISION_COMPLETED_INTERNAL_ONLY_WITH_FINDINGS
+- patch_title: SHO_INTERNAL_CANDIDATE_001_PREPARE_CANDIDATE_FINAL_ARTICLE_PREPARATION_PACKET_INTERNAL_ONLY
+- external_review_verdict: CANDIDATE_FINAL_ARTICLE_PREPARATION_PACKET_PREPARED_INTERNAL_ONLY
 
 SHO-OS ist ein reproduzierbares Content-, Trust- und Publishing-System fuer seniorengerechte digitale Alltagshilfe in Deutschland.
 
@@ -15,9 +15,9 @@ Dieser Handoff beschreibt den aktuellen internen Repo-Kontext nach der internen 
 ## Git Traceability
 
 - branch: `main`
-- head_before_current_patch: `d1b86f6353d34cc70a3940742bdd8ed09810549a`
+- head_before_current_patch: `2379600291b17f29d79fc3c0508dfd52337d576e`
 - intended_head_after: `assigned_after_commit`
-- origin_main_before_current_patch: `d1b86f6353d34cc70a3940742bdd8ed09810549a`
+- origin_main_before_current_patch: `2379600291b17f29d79fc3c0508dfd52337d576e`
 - dirty_state_before_current_patch: `clean`
 - dirty_state_after_current_patch: `assigned_after_commit`
 
@@ -138,6 +138,11 @@ Hinweis: `head_after` wird nicht vorab als Commit-SHA eingetragen, weil ein Comm
 - No Final Article Preparation Packet, final article or Publish Candidate was created.
 - All source, claim, date, citation, `SHO-SRC-004`, `SHO-CLAIM-007` and `SRC-GAP-WF-006` limitations remain active.
 - The next allowed action is `prepare_candidate_final_article_preparation_packet_internal_only`.
+- `CQ-V1-053` records the internal Final Article Preparation Packet.
+- The packet contains only scope, constraint, limitation and non-article skeleton guidance.
+- No final article, Publish Candidate, Publish Readiness or Operator Acceptance was created.
+- Final source, claim and citation-label approvals remain `not_approved`; `SHO-SRC-004` and `SHO-CLAIM-007` remain blocked.
+- The next allowed action is `prepare_human_operator_decision_for_final_article_candidate_creation_internal_only`.
 
 ## Internal Candidate Status
 
@@ -148,7 +153,7 @@ internal_candidate:
   internal_candidate_status: internal_only
   official_mvp_brief_status: not_assigned
   batch_membership_status: internal_spinoff_candidate_not_official_batch_brief
-  current_artifact_level: candidate_final_article_preparation_gate_review_post_source_claim_decision_completed_internal_only_with_findings
+  current_artifact_level: final_article_preparation_packet_prepared_internal_only
   final_article_candidate_created: true
   final_article_candidate_review_status: final_article_candidate_review_passed_with_findings_not_publish_ready
   source_metadata_freshness_review_status: source_metadata_freshness_review_passed_with_findings_not_publish_ready
@@ -188,10 +193,10 @@ internal_candidate:
   allowed_next_gate_status: authorized_internal_only
   candidate_final_article_preparation_gate_review_post_source_claim_decision_status: completed_internal_only_with_findings
   candidate_final_article_preparation_gate_review_verdict: pass_for_internal_final_article_preparation_packet_with_limitations
-  candidate_final_article_preparation_packet_status: not_created
+  candidate_final_article_preparation_packet_status: prepared_internal_only
   post_source_claim_final_article_status: not_created
   publish_candidate_status: not_created
-  allowed_next_action: prepare_candidate_final_article_preparation_packet_internal_only
+  allowed_next_action: prepare_human_operator_decision_for_final_article_candidate_creation_internal_only
   live_verification_status: performed_internal_only
   live_data_population_status: evidence_records_created_authorized_scope_only
   source_freshness_status: reviewed_internal_only_with_limitations_not_finally_verified
@@ -240,7 +245,7 @@ This internal candidate is not an official fifth MVP brief and is not `SHO-MVP-B
 ## Non-Scope / Non-Acceptance
 
 - No final article.
-- One unchanged historical internal Final Article Candidate plus the internal review, selection, evidence, freshness, claim-mapping, metadata and source/claim review chain exists for `SHO-INTERNAL-CANDIDATE-001`. The post-source/claim-decision gate permits only preparation of a later internal Final Article Preparation Packet with limitations; it creates no final article or Publish Candidate, approves no final freshness, citation label, source, claim or publication use, and the path remains not publish-ready and not accepted.
+- One unchanged historical internal Final Article Candidate plus the internal review, selection, evidence, freshness, claim-mapping, metadata and source/claim review chain exists for `SHO-INTERNAL-CANDIDATE-001`. The new Final Article Preparation Packet contains planning guidance only and requires a later Human Operator decision preparation before any new Final Article Candidate may be created. It creates no final article or Publish Candidate, approves no final freshness, citation label, source, claim or publication use, and the path remains not publish-ready and not accepted.
 - No Publish Candidate.
 - No Publish Readiness.
 - No Operator Acceptance.
@@ -288,12 +293,14 @@ The Human Operator decision now accepts the cleaned internal baseline as an inte
 
 ## Recommended Next Safe Outputs
 
-- `PREPARE_CANDIDATE_FINAL_ARTICLE_PREPARATION_PACKET_INTERNAL_ONLY`
+- `PREPARE_HUMAN_OPERATOR_DECISION_FOR_FINAL_ARTICLE_CANDIDATE_CREATION_INTERNAL_ONLY`
 - `BRIEF_002_PUBLISH_CANDIDATE_DECISION_PACKET_INTERNAL_ONLY`
 - `WEBSITE_RELEASE_READINESS_GAP_REVIEW_INTERNAL_ONLY`
 
 Superseded validator anchors retained as historical context:
 
+- superseded_external_review_verdict: CANDIDATE_FINAL_ARTICLE_PREPARATION_GATE_REVIEW_POST_SOURCE_CLAIM_DECISION_COMPLETED_INTERNAL_ONLY_WITH_FINDINGS
+- superseded_final_article_preparation_packet_status: candidate_final_article_preparation_packet_status: not_created
 - superseded_external_review_verdict: HUMAN_OPERATOR_SOURCE_CLAIM_REVIEW_DECISION_OPTION_A_RECORDED_INTERNAL_ONLY
 - superseded_source_claim_decision_status: human_operator_source_claim_review_decision_status: recorded
 - superseded_source_claim_selected_option: human_operator_source_claim_review_selected_option: option_a
