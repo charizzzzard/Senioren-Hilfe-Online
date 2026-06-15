@@ -5,8 +5,8 @@
 - project_name: Senioren-Hilfe Online
 - system_name: Senioren-Hilfe Online OS
 - system_short_name: SHO-OS
-- patch_title: SHO_INTERNAL_CANDIDATE_001_RECORD_HUMAN_OPERATOR_FINAL_ARTICLE_CANDIDATE_CREATION_DECISION_OPTION_A_INTERNAL_ONLY
-- external_review_verdict: HUMAN_OPERATOR_DECISION_FINAL_ARTICLE_CANDIDATE_CREATION_OPTION_A_RECORDED_INTERNAL_ONLY
+- patch_title: SHO_INTERNAL_CANDIDATE_001_PREPARE_INTERNAL_FINAL_ARTICLE_CANDIDATE_WITH_LIMITATIONS_ONLY
+- external_review_verdict: INTERNAL_FINAL_ARTICLE_CANDIDATE_OPTION_A_PREPARED_WITH_LIMITATIONS_ONLY
 
 SHO-OS ist ein reproduzierbares Content-, Trust- und Publishing-System fuer seniorengerechte digitale Alltagshilfe in Deutschland.
 
@@ -15,9 +15,9 @@ Dieser Handoff beschreibt den aktuellen internen Repo-Kontext nach der internen 
 ## Git Traceability
 
 - branch: `main`
-- head_before_current_patch: `de15ab77045f855b5c2c738f3c9d665ccd477412`
+- head_before_current_patch: `d383d31fb52fc1d5ec87acb54edf5af4c65d638e`
 - intended_head_after: `assigned_after_commit`
-- origin_main_before_current_patch: `de15ab77045f855b5c2c738f3c9d665ccd477412`
+- origin_main_before_current_patch: `d383d31fb52fc1d5ec87acb54edf5af4c65d638e`
 - dirty_state_before_current_patch: `clean`
 - dirty_state_after_current_patch: `assigned_after_commit`
 
@@ -153,6 +153,12 @@ Hinweis: `head_after` wird nicht vorab als Commit-SHA eingetragen, weil ein Comm
 - No new Final Article Candidate, final article, Publish Candidate, Publish Readiness or Operator Acceptance was created.
 - Final source, claim and citation-label approvals remain `not_approved`; `SHO-SRC-004` and `SHO-CLAIM-007` remain blocked.
 - The next allowed action is `prepare_internal_final_article_candidate_with_limitations_only`.
+- `CQ-V1-056` records one new internal Final Article Candidate Option A for `SHO-INTERNAL-CANDIDATE-001`.
+- The new candidate is internal-only, prepared with limitations and not a final article or Publish Candidate.
+- The historical Final Article Candidate remains unchanged.
+- The candidate uses only the allowed limited source/claim scope: `SHO-SRC-005/006/007` and `SHO-CLAIM-004/005/006`.
+- `SHO-SRC-004`, `SHO-CLAIM-007`, final source/claim/citation approvals, Publish Readiness and Operator Acceptance remain blocked or negative.
+- The next allowed action is `review_internal_final_article_candidate_with_limitations_only`.
 
 ## Internal Candidate Status
 
@@ -163,7 +169,7 @@ internal_candidate:
   internal_candidate_status: internal_only
   official_mvp_brief_status: not_assigned
   batch_membership_status: internal_spinoff_candidate_not_official_batch_brief
-  current_artifact_level: human_operator_final_article_candidate_creation_decision_option_a_recorded_internal_only
+  current_artifact_level: internal_final_article_candidate_option_a_prepared_with_limitations
   final_article_candidate_created: true
   final_article_candidate_review_status: final_article_candidate_review_passed_with_findings_not_publish_ready
   source_metadata_freshness_review_status: source_metadata_freshness_review_passed_with_findings_not_publish_ready
@@ -208,10 +214,14 @@ internal_candidate:
   human_operator_final_article_candidate_creation_decision_status: recorded
   human_operator_final_article_candidate_creation_selected_option: option_a
   final_article_candidate_creation_authorization_status: authorized_internal_only_with_limitations
-  new_final_article_candidate_status: not_created
+  new_final_article_candidate_status: prepared_internal_only_with_limitations
+  new_final_article_candidate: docs/content/final_article_candidates/whatsapp-fraud-checklist.final-article-candidate-option-a-internal-only.md
   post_source_claim_final_article_status: not_created
   publish_candidate_status: not_created
-  allowed_next_action: prepare_internal_final_article_candidate_with_limitations_only
+  allowed_next_action: review_internal_final_article_candidate_with_limitations_only
+  superseded_option_a_final_article_candidate_creation_allowed_next_action: prepare_internal_final_article_candidate_with_limitations_only
+  superseded_option_a_final_article_candidate_creation_verdict: HUMAN_OPERATOR_DECISION_FINAL_ARTICLE_CANDIDATE_CREATION_OPTION_A_RECORDED_INTERNAL_ONLY
+  superseded_option_a_final_article_candidate_creation_artifact_level: "current_artifact_level: human_operator_final_article_candidate_creation_decision_option_a_recorded_internal_only"
   superseded_human_operator_final_article_candidate_creation_decision_status: not_recorded
   superseded_human_operator_final_article_candidate_creation_selected_option_status: pending
   superseded_final_article_candidate_creation_authorization_status: not_authorized
@@ -265,7 +275,7 @@ This internal candidate is not an official fifth MVP brief and is not `SHO-MVP-B
 ## Non-Scope / Non-Acceptance
 
 - No final article.
-- One unchanged historical internal Final Article Candidate plus the internal review, selection, evidence, freshness, claim-mapping, metadata and source/claim review chain exists for `SHO-INTERNAL-CANDIDATE-001`. The new Human Operator Decision records Option A and authorizes only a later internal Final Article Candidate preparation task with limitations. It creates no new Final Article Candidate, final article or Publish Candidate, approves no final freshness, citation label, source, claim or publication use, and the path remains not publish-ready and not accepted.
+- One unchanged historical internal Final Article Candidate plus a new internal Final Article Candidate Option A exists for `SHO-INTERNAL-CANDIDATE-001`. The new candidate is prepared only with limitations and is not a final article or Publish Candidate. It approves no final freshness, citation label, source, claim or publication use, and the path remains not publish-ready and not accepted.
 - No Publish Candidate.
 - No Publish Readiness.
 - No Operator Acceptance.
@@ -313,7 +323,7 @@ The Human Operator decision now accepts the cleaned internal baseline as an inte
 
 ## Recommended Next Safe Outputs
 
-- `PREPARE_INTERNAL_FINAL_ARTICLE_CANDIDATE_WITH_LIMITATIONS_ONLY`
+- `REVIEW_INTERNAL_FINAL_ARTICLE_CANDIDATE_WITH_LIMITATIONS_ONLY`
 - `BRIEF_002_PUBLISH_CANDIDATE_DECISION_PACKET_INTERNAL_ONLY`
 - `WEBSITE_RELEASE_READINESS_GAP_REVIEW_INTERNAL_ONLY`
 

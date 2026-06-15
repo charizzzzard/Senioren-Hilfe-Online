@@ -317,6 +317,10 @@ HUMAN_OPERATOR_DECISION_FINAL_ARTICLE_CANDIDATE_CREATION_OPTION_A_INTERNAL_CANDI
     ROOT
     / "docs/operations/operator_decisions/HUMAN_OPERATOR_DECISION_FINAL_ARTICLE_CANDIDATE_CREATION_OPTION_A_CANDIDATE_001_INTERNAL_ONLY.md"
 )
+FINAL_ARTICLE_CANDIDATE_OPTION_A_INTERNAL_CANDIDATE_001_PATH = (
+    ROOT
+    / "docs/content/final_article_candidates/whatsapp-fraud-checklist.final-article-candidate-option-a-internal-only.md"
+)
 ACCESSIBILITY_REVIEW_BRIEF_002_PATH = (
     ROOT / "docs/content/article_reviews/betrugsnachrichten-auf-whatsapp-erkennen.accessibility-review.md"
 )
@@ -13824,6 +13828,278 @@ def validate_human_operator_decision_final_article_candidate_creation_option_a_i
     return 1
 
 
+def validate_final_article_candidate_option_a_internal_candidate_001(
+    failures: list[str],
+) -> int:
+    path = FINAL_ARTICLE_CANDIDATE_OPTION_A_INTERNAL_CANDIDATE_001_PATH
+    if not path.exists():
+        failures.append(
+            "Missing internal Final Article Candidate Option A for "
+            "SHO-INTERNAL-CANDIDATE-001"
+        )
+        return 0
+
+    matching_files = list(
+        path.parent.glob(
+            "whatsapp-fraud-checklist.final-article-candidate-option-a-internal-only.md"
+        )
+    )
+    if len(matching_files) != 1:
+        failures.append(
+            "Expected exactly one internal Final Article Candidate Option A "
+            f"for SHO-INTERNAL-CANDIDATE-001, found {len(matching_files)}"
+        )
+
+    text = path.read_text(encoding="utf-8")
+    fields = parse_frontmatter_fields(text)
+    queue_text = WORK_QUEUE_V1_PATH.read_text(encoding="utf-8")
+    dashboard_text = ARTICLE_READINESS_DASHBOARD_PATH.read_text(encoding="utf-8")
+    batch_text = BATCH_MANIFEST_PATH.read_text(encoding="utf-8")
+    documentation_map_text = (ROOT / "docs/DOCUMENTATION_MAP.md").read_text(
+        encoding="utf-8"
+    )
+    handoff_text = (
+        ROOT / "external_review_packet/HANDOFF_LATEST_CONTEXT.md"
+    ).read_text(encoding="utf-8")
+    historical_candidate_exists = FINAL_ARTICLE_CANDIDATE_INTERNAL_CANDIDATE_001_PATH.exists()
+
+    expected_fields = {
+        "candidate_id": (
+            "sho-internal-candidate-001-final-article-candidate-option-a-internal-only"
+        ),
+        "task_type": (
+            "sho_internal_candidate_001_prepare_internal_final_article_candidate_with_limitations_only"
+        ),
+        "autonomy_class": "yellow-b",
+        "internal_candidate_id": "sho-internal-candidate-001",
+        "candidate_slug": "whatsapp-fraud-checklist",
+        "artifact_status": "internal_only",
+        "final_article_candidate_status": "prepared_internal_only_with_limitations",
+        "final_article_status": "not_created",
+        "publish_candidate_status": "not_created",
+        "publish_readiness_status": "not_ready",
+        "operator_acceptance_status": "not_accepted",
+        "public_launch_status": "not_ready",
+        "monetization_status": "not_approved",
+        "analytics_status": "not_connected",
+        "search_console_status": "not_connected",
+        "user_feedback_status": "not_collected",
+        "wcag_conformance_status": "not_tested",
+        "final_source_approval_status": "not_approved",
+        "final_claim_approval_status": "not_approved",
+        "final_citation_label_approval_status": "not_approved",
+        "sho_claim_007_status": "blocked",
+        "sho_src_004_ui_context_status": "blocked",
+        "whatsapp_ui_path_validation_status": "not_performed",
+        "queue_execution_status": "not_live",
+        "stage_advancement_status": "not_advanced",
+        "reviewer": "codex",
+        "review_date": "2026-06-15",
+        "timezone": "europe/berlin",
+    }
+    for field_name, expected_value in expected_fields.items():
+        if normalized(fields.get(field_name)) != expected_value:
+            failures.append(
+                "Internal Final Article Candidate Option A must have "
+                f"{field_name}: {expected_value}"
+            )
+
+    required_fragments = [
+        "created_from_human_operator_decision: docs/operations/operator_decisions/HUMAN_OPERATOR_DECISION_FINAL_ARTICLE_CANDIDATE_CREATION_OPTION_A_CANDIDATE_001_INTERNAL_ONLY.md",
+        "created_from_preparation_packet: docs/content/article_reviews/whatsapp-fraud-checklist.final-article-preparation-packet-internal-only.md",
+        "## 1. Executive Verdict",
+        "## 2. Candidate Scope",
+        "## 3. Allowed Source and Claim Scope",
+        "## 4. Internal Final Article Candidate Text",
+        "## 5. Internal Source / Claim Mapping Notes",
+        "## 6. Limitations Carried Forward",
+        "## 7. Required Follow-Up Reviews",
+        "## 8. Explicit Non-Goals",
+        "## 9. Allowed Next Step",
+        "# Verdaechtige WhatsApp-Nachricht? Ruhig pruefen, bevor Sie antworten",
+        "## Das Wichtigste zuerst",
+        "## Warnzeichen, bei denen Sie genauer hinschauen sollten",
+        "## Was Sie besser nicht sofort tun",
+        "## Ruhige erste Schritte",
+        "## Eine vertraute Person einbeziehen",
+        "## Wenn Geld, Passwoerter, Codes oder Bankdaten geteilt wurden",
+        "## Kurze Merkliste",
+        "SHO-SRC-005",
+        "SHO-SRC-006",
+        "SHO-SRC-007",
+        "SHO-CLAIM-004",
+        "SHO-CLAIM-005",
+        "SHO-CLAIM-006",
+        "SHO-SRC-004",
+        "SHO-CLAIM-007",
+        "final citation labels are not approved",
+        "final source approval is not approved",
+        "final claim approval is not approved",
+        "SRC-GAP-WF-006",
+        "no exact WhatsApp UI paths",
+        "no WhatsApp block/report UI instructions",
+        "allowed_next_action: review_internal_final_article_candidate_with_limitations_only",
+    ]
+    for fragment in required_fragments:
+        if fragment not in text:
+            failures.append(
+                "Internal Final Article Candidate Option A must contain: "
+                f"{fragment}"
+            )
+
+    forbidden_activation_markers = [
+        "final_article_status: created",
+        "publish_candidate_status: created",
+        "publish_readiness_status: ready",
+        "operator_acceptance_status: accepted",
+        "public_launch_status: ready",
+        "public_launch_status: launched",
+        "monetization_status: approved",
+        "analytics_status: connected",
+        "search_console_status: connected",
+        "user_feedback_status: collected",
+        "wcag_conformance_status: passed",
+        "sho_claim_007_status: unblocked",
+        "sho_claim_007_status: unlocked",
+        "sho_src_004_ui_context_status: unblocked",
+        "sho_src_004_ui_context_status: verified",
+        "source_approved_for_publication",
+        "claim_approved_for_publication",
+        "final_source_set_approved",
+        "final_citation_labels_approved",
+        "freshness_verified",
+    ]
+    lower_text = text.lower()
+    for fragment in forbidden_activation_markers:
+        if fragment in lower_text:
+            failures.append(
+                "Internal Final Article Candidate Option A contains "
+                f"forbidden activation marker: {fragment}"
+            )
+
+    forbidden_ui_fragments = [
+        "tippen sie auf blockieren",
+        "chat melden",
+        "kontakt blockieren",
+        "blockieren und melden",
+        "meldung senden",
+        "menue >",
+        "einstellungen >",
+    ]
+    for fragment in forbidden_ui_fragments:
+        if fragment in lower_text:
+            failures.append(
+                "Internal Final Article Candidate Option A contains "
+                f"forbidden WhatsApp UI workflow fragment: {fragment}"
+            )
+
+    if "[claim: SHO-CLAIM-007" in text:
+        failures.append(
+            "Internal Final Article Candidate Option A must not use "
+            "active SHO-CLAIM-007 working marker"
+        )
+
+    if not historical_candidate_exists:
+        failures.append(
+            "Historical Final Article Candidate missing; cannot confirm "
+            "historical candidate remains available"
+        )
+
+    tracking_fragments = {
+        "documentation map": (
+            documentation_map_text,
+            [
+                "whatsapp-fraud-checklist.final-article-candidate-option-a-internal-only.md",
+                "historical Final Article Candidate remains unchanged",
+            ],
+        ),
+        "dashboard": (
+            dashboard_text,
+            [
+                "internal_final_article_candidate_option_a_prepared_with_limitations",
+                "review_internal_final_article_candidate_with_limitations_only",
+                "historical Final Article Candidate remains unchanged",
+                "new_final_article_candidate_status prepared_internal_only_with_limitations",
+                "publish_candidate_status not_created",
+            ],
+        ),
+        "batch": (
+            batch_text,
+            [
+                "docs/content/final_article_candidates/whatsapp-fraud-checklist.final-article-candidate-option-a-internal-only.md",
+                "new_final_article_candidate_status: prepared_internal_only_with_limitations",
+                "post_source_claim_final_article_status: not_created",
+                "publish_candidate_status: not_created",
+                "publish_readiness_status: not_ready",
+                "operator_acceptance_status: not_accepted",
+                "allowed_next_action: review_internal_final_article_candidate_with_limitations_only",
+            ],
+        ),
+        "handoff": (
+            handoff_text,
+            [
+                "INTERNAL_FINAL_ARTICLE_CANDIDATE_OPTION_A_PREPARED_WITH_LIMITATIONS_ONLY",
+                "current_artifact_level: internal_final_article_candidate_option_a_prepared_with_limitations",
+                "new_final_article_candidate_status: prepared_internal_only_with_limitations",
+                "review_internal_final_article_candidate_with_limitations_only",
+                "historical Final Article Candidate remains unchanged",
+            ],
+        ),
+    }
+    for area, (area_text, fragments) in tracking_fragments.items():
+        for fragment in fragments:
+            if fragment not in area_text:
+                failures.append(
+                    f"{area} missing internal Final Article Candidate "
+                    f"Option A status: {fragment}"
+                )
+
+    queue_item_match = re.search(
+        r"(?ms)^  - queue_item_id: CQ-V1-056\n"
+        r"(?P<body>.*?)(?=^  - queue_item_id: |\Z)",
+        queue_text,
+    )
+    if not queue_item_match:
+        failures.append("Work Queue V1 missing CQ-V1-056")
+    else:
+        queue_item_text = queue_item_match.group("body")
+        required_queue_fragments = [
+            "whatsapp-fraud-checklist.final-article-candidate-option-a-internal-only.md",
+            "final_article_candidate_status: prepared_internal_only_with_limitations",
+            "final_article_status: not_created",
+            "publish_candidate_status: not_created",
+            "final_source_approval_status: not_approved",
+            "final_claim_approval_status: not_approved",
+            "final_citation_label_approval_status: not_approved",
+            "publish_readiness_status: not_ready",
+            "operator_acceptance_status: not_accepted",
+            "public_launch_status: not_ready",
+            "sho_claim_007_status: blocked",
+            "sho_src_004_ui_context_status: blocked",
+            "allowed_next_action: review_internal_final_article_candidate_with_limitations_only",
+            "create_publish_candidate",
+            "set_publish_readiness",
+            "set_operator_acceptance",
+            "activate_public_launch",
+            "activate_monetization",
+            "activate_analytics",
+            "activate_search_console",
+            "claim_user_feedback",
+            "claim_wcag_conformance",
+            "invent_SEO_metrics",
+            "unlock_SHO_CLAIM_007",
+            "verify_SHO_SRC_004",
+            "add_WhatsApp_UI_block_report_steps",
+            "add_exact_WhatsApp_UI_paths",
+            "status: internal_final_article_candidate_prepared_with_limitations",
+        ]
+        for fragment in required_queue_fragments:
+            if fragment not in queue_item_text:
+                failures.append(f"Work Queue CQ-V1-056 missing: {fragment}")
+
+    return 1
+
+
 def validate_applied_scorecard_brief_002(failures: list[str]) -> int:
     if not APPLIED_SCORECARD_BRIEF_002_PATH.exists():
         failures.append(
@@ -15617,6 +15893,9 @@ def main() -> int:
             failures
         )
     )
+    final_article_candidate_option_a_internal_candidate_001_count = (
+        validate_final_article_candidate_option_a_internal_candidate_001(failures)
+    )
     applied_scorecard_brief_002_count = validate_applied_scorecard_brief_002(failures)
     human_operator_review_packet_final_article_candidate_brief_002_count = (
         validate_human_operator_review_packet_final_article_candidate_brief_002(failures)
@@ -15816,6 +16095,10 @@ def main() -> int:
         "- Internal candidate Human Operator Decision Option A for Final "
         "Article Candidate creation files: "
         f"{human_operator_decision_final_article_candidate_creation_option_a_internal_candidate_001_count}"
+    )
+    print(
+        "- Internal candidate Final Article Candidate Option A files: "
+        f"{final_article_candidate_option_a_internal_candidate_001_count}"
     )
     print(f"- Batch 01 applied scorecard Brief 002 files: {applied_scorecard_brief_002_count}")
     print(
