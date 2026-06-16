@@ -365,6 +365,10 @@ SOURCE_METADATA_CITATION_FOLLOW_UP_EXECUTION_RECORD_REVIEW_INTERNAL_CANDIDATE_00
     ROOT
     / "docs/operations/source_metadata_citation_follow_up/SOURCE_METADATA_CITATION_FOLLOW_UP_EXECUTION_RECORD_REVIEW_CANDIDATE_001_INTERNAL_ONLY.md"
 )
+SOURCE_METADATA_CITATION_LABEL_REVIEW_PACKET_INTERNAL_CANDIDATE_001_PATH = (
+    ROOT
+    / "docs/operations/source_metadata_citation_follow_up/SOURCE_METADATA_CITATION_LABEL_REVIEW_PACKET_CANDIDATE_001_INTERNAL_ONLY.md"
+)
 ACCESSIBILITY_REVIEW_BRIEF_002_PATH = (
     ROOT / "docs/content/article_reviews/betrugsnachrichten-auf-whatsapp-erkennen.accessibility-review.md"
 )
@@ -17513,6 +17517,275 @@ def validate_source_metadata_citation_follow_up_execution_record_review_internal
     return 1
 
 
+def validate_source_metadata_citation_label_review_packet_internal_candidate_001(
+    failures: list[str],
+) -> int:
+    path = SOURCE_METADATA_CITATION_LABEL_REVIEW_PACKET_INTERNAL_CANDIDATE_001_PATH
+    if not path.exists():
+        failures.append(
+            "Missing Source Metadata Citation Label Review Packet for "
+            "SHO-INTERNAL-CANDIDATE-001"
+        )
+        return 0
+
+    matching_files = list(
+        path.parent.glob(
+            "SOURCE_METADATA_CITATION_LABEL_REVIEW_PACKET_CANDIDATE_001_INTERNAL_ONLY.md"
+        )
+    )
+    if len(matching_files) != 1:
+        failures.append(
+            "Expected exactly one canonical Source Metadata Citation Label "
+            f"Review Packet, found {len(matching_files)}"
+        )
+
+    text = path.read_text(encoding="utf-8")
+    fields = parse_frontmatter_fields(text)
+    lower_text = text.lower()
+    queue_text = WORK_QUEUE_V1_PATH.read_text(encoding="utf-8")
+    dashboard_text = ARTICLE_READINESS_DASHBOARD_PATH.read_text(encoding="utf-8")
+    batch_text = BATCH_MANIFEST_PATH.read_text(encoding="utf-8")
+    documentation_map_text = (ROOT / "docs/DOCUMENTATION_MAP.md").read_text(
+        encoding="utf-8"
+    )
+    handoff_text = (
+        ROOT / "external_review_packet/HANDOFF_LATEST_CONTEXT.md"
+    ).read_text(encoding="utf-8")
+
+    expected_next_action = (
+        "review_internal_citation_label_review_packet_with_limitations_only"
+    )
+    expected_fields = {
+        "status": "internal_only",
+        "task_type": "prepare_internal_citation_label_review_packet_with_limitations_only",
+        "autonomy_class": "yellow-b",
+        "internal_candidate_id": "sho-internal-candidate-001",
+        "candidate_slug": "whatsapp-fraud-checklist",
+        "basis_review_record": (
+            "source_metadata_citation_follow_up_execution_record_review_candidate_001_internal_only"
+        ),
+        "basis_execution_record": (
+            "source_metadata_citation_follow_up_execution_record_candidate_001_internal_only"
+        ),
+        "selected_option": "option_a",
+        "packet_status": "prepared_internal_only",
+        "citation_label_review_status": "prepared_not_performed",
+        "citation_approval_status": "not_approved",
+        "source_approval_status": "not_approved",
+        "claim_approval_status": "not_approved",
+        "freshness_approval_status": "not_approved",
+        "final_source_approval_status": "not_approved",
+        "final_claim_approval_status": "not_approved",
+        "final_citation_label_approval_status": "not_approved",
+        "metadata_resolution_status": "not_performed_in_this_task",
+        "browsing_status": "not_performed",
+        "live_verification_status": "not_performed",
+        "final_article_status": "not_created",
+        "publish_candidate_status": "not_created",
+        "publish_readiness_status": "not_ready",
+        "operator_acceptance_status": "not_accepted",
+        "public_launch_status": "not_ready",
+    }
+    for field_name, expected_value in expected_fields.items():
+        actual_value = normalized(fields.get(field_name)).strip('"')
+        if actual_value != expected_value:
+            failures.append(
+                "Source Metadata Citation Label Review Packet must have "
+                f"{field_name}: {expected_value}"
+            )
+
+    required_fragments = [
+        "## 1. Executive Summary",
+        "## 2. Basis and Scope",
+        "## 3. Explicit Non-Approval Statement",
+        "## 4. Allowed Source and Claim Scope",
+        "## 5. Blocked Source and Claim Scope",
+        "## 6. Citation Label Candidate Table",
+        "## 7. Source Date Boundary Notes",
+        "## 8. Citation Label Review Questions",
+        "## 9. Risk Notes for Later Review",
+        "## 10. Required Human Operator Gates",
+        "## 11. Required Later Outputs",
+        "## 12. Stop Conditions for Later Review",
+        "## 13. Negative Approval and Publish-State Confirmation",
+        "## 14. Allowed Next Step",
+        "## 15. Handoff Notes for Next Operator/Codex Run",
+        "task_type: \"prepare_internal_citation_label_review_packet_with_limitations_only\"",
+        "status: \"internal_only\"",
+        "autonomy_class: \"YELLOW-B\"",
+        "packet_status: \"prepared_internal_only\"",
+        "citation_label_review_status: \"prepared_not_performed\"",
+        "citation_approval_status: \"not_approved\"",
+        "source_approval_status: \"not_approved\"",
+        "claim_approval_status: \"not_approved\"",
+        "freshness_approval_status: \"not_approved\"",
+        "final_source_approval_status: \"not_approved\"",
+        "final_claim_approval_status: \"not_approved\"",
+        "final_citation_label_approval_status: \"not_approved\"",
+        "metadata_resolution_status: \"not_performed_in_this_task\"",
+        "browsing_status: \"not_performed\"",
+        "live_verification_status: \"not_performed\"",
+        "final_article_status: \"not_created\"",
+        "publish_candidate_status: \"not_created\"",
+        "publish_readiness_status: \"not_ready\"",
+        "operator_acceptance_status: \"not_accepted\"",
+        "public_launch_status: \"not_ready\"",
+        "SHO-SRC-005",
+        "SHO-SRC-006",
+        "SHO-SRC-007",
+        "SHO-SRC-004",
+        "SHO-CLAIM-004",
+        "SHO-CLAIM-005",
+        "SHO-CLAIM-006",
+        "SHO-CLAIM-007",
+        "candidate_not_approved",
+        "| source_id | candidate_label | source_title | publisher_or_operator | access_date_basis | visible_publication_date_status | visible_update_date_status | date_boundary_note | scope_limit_note | citation_label_status | required_later_review |",
+        "Polizeiliche Kriminalpraevention: Messenger-Betrug (Zugriff 12.06.2026; Veroeffentlichungs-/Aktualisierungsdatum nicht sichtbar)",
+        "Polizeiliche Kriminalpraevention: Enkeltrick (Zugriff 12.06.2026; Veroeffentlichungs-/Aktualisierungsdatum nicht sichtbar)",
+        "Verbraucherzentrale: Phishing-Radar: Aktuelle Warnungen (Seitenstand 10.06.2026; Zugriff 12.06.2026; Datumsdarstellung ungeklaert)",
+        f"allowed_next_action: {expected_next_action}",
+    ]
+    for fragment in required_fragments:
+        if fragment not in text:
+            failures.append(
+                "Source Metadata Citation Label Review Packet must contain: "
+                f"{fragment}"
+            )
+
+    forbidden_activation_markers = [
+        "publish_readiness_status: ready",
+        "operator_acceptance_status: accepted",
+        "public_launch_status: ready",
+        "citation_approval_status: approved",
+        "source_approval_status: approved",
+        "claim_approval_status: approved",
+        "freshness_approval_status: approved",
+        "final_source_approval_status: approved",
+        "final_claim_approval_status: approved",
+        "final_citation_label_approval_status: approved",
+        "publish_candidate_status: created",
+        "final_article_status: created",
+        "sho-claim-007 unlocked",
+        "sho-src-004 approved",
+        "sho_claim_007_status: unlocked",
+        "sho_src_004_ui_context_status: verified",
+    ]
+    for fragment in forbidden_activation_markers:
+        if fragment in lower_text:
+            failures.append(
+                "Source Metadata Citation Label Review Packet contains "
+                f"forbidden activation marker: {fragment}"
+            )
+
+    tracking_fragments = {
+        "documentation map": (
+            documentation_map_text,
+            [
+                path.name,
+                "Citation Label Review Packet",
+                "citation_label_review_status prepared_not_performed",
+            ],
+        ),
+        "dashboard": (
+            dashboard_text,
+            [
+                "source_metadata_citation_label_review_packet_prepared_internal_only",
+                f"source_metadata_citation_label_review_packet: docs/operations/source_metadata_citation_follow_up/{path.name}",
+                "citation_label_review_status prepared_not_performed",
+                expected_next_action,
+                "not_ready",
+                "not_accepted",
+                "not_approved",
+            ],
+        ),
+        "batch": (
+            batch_text,
+            [
+                f"docs/operations/source_metadata_citation_follow_up/{path.name}",
+                "source_metadata_citation_label_review_packet_status: prepared_internal_only",
+                f"source_metadata_citation_label_review_packet: docs/operations/source_metadata_citation_follow_up/{path.name}",
+                "citation_label_review_status: prepared_not_performed",
+                f"allowed_next_action: {expected_next_action}",
+                "publish_candidate_status: not_created",
+                "publish_readiness_status: not_ready",
+                "operator_acceptance_status: not_accepted",
+                "final_source_approval_status: not_approved",
+                "final_claim_approval_status: not_approved",
+                "final_publication_citation_labels_status: not_approved",
+            ],
+        ),
+        "handoff": (
+            handoff_text,
+            [
+                "SOURCE_METADATA_CITATION_LABEL_REVIEW_PACKET_PREPARED_INTERNAL_ONLY",
+                "current_artifact_level: source_metadata_citation_label_review_packet_prepared_internal_only",
+                f"source_metadata_citation_label_review_packet: docs/operations/source_metadata_citation_follow_up/{path.name}",
+                "citation_label_review_status: prepared_not_performed",
+                f"allowed_next_action: {expected_next_action}",
+            ],
+        ),
+    }
+    for area, (area_text, fragments) in tracking_fragments.items():
+        for fragment in fragments:
+            if fragment not in area_text:
+                failures.append(
+                    f"{area} missing Source Metadata Citation Label Review "
+                    f"Packet status: {fragment}"
+                )
+
+    queue_item_match = re.search(
+        r"(?ms)^  - queue_item_id: CQ-V1-068\n"
+        r"(?P<body>.*?)(?=^  - queue_item_id: |\Z)",
+        queue_text,
+    )
+    if not queue_item_match:
+        failures.append("Work Queue V1 missing CQ-V1-068")
+    else:
+        queue_item_text = queue_item_match.group("body")
+        required_queue_fragments = [
+            path.name,
+            "task_type: prepare_internal_citation_label_review_packet_with_limitations_only",
+            "packet_status: prepared_internal_only",
+            "citation_label_review_status: prepared_not_performed",
+            "metadata_resolution_status: not_performed_in_this_task",
+            "browsing_status: not_performed",
+            "live_verification_status: not_performed",
+            "citation_approval_status: not_approved",
+            "source_approval_status: not_approved",
+            "claim_approval_status: not_approved",
+            "freshness_approval_status: not_approved",
+            "final_source_approval_status: not_approved",
+            "final_claim_approval_status: not_approved",
+            "final_citation_label_approval_status: not_approved",
+            "publish_readiness_status: not_ready",
+            "operator_acceptance_status: not_accepted",
+            "public_launch_status: not_ready",
+            "SHO-SRC-005",
+            "SHO-SRC-006",
+            "SHO-SRC-007",
+            "SHO-CLAIM-004",
+            "SHO-CLAIM-005",
+            "SHO-CLAIM-006",
+            "SHO-SRC-004",
+            "SHO-CLAIM-007",
+            f"allowed_next_action: {expected_next_action}",
+            "approve_final_citation_labels",
+            "approve_final_source_set",
+            "approve_final_claim_use",
+            "approve_freshness",
+            "create_final_article",
+            "create_publish_candidate",
+            "set_publish_readiness",
+            "set_operator_acceptance",
+            "status: source_metadata_citation_label_review_packet_prepared_internal_only",
+        ]
+        for fragment in required_queue_fragments:
+            if fragment not in queue_item_text:
+                failures.append(f"Work Queue CQ-V1-068 missing: {fragment}")
+
+    return 1
+
+
 def validate_applied_scorecard_brief_002(failures: list[str]) -> int:
     if not APPLIED_SCORECARD_BRIEF_002_PATH.exists():
         failures.append(
@@ -19364,6 +19637,11 @@ def main() -> int:
             failures
         )
     )
+    source_metadata_citation_label_review_packet_internal_candidate_001_count = (
+        validate_source_metadata_citation_label_review_packet_internal_candidate_001(
+            failures
+        )
+    )
     applied_scorecard_brief_002_count = validate_applied_scorecard_brief_002(failures)
     human_operator_review_packet_final_article_candidate_brief_002_count = (
         validate_human_operator_review_packet_final_article_candidate_brief_002(failures)
@@ -19620,6 +19898,11 @@ def main() -> int:
         "- Internal candidate Source Metadata/Citation Follow-up Execution "
         "Record Review files: "
         f"{source_metadata_citation_follow_up_execution_record_review_internal_candidate_001_count}"
+    )
+    print(
+        "- Internal candidate Source Metadata/Citation Label Review Packet "
+        "files: "
+        f"{source_metadata_citation_label_review_packet_internal_candidate_001_count}"
     )
     print(f"- Batch 01 applied scorecard Brief 002 files: {applied_scorecard_brief_002_count}")
     print(
