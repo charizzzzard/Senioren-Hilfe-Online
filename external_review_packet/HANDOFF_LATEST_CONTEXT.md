@@ -5,8 +5,8 @@
 - project_name: Senioren-Hilfe Online
 - system_name: Senioren-Hilfe Online OS
 - system_short_name: SHO-OS
-- patch_title: SHO_INTERNAL_CANDIDATE_001_PERFORM_LIMITED_SOURCE_METADATA_CITATION_FOLLOW_UP_INTERNAL_ONLY
-- external_review_verdict: SOURCE_METADATA_CITATION_FOLLOW_UP_EXECUTION_RECORD_PERFORMED_INTERNAL_ONLY_LIMITED
+- patch_title: SHO_INTERNAL_CANDIDATE_001_REVIEW_LIMITED_SOURCE_METADATA_CITATION_FOLLOW_UP_RECORD_INTERNAL_ONLY
+- external_review_verdict: SOURCE_METADATA_CITATION_FOLLOW_UP_EXECUTION_RECORD_REVIEW_PASS_WITH_FINDINGS_NOT_PUBLISH_READY
 
 SHO-OS ist ein reproduzierbares Content-, Trust- und Publishing-System fuer seniorengerechte digitale Alltagshilfe in Deutschland.
 
@@ -209,6 +209,13 @@ Hinweis: `head_after` wird nicht vorab als Commit-SHA eingetragen, weil ein Comm
 - `SHO-SRC-004` and `SHO-CLAIM-007` remain blocked.
 - The next allowed action is `review_limited_source_metadata_citation_follow_up_record_internal_only`.
 - superseded_external_review_verdict: SOURCE_METADATA_CITATION_FOLLOW_UP_TASK_PREPARATION_PREPARED_INTERNAL_ONLY
+- `CQ-V1-067` records the internal review of the limited Source Metadata Citation Follow-up Execution Record.
+- Review verdict: `pass_for_next_internal_citation_label_review_with_findings_not_publish_ready`.
+- No P0 or P1 findings were found.
+- The review performed no metadata resolution, browsing or live verification and granted no citation, source, claim or freshness approval.
+- Citation labels remain candidate-only and not approved; `SHO-SRC-004` and `SHO-CLAIM-007` remain blocked.
+- The next allowed action is `prepare_internal_citation_label_review_packet_with_limitations_only`.
+- superseded_external_review_verdict: SOURCE_METADATA_CITATION_FOLLOW_UP_EXECUTION_RECORD_PERFORMED_INTERNAL_ONLY_LIMITED
 
 ## Internal Candidate Status
 
@@ -219,7 +226,7 @@ internal_candidate:
   internal_candidate_status: internal_only
   official_mvp_brief_status: not_assigned
   batch_membership_status: internal_spinoff_candidate_not_official_batch_brief
-  current_artifact_level: source_metadata_citation_follow_up_execution_record_performed_internal_only_limited
+  current_artifact_level: source_metadata_citation_follow_up_execution_record_review_completed_internal_only
   final_article_candidate_created: true
   final_article_candidate_review_status: final_article_candidate_review_passed_with_findings_not_publish_ready
   source_metadata_freshness_review_status: source_metadata_freshness_review_passed_with_findings_not_publish_ready
@@ -293,10 +300,16 @@ internal_candidate:
   source_metadata_citation_follow_up_task_preparation: docs/operations/source_metadata_citation_follow_up/SOURCE_METADATA_CITATION_FOLLOW_UP_TASK_PREPARATION_CANDIDATE_001_INTERNAL_ONLY.md
   source_metadata_citation_follow_up_execution_record_status: performed_internal_only_limited
   source_metadata_citation_follow_up_execution_record: docs/operations/source_metadata_citation_follow_up/SOURCE_METADATA_CITATION_FOLLOW_UP_EXECUTION_RECORD_CANDIDATE_001_INTERNAL_ONLY.md
+  source_metadata_citation_follow_up_execution_record_review_status: completed_internal_only
+  source_metadata_citation_follow_up_execution_record_review_verdict: pass_for_next_internal_citation_label_review_with_findings_not_publish_ready
+  source_metadata_citation_follow_up_execution_record_review: docs/operations/source_metadata_citation_follow_up/SOURCE_METADATA_CITATION_FOLLOW_UP_EXECUTION_RECORD_REVIEW_CANDIDATE_001_INTERNAL_ONLY.md
   follow_up_execution_status: performed_internal_only_limited
   metadata_resolution_status: performed_internal_only_limited
+  review_metadata_resolution_status: not_performed_in_this_review
   source_metadata_follow_up_status: performed_internal_only_limited
   citation_follow_up_status: candidate_labels_recorded_not_approved
+  superseded_source_metadata_citation_follow_up_execution_record_artifact_level: "current_artifact_level: source_metadata_citation_follow_up_execution_record_performed_internal_only_limited"
+  superseded_source_metadata_citation_follow_up_execution_record_allowed_next_action: review_limited_source_metadata_citation_follow_up_record_internal_only
   superseded_source_metadata_citation_follow_up_task_preparation_artifact_level: "current_artifact_level: source_metadata_citation_follow_up_task_preparation_prepared_internal_only"
   superseded_source_metadata_citation_follow_up_task_preparation_allowed_next_action: perform_limited_internal_source_metadata_citation_follow_up_with_limitations_only
   superseded_source_metadata_citation_follow_up_task_preparation_execution_status_anchor: "follow_up_execution_status: not_performed"
@@ -309,7 +322,7 @@ internal_candidate:
   follow_up_live_verification_status: not_performed
   post_source_claim_final_article_status: not_created
   publish_candidate_status: not_created
-  allowed_next_action: review_limited_source_metadata_citation_follow_up_record_internal_only
+  allowed_next_action: prepare_internal_citation_label_review_packet_with_limitations_only
   superseded_source_metadata_citation_follow_up_option_a_decision_artifact_level: "current_artifact_level: source_metadata_citation_follow_up_decision_option_a_recorded_internal_only"
   superseded_source_metadata_citation_follow_up_option_a_decision_allowed_next_action: prepare_internal_source_metadata_citation_follow_up_task_with_limitations_only
   superseded_source_metadata_citation_follow_up_decision_preparation_artifact_level: "current_artifact_level: source_metadata_citation_follow_up_decision_preparation_prepared_internal_only"
@@ -439,7 +452,7 @@ The Human Operator decision now accepts the cleaned internal baseline as an inte
 
 ## Recommended Next Safe Outputs
 
-- `REVIEW_LIMITED_SOURCE_METADATA_CITATION_FOLLOW_UP_RECORD_INTERNAL_ONLY`
+- `PREPARE_INTERNAL_CITATION_LABEL_REVIEW_PACKET_WITH_LIMITATIONS_ONLY`
 - `BRIEF_002_PUBLISH_CANDIDATE_DECISION_PACKET_INTERNAL_ONLY`
 - `WEBSITE_RELEASE_READINESS_GAP_REVIEW_INTERNAL_ONLY`
 

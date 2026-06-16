@@ -3930,3 +3930,92 @@ queue_items:
     automation_candidate: codex_assisted
     status_note: Limited execution record created from committed repo evidence only; no browsing/live verification in this task, citation labels candidate-only and not approved, no source/claim/citation approval and no publish state
     status: source_metadata_citation_follow_up_execution_record_performed_internal_only_limited
+
+  - queue_item_id: CQ-V1-067
+    title: SHO-INTERNAL-CANDIDATE-001 limited source metadata citation follow-up execution record review
+    linked_stage_id: STAGE_09_QUALITY_READER_ACCESSIBILITY_SAFETY_REVIEWS
+    linked_brief_id: SHO-INTERNAL-CANDIDATE-001
+    internal_candidate_id: SHO-INTERNAL-CANDIDATE-001
+    internal_candidate_status: internal_only
+    batch_membership_status: internal_spinoff_candidate_not_official_batch_brief
+    required_inputs:
+      - docs/operations/source_metadata_citation_follow_up/SOURCE_METADATA_CITATION_FOLLOW_UP_EXECUTION_RECORD_CANDIDATE_001_INTERNAL_ONLY.md
+      - docs/operations/source_metadata_citation_follow_up/SOURCE_METADATA_CITATION_FOLLOW_UP_TASK_PREPARATION_CANDIDATE_001_INTERNAL_ONLY.md
+      - docs/operations/operator_decisions/HUMAN_OPERATOR_DECISION_SOURCE_METADATA_CITATION_FOLLOW_UP_OPTION_A_CANDIDATE_001_INTERNAL_ONLY.md
+      - docs/content/final_article_candidates/whatsapp-fraud-checklist.final-article-candidate-option-a-internal-only.md
+    produced_outputs:
+      - docs/operations/source_metadata_citation_follow_up/SOURCE_METADATA_CITATION_FOLLOW_UP_EXECUTION_RECORD_REVIEW_CANDIDATE_001_INTERNAL_ONLY.md
+    review_outcome:
+      task_type: review_limited_source_metadata_citation_follow_up_record_internal_only
+      review_status: completed_internal_only
+      review_verdict: pass_for_next_internal_citation_label_review_with_findings_not_publish_ready
+      p0_findings: none
+      p1_findings: none
+      metadata_resolution_status: not_performed_in_this_review
+      browsing_status: not_performed
+      live_verification_status: not_performed
+      citation_approval_status: not_approved
+      source_approval_status: not_approved
+      claim_approval_status: not_approved
+      freshness_approval_status: not_approved
+      final_source_approval_status: not_approved
+      final_claim_approval_status: not_approved
+      final_citation_label_approval_status: not_approved
+      final_article_status: not_created
+      publish_candidate_status: not_created
+      publish_readiness_status: not_ready
+      operator_acceptance_status: not_accepted
+      public_launch_status: not_ready
+      sho_claim_007_status: blocked
+      sho_src_004_ui_context_status: blocked
+      whatsapp_ui_path_validation_status: not_performed
+    allowed_source_ids:
+      - SHO-SRC-005
+      - SHO-SRC-006
+      - SHO-SRC-007
+    allowed_claim_ids:
+      - SHO-CLAIM-004
+      - SHO-CLAIM-005
+      - SHO-CLAIM-006
+    blocked_scope:
+      - SHO-SRC-004
+      - SHO-CLAIM-007
+    blockers:
+      - source_005_date_metadata_not_visible
+      - source_006_date_metadata_not_visible
+      - source_007_date_context_limitation
+      - source_007_general_phishing_scope_only
+      - citation_labels_candidate_not_approved
+      - final_source_approval_not_approved
+      - final_claim_approval_not_approved
+      - final_citation_label_approval_not_approved
+      - SHO_CLAIM_007_blocked
+      - SHO_SRC_004_ui_context_blocked
+      - no_publish_gate
+      - no_operator_acceptance
+    allowed_next_action: prepare_internal_citation_label_review_packet_with_limitations_only
+    forbidden_actions:
+      - approve_final_citation_labels
+      - approve_final_source_set
+      - approve_final_claim_use
+      - approve_freshness
+      - create_final_article
+      - create_publish_candidate
+      - set_publish_readiness
+      - set_operator_acceptance
+      - activate_public_launch
+      - activate_monetization
+      - activate_analytics
+      - activate_search_console
+      - claim_user_feedback
+      - claim_wcag_conformance
+      - unlock_SHO_CLAIM_007
+      - verify_SHO_SRC_004
+      - add_WhatsApp_UI_block_report_steps
+      - add_exact_WhatsApp_UI_paths
+      - execute_queue
+      - advance_stage
+    human_gate_required: yes_before_any_publication_approval_or_citation_label_approval
+    automation_candidate: codex_assisted
+    status_note: Execution Record review completed; no P0/P1 findings, no browsing/live verification, no approvals and no publish state; only next internal citation-label review packet with limitations is allowed
+    status: source_metadata_citation_follow_up_execution_record_review_completed_internal_only
