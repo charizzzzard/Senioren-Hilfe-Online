@@ -3745,3 +3745,97 @@ queue_items:
     automation_candidate: codex_assisted
     status_note: Human Operator Option A decision recorded; later internal metadata/citation follow-up path authorized with limitations only; no metadata resolved, no browsing, no live verification, no citation approval and no publish state
     status: source_metadata_citation_follow_up_decision_option_a_recorded_internal_only
+
+  - queue_item_id: CQ-V1-065
+    title: SHO-INTERNAL-CANDIDATE-001 source metadata citation follow-up task preparation
+    linked_stage_id: STAGE_09_QUALITY_READER_ACCESSIBILITY_SAFETY_REVIEWS
+    linked_brief_id: SHO-INTERNAL-CANDIDATE-001
+    internal_candidate_id: SHO-INTERNAL-CANDIDATE-001
+    internal_candidate_status: internal_only
+    batch_membership_status: internal_spinoff_candidate_not_official_batch_brief
+    required_inputs:
+      - docs/operations/operator_decisions/HUMAN_OPERATOR_DECISION_SOURCE_METADATA_CITATION_FOLLOW_UP_OPTION_A_CANDIDATE_001_INTERNAL_ONLY.md
+      - docs/content/article_reviews/whatsapp-fraud-checklist.source-metadata-and-citation-follow-up-packet-internal-only.md
+      - docs/content/final_article_candidates/whatsapp-fraud-checklist.final-article-candidate-option-a-internal-only.md
+    produced_outputs:
+      - docs/operations/source_metadata_citation_follow_up/SOURCE_METADATA_CITATION_FOLLOW_UP_TASK_PREPARATION_CANDIDATE_001_INTERNAL_ONLY.md
+    preparation_outcome:
+      task_type: prepare_internal_source_metadata_citation_follow_up_task_with_limitations_only
+      source_metadata_citation_follow_up_task_preparation_status: prepared_internal_only
+      selected_option: option_a
+      internal_metadata_citation_follow_up_authorization_status: authorized_internal_only_with_limitations
+      follow_up_execution_status: not_performed
+      metadata_resolution_status: not_performed
+      browsing_status: not_performed
+      live_verification_status: not_performed
+      citation_approval_status: not_approved
+      source_approval_status: not_approved
+      claim_approval_status: not_approved
+      final_article_status: not_created
+      publish_candidate_status: not_created
+      final_source_approval_status: not_approved
+      final_claim_approval_status: not_approved
+      final_citation_label_approval_status: not_approved
+      publish_readiness_status: not_ready
+      operator_acceptance_status: not_accepted
+      public_launch_status: not_ready
+      monetization_status: not_approved
+      analytics_status: not_connected
+      search_console_status: not_connected
+      user_feedback_status: not_collected
+      wcag_conformance_status: not_tested
+      sho_claim_007_status: blocked
+      sho_src_004_ui_context_status: blocked
+      whatsapp_ui_path_validation_status: not_performed
+    allowed_later_follow_up_scope:
+      - SHO-SRC-005
+      - SHO-SRC-006
+      - SHO-SRC-007
+      - citation_label_follow_up
+      - candidate_source_claim_mapping_follow_up
+    blockers:
+      - source_005_date_metadata_not_visible
+      - source_006_date_metadata_not_visible
+      - source_007_date_context_limitation
+      - source_007_general_phishing_scope_only
+      - citation_labels_not_finally_approved
+      - final_source_approval_not_approved
+      - final_claim_approval_not_approved
+      - final_citation_label_approval_not_approved
+      - SRC_GAP_WF_006_open_for_publish_path
+      - SHO_CLAIM_007_blocked
+      - SHO_SRC_004_ui_context_blocked
+      - no_publish_gate
+      - no_operator_acceptance
+    allowed_next_action: perform_limited_internal_source_metadata_citation_follow_up_with_limitations_only
+    forbidden_actions:
+      - resolve_metadata
+      - browse_external_sources
+      - perform_live_verification
+      - infer_publication_dates
+      - infer_access_dates
+      - infer_source_labels
+      - approve_final_citation_labels
+      - approve_final_source_set
+      - approve_final_claim_use
+      - modify_candidate_content
+      - create_final_article
+      - create_publish_candidate
+      - set_publish_readiness
+      - set_operator_acceptance
+      - activate_public_launch
+      - activate_monetization
+      - activate_analytics
+      - activate_search_console
+      - claim_user_feedback
+      - claim_wcag_conformance
+      - unlock_SHO_CLAIM_007
+      - verify_SHO_SRC_004
+      - add_WhatsApp_UI_block_report_steps
+      - add_exact_WhatsApp_UI_paths
+      - execute_queue
+      - advance_stage
+    human_gate_required: yes_before_any_publication_approval_or_citation_label_approval
+    automation_candidate: codex_assisted
+    status_note: Task preparation packet created only; follow-up not performed, metadata not resolved, browsing/live verification not performed, approvals not granted and publish states remain negative
+    status: source_metadata_citation_follow_up_task_preparation_prepared_internal_only
