@@ -5,8 +5,8 @@
 - project_name: Senioren-Hilfe Online
 - system_name: Senioren-Hilfe Online OS
 - system_short_name: SHO-OS
-- patch_title: SHO_INTERNAL_CANDIDATE_001_PREPARE_HUMAN_OPERATOR_DECISION_FOR_SOURCE_METADATA_AND_CITATION_FOLLOW_UP_INTERNAL_ONLY
-- external_review_verdict: SOURCE_METADATA_CITATION_FOLLOW_UP_DECISION_PREPARATION_PREPARED_INTERNAL_ONLY
+- patch_title: SHO_INTERNAL_CANDIDATE_001_RECORD_HUMAN_OPERATOR_DECISION_SOURCE_METADATA_CITATION_FOLLOW_UP_OPTION_A_INTERNAL_ONLY
+- external_review_verdict: SOURCE_METADATA_CITATION_FOLLOW_UP_DECISION_OPTION_A_RECORDED_INTERNAL_ONLY
 
 SHO-OS ist ein reproduzierbares Content-, Trust- und Publishing-System fuer seniorengerechte digitale Alltagshilfe in Deutschland.
 
@@ -15,9 +15,9 @@ Dieser Handoff beschreibt den aktuellen internen Repo-Kontext nach der internen 
 ## Git Traceability
 
 - branch: `main`
-- head_before_current_patch: `25eb3b830d9204100be039faa5334830e480537f`
+- head_before_current_patch: `156e79a1a95e8c7f74b0d8ebf74473cecf53be2e`
 - intended_head_after: `assigned_after_commit`
-- origin_main_before_current_patch: `25eb3b830d9204100be039faa5334830e480537f`
+- origin_main_before_current_patch: `156e79a1a95e8c7f74b0d8ebf74473cecf53be2e`
 - dirty_state_before_current_patch: `clean`
 - dirty_state_after_current_patch: `assigned_after_commit`
 
@@ -192,6 +192,11 @@ Hinweis: `head_after` wird nicht vorab als Commit-SHA eingetragen, weil ein Comm
 - No metadata was resolved. No citation labels were approved. No browsing, live verification, Candidate modification, final article, Publish Candidate, Publish Readiness or Operator Acceptance was created.
 - The next allowed action is `await_human_operator_decision_on_source_metadata_and_citation_follow_up_internal_only`.
 - superseded_external_review_verdict: SOURCE_METADATA_AND_CITATION_FOLLOW_UP_PACKET_PREPARED_INTERNAL_ONLY
+- `CQ-V1-064` records the Human Operator Decision Option A for the Source Metadata and Citation Follow-up path.
+- A later internal-only source metadata and citation follow-up path is authorized with all documented limitations preserved.
+- No metadata was resolved. No citation labels were approved. No browsing, live verification, Candidate modification, final article, Publish Candidate, Publish Readiness or Operator Acceptance was created.
+- The next allowed action is `prepare_internal_source_metadata_citation_follow_up_task_with_limitations_only`.
+- superseded_external_review_verdict: SOURCE_METADATA_CITATION_FOLLOW_UP_DECISION_PREPARATION_PREPARED_INTERNAL_ONLY
 
 ## Internal Candidate Status
 
@@ -202,7 +207,7 @@ internal_candidate:
   internal_candidate_status: internal_only
   official_mvp_brief_status: not_assigned
   batch_membership_status: internal_spinoff_candidate_not_official_batch_brief
-  current_artifact_level: source_metadata_citation_follow_up_decision_preparation_prepared_internal_only
+  current_artifact_level: source_metadata_citation_follow_up_decision_option_a_recorded_internal_only
   final_article_candidate_created: true
   final_article_candidate_review_status: final_article_candidate_review_passed_with_findings_not_publish_ready
   source_metadata_freshness_review_status: source_metadata_freshness_review_passed_with_findings_not_publish_ready
@@ -268,15 +273,23 @@ internal_candidate:
   source_metadata_and_citation_follow_up_packet: docs/content/article_reviews/whatsapp-fraud-checklist.source-metadata-and-citation-follow-up-packet-internal-only.md
   source_metadata_and_citation_follow_up_decision_preparation_status: prepared_internal_only
   source_metadata_and_citation_follow_up_decision_preparation_packet: docs/operations/operator_decisions/HUMAN_OPERATOR_DECISION_PREPARATION_SOURCE_METADATA_CITATION_FOLLOW_UP_CANDIDATE_001_INTERNAL_ONLY.md
-  source_metadata_and_citation_follow_up_human_operator_decision_status: not_recorded
-  source_metadata_and_citation_follow_up_selected_option_status: pending
-  source_metadata_follow_up_status: prepared_not_performed
-  citation_follow_up_status: prepared_not_performed
+  source_metadata_and_citation_follow_up_human_operator_decision_status: recorded
+  source_metadata_and_citation_follow_up_selected_option: option_a
+  source_metadata_and_citation_follow_up_decision_option_a: docs/operations/operator_decisions/HUMAN_OPERATOR_DECISION_SOURCE_METADATA_CITATION_FOLLOW_UP_OPTION_A_CANDIDATE_001_INTERNAL_ONLY.md
+  internal_metadata_citation_follow_up_authorization_status: authorized_internal_only_with_limitations
+  source_metadata_follow_up_status: authorized_not_performed
+  citation_follow_up_status: authorized_not_performed
+  superseded_source_metadata_follow_up_status_anchor: "source_metadata_follow_up_status: prepared_not_performed"
+  superseded_citation_follow_up_status_anchor: "citation_follow_up_status: prepared_not_performed"
+  superseded_source_metadata_citation_follow_up_decision_preparation_decision_status_anchor: "source_metadata_and_citation_follow_up_human_operator_decision_status: not_recorded"
+  superseded_source_metadata_citation_follow_up_decision_preparation_selected_option_anchor: "source_metadata_and_citation_follow_up_selected_option_status: pending"
   follow_up_browsing_status: not_performed
   follow_up_live_verification_status: not_performed
   post_source_claim_final_article_status: not_created
   publish_candidate_status: not_created
-  allowed_next_action: await_human_operator_decision_on_source_metadata_and_citation_follow_up_internal_only
+  allowed_next_action: prepare_internal_source_metadata_citation_follow_up_task_with_limitations_only
+  superseded_source_metadata_citation_follow_up_decision_preparation_artifact_level: "current_artifact_level: source_metadata_citation_follow_up_decision_preparation_prepared_internal_only"
+  superseded_source_metadata_citation_follow_up_decision_preparation_allowed_next_action: await_human_operator_decision_on_source_metadata_and_citation_follow_up_internal_only
   superseded_source_metadata_citation_follow_up_packet_artifact_level: "current_artifact_level: source_metadata_citation_follow_up_packet_prepared_internal_only"
   superseded_source_metadata_citation_follow_up_packet_allowed_next_action: prepare_human_operator_decision_for_source_metadata_and_citation_follow_up_internal_only
   superseded_source_claim_citation_boundary_review_artifact_level: "current_artifact_level: source_claim_citation_boundary_review_completed_internal_only_with_findings"
@@ -402,7 +415,7 @@ The Human Operator decision now accepts the cleaned internal baseline as an inte
 
 ## Recommended Next Safe Outputs
 
-- `AWAIT_HUMAN_OPERATOR_DECISION_ON_SOURCE_METADATA_AND_CITATION_FOLLOW_UP_INTERNAL_ONLY`
+- `PREPARE_INTERNAL_SOURCE_METADATA_CITATION_FOLLOW_UP_TASK_WITH_LIMITATIONS_ONLY`
 - `BRIEF_002_PUBLISH_CANDIDATE_DECISION_PACKET_INTERNAL_ONLY`
 - `WEBSITE_RELEASE_READINESS_GAP_REVIEW_INTERNAL_ONLY`
 
