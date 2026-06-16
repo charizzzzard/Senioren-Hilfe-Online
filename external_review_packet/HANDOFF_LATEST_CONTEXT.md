@@ -5,8 +5,8 @@
 - project_name: Senioren-Hilfe Online
 - system_name: Senioren-Hilfe Online OS
 - system_short_name: SHO-OS
-- patch_title: SHO_INTERNAL_CANDIDATE_001_PREPARE_SOURCE_METADATA_CITATION_FOLLOW_UP_TASK_INTERNAL_ONLY
-- external_review_verdict: SOURCE_METADATA_CITATION_FOLLOW_UP_TASK_PREPARATION_PREPARED_INTERNAL_ONLY
+- patch_title: SHO_INTERNAL_CANDIDATE_001_PERFORM_LIMITED_SOURCE_METADATA_CITATION_FOLLOW_UP_INTERNAL_ONLY
+- external_review_verdict: SOURCE_METADATA_CITATION_FOLLOW_UP_EXECUTION_RECORD_PERFORMED_INTERNAL_ONLY_LIMITED
 
 SHO-OS ist ein reproduzierbares Content-, Trust- und Publishing-System fuer seniorengerechte digitale Alltagshilfe in Deutschland.
 
@@ -15,9 +15,9 @@ Dieser Handoff beschreibt den aktuellen internen Repo-Kontext nach der internen 
 ## Git Traceability
 
 - branch: `main`
-- head_before_current_patch: `b7458cb69cfb34a1bd6b005f1193c90ec4d5a39c`
+- head_before_current_patch: `edf90e9daccfb373debf3e122da0eec0c938ac8c`
 - intended_head_after: `assigned_after_commit`
-- origin_main_before_current_patch: `b7458cb69cfb34a1bd6b005f1193c90ec4d5a39c`
+- origin_main_before_current_patch: `edf90e9daccfb373debf3e122da0eec0c938ac8c`
 - dirty_state_before_current_patch: `clean`
 - dirty_state_after_current_patch: `assigned_after_commit`
 
@@ -202,6 +202,13 @@ Hinweis: `head_after` wird nicht vorab als Commit-SHA eingetragen, weil ein Comm
 - No metadata was resolved. No citation labels were approved. No browsing, live verification, Candidate modification, final article, Publish Candidate, Publish Readiness or Operator Acceptance was created.
 - The next allowed action is `perform_limited_internal_source_metadata_citation_follow_up_with_limitations_only`.
 - superseded_external_review_verdict: SOURCE_METADATA_CITATION_FOLLOW_UP_DECISION_OPTION_A_RECORDED_INTERNAL_ONLY
+- `CQ-V1-066` records the limited Source Metadata Citation Follow-up Execution Record.
+- The record uses committed repo evidence only and does not perform external browsing or live verification in this task.
+- Metadata observations are internal-only and limited; citation labels are candidate-only and not approved.
+- Candidate content and the historical Final Article Candidate remain unchanged. No final article, Publish Candidate, Publish Readiness, Operator Acceptance, final source approval, final claim approval or final citation-label approval was created.
+- `SHO-SRC-004` and `SHO-CLAIM-007` remain blocked.
+- The next allowed action is `review_limited_source_metadata_citation_follow_up_record_internal_only`.
+- superseded_external_review_verdict: SOURCE_METADATA_CITATION_FOLLOW_UP_TASK_PREPARATION_PREPARED_INTERNAL_ONLY
 
 ## Internal Candidate Status
 
@@ -212,7 +219,7 @@ internal_candidate:
   internal_candidate_status: internal_only
   official_mvp_brief_status: not_assigned
   batch_membership_status: internal_spinoff_candidate_not_official_batch_brief
-  current_artifact_level: source_metadata_citation_follow_up_task_preparation_prepared_internal_only
+  current_artifact_level: source_metadata_citation_follow_up_execution_record_performed_internal_only_limited
   final_article_candidate_created: true
   final_article_candidate_review_status: final_article_candidate_review_passed_with_findings_not_publish_ready
   source_metadata_freshness_review_status: source_metadata_freshness_review_passed_with_findings_not_publish_ready
@@ -284,10 +291,16 @@ internal_candidate:
   internal_metadata_citation_follow_up_authorization_status: authorized_internal_only_with_limitations
   source_metadata_citation_follow_up_task_preparation_status: prepared_internal_only
   source_metadata_citation_follow_up_task_preparation: docs/operations/source_metadata_citation_follow_up/SOURCE_METADATA_CITATION_FOLLOW_UP_TASK_PREPARATION_CANDIDATE_001_INTERNAL_ONLY.md
-  follow_up_execution_status: not_performed
-  metadata_resolution_status: not_performed
-  source_metadata_follow_up_status: authorized_not_performed
-  citation_follow_up_status: authorized_not_performed
+  source_metadata_citation_follow_up_execution_record_status: performed_internal_only_limited
+  source_metadata_citation_follow_up_execution_record: docs/operations/source_metadata_citation_follow_up/SOURCE_METADATA_CITATION_FOLLOW_UP_EXECUTION_RECORD_CANDIDATE_001_INTERNAL_ONLY.md
+  follow_up_execution_status: performed_internal_only_limited
+  metadata_resolution_status: performed_internal_only_limited
+  source_metadata_follow_up_status: performed_internal_only_limited
+  citation_follow_up_status: candidate_labels_recorded_not_approved
+  superseded_source_metadata_citation_follow_up_task_preparation_artifact_level: "current_artifact_level: source_metadata_citation_follow_up_task_preparation_prepared_internal_only"
+  superseded_source_metadata_citation_follow_up_task_preparation_allowed_next_action: perform_limited_internal_source_metadata_citation_follow_up_with_limitations_only
+  superseded_source_metadata_citation_follow_up_task_preparation_execution_status_anchor: "follow_up_execution_status: not_performed"
+  superseded_source_metadata_citation_follow_up_task_preparation_metadata_status_anchor: "metadata_resolution_status: not_performed"
   superseded_source_metadata_follow_up_status_anchor: "source_metadata_follow_up_status: prepared_not_performed"
   superseded_citation_follow_up_status_anchor: "citation_follow_up_status: prepared_not_performed"
   superseded_source_metadata_citation_follow_up_decision_preparation_decision_status_anchor: "source_metadata_and_citation_follow_up_human_operator_decision_status: not_recorded"
@@ -296,7 +309,7 @@ internal_candidate:
   follow_up_live_verification_status: not_performed
   post_source_claim_final_article_status: not_created
   publish_candidate_status: not_created
-  allowed_next_action: perform_limited_internal_source_metadata_citation_follow_up_with_limitations_only
+  allowed_next_action: review_limited_source_metadata_citation_follow_up_record_internal_only
   superseded_source_metadata_citation_follow_up_option_a_decision_artifact_level: "current_artifact_level: source_metadata_citation_follow_up_decision_option_a_recorded_internal_only"
   superseded_source_metadata_citation_follow_up_option_a_decision_allowed_next_action: prepare_internal_source_metadata_citation_follow_up_task_with_limitations_only
   superseded_source_metadata_citation_follow_up_decision_preparation_artifact_level: "current_artifact_level: source_metadata_citation_follow_up_decision_preparation_prepared_internal_only"
@@ -426,7 +439,7 @@ The Human Operator decision now accepts the cleaned internal baseline as an inte
 
 ## Recommended Next Safe Outputs
 
-- `PERFORM_LIMITED_INTERNAL_SOURCE_METADATA_CITATION_FOLLOW_UP_WITH_LIMITATIONS_ONLY`
+- `REVIEW_LIMITED_SOURCE_METADATA_CITATION_FOLLOW_UP_RECORD_INTERNAL_ONLY`
 - `BRIEF_002_PUBLISH_CANDIDATE_DECISION_PACKET_INTERNAL_ONLY`
 - `WEBSITE_RELEASE_READINESS_GAP_REVIEW_INTERNAL_ONLY`
 

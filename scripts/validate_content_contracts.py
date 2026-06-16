@@ -357,6 +357,10 @@ SOURCE_METADATA_CITATION_FOLLOW_UP_TASK_PREPARATION_INTERNAL_CANDIDATE_001_PATH 
     ROOT
     / "docs/operations/source_metadata_citation_follow_up/SOURCE_METADATA_CITATION_FOLLOW_UP_TASK_PREPARATION_CANDIDATE_001_INTERNAL_ONLY.md"
 )
+SOURCE_METADATA_CITATION_FOLLOW_UP_EXECUTION_RECORD_INTERNAL_CANDIDATE_001_PATH = (
+    ROOT
+    / "docs/operations/source_metadata_citation_follow_up/SOURCE_METADATA_CITATION_FOLLOW_UP_EXECUTION_RECORD_CANDIDATE_001_INTERNAL_ONLY.md"
+)
 ACCESSIBILITY_REVIEW_BRIEF_002_PATH = (
     ROOT / "docs/content/article_reviews/betrugsnachrichten-auf-whatsapp-erkennen.accessibility-review.md"
 )
@@ -16872,6 +16876,316 @@ def validate_source_metadata_citation_follow_up_task_preparation_internal_candid
     return 1
 
 
+def validate_source_metadata_citation_follow_up_execution_record_internal_candidate_001(
+    failures: list[str],
+) -> int:
+    path = SOURCE_METADATA_CITATION_FOLLOW_UP_EXECUTION_RECORD_INTERNAL_CANDIDATE_001_PATH
+    if not path.exists():
+        failures.append(
+            "Missing Source Metadata Citation Follow-up Execution Record "
+            "for SHO-INTERNAL-CANDIDATE-001"
+        )
+        return 0
+
+    matching_files = list(
+        path.parent.glob(
+            "SOURCE_METADATA_CITATION_FOLLOW_UP_EXECUTION_RECORD_CANDIDATE_001_INTERNAL_ONLY.md"
+        )
+    )
+    if len(matching_files) != 1:
+        failures.append(
+            "Expected exactly one canonical Source Metadata Citation Follow-up "
+            f"Execution Record, found {len(matching_files)}"
+        )
+
+    text = path.read_text(encoding="utf-8")
+    fields = parse_frontmatter_fields(text)
+    lower_text = text.lower()
+    queue_text = WORK_QUEUE_V1_PATH.read_text(encoding="utf-8")
+    dashboard_text = ARTICLE_READINESS_DASHBOARD_PATH.read_text(encoding="utf-8")
+    batch_text = BATCH_MANIFEST_PATH.read_text(encoding="utf-8")
+    documentation_map_text = (ROOT / "docs/DOCUMENTATION_MAP.md").read_text(
+        encoding="utf-8"
+    )
+    handoff_text = (
+        ROOT / "external_review_packet/HANDOFF_LATEST_CONTEXT.md"
+    ).read_text(encoding="utf-8")
+
+    expected_fields = {
+        "status": "internal_only",
+        "task_type": (
+            "perform_limited_internal_source_metadata_citation_follow_up_with_limitations_only"
+        ),
+        "autonomy_class": "yellow-b",
+        "decision_basis": (
+            "human_operator_decision_source_metadata_citation_follow_up_option_a_candidate_001_internal_only"
+        ),
+        "preparation_basis": (
+            "source_metadata_citation_follow_up_task_preparation_candidate_001_internal_only"
+        ),
+        "selected_option": "option_a",
+        "execution_status": "performed_internal_only_limited",
+        "metadata_resolution_status": "performed_internal_only_limited",
+        "browsing_status": "not_performed",
+        "live_verification_status": "not_performed",
+        "citation_approval_status": "not_approved",
+        "source_approval_status": "not_approved",
+        "claim_approval_status": "not_approved",
+        "final_source_approval_status": "not_approved",
+        "final_claim_approval_status": "not_approved",
+        "final_citation_label_approval_status": "not_approved",
+        "final_article_status": "not_created",
+        "publish_candidate_status": "not_created",
+        "publish_readiness_status": "not_ready",
+        "operator_acceptance_status": "not_accepted",
+        "public_launch_status": "not_ready",
+    }
+    for field_name, expected_value in expected_fields.items():
+        actual_value = normalized(fields.get(field_name)).strip('"')
+        if actual_value != expected_value:
+            failures.append(
+                "Source Metadata Citation Follow-up Execution Record must "
+                f"have {field_name}: {expected_value}"
+            )
+
+    required_fragments = [
+        "## 1. Executive Summary",
+        "## 2. Repo Basis and Authorization Boundary",
+        "## 3. Execution Scope",
+        "## 4. Explicitly Blocked Scope",
+        "## 5. Source Metadata Follow-up Results",
+        "## 6. SHO-SRC-005 Metadata Boundary",
+        "## 7. SHO-SRC-006 Metadata Boundary",
+        "## 8. SHO-SRC-007 Date Context Scope Limit",
+        "## 9. Citation Label Candidate Notes",
+        "## 10. Candidate Source Claim Mapping Follow-up Notes",
+        "## 11. Unresolved Items",
+        "## 12. Stop Conditions Checked",
+        "## 13. Approval Status Confirmation",
+        "## 14. Negative Publish-State Confirmation",
+        "## 15. Required Later Review",
+        "## 16. Handoff Notes for Next Operator/Codex Run",
+        "task_type: \"perform_limited_internal_source_metadata_citation_follow_up_with_limitations_only\"",
+        "status: \"internal_only\"",
+        "autonomy_class: \"YELLOW-B\"",
+        "decision_basis: \"HUMAN_OPERATOR_DECISION_SOURCE_METADATA_CITATION_FOLLOW_UP_OPTION_A_CANDIDATE_001_INTERNAL_ONLY\"",
+        "preparation_basis: \"SOURCE_METADATA_CITATION_FOLLOW_UP_TASK_PREPARATION_CANDIDATE_001_INTERNAL_ONLY\"",
+        "selected_option: \"option_a\"",
+        "metadata_resolution_status: \"performed_internal_only_limited\"",
+        "browsing_status: \"not_performed\"",
+        "live_verification_status: \"not_performed\"",
+        "citation_approval_status: \"not_approved\"",
+        "source_approval_status: \"not_approved\"",
+        "claim_approval_status: \"not_approved\"",
+        "final_source_approval_status: \"not_approved\"",
+        "final_claim_approval_status: \"not_approved\"",
+        "final_citation_label_approval_status: \"not_approved\"",
+        "publish_readiness_status: \"not_ready\"",
+        "operator_acceptance_status: \"not_accepted\"",
+        "public_launch_status: \"not_ready\"",
+        "SHO-SRC-005",
+        "SHO-SRC-006",
+        "SHO-SRC-007",
+        "SHO-SRC-004",
+        "SHO-CLAIM-004",
+        "SHO-CLAIM-005",
+        "SHO-CLAIM-006",
+        "SHO-CLAIM-007",
+        "candidate_not_approved",
+        "This is not a source approval.",
+        "This is not a claim approval.",
+        "This is not a citation-label approval.",
+        "This is not a freshness approval.",
+        "This is not a publish readiness artifact.",
+        "This is not a Publish Candidate.",
+        "No source was re-accessed during this task.",
+        "Allowed next action: `review_limited_source_metadata_citation_follow_up_record_internal_only`.",
+    ]
+    for fragment in required_fragments:
+        if fragment not in text:
+            failures.append(
+                "Source Metadata Citation Follow-up Execution Record must "
+                f"contain: {fragment}"
+            )
+
+    allowed_claims_match = re.search(
+        r"(?ms)^allowed_claim_ids:\n(?P<body>.*?)(?=^[a-zA-Z_]+:|\Z)",
+        text,
+    )
+    if not allowed_claims_match:
+        failures.append(
+            "Source Metadata Citation Follow-up Execution Record must list "
+            "allowed_claim_ids"
+        )
+    else:
+        allowed_claims_text = allowed_claims_match.group("body")
+        for claim_id in ["SHO-CLAIM-004", "SHO-CLAIM-005", "SHO-CLAIM-006"]:
+            if claim_id not in allowed_claims_text:
+                failures.append(
+                    "Source Metadata Citation Follow-up Execution Record "
+                    f"allowed_claim_ids missing {claim_id}"
+                )
+        if "SHO-CLAIM-007" in allowed_claims_text:
+            failures.append(
+                "Source Metadata Citation Follow-up Execution Record must "
+                "not list SHO-CLAIM-007 as an allowed claim"
+            )
+
+    forbidden_activation_markers = [
+        "publish_readiness_status: ready",
+        "operator_acceptance_status: accepted",
+        "public_launch_status: ready",
+        "citation_approval_status: approved",
+        "source_approval_status: approved",
+        "claim_approval_status: approved",
+        "final_source_approval_status: approved",
+        "final_claim_approval_status: approved",
+        "final_citation_label_approval_status: approved",
+        "publish_candidate_status: created",
+        "final_article_status: created",
+        "sho-claim-007 unlocked",
+        "sho-src-004 approved",
+        "sho_claim_007_status: unlocked",
+        "sho_src_004_ui_context_status: verified",
+        "source_approved_for_publication",
+        "claim_approved_for_publication",
+        "final_citation_labels_approved",
+    ]
+    for fragment in forbidden_activation_markers:
+        if fragment in lower_text:
+            failures.append(
+                "Source Metadata Citation Follow-up Execution Record contains "
+                f"forbidden activation marker: {fragment}"
+            )
+
+    forbidden_ui_fragments = [
+        "tippen sie auf blockieren",
+        "tippen sie auf melden",
+        "chat melden",
+        "kontakt blockieren",
+        "blockieren und melden",
+        "meldung senden",
+        "menue >",
+        "einstellungen >",
+    ]
+    for fragment in forbidden_ui_fragments:
+        if fragment in lower_text:
+            failures.append(
+                "Source Metadata Citation Follow-up Execution Record contains "
+                f"forbidden WhatsApp UI workflow fragment: {fragment}"
+            )
+
+    expected_next_action = (
+        "review_limited_source_metadata_citation_follow_up_record_internal_only"
+    )
+    tracking_fragments = {
+        "documentation map": (
+            documentation_map_text,
+            [
+                path.name,
+                "repo-only limited follow-up recorded",
+                "citation labels remain candidate_not_approved",
+            ],
+        ),
+        "dashboard": (
+            dashboard_text,
+            [
+                "source_metadata_citation_follow_up_execution_record_performed_internal_only_limited",
+                expected_next_action,
+                "source_metadata_citation_follow_up_execution_record_status performed_internal_only_limited",
+                "metadata_resolution_status performed_internal_only_limited",
+                "citation_follow_up_status candidate_labels_recorded_not_approved",
+                "not_ready",
+                "not_accepted",
+            ],
+        ),
+        "batch": (
+            batch_text,
+            [
+                f"docs/operations/source_metadata_citation_follow_up/{path.name}",
+                "source_metadata_citation_follow_up_execution_record_status: performed_internal_only_limited",
+                "metadata_resolution_status: performed_internal_only_limited",
+                "citation_follow_up_status: candidate_labels_recorded_not_approved",
+                f"allowed_next_action: {expected_next_action}",
+                "publish_candidate_status: not_created",
+                "publish_readiness_status: not_ready",
+                "operator_acceptance_status: not_accepted",
+                "final_source_approval_status: not_approved",
+                "final_claim_approval_status: not_approved",
+                "final_publication_citation_labels_status: not_approved",
+            ],
+        ),
+        "handoff": (
+            handoff_text,
+            [
+                "SOURCE_METADATA_CITATION_FOLLOW_UP_EXECUTION_RECORD_PERFORMED_INTERNAL_ONLY_LIMITED",
+                "current_artifact_level: source_metadata_citation_follow_up_execution_record_performed_internal_only_limited",
+                "source_metadata_citation_follow_up_execution_record_status: performed_internal_only_limited",
+                "metadata_resolution_status: performed_internal_only_limited",
+                f"allowed_next_action: {expected_next_action}",
+            ],
+        ),
+    }
+    for area, (area_text, fragments) in tracking_fragments.items():
+        for fragment in fragments:
+            if fragment not in area_text:
+                failures.append(
+                    f"{area} missing Source Metadata Citation Follow-up "
+                    f"Execution Record status: {fragment}"
+                )
+
+    queue_item_match = re.search(
+        r"(?ms)^  - queue_item_id: CQ-V1-066\n"
+        r"(?P<body>.*?)(?=^  - queue_item_id: |\Z)",
+        queue_text,
+    )
+    if not queue_item_match:
+        failures.append("Work Queue V1 missing CQ-V1-066")
+    else:
+        queue_item_text = queue_item_match.group("body")
+        required_queue_fragments = [
+            path.name,
+            "task_type: perform_limited_internal_source_metadata_citation_follow_up_with_limitations_only",
+            "execution_status: performed_internal_only_limited",
+            "metadata_resolution_status: performed_internal_only_limited",
+            "browsing_status: not_performed",
+            "live_verification_status: not_performed",
+            "citation_approval_status: not_approved",
+            "source_approval_status: not_approved",
+            "claim_approval_status: not_approved",
+            "final_source_approval_status: not_approved",
+            "final_claim_approval_status: not_approved",
+            "final_citation_label_approval_status: not_approved",
+            "publish_readiness_status: not_ready",
+            "operator_acceptance_status: not_accepted",
+            "public_launch_status: not_ready",
+            "sho_claim_007_status: blocked",
+            "sho_src_004_ui_context_status: blocked",
+            "SHO-SRC-005",
+            "SHO-SRC-006",
+            "SHO-SRC-007",
+            "SHO-CLAIM-004",
+            "SHO-CLAIM-005",
+            "SHO-CLAIM-006",
+            "SHO-SRC-004",
+            "SHO-CLAIM-007",
+            f"allowed_next_action: {expected_next_action}",
+            "approve_final_citation_labels",
+            "approve_final_source_set",
+            "approve_final_claim_use",
+            "create_final_article",
+            "create_publish_candidate",
+            "set_publish_readiness",
+            "set_operator_acceptance",
+            "status: source_metadata_citation_follow_up_execution_record_performed_internal_only_limited",
+        ]
+        for fragment in required_queue_fragments:
+            if fragment not in queue_item_text:
+                failures.append(f"Work Queue CQ-V1-066 missing: {fragment}")
+
+    return 1
+
+
 def validate_applied_scorecard_brief_002(failures: list[str]) -> int:
     if not APPLIED_SCORECARD_BRIEF_002_PATH.exists():
         failures.append(
@@ -18713,6 +19027,11 @@ def main() -> int:
             failures
         )
     )
+    source_metadata_citation_follow_up_execution_record_internal_candidate_001_count = (
+        validate_source_metadata_citation_follow_up_execution_record_internal_candidate_001(
+            failures
+        )
+    )
     applied_scorecard_brief_002_count = validate_applied_scorecard_brief_002(failures)
     human_operator_review_packet_final_article_candidate_brief_002_count = (
         validate_human_operator_review_packet_final_article_candidate_brief_002(failures)
@@ -18959,6 +19278,11 @@ def main() -> int:
         "- Internal candidate Source Metadata/Citation Follow-up Task "
         "Preparation files: "
         f"{source_metadata_citation_follow_up_task_preparation_internal_candidate_001_count}"
+    )
+    print(
+        "- Internal candidate Source Metadata/Citation Follow-up Execution "
+        "Record files: "
+        f"{source_metadata_citation_follow_up_execution_record_internal_candidate_001_count}"
     )
     print(f"- Batch 01 applied scorecard Brief 002 files: {applied_scorecard_brief_002_count}")
     print(
