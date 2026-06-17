@@ -373,6 +373,10 @@ SOURCE_METADATA_CITATION_LABEL_REVIEW_RECORD_INTERNAL_CANDIDATE_001_PATH = (
     ROOT
     / "docs/operations/source_metadata_citation_follow_up/SOURCE_METADATA_CITATION_LABEL_REVIEW_RECORD_CANDIDATE_001_INTERNAL_ONLY.md"
 )
+HUMAN_OPERATOR_CITATION_LABEL_REVIEW_DECISION_PREPARATION_INTERNAL_CANDIDATE_001_PATH = (
+    ROOT
+    / "docs/operations/operator_decisions/HUMAN_OPERATOR_DECISION_PREPARATION_CITATION_LABEL_REVIEW_CANDIDATE_001_INTERNAL_ONLY.md"
+)
 ACCESSIBILITY_REVIEW_BRIEF_002_PATH = (
     ROOT / "docs/content/article_reviews/betrugsnachrichten-auf-whatsapp-erkennen.accessibility-review.md"
 )
@@ -3048,6 +3052,7 @@ def validate_operator_decisions(failures: list[str]) -> int:
         "HUMAN_OPERATOR_DECISION_FINAL_ARTICLE_CANDIDATE_CREATION_OPTION_A_CANDIDATE_001_INTERNAL_ONLY.md",
         "HUMAN_OPERATOR_DECISION_PREPARATION_SOURCE_METADATA_CITATION_FOLLOW_UP_CANDIDATE_001_INTERNAL_ONLY.md",
         "HUMAN_OPERATOR_DECISION_SOURCE_METADATA_CITATION_FOLLOW_UP_OPTION_A_CANDIDATE_001_INTERNAL_ONLY.md",
+        "HUMAN_OPERATOR_DECISION_PREPARATION_CITATION_LABEL_REVIEW_CANDIDATE_001_INTERNAL_ONLY.md",
     }
     found_files = {
         path.name
@@ -18084,6 +18089,285 @@ def validate_source_metadata_citation_label_review_record_internal_candidate_001
     return 1
 
 
+def validate_human_operator_citation_label_review_decision_preparation_internal_candidate_001(
+    failures: list[str],
+) -> int:
+    path = HUMAN_OPERATOR_CITATION_LABEL_REVIEW_DECISION_PREPARATION_INTERNAL_CANDIDATE_001_PATH
+    if not path.exists():
+        failures.append(
+            "Missing Human Operator Citation Label Review Decision Preparation "
+            "Packet for SHO-INTERNAL-CANDIDATE-001"
+        )
+        return 0
+
+    matching_files = list(
+        path.parent.glob(
+            "HUMAN_OPERATOR_DECISION_PREPARATION_CITATION_LABEL_REVIEW_CANDIDATE_001_INTERNAL_ONLY.md"
+        )
+    )
+    if len(matching_files) != 1:
+        failures.append(
+            "Expected exactly one canonical Human Operator Citation Label "
+            f"Review Decision Preparation Packet, found {len(matching_files)}"
+        )
+
+    text = path.read_text(encoding="utf-8")
+    fields = parse_frontmatter_fields(text)
+    lower_text = text.lower()
+    queue_text = WORK_QUEUE_V1_PATH.read_text(encoding="utf-8")
+    dashboard_text = ARTICLE_READINESS_DASHBOARD_PATH.read_text(encoding="utf-8")
+    batch_text = BATCH_MANIFEST_PATH.read_text(encoding="utf-8")
+    documentation_map_text = (ROOT / "docs/DOCUMENTATION_MAP.md").read_text(
+        encoding="utf-8"
+    )
+    handoff_text = (
+        ROOT / "external_review_packet/HANDOFF_LATEST_CONTEXT.md"
+    ).read_text(encoding="utf-8")
+
+    expected_next_action = (
+        "await_human_operator_decision_on_citation_label_review_internal_only"
+    )
+    expected_fields = {
+        "status": "internal_only",
+        "task_type": "prepare_human_operator_decision_for_citation_label_review_internal_only",
+        "autonomy_class": "yellow-b",
+        "internal_candidate_id": "sho-internal-candidate-001",
+        "candidate_slug": "whatsapp-fraud-checklist",
+        "basis_review_record": (
+            "source_metadata_citation_label_review_record_candidate_001_internal_only"
+        ),
+        "decision_packet_status": "prepared_internal_only",
+        "human_operator_decision_status": "not_recorded",
+        "selected_option_status": "pending",
+        "citation_label_approval_status": "not_approved",
+        "citation_approval_status": "not_approved",
+        "source_approval_status": "not_approved",
+        "claim_approval_status": "not_approved",
+        "freshness_approval_status": "not_approved",
+        "final_source_approval_status": "not_approved",
+        "final_claim_approval_status": "not_approved",
+        "final_citation_label_approval_status": "not_approved",
+        "final_article_status": "not_created",
+        "publish_candidate_status": "not_created",
+        "publish_readiness_status": "not_ready",
+        "operator_acceptance_status": "not_accepted",
+        "public_launch_status": "not_ready",
+    }
+    for field_name, expected_value in expected_fields.items():
+        actual_value = normalized(fields.get(field_name)).strip('"')
+        if actual_value != expected_value:
+            failures.append(
+                "Human Operator Citation Label Review Decision Preparation "
+                f"Packet must have {field_name}: {expected_value}"
+            )
+
+    required_fragments = [
+        "## 1. Executive Summary",
+        "## 2. Decision Context",
+        "## 3. Human Operator Options",
+        "## 4. Non-Binding Recommendation",
+        "## 5. Explicit Non-Approval Statement",
+        "## 6. Preserved Citation Label Limitations",
+        "## 7. Blocked Scope Confirmation",
+        "## 8. Required Human Operator Action",
+        "## 9. Allowed Next Step",
+        "## 10. Explicit Non-Goals Confirmed",
+        "task_type: \"prepare_human_operator_decision_for_citation_label_review_internal_only\"",
+        "status: \"internal_only\"",
+        "autonomy_class: \"YELLOW-B\"",
+        "decision_packet_status: \"prepared_internal_only\"",
+        "human_operator_decision_status: \"not_recorded\"",
+        "selected_option_status: \"pending\"",
+        "citation_label_approval_status: \"not_approved\"",
+        "citation_approval_status: \"not_approved\"",
+        "source_approval_status: \"not_approved\"",
+        "claim_approval_status: \"not_approved\"",
+        "freshness_approval_status: \"not_approved\"",
+        "final_source_approval_status: \"not_approved\"",
+        "final_claim_approval_status: \"not_approved\"",
+        "final_citation_label_approval_status: \"not_approved\"",
+        "final_article_status: \"not_created\"",
+        "publish_candidate_status: \"not_created\"",
+        "publish_readiness_status: \"not_ready\"",
+        "operator_acceptance_status: \"not_accepted\"",
+        "public_launch_status: \"not_ready\"",
+        "SHO-SRC-005",
+        "SHO-SRC-006",
+        "SHO-SRC-007",
+        "SHO-SRC-004",
+        "SHO-CLAIM-004",
+        "SHO-CLAIM-005",
+        "SHO-CLAIM-006",
+        "SHO-CLAIM-007",
+        "candidate_not_approved",
+        "Option A: `accept_candidate_citation_labels_for_next_internal_gate_with_limitations`",
+        "Option B: `request_label_wording_remediation_before_next_internal_gate`",
+        "Option C: `hold_citation_label_path_until_additional_metadata_or_review`",
+        "Option D: `reject_current_candidate_citation_labels_for_later_public_path`",
+        "decision_status: not_recorded",
+        "selected_option_status: pending",
+        f"allowed_next_action: {expected_next_action}",
+    ]
+    for fragment in required_fragments:
+        if fragment not in text:
+            failures.append(
+                "Human Operator Citation Label Review Decision Preparation "
+                f"Packet must contain: {fragment}"
+            )
+
+    forbidden_activation_markers = [
+        "publish_readiness_status: ready",
+        "operator_acceptance_status: accepted",
+        "public_launch_status: ready",
+        "citation_label_approval_status: approved",
+        "citation_approval_status: approved",
+        "source_approval_status: approved",
+        "claim_approval_status: approved",
+        "freshness_approval_status: approved",
+        "final_source_approval_status: approved",
+        "final_claim_approval_status: approved",
+        "final_citation_label_approval_status: approved",
+        "publish_candidate_status: created",
+        "final_article_status: created",
+        "human_operator_decision_status: recorded",
+        "sho-claim-007 unlocked",
+        "sho-src-004 approved",
+    ]
+    for fragment in forbidden_activation_markers:
+        if fragment in lower_text:
+            failures.append(
+                "Human Operator Citation Label Review Decision Preparation "
+                f"Packet contains forbidden activation marker: {fragment}"
+            )
+
+    tracking_fragments = {
+        "documentation map": (
+            documentation_map_text,
+            [
+                path.name,
+                "Citation Label Review Human Operator Decision Preparation",
+                "human_operator_decision_status not_recorded",
+                "selected_option_status pending",
+            ],
+        ),
+        "dashboard": (
+            dashboard_text,
+            [
+                "human_operator_citation_label_review_decision_preparation_prepared_internal_only",
+                f"human_operator_citation_label_review_decision_preparation: docs/operations/operator_decisions/{path.name}",
+                "human_operator_citation_label_review_decision_status not_recorded",
+                "human_operator_citation_label_review_selected_option_status pending",
+                expected_next_action,
+                "not_ready",
+                "not_accepted",
+                "not_approved",
+            ],
+        ),
+        "batch": (
+            batch_text,
+            [
+                f"docs/operations/operator_decisions/{path.name}",
+                "human_operator_citation_label_review_decision_preparation_status: prepared_internal_only",
+                f"human_operator_citation_label_review_decision_preparation: docs/operations/operator_decisions/{path.name}",
+                "human_operator_citation_label_review_decision_status: not_recorded",
+                "human_operator_citation_label_review_selected_option_status: pending",
+                f"allowed_next_action: {expected_next_action}",
+                "publish_candidate_status: not_created",
+                "publish_readiness_status: not_ready",
+                "operator_acceptance_status: not_accepted",
+                "final_source_approval_status: not_approved",
+                "final_claim_approval_status: not_approved",
+                "final_publication_citation_labels_status: not_approved",
+            ],
+        ),
+        "handoff": (
+            handoff_text,
+            [
+                "HUMAN_OPERATOR_CITATION_LABEL_REVIEW_DECISION_PREPARATION_PREPARED_INTERNAL_ONLY",
+                "current_artifact_level: human_operator_citation_label_review_decision_preparation_prepared_internal_only",
+                f"human_operator_citation_label_review_decision_preparation: docs/operations/operator_decisions/{path.name}",
+                "human_operator_citation_label_review_decision_status: not_recorded",
+                "human_operator_citation_label_review_selected_option_status: pending",
+                f"allowed_next_action: {expected_next_action}",
+            ],
+        ),
+    }
+    for area, (area_text, fragments) in tracking_fragments.items():
+        for fragment in fragments:
+            if fragment not in area_text:
+                failures.append(
+                    f"{area} missing Human Operator Citation Label Review "
+                    f"Decision Preparation status: {fragment}"
+                )
+
+    queue_item_match = re.search(
+        r"(?ms)^  - queue_item_id: CQ-V1-070\n"
+        r"(?P<body>.*?)(?=^  - queue_item_id: |\Z)",
+        queue_text,
+    )
+    if not queue_item_match:
+        failures.append("Work Queue V1 missing CQ-V1-070")
+    else:
+        queue_item_text = queue_item_match.group("body")
+        required_queue_fragments = [
+            path.name,
+            "title: SHO-INTERNAL-CANDIDATE-001 human operator citation label review decision preparation",
+            "task_type: prepare_human_operator_decision_for_citation_label_review_internal_only",
+            "decision_packet_status: prepared_internal_only",
+            "human_operator_decision_status: not_recorded",
+            "selected_option_status: pending",
+            "citation_label_approval_status: not_approved",
+            "citation_approval_status: not_approved",
+            "source_approval_status: not_approved",
+            "claim_approval_status: not_approved",
+            "freshness_approval_status: not_approved",
+            "final_source_approval_status: not_approved",
+            "final_claim_approval_status: not_approved",
+            "final_citation_label_approval_status: not_approved",
+            "publish_readiness_status: not_ready",
+            "operator_acceptance_status: not_accepted",
+            "public_launch_status: not_ready",
+            "SHO-SRC-005",
+            "SHO-SRC-006",
+            "SHO-SRC-007",
+            "SHO-CLAIM-004",
+            "SHO-CLAIM-005",
+            "SHO-CLAIM-006",
+            "SHO-SRC-004",
+            "SHO-CLAIM-007",
+            f"allowed_next_action: {expected_next_action}",
+            "approve_final_citation_labels",
+            "approve_final_source_set",
+            "approve_final_claim_use",
+            "approve_freshness",
+            "record_human_operator_decision",
+            "select_human_operator_option",
+            "create_final_article",
+            "create_publish_candidate",
+            "set_publish_readiness",
+            "set_operator_acceptance",
+            "activate_public_launch",
+            "activate_monetization",
+            "activate_analytics",
+            "activate_search_console",
+            "claim_user_feedback",
+            "claim_wcag_conformance",
+            "unlock_SHO_CLAIM_007",
+            "verify_SHO_SRC_004",
+            "add_WhatsApp_UI_block_report_steps",
+            "add_exact_WhatsApp_UI_paths",
+            "execute_queue",
+            "advance_stage",
+            "human_gate_required: yes",
+            "status: human_operator_citation_label_review_decision_preparation_prepared_internal_only",
+        ]
+        for fragment in required_queue_fragments:
+            if fragment not in queue_item_text:
+                failures.append(f"Work Queue CQ-V1-070 missing: {fragment}")
+
+    return 1
+
+
 def validate_applied_scorecard_brief_002(failures: list[str]) -> int:
     if not APPLIED_SCORECARD_BRIEF_002_PATH.exists():
         failures.append(
@@ -19945,6 +20229,11 @@ def main() -> int:
             failures
         )
     )
+    human_operator_citation_label_review_decision_preparation_internal_candidate_001_count = (
+        validate_human_operator_citation_label_review_decision_preparation_internal_candidate_001(
+            failures
+        )
+    )
     applied_scorecard_brief_002_count = validate_applied_scorecard_brief_002(failures)
     human_operator_review_packet_final_article_candidate_brief_002_count = (
         validate_human_operator_review_packet_final_article_candidate_brief_002(failures)
@@ -20211,6 +20500,11 @@ def main() -> int:
         "- Internal candidate Source Metadata/Citation Label Review Record "
         "files: "
         f"{source_metadata_citation_label_review_record_internal_candidate_001_count}"
+    )
+    print(
+        "- Internal candidate Human Operator Citation Label Review Decision "
+        "Preparation files: "
+        f"{human_operator_citation_label_review_decision_preparation_internal_candidate_001_count}"
     )
     print(f"- Batch 01 applied scorecard Brief 002 files: {applied_scorecard_brief_002_count}")
     print(
