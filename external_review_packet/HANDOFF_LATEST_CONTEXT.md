@@ -5,8 +5,8 @@
 - project_name: Senioren-Hilfe Online
 - system_name: Senioren-Hilfe Online OS
 - system_short_name: SHO-OS
-- patch_title: SHO_INTERNAL_CANDIDATE_001_PREPARE_HUMAN_OPERATOR_DECISION_FOR_CITATION_LABEL_REVIEW_INTERNAL_ONLY
-- external_review_verdict: HUMAN_OPERATOR_CITATION_LABEL_REVIEW_DECISION_PREPARATION_PREPARED_INTERNAL_ONLY
+- patch_title: SHO_INTERNAL_CANDIDATE_001_RECORD_HUMAN_OPERATOR_CITATION_LABEL_REVIEW_DECISION_OPTION_A_INTERNAL_ONLY
+- external_review_verdict: HUMAN_OPERATOR_CITATION_LABEL_REVIEW_DECISION_OPTION_A_RECORDED_INTERNAL_ONLY
 
 SHO-OS ist ein reproduzierbares Content-, Trust- und Publishing-System fuer seniorengerechte digitale Alltagshilfe in Deutschland.
 
@@ -15,9 +15,9 @@ Dieser Handoff beschreibt den aktuellen internen Repo-Kontext nach der internen 
 ## Git Traceability
 
 - branch: `main`
-- head_before_current_patch: `48f3f59efbd351e8fdf9702911ef68f86f54da3b`
+- head_before_current_patch: `a62deda7097f318a1e068a9bf9f25d7a80baa362`
 - intended_head_after: `assigned_after_commit`
-- origin_main_before_current_patch: `48f3f59efbd351e8fdf9702911ef68f86f54da3b`
+- origin_main_before_current_patch: `a62deda7097f318a1e068a9bf9f25d7a80baa362`
 - dirty_state_before_current_patch: `clean`
 - dirty_state_after_current_patch: `assigned_after_commit`
 
@@ -241,6 +241,14 @@ Hinweis: `head_after` wird nicht vorab als Commit-SHA eingetragen, weil ein Comm
 - `SHO-SRC-004` and `SHO-CLAIM-007` remain blocked.
 - The next allowed action is `await_human_operator_decision_on_citation_label_review_internal_only`.
 - superseded_external_review_verdict: SOURCE_METADATA_CITATION_LABEL_REVIEW_RECORD_PASS_WITH_FINDINGS_NOT_PUBLISH_READY
+- `CQ-V1-071` records the Human Operator Citation Label Review Decision Option A.
+- Selected option: `option_a` / `accept_candidate_citation_labels_for_next_internal_gate_with_limitations`.
+- Option A authorizes only carrying candidate citation labels into the next internal gate with all limitations preserved.
+- Candidate citation labels remain `candidate_not_approved`; no citation label, citation, source, claim or freshness approval was granted.
+- No final article, Publish Candidate, Publish Readiness, Operator Acceptance or public launch state was created.
+- `SHO-SRC-004` and `SHO-CLAIM-007` remain blocked.
+- The next allowed action is `prepare_next_internal_gate_after_citation_label_option_a_with_limitations_only`.
+- superseded_external_review_verdict: HUMAN_OPERATOR_CITATION_LABEL_REVIEW_DECISION_PREPARATION_PREPARED_INTERNAL_ONLY
 
 ## Internal Candidate Status
 
@@ -251,7 +259,7 @@ internal_candidate:
   internal_candidate_status: internal_only
   official_mvp_brief_status: not_assigned
   batch_membership_status: internal_spinoff_candidate_not_official_batch_brief
-  current_artifact_level: human_operator_citation_label_review_decision_preparation_prepared_internal_only
+  current_artifact_level: human_operator_citation_label_review_option_a_recorded_internal_only
   final_article_candidate_created: true
   final_article_candidate_review_status: final_article_candidate_review_passed_with_findings_not_publish_ready
   source_metadata_freshness_review_status: source_metadata_freshness_review_passed_with_findings_not_publish_ready
@@ -335,8 +343,11 @@ internal_candidate:
   source_metadata_citation_label_review_record: docs/operations/source_metadata_citation_follow_up/SOURCE_METADATA_CITATION_LABEL_REVIEW_RECORD_CANDIDATE_001_INTERNAL_ONLY.md
   human_operator_citation_label_review_decision_preparation_status: prepared_internal_only
   human_operator_citation_label_review_decision_preparation: docs/operations/operator_decisions/HUMAN_OPERATOR_DECISION_PREPARATION_CITATION_LABEL_REVIEW_CANDIDATE_001_INTERNAL_ONLY.md
-  human_operator_citation_label_review_decision_status: not_recorded
-  human_operator_citation_label_review_selected_option_status: pending
+  human_operator_citation_label_review_decision_status: recorded
+  human_operator_citation_label_review_selected_option: option_a
+  human_operator_citation_label_review_selected_option_label: accept_candidate_citation_labels_for_next_internal_gate_with_limitations
+  human_operator_citation_label_review_decision: docs/operations/operator_decisions/HUMAN_OPERATOR_DECISION_CITATION_LABEL_REVIEW_OPTION_A_CANDIDATE_001_INTERNAL_ONLY.md
+  citation_label_internal_next_gate_authorization_status: authorized_internal_only_with_limitations
   citation_label_review_status: completed_internal_only
   citation_label_review_record_p0_findings: none
   citation_label_review_record_p1_findings: none
@@ -366,7 +377,8 @@ internal_candidate:
   follow_up_live_verification_status: not_performed
   post_source_claim_final_article_status: not_created
   publish_candidate_status: not_created
-  allowed_next_action: await_human_operator_decision_on_citation_label_review_internal_only
+  allowed_next_action: prepare_next_internal_gate_after_citation_label_option_a_with_limitations_only
+  superseded_human_operator_citation_label_review_decision_preparation_allowed_next_action: await_human_operator_decision_on_citation_label_review_internal_only
   superseded_source_metadata_citation_label_review_record_artifact_level: "current_artifact_level: source_metadata_citation_label_review_record_completed_internal_only"
   superseded_source_metadata_citation_label_review_record_allowed_next_action: prepare_human_operator_decision_for_citation_label_review_internal_only
   superseded_source_metadata_citation_label_review_packet_artifact_level: "current_artifact_level: source_metadata_citation_label_review_packet_prepared_internal_only"
@@ -501,7 +513,7 @@ The Human Operator decision now accepts the cleaned internal baseline as an inte
 
 ## Recommended Next Safe Outputs
 
-- `AWAIT_HUMAN_OPERATOR_DECISION_ON_CITATION_LABEL_REVIEW_INTERNAL_ONLY`
+- `PREPARE_NEXT_INTERNAL_GATE_AFTER_CITATION_LABEL_OPTION_A_WITH_LIMITATIONS_ONLY`
 - `BRIEF_002_PUBLISH_CANDIDATE_DECISION_PACKET_INTERNAL_ONLY`
 - `WEBSITE_RELEASE_READINESS_GAP_REVIEW_INTERNAL_ONLY`
 
