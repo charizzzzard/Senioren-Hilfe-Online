@@ -385,6 +385,10 @@ NEXT_INTERNAL_GATE_AFTER_CITATION_LABEL_OPTION_A_INTERNAL_CANDIDATE_001_PATH = (
     ROOT
     / "docs/operations/source_metadata_citation_follow_up/NEXT_INTERNAL_GATE_AFTER_CITATION_LABEL_OPTION_A_CANDIDATE_001_INTERNAL_ONLY.md"
 )
+NEXT_INTERNAL_GATE_AFTER_CITATION_LABEL_OPTION_A_REVIEW_INTERNAL_CANDIDATE_001_PATH = (
+    ROOT
+    / "docs/operations/source_metadata_citation_follow_up/NEXT_INTERNAL_GATE_AFTER_CITATION_LABEL_OPTION_A_REVIEW_CANDIDATE_001_INTERNAL_ONLY.md"
+)
 ACCESSIBILITY_REVIEW_BRIEF_002_PATH = (
     ROOT / "docs/content/article_reviews/betrugsnachrichten-auf-whatsapp-erkennen.accessibility-review.md"
 )
@@ -18987,6 +18991,338 @@ def validate_next_internal_gate_after_citation_label_option_a_internal_candidate
     return 1
 
 
+def validate_next_internal_gate_after_citation_label_option_a_review_internal_candidate_001(
+    failures: list[str],
+) -> int:
+    path = (
+        NEXT_INTERNAL_GATE_AFTER_CITATION_LABEL_OPTION_A_REVIEW_INTERNAL_CANDIDATE_001_PATH
+    )
+    if not path.exists():
+        failures.append(
+            "Missing Next Internal Gate Packet Review after Citation Label "
+            "Option A for SHO-INTERNAL-CANDIDATE-001"
+        )
+        return 0
+
+    matching_files = list(
+        path.parent.glob(
+            "NEXT_INTERNAL_GATE_AFTER_CITATION_LABEL_OPTION_A_REVIEW_CANDIDATE_001_INTERNAL_ONLY.md"
+        )
+    )
+    if len(matching_files) != 1:
+        failures.append(
+            "Expected exactly one canonical Next Internal Gate Packet Review "
+            f"after Citation Label Option A, found {len(matching_files)}"
+        )
+
+    text = path.read_text(encoding="utf-8")
+    fields = parse_frontmatter_fields(text)
+    lower_text = text.lower()
+    queue_text = WORK_QUEUE_V1_PATH.read_text(encoding="utf-8")
+    dashboard_text = ARTICLE_READINESS_DASHBOARD_PATH.read_text(encoding="utf-8")
+    batch_text = BATCH_MANIFEST_PATH.read_text(encoding="utf-8")
+    documentation_map_text = (ROOT / "docs/DOCUMENTATION_MAP.md").read_text(
+        encoding="utf-8"
+    )
+    handoff_text = (
+        ROOT / "external_review_packet/HANDOFF_LATEST_CONTEXT.md"
+    ).read_text(encoding="utf-8")
+
+    expected_next_action = (
+        "prepare_post_citation_label_carry_forward_boundary_decision_or_task_packet_internal_only"
+    )
+    expected_fields = {
+        "status": "internal_only",
+        "task_type": "review_next_internal_gate_after_citation_label_option_a_with_limitations_only",
+        "autonomy_class": "yellow-b",
+        "internal_candidate_id": "sho-internal-candidate-001",
+        "candidate_slug": "whatsapp-fraud-checklist",
+        "basis_next_gate_packet": (
+            "next_internal_gate_after_citation_label_option_a_candidate_001_internal_only"
+        ),
+        "basis_human_operator_decision": (
+            "human_operator_decision_citation_label_review_option_a_candidate_001_internal_only"
+        ),
+        "selected_option": "option_a",
+        "selected_option_label": (
+            "accept_candidate_citation_labels_for_next_internal_gate_with_limitations"
+        ),
+        "review_status": "completed_internal_only",
+        "review_scope": "next_internal_gate_packet_only",
+        "review_verdict": (
+            "pass_for_next_internal_step_preparation_with_findings_not_publish_ready"
+        ),
+        "p0_findings": "none",
+        "p1_findings": "none",
+        "next_internal_gate": (
+            "candidate_citation_label_carry_forward_boundary_gate_internal_only"
+        ),
+        "citation_label_carry_forward_status": (
+            "candidate_only_not_finally_approved"
+        ),
+        "citation_label_approval_status": "not_approved",
+        "citation_approval_status": "not_approved",
+        "source_approval_status": "not_approved",
+        "claim_approval_status": "not_approved",
+        "freshness_approval_status": "not_approved",
+        "final_source_approval_status": "not_approved",
+        "final_claim_approval_status": "not_approved",
+        "final_citation_label_approval_status": "not_approved",
+        "final_article_status": "not_created",
+        "publish_candidate_status": "not_created",
+        "publish_readiness_status": "not_ready",
+        "operator_acceptance_status": "not_accepted",
+        "public_launch_status": "not_ready",
+        "monetization_status": "not_approved",
+        "analytics_status": "not_connected",
+        "search_console_status": "not_connected",
+        "user_feedback_status": "not_collected",
+        "wcag_conformance_status": "not_tested",
+        "sho_claim_007_status": "blocked",
+        "sho_src_004_ui_context_status": "blocked",
+        "whatsapp_ui_path_validation_status": "not_performed",
+    }
+    for field_name, expected_value in expected_fields.items():
+        actual_value = normalized(fields.get(field_name)).strip('"')
+        if actual_value != expected_value:
+            failures.append(
+                "Next Internal Gate Packet Review after Citation Label Option A "
+                f"must have {field_name}: {expected_value}"
+            )
+
+    required_fragments = [
+        "## 1. Executive Summary",
+        "## 2. Review Basis",
+        "## 3. Review Scope",
+        "## 4. Review Method",
+        "## 5. Findings Summary",
+        "## 6. Gate Consistency Review",
+        "## 7. Citation Label Carry-Forward Review",
+        "## 8. Source/Claim Limitation Review",
+        "## 9. Blocked Scope Review",
+        "## 10. Approval / Publish-State Review",
+        "## 11. Governance Tracking Review",
+        "## 12. Validator Coverage Review",
+        "## 13. Risks / Open Limitations",
+        "## 14. Review Verdict",
+        "## 15. Allowed Next Action",
+        "## 16. Explicit Non-Approval Statement",
+        "## 17. Handoff Notes for Next Operator/Codex Run",
+        "task_type: \"review_next_internal_gate_after_citation_label_option_a_with_limitations_only\"",
+        "basis_next_gate_packet: \"NEXT_INTERNAL_GATE_AFTER_CITATION_LABEL_OPTION_A_CANDIDATE_001_INTERNAL_ONLY\"",
+        "basis_human_operator_decision: \"HUMAN_OPERATOR_DECISION_CITATION_LABEL_REVIEW_OPTION_A_CANDIDATE_001_INTERNAL_ONLY\"",
+        "selected_option: \"option_a\"",
+        "review_status: \"completed_internal_only\"",
+        "review_verdict: \"pass_for_next_internal_step_preparation_with_findings_not_publish_ready\"",
+        "p0_findings: \"none\"",
+        "p1_findings: \"none\"",
+        "next_internal_gate: \"candidate_citation_label_carry_forward_boundary_gate_internal_only\"",
+        "citation_label_carry_forward_status: \"candidate_only_not_finally_approved\"",
+        "citation_label_approval_status: \"not_approved\"",
+        "citation_approval_status: \"not_approved\"",
+        "source_approval_status: \"not_approved\"",
+        "claim_approval_status: \"not_approved\"",
+        "freshness_approval_status: \"not_approved\"",
+        "final_source_approval_status: \"not_approved\"",
+        "final_claim_approval_status: \"not_approved\"",
+        "final_citation_label_approval_status: \"not_approved\"",
+        "final_article_status: \"not_created\"",
+        "publish_candidate_status: \"not_created\"",
+        "publish_readiness_status: \"not_ready\"",
+        "operator_acceptance_status: \"not_accepted\"",
+        "public_launch_status: \"not_ready\"",
+        "SHO-SRC-005",
+        "SHO-SRC-006",
+        "SHO-SRC-007",
+        "SHO-CLAIM-004",
+        "SHO-CLAIM-005",
+        "SHO-CLAIM-006",
+        "SHO-SRC-004",
+        "SHO-CLAIM-007",
+        "candidate_not_approved",
+        "No P0 findings: none.",
+        "No P1 findings: none.",
+        f"allowed_next_action: {expected_next_action}",
+        "no candidate article content modification",
+        "no external browsing",
+        "no live verification",
+        "no missing metadata inference",
+    ]
+    for fragment in required_fragments:
+        if fragment not in text:
+            failures.append(
+                "Next Internal Gate Packet Review after Citation Label Option A "
+                f"must contain: {fragment}"
+            )
+
+    forbidden_activation_markers = [
+        "publish_readiness_status: ready",
+        "operator_acceptance_status: accepted",
+        "public_launch_status: ready",
+        "citation_label_approval_status: approved",
+        "citation_approval_status: approved",
+        "source_approval_status: approved",
+        "claim_approval_status: approved",
+        "freshness_approval_status: approved",
+        "final_source_approval_status: approved",
+        "final_claim_approval_status: approved",
+        "final_citation_label_approval_status: approved",
+        "publish_candidate_status: created",
+        "final_article_status: created",
+        "sho-claim-007 unlocked",
+        "sho-src-004 approved",
+        "whatsapp block/report ui steps are allowed",
+        "exact whatsapp ui paths are allowed",
+        "candidate article content modified",
+        "browsing_status: performed",
+        "live_verification_status: performed",
+        "metadata_inference_status: performed",
+    ]
+    for fragment in forbidden_activation_markers:
+        if fragment in lower_text:
+            failures.append(
+                "Next Internal Gate Packet Review after Citation Label Option A "
+                f"contains forbidden activation marker: {fragment}"
+            )
+
+    tracking_fragments = {
+        "documentation map": (
+            documentation_map_text,
+            [
+                path.name,
+                "Next Internal Gate After Citation Label Option A Review",
+                "review_verdict pass_for_next_internal_step_preparation_with_findings_not_publish_ready",
+                "p0_findings none",
+                "p1_findings none",
+            ],
+        ),
+        "dashboard": (
+            dashboard_text,
+            [
+                "citation_label_option_a_next_internal_gate_review_completed_internal_only",
+                f"citation_label_option_a_next_internal_gate_review: docs/operations/source_metadata_citation_follow_up/{path.name}",
+                "citation_label_option_a_next_internal_gate_review_status completed_internal_only",
+                "citation_label_option_a_next_internal_gate_review_verdict pass_for_next_internal_step_preparation_with_findings_not_publish_ready",
+                expected_next_action,
+                "not_ready",
+                "not_accepted",
+                "not_approved",
+            ],
+        ),
+        "batch": (
+            batch_text,
+            [
+                f"docs/operations/source_metadata_citation_follow_up/{path.name}",
+                "citation_label_option_a_next_internal_gate_review_status: completed_internal_only",
+                "citation_label_option_a_next_internal_gate_review_verdict: pass_for_next_internal_step_preparation_with_findings_not_publication_ready",
+                "citation_label_option_a_next_internal_gate_review_p0_findings: none",
+                "citation_label_option_a_next_internal_gate_review_p1_findings: none",
+                f"allowed_next_action: {expected_next_action}",
+                "publish_candidate_status: not_created",
+                "publish_readiness_status: not_ready",
+                "operator_acceptance_status: not_accepted",
+                "final_source_approval_status: not_approved",
+                "final_claim_approval_status: not_approved",
+                "final_publication_citation_labels_status: not_approved",
+            ],
+        ),
+        "handoff": (
+            handoff_text,
+            [
+                "CITATION_LABEL_OPTION_A_NEXT_INTERNAL_GATE_REVIEW_PASS_WITH_FINDINGS_NOT_PUBLISH_READY",
+                "current_artifact_level: citation_label_option_a_next_internal_gate_review_completed_internal_only",
+                f"citation_label_option_a_next_internal_gate_review: docs/operations/source_metadata_citation_follow_up/{path.name}",
+                "citation_label_option_a_next_internal_gate_review_status: completed_internal_only",
+                "citation_label_option_a_next_internal_gate_review_verdict: pass_for_next_internal_step_preparation_with_findings_not_publish_ready",
+                "citation_label_option_a_next_internal_gate_review_p0_findings: none",
+                "citation_label_option_a_next_internal_gate_review_p1_findings: none",
+                f"allowed_next_action: {expected_next_action}",
+            ],
+        ),
+    }
+    for area, (area_text, fragments) in tracking_fragments.items():
+        for fragment in fragments:
+            if fragment not in area_text:
+                failures.append(
+                    f"{area} missing Next Internal Gate Packet Review after "
+                    f"Citation Label Option A status: {fragment}"
+                )
+
+    queue_item_match = re.search(
+        r"(?ms)^  - queue_item_id: CQ-V1-073\n"
+        r"(?P<body>.*?)(?=^  - queue_item_id: |\Z)",
+        queue_text,
+    )
+    if not queue_item_match:
+        failures.append("Work Queue V1 missing CQ-V1-073")
+    else:
+        queue_item_text = queue_item_match.group("body")
+        required_queue_fragments = [
+            path.name,
+            "title: SHO-INTERNAL-CANDIDATE-001 review next internal gate after citation label Option A",
+            "task_type: review_next_internal_gate_after_citation_label_option_a_with_limitations_only",
+            "review_status: completed_internal_only",
+            "review_verdict: pass_for_next_internal_step_preparation_with_findings_not_publish_ready",
+            "p0_findings: none",
+            "p1_findings: none",
+            "next_internal_gate: candidate_citation_label_carry_forward_boundary_gate_internal_only",
+            "citation_label_carry_forward_status: candidate_only_not_finally_approved",
+            "citation_label_approval_status: not_approved",
+            "citation_approval_status: not_approved",
+            "source_approval_status: not_approved",
+            "claim_approval_status: not_approved",
+            "freshness_approval_status: not_approved",
+            "final_source_approval_status: not_approved",
+            "final_claim_approval_status: not_approved",
+            "final_citation_label_approval_status: not_approved",
+            "final_article_status: not_created",
+            "publish_candidate_status: not_created",
+            "publish_readiness_status: not_ready",
+            "operator_acceptance_status: not_accepted",
+            "public_launch_status: not_ready",
+            "SHO-SRC-005",
+            "SHO-SRC-006",
+            "SHO-SRC-007",
+            "SHO-CLAIM-004",
+            "SHO-CLAIM-005",
+            "SHO-CLAIM-006",
+            "SHO-SRC-004",
+            "SHO-CLAIM-007",
+            f"allowed_next_action: {expected_next_action}",
+            "approve_final_citation_labels",
+            "approve_citation_labels",
+            "approve_final_source_set",
+            "approve_final_claim_use",
+            "approve_freshness",
+            "create_final_article",
+            "create_publish_candidate",
+            "set_publish_readiness",
+            "set_operator_acceptance",
+            "activate_public_launch",
+            "activate_monetization",
+            "activate_analytics",
+            "activate_search_console",
+            "claim_user_feedback",
+            "claim_wcag_conformance",
+            "unlock_SHO_CLAIM_007",
+            "verify_SHO_SRC_004",
+            "add_WhatsApp_UI_block_report_steps",
+            "add_exact_WhatsApp_UI_paths",
+            "modify_candidate_article_content",
+            "browse_external_sources",
+            "perform_live_verification",
+            "infer_metadata",
+            "execute_queue",
+            "advance_stage",
+            "status: citation_label_option_a_next_internal_gate_review_completed_internal_only",
+        ]
+        for fragment in required_queue_fragments:
+            if fragment not in queue_item_text:
+                failures.append(f"Work Queue CQ-V1-073 missing: {fragment}")
+
+    return 1
+
+
 def validate_applied_scorecard_brief_002(failures: list[str]) -> int:
     if not APPLIED_SCORECARD_BRIEF_002_PATH.exists():
         failures.append(
@@ -20863,6 +21199,11 @@ def main() -> int:
             failures
         )
     )
+    next_internal_gate_after_citation_label_option_a_review_internal_candidate_001_count = (
+        validate_next_internal_gate_after_citation_label_option_a_review_internal_candidate_001(
+            failures
+        )
+    )
     applied_scorecard_brief_002_count = validate_applied_scorecard_brief_002(failures)
     human_operator_review_packet_final_article_candidate_brief_002_count = (
         validate_human_operator_review_packet_final_article_candidate_brief_002(failures)
@@ -21144,6 +21485,11 @@ def main() -> int:
         "- Internal candidate Next Internal Gate after Citation Label Option A "
         "files: "
         f"{next_internal_gate_after_citation_label_option_a_internal_candidate_001_count}"
+    )
+    print(
+        "- Internal candidate Next Internal Gate after Citation Label Option A "
+        "review files: "
+        f"{next_internal_gate_after_citation_label_option_a_review_internal_candidate_001_count}"
     )
     print(f"- Batch 01 applied scorecard Brief 002 files: {applied_scorecard_brief_002_count}")
     print(
