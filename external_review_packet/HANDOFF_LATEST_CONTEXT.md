@@ -5,8 +5,8 @@
 - project_name: Senioren-Hilfe Online
 - system_name: Senioren-Hilfe Online OS
 - system_short_name: SHO-OS
-- patch_title: SHO_INTERNAL_CANDIDATE_001_REVIEW_NEXT_INTERNAL_GATE_AFTER_CITATION_LABEL_OPTION_A_INTERNAL_ONLY
-- external_review_verdict: CITATION_LABEL_OPTION_A_NEXT_INTERNAL_GATE_REVIEW_PASS_WITH_FINDINGS_NOT_PUBLISH_READY
+- patch_title: SHO_INTERNAL_CANDIDATE_001_POST_CITATION_LABEL_CARRY_FORWARD_BOUNDARY_DECISION_OR_TASK_PACKET_INTERNAL_ONLY
+- external_review_verdict: POST_CITATION_LABEL_CARRY_FORWARD_BOUNDARY_DECISION_OR_TASK_PACKET_PREPARED_INTERNAL_ONLY
 
 SHO-OS ist ein reproduzierbares Content-, Trust- und Publishing-System fuer seniorengerechte digitale Alltagshilfe in Deutschland.
 
@@ -15,9 +15,9 @@ Dieser Handoff beschreibt den aktuellen internen Repo-Kontext nach der internen 
 ## Git Traceability
 
 - branch: `main`
-- head_before_current_patch: `9e8592da9d44e9b6f3810b4b5f85ac6ed308c020`
+- head_before_current_patch: `96c88b8f7a780dc67cef69692a0177e4e84d3180`
 - intended_head_after: `assigned_after_commit`
-- origin_main_before_current_patch: `9e8592da9d44e9b6f3810b4b5f85ac6ed308c020`
+- origin_main_before_current_patch: `96c88b8f7a780dc67cef69692a0177e4e84d3180`
 - dirty_state_before_current_patch: `clean`
 - dirty_state_after_current_patch: `assigned_after_commit`
 
@@ -267,6 +267,16 @@ Hinweis: `head_after` wird nicht vorab als Commit-SHA eingetragen, weil ein Comm
 - No citation label, citation, source, claim, freshness, final article, Publish Candidate, Publish Readiness, Operator Acceptance or public launch approval was created.
 - `SHO-SRC-004` and `SHO-CLAIM-007` remain blocked.
 - The next allowed action is `prepare_post_citation_label_carry_forward_boundary_decision_or_task_packet_internal_only`.
+- `CQ-V1-074` records the Post Citation Label Carry-Forward Boundary Decision Or Task Packet.
+- The packet prepares internal next-path options only and records no Human Operator decision.
+- `decision_status` remains `not_recorded` and `selected_next_path_status` remains `not_selected`.
+- Option A remains historical basis only; no new option or next path was selected.
+- Candidate citation labels remain candidate-only and not finally approved.
+- No citation label, citation, source, claim, freshness, final article, Publish Candidate, Publish Readiness, Operator Acceptance or public launch approval was created.
+- No candidate article content was modified. No external browsing, live verification or metadata inference occurred.
+- `SHO-SRC-004` and `SHO-CLAIM-007` remain blocked.
+- The next allowed action is `await_or_prepare_limited_internal_post_boundary_task_selection_with_limitations_only`.
+- superseded_external_review_verdict: CITATION_LABEL_OPTION_A_NEXT_INTERNAL_GATE_REVIEW_PASS_WITH_FINDINGS_NOT_PUBLISH_READY
 - superseded_external_review_verdict: CITATION_LABEL_OPTION_A_NEXT_INTERNAL_GATE_PACKET_PREPARED_INTERNAL_ONLY
 
 ## Internal Candidate Status
@@ -278,7 +288,7 @@ internal_candidate:
   internal_candidate_status: internal_only
   official_mvp_brief_status: not_assigned
   batch_membership_status: internal_spinoff_candidate_not_official_batch_brief
-  current_artifact_level: citation_label_option_a_next_internal_gate_review_completed_internal_only
+  current_artifact_level: post_citation_label_carry_forward_boundary_decision_or_task_packet_prepared_internal_only
   final_article_candidate_created: true
   final_article_candidate_review_status: final_article_candidate_review_passed_with_findings_not_publish_ready
   source_metadata_freshness_review_status: source_metadata_freshness_review_passed_with_findings_not_publish_ready
@@ -374,6 +384,13 @@ internal_candidate:
   citation_label_option_a_next_internal_gate_review_p0_findings: none
   citation_label_option_a_next_internal_gate_review_p1_findings: none
   citation_label_option_a_next_internal_gate_review: docs/operations/source_metadata_citation_follow_up/NEXT_INTERNAL_GATE_AFTER_CITATION_LABEL_OPTION_A_REVIEW_CANDIDATE_001_INTERNAL_ONLY.md
+  post_citation_label_carry_forward_boundary_decision_or_task_packet_status: prepared_internal_only
+  post_citation_label_carry_forward_boundary_decision_or_task_packet: docs/operations/source_metadata_citation_follow_up/POST_CITATION_LABEL_CARRY_FORWARD_BOUNDARY_DECISION_OR_TASK_PACKET_CANDIDATE_001_INTERNAL_ONLY.md
+  post_citation_label_carry_forward_boundary_decision_status: not_recorded
+  post_citation_label_carry_forward_boundary_selected_next_path_status: not_selected
+  post_citation_label_carry_forward_boundary_review_verdict_basis: pass_for_next_internal_step_preparation_with_findings_not_publish_ready
+  post_citation_label_carry_forward_boundary_p0_findings_basis: none
+  post_citation_label_carry_forward_boundary_p1_findings_basis: none
   next_internal_gate: candidate_citation_label_carry_forward_boundary_gate_internal_only
   citation_label_carry_forward_status: candidate_only_not_finally_approved
   citation_label_review_status: completed_internal_only
@@ -405,7 +422,10 @@ internal_candidate:
   follow_up_live_verification_status: not_performed
   post_source_claim_final_article_status: not_created
   publish_candidate_status: not_created
-  allowed_next_action: prepare_post_citation_label_carry_forward_boundary_decision_or_task_packet_internal_only
+  allowed_next_action: await_or_prepare_limited_internal_post_boundary_task_selection_with_limitations_only
+  superseded_post_citation_label_carry_forward_boundary_allowed_next_action: prepare_post_citation_label_carry_forward_boundary_decision_or_task_packet_internal_only
+  superseded_citation_label_option_a_next_internal_gate_review_artifact_level: "current_artifact_level: citation_label_option_a_next_internal_gate_review_completed_internal_only"
+  superseded_citation_label_option_a_next_internal_gate_review_allowed_next_action: prepare_post_citation_label_carry_forward_boundary_decision_or_task_packet_internal_only
   superseded_citation_label_option_a_next_internal_gate_packet_artifact_level: "current_artifact_level: citation_label_option_a_next_internal_gate_packet_prepared_internal_only"
   superseded_citation_label_option_a_next_internal_gate_packet_allowed_next_action: review_next_internal_gate_after_citation_label_option_a_with_limitations_only
   superseded_human_operator_citation_label_review_decision_artifact_level: "current_artifact_level: human_operator_citation_label_review_option_a_recorded_internal_only"
@@ -545,7 +565,7 @@ The Human Operator decision now accepts the cleaned internal baseline as an inte
 
 ## Recommended Next Safe Outputs
 
-- `PREPARE_POST_CITATION_LABEL_CARRY_FORWARD_BOUNDARY_DECISION_OR_TASK_PACKET_INTERNAL_ONLY`
+- `AWAIT_OR_PREPARE_LIMITED_INTERNAL_POST_BOUNDARY_TASK_SELECTION_WITH_LIMITATIONS_ONLY`
 - `BRIEF_002_PUBLISH_CANDIDATE_DECISION_PACKET_INTERNAL_ONLY`
 - `WEBSITE_RELEASE_READINESS_GAP_REVIEW_INTERNAL_ONLY`
 
