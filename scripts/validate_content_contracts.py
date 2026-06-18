@@ -401,6 +401,10 @@ LIMITED_INTERNAL_POST_BOUNDARY_TASK_PACKET_INTERNAL_CANDIDATE_001_PATH = (
     ROOT
     / "docs/operations/source_metadata_citation_follow_up/LIMITED_INTERNAL_POST_BOUNDARY_TASK_PACKET_CANDIDATE_001_INTERNAL_ONLY.md"
 )
+LIMITED_INTERNAL_POST_BOUNDARY_TASK_PACKET_REVIEW_INTERNAL_CANDIDATE_001_PATH = (
+    ROOT
+    / "docs/operations/source_metadata_citation_follow_up/LIMITED_INTERNAL_POST_BOUNDARY_TASK_PACKET_REVIEW_CANDIDATE_001_INTERNAL_ONLY.md"
+)
 ACCESSIBILITY_REVIEW_BRIEF_002_PATH = (
     ROOT / "docs/content/article_reviews/betrugsnachrichten-auf-whatsapp-erkennen.accessibility-review.md"
 )
@@ -20358,6 +20362,326 @@ def validate_limited_internal_post_boundary_task_packet_internal_candidate_001(
     return 1
 
 
+def validate_limited_internal_post_boundary_task_packet_review_internal_candidate_001(
+    failures: list[str],
+) -> int:
+    path = LIMITED_INTERNAL_POST_BOUNDARY_TASK_PACKET_REVIEW_INTERNAL_CANDIDATE_001_PATH
+    if not path.exists():
+        failures.append(
+            "Missing Limited Internal Post-Boundary Task Packet Review for "
+            "SHO-INTERNAL-CANDIDATE-001"
+        )
+        return 0
+
+    matching_files = list(
+        path.parent.glob(
+            "LIMITED_INTERNAL_POST_BOUNDARY_TASK_PACKET_REVIEW_CANDIDATE_001_INTERNAL_ONLY.md"
+        )
+    )
+    if len(matching_files) != 1:
+        failures.append(
+            "Expected exactly one canonical Limited Internal Post-Boundary "
+            f"Task Packet Review, found {len(matching_files)}"
+        )
+
+    text = path.read_text(encoding="utf-8")
+    fields = parse_frontmatter_fields(text)
+    lower_text = text.lower()
+    queue_text = WORK_QUEUE_V1_PATH.read_text(encoding="utf-8")
+    dashboard_text = ARTICLE_READINESS_DASHBOARD_PATH.read_text(encoding="utf-8")
+    batch_text = BATCH_MANIFEST_PATH.read_text(encoding="utf-8")
+    documentation_map_text = (ROOT / "docs/DOCUMENTATION_MAP.md").read_text(
+        encoding="utf-8"
+    )
+    handoff_text = (
+        ROOT / "external_review_packet/HANDOFF_LATEST_CONTEXT.md"
+    ).read_text(encoding="utf-8")
+
+    expected_next_action = (
+        "prepare_human_operator_or_limited_task_execution_decision_packet_internal_only"
+    )
+    expected_fields = {
+        "status": "internal_only",
+        "task_type": "review_limited_internal_post_boundary_task_packet_with_limitations_only",
+        "autonomy_class": "yellow-b",
+        "internal_candidate_id": "sho-internal-candidate-001",
+        "candidate_slug": "whatsapp-fraud-checklist",
+        "basis_task_packet": (
+            "limited_internal_post_boundary_task_packet_candidate_001_internal_only"
+        ),
+        "review_status": "completed_internal_only",
+        "review_verdict": (
+            "pass_for_human_operator_or_later_limited_task_execution_decision_with_findings_not_publish_ready"
+        ),
+        "p0_findings": "none",
+        "p1_findings": "none",
+        "task_execution_status": "not_performed",
+        "prepared_limited_task_execution_status": "not_performed",
+        "decision_status": "not_recorded",
+        "selected_next_path_status": "not_selected",
+        "citation_label_carry_forward_status": (
+            "candidate_only_not_finally_approved"
+        ),
+        "citation_label_approval_status": "not_approved",
+        "citation_approval_status": "not_approved",
+        "source_approval_status": "not_approved",
+        "claim_approval_status": "not_approved",
+        "freshness_approval_status": "not_approved",
+        "final_source_approval_status": "not_approved",
+        "final_claim_approval_status": "not_approved",
+        "final_citation_label_approval_status": "not_approved",
+        "final_article_status": "not_created",
+        "publish_candidate_status": "not_created",
+        "publish_readiness_status": "not_ready",
+        "operator_acceptance_status": "not_accepted",
+        "public_launch_status": "not_ready",
+        "sho_claim_007_status": "blocked",
+        "sho_src_004_ui_context_status": "blocked",
+        "whatsapp_ui_path_validation_status": "not_performed",
+    }
+    for field_name, expected_value in expected_fields.items():
+        actual_value = normalized(fields.get(field_name)).strip('"')
+        if actual_value != expected_value:
+            failures.append(
+                "Limited Internal Post-Boundary Task Packet Review must have "
+                f"{field_name}: {expected_value}"
+            )
+
+    required_fragments = [
+        "## 1. Executive Summary",
+        "## 2. Scope Reviewed",
+        "## 3. Files Inspected",
+        "## 4. Packet Consistency Review",
+        "## 5. Boundary Preservation Review",
+        "## 6. Source / Claim / Citation Label Carry-Forward Review",
+        "## 7. Blocked Scope Review",
+        "## 8. Tracking Consistency Review",
+        "## 9. Validator Coverage Review",
+        "## 10. Findings",
+        "## 11. Final Verdict",
+        "## 12. Allowed Next Action",
+        "## 13. Forbidden Next Actions",
+        "## 14. Human Operator Boundary Confirmation",
+        "LIMITED_INTERNAL_POST_BOUNDARY_TASK_PACKET_CANDIDATE_001_INTERNAL_ONLY.md",
+        "limited_internal_post_boundary_traceability_and_gap_consolidation_task",
+        "LIMITED_INTERNAL_POST_BOUNDARY_TRACEABILITY_GAP_CONSOLIDATION_RECORD_CANDIDATE_001_INTERNAL_ONLY.md",
+        "task_execution_status: not_performed",
+        "prepared_limited_task_execution_status: not_performed",
+        "decision_status: not_recorded",
+        "selected_next_path_status: not_selected",
+        "citation_label_carry_forward_status: candidate_only_not_finally_approved",
+        "citation_label_approval_status: not_approved",
+        "citation_approval_status: not_approved",
+        "source_approval_status: not_approved",
+        "claim_approval_status: not_approved",
+        "freshness_approval_status: not_approved",
+        "final_source_approval_status: not_approved",
+        "final_claim_approval_status: not_approved",
+        "final_citation_label_approval_status: not_approved",
+        "final_article_status: not_created",
+        "publish_candidate_status: not_created",
+        "publish_readiness_status: not_ready",
+        "operator_acceptance_status: not_accepted",
+        "public_launch_status: not_ready",
+        "SHO-SRC-005",
+        "SHO-SRC-006",
+        "SHO-SRC-007",
+        "SHO-CLAIM-004",
+        "SHO-CLAIM-005",
+        "SHO-CLAIM-006",
+        "SHO-SRC-004",
+        "SHO-CLAIM-007",
+        "None.",
+        f"allowed_next_action: {expected_next_action}",
+    ]
+    for fragment in required_fragments:
+        if fragment not in text:
+            failures.append(
+                "Limited Internal Post-Boundary Task Packet Review must "
+                f"contain: {fragment}"
+            )
+
+    forbidden_activation_markers = [
+        "task_execution_status: performed",
+        "prepared_limited_task_execution_status: performed",
+        "decision_status: recorded",
+        "selected_next_path_status: selected",
+        "publish_readiness_status: ready",
+        "operator_acceptance_status: accepted",
+        "public_launch_status: ready",
+        "citation_label_approval_status: approved",
+        "citation_approval_status: approved",
+        "source_approval_status: approved",
+        "claim_approval_status: approved",
+        "freshness_approval_status: approved",
+        "final_source_approval_status: approved",
+        "final_claim_approval_status: approved",
+        "final_citation_label_approval_status: approved",
+        "publish_candidate_status: created",
+        "final_article_status: created",
+        "sho-claim-007 unlocked",
+        "sho-src-004 approved",
+        "verify_sho_src_004 allowed",
+        "whatsapp block/report ui steps are allowed",
+        "exact whatsapp ui paths are allowed",
+        "candidate article content modified",
+        "browsing_status: performed",
+        "live_verification_status: performed",
+        "metadata_inference_status: performed",
+    ]
+    for fragment in forbidden_activation_markers:
+        if fragment in lower_text:
+            failures.append(
+                "Limited Internal Post-Boundary Task Packet Review contains "
+                f"forbidden activation marker: {fragment}"
+            )
+
+    tracking_fragments = {
+        "documentation map": (
+            documentation_map_text,
+            [
+                path.name,
+                "Limited Internal Post-Boundary Task Packet Review",
+                "review_status completed_internal_only",
+                "p0_findings none",
+                "p1_findings none",
+            ],
+        ),
+        "dashboard": (
+            dashboard_text,
+            [
+                "limited_internal_post_boundary_task_packet_review_completed_internal_only",
+                f"limited_internal_post_boundary_task_packet_review: docs/operations/source_metadata_citation_follow_up/{path.name}",
+                "limited_internal_post_boundary_task_packet_review_status: completed_internal_only",
+                "limited_internal_post_boundary_task_packet_review_p0_findings: none",
+                "limited_internal_post_boundary_task_packet_review_p1_findings: none",
+                expected_next_action,
+                "not_ready",
+                "not_accepted",
+                "not_approved",
+            ],
+        ),
+        "batch": (
+            batch_text,
+            [
+                f"docs/operations/source_metadata_citation_follow_up/{path.name}",
+                "limited_internal_post_boundary_task_packet_review_status: completed_internal_only",
+                "limited_internal_post_boundary_task_packet_review_p0_findings: none",
+                "limited_internal_post_boundary_task_packet_review_p1_findings: none",
+                f"allowed_next_action: {expected_next_action}",
+                "publish_candidate_status: not_created",
+                "publish_readiness_status: not_ready",
+                "operator_acceptance_status: not_accepted",
+                "final_source_approval_status: not_approved",
+                "final_claim_approval_status: not_approved",
+                "final_publication_citation_labels_status: not_approved",
+            ],
+        ),
+        "handoff": (
+            handoff_text,
+            [
+                "LIMITED_INTERNAL_POST_BOUNDARY_TASK_PACKET_REVIEW_PASS_WITH_FINDINGS_NOT_PUBLISH_READY",
+                "current_artifact_level: limited_internal_post_boundary_task_packet_review_completed_internal_only",
+                f"limited_internal_post_boundary_task_packet_review: docs/operations/source_metadata_citation_follow_up/{path.name}",
+                "limited_internal_post_boundary_task_packet_review_status: completed_internal_only",
+                "limited_internal_post_boundary_task_packet_review_p0_findings: none",
+                "limited_internal_post_boundary_task_packet_review_p1_findings: none",
+                f"allowed_next_action: {expected_next_action}",
+            ],
+        ),
+    }
+    for area, (area_text, fragments) in tracking_fragments.items():
+        for fragment in fragments:
+            if fragment not in area_text:
+                failures.append(
+                    "Tracking missing Limited Internal Post-Boundary Task "
+                    f"Packet Review status in {area}: {fragment}"
+                )
+
+    queue_item_match = re.search(
+        r"(?ms)^  - queue_item_id: CQ-V1-077\n"
+        r"(?P<body>.*?)(?=^  - queue_item_id: |\Z)",
+        queue_text,
+    )
+    if not queue_item_match:
+        failures.append("Work Queue V1 missing CQ-V1-077")
+    else:
+        queue_item_text = queue_item_match.group("body")
+        required_queue_fragments = [
+            path.name,
+            "title: SHO-INTERNAL-CANDIDATE-001 limited internal post-boundary task packet review",
+            "task_type: review_limited_internal_post_boundary_task_packet_with_limitations_only",
+            "review_status: completed_internal_only",
+            "review_verdict: pass_for_human_operator_or_later_limited_task_execution_decision_with_findings_not_publish_ready",
+            "p0_findings: none",
+            "p1_findings: none",
+            "task_execution_status: not_performed",
+            "prepared_limited_task_execution_status: not_performed",
+            "decision_status: not_recorded",
+            "selected_next_path_status: not_selected",
+            "citation_label_carry_forward_status: candidate_only_not_finally_approved",
+            "citation_label_approval_status: not_approved",
+            "citation_approval_status: not_approved",
+            "source_approval_status: not_approved",
+            "claim_approval_status: not_approved",
+            "freshness_approval_status: not_approved",
+            "final_source_approval_status: not_approved",
+            "final_claim_approval_status: not_approved",
+            "final_citation_label_approval_status: not_approved",
+            "final_article_status: not_created",
+            "publish_candidate_status: not_created",
+            "publish_readiness_status: not_ready",
+            "operator_acceptance_status: not_accepted",
+            "public_launch_status: not_ready",
+            "SHO-SRC-005",
+            "SHO-SRC-006",
+            "SHO-SRC-007",
+            "SHO-CLAIM-004",
+            "SHO-CLAIM-005",
+            "SHO-CLAIM-006",
+            "SHO-SRC-004",
+            "SHO-CLAIM-007",
+            f"allowed_next_action: {expected_next_action}",
+            "execute_limited_internal_task",
+            "perform_traceability_gap_consolidation",
+            "create_traceability_gap_consolidation_record",
+            "record_human_operator_decision",
+            "select_human_operator_option",
+            "select_next_path",
+            "approve_final_citation_labels",
+            "approve_citation_labels",
+            "approve_final_source_set",
+            "approve_final_claim_use",
+            "approve_freshness",
+            "create_final_article",
+            "create_publish_candidate",
+            "set_publish_readiness",
+            "set_operator_acceptance",
+            "activate_public_launch",
+            "activate_monetization",
+            "activate_analytics",
+            "activate_search_console",
+            "claim_user_feedback",
+            "claim_wcag_conformance",
+            "unlock_SHO_CLAIM_007",
+            "verify_SHO_SRC_004",
+            "add_WhatsApp_UI_block_report_steps",
+            "add_exact_WhatsApp_UI_paths",
+            "modify_candidate_article_content",
+            "browse_external_sources",
+            "perform_live_verification",
+            "infer_metadata",
+            "execute_queue",
+            "advance_stage",
+            "status: limited_internal_post_boundary_task_packet_review_completed_internal_only",
+        ]
+        for fragment in required_queue_fragments:
+            if fragment not in queue_item_text:
+                failures.append(f"Work Queue CQ-V1-077 missing: {fragment}")
+
+    return 1
+
+
 def validate_applied_scorecard_brief_002(failures: list[str]) -> int:
     if not APPLIED_SCORECARD_BRIEF_002_PATH.exists():
         failures.append(
@@ -22254,6 +22578,11 @@ def main() -> int:
             failures
         )
     )
+    limited_internal_post_boundary_task_packet_review_internal_candidate_001_count = (
+        validate_limited_internal_post_boundary_task_packet_review_internal_candidate_001(
+            failures
+        )
+    )
     applied_scorecard_brief_002_count = validate_applied_scorecard_brief_002(failures)
     human_operator_review_packet_final_article_candidate_brief_002_count = (
         validate_human_operator_review_packet_final_article_candidate_brief_002(failures)
@@ -22554,6 +22883,10 @@ def main() -> int:
     print(
         "- Internal candidate Limited Internal Post-Boundary Task Packet files: "
         f"{limited_internal_post_boundary_task_packet_internal_candidate_001_count}"
+    )
+    print(
+        "- Internal candidate Limited Internal Post-Boundary Task Packet Review files: "
+        f"{limited_internal_post_boundary_task_packet_review_internal_candidate_001_count}"
     )
     print(f"- Batch 01 applied scorecard Brief 002 files: {applied_scorecard_brief_002_count}")
     print(
