@@ -5,8 +5,8 @@
 - project_name: Senioren-Hilfe Online
 - system_name: Senioren-Hilfe Online OS
 - system_short_name: SHO-OS
-- patch_title: SHO_INTERNAL_CANDIDATE_001_LIMITED_INTERNAL_POST_BOUNDARY_TASK_PACKET_REVIEW_INTERNAL_ONLY
-- external_review_verdict: LIMITED_INTERNAL_POST_BOUNDARY_TASK_PACKET_REVIEW_PASS_WITH_FINDINGS_NOT_PUBLISH_READY
+- patch_title: SHO_INTERNAL_CANDIDATE_001_HUMAN_OPERATOR_OR_LIMITED_TASK_EXECUTION_DECISION_PACKET_INTERNAL_ONLY
+- external_review_verdict: HUMAN_OPERATOR_OR_LIMITED_TASK_EXECUTION_DECISION_PACKET_PREPARED_INTERNAL_ONLY
 
 SHO-OS ist ein reproduzierbares Content-, Trust- und Publishing-System fuer seniorengerechte digitale Alltagshilfe in Deutschland.
 
@@ -15,9 +15,9 @@ Dieser Handoff beschreibt den aktuellen internen Repo-Kontext nach der internen 
 ## Git Traceability
 
 - branch: `main`
-- head_before_current_patch: `3980290a8cc9cfb0d65599809acdd954724ec0eb`
+- head_before_current_patch: `b0d56100819058c5b40618684f16b982c9cb749d`
 - intended_head_after: `assigned_after_commit`
-- origin_main_before_current_patch: `3980290a8cc9cfb0d65599809acdd954724ec0eb`
+- origin_main_before_current_patch: `b0d56100819058c5b40618684f16b982c9cb749d`
 - dirty_state_before_current_patch: `clean`
 - dirty_state_after_current_patch: `assigned_after_commit`
 
@@ -30,6 +30,19 @@ Hinweis: `head_after` wird nicht vorab als Commit-SHA eingetragen, weil ein Comm
 - Brief 003 has internal Android-first draft/revision/review artifacts and a no-screenshot pivot decision. It remains blocked for screenshot evidence, UI-path validation, exact device-specific claims and accessibility testing.
 - Brief 004 remains held for product/monetization methodology.
 - `SHO-INTERNAL-CANDIDATE-001` is the stable internal candidate identity for the WhatsApp-Fraud-Checklist path.
+- current_artifact_level: `human_operator_or_limited_task_execution_decision_packet_prepared_internal_only`.
+- Current decision packet: `docs/operations/operator_decisions/HUMAN_OPERATOR_OR_LIMITED_TASK_EXECUTION_DECISION_PACKET_CANDIDATE_001_INTERNAL_ONLY.md`.
+- Current allowed next action: `await_human_operator_decision_on_limited_task_execution_internal_only`.
+- Human Operator decision status remains `not_recorded`; `selected_option_status` remains `pending`; `selected_next_path_status` remains `not_selected`.
+- Limited task execution status remains `not_performed`; traceability/gap consolidation record status remains `not_created`.
+- `recommended_option_status` is `recommendation_only_not_selected`; Option A was not selected or authorized by this packet.
+- superseded_current_artifact_level: `limited_internal_post_boundary_task_packet_review_completed_internal_only`.
+- superseded_allowed_next_action: `prepare_human_operator_or_limited_task_execution_decision_packet_internal_only`.
+- superseded_external_review_verdict: `LIMITED_INTERNAL_POST_BOUNDARY_TASK_PACKET_REVIEW_PASS_WITH_FINDINGS_NOT_PUBLISH_READY`.
+- Citation labels remain `candidate_only_not_finally_approved`; no source, claim, freshness, citation or citation-label approval was created.
+- No external browsing, live verification, metadata inference, WhatsApp UI path validation, article content modification, Final Article, Publish Candidate, Publish Readiness, Operator Acceptance or Public Launch was created.
+- `SHO-SRC-004` and `SHO-CLAIM-007` remain blocked.
+- `CQ-V1-078` records only the prepared Human Operator Or Limited Task Execution Decision Packet; it does not record a Human Operator decision, select an option, execute the limited task or create the traceability/gap consolidation record.
 - `CQ-V1-019` records Human Operator Decision A for `SHO-INTERNAL-CANDIDATE-001`: `proceed_to_final_article_candidate_preparation_internal_only`.
 - The allowed next action for `SHO-INTERNAL-CANDIDATE-001` is `prepare_final_article_candidate_internal_only`.
 - `CQ-V1-020` records the Human Operator decision to accept the cleaned internal project baseline as an internal freeze baseline only.
