@@ -5373,3 +5373,102 @@ queue_items:
     automation_candidate: codex_assisted
     status_note: Limited internal traceability/gap consolidation performed from committed artifacts only; no gap resolved, no article change, no approval, and no publish state
     status: limited_internal_post_boundary_traceability_gap_consolidation_performed_internal_only
+
+  - queue_item_id: CQ-V1-081
+    title: SHO-INTERNAL-CANDIDATE-001 limited internal post-boundary traceability gap consolidation record review
+    linked_stage_id: STAGE_09_QUALITY_READER_ACCESSIBILITY_SAFETY_REVIEWS
+    linked_brief_id: SHO-INTERNAL-CANDIDATE-001
+    internal_candidate_id: SHO-INTERNAL-CANDIDATE-001
+    internal_candidate_status: internal_only
+    batch_membership_status: internal_spinoff_candidate_not_official_batch_brief
+    required_inputs:
+      - docs/operations/source_metadata_citation_follow_up/LIMITED_INTERNAL_POST_BOUNDARY_TRACEABILITY_GAP_CONSOLIDATION_RECORD_CANDIDATE_001_INTERNAL_ONLY.md
+      - docs/operations/operator_decisions/HUMAN_OPERATOR_DECISION_LIMITED_TASK_EXECUTION_OPTION_A_CANDIDATE_001_INTERNAL_ONLY.md
+      - docs/operations/source_metadata_citation_follow_up/LIMITED_INTERNAL_POST_BOUNDARY_TASK_PACKET_REVIEW_CANDIDATE_001_INTERNAL_ONLY.md
+      - docs/content/source_inventories/SOURCE_INVENTORY_WHATSAPP_FRAUD_CHECKLIST_BATCH_01_INTERNAL_ONLY.md
+      - docs/content/source_packs/operator-research-source-pack-batch-01.md
+      - docs/content/claim_maps/source-to-claim-map-batch-01.md
+    produced_outputs:
+      - docs/operations/source_metadata_citation_follow_up/LIMITED_INTERNAL_POST_BOUNDARY_TRACEABILITY_GAP_CONSOLIDATION_RECORD_REVIEW_CANDIDATE_001_INTERNAL_ONLY.md
+    review_outcome:
+      task_type: review_limited_internal_post_boundary_traceability_gap_consolidation_record_with_limitations_only
+      review_status: completed_internal_only
+      review_verdict: pass_for_human_operator_post_consolidation_decision_preparation_with_findings_not_publish_ready
+      p0_findings: none
+      p1_findings: none
+      p2_findings: present_open_limitations
+      p3_findings: none
+      consolidation_record_status: created_internal_only
+      limited_task_execution_status: performed_internal_only_limited
+      traceability_gap_consolidation_record_status: created_internal_only
+      article_content_modified: false
+      browsing_status: not_performed
+      live_verification_status: not_performed
+      metadata_inference_status: not_performed
+      citation_label_carry_forward_status: candidate_only_not_finally_approved
+      citation_label_approval_status: not_approved
+      citation_approval_status: not_approved
+      source_approval_status: not_approved
+      claim_approval_status: not_approved
+      freshness_approval_status: not_approved
+      final_source_approval_status: not_approved
+      final_claim_approval_status: not_approved
+      final_citation_label_approval_status: not_approved
+      final_article_status: not_created
+      publish_candidate_status: not_created
+      publish_readiness_status: not_ready
+      operator_acceptance_status: not_accepted
+      public_launch_status: not_ready
+      monetization_status: not_approved
+      analytics_status: not_connected
+      search_console_status: not_connected
+      user_feedback_status: not_collected
+      wcag_conformance_status: not_tested
+      sho_claim_007_status: blocked
+      sho_src_004_ui_context_status: blocked
+      whatsapp_ui_path_validation_status: not_performed
+    blockers:
+      - GAP-LIPBTGC-001
+      - GAP-LIPBTGC-002
+      - GAP-LIPBTGC-003
+      - GAP-LIPBTGC-004
+      - GAP-LIPBTGC-005
+      - GAP-LIPBTGC-006
+      - GAP-LIPBTGC-007
+      - GAP-LIPBTGC-008
+    blocked_scope:
+      - SHO-SRC-004
+      - SHO-CLAIM-007
+      - WhatsApp block/report UI steps
+      - exact WhatsApp UI paths
+    allowed_next_action: prepare_human_operator_post_consolidation_decision_packet_internal_only
+    forbidden_actions:
+      - modify_candidate_article_content
+      - browse_external_sources
+      - perform_live_verification
+      - infer_metadata
+      - approve_final_citation_labels
+      - approve_citation_labels
+      - approve_final_source_set
+      - approve_final_claim_use
+      - approve_freshness
+      - create_final_article
+      - create_publish_candidate
+      - set_publish_readiness
+      - set_operator_acceptance
+      - activate_public_launch
+      - activate_monetization
+      - activate_analytics
+      - activate_search_console
+      - claim_user_feedback
+      - claim_wcag_conformance
+      - unlock_SHO_CLAIM_007
+      - verify_SHO_SRC_004
+      - add_WhatsApp_UI_block_report_steps
+      - add_exact_WhatsApp_UI_paths
+      - execute_queue
+      - advance_stage
+    human_gate_required: yes_before_any_approval_public_use_or_publish_path
+    automation_candidate: codex_assisted
+    status_note: Consolidation record review completed internal-only; no P0/P1 finding, all gaps remain open, and no approval or publish state changed
+    status: limited_internal_post_boundary_traceability_gap_consolidation_record_review_completed_internal_only

@@ -417,6 +417,10 @@ LIMITED_INTERNAL_POST_BOUNDARY_TRACEABILITY_GAP_CONSOLIDATION_RECORD_INTERNAL_CA
     ROOT
     / "docs/operations/source_metadata_citation_follow_up/LIMITED_INTERNAL_POST_BOUNDARY_TRACEABILITY_GAP_CONSOLIDATION_RECORD_CANDIDATE_001_INTERNAL_ONLY.md"
 )
+LIMITED_INTERNAL_POST_BOUNDARY_TRACEABILITY_GAP_CONSOLIDATION_RECORD_REVIEW_INTERNAL_CANDIDATE_001_PATH = (
+    ROOT
+    / "docs/operations/source_metadata_citation_follow_up/LIMITED_INTERNAL_POST_BOUNDARY_TRACEABILITY_GAP_CONSOLIDATION_RECORD_REVIEW_CANDIDATE_001_INTERNAL_ONLY.md"
+)
 ACCESSIBILITY_REVIEW_BRIEF_002_PATH = (
     ROOT / "docs/content/article_reviews/betrugsnachrichten-auf-whatsapp-erkennen.accessibility-review.md"
 )
@@ -1583,7 +1587,10 @@ def validate_protocol_automation_files(failures: list[str]) -> None:
             "publish_ready",
         ]
         for fragment in forbidden_fragments:
-            if fragment in text:
+            if fragment == "publish_ready":
+                if re.search(r"(?<!not_)publish_ready", text):
+                    failures.append(f"Batch manifest must not contain: {fragment}")
+            elif fragment in text:
                 failures.append(f"Batch manifest must not contain: {fragment}")
         if "No article draft exists." in text or "No final article draft exists." in text:
             failures.append("Batch manifest must use 'No publish-ready final article exists.' after final candidate creation")
@@ -21583,6 +21590,133 @@ def validate_limited_internal_post_boundary_traceability_gap_consolidation_recor
     return 1
 
 
+def validate_limited_internal_post_boundary_traceability_gap_consolidation_record_review_internal_candidate_001(
+    failures: list[str],
+) -> int:
+    path = LIMITED_INTERNAL_POST_BOUNDARY_TRACEABILITY_GAP_CONSOLIDATION_RECORD_REVIEW_INTERNAL_CANDIDATE_001_PATH
+    if not path.exists():
+        failures.append("Missing Limited Internal Post-Boundary Traceability Gap Consolidation Record Review")
+        return 0
+
+    text = path.read_text(encoding="utf-8")
+    fields = parse_frontmatter_fields(text)
+    queue_text = WORK_QUEUE_V1_PATH.read_text(encoding="utf-8")
+    dashboard_text = ARTICLE_READINESS_DASHBOARD_PATH.read_text(encoding="utf-8")
+    batch_text = BATCH_MANIFEST_PATH.read_text(encoding="utf-8")
+    documentation_map_text = (ROOT / "docs/DOCUMENTATION_MAP.md").read_text(encoding="utf-8")
+    handoff_text = (ROOT / "external_review_packet/HANDOFF_LATEST_CONTEXT.md").read_text(encoding="utf-8")
+    expected_next_action = "prepare_human_operator_post_consolidation_decision_packet_internal_only"
+    expected_fields = {
+        "status": "internal_only",
+        "task_type": "review_limited_internal_post_boundary_traceability_gap_consolidation_record_with_limitations_only",
+        "autonomy_class": "yellow-b",
+        "internal_candidate_id": "sho-internal-candidate-001",
+        "candidate_slug": "whatsapp-fraud-checklist",
+        "review_target": "limited_internal_post_boundary_traceability_gap_consolidation_record_candidate_001_internal_only",
+        "review_status": "completed_internal_only",
+        "review_verdict": "pass_for_human_operator_post_consolidation_decision_preparation_with_findings_not_publish_ready",
+        "p0_findings": "none",
+        "p1_findings": "none",
+        "p2_findings": "present_open_limitations",
+        "p3_findings": "none",
+        "consolidation_record_status": "created_internal_only",
+        "limited_task_execution_status": "performed_internal_only_limited",
+        "traceability_gap_consolidation_record_status": "created_internal_only",
+        "article_content_modified": "false",
+        "browsing_status": "not_performed",
+        "live_verification_status": "not_performed",
+        "metadata_inference_status": "not_performed",
+        "citation_label_carry_forward_status": "candidate_only_not_finally_approved",
+        "citation_label_approval_status": "not_approved",
+        "citation_approval_status": "not_approved",
+        "source_approval_status": "not_approved",
+        "claim_approval_status": "not_approved",
+        "freshness_approval_status": "not_approved",
+        "final_source_approval_status": "not_approved",
+        "final_claim_approval_status": "not_approved",
+        "final_citation_label_approval_status": "not_approved",
+        "final_article_status": "not_created",
+        "publish_candidate_status": "not_created",
+        "publish_readiness_status": "not_ready",
+        "operator_acceptance_status": "not_accepted",
+        "public_launch_status": "not_ready",
+        "monetization_status": "not_approved",
+        "analytics_status": "not_connected",
+        "search_console_status": "not_connected",
+        "user_feedback_status": "not_collected",
+        "wcag_conformance_status": "not_tested",
+        "sho_claim_007_status": "blocked",
+        "sho_src_004_ui_context_status": "blocked",
+        "whatsapp_ui_path_validation_status": "not_performed",
+    }
+    for field_name, expected_value in expected_fields.items():
+        if normalized(fields.get(field_name)).strip('"') != expected_value:
+            failures.append(f"Consolidation Record Review must have {field_name}: {expected_value}")
+
+    required_fragments = [
+        "LIMITED_INTERNAL_POST_BOUNDARY_TRACEABILITY_GAP_CONSOLIDATION_RECORD_CANDIDATE_001_INTERNAL_ONLY",
+        "## 1. Executive Summary", "## 16. Final Status Confirmation",
+        "GAP-LIPBTGC-001", "GAP-LIPBTGC-008", "SHO-SRC-004", "SHO-CLAIM-007",
+        f"allowed_next_action: {expected_next_action}",
+    ]
+    for fragment in required_fragments:
+        if fragment not in text:
+            failures.append(f"Consolidation Record Review must contain: {fragment}")
+
+    forbidden_markers = [
+        "publish_readiness_status: ready", "operator_acceptance_status: accepted",
+        "public_launch_status: ready", "citation_label_approval_status: approved",
+        "source_approval_status: approved", "claim_approval_status: approved",
+        "freshness_approval_status: approved", "article_content_modified: true",
+        "browsing_status: performed", "live_verification_status: performed",
+        "metadata_inference_status: performed", "sho-claim-007 unlocked",
+        "sho-src-004 approved", "whatsapp block/report ui steps are allowed",
+        "exact whatsapp ui paths are allowed",
+    ]
+    for marker in forbidden_markers:
+        if marker in text.lower():
+            failures.append(f"Consolidation Record Review contains forbidden activation marker: {marker}")
+
+    tracking = {
+        "documentation map": (documentation_map_text, [path.name, "Traceability Gap Consolidation Record Review"]),
+        "dashboard": (dashboard_text, [path.name, "limited_internal_post_boundary_traceability_gap_consolidation_record_review_status: completed_internal_only", expected_next_action]),
+        "batch": (batch_text, [path.name, "limited_internal_post_boundary_traceability_gap_consolidation_record_review_status: completed_internal_only", f"allowed_next_action: {expected_next_action}"]),
+        "handoff": (handoff_text, [path.name, "LIMITED_INTERNAL_POST_BOUNDARY_TRACEABILITY_GAP_CONSOLIDATION_RECORD_REVIEW_PASS_WITH_FINDINGS_NOT_PUBLISH_READY", expected_next_action]),
+    }
+    for area, (area_text, fragments) in tracking.items():
+        for fragment in fragments:
+            if fragment not in area_text:
+                failures.append(f"Tracking missing Consolidation Record Review in {area}: {fragment}")
+
+    queue_item_match = re.search(r"(?ms)^  - queue_item_id: CQ-V1-081\n(?P<body>.*?)(?=^  - queue_item_id: |\Z)", queue_text)
+    if not queue_item_match:
+        failures.append("Work Queue V1 missing CQ-V1-081")
+    else:
+        queue_item_text = queue_item_match.group("body")
+        for fragment in [
+            path.name, "title: SHO-INTERNAL-CANDIDATE-001 limited internal post-boundary traceability gap consolidation record review",
+            "review_status: completed_internal_only", "review_verdict: pass_for_human_operator_post_consolidation_decision_preparation_with_findings_not_publish_ready",
+            "p0_findings: none", "p1_findings: none", "consolidation_record_status: created_internal_only",
+            "limited_task_execution_status: performed_internal_only_limited", "article_content_modified: false",
+            "browsing_status: not_performed", "live_verification_status: not_performed", "metadata_inference_status: not_performed",
+            "citation_label_approval_status: not_approved", "source_approval_status: not_approved", "claim_approval_status: not_approved",
+            "freshness_approval_status: not_approved", "publish_candidate_status: not_created", "publish_readiness_status: not_ready",
+            "operator_acceptance_status: not_accepted", "public_launch_status: not_ready", "SHO-SRC-004", "SHO-CLAIM-007",
+            f"allowed_next_action: {expected_next_action}", "modify_candidate_article_content", "browse_external_sources",
+            "perform_live_verification", "infer_metadata", "approve_final_citation_labels", "approve_citation_labels",
+            "approve_final_source_set", "approve_final_claim_use", "approve_freshness", "create_final_article",
+            "create_publish_candidate", "set_publish_readiness", "set_operator_acceptance", "activate_public_launch",
+            "activate_monetization", "activate_analytics", "activate_search_console", "claim_user_feedback",
+            "claim_wcag_conformance", "unlock_SHO_CLAIM_007", "verify_SHO_SRC_004",
+            "add_WhatsApp_UI_block_report_steps", "add_exact_WhatsApp_UI_paths", "execute_queue", "advance_stage",
+            "status: limited_internal_post_boundary_traceability_gap_consolidation_record_review_completed_internal_only",
+        ]:
+            if fragment not in queue_item_text:
+                failures.append(f"Work Queue CQ-V1-081 missing: {fragment}")
+
+    return 1
+
+
 def validate_applied_scorecard_brief_002(failures: list[str]) -> int:
     if not APPLIED_SCORECARD_BRIEF_002_PATH.exists():
         failures.append(
@@ -23499,6 +23633,11 @@ def main() -> int:
             failures
         )
     )
+    limited_internal_post_boundary_traceability_gap_consolidation_record_review_internal_candidate_001_count = (
+        validate_limited_internal_post_boundary_traceability_gap_consolidation_record_review_internal_candidate_001(
+            failures
+        )
+    )
     applied_scorecard_brief_002_count = validate_applied_scorecard_brief_002(failures)
     human_operator_review_packet_final_article_candidate_brief_002_count = (
         validate_human_operator_review_packet_final_article_candidate_brief_002(failures)
@@ -23818,6 +23957,11 @@ def main() -> int:
         "- Internal candidate Limited Internal Post-Boundary Traceability Gap "
         "Consolidation Record files: "
         f"{limited_internal_post_boundary_traceability_gap_consolidation_record_internal_candidate_001_count}"
+    )
+    print(
+        "- Internal candidate Limited Internal Post-Boundary Traceability Gap "
+        "Consolidation Record Review files: "
+        f"{limited_internal_post_boundary_traceability_gap_consolidation_record_review_internal_candidate_001_count}"
     )
     print(f"- Batch 01 applied scorecard Brief 002 files: {applied_scorecard_brief_002_count}")
     print(
