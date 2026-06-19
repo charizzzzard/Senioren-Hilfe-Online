@@ -942,6 +942,22 @@ queue_execution_status:
     - auto_accept
     - auto_monetize
 
+scope_lock_status:
+  allowed:
+    - locked_internal_publish_candidate_scope
+
+publish_candidate_status:
+  allowed:
+    - created_internal_only
+
+candidate_artifact_level:
+  allowed:
+    - scope_locked_publish_candidate_internal_only
+
+allowed_next_action_status:
+  allowed:
+    - await_human_operator_publish_acceptance_decision_internal_only
+
 forbidden_transitions:
   - from: scaffold_only
     to: approved_for_publish

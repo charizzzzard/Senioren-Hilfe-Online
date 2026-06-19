@@ -5472,3 +5472,77 @@ queue_items:
     automation_candidate: codex_assisted
     status_note: Consolidation record review completed internal-only; no P0/P1 finding, all gaps remain open, and no approval or publish state changed
     status: limited_internal_post_boundary_traceability_gap_consolidation_record_review_completed_internal_only
+
+  - queue_item_id: CQ-V1-082
+    title: SHO-INTERNAL-CANDIDATE-001 ship gate scope lock and publish candidate creation internal only
+    linked_stage_id: STAGE_09_QUALITY_READER_ACCESSIBILITY_SAFETY_REVIEWS
+    linked_brief_id: SHO-INTERNAL-CANDIDATE-001
+    internal_candidate_id: SHO-INTERNAL-CANDIDATE-001
+    internal_candidate_status: internal_only
+    batch_membership_status: internal_spinoff_candidate_not_official_batch_brief
+    required_inputs:
+      - docs/operations/source_metadata_citation_follow_up/LIMITED_INTERNAL_POST_BOUNDARY_TRACEABILITY_GAP_CONSOLIDATION_RECORD_REVIEW_CANDIDATE_001_INTERNAL_ONLY.md
+      - docs/content/article_revision_candidates/whatsapp-fraud-checklist.targeted-revision-candidate.md
+      - docs/content/final_article_candidates/whatsapp-fraud-checklist.final-article-candidate-option-a-internal-only.md
+      - docs/content/claim_maps/source-to-claim-map-batch-01.md
+      - external_review_packet/HANDOFF_LATEST_CONTEXT.md
+      - docs/operations/ARTICLE_READINESS_DASHBOARD_BATCH_01.md
+    produced_outputs:
+      - docs/operations/SHIP_GATE_V1.md
+      - docs/content/publish_candidates/whatsapp-fraud-checklist.publishable-scope-lock-v1.md
+      - docs/content/publish_candidates/whatsapp-fraud-checklist.publish-candidate-v1.md
+    ship_gate_outcome:
+      ship_gate_status: created_internal_only
+      scope_lock_status: locked_internal_publish_candidate_scope
+      publish_candidate_status: created_internal_only
+      publish_readiness_status: not_ready
+      operator_acceptance_status: not_accepted
+      public_launch_status: not_ready
+      monetization_status: not_approved
+      source_approval_status: not_approved
+      claim_approval_status: not_approved
+      citation_label_approval_status: not_approved
+      freshness_approval_status: not_approved
+    blockers:
+      - source_005_date_metadata_not_visible
+      - source_006_date_metadata_not_visible
+      - source_007_date_context_limitation
+      - source_007_general_phishing_scope_only
+      - citation_labels_candidate_only_not_finally_approved
+      - final_source_approval_not_approved
+      - final_claim_approval_not_approved
+      - final_citation_label_approval_not_approved
+      - freshness_approval_not_approved
+      - SHO_CLAIM_007_blocked
+      - SHO_SRC_004_ui_context_blocked
+      - no_publish_gate
+      - no_operator_acceptance
+    allowed_next_action: await_human_operator_publish_acceptance_decision_internal_only
+    forbidden_actions:
+      - create_new_review_packet_for_this_candidate
+      - create_new_decision_preparation_packet_for_this_candidate
+      - create_new_next_gate_packet_for_this_candidate
+      - approve_final_source_set
+      - approve_final_claim_use
+      - approve_final_citation_labels
+      - approve_freshness
+      - set_publish_readiness
+      - set_operator_acceptance
+      - activate_public_launch
+      - activate_monetization
+      - unlock_SHO_CLAIM_007
+      - include_SHO_SRC_004
+      - add_WhatsApp_UI_block_report_steps
+      - add_exact_WhatsApp_UI_paths
+      - claim_screenshot_evidence
+      - add_new_sources
+      - add_new_claims
+      - invent_SEO_metrics
+      - claim_traffic
+      - claim_ranking
+      - claim_conversion
+      - claim_revenue
+      - execute_queue
+    human_gate_required: human_operator_publish_acceptance_required
+    automation_candidate: codex_assisted
+    status: scope_locked_publish_candidate_internal_only

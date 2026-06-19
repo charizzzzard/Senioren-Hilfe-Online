@@ -24,6 +24,15 @@ Dieser Entscheidungsbaum beschreibt, welcher naechste Patch-Typ aus dem aktuelle
 
 ## Schutzregeln
 
+### ANTI_RECURSION_SHIP_GATE_CHECK
+
+Vor einem weiteren `packet`, `review`, `decision_preparation` oder `next_gate_packet`
+zaehlt der Pfad die letzten aufeinanderfolgenden Non-Output-Aktionen desselben Candidates.
+Bei `count >= 3` stoppt Packet-Generierung. Dann ist nur reale Aktion, Scope-Reduktion
+mit Scope Lock oder Parken/Beenden erlaubt. Fuer `SHO-INTERNAL-CANDIDATE-001` gilt:
+Scope-Reduktion und Scope Lock, interner Publish Candidate, danach nur
+`await_human_operator_publish_acceptance_decision_internal_only`.
+
 - Codex darf den Baum nicht nutzen, um Inhalte frei zu erfinden.
 - Wenn mehrere naechste Schritte moeglich sind, gewinnt der konservativere Gate-Schritt.
 - Operator Acceptance bleibt ausserhalb technischer Automatisierung.

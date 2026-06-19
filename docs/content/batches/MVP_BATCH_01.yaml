@@ -89,6 +89,9 @@ internal_candidates:
       - docs/operations/operator_decisions/HUMAN_OPERATOR_DECISION_LIMITED_TASK_EXECUTION_OPTION_A_CANDIDATE_001_INTERNAL_ONLY.md
       - docs/operations/source_metadata_citation_follow_up/LIMITED_INTERNAL_POST_BOUNDARY_TRACEABILITY_GAP_CONSOLIDATION_RECORD_CANDIDATE_001_INTERNAL_ONLY.md
       - docs/operations/source_metadata_citation_follow_up/LIMITED_INTERNAL_POST_BOUNDARY_TRACEABILITY_GAP_CONSOLIDATION_RECORD_REVIEW_CANDIDATE_001_INTERNAL_ONLY.md
+      - docs/operations/SHIP_GATE_V1.md
+      - docs/content/publish_candidates/whatsapp-fraud-checklist.publishable-scope-lock-v1.md
+      - docs/content/publish_candidates/whatsapp-fraud-checklist.publish-candidate-v1.md
     final_article_candidate_status: prepared_internal_only
     final_article_candidate_review_status: passed_with_findings_internal_only
     source_metadata_freshness_review_status: passed_with_findings_internal_only
@@ -238,8 +241,13 @@ internal_candidates:
     limited_internal_post_boundary_traceability_gap_consolidation_record_review_p1_findings: none
     limited_internal_post_boundary_traceability_gap_consolidation_record_review_p2_findings: present_open_limitations
     limited_internal_post_boundary_traceability_gap_consolidation_record_review_p3_findings: none
-    allowed_next_action: prepare_human_operator_post_consolidation_decision_packet_internal_only
+    legacy_allowed_next_action: prepare_human_operator_post_consolidation_decision_packet_internal_only
     superseded_allowed_next_action_traceability_consolidation_review: review_limited_internal_post_boundary_traceability_gap_consolidation_record_with_limitations_only
+    ship_gate_status: created_internal_only
+    publishable_scope_lock_status: locked_internal_publish_candidate_scope
+    scope_locked_publish_candidate: docs/content/publish_candidates/whatsapp-fraud-checklist.publish-candidate-v1.md
+    publish_candidate_status: created_internal_only
+    allowed_next_action: await_human_operator_publish_acceptance_decision_internal_only
     next_internal_gate: candidate_citation_label_carry_forward_boundary_gate_internal_only
     citation_label_carry_forward_status: candidate_only_not_finally_approved
     superseded_source_metadata_citation_label_review_packet_status_anchor: "citation_label_review_status: prepared_not_performed"

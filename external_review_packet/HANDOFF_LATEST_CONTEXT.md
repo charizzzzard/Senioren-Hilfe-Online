@@ -5,8 +5,8 @@
 - project_name: Senioren-Hilfe Online
 - system_name: Senioren-Hilfe Online OS
 - system_short_name: SHO-OS
-- patch_title: SHO_INTERNAL_CANDIDATE_001_LIMITED_INTERNAL_POST_BOUNDARY_TRACEABILITY_GAP_CONSOLIDATION_RECORD_REVIEW_INTERNAL_ONLY
-- external_review_verdict: LIMITED_INTERNAL_POST_BOUNDARY_TRACEABILITY_GAP_CONSOLIDATION_RECORD_REVIEW_PASS_WITH_FINDINGS_NOT_PUBLISH_READY
+- patch_title: SHIP_GATE_V1_AND_SCOPE_LOCKED_WHATSAPP_FRAUD_PUBLISH_CANDIDATE_INTERNAL_ONLY
+- external_review_verdict: SCOPE_LOCKED_PUBLISH_CANDIDATE_INTERNAL_ONLY_PENDING_HUMAN_OPERATOR_ACCEPTANCE
 
 SHO-OS ist ein reproduzierbares Content-, Trust- und Publishing-System fuer seniorengerechte digitale Alltagshilfe in Deutschland.
 
@@ -15,9 +15,9 @@ Dieser Handoff beschreibt den aktuellen internen Repo-Kontext nach der internen 
 ## Git Traceability
 
 - branch: `main`
-- head_before_current_patch: `5f1788eb80b026cd913e3e4d9e7ad651670034d9`
+- head_before_current_patch: `8760fd46b5e39f77098ef09c456f0340ebd91255`
 - intended_head_after: `assigned_after_commit`
-- origin_main_before_current_patch: `5f1788eb80b026cd913e3e4d9e7ad651670034d9`
+- origin_main_before_current_patch: `8760fd46b5e39f77098ef09c456f0340ebd91255`
 - dirty_state_before_current_patch: `clean`
 - dirty_state_after_current_patch: `assigned_after_commit`
 
@@ -30,6 +30,13 @@ Hinweis: `head_after` wird nicht vorab als Commit-SHA eingetragen, weil ein Comm
 - Brief 003 has internal Android-first draft/revision/review artifacts and a no-screenshot pivot decision. It remains blocked for screenshot evidence, UI-path validation, exact device-specific claims and accessibility testing.
 - Brief 004 remains held for product/monetization methodology.
 - `SHO-INTERNAL-CANDIDATE-001` is the stable internal candidate identity for the WhatsApp-Fraud-Checklist path.
+- current_artifact_level: `scope_locked_publish_candidate_internal_only`.
+- `CQ-V1-082` creates `docs/operations/SHIP_GATE_V1.md`, the scope lock, and the internal publish candidate.
+- Previous recursive action `prepare_human_operator_post_consolidation_decision_packet_internal_only` is superseded only for this candidate.
+- Current allowed next action: `await_human_operator_publish_acceptance_decision_internal_only`.
+- publish_readiness_status: not_ready; operator_acceptance_status: not_accepted; public_launch_status: not_ready; monetization_status: not_approved.
+- `SHO-CLAIM-007` and `SHO-SRC-004` remain blocked. No exact WhatsApp UI paths, block/report step-by-step instructions, screenshot evidence, or final source/claim/citation/freshness approval is created.
+- superseded_external_review_verdict: `LIMITED_INTERNAL_POST_BOUNDARY_TRACEABILITY_GAP_CONSOLIDATION_RECORD_REVIEW_PASS_WITH_FINDINGS_NOT_PUBLISH_READY`.
 - current_artifact_level: `limited_internal_post_boundary_traceability_gap_consolidation_record_review_completed_internal_only`.
 - Current consolidation review: `docs/operations/source_metadata_citation_follow_up/LIMITED_INTERNAL_POST_BOUNDARY_TRACEABILITY_GAP_CONSOLIDATION_RECORD_REVIEW_CANDIDATE_001_INTERNAL_ONLY.md`.
 - Current allowed next action: `prepare_human_operator_post_consolidation_decision_packet_internal_only`.

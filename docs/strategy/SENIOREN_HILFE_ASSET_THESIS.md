@@ -565,6 +565,18 @@ Zusätzlich gilt:
 
 **Required review signal:** measured data, content quality review, maintenance capacity review.
 
+### Never-Ship / death by governance
+
+**Why it matters:** Wiederholte Non-Output-Artefakte ohne Publish Candidate oder
+veroeffentlichten Artikel verhindern Lernen und blockieren den Asset-Aufbau.
+
+**Signal:** Derselbe Candidate rotiert durch Packet, Review, Decision Preparation und
+Next Gate, ohne realen Output zu erzeugen.
+
+**Mitigation:** [Ship Gate V1](../operations/SHIP_GATE_V1.md), Anti-Recursion-Regel,
+Scope-Reduktion vor weiterer Packet-Erstellung und ein interner Publish Candidate mit
+`publish_ready: false`. Der Human Operator bleibt finale Annahmeautoritaet.
+
 ## 12. Final Verdict
 
 **GO** for controlled MVP asset test / kontrollierter MVP-Asset-Test.
