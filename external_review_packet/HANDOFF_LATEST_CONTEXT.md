@@ -5,8 +5,8 @@
 - project_name: Senioren-Hilfe Online
 - system_name: Senioren-Hilfe Online OS
 - system_short_name: SHO-OS
-- patch_title: SHO_INTERNAL_CANDIDATE_001_HUMAN_OPERATOR_LIMITED_TASK_EXECUTION_DECISION_OPTION_A_RECORDED_INTERNAL_ONLY
-- external_review_verdict: HUMAN_OPERATOR_LIMITED_TASK_EXECUTION_DECISION_OPTION_A_RECORDED_INTERNAL_ONLY
+- patch_title: SHO_INTERNAL_CANDIDATE_001_LIMITED_INTERNAL_POST_BOUNDARY_TRACEABILITY_GAP_CONSOLIDATION_INTERNAL_ONLY
+- external_review_verdict: LIMITED_INTERNAL_POST_BOUNDARY_TRACEABILITY_GAP_CONSOLIDATION_PERFORMED_INTERNAL_ONLY
 
 SHO-OS ist ein reproduzierbares Content-, Trust- und Publishing-System fuer seniorengerechte digitale Alltagshilfe in Deutschland.
 
@@ -15,9 +15,9 @@ Dieser Handoff beschreibt den aktuellen internen Repo-Kontext nach der internen 
 ## Git Traceability
 
 - branch: `main`
-- head_before_current_patch: `3f1321091a325d3eaa3ddc46bc0e670bbadad9d3`
+- head_before_current_patch: `ebb3b839f5d73600a274ec548d97571d15376fcd`
 - intended_head_after: `assigned_after_commit`
-- origin_main_before_current_patch: `3f1321091a325d3eaa3ddc46bc0e670bbadad9d3`
+- origin_main_before_current_patch: `ebb3b839f5d73600a274ec548d97571d15376fcd`
 - dirty_state_before_current_patch: `clean`
 - dirty_state_after_current_patch: `assigned_after_commit`
 
@@ -30,11 +30,19 @@ Hinweis: `head_after` wird nicht vorab als Commit-SHA eingetragen, weil ein Comm
 - Brief 003 has internal Android-first draft/revision/review artifacts and a no-screenshot pivot decision. It remains blocked for screenshot evidence, UI-path validation, exact device-specific claims and accessibility testing.
 - Brief 004 remains held for product/monetization methodology.
 - `SHO-INTERNAL-CANDIDATE-001` is the stable internal candidate identity for the WhatsApp-Fraud-Checklist path.
-- current_artifact_level: `human_operator_limited_task_execution_decision_option_a_recorded_internal_only`.
-- Current decision record: `docs/operations/operator_decisions/HUMAN_OPERATOR_DECISION_LIMITED_TASK_EXECUTION_OPTION_A_CANDIDATE_001_INTERNAL_ONLY.md`.
-- Current allowed next action: `perform_limited_internal_post_boundary_traceability_and_gap_consolidation_with_limitations_only`.
-- Human Operator decision status is `recorded`; selected option is `option_a` only for later separate limited internal task execution.
-- Limited internal task execution authorization is `authorized_internal_only_with_limitations`; execution remains `not_performed` and the traceability/gap consolidation record remains `not_created`.
+- current_artifact_level: `limited_internal_post_boundary_traceability_gap_consolidation_performed_internal_only`.
+- Current consolidation record: `docs/operations/source_metadata_citation_follow_up/LIMITED_INTERNAL_POST_BOUNDARY_TRACEABILITY_GAP_CONSOLIDATION_RECORD_CANDIDATE_001_INTERNAL_ONLY.md`.
+- Current allowed next action: `review_limited_internal_post_boundary_traceability_gap_consolidation_record_with_limitations_only`.
+- Consolidation is `created_internal_only` from committed repository artifacts; limited task execution is `performed_internal_only_limited`.
+- No gap is resolved; article content remains unchanged; browsing, live verification, metadata inference, and WhatsApp UI-path validation remain `not_performed`.
+- superseded_current_artifact_level: `human_operator_limited_task_execution_decision_option_a_recorded_internal_only`.
+- superseded_allowed_next_action: `perform_limited_internal_post_boundary_traceability_and_gap_consolidation_with_limitations_only`.
+- superseded_external_review_verdict: `HUMAN_OPERATOR_LIMITED_TASK_EXECUTION_DECISION_OPTION_A_RECORDED_INTERNAL_ONLY`.
+- superseded_current_artifact_level: `human_operator_limited_task_execution_decision_option_a_recorded_internal_only`.
+- Legacy validator anchor: Current decision record: `docs/operations/operator_decisions/HUMAN_OPERATOR_DECISION_LIMITED_TASK_EXECUTION_OPTION_A_CANDIDATE_001_INTERNAL_ONLY.md`.
+- Legacy validator anchor: Current allowed next action: `perform_limited_internal_post_boundary_traceability_and_gap_consolidation_with_limitations_only`.
+- Legacy validator anchor: Human Operator decision status is `recorded`; selected option is `option_a` only for later separate limited internal task execution.
+- Legacy validator anchor: Limited internal task execution authorization is `authorized_internal_only_with_limitations`; execution remains `not_performed` and the traceability/gap consolidation record remains `not_created`.
 - superseded_current_artifact_level: `human_operator_or_limited_task_execution_decision_packet_prepared_internal_only`.
 - superseded_allowed_next_action: `await_human_operator_decision_on_limited_task_execution_internal_only`.
 - superseded_external_review_verdict: `HUMAN_OPERATOR_OR_LIMITED_TASK_EXECUTION_DECISION_PACKET_PREPARED_INTERNAL_ONLY`.

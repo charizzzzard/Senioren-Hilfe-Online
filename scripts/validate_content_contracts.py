@@ -413,6 +413,10 @@ HUMAN_OPERATOR_LIMITED_TASK_EXECUTION_DECISION_OPTION_A_INTERNAL_CANDIDATE_001_P
     ROOT
     / "docs/operations/operator_decisions/HUMAN_OPERATOR_DECISION_LIMITED_TASK_EXECUTION_OPTION_A_CANDIDATE_001_INTERNAL_ONLY.md"
 )
+LIMITED_INTERNAL_POST_BOUNDARY_TRACEABILITY_GAP_CONSOLIDATION_RECORD_INTERNAL_CANDIDATE_001_PATH = (
+    ROOT
+    / "docs/operations/source_metadata_citation_follow_up/LIMITED_INTERNAL_POST_BOUNDARY_TRACEABILITY_GAP_CONSOLIDATION_RECORD_CANDIDATE_001_INTERNAL_ONLY.md"
+)
 ACCESSIBILITY_REVIEW_BRIEF_002_PATH = (
     ROOT / "docs/content/article_reviews/betrugsnachrichten-auf-whatsapp-erkennen.accessibility-review.md"
 )
@@ -20848,16 +20852,6 @@ def validate_human_operator_or_limited_task_execution_decision_packet_internal_c
                 f"must contain: {fragment}"
             )
 
-    future_record_path = (
-        ROOT
-        / "docs/operations/source_metadata_citation_follow_up/LIMITED_INTERNAL_POST_BOUNDARY_TRACEABILITY_GAP_CONSOLIDATION_RECORD_CANDIDATE_001_INTERNAL_ONLY.md"
-    )
-    if future_record_path.exists():
-        failures.append(
-            "Traceability/Gap Consolidation Record must not be created by "
-            "the decision packet preparation task"
-        )
-
     forbidden_activation_markers = [
         "human_operator_decision_status: recorded",
         "selected_option_status: selected",
@@ -21165,16 +21159,6 @@ def validate_human_operator_limited_task_execution_decision_option_a_internal_ca
                 f"must contain: {fragment}"
             )
 
-    future_record_path = (
-        ROOT
-        / "docs/operations/source_metadata_citation_follow_up/LIMITED_INTERNAL_POST_BOUNDARY_TRACEABILITY_GAP_CONSOLIDATION_RECORD_CANDIDATE_001_INTERNAL_ONLY.md"
-    )
-    if future_record_path.exists():
-        failures.append(
-            "Traceability/Gap Consolidation Record must not be created by the "
-            "Human Operator decision recording task"
-        )
-
     forbidden_activation_markers = [
         "limited_task_execution_status: performed",
         "traceability_gap_consolidation_record_status: created",
@@ -21325,6 +21309,276 @@ def validate_human_operator_limited_task_execution_decision_option_a_internal_ca
         for fragment in required_queue_fragments:
             if fragment not in queue_item_text:
                 failures.append(f"Work Queue CQ-V1-079 missing: {fragment}")
+
+    return 1
+
+
+def validate_limited_internal_post_boundary_traceability_gap_consolidation_record_internal_candidate_001(
+    failures: list[str],
+) -> int:
+    path = (
+        LIMITED_INTERNAL_POST_BOUNDARY_TRACEABILITY_GAP_CONSOLIDATION_RECORD_INTERNAL_CANDIDATE_001_PATH
+    )
+    if not path.exists():
+        failures.append(
+            "Missing Limited Internal Post-Boundary Traceability Gap Consolidation "
+            "Record for SHO-INTERNAL-CANDIDATE-001"
+        )
+        return 0
+
+    matching_files = list(
+        path.parent.glob(
+            "LIMITED_INTERNAL_POST_BOUNDARY_TRACEABILITY_GAP_CONSOLIDATION_RECORD_CANDIDATE_001_INTERNAL_ONLY.md"
+        )
+    )
+    if len(matching_files) != 1:
+        failures.append(
+            "Expected exactly one canonical Limited Internal Post-Boundary "
+            f"Traceability Gap Consolidation Record, found {len(matching_files)}"
+        )
+
+    text = path.read_text(encoding="utf-8")
+    fields = parse_frontmatter_fields(text)
+    lower_text = text.lower()
+    queue_text = WORK_QUEUE_V1_PATH.read_text(encoding="utf-8")
+    dashboard_text = ARTICLE_READINESS_DASHBOARD_PATH.read_text(encoding="utf-8")
+    batch_text = BATCH_MANIFEST_PATH.read_text(encoding="utf-8")
+    documentation_map_text = (ROOT / "docs/DOCUMENTATION_MAP.md").read_text(
+        encoding="utf-8"
+    )
+    handoff_text = (
+        ROOT / "external_review_packet/HANDOFF_LATEST_CONTEXT.md"
+    ).read_text(encoding="utf-8")
+
+    expected_next_action = (
+        "review_limited_internal_post_boundary_traceability_gap_consolidation_record_with_limitations_only"
+    )
+    expected_fields = {
+        "status": "internal_only",
+        "task_type": "perform_limited_internal_post_boundary_traceability_and_gap_consolidation_with_limitations_only",
+        "autonomy_class": "yellow-b",
+        "internal_candidate_id": "sho-internal-candidate-001",
+        "candidate_slug": "whatsapp-fraud-checklist",
+        "authorization_basis": "human_operator_decision_limited_task_execution_option_a_candidate_001_internal_only",
+        "consolidation_record_status": "created_internal_only",
+        "limited_task_execution_status": "performed_internal_only_limited",
+        "traceability_gap_consolidation_record_status": "created_internal_only",
+        "article_content_modified": "false",
+        "browsing_status": "not_performed",
+        "live_verification_status": "not_performed",
+        "metadata_inference_status": "not_performed",
+        "citation_label_carry_forward_status": "candidate_only_not_finally_approved",
+        "citation_label_approval_status": "not_approved",
+        "citation_approval_status": "not_approved",
+        "source_approval_status": "not_approved",
+        "claim_approval_status": "not_approved",
+        "freshness_approval_status": "not_approved",
+        "final_source_approval_status": "not_approved",
+        "final_claim_approval_status": "not_approved",
+        "final_citation_label_approval_status": "not_approved",
+        "final_article_status": "not_created",
+        "publish_candidate_status": "not_created",
+        "publish_readiness_status": "not_ready",
+        "operator_acceptance_status": "not_accepted",
+        "public_launch_status": "not_ready",
+        "monetization_status": "not_approved",
+        "analytics_status": "not_connected",
+        "search_console_status": "not_connected",
+        "user_feedback_status": "not_collected",
+        "wcag_conformance_status": "not_tested",
+        "sho_claim_007_status": "blocked",
+        "sho_src_004_ui_context_status": "blocked",
+        "whatsapp_ui_path_validation_status": "not_performed",
+    }
+    for field_name, expected_value in expected_fields.items():
+        actual_value = normalized(fields.get(field_name)).strip('"')
+        if actual_value != expected_value:
+            failures.append(
+                "Limited Internal Post-Boundary Traceability Gap Consolidation "
+                f"Record must have {field_name}: {expected_value}"
+            )
+
+    required_fragments = [
+        "## 1. Executive Summary",
+        "## 2. Authorization Basis",
+        "## 3. Scope of This Consolidation",
+        "## 4. Files Inspected",
+        "## 5. Current Boundary State",
+        "## 6. Source / Claim / Citation Traceability Matrix",
+        "## 7. Blocked Scope Matrix",
+        "## 8. Gap Register",
+        "## 9. Human Operator Gate Matrix",
+        "## 10. Approval / Publish-State Preservation",
+        "## 11. What This Record Does Not Do",
+        "## 12. Allowed Future Next Actions",
+        "## 13. Forbidden Future Actions",
+        "## 14. Validator / Tracking Requirements",
+        "## 15. Final Status Confirmation",
+        "LIPBTGC-T-001",
+        "LIPBTGC-T-005",
+        "GAP-LIPBTGC-001",
+        "GAP-LIPBTGC-008",
+        "LIPBTGC-G-001",
+        "LIPBTGC-G-013",
+        "SHO-SRC-005",
+        "SHO-SRC-006",
+        "SHO-SRC-007",
+        "SHO-CLAIM-004",
+        "SHO-CLAIM-005",
+        "SHO-CLAIM-006",
+        "SHO-SRC-004",
+        "SHO-CLAIM-007",
+        f"allowed_next_action: {expected_next_action}",
+    ]
+    for fragment in required_fragments:
+        if fragment not in text:
+            failures.append(
+                "Limited Internal Post-Boundary Traceability Gap Consolidation "
+                f"Record must contain: {fragment}"
+            )
+
+    forbidden_activation_markers = [
+        "publish_readiness_status: ready",
+        "operator_acceptance_status: accepted",
+        "public_launch_status: ready",
+        "citation_label_approval_status: approved",
+        "citation_approval_status: approved",
+        "source_approval_status: approved",
+        "claim_approval_status: approved",
+        "freshness_approval_status: approved",
+        "final_source_approval_status: approved",
+        "final_claim_approval_status: approved",
+        "final_citation_label_approval_status: approved",
+        "publish_candidate_status: created",
+        "final_article_status: created",
+        "article_content_modified: true",
+        "browsing_status: performed",
+        "live_verification_status: performed",
+        "metadata_inference_status: performed",
+        "sho-claim-007 unlocked",
+        "sho-src-004 approved",
+        "verify_sho_src_004 allowed",
+        "whatsapp block/report ui steps are allowed",
+        "exact whatsapp ui paths are allowed",
+    ]
+    for fragment in forbidden_activation_markers:
+        if fragment in lower_text:
+            failures.append(
+                "Limited Internal Post-Boundary Traceability Gap Consolidation "
+                f"Record contains forbidden activation marker: {fragment}"
+            )
+
+    tracking_fragments = {
+        "documentation map": (
+            documentation_map_text,
+            [
+                path.name,
+                "Limited Internal Post-Boundary Traceability Gap Consolidation Record",
+                "consolidation_record_status created_internal_only",
+            ],
+        ),
+        "dashboard": (
+            dashboard_text,
+            [
+                "limited_internal_post_boundary_traceability_gap_consolidation_performed_internal_only",
+                f"limited_internal_post_boundary_traceability_gap_consolidation_record: docs/operations/source_metadata_citation_follow_up/{path.name}",
+                "limited_internal_post_boundary_traceability_gap_consolidation_record_status: created_internal_only",
+                "limited_internal_post_boundary_traceability_gap_consolidation_execution_status: performed_internal_only_limited",
+                "limited_internal_post_boundary_traceability_article_content_modified: false",
+                expected_next_action,
+            ],
+        ),
+        "batch": (
+            batch_text,
+            [
+                f"docs/operations/source_metadata_citation_follow_up/{path.name}",
+                "limited_internal_post_boundary_traceability_gap_consolidation_record_status: created_internal_only",
+                "limited_internal_post_boundary_traceability_gap_consolidation_execution_status: performed_internal_only_limited",
+                "limited_internal_post_boundary_traceability_article_content_modified: false",
+                f"allowed_next_action: {expected_next_action}",
+            ],
+        ),
+        "handoff": (
+            handoff_text,
+            [
+                "LIMITED_INTERNAL_POST_BOUNDARY_TRACEABILITY_GAP_CONSOLIDATION_PERFORMED_INTERNAL_ONLY",
+                "current_artifact_level: `limited_internal_post_boundary_traceability_gap_consolidation_performed_internal_only`",
+                f"Current consolidation record: `docs/operations/source_metadata_citation_follow_up/{path.name}`",
+                f"Current allowed next action: `{expected_next_action}`",
+                "Consolidation is `created_internal_only` from committed repository artifacts; limited task execution is `performed_internal_only_limited`.",
+            ],
+        ),
+    }
+    for area, (area_text, fragments) in tracking_fragments.items():
+        for fragment in fragments:
+            if fragment not in area_text:
+                failures.append(
+                    "Tracking missing Limited Internal Post-Boundary Traceability Gap "
+                    f"Consolidation status in {area}: {fragment}"
+                )
+
+    queue_item_match = re.search(
+        r"(?ms)^  - queue_item_id: CQ-V1-080\n"
+        r"(?P<body>.*?)(?=^  - queue_item_id: |\Z)",
+        queue_text,
+    )
+    if not queue_item_match:
+        failures.append("Work Queue V1 missing CQ-V1-080")
+    else:
+        queue_item_text = queue_item_match.group("body")
+        required_queue_fragments = [
+            path.name,
+            "title: SHO-INTERNAL-CANDIDATE-001 limited internal post-boundary traceability gap consolidation",
+            "task_type: perform_limited_internal_post_boundary_traceability_and_gap_consolidation_with_limitations_only",
+            "authorization_basis: HUMAN_OPERATOR_DECISION_LIMITED_TASK_EXECUTION_OPTION_A_CANDIDATE_001_INTERNAL_ONLY",
+            "consolidation_record_status: created_internal_only",
+            "limited_task_execution_status: performed_internal_only_limited",
+            "traceability_gap_consolidation_record_status: created_internal_only",
+            "article_content_modified: false",
+            "browsing_status: not_performed",
+            "live_verification_status: not_performed",
+            "metadata_inference_status: not_performed",
+            "citation_label_approval_status: not_approved",
+            "source_approval_status: not_approved",
+            "claim_approval_status: not_approved",
+            "freshness_approval_status: not_approved",
+            "publish_candidate_status: not_created",
+            "publish_readiness_status: not_ready",
+            "operator_acceptance_status: not_accepted",
+            "public_launch_status: not_ready",
+            "SHO-SRC-004",
+            "SHO-CLAIM-007",
+            f"allowed_next_action: {expected_next_action}",
+            "modify_candidate_article_content",
+            "browse_external_sources",
+            "perform_live_verification",
+            "infer_metadata",
+            "approve_final_citation_labels",
+            "approve_citation_labels",
+            "approve_final_source_set",
+            "approve_final_claim_use",
+            "approve_freshness",
+            "create_final_article",
+            "create_publish_candidate",
+            "set_publish_readiness",
+            "set_operator_acceptance",
+            "activate_public_launch",
+            "activate_monetization",
+            "activate_analytics",
+            "activate_search_console",
+            "claim_user_feedback",
+            "claim_wcag_conformance",
+            "unlock_SHO_CLAIM_007",
+            "verify_SHO_SRC_004",
+            "add_WhatsApp_UI_block_report_steps",
+            "add_exact_WhatsApp_UI_paths",
+            "execute_queue",
+            "advance_stage",
+            "status: limited_internal_post_boundary_traceability_gap_consolidation_performed_internal_only",
+        ]
+        for fragment in required_queue_fragments:
+            if fragment not in queue_item_text:
+                failures.append(f"Work Queue CQ-V1-080 missing: {fragment}")
 
     return 1
 
@@ -23240,6 +23494,11 @@ def main() -> int:
             failures
         )
     )
+    limited_internal_post_boundary_traceability_gap_consolidation_record_internal_candidate_001_count = (
+        validate_limited_internal_post_boundary_traceability_gap_consolidation_record_internal_candidate_001(
+            failures
+        )
+    )
     applied_scorecard_brief_002_count = validate_applied_scorecard_brief_002(failures)
     human_operator_review_packet_final_article_candidate_brief_002_count = (
         validate_human_operator_review_packet_final_article_candidate_brief_002(failures)
@@ -23554,6 +23813,11 @@ def main() -> int:
         "- Internal candidate Human Operator Limited Task Execution Option A "
         "Decision files: "
         f"{human_operator_limited_task_execution_decision_option_a_internal_candidate_001_count}"
+    )
+    print(
+        "- Internal candidate Limited Internal Post-Boundary Traceability Gap "
+        "Consolidation Record files: "
+        f"{limited_internal_post_boundary_traceability_gap_consolidation_record_internal_candidate_001_count}"
     )
     print(f"- Batch 01 applied scorecard Brief 002 files: {applied_scorecard_brief_002_count}")
     print(
