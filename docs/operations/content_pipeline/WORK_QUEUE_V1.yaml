@@ -5546,3 +5546,94 @@ queue_items:
     human_gate_required: human_operator_publish_acceptance_required
     automation_candidate: codex_assisted
     status: scope_locked_publish_candidate_internal_only
+
+  - queue_item_id: CQ-V1-083
+    title: SHO-INTERNAL-CANDIDATE-001 operator acceptance with publish prep fixes and public static scaffold
+    linked_stage_id: STAGE_09_QUALITY_READER_ACCESSIBILITY_SAFETY_REVIEWS
+    linked_brief_id: SHO-INTERNAL-CANDIDATE-001
+    internal_candidate_id: SHO-INTERNAL-CANDIDATE-001
+    internal_candidate_status: internal_only
+    batch_membership_status: internal_spinoff_candidate_not_official_batch_brief
+    required_inputs:
+      - external_review_packet/HANDOFF_LATEST_CONTEXT.md
+      - docs/operations/ARTICLE_READINESS_DASHBOARD_BATCH_01.md
+      - docs/operations/SHIP_GATE_V1.md
+      - docs/content/publish_candidates/whatsapp-fraud-checklist.publishable-scope-lock-v1.md
+      - docs/content/publish_candidates/whatsapp-fraud-checklist.publish-candidate-v1.md
+      - docs/content/source_inventories/SOURCE_INVENTORY_WHATSAPP_FRAUD_CHECKLIST_BATCH_01_INTERNAL_ONLY.md
+      - docs/content/source_packs/operator-research-source-pack-batch-01.md
+      - docs/content/claim_maps/source-to-claim-map-batch-01.md
+    produced_outputs:
+      - docs/content/publish_candidates/whatsapp-fraud-checklist.ship-gate-pre-acceptance-review-v1.md
+      - docs/operations/operator_decisions/HUMAN_OPERATOR_PUBLISH_ACCEPTANCE_DECISION_WHATSAPP_FRAUD_CHECKLIST_V1_INTERNAL_ONLY.md
+      - docs/content/publish_candidates/whatsapp-fraud-checklist.publish-candidate-v1.md
+      - public_site/index.html
+      - public_site/artikel/whatsapp-betrug-checkliste/index.html
+      - public_site/impressum/index.html
+      - public_site/datenschutz/index.html
+      - public_site/robots.txt
+      - public_site/sitemap.xml
+      - public_site/assets/styles.css
+      - public_site/README.md
+    operator_acceptance_publish_prep_outcome:
+      current_artifact_level: public_static_site_scaffold_prepared_internal_only
+      decision_status: recorded
+      selected_option: accept_for_publication_preparation_subject_to_three_bounded_publish_prep_fixes
+      operator_acceptance_status: accepted_for_publication_preparation_only
+      publish_candidate_status: corrected_after_acceptance_findings
+      publish_ready: false
+      publish_readiness_status: not_ready
+      public_launch_status: not_ready
+      legal_pages_status: placeholders_created_not_completed
+      monetization_status: not_approved
+      analytics_status: not_connected
+      search_console_status: not_connected
+      robots_policy: disallow_all_until_legal_completion
+      source_approval_status: not_approved
+      claim_approval_status: not_approved
+      citation_label_approval_status: not_approved
+      freshness_approval_status: not_approved
+      sho_claim_007_status: blocked
+      sho_src_004_status: blocked
+      whatsapp_ui_instruction_status: excluded
+      exact_ui_path_status: excluded
+      screenshot_claim_status: excluded
+    blockers:
+      - legal_impressum_details_missing
+      - datenschutz_details_missing
+      - domain_not_confirmed
+      - github_pages_not_enabled
+      - search_console_not_verified
+      - publish_ready_false
+      - public_launch_not_ready
+      - sho_claim_007_blocked
+      - sho_src_004_blocked
+    allowed_next_action: complete_legal_pages_and_confirm_domain_before_public_launch
+    forbidden_actions:
+      - approve_final_source_set
+      - approve_final_claim_use
+      - approve_final_citation_labels
+      - approve_freshness
+      - set_publish_readiness
+      - activate_public_launch
+      - activate_monetization
+      - activate_analytics
+      - activate_search_console
+      - unlock_SHO_CLAIM_007
+      - include_SHO_SRC_004
+      - add_WhatsApp_UI_block_report_steps
+      - add_exact_WhatsApp_UI_paths
+      - claim_screenshot_evidence
+      - add_new_sources
+      - add_new_claims
+      - invent_legal_data
+      - invent_operator_personal_data
+      - claim_legal_approval
+      - claim_traffic
+      - claim_ranking
+      - claim_conversion
+      - claim_revenue
+      - execute_queue
+    human_gate_required: yes_before_public_launch_or_legal_completion_claim
+    automation_candidate: codex_assisted
+    status: public_static_site_scaffold_prepared_internal_only

@@ -5,8 +5,8 @@
 - project_name: Senioren-Hilfe Online
 - system_name: Senioren-Hilfe Online OS
 - system_short_name: SHO-OS
-- patch_title: SHIP_GATE_V1_AND_SCOPE_LOCKED_WHATSAPP_FRAUD_PUBLISH_CANDIDATE_INTERNAL_ONLY
-- external_review_verdict: SCOPE_LOCKED_PUBLISH_CANDIDATE_INTERNAL_ONLY_PENDING_HUMAN_OPERATOR_ACCEPTANCE
+- patch_title: WHATSAPP_FRAUD_CHECKLIST_OPERATOR_ACCEPTANCE_WITH_PUBLISH_PREP_FIXES_AND_PUBLIC_STATIC_SCAFFOLD
+- external_review_verdict: PUBLIC_STATIC_SITE_SCAFFOLD_PREPARED_INTERNAL_ONLY_NOT_LAUNCHED
 
 SHO-OS ist ein reproduzierbares Content-, Trust- und Publishing-System fuer seniorengerechte digitale Alltagshilfe in Deutschland.
 
@@ -15,9 +15,9 @@ Dieser Handoff beschreibt den aktuellen internen Repo-Kontext nach der internen 
 ## Git Traceability
 
 - branch: `main`
-- head_before_current_patch: `8760fd46b5e39f77098ef09c456f0340ebd91255`
+- head_before_current_patch: `dc3c5fac7d6e7c54a335187a985c29d2b4879828`
 - intended_head_after: `assigned_after_commit`
-- origin_main_before_current_patch: `8760fd46b5e39f77098ef09c456f0340ebd91255`
+- origin_main_before_current_patch: `dc3c5fac7d6e7c54a335187a985c29d2b4879828`
 - dirty_state_before_current_patch: `clean`
 - dirty_state_after_current_patch: `assigned_after_commit`
 
@@ -30,11 +30,13 @@ Hinweis: `head_after` wird nicht vorab als Commit-SHA eingetragen, weil ein Comm
 - Brief 003 has internal Android-first draft/revision/review artifacts and a no-screenshot pivot decision. It remains blocked for screenshot evidence, UI-path validation, exact device-specific claims and accessibility testing.
 - Brief 004 remains held for product/monetization methodology.
 - `SHO-INTERNAL-CANDIDATE-001` is the stable internal candidate identity for the WhatsApp-Fraud-Checklist path.
-- current_artifact_level: `scope_locked_publish_candidate_internal_only`.
-- `CQ-V1-082` creates `docs/operations/SHIP_GATE_V1.md`, the scope lock, and the internal publish candidate.
-- Previous recursive action `prepare_human_operator_post_consolidation_decision_packet_internal_only` is superseded only for this candidate.
-- Current allowed next action: `await_human_operator_publish_acceptance_decision_internal_only`.
-- publish_readiness_status: not_ready; operator_acceptance_status: not_accepted; public_launch_status: not_ready; monetization_status: not_approved.
+- current_artifact_level: `public_static_site_scaffold_prepared_internal_only`.
+- `CQ-V1-083` records Human Operator acceptance for publication preparation only, applies three bounded publish-prep fixes, and creates `public_site/`.
+- `CQ-V1-082` created `docs/operations/SHIP_GATE_V1.md`, the scope lock, and the internal publish candidate.
+- Previous allowed action `await_human_operator_publish_acceptance_decision_internal_only` is completed for publication preparation only.
+- Current allowed next action: `complete_legal_pages_and_confirm_domain_before_public_launch`.
+- publish_candidate_status: corrected_after_acceptance_findings; publish_ready: false; legal_pages_status: placeholders_created_not_completed; robots_policy: disallow_all_until_legal_completion.
+- publish_readiness_status: not_ready; operator_acceptance_status: accepted_for_publication_preparation_only; public_launch_status: not_ready; monetization_status: not_approved.
 - `SHO-CLAIM-007` and `SHO-SRC-004` remain blocked. No exact WhatsApp UI paths, block/report step-by-step instructions, screenshot evidence, or final source/claim/citation/freshness approval is created.
 - superseded_external_review_verdict: `LIMITED_INTERNAL_POST_BOUNDARY_TRACEABILITY_GAP_CONSOLIDATION_RECORD_REVIEW_PASS_WITH_FINDINGS_NOT_PUBLISH_READY`.
 - current_artifact_level: `limited_internal_post_boundary_traceability_gap_consolidation_record_review_completed_internal_only`.
@@ -69,7 +71,7 @@ Hinweis: `head_after` wird nicht vorab als Commit-SHA eingetragen, weil ein Comm
 - superseded_allowed_next_action: `prepare_human_operator_or_limited_task_execution_decision_packet_internal_only`.
 - superseded_external_review_verdict: `LIMITED_INTERNAL_POST_BOUNDARY_TASK_PACKET_REVIEW_PASS_WITH_FINDINGS_NOT_PUBLISH_READY`.
 - Citation labels remain `candidate_only_not_finally_approved`; no source, claim, freshness, citation or citation-label approval was created.
-- No external browsing, live verification, metadata inference, WhatsApp UI path validation, article content modification, Final Article, Publish Candidate, Publish Readiness, Operator Acceptance or Public Launch was created.
+- Superseded pre-ship-gate anchor: no external browsing, live verification, metadata inference, WhatsApp UI path validation, article content modification, Final Article, Publish Candidate, Publish Readiness, Operator Acceptance or Public Launch was created before the later Ship Gate and publication-preparation acceptance patches.
 - `SHO-SRC-004` and `SHO-CLAIM-007` remain blocked.
 - `CQ-V1-078` records only the prepared Human Operator Or Limited Task Execution Decision Packet; it does not record a Human Operator decision, select an option, execute the limited task or create the traceability/gap consolidation record.
 - `CQ-V1-019` records Human Operator Decision A for `SHO-INTERNAL-CANDIDATE-001`: `proceed_to_final_article_candidate_preparation_internal_only`.
@@ -619,9 +621,9 @@ This internal candidate is not an official fifth MVP brief and is not `SHO-MVP-B
 
 - No final article.
 - One unchanged historical internal Final Article Candidate plus a new internal Final Article Candidate Option A exists for `SHO-INTERNAL-CANDIDATE-001`. The new candidate has been reviewed with verdict `pass_with_findings_not_publish_ready`; Human Operator Review Option A is recorded for the next internal gate with limitations only. The candidate remains unchanged, is not a final article or Publish Candidate, approves no final freshness, citation label, source, claim or publication use, and remains not publish-ready and not accepted.
-- No Publish Candidate.
+- Scope-locked internal Publish Candidate exists and has been corrected after bounded acceptance findings.
 - No Publish Readiness.
-- No Operator Acceptance.
+- Human Operator acceptance is recorded only for publication preparation, not for public launch.
 - No Public Launch.
 - No Monetization.
 - No affiliate activation.

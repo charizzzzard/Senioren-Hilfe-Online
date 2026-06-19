@@ -52,6 +52,10 @@ operator_acceptance_status:
   allowed:
     - not_accepted
     - accepted
+    - accepted_for_publication_preparation_only
+  human_controlled:
+    - accepted
+    - accepted_for_publication_preparation_only
   forbidden_by_codex:
     - accepted
     - approved_for_publish
@@ -949,14 +953,25 @@ scope_lock_status:
 publish_candidate_status:
   allowed:
     - created_internal_only
+    - corrected_after_acceptance_findings
 
 candidate_artifact_level:
   allowed:
     - scope_locked_publish_candidate_internal_only
+    - public_static_site_scaffold_prepared_internal_only
 
 allowed_next_action_status:
   allowed:
     - await_human_operator_publish_acceptance_decision_internal_only
+    - complete_legal_pages_and_confirm_domain_before_public_launch
+
+legal_pages_status:
+  allowed:
+    - placeholders_created_not_completed
+
+robots_policy:
+  allowed:
+    - disallow_all_until_legal_completion
 
 forbidden_transitions:
   - from: scaffold_only

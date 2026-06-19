@@ -5438,7 +5438,13 @@ def validate_article_readiness_dashboard(failures: list[str]) -> int:
     ]
     lower_text = text.lower()
     for fragment in forbidden_assignments:
-        if fragment in lower_text:
+        searchable_text = lower_text
+        if fragment == "operator_acceptance_status: accepted":
+            searchable_text = searchable_text.replace(
+                "operator_acceptance_status: accepted_for_publication_preparation_only",
+                "operator_acceptance_status: publication_preparation_only",
+            )
+        if fragment in searchable_text:
             failures.append(f"Article readiness dashboard must not contain forbidden activation marker: {fragment}")
 
     return 1
@@ -22345,7 +22351,13 @@ def validate_content_pipeline_contract_and_work_queue_v1(failures: list[str]) ->
     ]
     lower_queue_text = queue_text.lower()
     for fragment in forbidden_active_status_values:
-        if fragment in lower_queue_text:
+        searchable_queue_text = lower_queue_text
+        if fragment == "operator_acceptance_status: accepted":
+            searchable_queue_text = searchable_queue_text.replace(
+                "operator_acceptance_status: accepted_for_publication_preparation_only",
+                "operator_acceptance_status: publication_preparation_only",
+            )
+        if fragment in searchable_queue_text:
             failures.append(f"Work Queue V1 must not contain active forbidden status: {fragment}")
 
     forbidden_data_claims = [

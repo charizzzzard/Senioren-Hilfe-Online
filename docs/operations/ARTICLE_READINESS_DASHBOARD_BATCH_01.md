@@ -61,7 +61,7 @@ Diese Tabelle ist getrennt von den offiziellen Batch-01-Briefs. Sie fuehrt inter
 
 | internal_candidate_id | title | current_artifact_level | official_mvp_brief_status | batch_membership_status | allowed_next_step | source_state | review_state | final_article_candidate_status | publish_readiness | operator_acceptance | public_launch_status | monetization_status | primary_boundaries |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| SHO-INTERNAL-CANDIDATE-001 | WhatsApp-Fraud-Checklist | limited_internal_post_boundary_traceability_gap_consolidation_performed_internal_only | not_assigned | internal_spinoff_candidate_not_official_batch_brief | review_limited_internal_post_boundary_traceability_gap_consolidation_record_with_limitations_only | candidate-specific mapping unchanged: SHO-SRC-005/006 for SHO-CLAIM-004/005 and SHO-SRC-007 for SHO-CLAIM-006; all use remains limited and not finally approved; final_source_approval_status not_approved; final_claim_approval_status not_approved; final_citation_label_approval_status not_approved; SRC-GAP-WF-006 remains open for publish path; SHO-SRC-004 blocked UI context only | Internal traceability/gap consolidation performed against committed artifacts only; no gap resolved; article_content_modified false; browsing, live verification, and metadata inference not_performed; no source/claim/freshness/citation approval; no final article or publish candidate created | limited_internal_post_boundary_traceability_gap_consolidation_record_status created_internal_only; limited_internal_post_boundary_traceability_gap_consolidation_execution_status performed_internal_only_limited; citation_approval_status not_approved; source_approval_status not_approved; claim_approval_status not_approved; freshness_approval_status not_approved; publish_candidate_status not_created | not_ready | not_accepted | not_ready | not_approved | SHO-CLAIM-007 and SHO-SRC-004 blocked; no final source/claim/citation/freshness approval, Publish Candidate, UI validation, exact paths or official MVP Brief 005 promotion |
+| SHO-INTERNAL-CANDIDATE-001 | WhatsApp-Fraud-Checklist | public_static_site_scaffold_prepared_internal_only | not_assigned | internal_spinoff_candidate_not_official_batch_brief | complete_legal_pages_and_confirm_domain_before_public_launch | locked source scope remains SHO-SRC-005/006/007 only; SHO-SRC-004 blocked; final_source_approval_status not_approved; final_claim_approval_status not_approved; final_citation_label_approval_status not_approved; freshness_approval_status not_approved | Human Operator accepted publication preparation only; three bounded publish-prep fixes applied; public_site scaffold prepared; legal placeholders incomplete; robots policy disallow_all_until_legal_completion; no Analytics, Search Console, monetization or launch activation | publish_candidate_status corrected_after_acceptance_findings; legal_pages_status placeholders_created_not_completed; citation_approval_status not_approved; source_approval_status not_approved; claim_approval_status not_approved; freshness_approval_status not_approved | not_ready | accepted_for_publication_preparation_only | not_ready | not_approved | SHO-CLAIM-007 and SHO-SRC-004 blocked; no final source/claim/citation/freshness approval, no Publish Readiness, no public launch, no exact WhatsApp UI paths, no block/report step-by-step instructions |
 
 - current_internal_working_basis: docs/content/article_revision_candidates/whatsapp-fraud-checklist.targeted-revision-candidate.md
 - working_basis_decision_status: adopted_internal_working_basis_only
@@ -145,16 +145,31 @@ Diese Tabelle ist getrennt von den offiziellen Batch-01-Briefs. Sie fuehrt inter
 - limited_internal_post_boundary_traceability_gap_consolidation_record_review_p0_findings: none
 - limited_internal_post_boundary_traceability_gap_consolidation_record_review_p1_findings: none
 - allowed_next_action: prepare_human_operator_post_consolidation_decision_packet_internal_only
-- current_artifact_level: scope_locked_publish_candidate_internal_only
-- publish_candidate_status: created_internal_only
+- superseded_ship_gate_artifact_level: scope_locked_publish_candidate_internal_only
+- superseded_post_source_claim_gap_anchor: SRC-GAP-WF-006 remains open for publish path
+- superseded_internal_final_article_candidate_option_a_publish_candidate_status_anchor: publish_candidate_status not_created
+- superseded_internal_final_article_candidate_option_a_review_publish_candidate_status_anchor: publish_candidate_status not_created
+- current_artifact_level: public_static_site_scaffold_prepared_internal_only
+- operator_acceptance_status: accepted_for_publication_preparation_only
+- publish_candidate_status: corrected_after_acceptance_findings
+- publish_ready: false
+- legal_pages_status: placeholders_created_not_completed
+- analytics_status: not_connected
+- search_console_status: not_connected
+- robots_policy: disallow_all_until_legal_completion
+- ship_gate_pre_acceptance_review: docs/content/publish_candidates/whatsapp-fraud-checklist.ship-gate-pre-acceptance-review-v1.md
+- human_operator_publish_acceptance_decision: docs/operations/operator_decisions/HUMAN_OPERATOR_PUBLISH_ACCEPTANCE_DECISION_WHATSAPP_FRAUD_CHECKLIST_V1_INTERNAL_ONLY.md
+- public_static_site_scaffold: public_site/
+- superseded_publish_candidate_status: created_internal_only
 - publish_readiness: not_ready
-- operator_acceptance: not_accepted
+- operator_acceptance: accepted_for_publication_preparation_only
 - public_launch_status: not_ready
 - source_approval_status: not_approved
 - claim_approval_status: not_approved
 - citation_label_approval_status: not_approved
 - freshness_approval_status: not_approved
-- allowed_next_step: await_human_operator_publish_acceptance_decision_internal_only
+- allowed_next_step: complete_legal_pages_and_confirm_domain_before_public_launch
+- superseded_allowed_next_step: await_human_operator_publish_acceptance_decision_internal_only
 - ship_gate: docs/operations/SHIP_GATE_V1.md
 - scope_lock: docs/content/publish_candidates/whatsapp-fraud-checklist.publishable-scope-lock-v1.md
 - publish_candidate: docs/content/publish_candidates/whatsapp-fraud-checklist.publish-candidate-v1.md
