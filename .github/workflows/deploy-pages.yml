@@ -1,0 +1,50 @@
+name: Deploy public_site to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "public_site/**"
+      - ".github/workflows/deploy-pages.yml"
+  workflow_dispatch:
+  # Future optional trigger, intentionally disabled for first staging version:
+  # push:
+  #   branches:
+  #     - main
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+
+      - name: Staging-Guard - robots must block indexing
+        run: |
+          test -f public_site/robots.txt || { echo "robots.txt fehlt"; exit 1; }
+          grep -qx "Disallow: /" public_site/robots.txt || { echo "robots.txt blockiert nicht alles"; exit 1; }
+
+      - name: Upload public_site artifact
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: public_site
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
