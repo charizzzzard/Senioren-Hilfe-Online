@@ -4,48 +4,68 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Senioren-Hilfe Online — digitale Hilfe für den Alltag, ruhig erklärt</title>
-  <meta name="description" content="Klare, geprüfte Anleitungen rund um Smartphone, WhatsApp und Sicherheit im Internet. Schritt für Schritt, ohne Fachbegriffe.">
+  <meta name="description" content="Ruhige Anleitungen rund um Smartphone, WhatsApp und Sicherheit im Internet. Schritt für Schritt, ohne Fachbegriffe.">
   <meta name="robots" content="noindex, nofollow">
   <link rel="stylesheet" href="./assets/styles.css">
 </head>
 <body>
   <!-- Internal/public-prep scaffold only. Public launch blocked until legal review + operator acceptance. -->
   <header class="site-header">
-    <a class="brand" href="./">Senioren-Hilfe Online</a>
+    <div class="site-header__inner">
+      <a class="brand" href="./">
+        Senioren-Hilfe Online
+        <small>Ruhige Hilfe für digitale Alltagsfragen</small>
+      </a>
+      <nav class="site-nav" aria-label="Seitennavigation">
+        <a href="#artikel">Artikel</a>
+        <a href="#vorbereitung">Themen</a>
+        <a href="#arbeitsweise">Arbeitsweise</a>
+      </nav>
+    </div>
   </header>
 
   <main class="page home">
-
-    <!-- ===== Hero ===== -->
     <section class="hero" aria-labelledby="titel">
       <div class="hero-text">
         <h1 id="titel">Digitale Hilfe für den Alltag — ruhig erklärt</h1>
-        <p>Klare Anleitungen rund um Smartphone, WhatsApp und Sicherheit im Internet. Schritt für Schritt, ohne Fachbegriffe, in Ihrem eigenen Tempo.</p>
+        <p>Verständliche Anleitungen rund um Smartphone, WhatsApp und Sicherheit im Internet. Schritt für Schritt, ohne Fachbegriffe, in Ihrem eigenen Tempo.</p>
+        <ul class="trust-markers" aria-label="Was diese Seite bietet">
+          <li>Schritt für Schritt</li>
+          <li>Ohne Fachbegriffe</li>
+          <li>Ohne Werbung</li>
+        </ul>
       </div>
       <div class="hero-media">
-        <!-- ILLUSTRATION 1 (Hero). Datei nach ./assets/illustrationen/ legen. Bis dahin zeigt der Slot den Alt-Text. -->
         <figure class="illustration">
           <img src="./assets/illustrationen/01-hero-smartphone-hilfe.png"
                width="560" height="420"
+               loading="eager"
                alt="Eine ältere Person sitzt entspannt mit einem Smartphone in der Hand und schaut ruhig auf den Bildschirm.">
         </figure>
       </div>
     </section>
 
-    <!-- ===== Artikel ===== -->
     <section class="articles" aria-labelledby="artikel">
-      <h2 id="artikel">Artikel</h2>
+      <div class="section-heading">
+        <p class="section-kicker">Jetzt lesen</p>
+        <h2 id="artikel">Ein ruhiger Einstieg in digitale Sicherheit</h2>
+        <p>Der erste Artikel hilft beim Sortieren, wenn eine ungewohnte WhatsApp-Nachricht verunsichert.</p>
+      </div>
       <div class="cards">
         <a class="card" href="./artikel/whatsapp-betrug-checkliste/">
+          <span class="card-meta">Checkliste</span>
           <span class="card-title">Verdächtige WhatsApp-Nachricht? Erst prüfen, dann antworten</span>
-          <span class="card-desc">Eine ungewohnte Nachricht erhalten? So prüfen Sie in Ruhe, bevor Sie reagieren.</span>
+          <span class="card-desc">Eine kurze, druckbare Orientierung, bevor Sie auf eine ungewohnte Nachricht reagieren.</span>
         </a>
       </div>
     </section>
 
-    <!-- ===== Weitere Themen (noch keine Links, da in Vorbereitung) ===== -->
     <section class="upcoming" aria-labelledby="vorbereitung">
-      <h2 id="vorbereitung">Weitere Themen in Vorbereitung</h2>
+      <div class="section-heading">
+        <p class="section-kicker">In Vorbereitung</p>
+        <h2 id="vorbereitung">Weitere Themen, noch nicht als Artikel verfügbar</h2>
+        <p>Diese Themen sind vorgemerkt. Sie sind hier bewusst noch keine Links, solange die Inhalte nicht fertig sind.</p>
+      </div>
       <ul class="upcoming-list">
         <li>WhatsApp für Senioren sicher einrichten</li>
         <li>Betrugsnachrichten auf WhatsApp erkennen</li>
@@ -56,13 +76,15 @@
       <p class="hint">Diese Anleitungen entstehen gerade.</p>
     </section>
 
-    <!-- ===== Wie wir arbeiten (Vertrauen) ===== -->
     <section class="trust" aria-labelledby="arbeitsweise">
-      <h2 id="arbeitsweise">Wie wir arbeiten</h2>
-      <!-- ILLUSTRATION 2 (dekorativ, leerer Alt-Text). -->
+      <div class="section-heading">
+        <p class="section-kicker">Vertrauen</p>
+        <h2 id="arbeitsweise">Wie wir arbeiten</h2>
+        <p>Die Texte sollen ruhig, vorsichtig und nachvollziehbar bleiben.</p>
+      </div>
       <figure class="illustration illustration--band" role="presentation">
         <img src="./assets/illustrationen/02-vertrauen-haekchen.png"
-             width="480" height="280" alt="">
+             width="480" height="280" loading="lazy" alt="">
       </figure>
       <div class="trust-grid">
         <div class="trust-item">
@@ -70,24 +92,22 @@
           <p>Kurze Sätze, klare Schritte, keine Fachbegriffe.</p>
         </div>
         <div class="trust-item">
-          <h3>Mit geprüften Quellen</h3>
-          <p>Wir nennen, worauf sich die Hinweise stützen, etwa Polizei und Verbraucherzentrale.</p>
+          <h3>Geprüfte Orientierung</h3>
+          <p>Wir machen sichtbar, worauf sich Hinweise stützen, ohne endgültige Einzelfall-Sicherheit zu behaupten.</p>
         </div>
         <div class="trust-item">
-          <h3>Ohne Werbung</h3>
+          <h3>Keine Werbung, kein Verkauf</h3>
           <p>Keine Werbung, kein Verkauf, kein Zeitdruck.</p>
         </div>
       </div>
     </section>
 
-    <!-- ===== Abschluss / Hinweis ===== -->
     <section class="closing" aria-labelledby="hinweis">
       <h2 id="hinweis" class="visually-hidden">Hinweis</h2>
       <p class="disclaimer">Unsere Artikel bieten allgemeine Orientierung. Sie ersetzen keine Rechts- oder Sicherheitsberatung.</p>
-      <!-- ILLUSTRATION 3 (optional, dekorativ). Bei Nichtgebrauch diese figure einfach entfernen. -->
       <figure class="illustration illustration--band" role="presentation">
         <img src="./assets/illustrationen/03-ruhiger-alltag.png"
-             width="520" height="320" alt="">
+             width="520" height="320" loading="lazy" alt="">
       </figure>
     </section>
 
