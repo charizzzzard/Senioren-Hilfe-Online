@@ -23346,6 +23346,50 @@ def validate_static_preview_skeleton_internal_only(failures: list[str]) -> int:
     return count
 
 
+def validate_sitemap_no_placeholder(failures: list[str]) -> int:
+    sitemap_path = ROOT / "public_site/sitemap.xml"
+    if not sitemap_path.exists():
+        failures.append("Public site sitemap must exist at public_site/sitemap.xml")
+        return 0
+
+    text = sitemap_path.read_text(encoding="utf-8")
+    if "example.invalid" in text:
+        failures.append("Public site sitemap must not contain example.invalid")
+
+    required_urls = [
+        "https://netzleicht.de/",
+        "https://netzleicht.de/artikel/whatsapp-betrug-checkliste/",
+        "https://netzleicht.de/impressum/",
+        "https://netzleicht.de/datenschutz/",
+    ]
+    for url in required_urls:
+        if url not in text:
+            failures.append(f"Public site sitemap missing required URL: {url}")
+
+    return 1
+
+
+def validate_public_readme_consistency(failures: list[str]) -> int:
+    readme_path = ROOT / "public_site/README.md"
+    if not readme_path.exists():
+        failures.append("Public site README must exist at public_site/README.md")
+        return 0
+
+    text = readme_path.read_text(encoding="utf-8")
+    forbidden_fragments = [
+        "is not confirmed",
+        "details are missing",
+    ]
+    for fragment in forbidden_fragments:
+        if fragment in text:
+            failures.append(
+                "Public site README must not contain stale placeholder phrase: "
+                f"{fragment}"
+            )
+
+    return 1
+
+
 def main() -> int:
     failures: list[str] = []
 
@@ -23663,6 +23707,8 @@ def main() -> int:
     static_preview_skeleton_internal_only_count = (
         validate_static_preview_skeleton_internal_only(failures)
     )
+    validate_sitemap_no_placeholder(failures)
+    validate_public_readme_consistency(failures)
 
     if failures:
         print("FAIL: SHO-OS content contract validation failed")

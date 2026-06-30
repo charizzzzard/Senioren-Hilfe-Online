@@ -1047,3 +1047,20 @@ Das Review-Artefakt muss mindestens diese Finding IDs enthalten:
 - Senior quick-answer length check.
 - Source marker to claim validation.
 - Re-review gate before review_ready.
+
+## Public Site V4 Ship-Gate Checks (additive)
+
+`scripts/validate_content_contracts.py` includes two additive public-site V4
+ship-gate checks:
+
+- `validate_sitemap_no_placeholder(failures)` fails if
+  `public_site/sitemap.xml` still contains `example.invalid` or if any of the
+  four required `https://netzleicht.de` URLs are missing.
+- `validate_public_readme_consistency(failures)` fails if
+  `public_site/README.md` still contains stale placeholder phrases such as
+  `is not confirmed` or `details are missing`.
+
+These checks are narrow regression guards. They do not replace Human Operator
+Acceptance, legal review, legal advice, manual accessibility testing, keyboard
+testing, zoom testing, Search Console verification, Analytics review or public
+launch approval.
