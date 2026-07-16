@@ -8,6 +8,7 @@ public_launch_status: not_ready
 publish_readiness_status: not_ready
 monetization_status: not_approved
 operator_acceptance_status: not_accepted
+release_state_source: docs/operations/RELEASE_STATE_V1.yaml
 ---
 
 # Article Readiness Dashboard: MVP_BATCH_01
@@ -36,6 +37,8 @@ Dieses Dashboard ist ein internes Steuerungsartefakt fuer `MVP_BATCH_01`. Es mac
 - Quantitative SEO metrics are not available and must not be invented.
 - Analytics/feedback loop is planned but not live.
 - No real user emails or user feedback data exist yet and must not be invented.
+- Candidate publication-preparation acceptance is a separate status axis and
+  does not change Batch 01 operator acceptance or Launch Acceptance.
 
 ## Executive Summary
 
@@ -43,7 +46,10 @@ Dieses Dashboard ist ein internes Steuerungsartefakt fuer `MVP_BATCH_01`. Es mac
 - Brief 002 ist final_article_candidate_prepared_not_publish_ready, mit Scorecard Review, Human-Operator-Review-Packet, Human-Operator-Entscheidung, Dedicated Accessibility Review und Final Source Metadata Review vorbereitet, aber nicht publish-ready.
 - Brief 003 ist android_draft_candidate_revision_reviewed_internal_only: Scaffold, Draft Candidate, Draft Candidate Review, Revision Packet, revised Draft Candidate und Revision Review existieren intern, aber Brief 003 ist nicht publish-ready.
 - Brief 004 ist held_for_methodology wegen commercial/affiliate risk und offener product recommendation methodology.
-- `SHO-INTERNAL-CANDIDATE-001` ist ein interner WhatsApp-Fraud-Checklist Spin-off Candidate nach Brief-003-Option-C-Pivot und Brief-002-Claim-Boundaries. Die Human Operator Decision Option A fuer Source Metadata and Citation Follow-up ist recorded; der begrenzte interne Source Metadata Citation Follow-up Execution Record wurde intern reviewed. Das interne Citation Label Review Packet wurde intern reviewed: `pass_for_human_operator_citation_label_decision_preparation_with_findings_not_publish_ready`, ohne P0/P1-Findings. Die Human Operator Citation Label Review Decision Option A wurde recorded und autorisiert nur den naechsten internen Gate mit Limitierungen. Das Next Internal Gate Packet nach Citation Label Option A wurde vorbereitet und intern reviewed: `pass_for_next_internal_step_preparation_with_findings_not_publish_ready`, ohne P0/P1-Findings. Das Post Citation Label Carry-Forward Boundary Decision Or Task Packet wurde vorbereitet. Das Limited Internal Post-Boundary Task Selection Preparation Packet wurde vorbereitet; keine Human Operator Decision wurde recorded, kein naechster Pfad wurde selected und kein Task wurde zur Ausfuehrung selected. Das Limited Internal Post-Boundary Task Packet wurde vorbereitet; der konkrete Task `limited_internal_post_boundary_traceability_and_gap_consolidation_task` wurde nicht ausgefuehrt. Dieses Task Packet wurde intern reviewed: `pass_for_human_operator_or_later_limited_task_execution_decision_with_findings_not_publish_ready`, ohne P0/P1-Findings. Das Human Operator Or Limited Task Execution Decision Packet wurde vorbereitet; keine Human Operator Decision wurde recorded, Option A wurde nicht selected, der Limited Internal Task wurde nicht ausgefuehrt und kein Traceability-/Gap-Consolidation Record wurde erstellt. Die vorhandenen Labels fuer `SHO-SRC-005/006/007` bleiben `candidate_not_approved`. Dabei wurden keine externen Quellen geoeffnet, keine Live-Verifikation durchgefuehrt und keine Metadaten inferiert. Candidate und historischer Final Article Candidate bleiben unveraendert. Kein finaler Artikel oder Publish Candidate wurde erstellt. `SHO-SRC-004` und `SHO-CLAIM-007` bleiben blockiert. Publish Candidate, finale Freshness, Citation Labels, Source-/Claim-Freigaben, Publish Readiness und Operator Acceptance bleiben negativ.
+- `SHO-INTERNAL-CANDIDATE-001` ist fuer Publication Preparation akzeptiert,
+  scope-locked und nach Acceptance-Findings korrigiert. Er bleibt nicht
+  publish-ready; Launch Acceptance und Public Launch bleiben negativ.
+- Historical / superseded candidate trace: `SHO-INTERNAL-CANDIDATE-001` ist ein interner WhatsApp-Fraud-Checklist Spin-off Candidate nach Brief-003-Option-C-Pivot und Brief-002-Claim-Boundaries. Die Human Operator Decision Option A fuer Source Metadata and Citation Follow-up ist recorded; der begrenzte interne Source Metadata Citation Follow-up Execution Record wurde intern reviewed. Das interne Citation Label Review Packet wurde intern reviewed: `pass_for_human_operator_citation_label_decision_preparation_with_findings_not_publish_ready`, ohne P0/P1-Findings. Die Human Operator Citation Label Review Decision Option A wurde recorded und autorisiert nur den naechsten internen Gate mit Limitierungen. Das Next Internal Gate Packet nach Citation Label Option A wurde vorbereitet und intern reviewed: `pass_for_next_internal_step_preparation_with_findings_not_publish_ready`, ohne P0/P1-Findings. Das Post Citation Label Carry-Forward Boundary Decision Or Task Packet wurde vorbereitet. Das Limited Internal Post-Boundary Task Selection Preparation Packet wurde vorbereitet; keine Human Operator Decision wurde recorded, kein naechster Pfad wurde selected und kein Task wurde zur Ausfuehrung selected. Das Limited Internal Post-Boundary Task Packet wurde vorbereitet; der konkrete Task `limited_internal_post_boundary_traceability_and_gap_consolidation_task` wurde nicht ausgefuehrt. Dieses Task Packet wurde intern reviewed: `pass_for_human_operator_or_later_limited_task_execution_decision_with_findings_not_publish_ready`, ohne P0/P1-Findings. Das Human Operator Or Limited Task Execution Decision Packet wurde vorbereitet; keine Human Operator Decision wurde recorded, Option A wurde nicht selected, der Limited Internal Task wurde nicht ausgefuehrt und kein Traceability-/Gap-Consolidation Record wurde erstellt. Die vorhandenen Labels fuer `SHO-SRC-005/006/007` bleiben `candidate_not_approved`. Dabei wurden keine externen Quellen geoeffnet, keine Live-Verifikation durchgefuehrt und keine Metadaten inferiert. Candidate und historischer Final Article Candidate bleiben unveraendert. Kein finaler Artikel oder Publish Candidate wurde erstellt. `SHO-SRC-004` und `SHO-CLAIM-007` bleiben blockiert. Publish Candidate, finale Freshness, Citation Labels, Source-/Claim-Freigaben, Publish Readiness und Operator Acceptance bleiben negativ.
 - User-Perspective-, Reader-Experience- und Feedback-Status bleiben Platzhalter. Brief 002 Accessibility Review ist completed_not_publish_ready; andere Accessibility-Status bleiben pending, sofern nicht separat geprueft.
 
 ## Article Readiness Table
@@ -61,7 +67,24 @@ Diese Tabelle ist getrennt von den offiziellen Batch-01-Briefs. Sie fuehrt inter
 
 | internal_candidate_id | title | current_artifact_level | official_mvp_brief_status | batch_membership_status | allowed_next_step | source_state | review_state | final_article_candidate_status | publish_readiness | operator_acceptance | public_launch_status | monetization_status | primary_boundaries |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| SHO-INTERNAL-CANDIDATE-001 | WhatsApp-Fraud-Checklist | public_static_site_scaffold_prepared_internal_only | not_assigned | internal_spinoff_candidate_not_official_batch_brief | complete_legal_pages_and_confirm_domain_before_public_launch | locked source scope remains SHO-SRC-005/006/007 only; SHO-SRC-004 blocked; final_source_approval_status not_approved; final_claim_approval_status not_approved; final_citation_label_approval_status not_approved; freshness_approval_status not_approved | Human Operator accepted publication preparation only; three bounded publish-prep fixes applied; public_site scaffold prepared; legal placeholders incomplete; robots policy disallow_all_until_legal_completion; no Analytics, Search Console, monetization or launch activation | publish_candidate_status corrected_after_acceptance_findings; legal_pages_status placeholders_created_not_completed; citation_approval_status not_approved; source_approval_status not_approved; claim_approval_status not_approved; freshness_approval_status not_approved | not_ready | accepted_for_publication_preparation_only | not_ready | not_approved | SHO-CLAIM-007 and SHO-SRC-004 blocked; no final source/claim/citation/freshness approval, no Publish Readiness, no public launch, no exact WhatsApp UI paths, no block/report step-by-step instructions |
+| SHO-INTERNAL-CANDIDATE-001 | WhatsApp-Fraud-Checklist | deployed_awaiting_repo_verifier | not_assigned | internal_spinoff_candidate_not_official_batch_brief | implement_and_run_external_pages_verifier | locked source scope remains SHO-SRC-005/006/007 only; SHO-SRC-004 blocked; final_source_approval_status not_approved; final_claim_approval_status not_approved; final_citation_label_approval_status not_approved; freshness_approval_status not_approved | Human Operator accepted publication preparation only; three bounded publish-prep fixes applied; legal pages completed pending external legal review; domain HTTPS and robots response externally observed only; repo verifier output not yet available; no Analytics, Search Console, monetization or launch activation | publish_candidate_status corrected_after_acceptance_findings; legal_pages_status completed_pending_external_legal_review; citation_approval_status not_approved; source_approval_status not_approved; claim_approval_status not_approved; freshness_approval_status not_approved | not_ready | accepted_for_publication_preparation_only | not_ready | not_approved | SHO-CLAIM-007 and SHO-SRC-004 blocked; individual page HTTP status unverified; no final source/claim/citation/freshness or legal approval, no Publish Readiness, no Launch Acceptance, no exact WhatsApp UI paths, no block/report step-by-step instructions |
+
+### Current Candidate Release Status
+
+- canonical_release_state: docs/operations/RELEASE_STATE_V1.yaml
+- batch_operator_acceptance_status: not_accepted
+- candidate_publication_preparation_acceptance_status: accepted
+- candidate_publish_readiness_status: not_ready
+- launch_acceptance_status: not_accepted
+- public_launch_status: not_ready
+- legal_pages_status: completed_pending_external_legal_review
+- legal_approval_status: not_approved
+- domain_observation_status: externally_observed_https_and_robots_only
+- individual_page_http_status: unverified
+- current_candidate_next_step: implement_and_run_external_pages_verifier
+- blocked_items: SHO-CLAIM-007; SHO-SRC-004
+
+### Historical / Superseded Candidate Context
 
 - current_internal_working_basis: docs/content/article_revision_candidates/whatsapp-fraud-checklist.targeted-revision-candidate.md
 - working_basis_decision_status: adopted_internal_working_basis_only
@@ -112,7 +135,7 @@ Diese Tabelle ist getrennt von den offiziellen Batch-01-Briefs. Sie fuehrt inter
 - human_operator_or_limited_task_execution_limited_task_execution_status: not_performed
 - human_operator_or_limited_task_execution_traceability_gap_consolidation_record_status: not_created
 - human_operator_or_limited_task_execution_recommended_option_status: recommendation_only_not_selected
-- allowed_next_action: await_human_operator_decision_on_limited_task_execution_internal_only
+- superseded_allowed_next_action: await_human_operator_decision_on_limited_task_execution_internal_only
 - superseded_allowed_next_action: prepare_human_operator_or_limited_task_execution_decision_packet_internal_only
 - current_artifact_level: human_operator_limited_task_execution_decision_option_a_recorded_internal_only
 - superseded_current_artifact_level: human_operator_or_limited_task_execution_decision_packet_prepared_internal_only
@@ -124,7 +147,7 @@ Diese Tabelle ist getrennt von den offiziellen Batch-01-Briefs. Sie fuehrt inter
 - limited_internal_task_execution_status: not_performed
 - traceability_gap_consolidation_record_status: not_created
 - selected_next_path_status: selected_for_later_limited_internal_task_execution_only
-- allowed_next_action: perform_limited_internal_post_boundary_traceability_and_gap_consolidation_with_limitations_only
+- superseded_allowed_next_action: perform_limited_internal_post_boundary_traceability_and_gap_consolidation_with_limitations_only
 - superseded_allowed_next_action: await_human_operator_decision_on_limited_task_execution_internal_only
 - current_artifact_level: limited_internal_post_boundary_traceability_gap_consolidation_performed_internal_only
 - limited_internal_post_boundary_traceability_gap_consolidation_record: docs/operations/source_metadata_citation_follow_up/LIMITED_INTERNAL_POST_BOUNDARY_TRACEABILITY_GAP_CONSOLIDATION_RECORD_CANDIDATE_001_INTERNAL_ONLY.md
@@ -134,7 +157,7 @@ Diese Tabelle ist getrennt von den offiziellen Batch-01-Briefs. Sie fuehrt inter
 - limited_internal_post_boundary_traceability_browsing_status: not_performed
 - limited_internal_post_boundary_traceability_live_verification_status: not_performed
 - limited_internal_post_boundary_traceability_metadata_inference_status: not_performed
-- allowed_next_action: review_limited_internal_post_boundary_traceability_gap_consolidation_record_with_limitations_only
+- superseded_allowed_next_action: review_limited_internal_post_boundary_traceability_gap_consolidation_record_with_limitations_only
 - superseded_allowed_next_action: perform_limited_internal_post_boundary_traceability_and_gap_consolidation_with_limitations_only
 - historical Final Article Candidate remains unchanged
 - new_final_article_candidate_status prepared_internal_only_with_limitations
@@ -144,7 +167,7 @@ Diese Tabelle ist getrennt von den offiziellen Batch-01-Briefs. Sie fuehrt inter
 - limited_internal_post_boundary_traceability_gap_consolidation_record_review_verdict: pass_for_human_operator_post_consolidation_decision_preparation_with_findings_not_publish_ready
 - limited_internal_post_boundary_traceability_gap_consolidation_record_review_p0_findings: none
 - limited_internal_post_boundary_traceability_gap_consolidation_record_review_p1_findings: none
-- allowed_next_action: prepare_human_operator_post_consolidation_decision_packet_internal_only
+- superseded_allowed_next_action: prepare_human_operator_post_consolidation_decision_packet_internal_only
 - superseded_ship_gate_artifact_level: scope_locked_publish_candidate_internal_only
 - superseded_post_source_claim_gap_anchor: SRC-GAP-WF-006 remains open for publish path
 - superseded_internal_final_article_candidate_option_a_publish_candidate_status_anchor: publish_candidate_status not_created
@@ -168,7 +191,7 @@ Diese Tabelle ist getrennt von den offiziellen Batch-01-Briefs. Sie fuehrt inter
 - claim_approval_status: not_approved
 - citation_label_approval_status: not_approved
 - freshness_approval_status: not_approved
-- allowed_next_step: complete_legal_pages_and_confirm_domain_before_public_launch
+- superseded_allowed_next_step: complete_legal_pages_and_confirm_domain_before_public_launch
 - superseded_allowed_next_step: await_human_operator_publish_acceptance_decision_internal_only
 - ship_gate: docs/operations/SHIP_GATE_V1.md
 - scope_lock: docs/content/publish_candidates/whatsapp-fraud-checklist.publishable-scope-lock-v1.md

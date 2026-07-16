@@ -1,6 +1,54 @@
 # Handoff Latest Context
 
-## Patch Context
+## Current Status
+
+Canonical source: `docs/operations/RELEASE_STATE_V1.yaml`
+
+```yaml
+release_state_id: SHO-RELEASE-STATE-V1
+content_batch:
+  batch_id: MVP_BATCH_01
+  current_stage: claim_slots_mapped
+  operator_acceptance_status: not_accepted
+candidate:
+  candidate_id: SHO-INTERNAL-CANDIDATE-001
+  publication_preparation_acceptance_status: accepted
+  content_scope_status: locked
+  publish_candidate_status: corrected_after_acceptance_findings
+  publish_readiness_status: not_ready
+release:
+  staging_status: deployed_awaiting_repo_verifier
+  launch_acceptance_status: not_accepted
+  public_launch_status: not_ready
+  indexing_status: blocked
+legal:
+  pages_status: completed_pending_external_legal_review
+  legal_approval_status: not_approved
+domain:
+  canonical_domain: https://netzleicht.de
+  configuration_status: externally_observed
+  observation_date: 2026-07-16
+  observation_scope: https_reachability_and_robots_reachability_only
+  individual_page_http_status: unverified
+blocked_items:
+  - SHO-CLAIM-007
+  - SHO-SRC-004
+current_allowed_next_action: implement_and_run_external_pages_verifier
+```
+
+The domain observation is external evidence limited to HTTPS reachability and
+the robots response. It is not yet a repo-generated verifier result and does
+not establish HTTP 200 responses for every individual page. Legal pages contain
+operator details but remain pending external legal review. No Publish Readiness,
+Launch Acceptance, indexing approval, Analytics, Search Console, monetization or
+public-launch escalation is created here.
+
+## Historical / Superseded Context
+
+All context below is retained for traceability and is not the current release
+state or current next action.
+
+### Superseded Patch Context
 
 - project_name: Senioren-Hilfe Online
 - system_name: Senioren-Hilfe Online OS
@@ -12,7 +60,7 @@ SHO-OS ist ein reproduzierbares Content-, Trust- und Publishing-System fuer seni
 
 Dieser Handoff beschreibt den aktuellen internen Repo-Kontext nach der internen Freeze-Baseline-Akzeptanz, dem Codex Autonomy Operating Model v0.1 und seiner deterministischen Validator-Abdeckung.
 
-## Git Traceability
+### Superseded Git Traceability
 
 - branch: `main`
 - head_before_current_patch: `dc3c5fac7d6e7c54a335187a985c29d2b4879828`
@@ -23,7 +71,7 @@ Dieser Handoff beschreibt den aktuellen internen Repo-Kontext nach der internen 
 
 Hinweis: `head_after` wird nicht vorab als Commit-SHA eingetragen, weil ein Commit seine eigene finale SHA nicht stabil im Inhalt referenzieren kann.
 
-## Current Repo Context
+### Superseded Repo Context
 
 - Brief 001 remains blocked by missing WhatsApp line-level evidence and blocked WhatsApp UI-sensitive claims.
 - Brief 002 has a Final Article Candidate and review chain, but remains not publish-ready and not operator-accepted.
@@ -34,20 +82,20 @@ Hinweis: `head_after` wird nicht vorab als Commit-SHA eingetragen, weil ein Comm
 - `CQ-V1-083` records Human Operator acceptance for publication preparation only, applies three bounded publish-prep fixes, and creates `public_site/`.
 - `CQ-V1-082` created `docs/operations/SHIP_GATE_V1.md`, the scope lock, and the internal publish candidate.
 - Previous allowed action `await_human_operator_publish_acceptance_decision_internal_only` is completed for publication preparation only.
-- Current allowed next action: `complete_legal_pages_and_confirm_domain_before_public_launch`.
+- Superseded validator anchor: Current allowed next action: `complete_legal_pages_and_confirm_domain_before_public_launch`.
 - publish_candidate_status: corrected_after_acceptance_findings; publish_ready: false; legal_pages_status: placeholders_created_not_completed; robots_policy: disallow_all_until_legal_completion.
 - publish_readiness_status: not_ready; operator_acceptance_status: accepted_for_publication_preparation_only; public_launch_status: not_ready; monetization_status: not_approved.
 - `SHO-CLAIM-007` and `SHO-SRC-004` remain blocked. No exact WhatsApp UI paths, block/report step-by-step instructions, screenshot evidence, or final source/claim/citation/freshness approval is created.
 - superseded_external_review_verdict: `LIMITED_INTERNAL_POST_BOUNDARY_TRACEABILITY_GAP_CONSOLIDATION_RECORD_REVIEW_PASS_WITH_FINDINGS_NOT_PUBLISH_READY`.
 - current_artifact_level: `limited_internal_post_boundary_traceability_gap_consolidation_record_review_completed_internal_only`.
 - Current consolidation review: `docs/operations/source_metadata_citation_follow_up/LIMITED_INTERNAL_POST_BOUNDARY_TRACEABILITY_GAP_CONSOLIDATION_RECORD_REVIEW_CANDIDATE_001_INTERNAL_ONLY.md`.
-- Current allowed next action: `prepare_human_operator_post_consolidation_decision_packet_internal_only`.
+- Superseded validator anchor: Current allowed next action: `prepare_human_operator_post_consolidation_decision_packet_internal_only`.
 - Review verdict is `pass_for_human_operator_post_consolidation_decision_preparation_with_findings_not_publish_ready`; P0 and P1 findings are `none`.
 - Open P2 limitations remain visible; no approval, publication, browsing, live-verification, metadata-inference, or UI-path state changed.
 - superseded_external_review_verdict: `LIMITED_INTERNAL_POST_BOUNDARY_TRACEABILITY_GAP_CONSOLIDATION_PERFORMED_INTERNAL_ONLY`.
 - current_artifact_level: `limited_internal_post_boundary_traceability_gap_consolidation_performed_internal_only`.
 - Current consolidation record: `docs/operations/source_metadata_citation_follow_up/LIMITED_INTERNAL_POST_BOUNDARY_TRACEABILITY_GAP_CONSOLIDATION_RECORD_CANDIDATE_001_INTERNAL_ONLY.md`.
-- Current allowed next action: `review_limited_internal_post_boundary_traceability_gap_consolidation_record_with_limitations_only`.
+- Superseded validator anchor: Current allowed next action: `review_limited_internal_post_boundary_traceability_gap_consolidation_record_with_limitations_only`.
 - Consolidation is `created_internal_only` from committed repository artifacts; limited task execution is `performed_internal_only_limited`.
 - No gap is resolved; article content remains unchanged; browsing, live verification, metadata inference, and WhatsApp UI-path validation remain `not_performed`.
 - superseded_current_artifact_level: `human_operator_limited_task_execution_decision_option_a_recorded_internal_only`.
@@ -357,7 +405,7 @@ Hinweis: `head_after` wird nicht vorab als Commit-SHA eingetragen, weil ein Comm
 - superseded_external_review_verdict: POST_CITATION_LABEL_CARRY_FORWARD_BOUNDARY_DECISION_OR_TASK_PACKET_PREPARED_INTERNAL_ONLY
 - superseded_current_artifact_level: current_artifact_level: post_citation_label_carry_forward_boundary_decision_or_task_packet_prepared_internal_only
 
-## Internal Candidate Status
+### Superseded Detailed Internal Candidate Status
 
 ```yaml
 internal_candidate:
@@ -602,7 +650,7 @@ internal_candidate:
 
 This internal candidate is not an official fifth MVP brief and is not `SHO-MVP-BRIEF-005`.
 
-## Current Guardrails
+### Superseded Guardrails
 
 - public_launch_status: `not_ready`
 - publish_readiness_status: `not_ready`
@@ -666,7 +714,7 @@ The cleanup prepared the repo for Human Operator freeze baseline acceptance by s
 
 The Human Operator decision now accepts the cleaned internal baseline as an internal freeze baseline only. This does not accept any article, create a Final Article Candidate, set Publish Readiness, set article Operator Acceptance, activate Public Launch or activate Monetization.
 
-## Recommended Next Safe Outputs
+### Superseded Recommended Next Safe Outputs
 
 - `REVIEW_LIMITED_INTERNAL_POST_BOUNDARY_TASK_PACKET_WITH_LIMITATIONS_ONLY`
 - `BRIEF_002_PUBLISH_CANDIDATE_DECISION_PACKET_INTERNAL_ONLY`

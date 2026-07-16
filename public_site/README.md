@@ -1,63 +1,37 @@
 # Public Static Site Scaffold
 
-This folder contains a static public-site scaffold for Senioren-Hilfe Online.
-It is prepared for internal staging/deploy verification but is not launched.
+This folder contains the static staging site for Senioren-Hilfe Online. The
+canonical moving status is `docs/operations/RELEASE_STATE_V1.yaml`.
 
 ## Current Status
 
-- public_launch_status: not_ready
-- publish_ready: false
-- operator_acceptance_status: accepted_for_publication_preparation_only
-- canonical_domain: https://netzleicht.de
-- legal_pages_status: completed_pending_legal_review
-- domain_status: confirmed_live_https
-- search_indexing: blocked_by_robots_and_noindex
-- robots_policy: disallow_all_until_legal_completion
-- analytics_status: not_connected
-- search_console_status: not_connected
-- monetization_status: not_approved
-- github_pages_workflow_status: prepared_for_staging_manual_or_path_trigger
-- staging_target: https://charizzzzard.github.io/Senioren-Hilfe-Online/
-
-## Manual Launch Blockers
-
-- Legal pages contain operator-provided details and still need legal review.
-- Canonical domain is recorded as https://netzleicht.de.
-- Indexing remains blocked by robots.txt and HTML noindex/nofollow meta tags.
-- GitHub Pages must be enabled in the repository settings with Source set to
-  GitHub Actions if this has not already been done.
-- Search Console is not verified.
-
-## Sitemap
-
-The canonical domain recorded in the sitemap is https://netzleicht.de. This
-does not activate Search Console, Analytics, monetization or public launch.
-
-## Hosting Path
-
-The GitHub Pages deploy workflow is prepared repo-side at
-`.github/workflows/deploy-pages.yml`. It uploads only `public_site/` as the
-Pages artifact. The staging target is the GitHub Pages default project URL:
-
-https://charizzzzard.github.io/Senioren-Hilfe-Online/
-
-This is not an own-domain launch. This README does not activate DNS, Search
-Console, Analytics, monetization or public launch.
-
-This README does not set operator acceptance beyond the existing publication
-preparation status. It also does not set publish readiness.
-
-## Staging Verifier Notes
-
-The site intentionally remains non-indexable for staging:
-
-- `public_site/robots.txt` must keep `Disallow: /`.
-- Existing HTML `noindex, nofollow` robots meta tags must remain in place.
-- Analytics, Search Console and monetization remain not connected or not
+- `https://netzleicht.de` was externally observed over HTTPS on 2026-07-16.
+- That observation covers only HTTPS reachability and the robots response; it
+  does not establish HTTP 200 for every individual page.
+- Before this branch runs, no repository-owned GitHub Actions verifier report
+  is available.
+- The legal pages contain operator-provided details and remain
+  `completed_pending_external_legal_review`; legal approval is not granted.
+- Indexing remains blocked by `robots.txt` and HTML `noindex, nofollow` tags.
+- Analytics and Search Console remain not connected; monetization remains not
   approved.
+- Publish Readiness, Launch Acceptance and public launch remain negative.
 
-On the GitHub Pages project URL, absolute root links such as `/assets/...` may
-produce staging link or asset findings because the project is served below
-`/Senioren-Hilfe-Online/`. If that happens, document a separate follow-up
-finding named `base_path_compatibility_required`. Do not treat that as part of
-this workflow patch.
+## Hosting and Custom Domain
+
+The Pages workflow at `.github/workflows/deploy-pages.yml` deploys
+`public_site/`. This patch does not add `public_site/CNAME`. GitHub Pages can
+continue to use a Custom Domain configured in the repository Pages settings,
+including when no tracked CNAME file is present in this repository.
+
+The configured deployment URL may be the custom domain or the GitHub project
+page. Neither hosting configuration changes the blocked indexing, legal,
+Analytics, Search Console, monetization, Publish Readiness or launch statuses.
+
+## Staging Guards
+
+- `public_site/robots.txt` must retain exactly one effective `Disallow: /`.
+- Every delivered HTML page must retain `noindex, nofollow`.
+- No tracking or monetization script may be introduced.
+- A repo-owned CI verifier report is evidence only after the corresponding
+  GitHub Actions run has produced it.
