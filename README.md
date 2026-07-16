@@ -14,24 +14,28 @@ Trust-first gilt als harte Regel. Wenn Monetarisierung und Nutzervertrauen kolli
 
 - Current batch: `MVP_BATCH_01`
 - Current stage source: [MVP_BATCH_01.yaml](docs/content/batches/MVP_BATCH_01.yaml)
+- Canonical moving release status: [RELEASE_STATE_V1.yaml](docs/operations/RELEASE_STATE_V1.yaml)
 - Brief/readiness source: [ARTICLE_READINESS_DASHBOARD_BATCH_01.md](docs/operations/ARTICLE_READINESS_DASHBOARD_BATCH_01.md)
 - Work queue / blockers source: [WORK_QUEUE_V1.yaml](docs/operations/content_pipeline/WORK_QUEUE_V1.yaml)
 - Status vocabulary source: [STATUS_REGISTRY.yaml](docs/operations/STATUS_REGISTRY.yaml)
 - No public launch.
 - No publish readiness.
-- No Operator Acceptance.
+- Batch 01 is not operator-accepted.
+- `SHO-INTERNAL-CANDIDATE-001` is accepted only for publication preparation.
+- There is no final Launch Acceptance and no approved public launch.
 - No monetization approval.
 - Analytics and Search Console are not connected; User Feedback is not collected.
 - Target capabilities are not live implementation.
 - Runner specs are specification-only unless separately implemented later.
 
-Detailed moving status belongs to the Dashboard, Batch Manifest and Work Queue, not this README.
+Detailed moving release status belongs to `docs/operations/RELEASE_STATE_V1.yaml`; article and queue detail remains in the Dashboard, Batch Manifest and Work Queue.
 
 ## Start Here / Sources of Truth
 
 - [Systemdefinition](docs/00_PROJECT_SYSTEM_DEFINITION.md)
 - [Documentation Map](docs/DOCUMENTATION_MAP.md)
 - [Article Readiness Dashboard Batch 01](docs/operations/ARTICLE_READINESS_DASHBOARD_BATCH_01.md)
+- [Release State V1](docs/operations/RELEASE_STATE_V1.yaml)
 - [MVP Batch 01 Manifest](docs/content/batches/MVP_BATCH_01.yaml)
 - [Work Queue V1](docs/operations/content_pipeline/WORK_QUEUE_V1.yaml)
 - [Status Registry](docs/operations/STATUS_REGISTRY.yaml)

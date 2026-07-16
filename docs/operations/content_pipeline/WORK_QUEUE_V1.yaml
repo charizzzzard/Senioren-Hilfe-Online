@@ -8,6 +8,8 @@ monetization_status: not_approved
 analytics_status: not_connected
 search_console_status: not_connected
 user_feedback_status: not_collected
+current_allowed_next_action: implement_and_run_external_pages_verifier
+current_release_task_id: CQ-V1-084
 queue_note: "Internal operating artifact only. Does not trigger runtime execution."
 
 queue_items:
@@ -5608,7 +5610,7 @@ queue_items:
       - public_launch_not_ready
       - sho_claim_007_blocked
       - sho_src_004_blocked
-    allowed_next_action: complete_legal_pages_and_confirm_domain_before_public_launch
+    superseded_allowed_next_action: complete_legal_pages_and_confirm_domain_before_public_launch
     forbidden_actions:
       - approve_final_source_set
       - approve_final_claim_use
@@ -5636,4 +5638,61 @@ queue_items:
       - execute_queue
     human_gate_required: yes_before_public_launch_or_legal_completion_claim
     automation_candidate: codex_assisted
-    status: public_static_site_scaffold_prepared_internal_only
+    status: superseded_by_current_release_verifier_task
+
+  - queue_item_id: CQ-V1-084
+    title: SHO-INTERNAL-CANDIDATE-001 external Pages release verifier
+    linked_stage_id: STAGE_12_WEBSITE_PREVIEW_RELEASE_PREPARATION
+    linked_brief_id: SHO-INTERNAL-CANDIDATE-001
+    internal_candidate_id: SHO-INTERNAL-CANDIDATE-001
+    internal_candidate_status: internal_only
+    batch_membership_status: internal_spinoff_candidate_not_official_batch_brief
+    task_scope: bounded_release_verification_only
+    required_inputs:
+      - docs/operations/RELEASE_STATE_V1.yaml
+      - .github/workflows/deploy-pages.yml
+      - public_site/
+    produced_outputs:
+      - github_actions_deployment_result
+      - github_actions_release_verifier_report_artifact
+    release_verification_outcome:
+      implementation_status: planned_in_current_branch
+      runtime_result_source: github_actions
+      latest_repo_verifier_result: not_available
+      content_change_authorized: false
+      legal_approval_status: not_approved
+      launch_acceptance_status: not_accepted
+      publish_readiness_status: not_ready
+      public_launch_status: not_ready
+      indexing_status: blocked
+      monetization_status: not_approved
+      analytics_status: not_connected
+      search_console_status: not_connected
+      sho_claim_007_status: blocked
+      sho_src_004_status: blocked
+    blockers:
+      - repo_verifier_output_not_available
+      - individual_page_http_status_unverified
+      - external_legal_review_pending
+      - launch_acceptance_not_accepted
+      - publish_readiness_not_ready
+      - indexing_blocked
+      - sho_claim_007_blocked
+      - sho_src_004_blocked
+    allowed_next_action: implement_and_run_external_pages_verifier
+    forbidden_actions:
+      - modify_public_site_content
+      - approve_legal_status
+      - set_publish_readiness
+      - set_launch_acceptance
+      - activate_public_launch
+      - enable_indexing
+      - activate_monetization
+      - activate_analytics
+      - activate_search_console
+      - unlock_SHO_CLAIM_007
+      - include_SHO_SRC_004
+      - execute_queue_beyond_this_bounded_task
+    human_gate_required: yes_before_public_launch_indexing_or_legal_approval
+    automation_candidate: github_actions
+    status: current_executable_release_verification_task

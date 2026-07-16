@@ -1,0 +1,49 @@
+release_state_id: SHO-RELEASE-STATE-V1
+candidate_id: SHO-INTERNAL-CANDIDATE-001
+status_scope_version: "1.0"
+
+content_batch:
+  batch_id: MVP_BATCH_01
+  current_stage: claim_slots_mapped
+  operator_acceptance_status: not_accepted
+
+candidate:
+  publication_preparation_acceptance_status: accepted
+  content_scope_status: locked
+  publish_candidate_status: corrected_after_acceptance_findings
+  publish_readiness_status: not_ready
+
+release:
+  staging_status: deployed_awaiting_repo_verifier
+  launch_acceptance_status: not_accepted
+  public_launch_status: not_ready
+  indexing_status: blocked
+  analytics_status: not_connected
+  search_console_status: not_connected
+  monetization_status: not_approved
+
+legal:
+  pages_status: completed_pending_external_legal_review
+  legal_approval_status: not_approved
+
+domain:
+  canonical_domain: https://netzleicht.de
+  configuration_status: externally_observed
+  observation_date: 2026-07-16
+  observation_scope:
+    - https_reachability
+    - robots_reachability
+  observation_evidence_status: external_observation_not_yet_repo_verifier_output
+  individual_page_http_status: unverified
+  custom_domain_repo_file_status: no_cname_file_present
+
+staging_verifier:
+  implementation_status: planned_in_current_branch
+  runtime_result_source: github_actions
+  latest_repo_verifier_result: not_available
+
+blocked_items:
+  - SHO-CLAIM-007
+  - SHO-SRC-004
+
+current_allowed_next_action: implement_and_run_external_pages_verifier
