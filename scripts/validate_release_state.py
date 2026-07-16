@@ -14,6 +14,7 @@ from urllib.parse import unquote, urlsplit
 
 ROOT = Path(__file__).resolve().parents[1]
 RELEASE_STATE_PATH = ROOT / "docs/operations/RELEASE_STATE_V1.yaml"
+WORKFLOW_PATH = ROOT / ".github/workflows/deploy-pages.yml"
 PUBLIC_SITE = ROOT / "public_site"
 NEXT_ACTION = "implement_and_run_external_pages_verifier"
 
@@ -158,6 +159,29 @@ def require_fragments(
             add(failures, path, f"missing required release-state marker: {fragment}")
 
 
+def yaml_named_block(text: str, key: str, indent: int) -> str | None:
+    """Return one indentation-delimited YAML mapping block as text."""
+
+    lines = text.splitlines(keepends=True)
+    marker = f"{' ' * indent}{key}:"
+    start = next(
+        (index for index, line in enumerate(lines) if line.rstrip() == marker),
+        None,
+    )
+    if start is None:
+        return None
+    end = len(lines)
+    for index in range(start + 1, len(lines)):
+        line = lines[index]
+        if not line.strip():
+            continue
+        current_indent = len(line) - len(line.lstrip(" "))
+        if current_indent <= indent:
+            end = index
+            break
+    return "".join(lines[start:end])
+
+
 class ResourceParser(HTMLParser):
     def __init__(self) -> None:
         super().__init__(convert_charrefs=True)
@@ -254,7 +278,8 @@ def validate_release_yaml(failures: list[str]) -> None:
         "domain.custom_domain_repo_file_status": "no_cname_file_present",
         "staging_verifier.implementation_status": "implemented",
         "staging_verifier.workflow": ".github/workflows/deploy-pages.yml",
-        "staging_verifier.verification_tag_pattern": "verify-pages-*",
+        "staging_verifier.deployment_environment": "github-pages",
+        "staging_verifier.deployment_ref_policy": "main_only",
         "staging_verifier.runtime_result_source": "github_actions",
         "staging_verifier.report_artifact_name_pattern": "sho-release-verifier-*",
         "staging_verifier.latest_repo_verifier_result": "governed_by_github_actions_not_hardcoded",
@@ -311,17 +336,53 @@ def validate_release_yaml(failures: list[str]) -> None:
             if item not in blocked:
                 add(failures, RELEASE_STATE_PATH, f"blocked_items must retain {item}")
 
-    trigger_modes = nested(data, "staging_verifier.trigger_modes")
-    expected_modes = {
-        "push_main_when_relevant_paths_change",
-        "verification_tag",
-        "workflow_dispatch",
-    }
-    if not isinstance(trigger_modes, list) or set(trigger_modes) != expected_modes:
+    if nested(data, "staging_verifier.verification_tag_pattern") is not None:
         add(
             failures,
             RELEASE_STATE_PATH,
-            "staging_verifier.trigger_modes must define main-path, verification-tag and manual modes",
+            "staging_verifier.verification_tag_pattern is obsolete; Pages deployment is main-only",
+        )
+    if nested(data, "staging_verifier.trigger_modes") is not None:
+        add(
+            failures,
+            RELEASE_STATE_PATH,
+            "staging_verifier.trigger_modes is obsolete; use separate preflight and deployment modes",
+        )
+
+    preflight_modes = nested(data, "staging_verifier.preflight_trigger_modes")
+    expected_preflight_modes = {
+        "pull_request_to_main",
+        "push_to_main",
+        "workflow_dispatch",
+    }
+    if (
+        not isinstance(preflight_modes, list)
+        or len(preflight_modes) != len(expected_preflight_modes)
+        or set(preflight_modes) != expected_preflight_modes
+    ):
+        add(
+            failures,
+            RELEASE_STATE_PATH,
+            "staging_verifier.preflight_trigger_modes must contain exactly "
+            "pull_request_to_main, push_to_main and workflow_dispatch",
+        )
+
+    deployment_modes = nested(data, "staging_verifier.deployment_trigger_modes")
+    expected_deployment_modes = {
+        "push_to_main",
+        "workflow_dispatch_on_main",
+    }
+    if (
+        not isinstance(deployment_modes, list)
+        or len(deployment_modes) != len(expected_deployment_modes)
+        or set(deployment_modes) != expected_deployment_modes
+    ):
+        add(
+            failures,
+            RELEASE_STATE_PATH,
+            "staging_verifier.deployment_trigger_modes must contain exactly "
+            "push_to_main and workflow_dispatch_on_main; tags, feature branches "
+            "and pull requests must not deploy",
         )
 
     verifier_result = str(
@@ -343,6 +404,196 @@ def validate_release_yaml(failures: list[str]) -> None:
             RELEASE_STATE_PATH,
             "positive repo verifier result requires a referenced GitHub Actions verifier output",
         )
+
+
+def validate_workflow_contract(failures: list[str]) -> None:
+    if not WORKFLOW_PATH.exists():
+        add(failures, WORKFLOW_PATH, "Pages workflow does not exist")
+        return
+
+    text = WORKFLOW_PATH.read_text(encoding="utf-8")
+    on_block = yaml_named_block(text, "on", 0)
+    jobs_block = yaml_named_block(text, "jobs", 0)
+    if on_block is None:
+        add(failures, WORKFLOW_PATH, "missing top-level on trigger mapping")
+        return
+    if jobs_block is None:
+        add(failures, WORKFLOW_PATH, "missing top-level jobs mapping")
+        return
+
+    pull_request_block = yaml_named_block(on_block, "pull_request", 2)
+    push_block = yaml_named_block(on_block, "push", 2)
+    if pull_request_block is None or not re.search(
+        r"(?m)^      - main\s*$", pull_request_block
+    ):
+        add(failures, WORKFLOW_PATH, "pull_request trigger must target main")
+    if push_block is None or not re.search(r"(?m)^      - main\s*$", push_block):
+        add(failures, WORKFLOW_PATH, "push trigger must target main")
+    if not re.search(r"(?m)^  workflow_dispatch:\s*$", on_block):
+        add(failures, WORKFLOW_PATH, "workflow_dispatch trigger must be present")
+    if "verify-pages-*" in text:
+        add(failures, WORKFLOW_PATH, "verify-pages-* tag trigger is obsolete")
+    if re.search(r"(?m)^\s+tags(?:-ignore)?:\s*$", on_block):
+        add(failures, WORKFLOW_PATH, "tag triggers are forbidden for Pages deployment")
+
+    required_paths = (
+        "public_site/**",
+        "docs/operations/RELEASE_STATE_V1.yaml",
+        "docs/operations/ARTICLE_READINESS_DASHBOARD_BATCH_01.md",
+        "docs/operations/content_pipeline/WORK_QUEUE_V1.yaml",
+        "external_review_packet/HANDOFF_LATEST_CONTEXT.md",
+        "README.md",
+        "scripts/validate_content_contracts.py",
+        "scripts/validate_stage_transitions.py",
+        "scripts/validate_release_state.py",
+        ".github/workflows/deploy-pages.yml",
+    )
+    for trigger_name, trigger_block in (
+        ("pull_request", pull_request_block),
+        ("push", push_block),
+    ):
+        if trigger_block is None:
+            continue
+        for required_path in required_paths:
+            if f'- "{required_path}"' not in trigger_block:
+                add(
+                    failures,
+                    WORKFLOW_PATH,
+                    f"{trigger_name} trigger missing required path filter: {required_path}",
+                )
+
+    job_names = re.findall(r"(?m)^  ([A-Za-z0-9_-]+):\s*$", jobs_block)
+    if len(job_names) != 2 or set(job_names) != {"preflight", "deploy"}:
+        add(
+            failures,
+            WORKFLOW_PATH,
+            f"jobs must be exactly preflight and deploy; found {job_names!r}",
+        )
+    preflight_block = yaml_named_block(jobs_block, "preflight", 2)
+    deploy_block = yaml_named_block(jobs_block, "deploy", 2)
+    if preflight_block is None:
+        add(failures, WORKFLOW_PATH, "preflight job is missing")
+        return
+    if deploy_block is None:
+        add(failures, WORKFLOW_PATH, "deploy job is missing")
+        return
+
+    preflight_permissions = yaml_named_block(preflight_block, "permissions", 4)
+    preflight_entries = (
+        re.findall(r"(?m)^      ([A-Za-z0-9_-]+):\s*(\S+)\s*$", preflight_permissions)
+        if preflight_permissions
+        else []
+    )
+    if preflight_entries != [("contents", "read")]:
+        add(
+            failures,
+            WORKFLOW_PATH,
+            "preflight permissions must contain only contents: read",
+        )
+    if re.search(r"(?m)^    environment:\s*$", preflight_block):
+        add(failures, WORKFLOW_PATH, "preflight must not reference an environment")
+    for forbidden in (
+        "github-pages",
+        "pages: write",
+        "id-token: write",
+        "actions/upload-pages-artifact",
+        "actions/deploy-pages",
+        "group: pages",
+    ):
+        if forbidden in preflight_block:
+            add(failures, WORKFLOW_PATH, f"preflight must not contain {forbidden}")
+
+    required_preflight_steps = (
+        "actions/checkout@v6",
+        "actions/setup-python@v6",
+        "python scripts/validate_content_contracts.py",
+        "python scripts/validate_stage_transitions.py",
+        "python scripts/validate_release_state.py",
+        "python -m py_compile scripts/validate_release_state.py",
+        "python scripts/validate_release_state.py --check links",
+        "python scripts/validate_release_state.py --check guards",
+    )
+    for step in required_preflight_steps:
+        if step not in preflight_block:
+            add(failures, WORKFLOW_PATH, f"preflight missing required step: {step}")
+
+    if not re.search(
+        r"(?ms)^    needs:\s*\n      - preflight\s*$", deploy_block
+    ):
+        add(failures, WORKFLOW_PATH, "deploy must declare needs: preflight")
+    for condition_fragment in (
+        "github.ref == 'refs/heads/main'",
+        "github.event_name == 'push'",
+        "github.event_name == 'workflow_dispatch'",
+    ):
+        if condition_fragment not in deploy_block:
+            add(
+                failures,
+                WORKFLOW_PATH,
+                f"deploy main-only condition missing: {condition_fragment}",
+            )
+    if "github.event_name == 'pull_request'" in deploy_block:
+        add(failures, WORKFLOW_PATH, "pull requests must never execute deploy")
+
+    deploy_permissions = yaml_named_block(deploy_block, "permissions", 4)
+    deploy_entries = (
+        set(
+            re.findall(
+                r"(?m)^      ([A-Za-z0-9_-]+):\s*(\S+)\s*$",
+                deploy_permissions,
+            )
+        )
+        if deploy_permissions
+        else set()
+    )
+    expected_deploy_permissions = {
+        ("contents", "read"),
+        ("pages", "write"),
+        ("id-token", "write"),
+    }
+    if deploy_entries != expected_deploy_permissions:
+        add(
+            failures,
+            WORKFLOW_PATH,
+            "deploy permissions must be contents: read, pages: write and id-token: write",
+        )
+
+    if not re.search(
+        r"(?ms)^    environment:\s*\n      name: github-pages\s*$", deploy_block
+    ):
+        add(failures, WORKFLOW_PATH, "only deploy must use github-pages environment")
+    if "group: pages" not in deploy_block or "cancel-in-progress: false" not in deploy_block:
+        add(failures, WORKFLOW_PATH, "Pages concurrency must be scoped to deploy")
+
+    outside_deploy = text.replace(deploy_block, "", 1)
+    for deployment_only in ("github-pages", "pages: write", "id-token: write"):
+        if deployment_only in outside_deploy:
+            add(
+                failures,
+                WORKFLOW_PATH,
+                f"{deployment_only} must appear only in deploy job",
+            )
+
+    invariants = {
+        "actions/upload-pages-artifact@v4": 1,
+        "actions/deploy-pages@v4": 1,
+    }
+    for marker, expected_count in invariants.items():
+        count = text.count(marker)
+        if count != expected_count:
+            add(
+                failures,
+                WORKFLOW_PATH,
+                f"{marker} must occur exactly once; found {count}",
+            )
+        if marker not in deploy_block:
+            add(failures, WORKFLOW_PATH, f"{marker} must be contained in deploy")
+    for marker in (
+        "sho-release-verifier-${{ github.run_id }}",
+        "steps.deployment.outputs.page_url",
+    ):
+        if marker not in deploy_block:
+            add(failures, WORKFLOW_PATH, f"deploy must retain marker: {marker}")
 
 
 def validate_document_consistency(failures: list[str]) -> None:
@@ -661,6 +912,7 @@ def main() -> int:
 
     if args.check == "all":
         validate_release_yaml(failures)
+        validate_workflow_contract(failures)
         validate_document_consistency(failures)
         validate_local_links(failures)
         validate_staging_guards(failures)

@@ -1,11 +1,23 @@
 name: Deploy public_site to GitHub Pages
 
 on:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - "public_site/**"
+      - "docs/operations/RELEASE_STATE_V1.yaml"
+      - "docs/operations/ARTICLE_READINESS_DASHBOARD_BATCH_01.md"
+      - "docs/operations/content_pipeline/WORK_QUEUE_V1.yaml"
+      - "external_review_packet/HANDOFF_LATEST_CONTEXT.md"
+      - "README.md"
+      - "scripts/validate_content_contracts.py"
+      - "scripts/validate_stage_transitions.py"
+      - "scripts/validate_release_state.py"
+      - ".github/workflows/deploy-pages.yml"
   push:
     branches:
       - main
-    tags:
-      - "verify-pages-*"
     paths:
       - "public_site/**"
       - "docs/operations/RELEASE_STATE_V1.yaml"
@@ -19,21 +31,13 @@ on:
       - ".github/workflows/deploy-pages.yml"
   workflow_dispatch:
 
-permissions:
-  contents: read
-  pages: write
-  id-token: write
-
-concurrency:
-  group: pages
-  cancel-in-progress: false
-
 jobs:
-  deploy:
+  preflight:
     runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+
+    permissions:
+      contents: read
+
     steps:
       - name: Checkout
         uses: actions/checkout@v6
@@ -62,6 +66,38 @@ jobs:
 
       - name: Guard robots noindex and tracking policy
         run: python scripts/validate_release_state.py --check guards
+
+  deploy:
+    needs:
+      - preflight
+
+    if: >-
+      ${{
+        github.ref == 'refs/heads/main' &&
+        (
+          github.event_name == 'push' ||
+          github.event_name == 'workflow_dispatch'
+        )
+      }}
+
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    concurrency:
+      group: pages
+      cancel-in-progress: false
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
 
       - name: Configure Pages
         uses: actions/configure-pages@v5

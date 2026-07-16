@@ -40,11 +40,15 @@ domain:
 staging_verifier:
   implementation_status: implemented
   workflow: .github/workflows/deploy-pages.yml
-  trigger_modes:
-    - push_main_when_relevant_paths_change
-    - verification_tag
+  preflight_trigger_modes:
+    - pull_request_to_main
+    - push_to_main
     - workflow_dispatch
-  verification_tag_pattern: verify-pages-*
+  deployment_trigger_modes:
+    - push_to_main
+    - workflow_dispatch_on_main
+  deployment_environment: github-pages
+  deployment_ref_policy: main_only
   runtime_result_source: github_actions
   report_artifact_name_pattern: sho-release-verifier-*
   latest_repo_verifier_result: governed_by_github_actions_not_hardcoded
