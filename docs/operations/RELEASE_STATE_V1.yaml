@@ -38,9 +38,16 @@ domain:
   custom_domain_repo_file_status: no_cname_file_present
 
 staging_verifier:
-  implementation_status: planned_in_current_branch
+  implementation_status: implemented
+  workflow: .github/workflows/deploy-pages.yml
+  trigger_modes:
+    - push_main_when_relevant_paths_change
+    - verification_tag
+    - workflow_dispatch
+  verification_tag_pattern: verify-pages-*
   runtime_result_source: github_actions
-  latest_repo_verifier_result: not_available
+  report_artifact_name_pattern: sho-release-verifier-*
+  latest_repo_verifier_result: governed_by_github_actions_not_hardcoded
 
 blocked_items:
   - SHO-CLAIM-007

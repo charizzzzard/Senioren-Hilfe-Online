@@ -4,14 +4,20 @@ on:
   push:
     branches:
       - main
+    tags:
+      - "verify-pages-*"
     paths:
       - "public_site/**"
+      - "docs/operations/RELEASE_STATE_V1.yaml"
+      - "docs/operations/ARTICLE_READINESS_DASHBOARD_BATCH_01.md"
+      - "docs/operations/content_pipeline/WORK_QUEUE_V1.yaml"
+      - "external_review_packet/HANDOFF_LATEST_CONTEXT.md"
+      - "README.md"
+      - "scripts/validate_content_contracts.py"
+      - "scripts/validate_stage_transitions.py"
+      - "scripts/validate_release_state.py"
       - ".github/workflows/deploy-pages.yml"
   workflow_dispatch:
-  # Future optional trigger, intentionally disabled for first staging version:
-  # push:
-  #   branches:
-  #     - main
 
 permissions:
   contents: read
@@ -32,15 +38,35 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v6
 
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+
+      - name: Run existing SHO-OS validators
+        run: |
+          python scripts/validate_content_contracts.py
+          python scripts/validate_stage_transitions.py
+
+      - name: Validate canonical release state
+        run: python scripts/validate_release_state.py
+
+      - name: Compile validator sources
+        run: |
+          python -m py_compile scripts/validate_content_contracts.py
+          python -m py_compile scripts/validate_stage_transitions.py
+          python -m py_compile scripts/validate_release_state.py
+
+      - name: Check static links and assets
+        run: python scripts/validate_release_state.py --check links
+
+      - name: Guard robots noindex and tracking policy
+        run: python scripts/validate_release_state.py --check guards
+
       - name: Configure Pages
         uses: actions/configure-pages@v5
 
-      - name: Staging-Guard - robots must block indexing
-        run: |
-          test -f public_site/robots.txt || { echo "robots.txt fehlt"; exit 1; }
-          grep -qx "Disallow: /" public_site/robots.txt || { echo "robots.txt blockiert nicht alles"; exit 1; }
-
-      - name: Upload public_site artifact
+      - name: Upload public_site Pages artifact
         uses: actions/upload-pages-artifact@v4
         with:
           path: public_site
@@ -48,3 +74,427 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+
+      - name: Capture deployment URL
+        env:
+          DEPLOYMENT_URL: ${{ steps.deployment.outputs.page_url }}
+        run: |
+          test -n "$DEPLOYMENT_URL"
+          echo "DEPLOYMENT_URL=$DEPLOYMENT_URL" >> "$GITHUB_ENV"
+
+      - name: Verify deployed Pages endpoints and create reports
+        env:
+          COMMIT_SHA: ${{ github.sha }}
+          RUN_ID: ${{ github.run_id }}
+        run: |
+          python - <<'PY'
+          from __future__ import annotations
+
+          import html
+          import json
+          import os
+          import sys
+          import time
+          from datetime import datetime, timezone
+          from html.parser import HTMLParser
+          from pathlib import Path
+          from urllib.error import HTTPError
+          from urllib.parse import urljoin, urlsplit
+          from urllib.request import HTTPRedirectHandler, Request, build_opener
+
+
+          ALLOWED_HOSTS = {"netzleicht.de", "charizzzzard.github.io"}
+          TRACKING_SIGNATURES = {
+              "googletagmanager": "Google Tag Manager",
+              "google-analytics.com": "Google Analytics",
+              "gtag(": "Google gtag",
+              "matomo": "Matomo",
+              "plausible.io/js": "Plausible",
+              "cdn.segment.com": "Segment",
+              "mixpanel": "Mixpanel",
+              "fbq(": "Meta Pixel",
+              "connect.facebook.net": "Meta tracking",
+              "adsbygoogle": "Google Ads",
+              "doubleclick.net": "DoubleClick",
+              "amazon-adsystem": "Amazon Ads",
+              "hotjar": "Hotjar",
+              "clarity.ms/tag": "Microsoft Clarity",
+          }
+          ACCESSIBILITY_STATUS = (
+              "not_implemented_existing_versioned_tooling_not_found"
+          )
+
+
+          def now_utc():
+              return datetime.now(timezone.utc).isoformat().replace("+00:00", "Z")
+
+
+          def normalized(value):
+              return " ".join(html.unescape(value).split())
+
+
+          class TitleParser(HTMLParser):
+              def __init__(self):
+                  super().__init__(convert_charrefs=True)
+                  self.in_title = False
+                  self.parts = []
+
+              def handle_starttag(self, tag, attrs):
+                  if tag.lower() == "title":
+                      self.in_title = True
+
+              def handle_endtag(self, tag):
+                  if tag.lower() == "title":
+                      self.in_title = False
+
+              def handle_data(self, data):
+                  if self.in_title:
+                      self.parts.append(data)
+
+
+          class RobotsParser(HTMLParser):
+              def __init__(self):
+                  super().__init__(convert_charrefs=True)
+                  self.directives = []
+
+              def handle_starttag(self, tag, attrs):
+                  if tag.lower() != "meta":
+                      return
+                  values = {
+                      key.lower(): (value or "").strip().lower()
+                      for key, value in attrs
+                  }
+                  if values.get("name") == "robots":
+                      self.directives.append(
+                          {
+                              item.strip()
+                              for item in values.get("content", "").split(",")
+                              if item.strip()
+                          }
+                      )
+
+
+          class RecordingRedirectHandler(HTTPRedirectHandler):
+              max_redirections = 10
+              max_repeats = 4
+
+              def __init__(self):
+                  super().__init__()
+                  self.history = []
+
+              def redirect_request(self, req, fp, code, msg, headers, newurl):
+                  target = urljoin(req.full_url, newurl)
+                  host = (urlsplit(target).hostname or "").lower()
+                  self.history.append(
+                      {
+                          "status": code,
+                          "from_url": req.full_url,
+                          "to_url": target,
+                          "to_host": host,
+                      }
+                  )
+                  if host not in ALLOWED_HOSTS:
+                      raise RuntimeError(
+                          f"redirect target host is outside allowlist: {host or '<empty>'}"
+                      )
+                  return super().redirect_request(
+                      req, fp, code, msg, headers, target
+                  )
+
+
+          deployment_url = os.environ["DEPLOYMENT_URL"].strip()
+          commit_sha = os.environ["COMMIT_SHA"]
+          run_id = os.environ["RUN_ID"]
+          base_url = deployment_url if deployment_url.endswith("/") else deployment_url + "/"
+          base_host = (urlsplit(base_url).hostname or "").lower()
+          if urlsplit(base_url).scheme != "https":
+              raise SystemExit("Deployment URL must use HTTPS")
+          if base_host not in ALLOWED_HOSTS:
+              raise SystemExit(
+                  f"Deployment URL host is outside allowlist: {base_host or '<empty>'}"
+              )
+
+          endpoint_specs = [
+              {
+                  "endpoint": "/",
+                  "relative_url": "",
+                  "kind": "html",
+                  "local_path": Path("public_site/index.html"),
+              },
+              {
+                  "endpoint": "artikel/whatsapp-betrug-checkliste/",
+                  "relative_url": "artikel/whatsapp-betrug-checkliste/",
+                  "kind": "html",
+                  "local_path": Path(
+                      "public_site/artikel/whatsapp-betrug-checkliste/index.html"
+                  ),
+              },
+              {
+                  "endpoint": "impressum/",
+                  "relative_url": "impressum/",
+                  "kind": "html",
+                  "local_path": Path("public_site/impressum/index.html"),
+              },
+              {
+                  "endpoint": "datenschutz/",
+                  "relative_url": "datenschutz/",
+                  "kind": "html",
+                  "local_path": Path("public_site/datenschutz/index.html"),
+              },
+              {
+                  "endpoint": "robots.txt",
+                  "relative_url": "robots.txt",
+                  "kind": "robots",
+                  "local_path": Path("public_site/robots.txt"),
+              },
+          ]
+
+          for spec in endpoint_specs:
+              if spec["kind"] == "html":
+                  parser = TitleParser()
+                  parser.feed(spec["local_path"].read_text(encoding="utf-8"))
+                  marker = normalized("".join(parser.parts))
+                  if not marker:
+                      raise SystemExit(
+                          f"Committed HTML has no title marker: {spec['local_path']}"
+                      )
+                  spec["marker"] = marker
+              else:
+                  spec["marker"] = "Disallow: /"
+              spec["requested_url"] = urljoin(base_url, spec["relative_url"])
+
+
+          def verify_once(spec):
+              redirect_handler = RecordingRedirectHandler()
+              opener = build_opener(redirect_handler)
+              result = {
+                  "endpoint": spec["endpoint"],
+                  "requested_url": spec["requested_url"],
+                  "final_effective_url": None,
+                  "final_host": None,
+                  "http_status": None,
+                  "redirect_count": 0,
+                  "redirect_history": [],
+                  "content_marker": {
+                      "expected": spec["marker"],
+                      "matched": False,
+                  },
+                  "noindex_nofollow": None,
+                  "tracking_script_check": "not_checked",
+                  "verification_timestamp_utc": now_utc(),
+                  "commit_sha": commit_sha,
+                  "run_id": run_id,
+                  "status": "fail",
+                  "error": None,
+              }
+              try:
+                  request = Request(
+                      spec["requested_url"],
+                      headers={
+                          "User-Agent": "SHO-Release-Verifier/1.0",
+                          "Accept": "text/html,text/plain;q=0.9,*/*;q=0.1",
+                      },
+                  )
+                  with opener.open(request, timeout=20) as response:
+                      body = response.read()
+                      status = response.getcode()
+                      final_url = response.geturl()
+                      charset = response.headers.get_content_charset() or "utf-8"
+                  final_host = (urlsplit(final_url).hostname or "").lower()
+                  result.update(
+                      {
+                          "final_effective_url": final_url,
+                          "final_host": final_host,
+                          "http_status": status,
+                          "redirect_count": len(redirect_handler.history),
+                          "redirect_history": redirect_handler.history,
+                      }
+                  )
+                  if status != 200:
+                      raise RuntimeError(f"final HTTP status is {status}, expected 200")
+                  if final_host not in ALLOWED_HOSTS:
+                      raise RuntimeError(
+                          f"final host is outside allowlist: {final_host or '<empty>'}"
+                      )
+
+                  text = body.decode(charset, errors="replace")
+                  lower_text = text.lower()
+                  tracking_hits = [
+                      label
+                      for signature, label in TRACKING_SIGNATURES.items()
+                      if signature in lower_text
+                  ]
+                  result["tracking_script_check"] = (
+                      "pass" if not tracking_hits else "fail: " + ", ".join(tracking_hits)
+                  )
+
+                  if spec["kind"] == "html":
+                      result["content_marker"]["matched"] = (
+                          normalized(spec["marker"]) in normalized(text)
+                      )
+                      robots_parser = RobotsParser()
+                      robots_parser.feed(text)
+                      noindex = any(
+                          {"noindex", "nofollow"}.issubset(directives)
+                          for directives in robots_parser.directives
+                      )
+                      result["noindex_nofollow"] = noindex
+                      content_ok = result["content_marker"]["matched"] and noindex
+                  else:
+                      effective_lines = [
+                          line.split("#", 1)[0].strip()
+                          for line in text.splitlines()
+                          if line.split("#", 1)[0].strip()
+                      ]
+                      disallow_lines = [
+                          line
+                          for line in effective_lines
+                          if line.lower().startswith("disallow:")
+                      ]
+                      robots_ok = disallow_lines == ["Disallow: /"]
+                      result["content_marker"]["matched"] = robots_ok
+                      content_ok = robots_ok
+
+                  tracking_ok = result["tracking_script_check"] == "pass"
+                  if not content_ok:
+                      raise RuntimeError("committed content marker or staging guard did not match")
+                  if not tracking_ok:
+                      raise RuntimeError("unexpected tracking signature detected")
+                  result["status"] = "pass"
+              except HTTPError as exc:
+                  result.update(
+                      {
+                          "final_effective_url": exc.geturl(),
+                          "final_host": (urlsplit(exc.geturl()).hostname or "").lower(),
+                          "http_status": exc.code,
+                          "redirect_count": len(redirect_handler.history),
+                          "redirect_history": redirect_handler.history,
+                          "error": f"HTTPError: {exc}",
+                      }
+                  )
+              except Exception as exc:
+                  result.update(
+                      {
+                          "redirect_count": len(redirect_handler.history),
+                          "redirect_history": redirect_handler.history,
+                          "error": f"{type(exc).__name__}: {exc}",
+                      }
+                  )
+              return result
+
+
+          retry_delays = [5, 10, 15, 20, 30]
+          pending = {spec["endpoint"]: spec for spec in endpoint_specs}
+          final_results = {}
+          attempt_errors = {spec["endpoint"]: [] for spec in endpoint_specs}
+
+          for attempt in range(1, len(retry_delays) + 2):
+              for endpoint, spec in list(pending.items()):
+                  result = verify_once(spec)
+                  result["attempts"] = attempt
+                  if result["status"] == "pass":
+                      result["prior_attempt_errors"] = attempt_errors[endpoint]
+                      final_results[endpoint] = result
+                      del pending[endpoint]
+                  else:
+                      attempt_errors[endpoint].append(result["error"] or "unknown failure")
+                      result["prior_attempt_errors"] = attempt_errors[endpoint][:-1]
+                      final_results[endpoint] = result
+              if not pending:
+                  break
+              if attempt <= len(retry_delays):
+                  time.sleep(retry_delays[attempt - 1])
+
+          endpoint_results = [final_results[spec["endpoint"]] for spec in endpoint_specs]
+          overall_status = (
+              "pass"
+              if all(result["status"] == "pass" for result in endpoint_results)
+              else "fail"
+          )
+          report = {
+              "commit_sha": commit_sha,
+              "run_id": run_id,
+              "deployment_url": deployment_url,
+              "verification_timestamp_utc": now_utc(),
+              "allowed_hosts": sorted(ALLOWED_HOSTS),
+              "accessibility_runtime_check": ACCESSIBILITY_STATUS,
+              "overall_status": overall_status,
+              "endpoints": endpoint_results,
+          }
+
+          output_dir = Path("verification-output")
+          output_dir.mkdir(parents=True, exist_ok=True)
+          json_path = output_dir / "release-verifier-report.json"
+          md_path = output_dir / "release-verifier-report.md"
+          json_path.write_text(
+              json.dumps(report, indent=2, ensure_ascii=False) + "\n",
+              encoding="utf-8",
+          )
+
+          markdown = [
+              "# SHO Release Verifier Report",
+              "",
+              f"- Overall status: **{overall_status.upper()}**",
+              f"- Commit: `{commit_sha}`",
+              f"- Run ID: `{run_id}`",
+              f"- Deployment URL: `{deployment_url}`",
+              f"- Timestamp (UTC): `{report['verification_timestamp_utc']}`",
+              f"- Accessibility runtime check: `{ACCESSIBILITY_STATUS}`",
+              "",
+              "| Endpoint | Requested URL | Final URL | Host | HTTP | Redirects | Marker | Noindex | Tracking | Result |",
+              "| --- | --- | --- | --- | ---: | ---: | --- | --- | --- | --- |",
+          ]
+          for result in endpoint_results:
+              markdown.append(
+                  "| {endpoint} | {requested} | {final} | {host} | {http} | "
+                  "{redirects} | {marker} | {noindex} | {tracking} | {status} |".format(
+                      endpoint=result["endpoint"],
+                      requested=result["requested_url"],
+                      final=result["final_effective_url"] or "n/a",
+                      host=result["final_host"] or "n/a",
+                      http=result["http_status"] or "n/a",
+                      redirects=result["redirect_count"],
+                      marker="pass" if result["content_marker"]["matched"] else "fail",
+                      noindex=(
+                          "n/a"
+                          if result["noindex_nofollow"] is None
+                          else "pass" if result["noindex_nofollow"] else "fail"
+                      ),
+                      tracking=result["tracking_script_check"],
+                      status=result["status"],
+                  )
+              )
+          failures = [result for result in endpoint_results if result["status"] != "pass"]
+          if failures:
+              markdown.extend(["", "## Findings", ""])
+              for result in failures:
+                  markdown.append(
+                      f"- `{result['endpoint']}` after {result['attempts']} attempt(s): "
+                      f"{result['error'] or 'unknown failure'}"
+                  )
+          md_path.write_text("\n".join(markdown) + "\n", encoding="utf-8")
+
+          print(f"Wrote {json_path} and {md_path}")
+          if overall_status != "pass":
+              sys.exit(1)
+          PY
+
+      - name: Upload release verifier report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: sho-release-verifier-${{ github.run_id }}
+          path: verification-output/
+          if-no-files-found: warn
+          retention-days: 14
+
+      - name: Write release verifier summary
+        if: always()
+        run: |
+          if test -f verification-output/release-verifier-report.md; then
+            cat verification-output/release-verifier-report.md >> "$GITHUB_STEP_SUMMARY"
+          else
+            echo "# SHO Release Verifier Report" >> "$GITHUB_STEP_SUMMARY"
+            echo "" >> "$GITHUB_STEP_SUMMARY"
+            echo "Verifier report was not generated because an earlier deployment step failed." >> "$GITHUB_STEP_SUMMARY"
+          fi
