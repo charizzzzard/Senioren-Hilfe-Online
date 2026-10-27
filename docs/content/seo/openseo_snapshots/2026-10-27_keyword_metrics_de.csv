@@ -1,0 +1,243 @@
+keyword,search_volume,keyword_difficulty,intent,cpc,competition_level,quelle
+doctolib,1000000,20,informational,1.76,LOW,get_keyword_metrics_batch1
+google fotos,201000,46,navigational,1.02,LOW,get_keyword_metrics_batch1
+mediathek,110000,100,navigational,0.07,LOW,get_keyword_metrics_batch1
+passwort manager,110000,30,navigational,3.38,LOW,get_keyword_metrics_batch1
+qr code scannen,110000,25,informational,0.64,MEDIUM,get_keyword_metrics_batch1
+deutschlandticket kaufen,90500,41,transactional,0.63,MEDIUM,get_keyword_metrics_batch1
+google pay,90500,45,navigational,3.27,LOW,get_keyword_metrics_batch1
+bundid,49500,16,informational,2.82,LOW,get_keyword_metrics_batch1
+apple id erstellen,40500,15,navigational,1.72,LOW,get_keyword_metrics_batch1
+apple pay,40500,59,informational,1.32,LOW,get_keyword_metrics_batch1
+google konto erstellen,40500,42,navigational,1.76,LOW,get_keyword_metrics_batch1
+ausweisapp,33100,31,navigational,9.03,LOW,get_keyword_metrics_batch1
+mein gerät finden,33100,30,navigational,1.8,LOW,get_keyword_metrics_batch1
+whatsapp installieren,33100,50,navigational,0.76,LOW,get_keyword_metrics_batch1
+enkeltrick,27100,9,informational,,LOW,get_keyword_metrics_batch1
+seniorenhandy,27100,0,transactional,0.26,HIGH,get_keyword_metrics_batch1
+db navigator app,18100,56,navigational,0.58,LOW,get_keyword_metrics_batch1
+gmail konto erstellen,18100,54,transactional,0.93,LOW,get_keyword_metrics_batch1
+whatsapp backup,14800,0,navigational,0.64,LOW,get_keyword_metrics_batch1
+e-mail adresse erstellen,12100,33,informational,2.46,MEDIUM,get_keyword_metrics_batch1
+epa app,12100,28,informational,1.37,LOW,get_keyword_metrics_batch1
+apps löschen,9900,10,informational,0.23,LOW,get_keyword_metrics_batch1
+fernsehen über internet,6600,30,informational,2.73,HIGH,get_keyword_metrics_batch1
+paypal einrichten,6600,68,informational,0.98,LOW,get_keyword_metrics_batch1
+neues handy einrichten,5400,0,informational,0.2,LOW,get_keyword_metrics_batch1
+screenshot machen,5400,7,informational,0.35,LOW,get_keyword_metrics_batch1
+whatsapp gruppe erstellen,5400,0,navigational,0.73,LOW,get_keyword_metrics_batch1
+zwei faktor authentifizierung,5400,42,navigational,3.25,LOW,get_keyword_metrics_batch1
+e-rezept app,4400,0,transactional,6.03,MEDIUM,get_keyword_metrics_batch1
+personalausweis online funktion,4400,69,navigational,2.27,LOW,get_keyword_metrics_batch1
+tan generator,4400,10,transactional,0.22,HIGH,get_keyword_metrics_batch1
+fotos vom handy auf pc,3600,0,informational,0.38,LOW,get_keyword_metrics_batch1
+handy für senioren,3600,3,informational,0.29,HIGH,get_keyword_metrics_batch1
+rente online beantragen,3600,32,transactional,1.64,LOW,get_keyword_metrics_batch1
+smartphone für senioren,3600,0,transactional,0.31,HIGH,get_keyword_metrics_batch1
+whatsapp videoanruf,3600,4,informational,,LOW,get_keyword_metrics_batch1
+app installieren,2900,55,transactional,1.88,LOW,get_keyword_metrics_batch1
+daten auf neues handy übertragen,2900,13,informational,0.29,LOW,get_keyword_metrics_batch1
+drittanbietersperre,2900,4,informational,,LOW,get_keyword_metrics_batch1
+sicheres passwort,2900,45,informational,1.02,LOW,get_keyword_metrics_batch1
+telefonbetrug,2900,23,informational,5.05,LOW,get_keyword_metrics_batch1
+videoanruf,2900,7,informational,2.22,LOW,get_keyword_metrics_batch1
+was ist eine cloud,2900,30,informational,2.52,LOW,get_keyword_metrics_batch1
+whatsapp sprachnachricht,2900,2,informational,0.02,LOW,get_keyword_metrics_batch1
+icloud speicher voll,2400,0,informational,1.3,LOW,get_keyword_metrics_batch1
+pin vergessen handy,2400,11,informational,0.61,LOW,get_keyword_metrics_batch1
+sms betrug,2400,8,informational,,LOW,get_keyword_metrics_batch1
+sprachassistent,2400,28,informational,2.46,LOW,get_keyword_metrics_batch1
+whatsapp einrichten,2400,29,navigational,0.57,LOW,get_keyword_metrics_batch1
+whatsapp kontakt blockieren,2400,2,informational,,LOW,get_keyword_metrics_batch1
+bluetooth verbinden,1900,26,informational,0.22,LOW,get_keyword_metrics_batch1
+deutschlandticket senioren,1900,10,transactional,0.51,LOW,get_keyword_metrics_batch1
+handy entsperren,1900,0,transactional,1.28,LOW,get_keyword_metrics_batch1
+smishing,1900,0,informational,1.26,LOW,get_keyword_metrics_batch1
+telefonnummer blockieren,1900,6,informational,0.26,LOW,get_keyword_metrics_batch1
+virus auf dem handy,1900,0,informational,3.3,MEDIUM,get_keyword_metrics_batch1
+was ist eine app,1900,0,informational,2.91,LOW,get_keyword_metrics_batch1
+arzttermin online buchen,1600,0,transactional,2.24,LOW,get_keyword_metrics_batch1
+online überweisung,1600,18,informational,6.22,LOW,get_keyword_metrics_batch1
+whatsapp gehackt,1600,0,informational,1.53,LOW,get_keyword_metrics_batch1
+whatsapp kontakt hinzufügen,1600,0,navigational,,LOW,get_keyword_metrics_batch1
+elektronische patientenakte widersprechen,1300,0,informational,0.99,LOW,get_keyword_metrics_batch1
+notfallpass handy,1300,7,navigational,2.04,LOW,get_keyword_metrics_batch1
+tablet für senioren,1300,0,transactional,0.61,HIGH,get_keyword_metrics_batch1
+handy verloren,1000,0,informational,3.03,MEDIUM,get_keyword_metrics_batch1
+spam anrufe blockieren,1000,0,informational,1.53,LOW,get_keyword_metrics_batch1
+fake shop erkennen,880,48,informational,1.95,LOW,get_keyword_metrics_batch1
+handy gehackt,880,0,informational,4.19,LOW,get_keyword_metrics_batch1
+handy speicher voll,880,0,informational,0.88,LOW,get_keyword_metrics_batch1
+kontaktlos bezahlen handy,880,38,commercial,4.06,MEDIUM,get_keyword_metrics_batch1
+phishing mail erkennen,880,18,informational,2.8,MEDIUM,get_keyword_metrics_batch1
+akku schnell leer,720,0,informational,0.45,LOW,get_keyword_metrics_batch1
+notruf sos iphone,720,0,informational,,LOW,get_keyword_metrics_batch1
+schriftgröße ändern android,590,0,informational,0.18,LOW,get_keyword_metrics_batch1
+digitalpakt alter,480,19,transactional,,LOW,get_keyword_metrics_batch1
+falsche polizisten,480,1,informational,,LOW,get_keyword_metrics_batch1
+handy update,480,0,informational,0.32,LOW,get_keyword_metrics_batch1
+einfaches handy für senioren,390,0,transactional,0.2,HIGH,get_keyword_metrics_batch1
+online banking app,390,41,commercial,10.19,MEDIUM,get_keyword_metrics_batch1
+schockanruf,390,14,informational,,LOW,get_keyword_metrics_batch1
+schriftgröße iphone,390,0,informational,,LOW,get_keyword_metrics_batch1
+hörgerät mit handy verbinden,320,0,informational,1.52,MEDIUM,get_keyword_metrics_batch1
+sparkasse phishing,320,7,informational,,LOW,get_keyword_metrics_batch1
+computerkurs für senioren,260,0,informational,0.94,LOW,get_keyword_metrics_batch1
+smartphone kurs für senioren,260,0,informational,0.35,MEDIUM,get_keyword_metrics_batch1
+phishing erkennen,210,36,informational,2.25,MEDIUM,get_keyword_metrics_batch1
+bedienungshilfen iphone,170,0,informational,,LOW,get_keyword_metrics_batch1
+enkeltrick whatsapp,170,0,informational,2.02,LOW,get_keyword_metrics_batch1
+werbeanrufe,170,2,commercial,,LOW,get_keyword_metrics_batch1
+handykurs für senioren,140,0,informational,0.7,LOW,get_keyword_metrics_batch1
+internet für senioren,140,0,informational,2.63,HIGH,get_keyword_metrics_batch1
+ki für senioren,140,8,informational,0.23,HIGH,get_keyword_metrics_batch1
+online banking sicher,140,31,informational,4,LOW,get_keyword_metrics_batch1
+spam sms,140,5,informational,2.8,LOW,get_keyword_metrics_batch1
+ipad für senioren,110,0,transactional,0.65,HIGH,get_keyword_metrics_batch1
+smart tv einrichten,110,0,informational,0.98,LOW,get_keyword_metrics_batch1
+whatsapp anleitung für senioren,110,0,informational,0.08,LOW,get_keyword_metrics_batch1
+whatsapp für senioren,110,0,informational,0.38,LOW,get_keyword_metrics_batch1
+fotos sichern handy,90,0,informational,3.62,MEDIUM,get_keyword_metrics_batch1
+digitale hilfe für senioren,70,23,informational,,LOW,get_keyword_metrics_batch1
+fernwartung handy,70,6,commercial,2.73,LOW,get_keyword_metrics_batch1
+smartphone für anfänger,70,0,transactional,0.31,HIGH,get_keyword_metrics_batch1
+chatgpt für senioren,40,,commercial,1.21,HIGH,get_keyword_metrics_batch1
+abofalle handy,30,8,transactional,13.62,HIGH,get_keyword_metrics_batch1
+chatgpt einfach erklärt,30,23,informational,,LOW,get_keyword_metrics_batch1
+senioren digital,20,55,informational,,LOW,get_keyword_metrics_batch1
+vergrößerung handy,20,0,transactional,0.09,HIGH,get_keyword_metrics_batch1
+digitale kompetenz senioren,10,,informational,,LOW,get_keyword_metrics_batch1
+internet für anfänger,10,5,informational,0.05,MEDIUM,get_keyword_metrics_batch1
+online einkaufen sicher,10,0,transactional,,LOW,get_keyword_metrics_batch1
+smartphone einfach erklärt,10,,informational,0.15,HIGH,get_keyword_metrics_batch1
+sms betrug paket,10,48,informational,,,get_keyword_metrics_batch1
+zoom für senioren,10,44,informational,,LOW,get_keyword_metrics_batch1
+app store,201000,58,navigational,0.51,LOW,get_keyword_metrics_batch2
+google play store,165000,0,navigational,0.25,LOW,get_keyword_metrics_batch2
+elektronische patientenakte,49500,45,informational,1.7,LOW,get_keyword_metrics_batch2
+esim,49500,36,informational,13.1,HIGH,get_keyword_metrics_batch2
+hörbücher kostenlos,27100,30,informational,2.5,MEDIUM,get_keyword_metrics_batch2
+handy orten,22200,6,navigational,2.44,MEDIUM,get_keyword_metrics_batch2
+whatsapp status,22200,0,informational,0.66,LOW,get_keyword_metrics_batch2
+bildschirm drehen,14800,1,informational,0.65,LOW,get_keyword_metrics_batch2
+facetime,14800,8,informational,1.67,LOW,get_keyword_metrics_batch2
+hausnotruf,14800,53,informational,3.11,HIGH,get_keyword_metrics_batch2
+mailbox abhören,12100,1,informational,,LOW,get_keyword_metrics_batch2
+android update,9900,26,informational,0.34,LOW,get_keyword_metrics_batch2
+elster registrieren,9900,0,navigational,3.92,LOW,get_keyword_metrics_batch2
+e-mail schreiben,8100,0,informational,1.12,LOW,get_keyword_metrics_batch2
+speicherplatz freigeben,8100,14,informational,1.38,LOW,get_keyword_metrics_batch2
+whatsapp profilbild ändern,8100,0,navigational,,LOW,get_keyword_metrics_batch2
+betrug whatsapp,6600,5,informational,7.3,LOW,get_keyword_metrics_batch2
+e-rezept einlösen,5400,56,transactional,10.51,HIGH,get_keyword_metrics_batch2
+handy neu starten,5400,0,informational,2.3,LOW,get_keyword_metrics_batch2
+prepaid handy,5400,42,transactional,1.88,HIGH,get_keyword_metrics_batch2
+senioren smartphone,5400,3,informational,0.36,HIGH,get_keyword_metrics_batch2
+taschenlampe handy,5400,0,transactional,0.22,LOW,get_keyword_metrics_batch2
+whatsapp nachricht löschen,5400,0,informational,,LOW,get_keyword_metrics_batch2
+iphone update,4400,0,informational,1.33,LOW,get_keyword_metrics_batch2
+ping anrufe,4400,11,informational,,LOW,get_keyword_metrics_batch2
+pushtan,4400,4,informational,1.61,LOW,get_keyword_metrics_batch2
+quishing,4400,1,informational,3.49,LOW,get_keyword_metrics_batch2
+alexa einrichten,3600,0,navigational,0.74,LOW,get_keyword_metrics_batch2
+handyvertrag kündigen,3600,26,transactional,2.15,MEDIUM,get_keyword_metrics_batch2
+podcast hören,3600,0,informational,1.12,MEDIUM,get_keyword_metrics_batch2
+whatsapp betrugsmasche,3600,3,navigational,11.09,LOW,get_keyword_metrics_batch2
+kleinanzeigen betrug,2400,16,informational,1.41,LOW,get_keyword_metrics_batch2
+pdf öffnen,2400,36,informational,0.65,MEDIUM,get_keyword_metrics_batch2
+seniorenhandy test,2400,7,informational,0.22,HIGH,get_keyword_metrics_batch2
+smartwatch für senioren,2400,0,commercial,1.36,HIGH,get_keyword_metrics_batch2
+whatsapp bild senden,2400,0,informational,,LOW,get_keyword_metrics_batch2
+whatsapp kanal,2400,8,navigational,0.02,LOW,get_keyword_metrics_batch2
+wlan verbinden,2400,0,informational,2.49,LOW,get_keyword_metrics_batch2
+iphone einrichten,1900,0,informational,0.45,LOW,get_keyword_metrics_batch2
+klingelton ändern,1900,9,informational,0.46,LOW,get_keyword_metrics_batch2
+rentenversicherung online,1900,0,informational,1.72,LOW,get_keyword_metrics_batch2
+digital kompass,1600,0,navigational,0.27,LOW,get_keyword_metrics_batch2
+handy virus entfernen,1600,6,informational,3.06,HIGH,get_keyword_metrics_batch2
+whatsapp gruppe verlassen,1300,4,navigational,,LOW,get_keyword_metrics_batch2
+ipad einrichten,1000,0,navigational,,LOW,get_keyword_metrics_batch2
+ki betrug,880,0,informational,2.8,LOW,get_keyword_metrics_batch2
+kontakte übertragen,880,0,informational,0.47,LOW,get_keyword_metrics_batch2
+neue nummer whatsapp,880,1,navigational,1.99,LOW,get_keyword_metrics_batch2
+sicherheit im internet,880,18,informational,8.24,MEDIUM,get_keyword_metrics_batch2
+sim karte einlegen,880,0,transactional,1.56,LOW,get_keyword_metrics_batch2
+whatsapp verifizierungscode,880,2,informational,,LOW,get_keyword_metrics_batch2
+anruf unbekannte nummer,720,10,informational,1.08,LOW,get_keyword_metrics_batch2
+dhl sms,720,17,navigational,,LOW,get_keyword_metrics_batch2
+drucker verbinden,720,0,navigational,0.59,LOW,get_keyword_metrics_batch2
+hallo mama,720,0,informational,,LOW,get_keyword_metrics_batch2
+router einrichten,720,0,informational,2.93,LOW,get_keyword_metrics_batch2
+handy kindersicherung,590,12,transactional,2.05,MEDIUM,get_keyword_metrics_batch2
+kalender handy,590,43,transactional,0.39,LOW,get_keyword_metrics_batch2
+laptop für senioren,590,0,transactional,1.3,HIGH,get_keyword_metrics_batch2
+akku sparen,480,8,informational,1.05,LOW,get_keyword_metrics_batch2
+gesundheitsid,480,0,informational,2.45,LOW,get_keyword_metrics_batch2
+handy sicherheit,480,0,informational,3.93,HIGH,get_keyword_metrics_batch2
+iphone für senioren,480,0,informational,0.86,HIGH,get_keyword_metrics_batch2
+paypal phishing,480,0,informational,3,LOW,get_keyword_metrics_batch2
+schrift vergrößern handy,480,0,informational,0.1,LOW,get_keyword_metrics_batch2
+handy mit wlan verbinden,390,0,informational,3.4,LOW,get_keyword_metrics_batch2
+wecker stellen handy,390,12,transactional,0.34,LOW,get_keyword_metrics_batch2
+wlan langsam,390,0,informational,0.99,LOW,get_keyword_metrics_batch2
+betrugsmaschen,320,0,informational,5.78,LOW,get_keyword_metrics_batch2
+einfaches smartphone,320,0,transactional,0.3,HIGH,get_keyword_metrics_batch2
+phishing radar,320,22,informational,2.4,LOW,get_keyword_metrics_batch2
+smartphone einrichten,320,0,informational,0.45,LOW,get_keyword_metrics_batch2
+whatsapp sicherheit,320,1,informational,,LOW,get_keyword_metrics_batch2
+sturzerkennung,260,0,informational,2.14,HIGH,get_keyword_metrics_batch2
+whatsapp schriftgröße,260,0,informational,,LOW,get_keyword_metrics_batch2
+wlan passwort finden,260,0,informational,0.04,LOW,get_keyword_metrics_batch2
+amazon phishing,210,0,informational,,LOW,get_keyword_metrics_batch2
+samsung einfacher modus,210,0,informational,,LOW,get_keyword_metrics_batch2
+unterstützender zugriff iphone,210,0,navigational,,LOW,get_keyword_metrics_batch2
+alexa für senioren,170,0,informational,0.12,HIGH,get_keyword_metrics_batch2
+smartphone für ältere menschen,170,0,transactional,0.37,HIGH,get_keyword_metrics_batch2
+computer für senioren,140,0,informational,0.68,HIGH,get_keyword_metrics_batch2
+qr code betrug,140,12,informational,,LOW,get_keyword_metrics_batch2
+dokument scannen handy,110,19,transactional,1.98,MEDIUM,get_keyword_metrics_batch2
+einfacher modus android,110,0,informational,,LOW,get_keyword_metrics_batch2
+festnetz telefon für senioren,110,0,commercial,0.32,HIGH,get_keyword_metrics_batch2
+großtastentelefon,110,0,transactional,0.41,HIGH,get_keyword_metrics_batch2
+handy lauter machen,90,5,informational,0.78,LOW,get_keyword_metrics_batch2
+online formular ausfüllen,90,0,informational,2.39,MEDIUM,get_keyword_metrics_batch2
+teams anleitung,90,0,informational,,LOW,get_keyword_metrics_batch2
+verbraucherzentrale phishing,70,57,navigational,3.62,LOW,get_keyword_metrics_batch2
+zoom anleitung,50,19,informational,2.95,LOW,get_keyword_metrics_batch2
+tablet für anfänger,40,58,transactional,0.61,HIGH,get_keyword_metrics_batch2
+online banking für senioren,30,,commercial,1.55,LOW,get_keyword_metrics_batch2
+paket sms,30,5,commercial,,LOW,get_keyword_metrics_batch2
+foto drucken handy,20,0,transactional,0.08,HIGH,get_keyword_metrics_batch2
+schriftgröße handy,20,4,informational,,LOW,get_keyword_metrics_batch2
+hallo mama whatsapp,10,0,navigational,,LOW,get_keyword_metrics_batch2
+youtube für senioren,10,,informational,,LOW,get_keyword_metrics_batch2
+smartphone für senioren ohne vertrag,880,0,transactional,0.32,,research_keywords_seed_smartphone_senioren
+smartphone für senioren im test,720,8,informational,0.22,,research_keywords_seed_smartphone_senioren
+smartphone anleitung für senioren kostenlos,590,7,informational,0.59,,research_keywords_seed_smartphone_senioren
+senioren smartphone testsieger,590,1,informational,0.32,,research_keywords_seed_smartphone_senioren
+smartphone für senioren mit whatsapp,390,0,commercial,0.28,,research_keywords_seed_smartphone_senioren
+smartphone einrichten für senioren,140,0,informational,0.88,,research_keywords_seed_smartphone_senioren
+smartphone anleitung für senioren pdf,140,0,informational,1.32,,research_keywords_seed_smartphone_senioren
+smartphone kurs für senioren vhs,140,0,commercial,1.11,,research_keywords_seed_smartphone_senioren
+smartphone erklärung für senioren pdf,110,0,informational,0.11,,research_keywords_seed_smartphone_senioren
+smartphone hilfe für senioren,110,0,commercial,0.63,,research_keywords_seed_smartphone_senioren
+smartphone schulung senioren,110,0,informational,0.23,,research_keywords_seed_smartphone_senioren
+iphone oder smartphone für senioren,90,0,commercial,0.45,,research_keywords_seed_smartphone_senioren
+smartphone anleitung für senioren pdf kostenlos,40,0,informational,0.24,,research_keywords_seed_smartphone_senioren
+smartphone ohne internet für senioren,30,0,informational,0.14,,research_keywords_seed_smartphone_senioren
+whatsapp kontakt löschen,14800,2,informational,,,research_keywords_seed_whatsapp_betrug
+geburtstagswünsche kostenlos whatsapp,14800,4,informational,0.66,,research_keywords_seed_whatsapp_betrug
+whatsapp aktualisieren,12100,20,informational,0.67,,research_keywords_seed_whatsapp_betrug
+whatsapp sicherheitslücke update,12100,0,informational,,,research_keywords_seed_whatsapp_betrug
+whatsapp chat wiederherstellen,9900,1,informational,0.7,,research_keywords_seed_whatsapp_betrug
+whatsapp gruppe löschen,9900,0,navigational,,,research_keywords_seed_whatsapp_betrug
+whatsapp auf neues handy übertragen,8100,0,informational,0.74,,research_keywords_seed_whatsapp_betrug
+whatsapp chats übertragen,5400,8,informational,1.09,,research_keywords_seed_whatsapp_betrug
+whatsapp backup erstellen,4400,0,informational,1.05,,research_keywords_seed_whatsapp_betrug
+whatsapp backup wiederherstellen,4400,0,informational,0.67,,research_keywords_seed_whatsapp_betrug
+whatsapp chat exportieren,4400,10,informational,2.67,,research_keywords_seed_whatsapp_betrug
+whatsapp-betrug news,2900,0,informational,,,research_keywords_seed_whatsapp_betrug
+whatsapp betrug bafin,880,4,navigational,,,research_keywords_seed_whatsapp_betrug
+whatsapp betrug anwaltskanzleien,880,0,informational,,,research_keywords_seed_whatsapp_betrug
+whatsapp-betrug bilder,590,0,informational,,,research_keywords_seed_whatsapp_betrug
+whatsapp betrug melden,90,0,transactional,1,,research_keywords_seed_whatsapp_betrug
