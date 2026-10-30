@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block titel %}{{ seite.meta.titel }} | {{ site.name }}{% endblock %}
+{% block beschreibung %}{{ seite.meta.get("beschreibung", site.beschreibung) }}{% endblock %}
+{% block robots %}{% if seite.meta.get("noindex") %}<meta name="robots" content="noindex, follow">{% endif %}{% endblock %}
+{% block inhalt %}
+<article class="text">
+  <h1>{{ seite.meta.titel }}</h1>
+  {{ seite.html | safe }}
+</article>
+{% endblock %}

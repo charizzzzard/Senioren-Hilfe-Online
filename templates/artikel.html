@@ -1,0 +1,91 @@
+{% extends "base.html" %}
+{% block titel %}{{ artikel.meta.get("seo_titel") or artikel.titel }}{% endblock %}
+{% block beschreibung %}{{ artikel.beschreibung }}{% endblock %}
+{% block og_typ %}article{% endblock %}
+{% block kopf %}
+  <meta property="article:published_time" content="{{ artikel.veroeffentlicht.isoformat() }}">
+  <meta property="article:modified_time" content="{{ artikel.aktualisiert.isoformat() }}">
+  <script type="application/ld+json">{{ strukturdaten | safe }}</script>
+{% endblock %}
+{% block inhalt %}
+{% set teiltext = artikel.titel ~ " – " ~ site.url ~ artikel.url %}
+<nav class="brotkrumen" aria-label="Sie sind hier">
+  <a href="/">Startseite</a> <span aria-hidden="true">›</span>
+  <a href="{{ kategorie.url }}">{{ kategorie.name }}</a>
+</nav>
+
+<article class="text artikel">
+  <header class="artikel__kopf">
+    <h1>{{ artikel.titel }}</h1>
+    <p class="artikel__meta">
+      Zuletzt geprüft am <time datetime="{{ artikel.geprueft.isoformat() }}">{{ artikel.geprueft | datum }}</time>
+      <span aria-hidden="true">·</span> Lesezeit ca. {{ artikel.lesezeit }} Minuten
+    </p>
+  </header>
+
+  <aside class="kurz" aria-labelledby="kurz-titel">
+    <h2 id="kurz-titel" class="kurz__titel">Kurz gesagt</h2>
+    {{ artikel.kurz_html | safe }}
+  </aside>
+
+  {% if artikel.toc | length >= 3 %}
+  <nav class="inhalt" aria-labelledby="inhalt-titel">
+    <h2 id="inhalt-titel" class="inhalt__titel">Auf dieser Seite</h2>
+    <ol>
+      {% for t in artikel.toc %}
+      <li><a href="#{{ t.id }}">{{ t.name | safe }}</a></li>
+      {% endfor %}
+      {% if artikel.meta.get("checkliste") %}<li><a href="#checkliste">Checkliste zum Ausdrucken</a></li>{% endif %}
+    </ol>
+  </nav>
+  {% endif %}
+
+  <div class="artikel__rumpf">
+    {{ artikel.html | safe }}
+  </div>
+
+  {% if artikel.meta.get("checkliste") %}
+  <section class="checkliste" id="checkliste" aria-labelledby="checkliste-titel">
+    <h2 id="checkliste-titel">{{ artikel.meta.get("checkliste_titel") or "Checkliste zum Ausdrucken" }}</h2>
+    <ul>
+      {% for punkt in artikel.checkliste %}
+      <li>{{ punkt }}</li>
+      {% endfor %}
+    </ul>
+    <p class="nur-druck">Quelle: {{ site.url | replace("https://", "") }}{{ artikel.url }} · Stand: {{ artikel.geprueft | datum }}</p>
+    <button type="button" class="knopf knopf--zweit nicht-drucken" onclick="window.print()">Diese Seite ausdrucken</button>
+  </section>
+  {% endif %}
+
+  <section class="quellen" aria-labelledby="quellen-titel">
+    <h2 id="quellen-titel">Quellen und Prüfung</h2>
+    <p>Diese Anleitung stützt sich auf folgende Quellen. Zuletzt inhaltlich geprüft am {{ artikel.geprueft | datum }}.</p>
+    <ul>
+      {% for q in artikel.quellen %}
+      <li>{{ q.herausgeber }}: <a href="{{ q.url }}">{{ q.titel }}</a></li>
+      {% endfor %}
+    </ul>
+    <p class="klein">Menüs und Bezeichnungen können je nach Gerät, Hersteller und Version leicht abweichen. Unsere Anleitungen sind allgemeine Orientierung und ersetzen keine Rechts- oder Finanzberatung. <a href="/ueber-netzleicht/">So entstehen unsere Anleitungen.</a></p>
+  </section>
+
+  <section class="teilen nicht-drucken" aria-labelledby="teilen-titel">
+    <h2 id="teilen-titel">War das hilfreich?</h2>
+    <p>Schicken Sie die Anleitung an Familie oder Freunde – vielleicht hilft sie dort auch.</p>
+    <p class="teilen__knoepfe">
+      <a class="knopf" href="https://wa.me/?text={{ teiltext | urlencode }}">Per WhatsApp teilen</a>
+      <a class="knopf knopf--zweit" href="mailto:?subject={{ artikel.titel | urlencode }}&amp;body={{ teiltext | urlencode }}">Per E-Mail teilen</a>
+    </p>
+  </section>
+</article>
+
+{% if artikel.verwandte %}
+<section class="abschnitt verwandt nicht-drucken" aria-labelledby="verwandt-titel">
+  <h2 id="verwandt-titel">Das könnte Sie auch interessieren</h2>
+  <div class="karten">
+    {% for a in artikel.verwandte %}
+    {% include "_karte.html" %}
+    {% endfor %}
+  </div>
+</section>
+{% endif %}
+{% endblock %}

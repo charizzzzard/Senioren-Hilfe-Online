@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block titel %}{{ kategorie.name }}: Anleitungen | {{ site.name }}{% endblock %}
+{% block beschreibung %}{{ kategorie.beschreibung }}{% endblock %}
+{% block main_klasse %}seite seite--breit{% endblock %}
+{% block inhalt %}
+<nav class="brotkrumen" aria-label="Sie sind hier">
+  <a href="/">Startseite</a> <span aria-hidden="true">›</span> <span aria-current="page">{{ kategorie.name }}</span>
+</nav>
+<header class="kategorie-kopf">
+  <h1>{{ kategorie.name }}</h1>
+  <p class="lead">{{ kategorie.beschreibung }}</p>
+</header>
+<div class="karten">
+  {% for a in kategorie.artikel %}
+  {% include "_karte.html" %}
+  {% endfor %}
+</div>
+{% endblock %}

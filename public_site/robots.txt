@@ -1,3 +1,0 @@
-# Public launch blocked until legal placeholders are completed.
-User-agent: *
-Disallow: /

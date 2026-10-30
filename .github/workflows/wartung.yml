@@ -1,0 +1,59 @@
+name: Wöchentliche Wartung
+
+on:
+  schedule:
+    - cron: "17 5 * * 1" # montags 05:17 UTC
+  workflow_dispatch:
+
+jobs:
+  pruefen:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      issues: write
+    steps:
+      - uses: actions/checkout@v6
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Abhängigkeiten installieren
+        run: pip install -r requirements.txt
+
+      - name: Qualität und Aktualität prüfen
+        id: qualitaet
+        continue-on-error: true
+        run: python tools/check.py | tee qualitaet.txt
+
+      - name: Externe Links prüfen
+        id: links
+        continue-on-error: true
+        run: python tools/linkcheck.py --bericht links.md
+
+      - name: Wartungs-Issue anlegen, wenn etwas zu tun ist
+        if: always()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if ! grep -q "HINWEIS\|FEHLER" qualitaet.txt && [ "${{ steps.links.outcome }}" = "success" ]; then
+            echo "Nichts zu tun."; exit 0
+          fi
+          {
+            echo "Automatischer Wartungsbericht vom $(date +%d.%m.%Y)."
+            echo
+            echo "## Qualitätsprüfung"
+            echo '```'
+            grep "HINWEIS\|FEHLER" qualitaet.txt || echo "ohne Befund"
+            echo '```'
+            echo
+            cat links.md 2>/dev/null || true
+          } > bericht.md
+          gh label create wartung --color FBCA04 --description "Automatische Wartung" 2>/dev/null || true
+          nummer=$(gh issue list --label wartung --state open --json number --jq '.[0].number')
+          if [ -n "$nummer" ]; then
+            gh issue comment "$nummer" --body-file bericht.md
+          else
+            gh issue create --title "Wartung: Links oder Prüfungen brauchen Aufmerksamkeit" --label wartung --body-file bericht.md
+          fi
