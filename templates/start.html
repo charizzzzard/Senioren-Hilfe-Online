@@ -51,7 +51,7 @@
   <div class="abschnitt__kopf">
     <h2 id="neu-titel">Neueste Anleitungen</h2>
   </div>
-  <div class="karten">
+  <div class="karten karten--titelseite">
     {% for a in artikel[:9] %}
     {% include "_karte.html" %}
     {% endfor %}
@@ -72,6 +72,16 @@
   </ul>
 </section>
 {% endif %}
+
+<section class="leserpost" aria-labelledby="leserpost-titel">
+  <p class="rubrik">Leserpost</p>
+  <h2 id="leserpost-titel">Ihre Frage an uns</h2>
+  <p>Sie kommen mit Ihrem Handy nicht weiter, haben eine merkwürdige Nachricht bekommen oder wünschen sich eine Anleitung zu einem Thema? Schreiben Sie uns. Wir antworten Ihnen – und aus vielen Fragen werden neue Anleitungen für alle.</p>
+  <p class="teilen__knoepfe">
+    <a class="knopf" href="mailto:{{ site.kontakt }}?subject={{ 'Meine Frage an Netzleicht' | urlencode }}">E-Mail an die Redaktion</a>
+    <a class="knopf knopf--zweit" href="/fragen/">So funktioniert es</a>
+  </p>
+</section>
 
 <section class="abschnitt vertrauen" aria-labelledby="vertrauen-titel">
   <div class="vertrauen__text">

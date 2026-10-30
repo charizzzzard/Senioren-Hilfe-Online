@@ -40,7 +40,7 @@ die ihnen helfen. Leitfrage für jeden Satz: *Versteht das jemand, der Angst hat
 content/site.yaml          Name, URL, Kategorien, indexierung (true/false), IndexNow-Schlüssel
 content/artikel/*.md       Anleitungen und „Aktuell erklärt“ (Dateiname = URL-Slug)
 content/lexikon/*.md       Digital-Lexikon („Was ist …?“), URL /lexikon/<slug>/
-content/seiten/*.md        Über uns, Impressum, Datenschutz
+content/seiten/*.md        Über uns, Fragen Sie uns, Impressum, Datenschutz
 content/themenplan.yaml    Priorisierte Themenliste – Quelle für die nächsten Artikel
 templates/                 Jinja2-Vorlagen (base, start, artikel, kategorie, seite, 404)
 static/                    CSS, Bilder, Favicon – wird 1:1 nach _site kopiert
@@ -201,6 +201,15 @@ Tastenlage bei Android variiert je nach Hersteller – im Text darauf hinweisen.
 - 600–1.500 Wörter; Minimum 450 (Prüfung).
 - Jeder Artikel verlinkt im Text auf mindestens einen passenden Artikel; bei Betrug immer auf `/artikel/betrug-was-tun/`.
 
+### Gestaltung (Papier- und Zeitungsoptik)
+
+Unsere Leser lesen Zeitung und Bücher. Die Seite soll sich anfühlen wie eine gut gemachte Zeitung auf gutem Papier:
+warmes Papierweiß mit feinem Korn, Lesetype **Literata** (selbst gehostet unter `static/fonts/`, OFL-Lizenz),
+klare Linien statt Schatten, rote Rubrikzeilen, Initiale am Textanfang, Checkliste als Coupon „zum Ausschneiden“.
+Schrift für Bedienelemente (Navigation, Knöpfe, Bildunterschriften, Bildschirm-Nachbauten): Systemschrift ohne Serifen.
+Grundsätze bleiben: große Schrift, hoher Kontrast, Klickflächen mindestens 44 px, nichts Verspieltes, das vom Lesen ablenkt.
+Neue Gestaltungselemente nutzen die Farb- und Schriftvariablen aus `static/css/style.css` (`--papier`, `--tinte`, `--rot`, `--serif`, `--sans` …).
+
 ## 6. Recherche
 
 Quellen-Rangfolge: 1. Behörden/Polizei (polizei-beratung.de, BSI, Bundesnetzagentur), 2. Hersteller-Hilfe
@@ -236,7 +245,7 @@ const { chromium } = require('playwright');
 ### Content-Session (geplant 2× pro Woche)
 
 1. `git checkout main && git pull`; `pip install -r requirements.txt`.
-2. Offene Issues mit Label `feedback` oder `wartung` zuerst prüfen – Fehler in bestehenden Artikeln haben Vorrang vor neuen Artikeln.
+2. Offene Issues mit Label `feedback`, `wartung` oder `leserfrage` zuerst bearbeiten – Fehler in bestehenden Artikeln haben Vorrang vor neuen Artikeln; zu Leserfragen einen Antwortvorschlag schreiben (siehe „Leserpost“).
 3. Kurzer Blick auf Aktuelles: Gibt es eine neue, breit gemeldete Betrugsmasche (Verbraucherzentrale Phishing-Radar,
    BSI, Polizei) oder ein großes offizielles Update (Apple, Google, WhatsApp)? Wenn ja und gut belegbar: als
    „Aktuell erklärt“ vorziehen und im Themenplan ergänzen.
@@ -252,6 +261,18 @@ const { chromium } = require('playwright');
 9. Branch `claude/artikel-<slug>`, Commit `artikel: <Titel>`, Push, Pull Request mit kurzer Beschreibung
    (Thema, Quellen, Besonderheiten). Wenn der CI-Check grün ist: selbst mergen (Squash). Der Deploy läuft automatisch.
    Ohne GitHub-Werkzeuge: nach grünem lokalen Check direkt auf `main` pushen.
+
+### Leserpost (Fragen per E-Mail)
+
+Leser werden auf jeder Seite eingeladen, an kontakt@netzleicht.de zu schreiben (`/fragen/`, Kasten unter jedem Text).
+Der Betreiber liest das Postfach und antwortet. Damit Claude helfen kann:
+
+- Der Betreiber legt Fragen als GitHub-Issue mit Label `leserfrage` an – **nur anonymisiert**: kein Name, keine E-Mail-Adresse,
+  keine Telefonnummer, kein Wohnort, keine Bildschirmfotos mit persönlichen Daten. **Das Repository ist öffentlich.**
+- Claude schreibt in der nächsten Content-Session einen **Antwortvorschlag** als Kommentar ins Issue (Sie-Form, freundlich,
+  mit Links auf passende Anleitungen), prüft, ob eine Anleitung fehlt oder verbessert werden muss, ergänzt den Themenplan
+  (`notiz: Leserfrage`) und schließt das Issue.
+- Leserfragen werden nie wörtlich oder erkennbar veröffentlicht. Claude schreibt niemals personenbezogene Daten ins Repository oder in Issues.
 
 ### Wartungs-Session (geplant monatlich)
 

@@ -16,7 +16,7 @@
 
 <article class="text artikel">
   <header class="artikel__kopf">
-    {% if artikel.kategorie == "aktuell" %}<p class="artikel__rubrik">Aktuell erklärt · {{ artikel.veroeffentlicht | datum }}</p>{% endif %}
+    <p class="artikel__rubrik">{{ kategorie.name }}{% if artikel.kategorie == "aktuell" %} · {{ artikel.veroeffentlicht | datum }}{% endif %}</p>
     <h1>{{ artikel.titel }}</h1>
     <p class="artikel__meta">
       Zuletzt geprüft am <time datetime="{{ artikel.geprueft.isoformat() }}">{{ artikel.geprueft | datum }}</time>
@@ -69,9 +69,11 @@
     <p class="klein">Menüs und Bezeichnungen können je nach Gerät, Hersteller und Version leicht abweichen. Unsere Anleitungen sind allgemeine Orientierung und ersetzen keine Rechts- oder Finanzberatung. <a href="/ueber-netzleicht/">So entstehen unsere Anleitungen.</a></p>
   </section>
 
+  {% with betreff = "Frage zu: " ~ artikel.titel %}{% include "_rueckmeldung.html" %}{% endwith %}
+
   <section class="teilen nicht-drucken" aria-labelledby="teilen-titel">
-    <h2 id="teilen-titel">War das hilfreich?</h2>
-    <p>Schicken Sie die Anleitung an Familie oder Freunde – vielleicht hilft sie dort auch.</p>
+    <h2 id="teilen-titel">Weitersagen</h2>
+    <p>Kennen Sie jemanden, dem diese Anleitung helfen kann? Schicken Sie sie an Familie oder Freunde.</p>
     <p class="teilen__knoepfe">
       <a class="knopf" href="https://wa.me/?text={{ teiltext | urlencode }}">Per WhatsApp teilen</a>
       <a class="knopf knopf--zweit" href="mailto:?subject={{ artikel.titel | urlencode }}&amp;body={{ teiltext | urlencode }}">Per E-Mail teilen</a>
@@ -81,7 +83,7 @@
 
 {% if artikel.verwandte %}
 <section class="abschnitt verwandt nicht-drucken" aria-labelledby="verwandt-titel">
-  <h2 id="verwandt-titel">Das könnte Sie auch interessieren</h2>
+  <div class="abschnitt__kopf"><h2 id="verwandt-titel">Das könnte Sie auch interessieren</h2></div>
   <div class="karten">
     {% for a in artikel.verwandte %}
     {% include "_karte.html" %}

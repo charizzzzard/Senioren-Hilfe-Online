@@ -1,4 +1,5 @@
 <a class="karte" href="{{ a.url }}">
+  {% if a.bereich == "artikel" %}<span class="rubrik">{{ kategorie_namen[a.kategorie] }}</span>{% endif %}
   <span class="karte__titel">{{ a.titel }}</span>
   <span class="karte__text">{{ a.beschreibung }}</span>
   <span class="karte__meta">Lesezeit ca. {{ a.lesezeit }} Min.</span>

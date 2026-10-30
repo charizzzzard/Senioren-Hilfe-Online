@@ -24,6 +24,9 @@ Links und das Prüfdatum der Artikel und legt bei Bedarf ein Issue mit Label `wa
 ## Mitmachen als Betreiber
 
 - **Feedback oder Fehler:** Issue mit Label `feedback` anlegen – wird in der nächsten Session zuerst bearbeitet.
+- **Leserfragen aus dem Postfach:** anonymisiert (ohne Namen, Adressen, Nummern) als Issue mit Label `leserfrage` anlegen.
+  Claude schreibt einen Antwortvorschlag ins Issue und nutzt die Frage für neue oder bessere Anleitungen.
+  Achtung: Das Repository ist öffentlich.
 - **Neues Thema:** in `content/themenplan.yaml` eintragen oder als Issue beschreiben.
 - **Entscheidungen:** Issues mit Label `entscheidung` warten auf Ihre Antwort (z. B. Monetarisierung).
 
