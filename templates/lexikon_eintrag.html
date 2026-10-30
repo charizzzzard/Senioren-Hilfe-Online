@@ -40,11 +40,13 @@
     </ul>
     <p class="klein"><a href="/lexikon/">Alle Begriffe im Digital-Lexikon</a> · <a href="/ueber-netzleicht/">So entstehen unsere Texte</a></p>
   </section>
+
+  {% with betreff = "Frage zum Begriff: " ~ eintrag.begriff %}{% include "_rueckmeldung.html" %}{% endwith %}
 </article>
 
 {% if eintrag.verwandte %}
 <section class="abschnitt verwandt nicht-drucken" aria-labelledby="verwandt-titel">
-  <h2 id="verwandt-titel">Passende Anleitungen</h2>
+  <div class="abschnitt__kopf"><h2 id="verwandt-titel">Passende Anleitungen</h2></div>
   <div class="karten">
     {% for a in eintrag.verwandte %}
     {% include "_karte.html" %}

@@ -23,10 +23,11 @@
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="theme-color" content="#1f4e8c">
+  <meta name="theme-color" content="#f4eee2">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="/img/logo-netzleicht.png">
   <link rel="alternate" type="application/atom+xml" title="{{ site.name }} – neue Anleitungen" href="/feed.xml">
+  <link rel="preload" href="/fonts/literata-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="/css/style.css?v={{ css_version }}">
   <script type="application/ld+json">{{ ld_organisation | safe }}</script>
   {% block kopf %}{% endblock %}
@@ -35,20 +36,23 @@
   <a class="skip-link" href="#inhalt">Direkt zum Inhalt</a>
   <header class="kopf">
     <div class="kopf__innen">
+      <div class="kopf__zeile"><span>{{ site.untertitel }}</span><span>Werbefrei · unabhängig · aus Köln</span></div>
       <a class="marke" href="/" aria-label="{{ site.name }} – zur Startseite">
-        <svg class="marke__zeichen" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="8" fill="#1f4e8c"/><path d="M9 22V10l14 12V10" fill="none" stroke="#fff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        <span class="marke__text">{{ site.name }}<small>{{ site.untertitel }}</small></span>
+        <svg class="marke__zeichen" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="6" fill="#1c1b19"/><path d="M9 22V10l14 12V10" fill="none" stroke="#f4eee2" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span class="marke__name">{{ site.name }}</span>
       </a>
-      {% if kategorien %}
-      <nav class="navigation" aria-label="Themen">
+      <p class="marke__unterzeile">Ruhige Anleitungen zu Smartphone, WhatsApp und Sicherheit im Internet</p>
+      <hr class="kopf__linie">
+      <nav class="navigation" aria-label="Rubriken">
+        <a href="/"{% if pfad == "/" %} aria-current="page"{% endif %}>Start</a>
         {% for k in kategorien %}
         <a href="{{ k.url }}"{% if pfad.startswith(k.url) %} aria-current="page"{% endif %}>{{ k.kurz }}</a>
         {% endfor %}
         {% if lexikon_vorhanden %}
         <a href="/lexikon/"{% if pfad.startswith('/lexikon/') %} aria-current="page"{% endif %}>Lexikon</a>
         {% endif %}
+        <a class="navigation__fragen" href="/fragen/"{% if pfad == "/fragen/" %} aria-current="page"{% endif %}>Fragen Sie uns</a>
       </nav>
-      {% endif %}
     </div>
   </header>
 
@@ -63,12 +67,13 @@
         <p>Digitale Alltagshilfe, ruhig erklärt. Ohne Werbung, ohne Tracking.</p>
       </div>
       <nav aria-label="Weitere Seiten">
+        <a href="/fragen/">Fragen Sie uns</a>
         <a href="/ueber-netzleicht/">Über Netzleicht</a>
         {% if lexikon_vorhanden %}<a href="/lexikon/">Digital-Lexikon</a>{% endif %}
         <a href="/impressum/">Impressum</a>
         <a href="/datenschutz/">Datenschutz</a>
       </nav>
-      <p class="fuss__kontakt">Frage oder Fehler entdeckt? Schreiben Sie uns: <a href="mailto:{{ site.kontakt }}">{{ site.kontakt }}</a></p>
+      <p class="fuss__kontakt">Eine Frage, ein Fehler, ein Themenwunsch? Schreiben Sie uns: <a href="mailto:{{ site.kontakt }}">{{ site.kontakt }}</a> – wir antworten und verbessern mit Ihren Hinweisen unsere Anleitungen.</p>
     </div>
   </footer>
 </body>

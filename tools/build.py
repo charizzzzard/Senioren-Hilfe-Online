@@ -375,6 +375,7 @@ def build(out: Path) -> dict:
         "site": site,
         "kategorien": kategorien,
         "lexikon_vorhanden": bool(lexikon),
+        "kategorie_namen": {k["slug"]: k["name"] for k in site["kategorien"]},
         "css_version": css_hash,
         "jahr": heute.year,
         "ld_organisation": json_ld({"@context": "https://schema.org", **ld_organisation(site)}),
