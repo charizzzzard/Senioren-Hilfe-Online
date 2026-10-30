@@ -1,7 +1,8 @@
 ---
 titel: "WhatsApp: Kontakt blockieren und melden – Schritt für Schritt"
-seo_titel: "WhatsApp-Kontakt blockieren und melden: einfache Anleitung"
+seo_titel: "WhatsApp blockieren: Kontakt sperren und melden – Anleitung"
 beschreibung: "Unerwünschte Nachrichten oder Betrugsversuche auf WhatsApp? So blockieren und melden Sie eine Nummer auf Android und iPhone – und so heben Sie es wieder auf."
+keyword: "whatsapp blockieren"
 kategorie: whatsapp
 veroeffentlicht: 2026-10-30
 aktualisiert: 2026-10-30

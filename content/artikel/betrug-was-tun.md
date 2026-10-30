@@ -1,7 +1,8 @@
 ---
 titel: "Auf Betrug hereingefallen? Ihr Notfallplan Schritt für Schritt"
 seo_titel: "Auf Betrug hereingefallen – was tun? Der Notfallplan"
-beschreibung: "Geld überwiesen, Daten verraten oder auf einen Link getippt? Dieser Notfallplan zeigt in Ruhe, was jetzt zu tun ist – von der Bank über 116 116 bis zur Anzeige."
+beschreibung: "Auf Betrug hereingefallen? Dieser Notfallplan zeigt in Ruhe, was jetzt zu tun ist – von der Bank über den Sperr-Notruf 116 116 bis zur Anzeige."
+keyword: "betrug was tun"
 kategorie: sicherheit
 veroeffentlicht: 2026-10-30
 aktualisiert: 2026-10-30

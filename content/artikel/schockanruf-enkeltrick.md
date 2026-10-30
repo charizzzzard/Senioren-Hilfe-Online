@@ -1,7 +1,8 @@
 ---
-titel: "Schockanruf, Enkeltrick, falsche Polizisten: So reagieren Sie richtig"
-seo_titel: "Schockanruf und Enkeltrick: So reagieren Sie richtig"
-beschreibung: "Ein Anrufer erzählt von einem Unfall oder gibt sich als Polizist aus und will Geld? Die wichtigste Regel heißt: auflegen. Alle Tipps der Polizei, ruhig erklärt."
+titel: "Enkeltrick, Schockanruf, falsche Polizisten: So reagieren Sie richtig"
+seo_titel: "Enkeltrick und Schockanruf: So reagieren Sie richtig"
+beschreibung: "Enkeltrick oder Schockanruf: Ein Anrufer erzählt von einem Notfall oder gibt sich als Polizist aus und will Geld? Die wichtigste Regel heißt: auflegen."
+keyword: "enkeltrick"
 kategorie: sicherheit
 veroeffentlicht: 2026-10-30
 aktualisiert: 2026-10-30
@@ -37,7 +38,7 @@ verwandt:
   - whatsapp-betrug-erkennen
 ---
 
-Das Telefon klingelt. Eine aufgeregte Stimme sagt, Ihr Sohn habe einen schweren Unfall verursacht und brauche sofort Geld für eine Kaution. Oder ein freundlicher „Polizeibeamter“ warnt, Ihr Erspartes sei zu Hause nicht mehr sicher. Solche Anrufe sollen Sie überrumpeln. Mit ein paar einfachen Regeln lassen Sie sich davon nicht einfangen.
+Das Telefon klingelt. Eine aufgeregte Stimme sagt, Ihr Sohn habe einen schweren Unfall verursacht und brauche sofort Geld für eine Kaution. Oder ein freundlicher „Polizeibeamter“ warnt, Ihr Erspartes sei zu Hause nicht mehr sicher. Solche Anrufe – bekannt als Enkeltrick oder Schockanruf – sollen Sie überrumpeln. Mit ein paar einfachen Regeln lassen Sie sich davon nicht einfangen.
 
 ## Die drei häufigsten Maschen
 

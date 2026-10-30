@@ -1,7 +1,8 @@
 ---
 titel: "WhatsApp-Konto schützen: Code nie weitergeben, Verifizierung in zwei Schritten einschalten"
 seo_titel: "WhatsApp absichern: Verifizierung in zwei Schritten"
-beschreibung: "Mit dem sechsstelligen Code von WhatsApp können Betrüger Ihr Konto übernehmen. So schützen Sie sich – und so holen Sie Ihr Konto zurück, wenn es passiert ist."
+beschreibung: "Mit dem WhatsApp-Code können Betrüger Ihr Konto übernehmen. So schalten Sie die Verifizierung in zwei Schritten ein – und holen ein gehacktes Konto zurück."
+keyword: "whatsapp verifizierung in zwei schritten"
 kategorie: whatsapp
 veroeffentlicht: 2026-10-30
 aktualisiert: 2026-10-30
