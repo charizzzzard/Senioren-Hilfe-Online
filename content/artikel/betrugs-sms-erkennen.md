@@ -1,7 +1,8 @@
 ---
 titel: "Betrugs-SMS erkennen: Paket, Zoll, Bank – so reagieren Sie richtig"
 seo_titel: "Betrugs-SMS erkennen: Paket-SMS & Co. – das sollten Sie tun"
-beschreibung: "„Ihr Paket wartet“ – und dazu ein Link? So erkennen Sie gefälschte SMS, was Sie tun sollten und was hilft, wenn Sie schon auf den Link getippt haben."
+beschreibung: "„Ihr Paket wartet“ – und dazu ein Link? So erkennen Sie Betrugs-SMS, was Sie tun sollten und was hilft, wenn Sie schon auf den Link getippt haben."
+keyword: "betrugs sms"
 kategorie: sicherheit
 veroeffentlicht: 2026-10-30
 aktualisiert: 2026-10-30

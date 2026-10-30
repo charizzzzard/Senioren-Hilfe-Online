@@ -69,6 +69,7 @@ Push auf `main` veröffentlicht automatisch auf https://netzleicht.de (GitHub Pa
 titel: "…"                      # **H1**, darf länger sein
 seo_titel: "…"                  # <title>, max. 60 Zeichen (Fehler ab 66)
 beschreibung: "…"               # **Meta-Description**, 70–165 Zeichen, nennt Problem + Nutzen
+keyword: "screenshot iphone"    # Haupt-Suchbegriff aus dem Themenplan (so, wie Menschen ihn eintippen)
 kategorie: sicherheit           # **sicherheit | whatsapp | smartphone | angehoerige**
 veroeffentlicht: 2026-10-30     # **Datum der Erstveröffentlichung**
 aktualisiert: 2026-10-30        # **letzte inhaltliche Änderung**
@@ -107,6 +108,18 @@ Hinweiskästen (Python-Markdown „admonition“, Inhalt 4 Leerzeichen eingerüc
 !!! hinweis "Überschrift"     # blau – Hintergrundwissen
 !!! angehoerige "Für Angehörige"
 ```
+
+### Suchmaschinen (datengetrieben)
+
+- Jeder Artikel bedient **genau eine Suchabsicht** mit einem Haupt-`keyword` aus `content/themenplan.yaml`
+  (Suchvolumen und Schwierigkeit stehen dort). Ältere Menschen suchen die Aufgabe („screenshot iphone“),
+  nicht „… für Senioren“ – also die Sprache der Suche verwenden.
+- Das keyword steht natürlich formuliert in `seo_titel`, `beschreibung`, H1 und im ersten Absatz
+  (`tools/check.py` weist auf Lücken hin). Verwandte Begriffe aus der `notiz` als Zwischenüberschriften nutzen,
+  wo sie zum Inhalt passen. Kein Keyword-Stuffing.
+- `kurz_gesagt` beantwortet die Suchanfrage direkt – das ist die Antwort, die Google und KI-Assistenten zitieren.
+- Sind OpenSEO-Werkzeuge verfügbar: vor dem Schreiben verwandte Fragen/Begriffe prüfen (`get_keyword_metrics`,
+  höchstens 30 Credits pro Artikel) und neue Erkenntnisse in den Themenplan übernehmen.
 
 ### Stil
 
@@ -154,7 +167,7 @@ const { chromium } = require('playwright');
 1. `git checkout main && git pull`; `pip install -r requirements.txt`.
 2. Offene Issues mit Label `feedback` oder `wartung` zuerst prüfen – Fehler in bestehenden Artikeln haben Vorrang vor neuen Artikeln.
 3. Nächstes Thema: höchste Priorität mit `status: offen` aus `content/themenplan.yaml`
-   (bei Gleichstand: das Thema, das bestehende Artikel am besten ergänzt). Vorher prüfen, dass es noch keinen Artikel dazu gibt.
+   (bei Gleichstand: höheres Suchvolumen). Vorher prüfen, dass es noch keinen Artikel dazu gibt.
 4. Recherche nach Abschnitt 6, Artikel nach Abschnitt 5 schreiben.
 5. Selbstkontrolle: Jede Aussage gegen die Quellen lesen. Was nicht belegt ist, streichen.
 6. `python tools/check.py` muss „Alles in Ordnung“ melden; Hinweise möglichst ebenfalls beheben.

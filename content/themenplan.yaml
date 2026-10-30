@@ -1,136 +1,268 @@
 # Themenplan für netzleicht.de
 #
 # Claude arbeitet diese Liste ab: höchste Priorität (1 = zuerst) mit status "offen".
+# Bei gleicher Priorität: höheres Suchvolumen zuerst.
 # status: offen | in_arbeit | veroeffentlicht | zurueckgestellt
 # monetarisierung: nein | spaeter_moeglich  (nur Hinweis für die Strategie – NICHT selbst aktivieren)
-# Die Prioritäten beruhen auf redaktioneller Einschätzung (typische Alltagsprobleme, Lücken im Angebot),
-# noch nicht auf gemessenen Suchvolumina. Sobald Search-Console-Daten vorliegen, Prioritäten danach anpassen.
+#
+# Suchdaten: OpenSEO (DataForSEO), Google Deutschland, Abruf 30.10.2026.
+#   suchvolumen = geschätzte Suchanfragen pro Monat für das keyword
+#   kd          = Keyword Difficulty 0–100 (Schätzung, wie schwer ein Top-10-Ranking ist)
+#   null        = keine Daten verfügbar (nicht automatisch „0 Suchen“)
+# Grundsatz aus den Daten: Ältere Menschen suchen die Aufgabe („screenshot iphone“),
+# nicht „… für Senioren“. Deshalb Titel und keyword immer in Alltagssprache der Suche.
 
 themen:
   # ---------------------------------------------------------------- veröffentlicht
   - titel: "„Hallo Mama“-Betrug auf WhatsApp erkennen"
     kategorie: sicherheit
     slug: whatsapp-betrug-erkennen
+    keyword: whatsapp betrug
+    suchvolumen: null
     status: veroeffentlicht
-  - titel: Schockanruf, Enkeltrick, falsche Polizisten
+  - titel: Enkeltrick, Schockanruf, falsche Polizisten
     kategorie: sicherheit
     slug: schockanruf-enkeltrick
+    keyword: enkeltrick
+    suchvolumen: 27100
+    kd: 9
     status: veroeffentlicht
+    notiz: "Weitere Begriffe: schockanruf (390), falsche polizisten (480), betrug am telefon (260)"
   - titel: Notfallplan nach einem Betrug
     kategorie: sicherheit
     slug: betrug-was-tun
+    keyword: betrug was tun
+    suchvolumen: null
     status: veroeffentlicht
+    notiz: "sperr notruf: 720 / KD 28"
   - titel: Betrugs-SMS erkennen (Paket, Zoll, Bank)
     kategorie: sicherheit
     slug: betrugs-sms-erkennen
+    keyword: betrugs sms
+    suchvolumen: 2900
+    kd: 2
     status: veroeffentlicht
+    notiz: "smishing: 1900 / KD 0"
   - titel: WhatsApp-Konto schützen (Code, Verifizierung in zwei Schritten)
     kategorie: whatsapp
     slug: whatsapp-konto-schuetzen
+    keyword: whatsapp verifizierung in zwei schritten
+    suchvolumen: 70
+    kd: 2
     status: veroeffentlicht
+    notiz: "whatsapp gehackt was tun: 260 / KD 0"
   - titel: WhatsApp-Kontakt blockieren und melden
     kategorie: whatsapp
     slug: whatsapp-kontakt-blockieren
+    keyword: whatsapp blockieren
+    suchvolumen: 4400
+    kd: 4
     status: veroeffentlicht
+    notiz: "whatsapp kontakt blockieren: 2400, whatsapp nummer blockieren: 480"
   - titel: Schrift am Handy größer stellen
     kategorie: smartphone
     slug: schrift-groesser-stellen
+    keyword: schriftgröße iphone ändern
+    suchvolumen: 720
+    kd: 0
     status: veroeffentlicht
 
-  # ---------------------------------------------------------------- Priorität 1
-  - titel: Notfallpass und Notfallkontakte im Handy einrichten (iPhone und Android)
+  # ---------------------------------------------------------------- Priorität 1: viel Nachfrage, geringe Schwierigkeit, passt genau zur Zielgruppe
+  - titel: WhatsApp-Status – was ist das und wie funktioniert er?
+    kategorie: whatsapp
+    keyword: whatsapp status
+    suchvolumen: 22200
+    kd: 0
+    prioritaet: 1
+    status: offen
+    notiz: Was der Status ist, ansehen, selbst posten, wer ihn sieht (Datenschutz-Einstellung).
+  - titel: Screenshot auf dem iPhone machen
     kategorie: smartphone
+    keyword: screenshot iphone
+    suchvolumen: 14800
+    kd: 2
     prioritaet: 1
     status: offen
-    notiz: Apple „Notfallpass“ in der Health-App, Android „Notfallinformationen“. Hohe Alltagsrelevanz, gut belegbar über Hersteller-Hilfe.
-  - titel: Phishing-E-Mails erkennen (Bank, PayPal, Paketdienst)
-    kategorie: sicherheit
+    notiz: Tastenkombination je nach Modell (Face ID / Home-Taste), wo das Bild landet, verschicken, löschen. Apple-Handbuch als Quelle.
+  - titel: WhatsApp-Backup – Chats sichern und aufs neue Handy übertragen
+    kategorie: whatsapp
+    keyword: whatsapp backup
+    suchvolumen: 14800
+    kd: 0
     prioritaet: 1
     status: offen
-    notiz: Quellen BSI, Verbraucherzentrale Phishing-Radar. Auf Notfallplan verlinken.
-  - titel: Spam-Anrufe und unbekannte Nummern am Handy blockieren
+  - titel: Screenshot auf dem Android-Handy machen
     kategorie: smartphone
+    keyword: screenshot android
+    suchvolumen: 9900
+    kd: 1
     prioritaet: 1
     status: offen
-    notiz: iPhone „Unbekannte Anrufer stummschalten“, Android Anrufsperre; Bundesnetzagentur zu Rufnummernmissbrauch.
-  - titel: Smartphone für Eltern einrichten – Checkliste für Angehörige
-    kategorie: angehoerige
+  - titel: WhatsApp-Nachricht löschen – für mich oder für alle
+    kategorie: whatsapp
+    keyword: whatsapp nachricht löschen
+    suchvolumen: 5400
+    kd: 0
     prioritaet: 1
     status: offen
-    notiz: Öffnet die Kategorie „Für Angehörige“. Verlinkt auf Schriftgröße, WhatsApp-Schutz, Notfallpass.
-  - titel: Falscher Microsoft-Support – angebliche Techniker am Telefon und Warnfenster im Browser
-    kategorie: sicherheit
+  - titel: WLAN-Passwort anzeigen und mit Gästen teilen
+    kategorie: smartphone
+    keyword: wlan passwort anzeigen
+    suchvolumen: 4400
+    kd: 0
     prioritaet: 1
     status: offen
-    notiz: Quellen Polizei, Verbraucherzentrale, Microsoft-Hilfe.
-
-  # ---------------------------------------------------------------- Priorität 2
   - titel: WhatsApp-Videoanruf machen – Schritt für Schritt
     kategorie: whatsapp
+    keyword: whatsapp videoanruf
+    suchvolumen: 3600
+    kd: 4
+    prioritaet: 1
+    status: offen
+  - titel: Drittanbietersperre einrichten – Abofallen auf der Handyrechnung verhindern
+    kategorie: sicherheit
+    keyword: drittanbietersperre
+    suchvolumen: 2900
+    kd: 4
+    prioritaet: 1
+    status: offen
+    notiz: "drittanbietersperre einrichten: 140"
+  - titel: Anrufe blockieren und unbekannte Anrufer stummschalten (iPhone und Android)
+    kategorie: smartphone
+    keyword: anrufe blockieren iphone
+    suchvolumen: 2400
+    kd: 0
+    prioritaet: 1
+    status: offen
+    notiz: "spam anrufe blockieren: 1000, nummer blockieren android: 1000, unbekannte anrufer blockieren: 320"
+  - titel: Notfallpass im Handy einrichten (iPhone und Android)
+    kategorie: smartphone
+    keyword: notfallpass iphone
+    suchvolumen: 1900
+    kd: 9
+    prioritaet: 1
+    status: offen
+    notiz: "notfallinformationen android: 50. Nur Bedienung erklären, keine medizinischen Ratschläge."
+
+  # ---------------------------------------------------------------- Priorität 2
+  - titel: Love-Scamming – Liebesbetrug im Internet erkennen
+    kategorie: sicherheit
+    keyword: love scamming
+    suchvolumen: 6600
+    kd: 13
+    prioritaet: 2
+    status: offen
+  - titel: Quishing – Betrug mit QR-Codes erkennen
+    kategorie: sicherheit
+    keyword: quishing
+    suchvolumen: 4400
+    kd: 1
+    prioritaet: 2
+    status: offen
+  - titel: Taschenlampe am Handy einschalten
+    kategorie: smartphone
+    keyword: taschenlampe iphone
+    suchvolumen: 4400
+    kd: 0
+    prioritaet: 2
+    status: offen
+    notiz: Kurzes Thema – iPhone und Android in einem Artikel, mit Kontrollzentrum/Schnelleinstellungen erklären.
+  - titel: Fotos vom Handy auf den Computer übertragen
+    kategorie: smartphone
+    keyword: fotos vom handy auf pc
+    suchvolumen: 3600
+    kd: 0
+    prioritaet: 2
+    status: offen
+  - titel: iPhone-Speicher voll – was Sie tun können
+    kategorie: smartphone
+    keyword: iphone speicher voll
+    suchvolumen: 2900
+    kd: 0
+    prioritaet: 2
+    status: offen
+    notiz: "handy speicher voll: 880"
+  - titel: Die Lupe im iPhone – Kleingedrucktes lesen
+    kategorie: smartphone
+    keyword: lupe iphone
+    suchvolumen: 2900
+    kd: 0
     prioritaet: 2
     status: offen
   - titel: WhatsApp-Sprachnachricht aufnehmen und anhören
     kategorie: whatsapp
+    keyword: whatsapp sprachnachricht
+    suchvolumen: 2900
+    kd: 2
     prioritaet: 2
     status: offen
-  - titel: WhatsApp-Datenschutz einstellen (Profilbild, „Zuletzt online“, Gruppen)
+  - titel: WhatsApp-Gruppe verlassen oder stumm schalten
     kategorie: whatsapp
+    keyword: whatsapp gruppe verlassen
+    suchvolumen: 1300
+    kd: 4
     prioritaet: 2
     status: offen
-  - titel: Software-Update auf dem Handy installieren – warum und wie
-    kategorie: smartphone
-    prioritaet: 2
-    status: offen
-  - titel: Fotos vom Handy sichern, damit sie nicht verloren gehen
-    kategorie: smartphone
-    prioritaet: 2
-    status: offen
-  - titel: Sichere Passwörter, die man sich merken kann
+  - titel: Phishing-E-Mails erkennen (Bank, PayPal, Paketdienst)
     kategorie: sicherheit
+    keyword: phishing mail erkennen
+    suchvolumen: 880
+    kd: 18
     prioritaet: 2
     status: offen
-    notiz: Quellen BSI (Passwörter, Passwortmanager). Keine Produktempfehlung.
-  - titel: Fake-Shops im Internet erkennen
-    kategorie: sicherheit
+    notiz: "paypal phishing: 480. Quellen BSI, Verbraucherzentrale Phishing-Radar."
+  - titel: Smartphone für Eltern einrichten – Checkliste für Angehörige
+    kategorie: angehoerige
+    keyword: handy für senioren einrichten
+    suchvolumen: 10
     prioritaet: 2
     status: offen
-    notiz: Verbraucherzentrale „Fakeshop-Finder“.
-  - titel: Drittanbietersperre einrichten – Abofallen auf der Handyrechnung verhindern
-    kategorie: smartphone
-    prioritaet: 2
-    status: offen
-  - titel: Bildschirm bleibt länger an – automatische Sperre einstellen
-    kategorie: smartphone
-    prioritaet: 2
-    status: offen
-  - titel: Mit der Stimme schreiben – Diktierfunktion am Handy
-    kategorie: smartphone
-    prioritaet: 2
-    status: offen
+    notiz: Geringe Suchnachfrage, aber wichtig für die Kategorie „Für Angehörige“ und als Verteiler auf viele Anleitungen.
 
   # ---------------------------------------------------------------- Priorität 3
-  - titel: Liebesbetrug im Internet (Love-Scamming) erkennen
+  - titel: Sichere Passwörter, die man sich merken kann
     kategorie: sicherheit
+    keyword: sichere passwörter
+    suchvolumen: 2900
+    kd: 32
     prioritaet: 3
     status: offen
-  - titel: QR-Code-Betrug (Quishing) – worauf man achten sollte
+    notiz: Starke Konkurrenz (KD 32). Quellen BSI. Keine Produktempfehlung.
+  - titel: Handy ist langsam – einfache Hilfe
+    kategorie: smartphone
+    keyword: handy langsam
+    suchvolumen: 880
+    kd: 0
+    prioritaet: 3
+    status: offen
+  - titel: Fake-Shops im Internet erkennen
     kategorie: sicherheit
+    keyword: fake shop erkennen
+    suchvolumen: 880
+    kd: 48
     prioritaet: 3
     status: offen
-  - titel: Klingelton und Anrufe lauter stellen
+    notiz: "Starke Konkurrenz. Auf den Fakeshop-Finder der Verbraucherzentrale verweisen („fakeshop finder“: 74.000 Suchen, navigational)."
+  - titel: Handy klingelt nicht – was Sie prüfen können
     kategorie: smartphone
+    keyword: handy klingelt nicht
+    suchvolumen: 480
+    kd: 0
     prioritaet: 3
     status: offen
-  - titel: Die Lupe im Handy – Kleingedrucktes lesen
+  - titel: Software-Update auf dem Handy installieren
     kategorie: smartphone
+    keyword: android update
+    suchvolumen: 9900
+    kd: 26
     prioritaet: 3
     status: offen
-  - titel: Apps sicher installieren – nur aus dem offiziellen Store
+    notiz: Hohe Nachfrage, aber oft Fragen zu bestimmten Geräten/Versionen. Fokus auf „wie und warum“.
+  - titel: Automatische Bildschirmsperre einstellen
     kategorie: smartphone
-    prioritaet: 3
-    status: offen
-  - titel: WLAN am Handy verbinden
-    kategorie: smartphone
+    keyword: automatische sperre iphone
+    suchvolumen: 210
+    kd: 0
     prioritaet: 3
     status: offen
   - titel: Notfallmappe für Passwörter und Zugänge anlegen (für Angehörige)
@@ -138,20 +270,54 @@ themen:
     prioritaet: 3
     status: offen
 
-  # ---------------------------------------------------------------- Kaufberatung (erst mit Traffic, siehe docs/STRATEGIE.md)
+  # ---------------------------------------------------------------- Entscheidung des Betreibers nötig (CLAUDE.md Abschnitt 8)
+  - titel: ePA-App und E-Rezept-App einrichten
+    kategorie: smartphone
+    keyword: epa app
+    suchvolumen: 12100
+    kd: 28
+    status: zurueckgestellt
+    notiz: "e-rezept app: 4400. Sehr gefragt, aber gesundheitsnah – nur nach Entscheidung des Betreibers (reine Bedienungsanleitung, keine medizinischen Aussagen)."
+  - titel: pushTAN und Online-Banking sicher nutzen
+    kategorie: sicherheit
+    keyword: pushtan
+    suchvolumen: 4400
+    kd: 4
+    status: zurueckgestellt
+    notiz: Bankbezogen, verfahren je Bank verschieden. Nur nach Entscheidung des Betreibers und mit Bank-Hilfeseiten als Quelle.
+
+  # ---------------------------------------------------------------- Kaufberatung (Monetarisierung später, siehe docs/STRATEGIE.md)
   - titel: Seniorenhandy oder Smartphone? Eine ehrliche Entscheidungshilfe
     kategorie: angehoerige
+    keyword: seniorenhandy
+    suchvolumen: 27100
+    kd: 0
     prioritaet: 4
     status: offen
     monetarisierung: spaeter_moeglich
-    notiz: Erst schreiben, wenn die Kategorie Angehörige Artikel hat. Ohne Affiliate-Links veröffentlichen; Monetarisierung nur nach Entscheidung des Betreibers.
+    notiz: "smartphone für senioren: 3600, handy für senioren: 3600, seniorenhandy test: 2400 (wir testen nicht – keine Testsieger!). Ohne Affiliate-Links veröffentlichen; Monetarisierung nur nach Entscheidung des Betreibers."
   - titel: Tablet für ältere Menschen – worauf es ankommt
     kategorie: angehoerige
+    keyword: tablet für senioren
+    suchvolumen: 1300
+    kd: 0
     prioritaet: 4
     status: offen
     monetarisierung: spaeter_moeglich
   - titel: Handyvertrag für Senioren – worauf man achten sollte
     kategorie: smartphone
+    keyword: handyvertrag für senioren
+    suchvolumen: 140
+    kd: 0
     prioritaet: 4
     status: offen
     monetarisierung: spaeter_moeglich
+    notiz: "Geringe Nachfrage, aber hoher CPC (3,68 €) – kommerziell interessant."
+  - titel: Hausnotruf – wie er funktioniert und was er kostet
+    kategorie: angehoerige
+    keyword: hausnotruf
+    suchvolumen: 14800
+    kd: 53
+    status: zurueckgestellt
+    monetarisierung: spaeter_moeglich
+    notiz: "hausnotruf kosten: 3600 / KD 17 / CPC 1,60 €. Größte kommerzielle Chance, aber Pflege-/Gesundheitsnähe und starke Konkurrenz – Entscheidung des Betreibers."

@@ -143,6 +143,16 @@ def main() -> int:
             if re.search(muster, volltext):
                 fehler.append(f"{name}: verbotene Formulierung gefunden: /{muster}/")
 
+        keyword = str(a.meta.get("keyword") or "").lower()
+        if not keyword:
+            hinweise.append(f"{name}: kein keyword (Haupt-Suchbegriff) im Frontmatter")
+        else:
+            for feld, text in (("seo_titel", titel), ("beschreibung", a.beschreibung)):
+                norm = text.lower().replace("-", " ")
+                fehlend = [w for w in keyword.split() if w not in norm]
+                if fehlend:
+                    hinweise.append(f"{name}: keyword-Wörter {fehlend} fehlen in {feld}")
+
         if not re.search(r'href="/artikel/', a.html):
             hinweise.append(f"{name}: kein interner Link im Text – passenden Artikel verlinken")
 

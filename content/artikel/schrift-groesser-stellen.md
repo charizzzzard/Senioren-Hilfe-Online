@@ -1,7 +1,8 @@
 ---
 titel: "Schrift am Handy größer stellen – so geht es auf iPhone und Android"
-seo_titel: "Schrift am Handy größer stellen: iPhone & Android"
-beschreibung: "Die Schrift auf dem Handy ist zu klein? So stellen Sie Text auf iPhone und Android-Handys größer und fetter – Schritt für Schritt und jederzeit umkehrbar."
+seo_titel: "Schriftgröße am Handy ändern: iPhone & Android – so geht’s"
+beschreibung: "Die Schrift auf dem Handy ist zu klein? So ändern Sie die Schriftgröße auf iPhone und Android-Handys – Schritt für Schritt und jederzeit umkehrbar."
+keyword: "schriftgröße iphone ändern"
 kategorie: smartphone
 veroeffentlicht: 2026-10-30
 aktualisiert: 2026-10-30

@@ -1,7 +1,8 @@
 ---
 titel: "„Hallo Mama, das ist meine neue Nummer“: WhatsApp-Betrug erkennen"
 seo_titel: "„Hallo Mama“-Betrug auf WhatsApp erkennen – so reagieren Sie"
-beschreibung: "Angeblich schreibt Ihr Kind von einer neuen Nummer und braucht dringend Geld? So erkennen Sie die Masche und prüfen in Ruhe, ob die Nachricht echt ist."
+beschreibung: "Angeblich schreibt Ihr Kind von einer neuen Nummer und braucht dringend Geld? So erkennen Sie WhatsApp-Betrug und prüfen in Ruhe, ob die Nachricht echt ist."
+keyword: "whatsapp betrug"
 kategorie: sicherheit
 veroeffentlicht: 2026-10-30
 aktualisiert: 2026-10-30
