@@ -1,0 +1,18 @@
+<figure class="bildschirm">
+  <div class="tasten tasten--{{ geraet }}" aria-hidden="true">
+    <div class="tasten__handy">
+      <span class="tasten__taste tasten__taste--lauter{% if 'lauter' in gedrueckt %} tasten__taste--an{% endif %}"></span>
+      <span class="tasten__taste tasten__taste--leiser{% if 'leiser' in gedrueckt %} tasten__taste--an{% endif %}"></span>
+      <span class="tasten__taste tasten__taste--seite{% if 'seite' in gedrueckt %} tasten__taste--an{% endif %}"></span>
+      <span class="tasten__bildschirm">
+        {% if 'home' in gedrueckt %}<span class="tasten__home tasten__home--an"></span>{% endif %}
+      </span>
+    </div>
+    <ul class="tasten__legende">
+      {% for t in gedrueckt %}
+      <li><span class="tasten__punkt"></span>{{ "Ein-/Aus-Taste" if (t == 'seite' and geraet == 'android') else tasten_namen[t] }}</li>
+      {% endfor %}
+    </ul>
+  </div>
+  <figcaption>{{ unterschrift }} <span class="bildschirm__hinweis">Vereinfachte Darstellung – die Lage der Tasten kann je nach Modell abweichen.</span></figcaption>
+</figure>

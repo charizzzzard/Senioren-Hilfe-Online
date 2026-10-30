@@ -1,0 +1,24 @@
+<figure class="bildschirm">
+  <div class="bs bs--{{ geraet }}" aria-hidden="true">
+    <div class="bs__kopf">
+      <span class="bs__zurueck">{{ "‹" if geraet == "iphone" else "←" }}</span>
+      <span class="bs__titel">{{ titel | default("") }}</span>
+    </div>
+    <ul class="bs__liste">
+      {% for z in zeilen %}
+      {% if z.typ == "platzhalter" %}
+      <li class="bs__zeile bs__zeile--leer"><span class="bs__balken"></span></li>
+      {% elif z.typ == "regler" %}
+      <li class="bs__zeile bs__zeile--regler"><span class="bs__a bs__a--klein">A</span><span class="bs__spur"><span class="bs__knopf"></span></span><span class="bs__a">A</span></li>
+      {% else %}
+      <li class="bs__zeile{% if z.markiert %} bs__zeile--markiert{% endif %}">
+        <span class="bs__text">{{ z.text }}</span>
+        {% if z.typ == "schalter" %}<span class="bs__schalter{% if z.an %} bs__schalter--an{% endif %}"></span>{% elif geraet == "iphone" %}<span class="bs__pfeil">›</span>{% endif %}
+        {% if z.markiert %}<span class="bs__tippen">hier tippen</span>{% endif %}
+      </li>
+      {% endif %}
+      {% endfor %}
+    </ul>
+  </div>
+  <figcaption>{{ unterschrift }} <span class="bildschirm__hinweis">Vereinfachte Darstellung – auf Ihrem Gerät kann es etwas anders aussehen.</span></figcaption>
+</figure>

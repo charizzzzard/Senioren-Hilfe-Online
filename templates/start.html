@@ -58,6 +58,21 @@
   </div>
 </section>
 
+{% if lexikon %}
+<section class="abschnitt lexikon-teaser" aria-labelledby="lexikon-titel">
+  <div class="abschnitt__kopf">
+    <h2 id="lexikon-titel">Digital-Lexikon: Begriffe einfach erklärt</h2>
+    <p>Ein Wort gehört und nicht verstanden? Hier finden Sie die Erklärung.</p>
+  </div>
+  <ul class="begriffe">
+    {% for e in lexikon %}
+    <li><a href="{{ e.url }}">{{ e.begriff }}</a></li>
+    {% endfor %}
+    <li><a href="/lexikon/" class="begriffe__alle">Alle Begriffe ›</a></li>
+  </ul>
+</section>
+{% endif %}
+
 <section class="abschnitt vertrauen" aria-labelledby="vertrauen-titel">
   <div class="vertrauen__text">
     <h2 id="vertrauen-titel">So arbeiten wir</h2>

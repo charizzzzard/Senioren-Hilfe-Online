@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block titel %}Digital-Lexikon: Begriffe einfach erklärt | {{ site.name }}{% endblock %}
+{% block beschreibung %}Passkey, Spoofing, Smishing und Co.: Das Netzleicht-Lexikon erklärt digitale Begriffe in einfachen Worten – mit Tipps, was sie für Sie bedeuten.{% endblock %}
+{% block main_klasse %}seite seite--breit{% endblock %}
+{% block inhalt %}
+<nav class="brotkrumen" aria-label="Sie sind hier">
+  <a href="/">Startseite</a> <span aria-hidden="true">›</span> <span aria-current="page">Lexikon</span>
+</nav>
+<header class="kategorie-kopf">
+  <h1>Digital-Lexikon: Begriffe einfach erklärt</h1>
+  <p class="lead">Ein Wort gehört und nicht verstanden? Hier erklären wir Begriffe aus der digitalen Welt in einfachen Worten – und was sie für Sie im Alltag bedeuten.</p>
+</header>
+<nav class="abc" aria-label="Nach Anfangsbuchstaben">
+  {% for b in buchstaben %}<a href="#buchstabe-{{ b | lower }}">{{ b }}</a>{% endfor %}
+</nav>
+{% for b, eintraege in buchstaben.items() %}
+<section class="abc__gruppe" id="buchstabe-{{ b | lower }}" aria-labelledby="titel-{{ b | lower }}">
+  <h2 id="titel-{{ b | lower }}">{{ b }}</h2>
+  <div class="karten">
+    {% for e in eintraege %}
+    <a class="karte" href="{{ e.url }}">
+      <span class="karte__titel">{{ e.begriff }}</span>
+      <span class="karte__text">{{ e.beschreibung }}</span>
+    </a>
+    {% endfor %}
+  </div>
+</section>
+{% endfor %}
+{% endblock %}

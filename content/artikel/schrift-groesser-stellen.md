@@ -61,6 +61,28 @@ Kleine Schrift strengt an – vor allem bei Nachrichten, Kontakten oder im Kalen
 3. Tippen Sie auf **„Textgröße“**.
 4. Ziehen Sie den **Regler nach rechts**. Oben sehen Sie sofort, wie groß die Schrift wird.
 
+```klickpfad
+Einstellungen › Erscheinungsbild › Textgröße
+```
+
+```bildschirm
+geraet: iphone
+titel: Einstellungen
+zeilen:
+  - …
+  - Erscheinungsbild !
+  - …
+unterschrift: In den Einstellungen tippen Sie auf „Erscheinungsbild“ – bei iOS 26 und älter heißt der Punkt „Anzeige & Helligkeit“.
+```
+
+```bildschirm
+geraet: iphone
+titel: Textgröße
+zeilen:
+  - "[regler]"
+unterschrift: Ziehen Sie den Regler nach rechts, damit die Schrift größer wird – nach links wird sie wieder kleiner.
+```
+
 Die neue Größe gilt in allen Apps, die das unterstützen – zum Beispiel in Nachrichten, Mail, Kalender, Kontakte und Notizen.
 
 ### Noch größer: über die Bedienungshilfen

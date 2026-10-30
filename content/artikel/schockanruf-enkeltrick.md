@@ -65,7 +65,7 @@ Sie müssen nichts erklären und sich nicht verabschieden. Ein einfaches Auflege
 5. **Eine vertraute Person einbeziehen.** Geht es um Geld oder Wertsachen, besprechen Sie das immer erst mit Familie oder Freunden.
 
 !!! wichtig "Die Nummer im Display beweist nichts"
-    Betrüger können die angezeigte Nummer fälschen. Das nennt man „Call-ID-Spoofing“. Im Display kann dann eine Nummer aus Ihrer Gegend erscheinen – sogar die 110. Doch die echte Polizei ruft **niemals** von der 110 an.
+    Betrüger können die angezeigte Nummer fälschen. Das nennt man [„Call-ID-Spoofing“](/lexikon/spoofing/). Im Display kann dann eine Nummer aus Ihrer Gegend erscheinen – sogar die 110. Doch die echte Polizei ruft **niemals** von der 110 an.
 
 ## Was die echte Polizei niemals tut
 

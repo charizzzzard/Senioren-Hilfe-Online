@@ -2,6 +2,8 @@
 #
 # Claude arbeitet diese Liste ab: höchste Priorität (1 = zuerst) mit status "offen".
 # Bei gleicher Priorität: höheres Suchvolumen zuerst.
+# format: anleitung (Standard, content/artikel/) | lexikon (content/lexikon/, „Was ist …?“)
+#         Aktuelle Themen sind Anleitungen mit kategorie: aktuell (Rubrik „Aktuell erklärt“).
 # status: offen | in_arbeit | veroeffentlicht | zurueckgestellt
 # monetarisierung: nein | spaeter_moeglich  (nur Hinweis für die Strategie – NICHT selbst aktivieren)
 #
@@ -66,6 +68,227 @@ themen:
     suchvolumen: 720
     kd: 0
     status: veroeffentlicht
+
+  # ---------------------------------------------------------------- Digital-Lexikon (Suchdaten vom 30.10.2026)
+  - titel: Was ist ein Passkey?
+    format: lexikon
+    slug: passkey
+    keyword: passkey
+    suchvolumen: 27100
+    kd: 0
+    status: veroeffentlicht
+    notiz: "was ist ein passkey: 8100 / KD 18"
+  - titel: Was ist Spoofing?
+    format: lexikon
+    slug: spoofing
+    keyword: spoofing
+    suchvolumen: 8100
+    kd: 0
+    status: veroeffentlicht
+    notiz: "call id spoofing: 1300 / KD 15"
+  - titel: Was ist Smishing?
+    format: lexikon
+    slug: smishing
+    keyword: smishing
+    suchvolumen: 1900
+    kd: 0
+    status: veroeffentlicht
+    notiz: "was ist smishing: 590"
+  - titel: Was sind Cookies? Und was soll ich beim Cookie-Hinweis anklicken?
+    format: lexikon
+    keyword: cookies
+    suchvolumen: 90500
+    kd: 6
+    prioritaet: 1
+    status: offen
+    notiz: "was sind cookies: 2900 / KD 35. Quellen: BSI, Verbraucherzentrale."
+  - titel: Was ist ein Deepfake? Gefälschte Videos und Stimmen erkennen
+    format: lexikon
+    keyword: deepfake
+    suchvolumen: 33100
+    kd: 14
+    prioritaet: 1
+    status: offen
+    notiz: "ki betrug: 880. Quellen: BSI, Polizei. Ruhig erklären, keine Angst machen."
+  - titel: Was ist AirDrop?
+    format: lexikon
+    keyword: airdrop
+    suchvolumen: 22200
+    kd: 4
+    prioritaet: 1
+    status: offen
+    notiz: "was ist airdrop: 1900. Quelle: Apple-Handbuch."
+  - titel: Was ist NFC? Bezahlen und mehr mit dem Handy
+    format: lexikon
+    keyword: nfc
+    suchvolumen: 22200
+    kd: 13
+    prioritaet: 1
+    status: offen
+    notiz: "was ist nfc: 2900 / KD 0"
+  - titel: Was ist ein Browser?
+    format: lexikon
+    keyword: was ist ein browser
+    suchvolumen: 9900
+    kd: 5
+    prioritaet: 1
+    status: offen
+  - titel: Was ist eine eSIM?
+    format: lexikon
+    keyword: was ist esim
+    suchvolumen: 2900
+    kd: 0
+    prioritaet: 2
+    status: offen
+    notiz: "esim: 49500 / KD 36"
+  - titel: Was ist Streaming?
+    format: lexikon
+    keyword: was ist streaming
+    suchvolumen: 4400
+    kd: 0
+    prioritaet: 2
+    status: offen
+  - titel: Was ist ein Account (Benutzerkonto)?
+    format: lexikon
+    keyword: was ist ein account
+    suchvolumen: 3600
+    kd: 0
+    prioritaet: 2
+    status: offen
+  - titel: Was ist Roaming?
+    format: lexikon
+    keyword: was ist roaming
+    suchvolumen: 2400
+    kd: 9
+    prioritaet: 2
+    status: offen
+  - titel: Was ist Malware (Schadsoftware)?
+    format: lexikon
+    keyword: was ist malware
+    suchvolumen: 2400
+    kd: 8
+    prioritaet: 2
+    status: offen
+    notiz: "was ist ein trojaner: 1000, virus auf dem handy: 1900"
+  - titel: Was ist Spam?
+    format: lexikon
+    keyword: was ist spam
+    suchvolumen: 2400
+    kd: 20
+    prioritaet: 2
+    status: offen
+  - titel: Was ist eine App?
+    format: lexikon
+    keyword: was ist eine app
+    suchvolumen: 1900
+    kd: 0
+    prioritaet: 2
+    status: offen
+  - titel: Was ist Bluetooth?
+    format: lexikon
+    keyword: was ist bluetooth
+    suchvolumen: 1900
+    kd: 0
+    prioritaet: 2
+    status: offen
+  - titel: Was ist iCloud?
+    format: lexikon
+    keyword: was ist icloud
+    suchvolumen: 1900
+    kd: 2
+    prioritaet: 2
+    status: offen
+  - titel: Was ist ein Router?
+    format: lexikon
+    keyword: was ist ein router
+    suchvolumen: 1900
+    kd: 3
+    prioritaet: 2
+    status: offen
+  - titel: Was ist WLAN?
+    format: lexikon
+    keyword: was ist wlan
+    suchvolumen: 1600
+    kd: 5
+    prioritaet: 3
+    status: offen
+  - titel: Was ist ein Link?
+    format: lexikon
+    keyword: was ist ein link
+    suchvolumen: 1600
+    kd: 0
+    prioritaet: 3
+    status: offen
+  - titel: Was ist ein mobiler Hotspot?
+    format: lexikon
+    keyword: was ist ein hotspot
+    suchvolumen: 1300
+    kd: 4
+    prioritaet: 3
+    status: offen
+  - titel: Was ist ein Update?
+    format: lexikon
+    keyword: was ist ein update
+    suchvolumen: 880
+    kd: 6
+    prioritaet: 3
+    status: offen
+  - titel: Was ist eine TAN?
+    format: lexikon
+    keyword: was ist eine tan
+    suchvolumen: 590
+    kd: 0
+    prioritaet: 3
+    status: offen
+
+  # ---------------------------------------------------------------- Aktuell erklärt (kategorie: aktuell)
+  - titel: "WhatsApp: Die neuen Funktionen einfach erklärt"
+    kategorie: aktuell
+    keyword: whatsapp neue funktionen
+    suchvolumen: 14800
+    kd: 1
+    prioritaet: 1
+    status: offen
+    notiz: Nur Funktionen, die WhatsApp offiziell angekündigt hat (WhatsApp-Blog/Hilfebereich). Regelmäßig aktualisieren.
+  - titel: "WhatsApp-Benutzername: Was ist das und brauche ich einen?"
+    kategorie: aktuell
+    keyword: whatsapp benutzername
+    suchvolumen: 6600
+    kd: 3
+    prioritaet: 1
+    status: offen
+    notiz: Quelle WhatsApp-Hilfebereich (Bereich „Benutzernamen“).
+  - titel: "iOS 27: Was sich auf Ihrem iPhone ändert"
+    kategorie: aktuell
+    keyword: ios 27 neuerungen
+    suchvolumen: 4400
+    kd: 5
+    prioritaet: 1
+    status: offen
+    notiz: "ios 27: 60500 / KD 10. Quellen: Apple Newsroom und iPhone-Handbuch (iOS 27). Fokus: was Ältere merken (z. B. Einstellungen heißen anders)."
+  - titel: "Windows 10: Was das Support-Ende für Sie bedeutet"
+    kategorie: aktuell
+    keyword: windows 10 support ende
+    suchvolumen: 12100
+    kd: 0
+    prioritaet: 2
+    status: offen
+    notiz: Quelle Microsoft, BSI. Ruhig erklären, keine Kaufempfehlung.
+  - titel: "Werbung in WhatsApp: Was sich ändert"
+    kategorie: aktuell
+    keyword: whatsapp werbung
+    suchvolumen: 1900
+    kd: 3
+    prioritaet: 3
+    status: offen
+  - titel: "Der digitale Euro: Was ist das?"
+    kategorie: aktuell
+    keyword: digitaler euro
+    suchvolumen: 18100
+    kd: 25
+    prioritaet: 3
+    status: offen
+    notiz: Nur Fakten von EZB/Bundesbank, keine Finanzberatung.
 
   # ---------------------------------------------------------------- Priorität 1: viel Nachfrage, geringe Schwierigkeit, passt genau zur Zielgruppe
   - titel: WhatsApp-Status – was ist das und wie funktioniert er?
@@ -144,7 +367,47 @@ themen:
     status: offen
     notiz: "notfallinformationen android: 50. Nur Bedienung erklären, keine medizinischen Ratschläge."
 
+  - titel: QR-Code mit dem Handy scannen
+    kategorie: smartphone
+    keyword: qr code scannen
+    suchvolumen: 110000
+    kd: 25
+    prioritaet: 1
+    status: offen
+    notiz: "qr code scannen iphone: 2400 / KD 4. Auf Quishing-Risiko hinweisen (Lexikon/Artikel verlinken)."
+
   # ---------------------------------------------------------------- Priorität 2
+  - titel: "Emoji-Bedeutungen: Die wichtigsten Emojis einfach erklärt"
+    kategorie: whatsapp
+    keyword: emoji bedeutung
+    suchvolumen: 74000
+    kd: 11
+    prioritaet: 2
+    status: offen
+    notiz: Offizielle Emoji-Namen laut Unicode als Grundlage; übliche Verwendung vorsichtig formulieren („wird oft benutzt für …“).
+  - titel: FaceTime – Videoanrufe auf dem iPhone
+    kategorie: smartphone
+    keyword: facetime
+    suchvolumen: 14800
+    kd: 8
+    prioritaet: 2
+    status: offen
+  - titel: Online-Ausweis mit dem Handy nutzen
+    kategorie: smartphone
+    keyword: online ausweis
+    suchvolumen: 5400
+    kd: 0
+    prioritaet: 2
+    status: offen
+    notiz: "ausweisapp: 33100. Quellen: ausweisapp.bund.de, BSI."
+  - titel: Digitaler Nachlass – was Angehörige wissen sollten
+    kategorie: angehoerige
+    keyword: digitaler nachlass
+    suchvolumen: 880
+    kd: 0
+    prioritaet: 2
+    status: offen
+    notiz: Quellen Verbraucherzentrale, BSI. Keine Rechtsberatung.
   - titel: Love-Scamming – Liebesbetrug im Internet erkennen
     kategorie: sicherheit
     keyword: love scamming
