@@ -1,0 +1,98 @@
+name: Bauen, prüfen, veröffentlichen
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: pages-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  bauen:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v6
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Abhängigkeiten installieren
+        run: pip install -r requirements.txt
+
+      - name: Seite bauen und Qualität prüfen
+        run: python tools/check.py
+
+      - name: Pages konfigurieren
+        if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+        uses: actions/configure-pages@v5
+
+      - name: Pages-Paket hochladen
+        if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: _site
+
+  veroeffentlichen:
+    needs: bauen
+    if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Auf GitHub Pages veröffentlichen
+        id: deployment
+        uses: actions/deploy-pages@v4
+
+      - uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Abhängigkeiten installieren
+        run: pip install -r requirements.txt
+
+      - name: Live-Seite prüfen
+        run: |
+          python tools/build.py
+          python - <<'PY'
+          import re, time, urllib.request
+          from pathlib import Path
+          urls = re.findall(r"<loc>([^<]+)</loc>", Path("_site/sitemap.xml").read_text())
+          urls.append(urls[0] + "robots.txt")
+          fehler = []
+          for url in urls:
+              for versuch in range(6):
+                  try:
+                      with urllib.request.urlopen(url, timeout=20) as r:
+                          if r.status == 200:
+                              break
+                  except Exception as exc:
+                      letzter = exc
+                  time.sleep(10)
+              else:
+                  fehler.append(f"{url}: {letzter}")
+          print(f"{len(urls) - len(fehler)}/{len(urls)} Seiten live erreichbar")
+          for f in fehler:
+              print("FEHLER:", f)
+          raise SystemExit(1 if fehler else 0)
+          PY
+
+      - name: Suchmaschinen per IndexNow informieren
+        run: python tools/indexnow.py "${{ github.event.before }}" "${{ github.sha }}"

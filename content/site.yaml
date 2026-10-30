@@ -1,0 +1,37 @@
+# Zentrale Einstellungen für netzleicht.de
+name: Netzleicht
+url: https://netzleicht.de
+sprache: de
+untertitel: Digitales einfach erklärt
+beschreibung: >-
+  Ruhige Schritt-für-Schritt-Anleitungen rund um Smartphone, WhatsApp und
+  Sicherheit im Internet – für ältere Menschen und ihre Familien.
+kontakt: kontakt@netzleicht.de
+verantwortlich: Maximilian Prinsen
+
+# true = Suchmaschinen dürfen die Seite indexieren.
+# false = robots.txt sperrt alles und jede Seite bekommt noindex (Staging-Modus).
+indexierung: true
+
+# Schlüssel für IndexNow (Bing, Yandex u. a.). Die Datei /<schluessel>.txt wird automatisch erzeugt.
+indexnow_schluessel: 5716e1b9b1f5eb67d5b0faa6a71a301d
+
+# Reihenfolge = Reihenfolge in Navigation und Startseite.
+# Kategorien ohne Artikel werden automatisch ausgeblendet.
+kategorien:
+  - slug: sicherheit
+    name: Sicherheit & Betrug
+    kurz: Sicherheit
+    beschreibung: Betrugsversuche erkennen, ruhig reagieren und sich schützen – am Telefon, per SMS und im Internet.
+  - slug: whatsapp
+    name: WhatsApp
+    kurz: WhatsApp
+    beschreibung: Nachrichten, Anrufe und Einstellungen – und wie Sie Ihr WhatsApp-Konto schützen.
+  - slug: smartphone
+    name: Smartphone-Grundlagen
+    kurz: Smartphone
+    beschreibung: Handy einstellen, besser lesen, Fotos, WLAN und alles, was den Alltag leichter macht.
+  - slug: angehoerige
+    name: Für Angehörige
+    kurz: Angehörige
+    beschreibung: Eltern und Großeltern digital unterstützen – geduldig und ohne zu bevormunden.

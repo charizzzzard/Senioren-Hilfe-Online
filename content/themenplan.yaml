@@ -1,0 +1,157 @@
+# Themenplan für netzleicht.de
+#
+# Claude arbeitet diese Liste ab: höchste Priorität (1 = zuerst) mit status "offen".
+# status: offen | in_arbeit | veroeffentlicht | zurueckgestellt
+# monetarisierung: nein | spaeter_moeglich  (nur Hinweis für die Strategie – NICHT selbst aktivieren)
+# Die Prioritäten beruhen auf redaktioneller Einschätzung (typische Alltagsprobleme, Lücken im Angebot),
+# noch nicht auf gemessenen Suchvolumina. Sobald Search-Console-Daten vorliegen, Prioritäten danach anpassen.
+
+themen:
+  # ---------------------------------------------------------------- veröffentlicht
+  - titel: "„Hallo Mama“-Betrug auf WhatsApp erkennen"
+    kategorie: sicherheit
+    slug: whatsapp-betrug-erkennen
+    status: veroeffentlicht
+  - titel: Schockanruf, Enkeltrick, falsche Polizisten
+    kategorie: sicherheit
+    slug: schockanruf-enkeltrick
+    status: veroeffentlicht
+  - titel: Notfallplan nach einem Betrug
+    kategorie: sicherheit
+    slug: betrug-was-tun
+    status: veroeffentlicht
+  - titel: Betrugs-SMS erkennen (Paket, Zoll, Bank)
+    kategorie: sicherheit
+    slug: betrugs-sms-erkennen
+    status: veroeffentlicht
+  - titel: WhatsApp-Konto schützen (Code, Verifizierung in zwei Schritten)
+    kategorie: whatsapp
+    slug: whatsapp-konto-schuetzen
+    status: veroeffentlicht
+  - titel: WhatsApp-Kontakt blockieren und melden
+    kategorie: whatsapp
+    slug: whatsapp-kontakt-blockieren
+    status: veroeffentlicht
+  - titel: Schrift am Handy größer stellen
+    kategorie: smartphone
+    slug: schrift-groesser-stellen
+    status: veroeffentlicht
+
+  # ---------------------------------------------------------------- Priorität 1
+  - titel: Notfallpass und Notfallkontakte im Handy einrichten (iPhone und Android)
+    kategorie: smartphone
+    prioritaet: 1
+    status: offen
+    notiz: Apple „Notfallpass“ in der Health-App, Android „Notfallinformationen“. Hohe Alltagsrelevanz, gut belegbar über Hersteller-Hilfe.
+  - titel: Phishing-E-Mails erkennen (Bank, PayPal, Paketdienst)
+    kategorie: sicherheit
+    prioritaet: 1
+    status: offen
+    notiz: Quellen BSI, Verbraucherzentrale Phishing-Radar. Auf Notfallplan verlinken.
+  - titel: Spam-Anrufe und unbekannte Nummern am Handy blockieren
+    kategorie: smartphone
+    prioritaet: 1
+    status: offen
+    notiz: iPhone „Unbekannte Anrufer stummschalten“, Android Anrufsperre; Bundesnetzagentur zu Rufnummernmissbrauch.
+  - titel: Smartphone für Eltern einrichten – Checkliste für Angehörige
+    kategorie: angehoerige
+    prioritaet: 1
+    status: offen
+    notiz: Öffnet die Kategorie „Für Angehörige“. Verlinkt auf Schriftgröße, WhatsApp-Schutz, Notfallpass.
+  - titel: Falscher Microsoft-Support – angebliche Techniker am Telefon und Warnfenster im Browser
+    kategorie: sicherheit
+    prioritaet: 1
+    status: offen
+    notiz: Quellen Polizei, Verbraucherzentrale, Microsoft-Hilfe.
+
+  # ---------------------------------------------------------------- Priorität 2
+  - titel: WhatsApp-Videoanruf machen – Schritt für Schritt
+    kategorie: whatsapp
+    prioritaet: 2
+    status: offen
+  - titel: WhatsApp-Sprachnachricht aufnehmen und anhören
+    kategorie: whatsapp
+    prioritaet: 2
+    status: offen
+  - titel: WhatsApp-Datenschutz einstellen (Profilbild, „Zuletzt online“, Gruppen)
+    kategorie: whatsapp
+    prioritaet: 2
+    status: offen
+  - titel: Software-Update auf dem Handy installieren – warum und wie
+    kategorie: smartphone
+    prioritaet: 2
+    status: offen
+  - titel: Fotos vom Handy sichern, damit sie nicht verloren gehen
+    kategorie: smartphone
+    prioritaet: 2
+    status: offen
+  - titel: Sichere Passwörter, die man sich merken kann
+    kategorie: sicherheit
+    prioritaet: 2
+    status: offen
+    notiz: Quellen BSI (Passwörter, Passwortmanager). Keine Produktempfehlung.
+  - titel: Fake-Shops im Internet erkennen
+    kategorie: sicherheit
+    prioritaet: 2
+    status: offen
+    notiz: Verbraucherzentrale „Fakeshop-Finder“.
+  - titel: Drittanbietersperre einrichten – Abofallen auf der Handyrechnung verhindern
+    kategorie: smartphone
+    prioritaet: 2
+    status: offen
+  - titel: Bildschirm bleibt länger an – automatische Sperre einstellen
+    kategorie: smartphone
+    prioritaet: 2
+    status: offen
+  - titel: Mit der Stimme schreiben – Diktierfunktion am Handy
+    kategorie: smartphone
+    prioritaet: 2
+    status: offen
+
+  # ---------------------------------------------------------------- Priorität 3
+  - titel: Liebesbetrug im Internet (Love-Scamming) erkennen
+    kategorie: sicherheit
+    prioritaet: 3
+    status: offen
+  - titel: QR-Code-Betrug (Quishing) – worauf man achten sollte
+    kategorie: sicherheit
+    prioritaet: 3
+    status: offen
+  - titel: Klingelton und Anrufe lauter stellen
+    kategorie: smartphone
+    prioritaet: 3
+    status: offen
+  - titel: Die Lupe im Handy – Kleingedrucktes lesen
+    kategorie: smartphone
+    prioritaet: 3
+    status: offen
+  - titel: Apps sicher installieren – nur aus dem offiziellen Store
+    kategorie: smartphone
+    prioritaet: 3
+    status: offen
+  - titel: WLAN am Handy verbinden
+    kategorie: smartphone
+    prioritaet: 3
+    status: offen
+  - titel: Notfallmappe für Passwörter und Zugänge anlegen (für Angehörige)
+    kategorie: angehoerige
+    prioritaet: 3
+    status: offen
+
+  # ---------------------------------------------------------------- Kaufberatung (erst mit Traffic, siehe docs/STRATEGIE.md)
+  - titel: Seniorenhandy oder Smartphone? Eine ehrliche Entscheidungshilfe
+    kategorie: angehoerige
+    prioritaet: 4
+    status: offen
+    monetarisierung: spaeter_moeglich
+    notiz: Erst schreiben, wenn die Kategorie Angehörige Artikel hat. Ohne Affiliate-Links veröffentlichen; Monetarisierung nur nach Entscheidung des Betreibers.
+  - titel: Tablet für ältere Menschen – worauf es ankommt
+    kategorie: angehoerige
+    prioritaet: 4
+    status: offen
+    monetarisierung: spaeter_moeglich
+  - titel: Handyvertrag für Senioren – worauf man achten sollte
+    kategorie: smartphone
+    prioritaet: 4
+    status: offen
+    monetarisierung: spaeter_moeglich

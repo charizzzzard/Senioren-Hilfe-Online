@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block titel %}Seite nicht gefunden | {{ site.name }}{% endblock %}
+{% block robots %}<meta name="robots" content="noindex">{% endblock %}
+{% block inhalt %}
+<article class="text">
+  <h1>Diese Seite gibt es leider nicht</h1>
+  <p class="lead">Vielleicht hat sich ein Tippfehler in die Adresse eingeschlichen, oder die Seite ist umgezogen. Das ist nicht schlimm.</p>
+  <p><a class="knopf" href="/">Zur Startseite</a></p>
+  {% if kategorien %}
+  <h2>Oder wählen Sie ein Thema:</h2>
+  <ul>
+    {% for k in kategorien %}
+    <li><a href="{{ k.url }}">{{ k.name }}</a></li>
+    {% endfor %}
+  </ul>
+  {% endif %}
+</article>
+{% endblock %}
