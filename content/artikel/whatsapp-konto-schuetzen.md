@@ -66,6 +66,28 @@ Legen Sie sich Zettel und Stift bereit, bevor Sie anfangen.
 6. Geben Sie eine **E-Mail-Adresse** an, auf die Sie Zugriff haben, und tippen Sie auf **„Weiter“**. Sie können diesen Schritt auch überspringen – mit E-Mail-Adresse kommen Sie aber leichter wieder an Ihr Konto, falls Sie das Passwort vergessen.
 7. Tippen Sie auf **„Diesem Gerät vertrauen“** oder auf **„Überspringen“**.
 
+```klickpfad
+⋮ › Einstellungen › Konto › Verifizierung in zwei Schritten
+```
+
+```bildschirm
+geraet: android
+titel: Konto
+zeilen:
+  - …
+  - Verifizierung in zwei Schritten !
+  - …
+unterschrift: Im Bereich „Konto“ tippen Sie auf „Verifizierung in zwei Schritten“.
+```
+
+```bildschirm
+geraet: android
+titel: Verifizierung in zwei Schritten
+zeilen:
+  - Verifizierung in zwei Schritten aktivieren [an] !
+unterschrift: Schalten Sie „Verifizierung in zwei Schritten aktivieren“ ein. Danach legen Sie Ihr Passwort fest.
+```
+
 ### Auf einem iPhone
 
 1. Öffnen Sie WhatsApp.
@@ -75,6 +97,10 @@ Legen Sie sich Zettel und Stift bereit, bevor Sie anfangen.
 5. Denken Sie sich ein **sicheres Passwort** aus, geben Sie es ein und bestätigen Sie es. Schreiben Sie es auf.
 6. Geben Sie eine **E-Mail-Adresse** an, auf die Sie Zugriff haben, und tippen Sie auf **„Weiter“** – oder auf „Überspringen“.
 7. Tippen Sie auf **„Diesem Gerät vertrauen“** oder auf **„Überspringen“**.
+
+```klickpfad
+Du › Konto › Verifizierung in zwei Schritten
+```
 
 !!! tipp "Sie haben schon eine sechsstellige PIN?"
     Früher nutzte WhatsApp für diese Funktion eine sechsstellige PIN. Inzwischen wird sie durch ein Passwort ersetzt. Wenn Ihr Konto noch mit einer PIN geschützt ist, können Sie über denselben Weg zu einem Passwort wechseln.
@@ -95,6 +121,7 @@ WhatsApp kann auch auf einem Computer oder Tablet benutzt werden. Diese Geräte 
 - **Profilbild nur für Kontakte.** Die Polizei rät, das Profilbild nur für gespeicherte Kontakte sichtbar zu machen.
 - **Handy sperren.** Schützen Sie Ihr Handy mit einer Bildschirmsperre, Fingerabdruck oder Gesichtserkennung.
 - **App-Sperre.** WhatsApp bietet an, die App zusätzlich zu sperren, etwa mit dem Fingerabdruck.
+- **Passkey.** WhatsApp bietet außerdem Passkeys an: Die Anmeldung wird dann mit Fingerabdruck, Gesichtserkennung oder Bildschirmsperre bestätigt. Was das ist, erklärt unser Lexikon: [Was ist ein Passkey?](/lexikon/passkey/)
 
 ## Wenn Ihr Konto schon übernommen wurde
 

@@ -27,15 +27,19 @@ die ihnen helfen. Leitfrage für jeden Satz: *Versteht das jemand, der Angst hat
 6. **Keine Monetarisierung von Angst:** Niemals Affiliate-Links, Produktempfehlungen oder Werbung in Artikeln zu Betrug und Sicherheit.
 7. **Kein Tracking, keine Cookies, keine fremden Skripte/Fonts.** `tools/check.py` blockiert bekannte Tracker.
 8. **Transparenz:** Netzleicht sagt offen, dass Texte mit KI-Unterstützung entstehen (`/ueber-netzleicht/`).
-9. **Qualität vor Menge.** Höchstens 2 neue Artikel pro Woche. Massenhaft dünne Seiten verstoßen gegen
-   Googles Richtlinien („scaled content abuse“) und gegen unser Versprechen.
+9. **Qualität vor Menge.** Höchstens 2 neue Anleitungen/Aktuell-Texte und 2 Lexikon-Einträge pro Woche.
+   Massenhaft dünne Seiten verstoßen gegen Googles Richtlinien („scaled content abuse“) und gegen unser Versprechen.
+11. **Keine erfundenen Autoren.** Absender ist die „Netzleicht-Redaktion“. Keine erfundenen Personen als Autoren,
+    Experten, Zitatgeber oder Erfahrungsberichte – Google wertet erfundene Autorenprofile ausdrücklich als Täuschung.
+    Erlaubt sind die erkennbar fiktiven **Beispielfiguren** (Abschnitt 5).
 10. **Ansprache:** immer „Sie“, nie „du“. Inklusiv, aber ohne Gendersternchen im Fließtext.
 
 ## 3. Aufbau des Repositorys
 
 ```
 content/site.yaml          Name, URL, Kategorien, indexierung (true/false), IndexNow-Schlüssel
-content/artikel/*.md       Artikel (Dateiname = URL-Slug)
+content/artikel/*.md       Anleitungen und „Aktuell erklärt“ (Dateiname = URL-Slug)
+content/lexikon/*.md       Digital-Lexikon („Was ist …?“), URL /lexikon/<slug>/
 content/seiten/*.md        Über uns, Impressum, Datenschutz
 content/themenplan.yaml    Priorisierte Themenliste – Quelle für die nächsten Artikel
 templates/                 Jinja2-Vorlagen (base, start, artikel, kategorie, seite, 404)
@@ -61,6 +65,22 @@ python -m http.server 8765 --directory _site   # lokale Vorschau
 Push auf `main` veröffentlicht automatisch auf https://netzleicht.de (GitHub Pages, Custom Domain).
 
 ## 5. Artikel-Standard
+
+### Formate
+
+| Format | Ort | Zweck | Länge |
+| --- | --- | --- | --- |
+| **Anleitung** | `content/artikel/` | Ein Problem Schritt für Schritt lösen | 600–1.500 Wörter (min. 450) |
+| **Aktuell erklärt** | `content/artikel/`, `kategorie: aktuell` | Neuerung oder neue Masche ruhig einordnen: Was ist passiert? Was bedeutet das für Sie? Was ist zu tun? | 450–1.000 Wörter |
+| **Lexikon** | `content/lexikon/` | Einen Begriff erklären („Was ist ein Passkey?“) und auf passende Anleitungen verweisen | 250–700 Wörter (min. 250) |
+
+**Aktuell erklärt:** Nur offiziell Angekündigtes oder von Behörden/Verbraucherzentralen Gemeldetes – keine Gerüchte,
+keine Leaks, keine Spekulation. Quellen: Hersteller-Ankündigung bzw. -Hilfe, BSI, Polizei, Verbraucherzentrale (Phishing-Radar).
+Datum steht sichtbar oben. Wird ein Text überholt: aktualisieren oder deutlich als „Stand: …“ kennzeichnen.
+
+**Lexikon-Frontmatter:** wie bei Anleitungen, aber `begriff: "Passkey"` statt `kategorie`; keine Checkliste nötig.
+Aufbau: kurze Erklärung → „Ein Beispiel aus dem Alltag“ → So funktioniert es → Was bedeutet das für Sie / So schützen Sie sich
+→ Link zur passenden Anleitung. Wichtige Begriffe in Anleitungen auf ihren Lexikon-Eintrag verlinken.
 
 ### Frontmatter (Pflichtfelder fett)
 
@@ -108,6 +128,57 @@ Hinweiskästen (Python-Markdown „admonition“, Inhalt 4 Leerzeichen eingerüc
 !!! hinweis "Überschrift"     # blau – Hintergrundwissen
 !!! angehoerige "Für Angehörige"
 ```
+
+### Beispielfiguren
+
+Damit sich Leser wiedererkennen, dürfen Texte kurze Alltagsszenen mit **erkennbar fiktiven Beispielfiguren** enthalten
+(„Ein Beispiel aus dem Alltag: Margarete bekommt eine SMS …“). Feste Besetzung, damit die Figuren wiedererkennbar sind:
+
+- **Margarete** (74) – iPhone, vorsichtig, liest gern ausgedruckt nach
+- **Thomas** (68) – Android-Handy, probiert gern Neues aus
+- **Anna** (45) – Margaretes Tochter, hilft aus der Ferne
+- **Till** (17) – Margaretes Enkel, technikfit, aber ungeduldig
+
+Die Figuren sind Beispiele, keine Autoren und keine Zeugen: keine Zitate als Erfahrungsbericht („Margarete sagt: Das hat mir geholfen“),
+keine Fotos, keine Biografie-Seiten.
+
+### Bilder und Grafiken
+
+- **Keine KI-generierten Screenshots** und keine fotorealistischen Nachbildungen echter App-Oberflächen: Bildgeneratoren
+  erfinden Beschriftungen – falsche Knöpfe verwirren genau unsere Leser.
+- Stattdessen **nachgebaute Bildschirme** als Code (siehe unten): Sie zeigen nur Beschriftungen, die gegen die Hersteller-Hilfe
+  geprüft sind, und sind als „Vereinfachte Darstellung“ gekennzeichnet.
+- **Echte Screenshots** liefert nur der Betreiber; persönliche Daten vorher entfernen.
+- **Illustrationen** (Stimmungsbilder im Netzleicht-Stil) dürfen KI-generiert sein, wenn klar illustrativ, ohne reale Personen
+  und ohne nachgebildete Bedienoberflächen. Ablage als WebP unter `static/img/`, immer mit Alternativtext.
+
+Komponenten in Markdown (werden beim Bauen zu HTML/CSS; jede braucht eine `unterschrift`, die das Bild in Worten beschreibt):
+
+````markdown
+```klickpfad
+Einstellungen › Erscheinungsbild › Textgröße
+```
+
+```bildschirm
+geraet: iphone                 # iphone | android
+titel: Einstellungen
+zeilen:
+  - …                          # Platzhalter (grauer Balken) für nicht geprüfte Nachbarn
+  - Erscheinungsbild !         # ! am Ende = markiert („hier tippen“)
+  - "Fetter Text [an]"         # Schalter an/aus
+  - "[regler]"                 # Schieberegler
+unterschrift: Tippen Sie auf „Erscheinungsbild“.
+```
+
+```tasten
+geraet: iphone                 # iphone (Lautstärke links, Seitentaste rechts) | android (alle rechts)
+gedrueckt: [seite, lauter]     # seite | lauter | leiser | home
+unterschrift: Drücken Sie die Seitentaste und die Lauter-Taste gleichzeitig.
+```
+````
+
+Nur Beschriftungen verwenden, die in der Quelle wörtlich vorkommen. Reihenfolge und Nachbarn, die nicht belegt sind, als `…` darstellen.
+Tastenlage bei Android variiert je nach Hersteller – im Text darauf hinweisen.
 
 ### Suchmaschinen (datengetrieben)
 
@@ -166,14 +237,19 @@ const { chromium } = require('playwright');
 
 1. `git checkout main && git pull`; `pip install -r requirements.txt`.
 2. Offene Issues mit Label `feedback` oder `wartung` zuerst prüfen – Fehler in bestehenden Artikeln haben Vorrang vor neuen Artikeln.
-3. Nächstes Thema: höchste Priorität mit `status: offen` aus `content/themenplan.yaml`
-   (bei Gleichstand: höheres Suchvolumen). Vorher prüfen, dass es noch keinen Artikel dazu gibt.
-4. Recherche nach Abschnitt 6, Artikel nach Abschnitt 5 schreiben.
-5. Selbstkontrolle: Jede Aussage gegen die Quellen lesen. Was nicht belegt ist, streichen.
-6. `python tools/check.py` muss „Alles in Ordnung“ melden; Hinweise möglichst ebenfalls beheben.
+3. Kurzer Blick auf Aktuelles: Gibt es eine neue, breit gemeldete Betrugsmasche (Verbraucherzentrale Phishing-Radar,
+   BSI, Polizei) oder ein großes offizielles Update (Apple, Google, WhatsApp)? Wenn ja und gut belegbar: als
+   „Aktuell erklärt“ vorziehen und im Themenplan ergänzen.
+4. Sonst nächstes Thema: höchste Priorität mit `status: offen` aus `content/themenplan.yaml`
+   (bei Gleichstand: höheres Suchvolumen). Vorher prüfen, dass es noch keinen Text dazu gibt.
+   Pro Session ein Haupttext (Anleitung oder Aktuell) und – wenn Quellenlage und Zeit es erlauben – zusätzlich
+   ein Lexikon-Eintrag aus dem Themenplan.
+5. Recherche nach Abschnitt 6, Text nach Abschnitt 5 schreiben. Menüwege als `klickpfad`, wo hilfreich `bildschirm`/`tasten`.
+6. Selbstkontrolle: Jede Aussage gegen die Quellen lesen. Was nicht belegt ist, streichen.
+7. `python tools/check.py` muss „Alles in Ordnung“ melden; Hinweise möglichst ebenfalls beheben.
    Bei neuen Layout-Elementen: Screenshot mobil (390 px) prüfen.
-7. In `themenplan.yaml`: `status: veroeffentlicht`, `slug:` eintragen. Neue sinnvolle Themen, die bei der Recherche auffallen, ergänzen.
-8. Branch `claude/artikel-<slug>`, Commit `artikel: <Titel>`, Push, Pull Request mit kurzer Beschreibung
+8. In `themenplan.yaml`: `status: veroeffentlicht`, `slug:` eintragen. Neue sinnvolle Themen, die bei der Recherche auffallen, ergänzen.
+9. Branch `claude/artikel-<slug>`, Commit `artikel: <Titel>`, Push, Pull Request mit kurzer Beschreibung
    (Thema, Quellen, Besonderheiten). Wenn der CI-Check grün ist: selbst mergen (Squash). Der Deploy läuft automatisch.
    Ohne GitHub-Werkzeuge: nach grünem lokalen Check direkt auf `main` pushen.
 

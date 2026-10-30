@@ -34,7 +34,7 @@ verwandt:
   - whatsapp-betrug-erkennen
 ---
 
-„Ihr Paket konnte nicht zugestellt werden. Bitte bestätigen Sie Ihre Adresse: …“ – solche SMS bekommen sehr viele Menschen. Fast immer steckt Betrug dahinter. Fachleute nennen das „Smishing“: ein Kunstwort aus **SMS** und **Phishing**, also dem „Abfischen“ von Daten.
+„Ihr Paket konnte nicht zugestellt werden. Bitte bestätigen Sie Ihre Adresse: …“ – solche SMS bekommen sehr viele Menschen. Fast immer steckt Betrug dahinter. Fachleute nennen das [„Smishing“](/lexikon/smishing/): ein Kunstwort aus **SMS** und **Phishing**, also dem „Abfischen“ von Daten.
 
 ## Was die Betrüger wollen
 

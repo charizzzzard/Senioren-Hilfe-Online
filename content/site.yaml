@@ -31,6 +31,10 @@ kategorien:
     name: Smartphone-Grundlagen
     kurz: Smartphone
     beschreibung: Handy einstellen, besser lesen, Fotos, WLAN und alles, was den Alltag leichter macht.
+  - slug: aktuell
+    name: Aktuell erklärt
+    kurz: Aktuell
+    beschreibung: Neues aus der digitalen Welt, ruhig eingeordnet – was sich ändert und was es für Sie bedeutet.
   - slug: angehoerige
     name: Für Angehörige
     kurz: Angehörige

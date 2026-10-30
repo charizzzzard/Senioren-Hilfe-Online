@@ -44,6 +44,9 @@
         {% for k in kategorien %}
         <a href="{{ k.url }}"{% if pfad.startswith(k.url) %} aria-current="page"{% endif %}>{{ k.kurz }}</a>
         {% endfor %}
+        {% if lexikon_vorhanden %}
+        <a href="/lexikon/"{% if pfad.startswith('/lexikon/') %} aria-current="page"{% endif %}>Lexikon</a>
+        {% endif %}
       </nav>
       {% endif %}
     </div>
@@ -61,6 +64,7 @@
       </div>
       <nav aria-label="Weitere Seiten">
         <a href="/ueber-netzleicht/">Über Netzleicht</a>
+        {% if lexikon_vorhanden %}<a href="/lexikon/">Digital-Lexikon</a>{% endif %}
         <a href="/impressum/">Impressum</a>
         <a href="/datenschutz/">Datenschutz</a>
       </nav>

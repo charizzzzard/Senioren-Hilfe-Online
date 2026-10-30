@@ -16,6 +16,7 @@
 
 <article class="text artikel">
   <header class="artikel__kopf">
+    {% if artikel.kategorie == "aktuell" %}<p class="artikel__rubrik">Aktuell erklärt · {{ artikel.veroeffentlicht | datum }}</p>{% endif %}
     <h1>{{ artikel.titel }}</h1>
     <p class="artikel__meta">
       Zuletzt geprüft am <time datetime="{{ artikel.geprueft.isoformat() }}">{{ artikel.geprueft | datum }}</time>

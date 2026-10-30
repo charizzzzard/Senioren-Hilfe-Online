@@ -38,6 +38,11 @@ ARTIKEL_PFLICHTFELDER = (
     "titel", "beschreibung", "kategorie", "veroeffentlicht",
     "aktualisiert", "geprueft", "kurz_gesagt", "quellen",
 )
+LEXIKON_PFLICHTFELDER = (
+    "begriff", "titel", "beschreibung", "veroeffentlicht",
+    "aktualisiert", "geprueft", "kurz_gesagt", "quellen",
+)
+TASTEN = {"lauter": "Lauter-Taste", "leiser": "Leiser-Taste", "seite": "Seitentaste", "home": "Home-Taste"}
 
 
 class BuildError(Exception):
@@ -91,6 +96,63 @@ def neues_markdown() -> markdown.Markdown:
     )
 
 
+# ---------------------------------------------------------------- Bild-Komponenten
+# Nachgebaute Bildschirme, Klickpfade und Tasten-Skizzen werden als HTML/CSS erzeugt –
+# gestochen scharf, barrierearm, ohne Bilddateien. Syntax siehe CLAUDE.md, Abschnitt 5.
+
+KOMPONENTEN = re.compile(r"^```(bildschirm|klickpfad|tasten)[ \t]*\n(.*?)\n```[ \t]*$", re.M | re.S)
+KOMPONENTEN_ENV = Environment(
+    loader=FileSystemLoader(TEMPLATES),
+    autoescape=select_autoescape(["html"]),
+    undefined=StrictUndefined,
+    trim_blocks=True,
+    lstrip_blocks=True,
+)
+
+
+def bildschirm_zeile(eintrag) -> dict:
+    text = str(eintrag).strip()
+    if text in ("…", "...", "-"):
+        return {"typ": "platzhalter"}
+    if text == "[regler]":
+        return {"typ": "regler"}
+    markiert = text.endswith("!")
+    text = text.rstrip("!").strip()
+    schalter = re.match(r"^(.*?)\s*\[(an|aus)\]$", text)
+    if schalter:
+        return {"typ": "schalter", "text": schalter.group(1), "an": schalter.group(2) == "an",
+                "markiert": markiert}
+    return {"typ": "eintrag", "text": text, "markiert": markiert}
+
+
+def komponenten(rumpf: str, quelle: str) -> str:
+    def ersetzen(m: re.Match) -> str:
+        art, inhalt = m.group(1), m.group(2)
+        if art == "klickpfad":
+            daten = {"schritte": [t.strip() for t in re.split(r"\s*[›>]\s*", inhalt.strip()) if t.strip()]}
+        else:
+            try:
+                daten = yaml.safe_load(inhalt) or {}
+            except yaml.YAMLError as exc:
+                raise BuildError(f"{quelle}: Block „{art}“ ist kein gültiges YAML ({exc})") from exc
+            if not daten.get("unterschrift"):
+                raise BuildError(f"{quelle}: Block „{art}“ braucht eine unterschrift – sie beschreibt das Bild "
+                                 "auch für Menschen, die es nicht sehen")
+            daten.setdefault("geraet", "iphone")
+            if daten["geraet"] not in ("iphone", "android"):
+                raise BuildError(f"{quelle}: geraet muss iphone oder android sein")
+            if art == "bildschirm":
+                daten["zeilen"] = [bildschirm_zeile(z) for z in daten.get("zeilen") or []]
+            else:
+                unbekannt = set(daten.get("gedrueckt") or []) - set(TASTEN)
+                if unbekannt or not daten.get("gedrueckt"):
+                    raise BuildError(f"{quelle}: gedrueckt muss Tasten aus {sorted(TASTEN)} enthalten")
+                daten["tasten_namen"] = TASTEN
+        html = KOMPONENTEN_ENV.get_template(f"_{art}.html").render(**daten)
+        return "\n\n" + "\n".join(z for z in html.splitlines() if z.strip()) + "\n\n"
+    return KOMPONENTEN.sub(ersetzen, rumpf)
+
+
 def text_woerter(html: str) -> int:
     return len(re.sub(r"<[^>]+>", " ", html).split())
 
@@ -110,11 +172,12 @@ class Artikel:
     toc: list[dict]
     woerter: int
     kurz_html: str
+    bereich: str = "artikel"  # artikel | lexikon
     verwandte: list["Artikel"] = field(default_factory=list)
 
     @property
     def url(self) -> str:
-        return f"/artikel/{self.slug}/"
+        return f"/{self.bereich}/{self.slug}/"
 
     @property
     def lesezeit(self) -> int:
@@ -139,16 +202,21 @@ class Seite:
 
 
 def lade_artikel(site: dict) -> list[Artikel]:
+    return lade_texte(site, "artikel")
+
+
+def lade_texte(site: dict, bereich: str) -> list[Artikel]:
     kategorien = {k["slug"] for k in site["kategorien"]}
+    pflicht = ARTIKEL_PFLICHTFELDER if bereich == "artikel" else LEXIKON_PFLICHTFELDER
     artikel: list[Artikel] = []
-    for pfad in sorted((CONTENT / "artikel").glob("*.md")):
+    for pfad in sorted((CONTENT / bereich).glob("*.md")):
         meta, rumpf = lese_frontmatter(pfad)
         if meta.get("entwurf"):
             continue
-        fehlend = [f for f in ARTIKEL_PFLICHTFELDER if not meta.get(f)]
+        fehlend = [f for f in pflicht if not meta.get(f)]
         if fehlend:
             raise BuildError(f"{pfad.name}: Pflichtfelder fehlen: {', '.join(fehlend)}")
-        if meta["kategorie"] not in kategorien:
+        if bereich == "artikel" and meta["kategorie"] not in kategorien:
             raise BuildError(f"{pfad.name}: unbekannte Kategorie {meta['kategorie']!r}")
         for feld in ("veroeffentlicht", "aktualisiert", "geprueft"):
             if not isinstance(meta[feld], dt.date):
@@ -157,11 +225,14 @@ def lade_artikel(site: dict) -> list[Artikel]:
             if not isinstance(punkt, str):
                 raise BuildError(f"{pfad.name}: Checklisten-Punkt ist kein Text (Doppelpunkt? In \"…\" setzen): {punkt}")
         md = neues_markdown()
-        html = md.convert(rumpf)
+        html = md.convert(komponenten(rumpf, pfad.name))
         toc = [t for t in md.toc_tokens if t["level"] == 2]
         # Jede Zeile im Feld kurz_gesagt wird ein eigener Absatz bzw. Listenpunkt
         kurz_html = neues_markdown().convert(str(meta["kurz_gesagt"]).strip().replace("\n", "\n\n"))
-        artikel.append(Artikel(pfad.stem, pfad, meta, html, toc, text_woerter(html), kurz_html))
+        artikel.append(Artikel(pfad.stem, pfad, meta, html, toc, text_woerter(html), kurz_html, bereich))
+    if bereich != "artikel":
+        artikel.sort(key=lambda a: a.begriff.lower())
+        return artikel
 
     nach_slug = {a.slug: a for a in artikel}
     for a in artikel:
@@ -233,6 +304,30 @@ def ld_artikel(site: dict, a: Artikel, kat: dict) -> list[dict]:
     ]
 
 
+def ld_lexikon(site: dict, e: Artikel) -> list[dict]:
+    url = site["url"] + e.url
+    return [
+        {
+            "@context": "https://schema.org",
+            "@type": "DefinedTerm",
+            "name": e.begriff,
+            "description": e.beschreibung,
+            "url": url,
+            "inDefinedTermSet": {"@type": "DefinedTermSet", "name": f"{site['name']}-Lexikon",
+                                 "url": f"{site['url']}/lexikon/"},
+        },
+        {
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+                {"@type": "ListItem", "position": 1, "name": "Startseite", "item": f"{site['url']}/"},
+                {"@type": "ListItem", "position": 2, "name": "Lexikon", "item": f"{site['url']}/lexikon/"},
+                {"@type": "ListItem", "position": 3, "name": e.begriff, "item": url},
+            ],
+        },
+    ]
+
+
 # ---------------------------------------------------------------- Ausgabe
 
 def schreibe(out: Path, pfad: str, inhalt: str) -> None:
@@ -246,7 +341,14 @@ def schreibe(out: Path, pfad: str, inhalt: str) -> None:
 def build(out: Path) -> dict:
     site = yaml.safe_load((CONTENT / "site.yaml").read_text(encoding="utf-8"))
     artikel = lade_artikel(site)
+    lexikon = lade_texte(site, "lexikon")
     seiten = lade_seiten()
+    artikel_nach_slug = {a.slug: a for a in artikel}
+    for e in lexikon:
+        for s in e.meta.get("verwandt", []) or []:
+            if s not in artikel_nach_slug:
+                raise BuildError(f"lexikon/{e.slug}.md: verwandter Artikel {s!r} existiert nicht")
+            e.verwandte.append(artikel_nach_slug[s])
 
     kategorien = []
     for k in site["kategorien"]:
@@ -272,6 +374,7 @@ def build(out: Path) -> dict:
     basis = {
         "site": site,
         "kategorien": kategorien,
+        "lexikon_vorhanden": bool(lexikon),
         "css_version": css_hash,
         "jahr": heute.year,
         "ld_organisation": json_ld({"@context": "https://schema.org", **ld_organisation(site)}),
@@ -281,8 +384,16 @@ def build(out: Path) -> dict:
         html = env.get_template(vorlage).render(**basis, pfad=pfad, **kontext)
         schreibe(out, pfad, html)
 
-    render("start.html", "/", artikel=artikel,
+    render("start.html", "/", artikel=artikel, lexikon=lexikon,
            schnelle_hilfe=[a for a in artikel if a.meta.get("schnelle_hilfe")])
+    if lexikon:
+        buchstaben: dict[str, list] = {}
+        for e in lexikon:
+            erster = e.begriff[0].upper()
+            buchstaben.setdefault(erster if erster.isalpha() else "#", []).append(e)
+        render("lexikon.html", "/lexikon/", buchstaben=buchstaben, lexikon=lexikon)
+    for e in lexikon:
+        render("lexikon_eintrag.html", e.url, eintrag=e, strukturdaten=json_ld(ld_lexikon(site, e)))
     for k in kategorien:
         render("kategorie.html", k["url"], kategorie=k)
     for a in artikel:
@@ -301,6 +412,9 @@ def build(out: Path) -> dict:
     eintraege = [("/", max((a.aktualisiert for a in artikel), default=heute))]
     eintraege += [(k["url"], max(a.aktualisiert for a in k["artikel"])) for k in kategorien]
     eintraege += [(a.url, a.aktualisiert) for a in artikel]
+    if lexikon:
+        eintraege.append(("/lexikon/", max(e.aktualisiert for e in lexikon)))
+        eintraege += [(e.url, e.aktualisiert) for e in lexikon]
     eintraege += [(s.url, s.meta.get("aktualisiert", heute)) for s in seiten
                   if not s.meta.get("noindex")]
     zeilen = ['<?xml version="1.0" encoding="UTF-8"?>',
@@ -346,7 +460,7 @@ def build(out: Path) -> dict:
     if site.get("indexnow_schluessel"):
         schreibe(out, f"/{site['indexnow_schluessel']}.txt", site["indexnow_schluessel"])
 
-    return {"site": site, "artikel": artikel, "seiten": seiten, "kategorien": kategorien,
+    return {"site": site, "artikel": artikel, "lexikon": lexikon, "seiten": seiten, "kategorien": kategorien,
             "sitemap": [site["url"] + p for p, _ in eintraege]}
 
 
@@ -359,7 +473,7 @@ def main() -> int:
     except BuildError as exc:
         print(f"BUILD-FEHLER: {exc}", file=sys.stderr)
         return 1
-    print(f"OK: {len(daten['artikel'])} Artikel, {len(daten['seiten'])} Seiten, "
+    print(f"OK: {len(daten['artikel'])} Artikel, {len(daten['lexikon'])} Lexikon-Einträge, {len(daten['seiten'])} Seiten, "
           f"{len(daten['kategorien'])} Kategorien -> {args.out}")
     return 0
 

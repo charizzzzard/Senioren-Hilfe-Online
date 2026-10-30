@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% block titel %}{{ eintrag.meta.get("seo_titel") or eintrag.titel }}{% endblock %}
+{% block beschreibung %}{{ eintrag.beschreibung }}{% endblock %}
+{% block og_typ %}article{% endblock %}
+{% block kopf %}
+  <script type="application/ld+json">{{ strukturdaten | safe }}</script>
+{% endblock %}
+{% block inhalt %}
+<nav class="brotkrumen" aria-label="Sie sind hier">
+  <a href="/">Startseite</a> <span aria-hidden="true">›</span>
+  <a href="/lexikon/">Lexikon</a>
+</nav>
+
+<article class="text artikel">
+  <header class="artikel__kopf">
+    <p class="artikel__rubrik">Digital-Lexikon</p>
+    <h1>{{ eintrag.titel }}</h1>
+    <p class="artikel__meta">
+      Zuletzt geprüft am <time datetime="{{ eintrag.geprueft.isoformat() }}">{{ eintrag.geprueft | datum }}</time>
+      <span aria-hidden="true">·</span> Lesezeit ca. {{ eintrag.lesezeit }} Minuten
+    </p>
+  </header>
+
+  <aside class="kurz" aria-labelledby="kurz-titel">
+    <h2 id="kurz-titel" class="kurz__titel">{{ eintrag.begriff }} – kurz erklärt</h2>
+    {{ eintrag.kurz_html | safe }}
+  </aside>
+
+  <div class="artikel__rumpf">
+    {{ eintrag.html | safe }}
+  </div>
+
+  <section class="quellen" aria-labelledby="quellen-titel">
+    <h2 id="quellen-titel">Quellen und Prüfung</h2>
+    <p>Diese Erklärung stützt sich auf folgende Quellen. Zuletzt inhaltlich geprüft am {{ eintrag.geprueft | datum }}.</p>
+    <ul>
+      {% for q in eintrag.quellen %}
+      <li>{{ q.herausgeber }}: <a href="{{ q.url }}">{{ q.titel }}</a></li>
+      {% endfor %}
+    </ul>
+    <p class="klein"><a href="/lexikon/">Alle Begriffe im Digital-Lexikon</a> · <a href="/ueber-netzleicht/">So entstehen unsere Texte</a></p>
+  </section>
+</article>
+
+{% if eintrag.verwandte %}
+<section class="abschnitt verwandt nicht-drucken" aria-labelledby="verwandt-titel">
+  <h2 id="verwandt-titel">Passende Anleitungen</h2>
+  <div class="karten">
+    {% for a in eintrag.verwandte %}
+    {% include "_karte.html" %}
+    {% endfor %}
+  </div>
+</section>
+{% endif %}
+{% endblock %}

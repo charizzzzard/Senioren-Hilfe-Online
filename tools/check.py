@@ -22,6 +22,7 @@ from build import ROOT, BuildError, build  # noqa: E402
 OUT = ROOT / "_site"
 
 MIN_WOERTER = 450
+MIN_WOERTER_LEXIKON = 250
 MIN_QUELLEN = 2
 BESCHREIBUNG_LAENGE = (70, 165)
 TITEL_MAX = 65
@@ -106,10 +107,12 @@ def main() -> int:
         return 1
     site = daten["site"]
     artikel = daten["artikel"]
+    lexikon = daten["lexikon"]
 
     # ---------------------------------------------------- Inhalte
-    for a in artikel:
-        name = f"{a.slug}.md"
+    for a in artikel + lexikon:
+        name = f"{a.bereich}/{a.slug}.md"
+        min_woerter = MIN_WOERTER if a.bereich == "artikel" else MIN_WOERTER_LEXIKON
         titel = a.meta.get("seo_titel") or a.titel
         if len(titel) > TITEL_MAX:
             fehler.append(f"{name}: Seitentitel zu lang ({len(titel)} > {TITEL_MAX} Zeichen) – seo_titel kürzen")
@@ -118,8 +121,8 @@ def main() -> int:
         lo, hi = BESCHREIBUNG_LAENGE
         if not lo <= len(a.beschreibung) <= hi:
             fehler.append(f"{name}: beschreibung hat {len(a.beschreibung)} Zeichen (erlaubt {lo}–{hi})")
-        if a.woerter < MIN_WOERTER:
-            fehler.append(f"{name}: nur {a.woerter} Wörter (mindestens {MIN_WOERTER})")
+        if a.woerter < min_woerter:
+            fehler.append(f"{name}: nur {a.woerter} Wörter (mindestens {min_woerter})")
 
         if len(a.quellen) < MIN_QUELLEN:
             fehler.append(f"{name}: nur {len(a.quellen)} Quelle(n) (mindestens {MIN_QUELLEN})")
@@ -161,7 +164,7 @@ def main() -> int:
             hinweise.append(f"{name}: langer Satz ({len(s.split())} Wörter): „{s[:80]}…“")
 
     for feld in ("titel", "beschreibung"):
-        doppelt = [w for w, n in Counter(getattr(a, feld) for a in artikel).items() if n > 1]
+        doppelt = [w for w, n in Counter(getattr(a, feld) for a in artikel + lexikon).items() if n > 1]
         for w in doppelt:
             fehler.append(f"{feld} mehrfach vergeben: {w}")
 
@@ -169,9 +172,11 @@ def main() -> int:
     import yaml
     plan = yaml.safe_load((ROOT / "content" / "themenplan.yaml").read_text(encoding="utf-8"))
     kategorien = {k["slug"] for k in site["kategorien"]}
-    slugs = {a.slug for a in artikel}
+    slugs = {a.slug for a in artikel + lexikon}
     for t in plan.get("themen", []):
-        if t.get("kategorie") not in kategorien:
+        if t.get("format", "anleitung") not in ("anleitung", "lexikon"):
+            fehler.append(f"themenplan.yaml: ungültiges format bei „{t.get('titel')}“ (anleitung | lexikon)")
+        if t.get("format") != "lexikon" and t.get("kategorie") not in kategorien:
             fehler.append(f"themenplan.yaml: unbekannte Kategorie bei „{t.get('titel')}“")
         if t.get("status") not in ("offen", "in_arbeit", "veroeffentlicht", "zurueckgestellt"):
             fehler.append(f"themenplan.yaml: ungültiger status bei „{t.get('titel')}“")
@@ -230,7 +235,7 @@ def main() -> int:
         fehler.append("robots.txt sperrt alles, obwohl indexierung: true")
 
     # ---------------------------------------------------- Bericht
-    print(f"Geprüft: {len(artikel)} Artikel, {len(html_dateien)} HTML-Seiten, "
+    print(f"Geprüft: {len(artikel)} Artikel, {len(lexikon)} Lexikon-Einträge, {len(html_dateien)} HTML-Seiten, "
           f"{len(daten['sitemap'])} Sitemap-Einträge")
     for h in hinweise:
         print(f"HINWEIS: {h}")
