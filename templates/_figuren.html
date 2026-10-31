@@ -1,0 +1,10 @@
+<ul class="figuren">
+  {% for f in figuren %}
+  {% set uid = uid_basis ~ "-" ~ loop.index %}
+  <li class="figuren__eintrag">
+    {% include "_figur.html" %}
+    <strong>{{ f.name }}, {{ f.alter }}</strong>
+    <span>{{ f.info }}</span>
+  </li>
+  {% endfor %}
+</ul>

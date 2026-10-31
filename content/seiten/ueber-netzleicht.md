@@ -26,7 +26,11 @@ Netzleicht ist ein unabhängiges Projekt aus Köln – ohne Verlag, ohne Werbeku
 
 ## Margarete, Thomas, Anna und Till
 
-In unseren Texten begegnen Ihnen immer wieder dieselben vier Menschen: **Margarete** (74) mit ihrem iPhone, **Thomas** (68), der gern Neues an seinem Android-Handy ausprobiert, Margaretes Tochter **Anna** (45), die aus der Ferne hilft, und ihr Enkel **Till** (17).
+In unseren Texten begegnen Ihnen immer wieder dieselben vier Menschen:
+
+```figuren
+figuren: [margarete, thomas, anna, till]
+```
 
 Die vier sind **ausgedachte Beispielfiguren**. Sie zeigen, wie eine Situation im Alltag aussehen kann – damit Sie sich darin wiederfinden. Es sind keine echten Personen, und wir lassen sie auch nicht als Zeugen oder Experten auftreten.
 

@@ -5,7 +5,7 @@ beschreibung: "Die Schrift auf dem Handy ist zu klein? So ändern Sie die Schrif
 keyword: "schriftgröße iphone ändern"
 kategorie: smartphone
 veroeffentlicht: 2026-10-30
-aktualisiert: 2026-10-30
+aktualisiert: 2026-10-31
 geprueft: 2026-10-30
 kurz_gesagt: |
   **iPhone:** „Einstellungen“ › „Erscheinungsbild“ (bei iOS 26 und älter: „Anzeige & Helligkeit“) › „Textgröße“ – dann den Regler nach rechts ziehen.
@@ -47,10 +47,17 @@ verwandt:
   - whatsapp-konto-schuetzen
 ---
 
-Kleine Schrift strengt an – vor allem bei Nachrichten, Kontakten oder im Kalender. Zum Glück lässt sich die Schrift auf jedem Smartphone vergrößern. Das dauert nur eine Minute, und Sie können es jederzeit wieder ändern.
+```szene
+figur: [margarete, till]
+geste: winken
+text: >
+  Margarete hält ihr Handy fast auf Armlänge von sich weg, um die Nachricht ihrer Freundin zu lesen. Till schaut kurz rüber: „Oma, das kann man doch größer stellen!“ Margarete lacht. „Dann zeig mal – aber langsam.“
+```
+
+Kleine Schrift strengt an, vor allem bei Nachrichten, Kontakten oder im Kalender. Damit müssen Sie sich nicht abfinden. Zum Glück lässt sich das auf jedem Smartphone ändern. Es dauert nur wenige Handgriffe, und Sie können es jederzeit wieder zurückstellen. Kaputt gehen kann dabei nichts.
 
 !!! tipp "Erst herausfinden: iPhone oder Android?"
-    Hat Ihr Handy auf der Rückseite einen **angebissenen Apfel**, ist es ein **iPhone**. Fast alle anderen Smartphones – etwa von Samsung, Xiaomi, Motorola oder Google – laufen mit **Android**.
+    Hat Ihr Handy auf der Rückseite einen **angebissenen Apfel**, ist es ein **iPhone**. Fast alle anderen Smartphones – etwa von Samsung, Xiaomi, Motorola oder Google – laufen mit **Android**. Oben in der Lesehilfe können Sie unter „Mein Handy“ auswählen, dann sehen Sie nur die passenden Schritte.
 
 ## Auf dem iPhone
 

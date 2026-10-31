@@ -43,6 +43,18 @@ LEXIKON_PFLICHTFELDER = (
     "aktualisiert", "geprueft", "kurz_gesagt", "quellen",
 )
 TASTEN = {"lauter": "Lauter-Taste", "leiser": "Leiser-Taste", "seite": "Seitentaste", "home": "Home-Taste"}
+# Erkennbar fiktive Beispielfiguren (siehe CLAUDE.md, Abschnitt 5)
+FIGUREN = {
+    "margarete": {"name": "Margarete", "alter": 74, "info": "nutzt ein iPhone, liest gern ausgedruckt nach",
+                  "farbe": "#2b5ea7", "haut": "#f3cdb0"},
+    "thomas": {"name": "Thomas", "alter": 68, "info": "hat ein Android-Handy und probiert gern Neues aus",
+               "farbe": "#2f6f5e", "haut": "#efc3a3"},
+    "anna": {"name": "Anna", "alter": 45, "info": "Margaretes Tochter, hilft aus der Ferne",
+             "farbe": "#d49b35", "haut": "#f2c8a8"},
+    "till": {"name": "Till", "alter": 17, "info": "Margaretes Enkel, technikfit, aber manchmal ungeduldig",
+             "farbe": "#b23a2e", "haut": "#efc09f"},
+}
+GESTEN = {"winken", "nicken", "staunen"}
 
 
 class BuildError(Exception):
@@ -100,7 +112,7 @@ def neues_markdown() -> markdown.Markdown:
 # Nachgebaute Bildschirme, Klickpfade und Tasten-Skizzen werden als HTML/CSS erzeugt –
 # gestochen scharf, barrierearm, ohne Bilddateien. Syntax siehe CLAUDE.md, Abschnitt 5.
 
-KOMPONENTEN = re.compile(r"^```(bildschirm|klickpfad|tasten)[ \t]*\n(.*?)\n```[ \t]*$", re.M | re.S)
+KOMPONENTEN = re.compile(r"^```(bildschirm|klickpfad|tasten|szene|figuren)[ \t]*\n(.*?)\n```[ \t]*$", re.M | re.S)
 KOMPONENTEN_ENV = Environment(
     loader=FileSystemLoader(TEMPLATES),
     autoescape=select_autoescape(["html"]),
@@ -125,9 +137,38 @@ def bildschirm_zeile(eintrag) -> dict:
     return {"typ": "eintrag", "text": text, "markiert": markiert}
 
 
+def figuren_liste(wert, quelle: str) -> list[dict]:
+    schluessel = [wert] if isinstance(wert, str) else list(wert or [])
+    unbekannt = [k for k in schluessel if k not in FIGUREN]
+    if not schluessel or unbekannt:
+        raise BuildError(f"{quelle}: figur muss aus {sorted(FIGUREN)} sein")
+    return [{"key": k, **FIGUREN[k]} for k in schluessel]
+
+
 def komponenten(rumpf: str, quelle: str) -> str:
+    zaehler = iter(range(1, 1000))
+
     def ersetzen(m: re.Match) -> str:
         art, inhalt = m.group(1), m.group(2)
+        if art in ("szene", "figuren"):
+            try:
+                daten = yaml.safe_load(inhalt) or {}
+            except yaml.YAMLError as exc:
+                raise BuildError(f"{quelle}: Block „{art}“ ist kein gültiges YAML ({exc})") from exc
+            if art == "figuren":
+                daten = {"figuren": figuren_liste(daten.get("figuren") or list(FIGUREN), quelle)}
+            else:
+                if not daten.get("text"):
+                    raise BuildError(f"{quelle}: Block „szene“ braucht einen text")
+                geste = daten.get("geste")
+                if geste and geste not in GESTEN:
+                    raise BuildError(f"{quelle}: geste muss aus {sorted(GESTEN)} sein")
+                daten = {"figuren": figuren_liste(daten.get("figur"), quelle), "geste": geste,
+                         "text_html": neues_markdown().convert(str(daten["text"]).strip())}
+            daten.setdefault("geste", None)
+            daten["uid_basis"] = f"{slugify(Path(quelle).stem)}-{next(zaehler)}"
+            html = KOMPONENTEN_ENV.get_template(f"_{art}.html").render(**daten)
+            return "\n\n" + "\n".join(z for z in html.splitlines() if z.strip()) + "\n\n"
         if art == "klickpfad":
             daten = {"schritte": [t.strip() for t in re.split(r"\s*[›>]\s*", inhalt.strip()) if t.strip()]}
         else:
@@ -256,7 +297,7 @@ def lade_seiten() -> list[Seite]:
         meta, rumpf = lese_frontmatter(pfad)
         if not meta.get("titel"):
             raise BuildError(f"{pfad.name}: titel fehlt")
-        seiten.append(Seite(pfad.stem, meta, neues_markdown().convert(rumpf)))
+        seiten.append(Seite(pfad.stem, meta, neues_markdown().convert(komponenten(rumpf, pfad.name))))
     return seiten
 
 
@@ -361,6 +402,7 @@ def build(out: Path) -> dict:
         shutil.rmtree(out)
     shutil.copytree(STATIC, out)
     css_hash = hashlib.sha256((STATIC / "css" / "style.css").read_bytes()).hexdigest()[:10]
+    js_hash = hashlib.sha256((STATIC / "js" / "netzleicht.js").read_bytes()).hexdigest()[:10]
 
     env = Environment(
         loader=FileSystemLoader(TEMPLATES),
@@ -377,6 +419,7 @@ def build(out: Path) -> dict:
         "lexikon_vorhanden": bool(lexikon),
         "kategorie_namen": {k["slug"]: k["name"] for k in site["kategorien"]},
         "css_version": css_hash,
+        "js_version": js_hash,
         "jahr": heute.year,
         "ld_organisation": json_ld({"@context": "https://schema.org", **ld_organisation(site)}),
     }
