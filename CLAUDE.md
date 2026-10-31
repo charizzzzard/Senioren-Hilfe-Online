@@ -14,6 +14,7 @@ trust-konform Einnahmen erzielt.
 
 **Zielgruppe:** Menschen ab ca. 60 mit wenig bis mittlerer Smartphone-Routine – und Angehörige,
 die ihnen helfen. Leitfrage für jeden Satz: *Versteht das jemand, der Angst hat, etwas kaputt zu machen?*
+Belegtes Profil, Lesergruppen und Folgerungen: **`docs/ZIELGRUPPE.md`** (vor dem Schreiben lesen).
 
 ## 2. Nicht verhandelbare Regeln
 
@@ -140,7 +141,18 @@ Damit sich Leser wiedererkennen, dürfen Texte kurze Alltagsszenen mit **erkennb
 - **Till** (17) – Margaretes Enkel, technikfit, aber ungeduldig
 
 Die Figuren sind Beispiele, keine Autoren und keine Zeugen: keine Zitate als Erfahrungsbericht („Margarete sagt: Das hat mir geholfen“),
-keine Fotos, keine Biografie-Seiten.
+keine Fotos, keine Biografie-Seiten. Sie erscheinen als gezeichnete, dezent animierte Figuren über den Block ```szene```:
+
+````markdown
+```szene
+figur: margarete              # margarete | thomas | anna | till – oder mehrere: [margarete, till]
+geste: winken                 # optional: winken | nicken | staunen (kurze Animation, einmalig)
+text: >                       # immer mit „>“ und eingerückt – dann sind Doppelpunkte im Text kein Problem
+  Margarete bekommt eine SMS: „Ihr Paket konnte nicht zugestellt werden.“ Sie zögert – zu Recht.
+```
+````
+
+Die Animation läuft nur kurz, wenn die Szene ins Bild kommt, und entfällt bei „Bewegung reduzieren“ (Barrierefreiheit).
 
 ### Bilder und Grafiken
 
@@ -191,6 +203,20 @@ Tastenlage bei Android variiert je nach Hersteller – im Text darauf hinweisen.
 - `kurz_gesagt` beantwortet die Suchanfrage direkt – das ist die Antwort, die Google und KI-Assistenten zitieren.
 - Sind OpenSEO-Werkzeuge verfügbar: vor dem Schreiben verwandte Fragen/Begriffe prüfen (`get_keyword_metrics`,
   höchstens 30 Credits pro Artikel) und neue Erkenntnisse in den Themenplan übernehmen.
+
+### Stimme: warm, persönlich, auf Augenhöhe
+
+Netzleicht klingt wie eine erfahrene, geduldige Bekannte, die gut erklären kann – nicht wie ein Handbuch.
+(Absender bleibt die Netzleicht-Redaktion; die Wärme kommt aus der Sprache, nicht aus einer erfundenen Autorin.)
+
+- **Einstieg aus dem Leben:** eine kurze Szene mit einer Beispielfigur (```szene```) oder eine Frage („Kennen Sie das?“).
+- **Augenhöhe:** Erwachsene, die etwas Neues lernen. Nie „Senioren“ als Etikett, keine Verniedlichung, keine Altersklischees.
+- **Die Technik ist schuld, nicht der Mensch:** „Diese Einstellung ist wirklich gut versteckt.“
+- **Mut machen und Sicherheit geben:** sagen, was nicht passieren kann („Dabei geht nichts verloren“ – nur wenn belegt),
+  wie man es rückgängig macht, und kleine Erfolge benennen („Geschafft.“).
+- **Natürlicher Rhythmus:** kurze und mittellange Sätze mischen, Verben statt Behördendeutsch („prüfen“ statt „Durchführung einer Prüfung“),
+  ab und zu ein persönlicher Satz („Lassen Sie sich Zeit – das ist kein Wettrennen.“). Nicht jeder Abschnitt braucht eine Liste.
+- **Weniger Kästen:** höchstens drei Hinweiskästen pro Text; der Text selbst soll tragen.
 
 ### Stil
 
@@ -277,12 +303,14 @@ Der Betreiber liest das Postfach und antwortet. Damit Claude helfen kann:
 ### Wartungs-Session (geplant monatlich)
 
 1. Offene `wartung`-Issues abarbeiten (defekte Links → neue offizielle Quelle suchen oder Aussage anpassen).
-2. Artikel mit `geprueft` älter als 180 Tage: Quellen neu lesen, Menüpfade neu prüfen, Text anpassen,
+2. Bis zu 2 ältere Texte an die aktuelle **Stimme** (Abschnitt 5) anpassen: Szene als Einstieg, wärmerer Ton, weniger Kästen –
+   Fakten und Quellen bleiben unverändert.
+3. Artikel mit `geprueft` älter als 180 Tage: Quellen neu lesen, Menüpfade neu prüfen, Text anpassen,
    `geprueft` (und bei Änderungen `aktualisiert`) setzen. Älteste zuerst, max. 4 pro Session.
-3. Falls die Search Console verbunden ist (OpenSEO-Werkzeuge, Projekt „Senioren-Hilfe Online (netzleicht.de)“):
+4. Falls die Search Console verbunden ist (OpenSEO-Werkzeuge, Projekt „Senioren-Hilfe Online (netzleicht.de)“):
    Seiten mit vielen Impressionen und wenig Klicks → Titel/Beschreibung verbessern; Suchanfragen ohne passenden
    Artikel → in den Themenplan aufnehmen. Ergebnisse knapp im PR beschreiben.
-4. Erledigte Issues schließen.
+5. Erledigte Issues schließen.
 
 ## 8. Wo Claude stoppt und fragt
 

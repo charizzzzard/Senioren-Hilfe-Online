@@ -1,0 +1,15 @@
+<figure class="szene{% if figuren | length > 1 %} szene--mehrere{% endif %}">
+  <div class="szene__figuren">
+    {% for f in figuren %}
+    {% set uid = uid_basis ~ "-" ~ loop.index %}
+    <div class="szene__person">
+      {% include "_figur.html" %}
+      <span class="szene__name">{{ f.name }}, {{ f.alter }}</span>
+    </div>
+    {% endfor %}
+  </div>
+  <figcaption class="szene__text">
+    <span class="rubrik">Ein Beispiel aus dem Alltag</span>
+    {{ text_html | safe }}
+  </figcaption>
+</figure>

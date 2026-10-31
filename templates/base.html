@@ -27,8 +27,10 @@
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="/img/logo-netzleicht.png">
   <link rel="alternate" type="application/atom+xml" title="{{ site.name }} – neue Anleitungen" href="/feed.xml">
+  <script>document.documentElement.classList.add("js");try{var s=[1,1.12,1.25,1.4][+localStorage.getItem("nl-schrift")||0];if(s>1)document.documentElement.style.fontSize=s*100+"%"}catch(e){}</script>
   <link rel="preload" href="/fonts/literata-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="/css/style.css?v={{ css_version }}">
+  <script src="/js/netzleicht.js?v={{ js_version }}" defer></script>
   <script type="application/ld+json">{{ ld_organisation | safe }}</script>
   {% block kopf %}{% endblock %}
 </head>

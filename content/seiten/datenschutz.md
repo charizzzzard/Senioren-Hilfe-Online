@@ -25,6 +25,12 @@ GitHub kann Daten auch in den USA verarbeiten. Eine solche Übermittlung kann au
 
 Diese Website setzt keine Cookies und nutzt keine Analyse-, Tracking- oder Werbedienste. Es werden keine Schriftarten, Videos oder Skripte von fremden Servern geladen.
 
+## Lesehilfen: Schriftgröße, Handy-Auswahl und Vorlesen
+
+Wenn Sie in einer Anleitung die Schriftgröße ändern oder Ihr Handy (iPhone oder Android) auswählen, merkt sich Ihr Browser diese Einstellung im lokalen Speicher Ihres Geräts. Die Angabe verlässt Ihr Gerät nicht und wird nicht an uns übertragen. Sie können sie jederzeit löschen, indem Sie in Ihrem Browser die Websitedaten löschen. Die Speicherung ist für die von Ihnen gewünschte Funktion unbedingt erforderlich (§ 25 Abs. 2 Nr. 2 TDDDG).
+
+Die Vorlese-Funktion nutzt die Sprachausgabe Ihres Browsers oder Geräts. Je nach Browser kann diese Sprachausgabe einen Dienst des Browser-Herstellers verwenden. Dabei wird nur der Text der Anleitung verarbeitet, die Sie gerade lesen.
+
 ## Teilen-Knöpfe
 
 Unter den Anleitungen gibt es Links zum Teilen per WhatsApp oder E-Mail. Das sind einfache Links. Erst wenn Sie darauf tippen, öffnet sich WhatsApp beziehungsweise Ihr E-Mail-Programm. Vorher werden keine Daten an WhatsApp übertragen. Für die Verarbeitung in WhatsApp gilt die Datenschutzerklärung von WhatsApp.

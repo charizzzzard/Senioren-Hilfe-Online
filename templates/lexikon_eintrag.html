@@ -19,6 +19,7 @@
       Zuletzt geprüft am <time datetime="{{ eintrag.geprueft.isoformat() }}">{{ eintrag.geprueft | datum }}</time>
       <span aria-hidden="true">·</span> Lesezeit ca. {{ eintrag.lesezeit }} Minuten
     </p>
+    {% include "_lesehilfe.html" %}
   </header>
 
   <aside class="kurz" aria-labelledby="kurz-titel">

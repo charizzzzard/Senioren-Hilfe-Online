@@ -1,0 +1,13 @@
+<svg class="figur figur--{{ f.key }}{% if geste %} figur--{{ geste }}{% endif %}" viewBox="0 0 120 120" role="img" aria-label="Zeichnung von {{ f.name }}, {{ f.alter }}">
+  <defs><clipPath id="figur-clip-{{ uid }}"><circle cx="60" cy="60" r="58"/></clipPath></defs>
+  <circle cx="60" cy="60" r="58" fill="#e6dac4"/>
+  <g clip-path="url(#figur-clip-{{ uid }})">
+    {% include "figuren/" ~ f.key ~ ".html" %}
+    {% if geste == "winken" %}
+    <g class="figur__hand">
+      <path d="M90 120 C92 106 94 92 98 80" stroke="{{ f.farbe }}" stroke-width="12" stroke-linecap="round" fill="none"/>
+      <circle cx="99" cy="74" r="7.5" fill="{{ f.haut }}"/>
+    </g>
+    {% endif %}
+  </g>
+</svg>
