@@ -98,8 +98,8 @@ Datum steht sichtbar oben. Wird ein Text überholt: aktualisieren oder deutlich 
 
 **Lexikon-Frontmatter:** wie bei Anleitungen, aber `begriff: "Passkey"` statt `kategorie`; keine Checkliste nötig.
 Optional `stichwoerter: ["Passkeys", "Passkey"]`: Diese Wörter werden in allen Texten beim ersten Vorkommen automatisch
-auf den Eintrag verlinkt und zeigen beim Antippen ein **Erklärkästchen** mit der Kurzerklärung (`beschreibung`).
-Darum muss die `beschreibung` eines Lexikon-Eintrags für sich allein verständlich sein.
+auf den Eintrag verlinkt und zeigen beim Antippen ein **Erklärkästchen** mit der ersten Zeile von `kurz_gesagt`.
+Darum muss diese erste Zeile eines Lexikon-Eintrags für sich allein verständlich sein (ein bis zwei Sätze).
 Aufbau: kurze Erklärung → „Ein Beispiel aus dem Alltag“ → So funktioniert es → Was bedeutet das für Sie / So schützen Sie sich
 → Link zur passenden Anleitung. Wichtige Begriffe in Anleitungen auf ihren Lexikon-Eintrag verlinken.
 
