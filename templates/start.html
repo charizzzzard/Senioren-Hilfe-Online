@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% block titel %}{{ site.name }} – Smartphone, WhatsApp & Sicherheit einfach erklärt{% endblock %}
+{% block titel %}{{ site.name }} – Handy, WhatsApp & Sicherheit einfach erklärt{% endblock %}
 {% block main_klasse %}seite seite--breit{% endblock %}
 {% block inhalt %}
 <section class="held" aria-labelledby="held-titel">
@@ -23,11 +23,7 @@
     </ul>
   </div>
   <figure class="held__bild">
-    <img src="/img/hero-smartphone-hilfe-1200.webp"
-         srcset="/img/hero-smartphone-hilfe-640.webp 640w, /img/hero-smartphone-hilfe-1200.webp 1200w"
-         sizes="(min-width: 60rem) 32rem, 100vw"
-         width="1200" height="900" fetchpriority="high"
-         alt="Ein älterer Mann sitzt entspannt im Sessel und schaut lächelnd auf sein Smartphone.">
+    {% include "_held_szene.html" %}
   </figure>
 </section>
 
@@ -119,7 +115,7 @@
       <li><strong>Ein Problem, eine Lösung.</strong> Jede Anleitung beantwortet eine konkrete Alltagsfrage – Schritt für Schritt.</li>
       <li><strong>Offizielle Quellen.</strong> Wir stützen uns auf Polizei, Verbraucherzentralen, Behörden und die Hilfeseiten der Hersteller. Die Quellen stehen unter jedem Artikel.</li>
       <li><strong>Regelmäßig geprüft.</strong> Jede Anleitung zeigt, wann sie zuletzt mit ihren Quellen abgeglichen wurde.</li>
-      <li><strong>Keine Werbung, kein Tracking.</strong> Wir verkaufen nichts mit Angst und wir beobachten Sie nicht.</li>
+      <li><strong>In Ruhe lesen.</strong> Keine Werbebanner, keine Pop-ups, keine Cookies – nur die Anleitung, so lange Sie sie brauchen.</li>
     </ul>
     <p><a href="/ueber-netzleicht/">Mehr über Netzleicht und unsere Arbeitsweise</a></p>
   </div>

@@ -29,7 +29,8 @@ Belegtes Profil, Lesergruppen und Folgerungen: **`docs/ZIELGRUPPE.md`** (vor dem
 7. **Kein Tracking, keine Cookies, keine fremden Skripte/Fonts.** `tools/check.py` blockiert bekannte Tracker.
 8. **Transparenz:** Netzleicht sagt offen, dass Texte mit KI-Unterstützung entstehen (`/ueber-netzleicht/`).
 9. **Qualität vor Menge.** Höchstens 2 neue Anleitungen/Aktuell-Texte und 2 Lexikon-Einträge pro Woche,
-   dazu genau eine Ausgabe „Die Woche im Netz“ (freitags).
+   dazu genau eine Ausgabe „Die Woche im Netz“ (freitags). Ausnahme: Pakete, die der Betreiber ausdrücklich
+   beauftragt. Danach pausieren neue Texte, bis das Kontingent der letzten 7 Tage wieder frei ist.
    Massenhaft dünne Seiten verstoßen gegen Googles Richtlinien („scaled content abuse“) und gegen unser Versprechen.
 11. **Keine erfundenen Autoren.** Absender ist die „Netzleicht-Redaktion“. Keine erfundenen Personen als Autoren,
     Experten, Zitatgeber oder Erfahrungsberichte – Google wertet erfundene Autorenprofile ausdrücklich als Täuschung.
@@ -309,7 +310,10 @@ const { chromium } = require('playwright');
 3. Kurzer Blick auf Aktuelles: Gibt es eine neue, breit gemeldete Betrugsmasche (Verbraucherzentrale Phishing-Radar,
    BSI, Polizei) oder ein großes offizielles Update (Apple, Google, WhatsApp)? Wenn ja und gut belegbar: als
    „Aktuell erklärt“ vorziehen und im Themenplan ergänzen.
-4. Sonst nächstes Thema: höchste Priorität mit `status: offen` aus `content/themenplan.yaml`
+4. **Kontingent prüfen (Regel 9):** Wie viele Texte haben in den letzten 7 Tagen ein `veroeffentlicht`-Datum
+   (Anleitungen/Aktuell ohne Wochenschau; Lexikon getrennt)? Ist das Kontingent erreicht, keinen neuen Text schreiben,
+   sondern einen bestehenden verbessern (Wartungs-Session, Schritte 2–3) und das im PR begründen.
+   Sonst nächstes Thema: höchste Priorität mit `status: offen` aus `content/themenplan.yaml`
    (bei Gleichstand: höheres Suchvolumen). Vorher prüfen, dass es noch keinen Text dazu gibt.
    Pro Session ein Haupttext (Anleitung oder Aktuell) und – wenn Quellenlage und Zeit es erlauben – zusätzlich
    ein Lexikon-Eintrag aus dem Themenplan.

@@ -25,9 +25,12 @@ verwandt:
 
 „Phishing“ bedeutet: Jemand versucht, an Ihre Daten zu kommen – wie beim Angeln, nur mit Nachrichten als Köder. Passiert das per SMS, sprechen Fachleute von **Smishing**.
 
-## Ein Beispiel aus dem Alltag
-
-Till bekommt eine SMS: „Ihr Paket konnte nicht zugestellt werden. Bitte bestätigen Sie Ihre Adresse.“ Darunter steht ein Link. Er erwartet tatsächlich ein Paket und will schon tippen. Dann stutzt er: Warum kommt die Nachricht von einer unbekannten Handynummer?
+```szene
+figur: till
+geste: staunen
+text: >
+  Till bekommt eine SMS: „Ihr Paket konnte nicht zugestellt werden. Bitte bestätigen Sie Ihre Adresse.“ Darunter steht ein Link. Er erwartet tatsächlich ein Paket und will schon tippen. Dann stutzt er: Warum kommt die Nachricht von einer unbekannten Handynummer?
+```
 
 Genau das ist typisches Smishing. Die Verbraucherzentralen warnen vor solchen SMS von angeblichen Paketdiensten.
 

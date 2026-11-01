@@ -28,8 +28,10 @@ aufgaben:
     url: /artikel/betrugs-sms-erkennen/
   - text: Einen WhatsApp-Kontakt blockieren
     url: /artikel/whatsapp-kontakt-blockieren/
-  - text: Mein WhatsApp-Konto schützen
-    url: /artikel/whatsapp-konto-schuetzen/
+  - text: Ein Foto per WhatsApp verschicken
+    url: /artikel/whatsapp-bild-senden/
+  - text: Einen WhatsApp-Videoanruf machen
+    url: /artikel/whatsapp-videoanruf/
 
 # Reihenfolge = Reihenfolge in Navigation und Startseite.
 # Kategorien ohne Artikel werden automatisch ausgeblendet.
