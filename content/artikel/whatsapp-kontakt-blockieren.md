@@ -30,6 +30,7 @@ quellen:
     url: https://www.polizei-beratung.de/themen-und-tipps/betrug/messenger/
 verwandt:
   - whatsapp-betrug-erkennen
+  - betrug-was-tun
   - whatsapp-konto-schuetzen
 ---
 

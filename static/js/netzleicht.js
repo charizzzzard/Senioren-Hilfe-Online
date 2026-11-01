@@ -29,10 +29,19 @@
   }
 
   /* ---------------------------------------------- Schriftgröße */
-  function schriftSetzen(stufe) {
+  function schriftSetzen(stufe, leiste) {
     stufe = Math.max(0, Math.min(SCHRIFT_STUFEN.length - 1, stufe));
     document.documentElement.style.fontSize = (SCHRIFT_STUFEN[stufe] * 100) + "%";
     speicher.schreiben("nl-schrift", String(stufe));
+    if (leiste) {
+      /* An der kleinsten bzw. größten Stufe den jeweiligen Knopf sichtbar abschalten */
+      var kleiner = leiste.querySelector('[data-aktion="kleiner"]');
+      var groesser = leiste.querySelector('[data-aktion="groesser"]');
+      kleiner.disabled = stufe === 0;
+      groesser.disabled = stufe === SCHRIFT_STUFEN.length - 1;
+      kleiner.title = kleiner.disabled ? "Das ist die kleinste Stufe" : "";
+      groesser.title = groesser.disabled ? "Das ist die größte Stufe" : "";
+    }
     return stufe;
   }
 
@@ -61,7 +70,15 @@
     return abschnitte;
   }
 
-  function geraetZeigen(abschnitte, geraet, leiste) {
+  function geraetZeigen(abschnitte, geraet, leiste, artikel) {
+    /* Zeilen in „Kurz gesagt“ und Checkliste, die mit „iPhone“/„Android“/„Samsung“ beginnen (data-fuer) */
+    artikel.querySelectorAll("[data-fuer]").forEach(function (el) {
+      el.hidden = geraet !== "alle" && el.getAttribute("data-fuer") !== geraet;
+    });
+    var druck = artikel.querySelector("[data-druck-link]");
+    if (druck) {
+      druck.href = druck.href.replace(/&geraet=\w+/, "") + (geraet === "alle" ? "" : "&geraet=" + geraet);
+    }
     ["iphone", "android"].forEach(function (g) {
       abschnitte[g].forEach(function (el) {
         el.hidden = geraet !== "alle" && geraet !== g;
@@ -82,6 +99,14 @@
     if (!("speechSynthesis" in window)) { knopf.hidden = true; return; }
     var laeuft = false;
     var markiert = null;
+    var ruhig = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    /* Schwebender Stopp-Knopf: Die Leiste oben ist beim Vorlesen oft nicht mehr im Bild */
+    var stopp = document.createElement("button");
+    stopp.type = "button";
+    stopp.className = "vorlesen-stopp";
+    stopp.textContent = "■ Vorlesen anhalten";
+    stopp.hidden = true;
+    document.body.appendChild(stopp);
 
     function stimme() {
       var stimmen = window.speechSynthesis.getVoices();
@@ -101,7 +126,11 @@
       markiert = el;
       if (el) {
         el.classList.add("wird-vorgelesen");
-        el.scrollIntoView({ block: "center", behavior: "smooth" });
+        /* Nur scrollen, wenn der Absatz nicht schon gut sichtbar ist */
+        var r = el.getBoundingClientRect();
+        if (r.top < 80 || r.bottom > window.innerHeight - 100) {
+          el.scrollIntoView({ block: "center", behavior: ruhig ? "auto" : "smooth" });
+        }
       }
     }
     function anhalten() {
@@ -110,6 +139,7 @@
       markieren(null);
       knopf.setAttribute("aria-pressed", "false");
       knopf.textContent = "▶ Vorlesen";
+      stopp.hidden = true;
     }
     function sprechen(liste, i) {
       if (!laeuft || i >= liste.length) { anhalten(); return; }
@@ -132,9 +162,11 @@
       laeuft = true;
       knopf.setAttribute("aria-pressed", "true");
       knopf.textContent = "■ Vorlesen anhalten";
+      stopp.hidden = false;
       window.speechSynthesis.cancel();
       sprechen(bloecke(), 0);
     });
+    stopp.addEventListener("click", function () { anhalten(); knopf.focus({ preventScroll: true }); });
     window.addEventListener("pagehide", anhalten);
   }
 
@@ -326,6 +358,20 @@
     zeigen(0);
   }
 
+  /* ---------------------------------------------- E-Mail-Adresse kopieren (falls kein Mailprogramm eingerichtet ist) */
+  function kopierKnoepfe() {
+    document.querySelectorAll("[data-kopieren]").forEach(function (b) {
+      if (!navigator.clipboard || !window.isSecureContext) { return; }
+      b.hidden = false;
+      b.addEventListener("click", function () {
+        navigator.clipboard.writeText(b.getAttribute("data-kopieren")).then(function () {
+          b.textContent = "Kopiert ✓";
+          setTimeout(function () { b.textContent = "Adresse kopieren"; }, 2500);
+        }, function () { b.hidden = true; });
+      });
+    });
+  }
+
   /* ---------------------------------------------- Start */
   function start() {
     var gespeichert = parseInt(speicher.lesen("nl-schrift") || "0", 10) || 0;
@@ -333,14 +379,16 @@
     figurenBeleben();
     erklaerungen();
     echtCheck();
+    kopierKnoepfe();
 
     var leiste = document.querySelector(".lesehilfe");
     var artikel = document.querySelector("article.artikel");
     if (!leiste || !artikel) { return; }
     leiste.hidden = false;
 
-    leiste.querySelector('[data-aktion="kleiner"]').addEventListener("click", function () { stufe = schriftSetzen(stufe - 1); });
-    leiste.querySelector('[data-aktion="groesser"]').addEventListener("click", function () { stufe = schriftSetzen(stufe + 1); });
+    leiste.querySelector('[data-aktion="kleiner"]').addEventListener("click", function () { stufe = schriftSetzen(stufe - 1, leiste); });
+    leiste.querySelector('[data-aktion="groesser"]').addEventListener("click", function () { stufe = schriftSetzen(stufe + 1, leiste); });
+    stufe = schriftSetzen(stufe, leiste);
     vorleser(artikel, leiste.querySelector('[data-aktion="vorlesen"]'));
 
     var rumpf = artikel.querySelector(".artikel__rumpf");
@@ -350,9 +398,9 @@
       if (abschnitte.iphone.length && abschnitte.android.length && gruppe) {
         gruppe.hidden = false;
         gruppe.querySelectorAll("[data-geraet]").forEach(function (b) {
-          b.addEventListener("click", function () { geraetZeigen(abschnitte, b.getAttribute("data-geraet"), leiste); });
+          b.addEventListener("click", function () { geraetZeigen(abschnitte, b.getAttribute("data-geraet"), leiste, artikel); });
         });
-        geraetZeigen(abschnitte, speicher.lesen("nl-geraet") || "alle", leiste);
+        geraetZeigen(abschnitte, speicher.lesen("nl-geraet") || "alle", leiste, artikel);
       }
       var schritte = rumpf.querySelectorAll("ol:not(.klickpfad):not(.inhalt ol) > li");
       if (schritte.length) { abhaken(Array.prototype.slice.call(schritte), rumpf.querySelector("ol:not(.klickpfad)")); }

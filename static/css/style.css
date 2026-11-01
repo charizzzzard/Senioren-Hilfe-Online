@@ -68,10 +68,13 @@ a {
 }
 a:hover { color: var(--blau-dunkel); text-decoration-thickness: 0.13em; }
 
+/* Fokusrahmen in Tinte: ca. 15:1 gegen Papier (WCAG verlangt mind. 3:1). Der helle Innenring
+   hält den Rahmen auch an dunklen Knöpfen sichtbar. */
 :focus-visible {
-  outline: 3px solid #e09a00;
+  outline: 3px solid var(--tinte);
   outline-offset: 3px;
   border-radius: 3px;
+  box-shadow: 0 0 0 3px #fff;
 }
 
 h1, h2, h3 {
@@ -250,8 +253,37 @@ small { font-size: 0.85em; }
   padding: 0.5rem 0 1.5rem;
   border-bottom: 1px solid var(--linie);
 }
-.held h1 { font-size: clamp(2.1rem, 1.4rem + 3vw, 3.5rem); margin-bottom: 0.4em; }
-.held__lead { font-size: 1.15em; color: var(--tinte-leise); max-width: 36rem; }
+.held h1 { font-size: clamp(1.85rem, 1.3rem + 2.2vw, 2.9rem); margin-bottom: 0.35em; hyphens: manual; -webkit-hyphens: manual; }
+.held__lead { font-size: 1.1em; color: var(--tinte-leise); max-width: 36rem; margin-bottom: 1rem; }
+
+/* „Was möchten Sie tun?“ – große, klar beschriftete Einstiege (mind. 48 px hoch) */
+.aufgaben { margin: 0 0 1.2rem; }
+.aufgaben__titel {
+  margin: 0 0 0.4rem;
+  font-family: var(--sans);
+  font-size: 0.85rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--rot);
+}
+.aufgaben ul { list-style: none; margin: 0; padding: 0; border-top: 2px solid var(--tinte); }
+.aufgaben li { margin: 0; border-bottom: 1px solid var(--linie); }
+.aufgaben a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  min-height: 3rem;
+  padding: 0.45rem 0.2rem;
+  color: var(--tinte);
+  font-family: var(--sans);
+  font-size: 1.08rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+.aufgaben a::after { content: "›"; font-size: 1.5rem; line-height: 1; color: var(--rot); }
+.aufgaben a:hover { background: var(--papier-hell); text-decoration: underline; }
 .held__bild { margin: 0; }
 .held__bild img { border: 1px solid var(--linie); }
 .held__bild figcaption, .bildunterschrift {
@@ -996,6 +1028,7 @@ small { font-size: 0.85em; }
 }
 .lesehilfe button:hover { background: var(--papier); }
 .lesehilfe button[aria-pressed="true"] { background: var(--tinte); color: #fff; }
+.lesehilfe button:disabled { opacity: 0.4; cursor: default; background: transparent; }
 
 .wird-vorgelesen {
   background: #fff3c4;
@@ -1010,7 +1043,7 @@ small { font-size: 0.85em; }
   color: var(--tinte-leise);
 }
 .abhakbar { cursor: pointer; }
-.abhakbar:focus-visible { outline: 3px solid #e09a00; outline-offset: 4px; }
+.abhakbar:focus-visible { outline: 3px solid var(--tinte); outline-offset: 4px; }
 .artikel__rumpf ol > li.erledigt::before { content: "✓"; background: var(--tipp); }
 .checkliste li.erledigt::before { content: "✓"; display: grid; place-items: center; color: #fff; background: var(--tipp); border-color: var(--tipp); font-family: var(--sans); font-weight: 800; font-size: 0.9rem; }
 
@@ -1133,7 +1166,7 @@ a.begriff {
   border: 2px solid var(--tinte);
   border-left-width: 10px;
 }
-.echt-ergebnis:focus { outline: 3px solid #e09a00; outline-offset: 3px; }
+.echt-ergebnis:focus { outline: 3px solid var(--tinte); outline-offset: 3px; }
 .echt-ergebnis--rot { border-left-color: #b3261e; background: #fbeae7; }
 .echt-ergebnis--gelb { border-left-color: #c98a00; background: var(--warnung-hell); }
 .echt-ergebnis--gruen { border-left-color: var(--tipp); background: var(--tipp-hell); }
@@ -1167,3 +1200,41 @@ a.begriff {
 /* Lange deutsche Wörter (z. B. „Rentenversicherungs-Mails“) dürfen in Überschriften
    trennen bzw. umbrechen – sonst entsteht auf schmalen Handys seitliches Scrollen. */
 h1, h2, h3 { overflow-wrap: break-word; hyphens: auto; -webkit-hyphens: auto; }
+
+/* ------------------------------------------------ Vorlesen: Stopp-Knopf, solange vorgelesen wird */
+.vorlesen-stopp {
+  position: fixed;
+  left: 50%;
+  bottom: max(1rem, env(safe-area-inset-bottom));
+  transform: translateX(-50%);
+  z-index: 40;
+  min-height: 3.2rem;
+  padding: 0.6rem 1.4rem;
+  border: 2px solid #fff;
+  border-radius: 999px;
+  background: var(--tinte);
+  color: #fff;
+  font-family: var(--sans);
+  font-size: 1.05rem;
+  font-weight: 700;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+}
+@media print { .vorlesen-stopp { display: none !important; } }
+
+/* ------------------------------------------------ Rückmeldung: Adresse sichtbar und kopierbar */
+.rueckmeldung__adresse { margin: 0.8rem 0 0; font-family: var(--sans); }
+.rueckmeldung__adresse strong { font-size: 1.05em; overflow-wrap: anywhere; }
+.kopieren {
+  min-height: 44px;
+  margin-left: 0.4rem;
+  padding: 0.3rem 0.9rem;
+  border: 2px solid var(--tinte);
+  border-radius: 3px;
+  background: #fff;
+  color: var(--tinte);
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+.kopieren:hover { background: var(--papier); }

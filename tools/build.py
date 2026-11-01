@@ -78,6 +78,26 @@ def datum_de(d: dt.date) -> str:
     return f"{d.day}. {MONATE[d.month - 1]} {d.year}"
 
 
+GERAET_PRAEFIX = re.compile(r"^\s*(?:<[^>]+>\s*)*(iPhone|Android|Samsung)\b")
+
+
+def geraet_von(text: str) -> str:
+    """Ordnet eine Zeile aus „Kurz gesagt“ oder der Checkliste einem Gerät zu.
+    „iPhone: …“ → iphone, „Android …“/„Samsung …“ → android, sonst "" (gilt für alle).
+    Der Gerätefilter der Lesehilfe blendet damit auch diese Zeilen passend aus."""
+    m = GERAET_PRAEFIX.match(str(text))
+    if not m:
+        return ""
+    return "iphone" if m.group(1) == "iPhone" else "android"
+
+
+def kurz_geraete_markieren(html: str) -> str:
+    def ersetze(m: re.Match) -> str:
+        g = geraet_von(m.group(2))
+        return f'<{m.group(1)} data-fuer="{g}">{m.group(2)}' if g else m.group(0)
+    return re.sub(r"<(p|li)>(.*?)(?=</\1>)", ersetze, html, flags=re.S)
+
+
 def lese_frontmatter(pfad: Path) -> tuple[dict, str]:
     text = pfad.read_text(encoding="utf-8")
     if not text.startswith("---\n"):
@@ -333,7 +353,8 @@ def lade_texte(site: dict, bereich: str) -> list[Artikel]:
         html = md.convert(komponenten(rumpf, pfad.name))
         toc = [t for t in md.toc_tokens if t["level"] == 2]
         # Jede Zeile im Feld kurz_gesagt wird ein eigener Absatz bzw. Listenpunkt
-        kurz_html = neues_markdown().convert(str(meta["kurz_gesagt"]).strip().replace("\n", "\n\n"))
+        kurz_html = kurz_geraete_markieren(
+            neues_markdown().convert(str(meta["kurz_gesagt"]).strip().replace("\n", "\n\n")))
         artikel.append(Artikel(pfad.stem, pfad, meta, html, toc, text_woerter(html), kurz_html, bereich))
     if bereich != "artikel":
         artikel.sort(key=lambda a: a.begriff.lower())
@@ -481,6 +502,7 @@ def build(out: Path) -> dict:
         lstrip_blocks=True,
     )
     env.filters["datum"] = datum_de
+    env.filters["geraet"] = geraet_von
     heute = dt.date.today()
     basis = {
         "site": site,

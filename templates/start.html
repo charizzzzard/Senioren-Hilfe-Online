@@ -4,8 +4,18 @@
 {% block inhalt %}
 <section class="held" aria-labelledby="held-titel">
   <div class="held__text">
-    <h1 id="held-titel">Digitales einfach erklärt.<br>Ruhig und Schritt für Schritt.</h1>
-    <p class="held__lead">Anleitungen rund um Smartphone, WhatsApp und Sicherheit im Internet – für ältere Menschen und alle, die ihnen helfen. Verständlich geschrieben, mit offiziellen Quellen geprüft und zum Ausdrucken.</p>
+    <h1 id="held-titel">Digitales einfach erklärt. Ruhig und Schritt für Schritt.</h1>
+    <p class="held__lead">Anleitungen zu Smartphone, WhatsApp und Sicherheit – für ältere Menschen und alle, die ihnen helfen.</p>
+    {% if site.aufgaben %}
+    <nav class="aufgaben" aria-labelledby="aufgaben-titel">
+      <h2 id="aufgaben-titel" class="aufgaben__titel">Was möchten Sie tun?</h2>
+      <ul>
+        {% for t in site.aufgaben %}
+        <li><a href="{{ t.url }}">{{ t.text }}</a></li>
+        {% endfor %}
+      </ul>
+    </nav>
+    {% endif %}
     <ul class="merkmale" aria-label="Was Netzleicht ausmacht">
       <li>Ohne Fachchinesisch</li>
       <li>Geprüfte Quellen</li>
@@ -108,7 +118,7 @@
     <ul class="vertrauen__liste">
       <li><strong>Ein Problem, eine Lösung.</strong> Jede Anleitung beantwortet eine konkrete Alltagsfrage – Schritt für Schritt.</li>
       <li><strong>Offizielle Quellen.</strong> Wir stützen uns auf Polizei, Verbraucherzentralen, Behörden und die Hilfeseiten der Hersteller. Die Quellen stehen unter jedem Artikel.</li>
-      <li><strong>Regelmäßig geprüft.</strong> Jede Anleitung zeigt, wann sie zuletzt geprüft wurde.</li>
+      <li><strong>Regelmäßig geprüft.</strong> Jede Anleitung zeigt, wann sie zuletzt mit ihren Quellen abgeglichen wurde.</li>
       <li><strong>Keine Werbung, kein Tracking.</strong> Wir verkaufen nichts mit Angst und wir beobachten Sie nicht.</li>
     </ul>
     <p><a href="/ueber-netzleicht/">Mehr über Netzleicht und unsere Arbeitsweise</a></p>

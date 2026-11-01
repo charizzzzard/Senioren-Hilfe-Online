@@ -5,4 +5,6 @@
   <p class="teilen__knoepfe">
     <a class="knopf knopf--zweit" href="mailto:{{ site.kontakt }}?subject={{ betreff | urlencode }}&amp;body={{ mailtext | urlencode }}">Hinweis an die Redaktion</a>
   </p>
+  <p class="rueckmeldung__adresse">Öffnet sich kein E-Mail-Programm? Schreiben Sie einfach an <strong>{{ site.kontakt }}</strong>
+    <button type="button" class="kopieren" data-kopieren="{{ site.kontakt }}" hidden>Adresse kopieren</button></p>
 </section>

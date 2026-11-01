@@ -16,7 +16,7 @@
     <p class="artikel__rubrik">Digital-Lexikon</p>
     <h1>{{ eintrag.titel }}</h1>
     <p class="artikel__meta">
-      Zuletzt geprüft am <time datetime="{{ eintrag.geprueft.isoformat() }}">{{ eintrag.geprueft | datum }}</time>
+      Quellen geprüft am <time datetime="{{ eintrag.geprueft.isoformat() }}">{{ eintrag.geprueft | datum }}</time>
       <span aria-hidden="true">·</span> Lesezeit ca. {{ eintrag.lesezeit }} Minuten
     </p>
     {% include "_lesehilfe.html" %}
@@ -33,7 +33,7 @@
 
   <section class="quellen" aria-labelledby="quellen-titel">
     <h2 id="quellen-titel">Quellen und Prüfung</h2>
-    <p>Diese Erklärung stützt sich auf folgende Quellen. Zuletzt inhaltlich geprüft am {{ eintrag.geprueft | datum }}.</p>
+    <p>Diese Erklärung stützt sich auf folgende Quellen. Geprüft heißt bei uns: Jede Aussage wurde am {{ eintrag.geprueft | datum }} mit diesen Quellen abgeglichen.</p>
     <ul>
       {% for q in eintrag.quellen %}
       <li>{{ q.herausgeber }}: <a href="{{ q.url }}">{{ q.titel }}</a></li>
