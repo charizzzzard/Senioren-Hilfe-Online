@@ -115,8 +115,12 @@ kategorie: sicherheit           # **sicherheit | whatsapp | smartphone | angehoe
 veroeffentlicht: 2026-10-30     # **Datum der Erstveröffentlichung**
 aktualisiert: 2026-10-30        # **letzte inhaltliche Änderung**
 geprueft: 2026-10-30            # **letzte Prüfung gegen die Quellen** – nur ändern, wenn wirklich geprüft
+getestet: "iPhone 15, iOS 27.1 (5.11.2026)"  # optional: NUR wenn die Schritte wirklich auf einem Gerät ausgeführt
+                                #   wurden (in der Regel vom Betreiber). Claude setzt das Feld nie ohne echten Test.
 schnelle_hilfe: true            # optional: erscheint im Notfall-Kasten der Startseite
 kurz_gesagt: |                  # **2–4 Zeilen, jede Zeile wird ein Absatz; die Antwort für Eilige**
+                                #   Zeilen, die mit „**iPhone:**“ / „**Android:**“ / „Samsung“ beginnen, blendet der
+                                #   Gerätefilter passend ein und aus – ebenso Checklisten-Punkte mit „iPhone …“/„Android …“.
   …
 checkliste_titel: "…"
 checkliste:                     # 5–10 Punkte, Ich-Form, druckbar; Doppelpunkt im Text → in "…" setzen
@@ -127,7 +131,8 @@ quellen:                        # **mind. 2, besser 3–6; nur https**
   - herausgeber: Polizeiliche Kriminalprävention der Länder und des Bundes
     titel: Messenger-Betrug
     url: https://…
-verwandt: [slug-a, slug-b]      # optional, wird mit Artikeln derselben Kategorie auf 3 aufgefüllt
+verwandt: [slug-a, slug-b]      # optional, wird mit Artikeln derselben Kategorie auf 3 aufgefüllt;
+                                #   bevorzugt den sinnvollen NÄCHSTEN Schritt (nach Betrugsnachricht: blockieren, Notfallplan)
 alte_urls: [/artikel/alt/]      # optional: erzeugt Weiterleitungen nach Umbenennung
 entwurf: true                   # optional: wird nicht gebaut
 ---
@@ -135,11 +140,15 @@ entwurf: true                   # optional: wird nicht gebaut
 
 ### Aufbau
 
-1. **Einstieg** (2–4 Sätze): Situation des Lesers aufgreifen, beruhigen, Lösung ankündigen.
+1. **Einstieg** (2–4 Sätze): Situation des Lesers aufgreifen, beruhigen, Lösung ankündigen –
+   mit einem klaren **Ziel-Satz** („Danach können Sie …“).
 2. **Erklärung**, falls nötig („So läuft die Masche ab“, „Was … bewirkt“).
 3. **Schritt-für-Schritt** als nummerierte Liste – ein Handgriff pro Schritt, Menünamen **fett** in „…“.
    Bei Geräten getrennte Abschnitte `### Auf dem iPhone` / `### Auf einem Android-Handy`.
-4. **Was tun, wenn es nicht klappt / schon passiert ist.**
+   Nach den Schritten den **Sollzustand** nennen („Sie sehen jetzt …“), soweit die Quelle ihn beschreibt –
+   so merken Leser, dass es geklappt hat.
+4. **Was tun, wenn es nicht klappt / schon passiert ist** – inkl. „Bei mir sieht es anders aus“
+   (andere Version, anderer Hersteller) und dem **Rückweg** (wie man es rückgängig macht).
 5. **Vorbeugen** (wo sinnvoll).
 6. **Kasten „Für Angehörige“** am Ende.
 
@@ -246,7 +255,9 @@ Netzleicht klingt wie eine erfahrene, geduldige Bekannte, die gut erklären kann
 - Fachbegriffe vermeiden oder sofort erklären („Smishing – ein Kunstwort aus SMS und Phishing“).
 - Konkret statt allgemein: „Rufen Sie unter der alten Nummer an“ statt „Verifizieren Sie den Kontakt“.
 - Deutsche Anführungszeichen „…“. Interne Links immer absolut: `/artikel/slug/`.
-- 600–1.500 Wörter; Minimum 450 (Prüfung).
+- 600–1.500 Wörter; Minimum 450 (Prüfung). Länge entsteht aus Sollzustand, Fehlerfällen, Rückweg, Vorbeugen
+  und dem Angehörigen-Kasten – **nie aus Füllsätzen**. Reicht das Thema dafür nicht, ist es eher ein Abschnitt
+  in einem bestehenden Artikel oder ein Lexikon-Eintrag.
 - Jeder Artikel verlinkt im Text auf mindestens einen passenden Artikel; bei Betrug immer auf `/artikel/betrug-was-tun/`.
 
 ### Gestaltung (Papier- und Zeitungsoptik)
@@ -344,6 +355,9 @@ und keine Einzelberatung. Der Betreiber liest das Postfach. Damit Claude helfen 
   Jede Frage, jeder Hinweis und jeder Rat muss durch eine Quelle in der Datei gedeckt sein. Neue Anleitungen zu Betrug
   dort unter `weiterlesen` beim passenden Weg verlinken. Die Ampel-Logik nur ändern, wenn eine Quelle es nahelegt.
 - **Erklärkästchen**: entstehen automatisch aus Lexikon-Einträgen mit `stichwoerter` (Abschnitt 5).
+- **„Was möchten Sie tun?“** auf der Startseite (`aufgaben` in `content/site.yaml`, 4–6 Einträge): als Tätigkeit
+  formulieren („Die Schrift am Handy größer stellen“). Nach neuen Anleitungen prüfen, ob eine häufiger gesuchte
+  Aufgabe (Suchvolumen im Themenplan) einen Platz verdient.
 - **Checklisten-Blätter und PDFs**: entstehen automatisch aus `checkliste`. Nach neuen Artikeln mit langer Checkliste
   prüfen, dass das Blatt auf eine A4-Seite passt (`node tools/pdf.mjs` meldet die PDFs; im Zweifel Punkte kürzen).
 

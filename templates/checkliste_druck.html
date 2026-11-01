@@ -10,6 +10,15 @@
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="/css/druck.css?v={{ druck_css_version }}">
   <script>
+    /* ?geraet=iphone|android: nur die Punkte für dieses Handy (vom Gerätefilter der Anleitung übergeben) */
+    var geraet = (/[?&]geraet=(iphone|android)\b/.exec(location.search) || [])[1];
+    if (geraet) {
+      document.addEventListener("DOMContentLoaded", function () {
+        document.querySelectorAll("[data-fuer]").forEach(function (li) {
+          if (li.getAttribute("data-fuer") !== geraet) { li.remove(); }
+        });
+      });
+    }
     if (/[?&]drucken=1/.test(location.search)) {
       window.addEventListener("load", function () {
         (document.fonts ? document.fonts.ready : Promise.resolve()).then(function () { setTimeout(function () { window.print(); }, 300); });
@@ -39,7 +48,7 @@
 
     <ul class="blatt__liste">
       {% for punkt in artikel.checkliste %}
-      <li><span class="kasten" aria-hidden="true"></span><span>{{ punkt }}</span></li>
+      <li{% if punkt | geraet %} data-fuer="{{ punkt | geraet }}"{% endif %}><span class="kasten" aria-hidden="true"></span><span>{{ punkt }}</span></li>
       {% endfor %}
     </ul>
 
@@ -62,7 +71,7 @@
       <div>
         <p><strong>Die ganze Anleitung mit allen Schritten:</strong><br>netzleicht.de{{ artikel.url }}</p>
         <p>Tipp: Halten Sie die Handy-Kamera auf den Code und tippen Sie auf den Link, der erscheint.</p>
-        <p class="blatt__stand">Stand: zuletzt geprüft am {{ artikel.geprueft | datum }} · {{ site.name }} – werbefrei und unabhängig</p>
+        <p class="blatt__stand">Stand: Quellen geprüft am {{ artikel.geprueft | datum }} · {{ site.name }} – werbefrei und unabhängig</p>
       </div>
     </footer>
   </main>

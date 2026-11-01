@@ -19,7 +19,7 @@
     <p class="artikel__rubrik">{% if artikel.meta.get("reihe") == "wochenschau" %}Die Woche im Netz{% else %}{{ kategorie.name }}{% endif %}{% if artikel.kategorie == "aktuell" %} · {{ artikel.veroeffentlicht | datum }}{% endif %}</p>
     <h1>{{ artikel.titel }}</h1>
     <p class="artikel__meta">
-      Zuletzt geprüft am <time datetime="{{ artikel.geprueft.isoformat() }}">{{ artikel.geprueft | datum }}</time>
+      Quellen geprüft am <time datetime="{{ artikel.geprueft.isoformat() }}">{{ artikel.geprueft | datum }}</time>
       <span aria-hidden="true">·</span> Lesezeit ca. {{ artikel.lesezeit }} Minuten
     </p>
     {% include "_lesehilfe.html" %}
@@ -62,12 +62,12 @@
     <h2 id="checkliste-titel">{{ artikel.meta.get("checkliste_titel") or "Checkliste zum Ausdrucken" }}</h2>
     <ul>
       {% for punkt in artikel.checkliste %}
-      <li>{{ punkt }}</li>
+      <li{% if punkt | geraet %} data-fuer="{{ punkt | geraet }}"{% endif %}>{{ punkt }}</li>
       {% endfor %}
     </ul>
     <p class="nur-druck">Quelle: {{ site.url | replace("https://", "") }}{{ artikel.url }} · Stand: {{ artikel.geprueft | datum }}</p>
     <p class="checkliste__knoepfe nicht-drucken">
-      <a class="knopf" href="{{ artikel.url }}checkliste/?drucken=1">Nur die Checkliste drucken</a>
+      <a class="knopf" href="{{ artikel.url }}checkliste/?drucken=1" data-druck-link>Nur die Checkliste drucken</a>
       <a class="knopf knopf--zweit" href="/checklisten/{{ artikel.slug }}.pdf" download="Netzleicht-Checkliste-{{ artikel.slug }}.pdf">Als PDF herunterladen</a>
     </p>
   </section>
@@ -75,7 +75,7 @@
 
   <section class="quellen" aria-labelledby="quellen-titel">
     <h2 id="quellen-titel">Quellen und Prüfung</h2>
-    <p>Diese Anleitung stützt sich auf folgende Quellen. Zuletzt inhaltlich geprüft am {{ artikel.geprueft | datum }}.</p>
+    <p>Diese Anleitung stützt sich auf folgende Quellen. Geprüft heißt bei uns: Jeder Schritt und jede Aussage wurde am {{ artikel.geprueft | datum }} mit diesen Quellen abgeglichen.{% if artikel.meta.get("getestet") %} Zusätzlich auf einem Gerät ausprobiert: {{ artikel.meta.get("getestet") }}.{% endif %}</p>
     <ul>
       {% for q in artikel.quellen %}
       <li>{{ q.herausgeber }}: <a href="{{ q.url }}">{{ q.titel }}</a></li>

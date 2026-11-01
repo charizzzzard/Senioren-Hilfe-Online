@@ -43,7 +43,28 @@ Rankings ändern sich laufend – vor einem neuen Text bei Bedarf die Suchergebn
    sondern mit Verständlichkeit und indem wir diese Stellen als Quelle verlinken. Ranking-Erwartung dort niedrig halten.
 5. **Nachrichtenthemen** (neue Funktionen, Maschen der Woche) gehören in „Die Woche im Netz“, nicht in Dauertexte.
 
+## Weitere Hilfsangebote für ältere Menschen (nicht nur Google)
+
+Aus einem externen Audit vom 1. November 2026 (vom Betreiber bereitgestellt; Angaben dort mit Quellen belegt,
+hier nicht erneut geprüft). Beschreibt Angebot und Positionierung, nicht Reichweite oder Rankings.
+
+| Angebot | Stärke | Folgerung für uns |
+| --- | --- | --- |
+| Digital-Kompass | Ausführliche PDF-Anleitungen (z. B. WhatsApp), Lernmaterial | „Zum Ausdrucken“ allein unterscheidet uns nicht – wir punkten mit *einer* Aufgabe pro Seite, schnell auffindbar. |
+| Digitaler Engel | Android-/iPhone-Videos, Schaubilder | Eher Partner und Quelle als Konkurrent; kurze, klar begrenzte Hilfen anbieten. |
+| Silver Tipps | Breites Angebot mit Mediathek, Glossar, Newsletter | Wir bleiben enger: einzelne Handgriffe, gerätegenau, mit Sollzustand. |
+| Levato | Bezahlte Handy-Kurse mit Video-Lernpfaden | Freie Einzelhilfe ohne Kurs-Einstieg ist unser prüfbarer Vorteil; Videomenge nicht kopieren. |
+
+Positionierung, die daraus folgt (zu prüfen an echter Nutzung): **Eine konkrete Handyfrage selbst lösen – mit Schritten
+für das eigene Gerät und einem Spickzettel zum Aufheben.** Fortschritt messen wir an Search-Console-Daten je Aufgabe
+und – sobald möglich – an kleinen, beobachteten Nutzertests (Entscheidung beim Betreiber).
+
 ## Empfohlene Reihenfolge (Ergänzung zum Themenplan)
 
 1. WhatsApp-Status · 2. WhatsApp-Backup · 3. WhatsApp-Nachricht löschen · 4. WLAN-Passwort anzeigen und teilen ·
 5. Screenshot iPhone · 6. Lexikon „Deepfake“ · 7. Drittanbietersperre · 8. QR-Code scannen
+
+Ergänzung 1.11.2026 (Audit + Suchdaten): Die Serie **Bild verschicken (2.400) · Sprachnachricht (2.900) · Videoanruf (3.600)**
+steht ebenfalls auf Priorität 1. Sie macht das Angebot ausgewogener (bisher drehen sich 6 von 7 Anleitungen um Schutz,
+Betrug oder unerwünschte Kontakte) und zahlt
+auf die Positionierung „selbst etwas erledigen“ ein.

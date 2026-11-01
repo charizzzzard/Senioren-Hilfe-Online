@@ -18,7 +18,8 @@ Wir gehen davon aus, dass niemand „zu alt für Technik“ ist. Oft fehlt nur e
 - **Offizielle Quellen zuerst.** Wir stützen uns auf Polizei, Verbraucherzentralen, Behörden wie das Bundesamt für Sicherheit in der Informationstechnik (BSI) und die Hilfeseiten der Hersteller, zum Beispiel Apple, Google oder WhatsApp. Die Quellen stehen unter jeder Anleitung.
 - **Menüs werden geprüft.** Bevor wir einen Weg wie „Einstellungen › Konto“ beschreiben, gleichen wir ihn mit der aktuellen Hilfeseite des Herstellers ab.
 - **Mit KI-Unterstützung.** Unsere Texte werden mit Unterstützung von künstlicher Intelligenz recherchiert und geschrieben. Jede Anleitung durchläuft automatische Prüfungen, etwa auf Quellen, Aktualität und Verständlichkeit. Die redaktionelle Verantwortung trägt der im [Impressum](/impressum/) genannte Herausgeber.
-- **Regelmäßig überprüft.** Jede Anleitung zeigt oben, wann sie zuletzt geprüft wurde. Wir kontrollieren unsere Quellen regelmäßig und passen die Texte an, wenn sich etwas ändert.
+- **Regelmäßig überprüft.** Jede Anleitung zeigt oben, wann wir sie zuletzt mit ihren Quellen abgeglichen haben. Wir kontrollieren unsere Quellen regelmäßig und passen die Texte an, wenn sich etwas ändert.
+- **Ehrlich, was geprüft ist.** „Geprüft“ heißt bei uns: mit den Hilfeseiten der Hersteller und den offiziellen Quellen abgeglichen. Haben wir eine Anleitung zusätzlich auf einem echten Handy ausprobiert, steht das mit Gerät und Version bei den Quellen.
 
 ## Wer hinter Netzleicht steht
 

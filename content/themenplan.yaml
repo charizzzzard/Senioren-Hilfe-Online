@@ -351,6 +351,15 @@ themen:
     kd: 4
     prioritaet: 1
     status: offen
+    notiz: "Serie positive Alltagsthemen (Bild, Sprachnachricht, Videoanruf; externes Audit 11/2026). Symbol erklären, Kamera wechseln, Gespräch beenden; Sollzustand zeigen."
+  - titel: "WhatsApp: Foto oder Bild verschicken – Schritt für Schritt"
+    kategorie: whatsapp
+    keyword: whatsapp bild senden
+    suchvolumen: 2400
+    kd: 0
+    prioritaet: 1
+    status: offen
+    notiz: "whatsapp bilder verschicken: 1300 / KD 0 (OpenSEO 01.11.2026). Serie positive Alltagsthemen. Kamera oder Galerie, ein Bild auswählen, Sollzustand „Das Bild steht im Chat“. Quelle WhatsApp-FAQ je Plattform."
   - titel: Drittanbietersperre einrichten – Abofallen auf der Handyrechnung verhindern
     kategorie: sicherheit
     keyword: drittanbietersperre
@@ -377,6 +386,14 @@ themen:
     status: offen
     notiz: "notfallinformationen android: 50. Nur Bedienung erklären, keine medizinischen Ratschläge."
 
+  - titel: Handy mit dem WLAN verbinden (iPhone und Android)
+    kategorie: smartphone
+    keyword: handy mit wlan verbinden
+    suchvolumen: 390
+    kd: 0
+    prioritaet: 2
+    status: offen
+    notiz: "OpenSEO 01.11.2026. Netzname wählen, Passwort eingeben, „verbunden“ erkennen; häufige Fehler. Mit „WLAN-Passwort anzeigen“ verlinken."
   - titel: QR-Code mit dem Handy scannen
     kategorie: smartphone
     keyword: qr code scannen
@@ -468,8 +485,9 @@ themen:
     keyword: whatsapp sprachnachricht
     suchvolumen: 2900
     kd: 2
-    prioritaet: 2
+    prioritaet: 1
     status: offen
+    notiz: "whatsapp sprachnachricht aufnehmen: 140 (OpenSEO 01.11.2026). Serie positive Alltagsthemen. Gedrückt halten, abbrechen, anhören; ggf. kleine Demonstration, die Leser selbst starten."
   - titel: WhatsApp-Gruppe verlassen oder stumm schalten
     kategorie: whatsapp
     keyword: whatsapp gruppe verlassen

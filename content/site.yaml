@@ -16,6 +16,21 @@ indexierung: true
 # Schlüssel für IndexNow (Bing, Yandex u. a.). Die Datei /<schluessel>.txt wird automatisch erzeugt.
 indexnow_schluessel: 5716e1b9b1f5eb67d5b0faa6a71a301d
 
+# „Was möchten Sie tun?“ – direkte Einstiege ganz oben auf der Startseite (4–6 Aufgaben).
+# In der Sprache der Leser formulieren (Tätigkeit, nicht Thema). Bei neuen Anleitungen prüfen,
+# ob eine häufigere Aufgabe einen Platz verdient.
+aufgaben:
+  - text: Die Schrift am Handy größer stellen
+    url: /artikel/schrift-groesser-stellen/
+  - text: Prüfen, ob eine Nachricht oder ein Anruf echt ist
+    url: /ist-das-echt/
+  - text: Eine Betrugs-SMS erkennen
+    url: /artikel/betrugs-sms-erkennen/
+  - text: Einen WhatsApp-Kontakt blockieren
+    url: /artikel/whatsapp-kontakt-blockieren/
+  - text: Mein WhatsApp-Konto schützen
+    url: /artikel/whatsapp-konto-schuetzen/
+
 # Reihenfolge = Reihenfolge in Navigation und Startseite.
 # Kategorien ohne Artikel werden automatisch ausgeblendet.
 kategorien:
