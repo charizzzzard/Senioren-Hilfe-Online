@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+{% block titel %}{{ check.seo_titel }}{% endblock %}
+{% block beschreibung %}{{ check.beschreibung }}{% endblock %}
+{% block inhalt %}
+<nav class="brotkrumen" aria-label="Sie sind hier">
+  <a href="/">Startseite</a> <span aria-hidden="true">›</span> <span aria-current="page">Ist das echt?</span>
+</nav>
+<article class="text artikel echt-check-seite">
+  <header class="artikel__kopf">
+    <p class="artikel__rubrik">Selbst prüfen</p>
+    <h1>{{ check.titel }}</h1>
+  </header>
+
+  {{ szene_html | safe }}
+
+  <p class="lead">Sie haben eine merkwürdige Nachricht bekommen, oder jemand hat seltsam angerufen? Beantworten Sie ein paar kurze Fragen. Am Ende sagen wir Ihnen klar, was wir an Ihrer Stelle tun würden.</p>
+  <p class="klein">Der Check läuft nur in Ihrem Browser. Ihre Antworten werden nicht gespeichert und nicht verschickt.</p>
+
+  <form class="echt-check" id="echt-check" novalidate>
+    <fieldset class="echt-check__schritt" data-schritt="weg">
+      <legend><span class="echt-check__zaehler"></span>Wie hat man Sie erreicht?</legend>
+      {% for w in check.wege %}
+      <label class="echt-check__wahl"><input type="radio" name="weg" value="{{ w.id }}"> <span>{{ w.name }}</span></label>
+      {% endfor %}
+    </fieldset>
+    {% for f in check.fragen %}
+    <fieldset class="echt-check__schritt" data-schritt="{{ f.id }}">
+      <legend><span class="echt-check__zaehler"></span>{{ f.frage }}</legend>
+      <p class="echt-check__hinweis">{{ f.hinweis }}</p>
+      <div class="echt-check__antworten">
+        <label class="echt-check__wahl"><input type="radio" name="{{ f.id }}" value="ja"> <span>Ja</span></label>
+        <label class="echt-check__wahl"><input type="radio" name="{{ f.id }}" value="nein"> <span>Nein</span></label>
+        <label class="echt-check__wahl"><input type="radio" name="{{ f.id }}" value="unsicher"> <span>Weiß nicht</span></label>
+      </div>
+    </fieldset>
+    {% endfor %}
+    <div class="echt-check__steuerung" hidden>
+      <button type="button" class="knopf knopf--zweit" data-echt="zurueck">‹ Zurück</button>
+      <button type="button" class="knopf" data-echt="weiter">Weiter ›</button>
+    </div>
+  </form>
+
+  <section class="echt-ergebnis" id="echt-ergebnis" tabindex="-1" aria-live="polite" hidden>
+    <p class="rubrik">Ihr Ergebnis</p>
+    <h2 class="echt-ergebnis__titel"></h2>
+    <p class="echt-ergebnis__text"></p>
+    <h3>Das empfehlen wir jetzt</h3>
+    <ul class="echt-ergebnis__rat"></ul>
+    <h3>Weiterlesen</h3>
+    <ul class="echt-ergebnis__links"></ul>
+    <p class="echt-ergebnis__notfall">Ist schon etwas passiert – Geld überwiesen oder Daten verraten? Dann hilft unser <a href="/artikel/betrug-was-tun/">Notfallplan nach einem Betrug</a>. Bei akuter Gefahr: <strong>110</strong>.</p>
+    <p><button type="button" class="knopf knopf--zweit" data-echt="neu">Neu beginnen</button></p>
+  </section>
+
+  <section class="echt-ohne-js" id="echt-ohne-js">
+    <h2>So werten Sie Ihre Antworten aus</h2>
+    <p>Wenn Sie auch nur eine dieser Fragen mit „Ja“ beantworten, sollten Sie <strong>nichts überweisen, keine Codes weitergeben und auf keinen Link tippen</strong>. Prüfen Sie die Sache in Ruhe über einen Weg, den Sie selbst wählen – zum Beispiel mit einem Anruf unter einer Nummer, die Sie schon kennen. Fragen nach Code, PIN, TAN oder Passwort sind immer ein Warnsignal.</p>
+    <p>Ist schon etwas passiert? Dann hilft der <a href="/artikel/betrug-was-tun/">Notfallplan nach einem Betrug</a>. Bei akuter Gefahr: <strong>110</strong>.</p>
+  </section>
+
+  <script type="application/json" id="echt-check-daten">{{ daten_json | safe }}</script>
+
+  <section class="quellen" aria-labelledby="quellen-titel">
+    <h2 id="quellen-titel">Quellen</h2>
+    <p>Die Fragen und Empfehlungen stützen sich auf diese Quellen. Stand: {{ check.aktualisiert | datum }}.</p>
+    <ul>
+      {% for q in check.quellen %}
+      <li>{{ q.herausgeber }}: <a href="{{ q.url }}">{{ q.titel }}</a></li>
+      {% endfor %}
+    </ul>
+    <p class="klein">Dieser Check ist eine Orientierungshilfe. Er kann nicht sicher feststellen, ob eine Nachricht echt ist, und ersetzt keine Beratung.</p>
+  </section>
+</article>
+{% endblock %}

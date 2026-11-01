@@ -1,0 +1,138 @@
+/* Netzleicht – gebrandetes Checklisten-Blatt (A4) */
+
+@font-face {
+  font-family: "Literata";
+  font-style: normal;
+  font-weight: 200 900;
+  font-display: swap;
+  src: url("/fonts/literata-normal.woff2") format("woff2-variations"), url("/fonts/literata-normal.woff2") format("woff2");
+}
+
+@page { size: A4; margin: 12mm 15mm; }
+
+:root {
+  --tinte: #1c1b19;
+  --leise: #4a463e;
+  --linie: #cbc1ad;
+  --rot: #9a2b1e;
+  --papier: #f4eee2;
+  --serif: "Literata", Georgia, "Times New Roman", serif;
+  --sans: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+}
+
+* { box-sizing: border-box; }
+html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+body {
+  margin: 0;
+  background: #e9e3d6;
+  color: var(--tinte);
+  font-family: var(--serif);
+  font-size: 12.5pt;
+  line-height: 1.4;
+}
+
+.bedienung {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem 1rem;
+  padding: 1rem;
+  font-family: var(--sans);
+}
+.knopf {
+  display: inline-flex;
+  align-items: center;
+  min-height: 3rem;
+  padding: 0.5rem 1.2rem;
+  border: 2px solid var(--tinte);
+  border-radius: 3px;
+  background: var(--tinte);
+  color: #fff;
+  font: inherit;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+}
+.knopf--zweit { background: #fff; color: var(--tinte); }
+.zurueck { color: var(--tinte); font-weight: 600; min-height: 3rem; display: inline-flex; align-items: center; }
+
+.blatt {
+  width: min(100% - 1rem, 210mm);
+  min-height: 297mm;
+  margin: 0 auto 2rem;
+  padding: 14mm 16mm;
+  background: #fff;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.15);
+}
+
+.blatt__kopf {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 1rem;
+  padding-bottom: 3mm;
+  border-bottom: 3px solid var(--tinte);
+  box-shadow: 0 3px 0 #fff, 0 4px 0 var(--tinte);
+  margin-bottom: 6mm;
+}
+.blatt__marke { display: flex; align-items: center; gap: 3mm; font-size: 22pt; font-weight: 800; letter-spacing: -0.01em; }
+.blatt__marke svg { width: 10mm; height: 10mm; }
+.blatt__unterzeile { font-family: var(--sans); font-size: 9pt; letter-spacing: 0.06em; text-transform: uppercase; color: var(--leise); }
+
+.blatt__rubrik { margin: 0 0 1mm; font-family: var(--sans); font-size: 9pt; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: var(--rot); }
+h1 { margin: 0 0 1mm; font-size: 20pt; line-height: 1.15; font-weight: 800; }
+.blatt__aus { margin: 0 0 4mm; font-style: italic; color: var(--leise); }
+
+.blatt__liste { list-style: none; margin: 0 0 5mm; padding: 0; }
+.blatt__liste li {
+  display: flex;
+  gap: 4mm;
+  align-items: flex-start;
+  padding: 2mm 0;
+  border-bottom: 1px solid var(--linie);
+  break-inside: avoid;
+}
+.kasten { flex: none; width: 7mm; height: 7mm; margin-top: 0.5mm; border: 2px solid var(--tinte); border-radius: 1mm; }
+
+.blatt__nummern {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5mm 6mm;
+  margin: 0 0 5mm;
+  padding: 2.5mm 4mm;
+  background: #fbefd7;
+  border: 2px solid var(--tinte);
+  font-family: var(--sans);
+  font-size: 11pt;
+}
+.blatt__nummern strong { width: 100%; }
+
+.blatt__notizen { display: grid; gap: 6mm; margin: 0 0 5mm; }
+.blatt__notizen strong { font-family: var(--sans); font-size: 10pt; letter-spacing: 0.08em; text-transform: uppercase; }
+.blatt__notizen span { display: block; border-bottom: 1px solid var(--linie); height: 1px; }
+
+.blatt__fuss {
+  display: flex;
+  gap: 5mm;
+  align-items: center;
+  padding-top: 4mm;
+  border-top: 3px solid var(--tinte);
+  font-family: var(--sans);
+  font-size: 10pt;
+}
+.blatt__fuss p { margin: 0 0 1.5mm; }
+.blatt__qr svg { width: 24mm; height: 24mm; display: block; }
+.blatt__stand { color: var(--leise); font-size: 9pt; }
+
+@media print {
+  body { background: #fff; }
+  .bedienung { display: none; }
+  .blatt { width: auto; min-height: 0; margin: 0; padding: 0; box-shadow: none; }
+  .blatt__fuss { break-inside: avoid; }
+}
+
+@media (max-width: 40rem) {
+  .blatt { padding: 6mm; min-height: 0; }
+  .blatt__kopf { flex-direction: column; align-items: flex-start; }
+}

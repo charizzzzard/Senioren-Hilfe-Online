@@ -53,7 +53,7 @@
         {% if lexikon_vorhanden %}
         <a href="/lexikon/"{% if pfad.startswith('/lexikon/') %} aria-current="page"{% endif %}>Lexikon</a>
         {% endif %}
-        <a class="navigation__fragen" href="/fragen/"{% if pfad == "/fragen/" %} aria-current="page"{% endif %}>Fragen Sie uns</a>
+        <a class="navigation__fragen" href="/ist-das-echt/"{% if pfad == "/ist-das-echt/" %} aria-current="page"{% endif %}>Ist das echt?</a>
       </nav>
     </div>
   </header>
@@ -69,13 +69,15 @@
         <p>Digitale Alltagshilfe, ruhig erklärt. Ohne Werbung, ohne Tracking.</p>
       </div>
       <nav aria-label="Weitere Seiten">
-        <a href="/fragen/">Fragen Sie uns</a>
+        <a href="/ist-das-echt/">Ist-das-echt-Check</a>
+        <a href="/kontakt/">Kontakt</a>
         <a href="/ueber-netzleicht/">Über Netzleicht</a>
         {% if lexikon_vorhanden %}<a href="/lexikon/">Digital-Lexikon</a>{% endif %}
+        {% if wochenschau_vorhanden %}<a href="/woche-im-netz/">Die Woche im Netz</a>{% endif %}
         <a href="/impressum/">Impressum</a>
         <a href="/datenschutz/">Datenschutz</a>
       </nav>
-      <p class="fuss__kontakt">Eine Frage, ein Fehler, ein Themenwunsch? Schreiben Sie uns: <a href="mailto:{{ site.kontakt }}">{{ site.kontakt }}</a> – wir antworten und verbessern mit Ihren Hinweisen unsere Anleitungen.</p>
+      <p class="fuss__kontakt">Fehler entdeckt oder ein Themenwunsch? Schreiben Sie uns: <a href="mailto:{{ site.kontakt }}">{{ site.kontakt }}</a> – wir freuen uns über jeden Hinweis.</p>
     </div>
   </footer>
 </body>

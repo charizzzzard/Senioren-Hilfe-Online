@@ -6,6 +6,7 @@
 #         Aktuelle Themen sind Anleitungen mit kategorie: aktuell (Rubrik „Aktuell erklärt“).
 # status: offen | in_arbeit | veroeffentlicht | zurueckgestellt
 # monetarisierung: nein | spaeter_moeglich  (nur Hinweis für die Strategie – NICHT selbst aktivieren)
+# wettbewerb: Kurzbefund der Google-Suche (Details und Datum: docs/WETTBEWERB.md)
 #
 # Suchdaten: OpenSEO (DataForSEO), Google Deutschland, Abruf 30.10.2026.
 #   suchvolumen = geschätzte Suchanfragen pro Monat für das keyword
@@ -26,6 +27,7 @@ themen:
     kategorie: sicherheit
     slug: schockanruf-enkeltrick
     keyword: enkeltrick
+    wettbewerb: "SERP 11/2026: nachrichtenlastig; KI-Stimmen aktuell – Lexikon Deepfake schreiben und hier verlinken"
     suchvolumen: 27100
     kd: 9
     status: veroeffentlicht
@@ -74,6 +76,7 @@ themen:
     format: lexikon
     slug: passkey
     keyword: passkey
+    wettbewerb: "SERP 11/2026: BSI, Google, Apple oben – geringe Ranking-Erwartung, Eintrag bleibt als Linkziel"
     suchvolumen: 27100
     kd: 0
     status: veroeffentlicht
@@ -245,10 +248,11 @@ themen:
   - titel: "WhatsApp: Die neuen Funktionen einfach erklärt"
     kategorie: aktuell
     keyword: whatsapp neue funktionen
+    wettbewerb: "SERP 11/2026: nur Nachrichtenseiten – in „Die Woche im Netz“ abdecken statt Dauertext"
     suchvolumen: 14800
     kd: 1
     prioritaet: 1
-    status: offen
+    status: zurueckgestellt
     notiz: Nur Funktionen, die WhatsApp offiziell angekündigt hat (WhatsApp-Blog/Hilfebereich). Regelmäßig aktualisieren.
   - titel: "WhatsApp-Benutzername: Was ist das und brauche ich einen?"
     kategorie: aktuell
@@ -294,6 +298,7 @@ themen:
   - titel: WhatsApp-Status – was ist das und wie funktioniert er?
     kategorie: whatsapp
     keyword: whatsapp status
+    wettbewerb: "SERP 11/2026: Technikportale, WhatsApp-FAQ nur englisch – gute Chance (docs/WETTBEWERB.md)"
     suchvolumen: 22200
     kd: 0
     prioritaet: 1
@@ -302,6 +307,7 @@ themen:
   - titel: Screenshot auf dem iPhone machen
     kategorie: smartphone
     keyword: screenshot iphone
+    wettbewerb: "SERP 11/2026: Videos (YouTube/Instagram) und Apple-Hilfe EN/AT – mit tasten-Nachbau je Modell punkten"
     suchvolumen: 14800
     kd: 2
     prioritaet: 1
@@ -310,6 +316,7 @@ themen:
   - titel: WhatsApp-Backup – Chats sichern und aufs neue Handy übertragen
     kategorie: whatsapp
     keyword: whatsapp backup
+    wettbewerb: "SERP 11/2026: Forum-Thread und Technikportale – gute Chance, iPhone/Android getrennt"
     suchvolumen: 14800
     kd: 0
     prioritaet: 1
@@ -324,6 +331,7 @@ themen:
   - titel: WhatsApp-Nachricht löschen – für mich oder für alle
     kategorie: whatsapp
     keyword: whatsapp nachricht löschen
+    wettbewerb: "SERP 11/2026: nur allgemeine Technikseiten – gute Chance"
     suchvolumen: 5400
     kd: 0
     prioritaet: 1
@@ -331,6 +339,7 @@ themen:
   - titel: WLAN-Passwort anzeigen und mit Gästen teilen
     kategorie: smartphone
     keyword: wlan passwort anzeigen
+    wettbewerb: "SERP 11/2026: keine KI-Übersicht, v. a. Android/Windows – iPhone + Android + Teilen abdecken"
     suchvolumen: 4400
     kd: 0
     prioritaet: 1
@@ -345,6 +354,7 @@ themen:
   - titel: Drittanbietersperre einrichten – Abofallen auf der Handyrechnung verhindern
     kategorie: sicherheit
     keyword: drittanbietersperre
+    wettbewerb: "SERP 11/2026: Verbraucherzentrale Platz 1 + Anbieterseiten – Übersicht mit Links auf Anbieterseiten"
     suchvolumen: 2900
     kd: 4
     prioritaet: 1
@@ -370,9 +380,10 @@ themen:
   - titel: QR-Code mit dem Handy scannen
     kategorie: smartphone
     keyword: qr code scannen
+    wettbewerb: "SERP 11/2026: Tool-/App-Seiten, chip.de, KD 25 – Winkel: ohne App mit der Kamera + Quishing"
     suchvolumen: 110000
     kd: 25
-    prioritaet: 1
+    prioritaet: 2
     status: offen
     notiz: "qr code scannen iphone: 2400 / KD 4. Auf Quishing-Risiko hinweisen (Lexikon/Artikel verlinken)."
 

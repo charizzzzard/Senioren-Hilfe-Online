@@ -1,0 +1,121 @@
+# „Ist das echt?“-Check – Inhalte und Quellen
+# Jede Aussage muss durch eine der Quellen unten gedeckt sein (CLAUDE.md, Regel 3).
+# Die Auswertung (Ampel) steht in static/js/netzleicht.js, Funktion echtCheck().
+
+titel: "Ist das echt? Der Check für verdächtige Nachrichten und Anrufe"
+seo_titel: "Ist das echt? Check für verdächtige Nachrichten und Anrufe"
+beschreibung: "Eine merkwürdige Nachricht oder ein seltsamer Anruf? Beantworten Sie ein paar Fragen und bekommen Sie eine klare Empfehlung. Es wird nichts gespeichert."
+aktualisiert: 2026-11-01
+
+wege:
+  - id: anruf
+    name: Ein Anruf
+  - id: sms
+    name: Eine SMS
+  - id: messenger
+    name: Eine Nachricht bei WhatsApp oder einer anderen Chat-App
+  - id: email
+    name: Eine E-Mail
+  - id: tuer
+    name: Jemand an der Haustür
+
+fragen:
+  - id: geld
+    frage: "Geht es um Geld, Wertsachen oder eine Zahlung?"
+    hinweis: "Die Polizei rät: Übergeben Sie niemals Geld oder Wertsachen an Unbekannte – auch nicht an angebliche Polizisten."
+  - id: druck
+    frage: "Sollen Sie schnell handeln? Wird Ihnen Druck gemacht?"
+    hinweis: "Die Polizei rät: Lassen Sie sich nicht drängen und nicht unter Druck setzen. Nehmen Sie sich Zeit."
+  - id: code
+    frage: "Werden Sie nach einem Code, einer PIN, einer TAN oder einem Passwort gefragt?"
+    hinweis: "Polizei, Banken und Behörden fragen niemals nach PIN oder TAN – weder am Telefon noch per E-Mail oder Handynachricht. Den Bestätigungscode von WhatsApp sollen Sie niemandem geben."
+  - id: link
+    frage: "Sollen Sie einen Link antippen, eine Datei öffnen oder eine App installieren?"
+    hinweis: "Über solche Links können schädliche Apps auf das Handy kommen oder Daten abgegriffen werden."
+  - id: angehoerig
+    frage: "Gibt sich jemand als Angehöriger aus – mit neuer Nummer oder ohne den eigenen Namen zu nennen?"
+    hinweis: "„Hallo Mama, das ist meine neue Nummer“ ist laut Polizei der häufigste Einstieg beim Betrug über Messenger."
+  - id: amt
+    frage: "Gibt sich jemand als Polizei, Bank, Behörde oder bekannte Firma aus?"
+    hinweis: "Die angezeigte Nummer oder der Absender kann gefälscht sein. Das nennt man Spoofing."
+  - id: ueberraschend
+    frage: "Kam das überraschend – ohne dass Sie etwas erwartet oder bestellt haben?"
+    hinweis: "Überraschende Nachrichten mit Link sind typisch für Betrugs-SMS, zum Beispiel angeblich vom Paketdienst."
+
+ergebnisse:
+  rot:
+    titel: "Hier stimmt sehr wahrscheinlich etwas nicht."
+    text: "Ihre Antworten passen zu typischen Betrugsmaschen. Bitte tun Sie jetzt nichts von dem, worum Sie gebeten werden – und lassen Sie sich Zeit."
+  gelb:
+    titel: "Vorsicht – prüfen Sie das in Ruhe."
+    text: "Einige Antworten deuten auf ein Risiko hin. Ein einzelnes Warnzeichen beweist noch keinen Betrug. Aber es ist ein guter Grund, nachzuprüfen, bevor Sie etwas tun."
+  gruen:
+    titel: "Wir sehen keine typischen Warnzeichen."
+    text: "Ganz sicher sein kann man trotzdem nie. Wenn Ihnen etwas komisch vorkommt, fragen Sie nach – über einen Weg, den Sie selbst wählen."
+
+ratschlaege:
+  anruf:
+    - "Legen Sie auf. Das ist nicht unhöflich, sondern klug."
+    - "Rufen Sie die Person oder Stelle zurück – unter einer Nummer, die Sie kennen oder selbst heraussuchen."
+    - "Geben Sie am Telefon keine Auskunft über Geld, Konto oder Wertsachen."
+    - "Kommt Ihnen der Anruf verdächtig vor, rufen Sie die Polizei unter 110."
+  sms:
+    - "Tippen Sie nicht auf den Link und antworten Sie nicht."
+    - "Löschen Sie die SMS."
+    - "Erwarten Sie ein Paket? Prüfen Sie den Status direkt auf der Internetseite des Paketdienstes."
+  messenger:
+    - "Antworten Sie nicht und überweisen Sie nichts."
+    - "Rufen Sie die Person unter der alten, Ihnen bekannten Nummer an."
+    - "Ist es Betrug: Bildschirmfoto machen, Nummer blockieren und melden, Polizei informieren."
+  email:
+    - "Öffnen Sie keine Links und keine Anhänge."
+    - "Geben Sie keine persönlichen Daten über Links in E-Mails ein."
+    - "Der Absender kann gefälscht sein. Melden Sie sich selbst bei der Firma oder Bank – über einen Weg, den Sie selbst wählen."
+  tuer:
+    - "Lassen Sie keine Unbekannten in die Wohnung."
+    - "Lassen Sie sich den Dienstausweis zeigen."
+    - "Rufen Sie bei der Behörde an – mit einer Nummer, die Sie selbst heraussuchen. Der Besucher wartet so lange vor der geschlossenen Tür."
+
+weiterlesen:
+  anruf:
+    - {titel: "Enkeltrick und Schockanruf: So reagieren Sie richtig", url: /artikel/schockanruf-enkeltrick/}
+    - {titel: "Was ist Spoofing?", url: /lexikon/spoofing/}
+  sms:
+    - {titel: "Betrugs-SMS erkennen", url: /artikel/betrugs-sms-erkennen/}
+    - {titel: "Was ist Smishing?", url: /lexikon/smishing/}
+  messenger:
+    - {titel: "„Hallo Mama“-Betrug auf WhatsApp erkennen", url: /artikel/whatsapp-betrug-erkennen/}
+    - {titel: "WhatsApp-Kontakt blockieren und melden", url: /artikel/whatsapp-kontakt-blockieren/}
+  email:
+    - {titel: "Was ist Spoofing?", url: /lexikon/spoofing/}
+  tuer:
+    - {titel: "Falsche Polizisten: Was die echte Polizei niemals tut", url: /artikel/schockanruf-enkeltrick/#was-die-echte-polizei-niemals-tut}
+
+quellen:
+  - herausgeber: Polizeiliche Kriminalprävention der Länder und des Bundes
+    titel: Schockanrufe
+    url: https://www.polizei-beratung.de/themen-und-tipps/betrug/schockanrufe/
+  - herausgeber: Polizeiliche Kriminalprävention der Länder und des Bundes
+    titel: Vorsicht vor falschen Enkeln (Enkeltrick)
+    url: https://www.polizei-beratung.de/themen-und-tipps/betrug/enkeltrick/
+  - herausgeber: Polizeiliche Kriminalprävention der Länder und des Bundes
+    titel: Betrug durch falsche Polizisten
+    url: https://www.polizei-beratung.de/themen-und-tipps/betrug/betrug-durch-falsche-polizisten/
+  - herausgeber: Polizeiliche Kriminalprävention der Länder und des Bundes
+    titel: Messenger-Betrug
+    url: https://www.polizei-beratung.de/themen-und-tipps/betrug/messenger/
+  - herausgeber: Sperr-Notruf 116 116 e.V.
+    titel: "Pressemeldung: Der Sperr-Notruf 116 116 ruft niemals an (26.11.2024)"
+    url: https://www.sperr-notruf.de/media/pages/presse/aacf5d49d9-1749557608/04_sperr-notruf_116_116_ruft_niemals_an.pdf
+  - herausgeber: Verbraucherzentrale
+    titel: "Paketdienst-SMS: Vorsicht, Abzocke!"
+    url: https://www.verbraucherzentrale.de/wissen/digitale-welt/mobilfunk-und-festnetz/paketdienstsms-vorsicht-abzocke-58988
+  - herausgeber: Bundesnetzagentur
+    titel: SMS- und Messenger-Spam-Varianten
+    url: https://www.bundesnetzagentur.de/DE/Vportal/TK/Aerger/Faelle/SMSSpam/start.html
+  - herausgeber: Bundesamt für Sicherheit in der Informationstechnik (BSI)
+    titel: Betrug durch gefälschte Telefonnummern und E-Mail-Adressen
+    url: https://www.bsi.bund.de/DE/Themen/Verbraucherinnen-und-Verbraucher/Cyber-Sicherheitslage/Methoden-der-Cyber-Kriminalitaet/Spam-Phishing-Co/Gefaelschte-Absenderadressen/gefaelschte-absenderadressen.html
+  - herausgeber: WhatsApp-Hilfebereich
+    titel: Verifizierungscode erhalten, ohne ihn angefordert zu haben
+    url: https://faq.whatsapp.com/479314433984258/?locale=de_DE

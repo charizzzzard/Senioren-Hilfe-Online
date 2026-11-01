@@ -4,6 +4,7 @@ titel: "Was ist ein Passkey? Anmelden ohne Passwort – einfach erklärt"
 seo_titel: "Was ist ein Passkey? Einfach erklärt"
 beschreibung: "Ein Passkey ersetzt das Passwort: Sie melden sich mit Fingerabdruck, Gesichtserkennung oder Bildschirmsperre an. Was ein Passkey ist und warum er sicherer ist."
 keyword: "passkey"
+stichwoerter: ["Passkeys", "Passkey"]
 veroeffentlicht: 2026-10-30
 aktualisiert: 2026-10-30
 geprueft: 2026-10-30

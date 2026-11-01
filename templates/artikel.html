@@ -16,7 +16,7 @@
 
 <article class="text artikel">
   <header class="artikel__kopf">
-    <p class="artikel__rubrik">{{ kategorie.name }}{% if artikel.kategorie == "aktuell" %} · {{ artikel.veroeffentlicht | datum }}{% endif %}</p>
+    <p class="artikel__rubrik">{% if artikel.meta.get("reihe") == "wochenschau" %}Die Woche im Netz{% else %}{{ kategorie.name }}{% endif %}{% if artikel.kategorie == "aktuell" %} · {{ artikel.veroeffentlicht | datum }}{% endif %}</p>
     <h1>{{ artikel.titel }}</h1>
     <p class="artikel__meta">
       Zuletzt geprüft am <time datetime="{{ artikel.geprueft.isoformat() }}">{{ artikel.geprueft | datum }}</time>
@@ -46,6 +46,17 @@
     {{ artikel.html | safe }}
   </div>
 
+  {% if artikel.meta.get("reihe") == "wochenschau" %}
+  <p class="woche__archiv nicht-drucken">„Die Woche im Netz“ erscheint jeden Freitag. <a href="/woche-im-netz/">Alle bisherigen Ausgaben</a></p>
+  {% endif %}
+
+  {% if artikel.kategorie == "sicherheit" %}
+  <aside class="echt-teaser nicht-drucken">
+    <p><strong>Unsicher, ob eine Nachricht oder ein Anruf echt ist?</strong> Unser Check stellt Ihnen ein paar kurze Fragen und gibt eine klare Empfehlung.</p>
+    <p><a class="knopf" href="/ist-das-echt/">Zum Ist-das-echt-Check</a></p>
+  </aside>
+  {% endif %}
+
   {% if artikel.meta.get("checkliste") %}
   <section class="checkliste" id="checkliste" aria-labelledby="checkliste-titel">
     <h2 id="checkliste-titel">{{ artikel.meta.get("checkliste_titel") or "Checkliste zum Ausdrucken" }}</h2>
@@ -55,7 +66,10 @@
       {% endfor %}
     </ul>
     <p class="nur-druck">Quelle: {{ site.url | replace("https://", "") }}{{ artikel.url }} · Stand: {{ artikel.geprueft | datum }}</p>
-    <button type="button" class="knopf knopf--zweit nicht-drucken" onclick="window.print()">Diese Seite ausdrucken</button>
+    <p class="checkliste__knoepfe nicht-drucken">
+      <a class="knopf" href="{{ artikel.url }}checkliste/?drucken=1">Nur die Checkliste drucken</a>
+      <a class="knopf knopf--zweit" href="/checklisten/{{ artikel.slug }}.pdf" download="Netzleicht-Checkliste-{{ artikel.slug }}.pdf">Als PDF herunterladen</a>
+    </p>
   </section>
   {% endif %}
 
@@ -70,7 +84,7 @@
     <p class="klein">Menüs und Bezeichnungen können je nach Gerät, Hersteller und Version leicht abweichen. Unsere Anleitungen sind allgemeine Orientierung und ersetzen keine Rechts- oder Finanzberatung. <a href="/ueber-netzleicht/">So entstehen unsere Anleitungen.</a></p>
   </section>
 
-  {% with betreff = "Frage zu: " ~ artikel.titel %}{% include "_rueckmeldung.html" %}{% endwith %}
+  {% with betreff = "Hinweis zu: " ~ artikel.titel %}{% include "_rueckmeldung.html" %}{% endwith %}
 
   <section class="teilen nicht-drucken" aria-labelledby="teilen-titel">
     <h2 id="teilen-titel">Weitersagen</h2>

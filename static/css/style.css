@@ -1013,3 +1013,157 @@ small { font-size: 0.85em; }
 .abhakbar:focus-visible { outline: 3px solid #e09a00; outline-offset: 4px; }
 .artikel__rumpf ol > li.erledigt::before { content: "✓"; background: var(--tipp); }
 .checkliste li.erledigt::before { content: "✓"; display: grid; place-items: center; color: #fff; background: var(--tipp); border-color: var(--tipp); font-family: var(--sans); font-weight: 800; font-size: 0.9rem; }
+
+/* ------------------------------------------------ Erklärkästchen */
+
+a.begriff {
+  text-decoration-style: dotted;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.22em;
+}
+.erklaerung {
+  position: absolute;
+  z-index: 50;
+  width: min(24rem, calc(100vw - 24px));
+  padding: 1rem 1.2rem 0.9rem;
+  background: var(--papier-hell);
+  border: 2px solid var(--tinte);
+  box-shadow: 5px 5px 0 var(--tinte);
+  font-family: var(--serif);
+  font-size: 1rem;
+  line-height: 1.55;
+}
+.erklaerung__titel { margin: 0 2rem 0.3rem 0; font-family: var(--sans); font-weight: 800; font-size: 0.95rem; }
+.erklaerung__text { margin: 0 0 0.5rem; }
+.erklaerung__mehr { margin: 0; font-family: var(--sans); font-size: 0.95rem; }
+.erklaerung__mehr a { display: inline-flex; min-height: 2.75rem; align-items: center; font-weight: 700; }
+.erklaerung__zu {
+  position: absolute;
+  top: 0.3rem;
+  right: 0.3rem;
+  width: 2.75rem;
+  height: 2.75rem;
+  border: 0;
+  background: transparent;
+  color: var(--tinte);
+  font-size: 1.6rem;
+  line-height: 1;
+  cursor: pointer;
+}
+@media (max-width: 39.99rem) {
+  .erklaerung {
+    position: fixed;
+    left: 8px;
+    right: 8px;
+    bottom: 8px;
+    width: auto;
+  }
+}
+@media print { .erklaerung { display: none !important; } }
+
+/* ------------------------------------------------ „Ist das echt?“-Check */
+
+.echt-teaser {
+  margin: 2rem 0;
+  padding: 1.1rem 1.3rem;
+  background: var(--blau-hell);
+  border: 2px solid var(--tinte);
+}
+.echt-teaser p:last-child { margin-bottom: 0; }
+.echt-teaser--start { margin-top: 1.5rem; }
+.echt-teaser--start h2 { margin: 0 0 0.4rem; font-size: 1.5rem; }
+
+.echt-check { margin: 1.5rem 0 2rem; }
+.echt-check__schritt {
+  margin: 0 0 1rem;
+  padding: 1.2rem 1.3rem;
+  background: var(--papier-hell);
+  border: 2px solid var(--tinte);
+}
+.echt-check__schritt legend {
+  float: left;
+  width: 100%;
+  margin: 0 0 0.6rem;
+  padding: 0;
+  font-family: var(--serif);
+  font-size: 1.3em;
+  font-weight: 750;
+  line-height: 1.3;
+}
+.echt-check__zaehler {
+  display: block;
+  margin-bottom: 0.2rem;
+  font-family: var(--sans);
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--rot);
+}
+.echt-check__zaehler:empty { display: none; }
+.echt-check__hinweis { clear: both; color: var(--tinte-leise); font-size: 0.95em; }
+.echt-check__antworten { display: flex; flex-wrap: wrap; gap: 0.6rem; }
+.echt-check__wahl {
+  clear: both;
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  min-height: 3.2rem;
+  margin: 0 0 0.6rem;
+  padding: 0.6rem 1rem;
+  border: 2px solid var(--tinte);
+  border-radius: 4px;
+  background: #fff;
+  font-family: var(--sans);
+  font-weight: 700;
+  cursor: pointer;
+}
+.echt-check__antworten .echt-check__wahl { margin: 0; flex: 1 1 8rem; }
+.echt-check__wahl input { width: 1.4rem; height: 1.4rem; accent-color: var(--tinte); flex: none; }
+.echt-check__wahl:has(input:checked) { background: var(--tinte); color: #fff; }
+.echt-check__wahl:hover { background: var(--papier); }
+.echt-check__wahl:has(input:checked):hover { background: var(--tinte); }
+.echt-check__steuerung { display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
+.echt-check__fehlt { margin: 0.8rem 0 0; color: var(--warnung); font-family: var(--sans); font-weight: 700; }
+
+.echt-ergebnis {
+  margin: 1.5rem 0 2rem;
+  padding: 1.3rem 1.5rem;
+  background: var(--papier-hell);
+  border: 2px solid var(--tinte);
+  border-left-width: 10px;
+}
+.echt-ergebnis:focus { outline: 3px solid #e09a00; outline-offset: 3px; }
+.echt-ergebnis--rot { border-left-color: #b3261e; background: #fbeae7; }
+.echt-ergebnis--gelb { border-left-color: #c98a00; background: var(--warnung-hell); }
+.echt-ergebnis--gruen { border-left-color: var(--tipp); background: var(--tipp-hell); }
+.echt-ergebnis__titel { margin-top: 0; }
+.echt-ergebnis h3 { font-size: 1.1em; margin-top: 1.2em; }
+.echt-ergebnis__notfall { padding-top: 0.8rem; border-top: 1px solid var(--linie); }
+
+/* ------------------------------------------------ Die Woche im Netz */
+
+.woche {
+  margin: 2rem 0;
+  padding: 1.2rem 1.4rem 1rem;
+  background: var(--papier-hell);
+  border-top: 4px double var(--tinte);
+  border-bottom: 1px solid var(--tinte);
+}
+.woche h2 { margin: 0.1rem 0 0.6rem; font-size: 1.55rem; }
+.woche h2 a { color: var(--tinte); text-decoration: none; }
+.woche h2 a:hover { text-decoration: underline; }
+.woche__meldungen { margin: 0 0 0.8rem; padding-left: 1.2rem; }
+.woche__meldungen li { margin-bottom: 0.35rem; }
+.woche__fuss { display: flex; flex-wrap: wrap; gap: 0.4rem 1.5rem; margin: 0; font-family: var(--sans); font-weight: 700; }
+.woche__fuss a { display: inline-flex; align-items: center; min-height: 44px; }
+.woche__archiv { margin: 2rem 0; padding-top: 1rem; border-top: 1px solid var(--linie); font-style: italic; }
+
+.ausgaben { list-style: none; margin: 1.5rem 0; padding: 0; }
+.ausgabe { padding: 1.2rem 0; border-top: 1px solid var(--tinte); }
+.ausgabe h2 { margin: 0.1rem 0 0.5rem; font-size: 1.4rem; }
+.ausgabe ul { margin: 0; padding-left: 1.2rem; }
+
+/* Lange deutsche Wörter (z. B. „Rentenversicherungs-Mails“) dürfen in Überschriften
+   trennen bzw. umbrechen – sonst entsteht auf schmalen Handys seitliches Scrollen. */
+h1, h2, h3 { overflow-wrap: break-word; hyphens: auto; -webkit-hyphens: auto; }

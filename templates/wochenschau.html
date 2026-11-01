@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block titel %}Die Woche im Netz: Nachrichten ruhig erklärt | {{ site.name }}{% endblock %}
+{% block beschreibung %}Jeden Freitag ein paar Nachrichten aus der digitalen Welt, die für Sie wichtig sind – ruhig erklärt, mit offiziellen Quellen und ohne Panik.{% endblock %}
+{% block inhalt %}
+<nav class="brotkrumen" aria-label="Sie sind hier">
+  <a href="/">Startseite</a> <span aria-hidden="true">›</span> <span aria-current="page">Die Woche im Netz</span>
+</nav>
+<header class="kategorie-kopf">
+  <p class="rubrik">Wöchentliche Rubrik</p>
+  <h1>Die Woche im Netz</h1>
+  <p class="lead">Jeden Freitag erklären wir ein paar Nachrichten aus der digitalen Welt, die für Sie wichtig sind: neue Betrugsmaschen, Änderungen bei WhatsApp oder am Handy, Warnungen von Polizei und Verbraucherzentrale. Ruhig erklärt, mit Quellen – und mit dem, was Sie konkret tun können.</p>
+</header>
+<ol class="ausgaben">
+  {% for a in ausgaben %}
+  <li class="ausgabe">
+    <p class="rubrik">{{ a.veroeffentlicht | datum }}</p>
+    <h2><a href="{{ a.url }}">{{ a.titel }}</a></h2>
+    <ul>
+      {% for t in a.toc %}
+      <li>{{ t.name | safe }}</li>
+      {% endfor %}
+    </ul>
+  </li>
+  {% endfor %}
+</ol>
+{% endblock %}

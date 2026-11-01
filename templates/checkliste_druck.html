@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ artikel.meta.get("checkliste_titel") or "Checkliste" }} | {{ site.name }}</title>
+  <meta name="description" content="Checkliste zum Ausdrucken: {{ artikel.meta.get('checkliste_titel') or artikel.titel }} – von {{ site.name }}.">
+  <meta name="robots" content="noindex, follow">
+  <link rel="canonical" href="{{ site.url }}{{ artikel.url }}">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/css/druck.css?v={{ druck_css_version }}">
+  <script>
+    if (/[?&]drucken=1/.test(location.search)) {
+      window.addEventListener("load", function () {
+        (document.fonts ? document.fonts.ready : Promise.resolve()).then(function () { setTimeout(function () { window.print(); }, 300); });
+      });
+    }
+  </script>
+</head>
+<body>
+  <nav class="bedienung" aria-label="Druckversion">
+    <button type="button" class="knopf" onclick="window.print()">Jetzt drucken</button>
+    <a class="knopf knopf--zweit" href="{{ pdf_url }}" download="{{ pdf_name }}">Als PDF herunterladen</a>
+    <a class="zurueck" href="{{ artikel.url }}">‹ Zurück zur Anleitung</a>
+  </nav>
+
+  <main class="blatt">
+    <header class="blatt__kopf">
+      <div class="blatt__marke">
+        <svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="6" fill="#1c1b19"/><path d="M9 22V10l14 12V10" fill="none" stroke="#f4eee2" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span>{{ site.name }}</span>
+      </div>
+      <div class="blatt__unterzeile">{{ site.untertitel }} · netzleicht.de</div>
+    </header>
+
+    <p class="blatt__rubrik">Checkliste zum Aufheben · {{ kategorie.name }}</p>
+    <h1>{{ artikel.meta.get("checkliste_titel") or "Checkliste" }}</h1>
+    <p class="blatt__aus">Aus der Anleitung „{{ artikel.titel }}“</p>
+
+    <ul class="blatt__liste">
+      {% for punkt in artikel.checkliste %}
+      <li><span class="kasten" aria-hidden="true"></span><span>{{ punkt }}</span></li>
+      {% endfor %}
+    </ul>
+
+    {% if artikel.kategorie == "sicherheit" %}
+    <div class="blatt__nummern">
+      <strong>Wichtige Nummern</strong>
+      <span>Polizei: <b>110</b></span>
+      <span>Sperr-Notruf für Karten und Online-Banking: <b>116 116</b></span>
+      <span>Meine Bank: ______________________</span>
+    </div>
+    {% endif %}
+
+    <div class="blatt__notizen">
+      <strong>Meine Notizen</strong>
+      <span></span><span></span>
+    </div>
+
+    <footer class="blatt__fuss">
+      <div class="blatt__qr" aria-hidden="true">{{ qr_svg | safe }}</div>
+      <div>
+        <p><strong>Die ganze Anleitung mit allen Schritten:</strong><br>netzleicht.de{{ artikel.url }}</p>
+        <p>Tipp: Halten Sie die Handy-Kamera auf den Code und tippen Sie auf den Link, der erscheint.</p>
+        <p class="blatt__stand">Stand: zuletzt geprüft am {{ artikel.geprueft | datum }} · {{ site.name }} – werbefrei und unabhängig</p>
+      </div>
+    </footer>
+  </main>
+</body>
+</html>

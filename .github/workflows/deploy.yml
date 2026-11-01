@@ -30,6 +30,26 @@ jobs:
       - name: Seite bauen und Qualität prüfen
         run: python tools/check.py
 
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+
+      - name: Playwright installieren (für die Checklisten-PDFs)
+        run: npm ci
+
+      - name: Chromium aus dem Cache holen
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/ms-playwright
+          key: playwright-chromium-${{ runner.os }}-${{ hashFiles('package-lock.json') }}
+
+      - name: Chromium installieren
+        run: npx playwright install --with-deps chromium
+
+      - name: Checklisten-PDFs erzeugen
+        run: node tools/pdf.mjs
+
       - name: Pages konfigurieren
         if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
         uses: actions/configure-pages@v5
@@ -76,6 +96,8 @@ jobs:
           from pathlib import Path
           urls = re.findall(r"<loc>([^<]+)</loc>", Path("_site/sitemap.xml").read_text())
           urls.append(urls[0] + "robots.txt")
+          urls += [urls[0] + "checklisten/" + p.parent.name + ".pdf"
+                   for p in Path("_site/artikel").glob("*/checkliste")]
           fehler = []
           for url in urls:
               for versuch in range(6):

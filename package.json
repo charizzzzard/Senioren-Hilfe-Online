@@ -1,0 +1,11 @@
+{
+  "name": "netzleicht",
+  "private": true,
+  "description": "Hilfswerkzeuge für netzleicht.de (PDF-Erzeugung der Checklisten)",
+  "scripts": {
+    "pdf": "node tools/pdf.mjs"
+  },
+  "devDependencies": {
+    "playwright": "1.63.0"
+  }
+}

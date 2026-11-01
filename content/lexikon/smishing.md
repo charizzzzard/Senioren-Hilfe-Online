@@ -4,6 +4,7 @@ titel: "Was ist Smishing? Betrug per SMS einfach erklärt"
 seo_titel: "Was ist Smishing? Betrug per SMS einfach erklärt"
 beschreibung: "Smishing ist Betrug per SMS – zum Beispiel mit angeblichen Paket-Nachrichten. Was der Begriff bedeutet, woran Sie solche SMS erkennen und was Sie tun können."
 keyword: "smishing"
+stichwoerter: ["Smishing"]
 veroeffentlicht: 2026-10-30
 aktualisiert: 2026-10-30
 geprueft: 2026-10-30

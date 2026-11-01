@@ -45,9 +45,9 @@ Die vier sind **ausgedachte Beispielfiguren**. Sie zeigen, wie eine Situation im
 
 Ein Wort gehört und nicht verstanden? Im [Digital-Lexikon](/lexikon/) erklären wir Begriffe wie Passkey, Spoofing oder Smishing in einfachen Worten.
 
-## Fehler gefunden? Frage offen?
+## Fehler gefunden? Themenwunsch?
 
-Wir freuen uns über jede Rückmeldung – auch über Themenwünsche. Schreiben Sie uns an [kontakt@netzleicht.de](mailto:kontakt@netzleicht.de).
+Wir freuen uns über jede Rückmeldung und über Ideen für neue Anleitungen. Schreiben Sie uns an [kontakt@netzleicht.de](mailto:kontakt@netzleicht.de) – mehr dazu auf unserer [Kontaktseite](/kontakt/).
 
 *Ihr Team von Netzleicht*
 

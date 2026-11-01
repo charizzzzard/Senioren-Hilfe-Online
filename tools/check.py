@@ -78,6 +78,9 @@ class Seitenparser(HTMLParser):
 
 def ziel_existiert(pfad: str) -> bool:
     pfad = pfad.split("#")[0].split("?")[0]
+    pdf = re.match(r"^/checklisten/([a-z0-9-]+)\.pdf$", pfad)
+    if pdf:  # PDFs entstehen erst im Deploy (tools/pdf.mjs); geprüft wird die Druckseite dazu
+        pfad = "/artikel/" + pdf.group(1) + "/checkliste/"
     ziel = OUT / pfad.lstrip("/")
     if pfad.endswith("/") or pfad == "":
         return (ziel / "index.html").is_file()
@@ -146,8 +149,21 @@ def main() -> int:
             if re.search(muster, volltext):
                 fehler.append(f"{name}: verbotene Formulierung gefunden: /{muster}/")
 
+        if a.meta.get("reihe") == "wochenschau":
+            if a.kategorie != "aktuell":
+                fehler.append(f"{name}: Wochenschau-Ausgaben gehören in die Kategorie aktuell")
+            if not 3 <= len(a.toc) <= 5:
+                fehler.append(f"{name}: Wochenschau braucht 3–5 Meldungen (## Überschriften), gefunden: {len(a.toc)}")
+            if len(a.quellen) < len(a.toc):
+                fehler.append(f"{name}: jede Meldung braucht mindestens eine Quelle ({len(a.quellen)} Quellen, {len(a.toc)} Meldungen)")
+            for teil in ("Was ist passiert", "Was bedeutet das für Sie"):
+                if a.html.count(teil) < len(a.toc):
+                    hinweise.append(f"{name}: nicht jede Meldung hat den Teil „{teil}“")
+
         keyword = str(a.meta.get("keyword") or "").lower()
-        if not keyword:
+        if a.meta.get("reihe") == "wochenschau":
+            pass  # Wochenschau bedient keine einzelne Suchabsicht
+        elif not keyword:
             hinweise.append(f"{name}: kein keyword (Haupt-Suchbegriff) im Frontmatter")
         else:
             for feld, text in (("seo_titel", titel), ("beschreibung", a.beschreibung)):
@@ -183,7 +199,8 @@ def main() -> int:
         if t.get("status") == "veroeffentlicht" and t.get("slug") not in slugs:
             fehler.append(f"themenplan.yaml: „{t.get('titel')}“ ist veröffentlicht, aber Artikel {t.get('slug')!r} fehlt")
     eingetragen = {t.get("slug") for t in plan.get("themen", [])}
-    for s in sorted(slugs - eingetragen):
+    wochenschau = {a.slug for a in artikel if a.meta.get("reihe") == "wochenschau"}
+    for s in sorted(slugs - eingetragen - wochenschau):
         hinweise.append(f"themenplan.yaml: Artikel {s} fehlt im Themenplan")
 
     # ---------------------------------------------------- Ausgabe
@@ -220,7 +237,7 @@ def main() -> int:
             fehler.append(f"{rel}: meta description fehlt")
         if not p.canonical:
             fehler.append(f"{rel}: canonical fehlt")
-        if site["indexierung"] and rel.startswith("/artikel/") and "noindex" in p.robots:
+        if site["indexierung"] and rel.startswith("/artikel/") and not rel.endswith("/checkliste/") and "noindex" in p.robots:
             fehler.append(f"{rel}: Artikel ist auf noindex gesetzt")
         if not site["indexierung"] and "noindex" not in p.robots:
             fehler.append(f"{rel}: Staging-Modus, aber noindex fehlt")
