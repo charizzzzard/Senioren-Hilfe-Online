@@ -205,7 +205,8 @@ def begriffe_sammeln(lexikon: list) -> list[dict]:
     begriffe = []
     for e in lexikon:
         erster_absatz = e.kurz_html.split("</p>")[0]
-        text = re.sub(r"\s+", " ", htmllib.unescape(re.sub(r"<[^>]+>", " ", erster_absatz))).strip()
+        # Inline-Tags (z. B. <strong>) ohne Leerzeichen entfernen, sonst entsteht „Phishing .“
+        text = re.sub(r"\s+", " ", htmllib.unescape(re.sub(r"<[^>]+>", "", erster_absatz))).strip()
         for wort in e.meta.get("stichwoerter") or [e.begriff]:
             begriffe.append({"slug": e.slug, "wort": str(wort), "begriff": e.begriff, "text": text, "url": e.url})
     # längere Begriffe zuerst, damit „Call-ID-Spoofing“ vor „Spoofing“ greift
