@@ -53,6 +53,7 @@ tools/check.py             Qualitätsprüfung – muss vor jedem Merge grün sei
 tools/linkcheck.py         Prüft alle externen Links
 tools/indexnow.py          Meldet geänderte URLs an IndexNow (läuft im Deploy)
 tools/pdf.mjs              Erzeugt die Checklisten-PDFs (Node + Playwright, läuft im Deploy)
+tools/favicons.mjs         Erzeugt favicon.ico/-192.png/apple-touch-icon.png aus static/favicon.svg (nach Logo-Änderung)
 docs/STRATEGIE.md          Wachstum, Monetarisierung, Kennzahlen
 docs/ZIELGRUPPE.md         Belegtes Leserprofil und Folgerungen
 docs/WETTBEWERB.md         Google-Konkurrenzanalyse der Top-Themen (Stand, Lücken, Chancen)

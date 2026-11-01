@@ -247,6 +247,16 @@ def main() -> int:
         if not ziel_existiert(pfad):
             fehler.append(f"sitemap.xml: {url} existiert nicht")
 
+    # Favicon: Google zeigt nur ICO/PNG/GIF/JPEG/BMP an (kein SVG) – die Startseite braucht ein solches rel="icon"
+    start_html = (OUT / "index.html").read_text(encoding="utf-8")
+    icons = re.findall(r'<link rel="(?:shortcut )?icon" href="([^"]+)"', start_html)
+    rastericons = [h for h in icons if re.search(r"\.(ico|png|gif|jpe?g|bmp)$", h)]
+    if not rastericons:
+        fehler.append("Startseite: kein Favicon als ICO/PNG (Google zeigt SVG-Favicons nicht an)")
+    for h in rastericons:
+        if h.startswith("/") and not (OUT / h.lstrip("/")).is_file():
+            fehler.append(f"Startseite: Favicon {h} fehlt in _site")
+
     robots = (OUT / "robots.txt").read_text(encoding="utf-8")
     if site["indexierung"] and "Disallow: /\n" in robots:
         fehler.append("robots.txt sperrt alles, obwohl indexierung: true")
