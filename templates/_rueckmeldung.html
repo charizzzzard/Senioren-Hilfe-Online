@@ -1,9 +1,8 @@
-{% set mailtext = "Guten Tag,\n\nmeine Frage:\n\n\nMein Handy (zum Beispiel iPhone oder Samsung):\n\nWas ich schon versucht habe:\n\n\n(Bitte schicken Sie uns keine Passwörter, PINs oder Bankdaten.)\n" %}
+{% set mailtext = "Guten Tag,\n\nmein Hinweis oder Themenwunsch:\n\n\n(Wenn ein Schritt bei Ihnen anders aussieht: Welches Handy haben Sie?)\n" %}
 <section class="rueckmeldung nicht-drucken" aria-labelledby="rueckmeldung-titel">
-  <h2 id="rueckmeldung-titel">Noch Fragen? Schreiben Sie uns</h2>
-  <p>Hat etwas nicht geklappt, oder fehlt Ihnen eine Erklärung? Schreiben Sie uns eine E-Mail. Wir lesen jede Nachricht, antworten Ihnen und verbessern mit Ihren Hinweisen unsere Anleitungen.</p>
+  <h2 id="rueckmeldung-titel">Fehler entdeckt oder ein Themenwunsch?</h2>
+  <p>Sieht ein Schritt bei Ihnen anders aus, oder fehlt Ihnen eine Erklärung? Schreiben Sie uns kurz. Wir lesen jede Nachricht und verbessern damit unsere Anleitungen.</p>
   <p class="teilen__knoepfe">
-    <a class="knopf" href="mailto:{{ site.kontakt }}?subject={{ betreff | urlencode }}&amp;body={{ mailtext | urlencode }}">E-Mail an die Redaktion</a>
+    <a class="knopf knopf--zweit" href="mailto:{{ site.kontakt }}?subject={{ betreff | urlencode }}&amp;body={{ mailtext | urlencode }}">Hinweis an die Redaktion</a>
   </p>
-  <p class="klein"><a href="/fragen/">So gehen wir mit Ihrer Nachricht um</a></p>
 </section>

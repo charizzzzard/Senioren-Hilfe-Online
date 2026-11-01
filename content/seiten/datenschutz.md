@@ -41,9 +41,9 @@ Unsere Anleitungen verlinken auf Quellen wie Polizei, Verbraucherzentralen oder 
 
 ## Kontakt per E-Mail
 
-Wenn Sie uns eine E-Mail schreiben, verarbeiten wir Ihre Angaben, um Ihre Anfrage zu beantworten. Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO; unser berechtigtes Interesse liegt in der Beantwortung Ihrer Nachricht. Wir löschen die Nachricht, wenn sie erledigt ist und keine gesetzlichen Aufbewahrungspflichten bestehen.
+Wenn Sie uns eine E-Mail schreiben, verarbeiten wir Ihre Angaben, um Ihre Nachricht zu lesen und zu bearbeiten. Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO; unser berechtigtes Interesse liegt in der Bearbeitung Ihrer Nachricht. Wir löschen die Nachricht, wenn sie erledigt ist und keine gesetzlichen Aufbewahrungspflichten bestehen.
 
-Aus den Fragen, die uns erreichen, lernen wir: Häufige Fragen nehmen wir zum Anlass, Anleitungen zu verbessern oder neu zu schreiben. Dafür verwenden wir nur den Inhalt der Frage – ohne Namen, E-Mail-Adresse oder andere Angaben, die auf Sie schließen lassen. Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO; unser berechtigtes Interesse liegt darin, unsere Anleitungen verständlicher zu machen.
+Aus den Hinweisen und Themenwünschen, die uns erreichen, lernen wir: Wir nehmen sie zum Anlass, Anleitungen zu verbessern oder neu zu schreiben. Dafür verwenden wir nur den Inhalt der Nachricht – ohne Namen, E-Mail-Adresse oder andere Angaben, die auf Sie schließen lassen. Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO; unser berechtigtes Interesse liegt darin, unsere Anleitungen verständlicher zu machen.
 
 ## Ihre Rechte
 

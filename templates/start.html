@@ -32,6 +32,26 @@
 </section>
 {% endif %}
 
+<section class="echt-teaser echt-teaser--start" aria-labelledby="echt-titel">
+  <p class="rubrik">Selbst prüfen</p>
+  <h2 id="echt-titel">Ist das echt?</h2>
+  <p>Eine merkwürdige SMS, eine Nachricht von einer neuen Nummer oder ein seltsamer Anruf? Beantworten Sie ein paar kurze Fragen – und bekommen Sie eine klare Empfehlung.</p>
+  <p><a class="knopf" href="/ist-das-echt/">Check starten</a></p>
+</section>
+
+{% if woche %}
+<section class="woche" aria-labelledby="woche-titel">
+  <p class="rubrik">Die Woche im Netz · {{ woche.veroeffentlicht | datum }}</p>
+  <h2 id="woche-titel"><a href="{{ woche.url }}">{{ woche.titel }}</a></h2>
+  <ul class="woche__meldungen">
+    {% for t in woche.toc %}
+    <li><a href="{{ woche.url }}#{{ t.id }}">{{ t.name | safe }}</a></li>
+    {% endfor %}
+  </ul>
+  <p class="woche__fuss"><a href="{{ woche.url }}">Ganze Ausgabe lesen ›</a> <a href="/woche-im-netz/">Alle Ausgaben</a></p>
+</section>
+{% endif %}
+
 <section class="abschnitt" aria-labelledby="themen-titel">
   <div class="abschnitt__kopf">
     <h2 id="themen-titel">Themen</h2>
@@ -41,7 +61,7 @@
     <a class="thema" href="{{ k.url }}">
       <span class="thema__name">{{ k.name }}</span>
       <span class="thema__text">{{ k.beschreibung }}</span>
-      <span class="thema__anzahl">{{ k.artikel | length }} {{ "Anleitung" if k.artikel | length == 1 else "Anleitungen" }}</span>
+      {% set n = k.artikel | length %}<span class="thema__anzahl">{{ n }} {% if k.slug == "aktuell" %}{{ "Beitrag" if n == 1 else "Beiträge" }}{% else %}{{ "Anleitung" if n == 1 else "Anleitungen" }}{% endif %}</span>
     </a>
     {% endfor %}
   </div>
@@ -74,12 +94,11 @@
 {% endif %}
 
 <section class="leserpost" aria-labelledby="leserpost-titel">
-  <p class="rubrik">Leserpost</p>
-  <h2 id="leserpost-titel">Ihre Frage an uns</h2>
-  <p>Sie kommen mit Ihrem Handy nicht weiter, haben eine merkwürdige Nachricht bekommen oder wünschen sich eine Anleitung zu einem Thema? Schreiben Sie uns. Wir antworten Ihnen – und aus vielen Fragen werden neue Anleitungen für alle.</p>
+  <p class="rubrik">Ihre Meinung zählt</p>
+  <h2 id="leserpost-titel">Welches Thema fehlt Ihnen?</h2>
+  <p>Gibt es eine Frage rund um Handy, WhatsApp oder Internet, die wir einmal in Ruhe erklären sollten? Oder ist Ihnen in einer Anleitung etwas aufgefallen? Schreiben Sie uns – aus vielen Hinweisen werden neue Anleitungen für alle.</p>
   <p class="teilen__knoepfe">
-    <a class="knopf" href="mailto:{{ site.kontakt }}?subject={{ 'Meine Frage an Netzleicht' | urlencode }}">E-Mail an die Redaktion</a>
-    <a class="knopf knopf--zweit" href="/fragen/">So funktioniert es</a>
+    <a class="knopf" href="mailto:{{ site.kontakt }}?subject={{ 'Themenwunsch für Netzleicht' | urlencode }}">Themenwunsch schicken</a>
   </p>
 </section>
 

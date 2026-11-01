@@ -42,7 +42,7 @@
     <p class="klein"><a href="/lexikon/">Alle Begriffe im Digital-Lexikon</a> · <a href="/ueber-netzleicht/">So entstehen unsere Texte</a></p>
   </section>
 
-  {% with betreff = "Frage zum Begriff: " ~ eintrag.begriff %}{% include "_rueckmeldung.html" %}{% endwith %}
+  {% with betreff = "Hinweis zum Begriff: " ~ eintrag.begriff %}{% include "_rueckmeldung.html" %}{% endwith %}
 </article>
 
 {% if eintrag.verwandte %}

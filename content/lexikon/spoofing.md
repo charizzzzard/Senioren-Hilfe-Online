@@ -4,6 +4,7 @@ titel: "Was ist Spoofing? Wenn Telefonnummer oder Absender gefälscht sind"
 seo_titel: "Was ist Spoofing? Gefälschte Nummern einfach erklärt"
 beschreibung: "Beim Spoofing fälschen Betrüger die angezeigte Telefonnummer oder den Absender einer E-Mail. Was Spoofing ist, wie Sie es erkennen und wie Sie sich schützen."
 keyword: "spoofing"
+stichwoerter: ["Call-ID-Spoofing", "Spoofing"]
 veroeffentlicht: 2026-10-30
 aktualisiert: 2026-10-30
 geprueft: 2026-10-30

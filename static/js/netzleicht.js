@@ -166,11 +166,173 @@
     }
   }
 
+  /* ---------------------------------------------- Erklärkästchen für Lexikon-Begriffe */
+  function erklaerungen() {
+    var links = document.querySelectorAll("a.begriff[data-erklaerung]");
+    if (!links.length) { return; }
+    var box = document.createElement("div");
+    box.className = "erklaerung";
+    box.hidden = true;
+    box.setAttribute("role", "dialog");
+    box.setAttribute("aria-labelledby", "erklaerung-titel");
+    box.innerHTML = '<button type="button" class="erklaerung__zu" aria-label="Erklärung schließen">×</button>' +
+      '<p class="erklaerung__titel" id="erklaerung-titel"></p><p class="erklaerung__text"></p>' +
+      '<p class="erklaerung__mehr"><a></a></p>';
+    document.body.appendChild(box);
+    var aktiv = null;
+
+    function zu(fokusZurueck) {
+      box.hidden = true;
+      if (aktiv) {
+        aktiv.setAttribute("aria-expanded", "false");
+        if (fokusZurueck) { aktiv.focus(); }
+        aktiv = null;
+      }
+    }
+    function auf(link) {
+      if (aktiv) { zu(false); }
+      aktiv = link;
+      box.querySelector(".erklaerung__titel").textContent = link.getAttribute("data-begriff") + " – kurz erklärt";
+      box.querySelector(".erklaerung__text").textContent = link.getAttribute("data-erklaerung");
+      var mehr = box.querySelector(".erklaerung__mehr a");
+      mehr.href = link.href;
+      mehr.textContent = "Mehr dazu im Digital-Lexikon ›";
+      box.hidden = false;
+      if (window.matchMedia("(min-width: 40rem)").matches) {
+        var r = link.getBoundingClientRect();
+        var breite = box.offsetWidth;
+        var xPos = Math.min(Math.max(12, r.left + window.scrollX), window.scrollX + document.documentElement.clientWidth - breite - 12);
+        box.style.left = xPos + "px";
+        box.style.top = (r.bottom + window.scrollY + 8) + "px";
+      } else {
+        box.style.left = "";
+        box.style.top = "";
+      }
+      link.setAttribute("aria-expanded", "true");
+      box.querySelector(".erklaerung__zu").focus();
+    }
+    links.forEach(function (link) {
+      link.setAttribute("aria-haspopup", "dialog");
+      link.setAttribute("aria-expanded", "false");
+      link.addEventListener("click", function (e) {
+        e.preventDefault();
+        if (aktiv === link) { zu(true); } else { auf(link); }
+      });
+    });
+    box.querySelector(".erklaerung__zu").addEventListener("click", function () { zu(true); });
+    document.addEventListener("keydown", function (e) { if (e.key === "Escape" && aktiv) { zu(true); } });
+    document.addEventListener("click", function (e) {
+      if (aktiv && !box.contains(e.target) && !aktiv.contains(e.target)) { zu(false); }
+    });
+  }
+
+  /* ---------------------------------------------- „Ist das echt?“-Check */
+  function echtCheck() {
+    var form = document.getElementById("echt-check");
+    var datenEl = document.getElementById("echt-check-daten");
+    if (!form || !datenEl) { return; }
+    var daten = JSON.parse(datenEl.textContent);
+    var schritte = Array.prototype.slice.call(form.querySelectorAll(".echt-check__schritt"));
+    var steuerung = form.querySelector(".echt-check__steuerung");
+    var zurueck = form.querySelector('[data-echt="zurueck"]');
+    var weiter = form.querySelector('[data-echt="weiter"]');
+    var ergebnis = document.getElementById("echt-ergebnis");
+    var ohneJs = document.getElementById("echt-ohne-js");
+    var index = 0;
+
+    if (ohneJs) { ohneJs.hidden = true; }
+    steuerung.hidden = false;
+
+    function wert(name) {
+      var gewaehlt = form.querySelector('input[name="' + name + '"]:checked');
+      return gewaehlt ? gewaehlt.value : null;
+    }
+    function zeigen(i) {
+      index = i;
+      schritte.forEach(function (s, n) {
+        s.hidden = n !== i;
+        s.querySelector(".echt-check__zaehler").textContent = "Frage " + (n + 1) + " von " + schritte.length + ": ";
+      });
+      zurueck.hidden = i === 0;
+      weiter.textContent = i === schritte.length - 1 ? "Ergebnis anzeigen ›" : "Weiter ›";
+      var erstes = schritte[i].querySelector("input:checked") || schritte[i].querySelector("input");
+      if (erstes) { erstes.focus({ preventScroll: true }); }
+    }
+    function liste(ul, eintraege, alsLink) {
+      ul.innerHTML = "";
+      (eintraege || []).forEach(function (e) {
+        var li = document.createElement("li");
+        if (alsLink) {
+          var a = document.createElement("a");
+          a.href = e.url;
+          a.textContent = e.titel;
+          li.appendChild(a);
+        } else {
+          li.textContent = e;
+        }
+        ul.appendChild(li);
+      });
+    }
+    function auswerten() {
+      var weg = wert("weg");
+      var ja = function (id) { return wert(id) === "ja"; };
+      var rot = ja("code") ||
+        (ja("geld") && (ja("druck") || ja("angehoerig") || ja("amt"))) ||
+        (ja("link") && (ja("druck") || ja("ueberraschend") || ja("geld")));
+      var auffaellig = daten.fragen.some(function (id) { var w = wert(id); return w === "ja" || w === "unsicher"; });
+      var stufe = rot ? "rot" : (auffaellig ? "gelb" : "gruen");
+      var text = daten.ergebnisse[stufe];
+      ergebnis.className = "echt-ergebnis echt-ergebnis--" + stufe;
+      ergebnis.querySelector(".echt-ergebnis__titel").textContent = text.titel;
+      ergebnis.querySelector(".echt-ergebnis__text").textContent = text.text;
+      liste(ergebnis.querySelector(".echt-ergebnis__rat"), daten.ratschlaege[weg], false);
+      liste(ergebnis.querySelector(".echt-ergebnis__links"), daten.weiterlesen[weg], true);
+      form.hidden = true;
+      ergebnis.hidden = false;
+      ergebnis.scrollIntoView({ block: "start", behavior: "smooth" });
+      ergebnis.focus({ preventScroll: true });
+    }
+    function vor() {
+      if (!form.querySelector(".echt-check__schritt:not([hidden]) input:checked")) {
+        var hinweis = schritte[index].querySelector(".echt-check__fehlt");
+        if (!hinweis) {
+          hinweis = document.createElement("p");
+          hinweis.className = "echt-check__fehlt";
+          hinweis.setAttribute("role", "alert");
+          hinweis.textContent = index === 0 ? "Bitte wählen Sie eine Antwort aus." :
+            "Bitte wählen Sie eine Antwort aus. Wenn Sie es nicht wissen, wählen Sie „Weiß nicht“.";
+          schritte[index].appendChild(hinweis);
+        }
+        return;
+      }
+      if (index < schritte.length - 1) { zeigen(index + 1); } else { auswerten(); }
+    }
+
+    weiter.addEventListener("click", vor);
+    zurueck.addEventListener("click", function () { if (index > 0) { zeigen(index - 1); } });
+    form.addEventListener("change", function (e) {
+      var fehlt = e.target.closest(".echt-check__schritt").querySelector(".echt-check__fehlt");
+      if (fehlt) { fehlt.remove(); }
+      setTimeout(vor, 350);
+    });
+    form.addEventListener("submit", function (e) { e.preventDefault(); vor(); });
+    ergebnis.querySelector('[data-echt="neu"]').addEventListener("click", function () {
+      form.reset();
+      ergebnis.hidden = true;
+      form.hidden = false;
+      zeigen(0);
+      form.scrollIntoView({ block: "start", behavior: "smooth" });
+    });
+    zeigen(0);
+  }
+
   /* ---------------------------------------------- Start */
   function start() {
     var gespeichert = parseInt(speicher.lesen("nl-schrift") || "0", 10) || 0;
     var stufe = gespeichert;
     figurenBeleben();
+    erklaerungen();
+    echtCheck();
 
     var leiste = document.querySelector(".lesehilfe");
     var artikel = document.querySelector("article.artikel");

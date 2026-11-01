@@ -9,6 +9,7 @@ from __future__ import annotations
 import argparse
 import datetime as dt
 import hashlib
+import html as htmllib
 import json
 import math
 import re
@@ -20,6 +21,7 @@ from pathlib import Path
 from xml.sax.saxutils import escape as xml_escape
 
 import markdown
+import segno
 import yaml
 from jinja2 import Environment, FileSystemLoader, StrictUndefined, select_autoescape
 
@@ -194,6 +196,62 @@ def komponenten(rumpf: str, quelle: str) -> str:
     return KOMPONENTEN.sub(ersetzen, rumpf)
 
 
+# ---------------------------------------------------------------- Erklärkästchen (Lexikon-Begriffe im Text)
+
+GESCHUETZT = {"a", "h1", "h2", "h3", "h4", "h5", "h6", "figure", "code", "pre", "button", "script", "style", "ol"}
+
+
+def begriffe_sammeln(lexikon: list) -> list[dict]:
+    begriffe = []
+    for e in lexikon:
+        erster_absatz = e.kurz_html.split("</p>")[0]
+        text = re.sub(r"\s+", " ", htmllib.unescape(re.sub(r"<[^>]+>", " ", erster_absatz))).strip()
+        for wort in e.meta.get("stichwoerter") or [e.begriff]:
+            begriffe.append({"slug": e.slug, "wort": str(wort), "begriff": e.begriff, "text": text, "url": e.url})
+    # längere Begriffe zuerst, damit „Call-ID-Spoofing“ vor „Spoofing“ greift
+    return sorted(begriffe, key=lambda b: -len(b["wort"]))
+
+
+def begriffe_verlinken(html: str, begriffe: list[dict], eigener_slug: str | None = None) -> str:
+    """Verlinkt die erste Nennung jedes Lexikon-Begriffs und ergänzt die Kurz-Erklärung für das Erklärkästchen."""
+    def attribute(b: dict) -> str:
+        return (f'class="begriff" data-begriff="{htmllib.escape(b["begriff"])}" '
+                f'data-erklaerung="{htmllib.escape(b["text"])}"')
+
+    nach_slug = {b["slug"]: b for b in begriffe}
+    erledigt = {eigener_slug}
+
+    def vorhandene(m: re.Match) -> str:
+        slug = m.group(1)
+        if slug not in nach_slug:
+            return m.group(0)
+        erledigt.add(slug)
+        return f'<a href="/lexikon/{slug}/" {attribute(nach_slug[slug])}>'
+    html = re.sub(r'<a href="/lexikon/([a-z0-9-]+)/">', vorhandene, html)
+
+    teile = re.split(r"(<[^>]+>)", html)
+    tiefe = 0
+    for i, teil in enumerate(teile):
+        if teil.startswith("<"):
+            tag = re.match(r"</?([a-zA-Z0-9]+)", teil)
+            if tag and tag.group(1).lower() in GESCHUETZT and not teil.endswith("/>"):
+                tiefe += -1 if teil.startswith("</") else 1
+            continue
+        if tiefe > 0 or not teil.strip():
+            continue
+        for b in begriffe:
+            if b["slug"] in erledigt:
+                continue
+            muster = re.compile(r"(?<![\w-])(" + re.escape(b["wort"]) + r")(?![\w-])")
+            treffer = muster.search(teil)
+            if treffer:
+                link = f'<a href="{b["url"]}" {attribute(b)}>{treffer.group(1)}</a>'
+                teil = teil[:treffer.start()] + link + teil[treffer.end():]
+                erledigt.add(b["slug"])
+        teile[i] = teil
+    return "".join(teile)
+
+
 def text_woerter(html: str) -> int:
     return len(re.sub(r"<[^>]+>", " ", html).split())
 
@@ -242,6 +300,11 @@ class Seite:
         return self.meta.get("pfad", f"/{self.slug}/")
 
 
+def ist_wochenschau(a: "Artikel") -> bool:
+    """Ausgabe der Rubrik „Die Woche im Netz“ (kategorie: aktuell, reihe: wochenschau)."""
+    return a.meta.get("reihe") == "wochenschau"
+
+
 def lade_artikel(site: dict) -> list[Artikel]:
     return lade_texte(site, "artikel")
 
@@ -285,7 +348,8 @@ def lade_texte(site: dict, bereich: str) -> list[Artikel]:
         for b in artikel:
             if len(a.verwandte) >= 3:
                 break
-            if b is not a and b not in a.verwandte and b.kategorie == a.kategorie:
+            if b is not a and b not in a.verwandte and b.kategorie == a.kategorie \
+                    and ist_wochenschau(b) == ist_wochenschau(a):
                 a.verwandte.append(b)
     artikel.sort(key=lambda a: (a.veroeffentlicht, a.slug), reverse=True)
     return artikel
@@ -385,6 +449,9 @@ def build(out: Path) -> dict:
     lexikon = lade_texte(site, "lexikon")
     seiten = lade_seiten()
     artikel_nach_slug = {a.slug: a for a in artikel}
+    begriffe = begriffe_sammeln(lexikon)
+    for t in artikel + lexikon:
+        t.html = begriffe_verlinken(t.html, begriffe, t.slug if t.bereich == "lexikon" else None)
     for e in lexikon:
         for s in e.meta.get("verwandt", []) or []:
             if s not in artikel_nach_slug:
@@ -403,6 +470,7 @@ def build(out: Path) -> dict:
     shutil.copytree(STATIC, out)
     css_hash = hashlib.sha256((STATIC / "css" / "style.css").read_bytes()).hexdigest()[:10]
     js_hash = hashlib.sha256((STATIC / "js" / "netzleicht.js").read_bytes()).hexdigest()[:10]
+    druck_hash = hashlib.sha256((STATIC / "css" / "druck.css").read_bytes()).hexdigest()[:10]
 
     env = Environment(
         loader=FileSystemLoader(TEMPLATES),
@@ -417,6 +485,7 @@ def build(out: Path) -> dict:
         "site": site,
         "kategorien": kategorien,
         "lexikon_vorhanden": bool(lexikon),
+        "wochenschau_vorhanden": any(ist_wochenschau(a) for a in artikel),
         "kategorie_namen": {k["slug"]: k["name"] for k in site["kategorien"]},
         "css_version": css_hash,
         "js_version": js_hash,
@@ -428,8 +497,12 @@ def build(out: Path) -> dict:
         html = env.get_template(vorlage).render(**basis, pfad=pfad, **kontext)
         schreibe(out, pfad, html)
 
-    render("start.html", "/", artikel=artikel, lexikon=lexikon,
+    wochenschau = [a for a in artikel if ist_wochenschau(a)]
+    render("start.html", "/", artikel=[a for a in artikel if not ist_wochenschau(a)], lexikon=lexikon,
+           woche=wochenschau[0] if wochenschau else None,
            schnelle_hilfe=[a for a in artikel if a.meta.get("schnelle_hilfe")])
+    if wochenschau:
+        render("wochenschau.html", "/woche-im-netz/", ausgaben=wochenschau)
     if lexikon:
         buchstaben: dict[str, list] = {}
         for e in lexikon:
@@ -444,18 +517,37 @@ def build(out: Path) -> dict:
         kat = kat_nach_slug[a.kategorie]
         render("artikel.html", a.url, artikel=a, kategorie=kat,
                strukturdaten=json_ld(ld_artikel(site, a, kat)))
+        if a.meta.get("checkliste"):
+            # Gebrandetes Checklisten-Blatt; das PDF dazu erzeugt tools/pdf.mjs beim Veröffentlichen
+            qr = segno.make(site["url"] + a.url, error="m").svg_inline(scale=4, dark="#1c1b19", omitsize=True)
+            render("checkliste_druck.html", a.url + "checkliste/", artikel=a, kategorie=kat, qr_svg=qr,
+                   druck_css_version=druck_hash, pdf_url=f"/checklisten/{a.slug}.pdf",
+                   pdf_name=f"Netzleicht-Checkliste-{a.slug}.pdf")
     for s in seiten:
         render("seite.html", s.url, seite=s)
     # Weiterleitungen von alten Adressen (GitHub Pages kennt keine Server-Redirects)
-    for a in artikel:
+    for a in list(artikel) + list(seiten):
         for alt in a.meta.get("alte_urls", []) or []:
             render("weiterleitung.html", alt, ziel=a.url)
     render("404.html", "/404.html")
+
+    # „Ist das echt?“-Check
+    check = yaml.safe_load((CONTENT / "echt-check.yaml").read_text(encoding="utf-8"))
+    szene = komponenten("```szene\nfigur: margarete\ngeste: staunen\ntext: >\n  Margarete hat eine Nachricht bekommen, "
+                        "die sie stutzig macht. Ist das wirklich ihre Bank? Bevor sie irgendetwas tut, "
+                        "geht sie die Fragen in Ruhe durch.\n```", "echt-check.yaml")
+    daten = {k: check[k] for k in ("ergebnisse", "ratschlaege", "weiterlesen")}
+    daten["fragen"] = [f["id"] for f in check["fragen"]]
+    render("echt_check.html", "/ist-das-echt/", check=check, szene_html=neues_markdown().convert(szene),
+           daten_json=json_ld(daten))
 
     # sitemap.xml – nur indexierbare Seiten
     eintraege = [("/", max((a.aktualisiert for a in artikel), default=heute))]
     eintraege += [(k["url"], max(a.aktualisiert for a in k["artikel"])) for k in kategorien]
     eintraege += [(a.url, a.aktualisiert) for a in artikel]
+    eintraege.append(("/ist-das-echt/", check["aktualisiert"]))
+    if wochenschau:
+        eintraege.append(("/woche-im-netz/", max(a.aktualisiert for a in wochenschau)))
     if lexikon:
         eintraege.append(("/lexikon/", max(e.aktualisiert for e in lexikon)))
         eintraege += [(e.url, e.aktualisiert) for e in lexikon]

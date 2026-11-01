@@ -28,7 +28,8 @@ Belegtes Profil, Lesergruppen und Folgerungen: **`docs/ZIELGRUPPE.md`** (vor dem
 6. **Keine Monetarisierung von Angst:** Niemals Affiliate-Links, Produktempfehlungen oder Werbung in Artikeln zu Betrug und Sicherheit.
 7. **Kein Tracking, keine Cookies, keine fremden Skripte/Fonts.** `tools/check.py` blockiert bekannte Tracker.
 8. **Transparenz:** Netzleicht sagt offen, dass Texte mit KI-Unterstützung entstehen (`/ueber-netzleicht/`).
-9. **Qualität vor Menge.** Höchstens 2 neue Anleitungen/Aktuell-Texte und 2 Lexikon-Einträge pro Woche.
+9. **Qualität vor Menge.** Höchstens 2 neue Anleitungen/Aktuell-Texte und 2 Lexikon-Einträge pro Woche,
+   dazu genau eine Ausgabe „Die Woche im Netz“ (freitags).
    Massenhaft dünne Seiten verstoßen gegen Googles Richtlinien („scaled content abuse“) und gegen unser Versprechen.
 11. **Keine erfundenen Autoren.** Absender ist die „Netzleicht-Redaktion“. Keine erfundenen Personen als Autoren,
     Experten, Zitatgeber oder Erfahrungsberichte – Google wertet erfundene Autorenprofile ausdrücklich als Täuschung.
@@ -41,16 +42,20 @@ Belegtes Profil, Lesergruppen und Folgerungen: **`docs/ZIELGRUPPE.md`** (vor dem
 content/site.yaml          Name, URL, Kategorien, indexierung (true/false), IndexNow-Schlüssel
 content/artikel/*.md       Anleitungen und „Aktuell erklärt“ (Dateiname = URL-Slug)
 content/lexikon/*.md       Digital-Lexikon („Was ist …?“), URL /lexikon/<slug>/
-content/seiten/*.md        Über uns, Fragen Sie uns, Impressum, Datenschutz
+content/seiten/*.md        Über uns, Kontakt, Impressum, Datenschutz
 content/themenplan.yaml    Priorisierte Themenliste – Quelle für die nächsten Artikel
+content/echt-check.yaml    Fragen, Ergebnisse und Quellen des „Ist das echt?“-Checks (/ist-das-echt/)
 templates/                 Jinja2-Vorlagen (base, start, artikel, kategorie, seite, 404)
 static/                    CSS, Bilder, Favicon – wird 1:1 nach _site kopiert
 tools/build.py             Baut _site/ (Sitemap, robots.txt, Feed, JSON-LD, Weiterleitungen)
 tools/check.py             Qualitätsprüfung – muss vor jedem Merge grün sein
 tools/linkcheck.py         Prüft alle externen Links
 tools/indexnow.py          Meldet geänderte URLs an IndexNow (läuft im Deploy)
+tools/pdf.mjs              Erzeugt die Checklisten-PDFs (Node + Playwright, läuft im Deploy)
 docs/STRATEGIE.md          Wachstum, Monetarisierung, Kennzahlen
-.github/workflows/         deploy.yml (Build → Check → Pages → Live-Test → IndexNow), wartung.yml (wöchentlich)
+docs/ZIELGRUPPE.md         Belegtes Leserprofil und Folgerungen
+docs/WETTBEWERB.md         Google-Konkurrenzanalyse der Top-Themen (Stand, Lücken, Chancen)
+.github/workflows/         deploy.yml (Build → Check → PDFs → Pages → Live-Test → IndexNow), wartung.yml (wöchentlich)
 ```
 
 ## 4. Befehle
@@ -61,6 +66,7 @@ python tools/build.py                          # baut nach _site/
 python tools/check.py                          # baut + prüft (Exit 1 bei Fehlern)
 python tools/linkcheck.py                      # externe Links prüfen
 python -m http.server 8765 --directory _site   # lokale Vorschau
+npm ci && node tools/pdf.mjs                   # optional lokal: Checklisten-PDFs nach _site/checklisten/
 ```
 
 Push auf `main` veröffentlicht automatisch auf https://netzleicht.de (GitHub Pages, Custom Domain).
@@ -74,12 +80,26 @@ Push auf `main` veröffentlicht automatisch auf https://netzleicht.de (GitHub Pa
 | **Anleitung** | `content/artikel/` | Ein Problem Schritt für Schritt lösen | 600–1.500 Wörter (min. 450) |
 | **Aktuell erklärt** | `content/artikel/`, `kategorie: aktuell` | Neuerung oder neue Masche ruhig einordnen: Was ist passiert? Was bedeutet das für Sie? Was ist zu tun? | 450–1.000 Wörter |
 | **Lexikon** | `content/lexikon/` | Einen Begriff erklären („Was ist ein Passkey?“) und auf passende Anleitungen verweisen | 250–700 Wörter (min. 250) |
+| **Die Woche im Netz** | `content/artikel/`, `kategorie: aktuell`, `reihe: wochenschau` | Wöchentliche Rubrik: 3–5 Meldungen der Woche, ruhig eingeordnet | 450–1.000 Wörter |
 
 **Aktuell erklärt:** Nur offiziell Angekündigtes oder von Behörden/Verbraucherzentralen Gemeldetes – keine Gerüchte,
 keine Leaks, keine Spekulation. Quellen: Hersteller-Ankündigung bzw. -Hilfe, BSI, Polizei, Verbraucherzentrale (Phishing-Radar).
 Datum steht sichtbar oben. Wird ein Text überholt: aktualisieren oder deutlich als „Stand: …“ kennzeichnen.
 
+**Die Woche im Netz** (erscheint freitags, Slug `woche-im-netz-<JJJJ>-kw<NN>`):
+- 3–5 Meldungen aus den letzten 7 Tagen, die unsere Leser betreffen: neue Maschen (Phishing-Radar, Polizei, BSI),
+  wichtige Updates (Apple, Google, WhatsApp, Samsung), Änderungen bei Behörden, Banken, Post oder Telefon.
+  Keine Gerüchte, keine Leaks, keine Promi- oder Politiknachrichten, keine Einzelfälle ohne allgemeinen Rat.
+- Jede Meldung ist ein `## Abschnitt` mit **„Was ist passiert?“** und **„Was bedeutet das für Sie?“** (konkret, was zu tun ist).
+  Datum der Meldung nennen. Jede Meldung braucht mindestens eine selbst gelesene Primärquelle in `quellen`.
+- Kein `keyword`, keine Checkliste nötig; `kurz_gesagt` fasst die Woche in 2–4 Zeilen zusammen; Kasten „Für Angehörige“ am Ende.
+- Kein Eintrag im Themenplan nötig. Ältere Ausgaben bleiben stehen (Archiv `/woche-im-netz/`); die neueste erscheint auf der Startseite.
+- Gibt eine Woche zu wenig Belegbares her: lieber 3 gute Meldungen als 5 dünne. Ohne 3 belegte Meldungen keine Ausgabe.
+
 **Lexikon-Frontmatter:** wie bei Anleitungen, aber `begriff: "Passkey"` statt `kategorie`; keine Checkliste nötig.
+Optional `stichwoerter: ["Passkeys", "Passkey"]`: Diese Wörter werden in allen Texten beim ersten Vorkommen automatisch
+auf den Eintrag verlinkt und zeigen beim Antippen ein **Erklärkästchen** mit der Kurzerklärung (`beschreibung`).
+Darum muss die `beschreibung` eines Lexikon-Eintrags für sich allein verständlich sein.
 Aufbau: kurze Erklärung → „Ein Beispiel aus dem Alltag“ → So funktioniert es → Was bedeutet das für Sie / So schützen Sie sich
 → Link zur passenden Anleitung. Wichtige Begriffe in Anleitungen auf ihren Lexikon-Eintrag verlinken.
 
@@ -100,6 +120,8 @@ kurz_gesagt: |                  # **2–4 Zeilen, jede Zeile wird ein Absatz; di
   …
 checkliste_titel: "…"
 checkliste:                     # 5–10 Punkte, Ich-Form, druckbar; Doppelpunkt im Text → in "…" setzen
+                                #   → erzeugt automatisch /artikel/<slug>/checkliste/ (A4-Blatt mit QR-Code)
+                                #     und /checklisten/<slug>.pdf; muss auf EINE A4-Seite passen (max. ca. 10 kurze Punkte)
   - …
 quellen:                        # **mind. 2, besser 3–6; nur https**
   - herausgeber: Polizeiliche Kriminalprävention der Länder und des Bundes
@@ -271,7 +293,8 @@ const { chromium } = require('playwright');
 ### Content-Session (geplant 2× pro Woche)
 
 1. `git checkout main && git pull`; `pip install -r requirements.txt`.
-2. Offene Issues mit Label `feedback`, `wartung` oder `leserfrage` zuerst bearbeiten – Fehler in bestehenden Artikeln haben Vorrang vor neuen Artikeln; zu Leserfragen einen Antwortvorschlag schreiben (siehe „Leserpost“).
+2. Offene Issues mit Label `feedback`, `wartung` oder `themenwunsch` zuerst bearbeiten – Fehler in bestehenden Artikeln
+   haben Vorrang vor neuen Artikeln; Themenwünsche in den Themenplan übernehmen (siehe „Rückmeldungen“).
 3. Kurzer Blick auf Aktuelles: Gibt es eine neue, breit gemeldete Betrugsmasche (Verbraucherzentrale Phishing-Radar,
    BSI, Polizei) oder ein großes offizielles Update (Apple, Google, WhatsApp)? Wenn ja und gut belegbar: als
    „Aktuell erklärt“ vorziehen und im Themenplan ergänzen.
@@ -288,21 +311,46 @@ const { chromium } = require('playwright');
    (Thema, Quellen, Besonderheiten). Wenn der CI-Check grün ist: selbst mergen (Squash). Der Deploy läuft automatisch.
    Ohne GitHub-Werkzeuge: nach grünem lokalen Check direkt auf `main` pushen.
 
-### Leserpost (Fragen per E-Mail)
+### Die-Woche-im-Netz-Session (geplant freitags)
 
-Leser werden auf jeder Seite eingeladen, an kontakt@netzleicht.de zu schreiben (`/fragen/`, Kasten unter jedem Text).
-Der Betreiber liest das Postfach und antwortet. Damit Claude helfen kann:
+1. `git checkout main && git pull`; `pip install -r requirements.txt`.
+2. Meldungen der letzten 7 Tage sammeln, zuerst bei: Verbraucherzentrale Phishing-Radar, polizei-beratung.de und
+   Polizei-Pressestellen, BSI, Bundesnetzagentur, Apple-Sicherheitsupdates (support.apple.com/de-de/100100),
+   Google/Android-, WhatsApp- und Samsung-Ankündigungen. Jede Quelle selbst lesen (Abschnitt 6).
+3. 3–5 Meldungen auswählen, die viele unserer Leser betreffen und zu denen es einen konkreten Rat gibt.
+   Ausgabe nach Abschnitt 5 („Die Woche im Netz“) schreiben, mit internen Links auf passende Anleitungen,
+   den `/ist-das-echt/`-Check oder `/artikel/betrug-was-tun/`.
+4. Fällt dabei ein Thema auf, das eine eigene Anleitung verdient: in den Themenplan aufnehmen (`notiz: aus Wochenschau KW…`).
+5. `python tools/check.py` grün; Branch `claude/woche-im-netz-<JJJJ>-kw<NN>`, Commit `woche: KW <NN>`, PR, nach grünem CI mergen.
+   Danach prüfen, dass die Ausgabe live ist und auf der Startseite erscheint.
 
-- Der Betreiber legt Fragen als GitHub-Issue mit Label `leserfrage` an – **nur anonymisiert**: kein Name, keine E-Mail-Adresse,
-  keine Telefonnummer, kein Wohnort, keine Bildschirmfotos mit persönlichen Daten. **Das Repository ist öffentlich.**
-- Claude schreibt in der nächsten Content-Session einen **Antwortvorschlag** als Kommentar ins Issue (Sie-Form, freundlich,
-  mit Links auf passende Anleitungen), prüft, ob eine Anleitung fehlt oder verbessert werden muss, ergänzt den Themenplan
-  (`notiz: Leserfrage`) und schließt das Issue.
-- Leserfragen werden nie wörtlich oder erkennbar veröffentlicht. Claude schreibt niemals personenbezogene Daten ins Repository oder in Issues.
+### Rückmeldungen (Hinweise und Themenwünsche per E-Mail)
+
+Leser werden eingeladen, an kontakt@netzleicht.de zu schreiben (`/kontakt/`, Kasten unter jedem Text) –
+**für Hinweise auf Fehler und für Themenwünsche, nicht für persönliche Technikhilfe.** Netzleicht verspricht keine Antwort
+und keine Einzelberatung. Der Betreiber liest das Postfach. Damit Claude helfen kann:
+
+- Der Betreiber legt Relevantes als GitHub-Issue an: Label `feedback` (Fehler, Unklares) oder `themenwunsch`
+  – **nur anonymisiert**: kein Name, keine E-Mail-Adresse, keine Telefonnummer, kein Wohnort, keine Bildschirmfotos
+  mit persönlichen Daten. **Das Repository ist öffentlich.**
+- Claude korrigiert `feedback`-Fälle in der nächsten Content-Session und nimmt `themenwunsch`-Fälle in den Themenplan auf
+  (`notiz: Themenwunsch`, Priorität nach Suchvolumen und Passung zur Zielgruppe). Dann Issue mit kurzem Kommentar schließen.
+- Claude schreibt keine Antworten an Leser und niemals personenbezogene Daten ins Repository oder in Issues.
+  Rückmeldungen werden nie wörtlich oder erkennbar veröffentlicht.
+
+### Interaktive Elemente pflegen
+
+- **„Ist das echt?“-Check** (`content/echt-check.yaml`, Auswertung in `static/js/netzleicht.js`, Funktion `echtCheck()`):
+  Jede Frage, jeder Hinweis und jeder Rat muss durch eine Quelle in der Datei gedeckt sein. Neue Anleitungen zu Betrug
+  dort unter `weiterlesen` beim passenden Weg verlinken. Die Ampel-Logik nur ändern, wenn eine Quelle es nahelegt.
+- **Erklärkästchen**: entstehen automatisch aus Lexikon-Einträgen mit `stichwoerter` (Abschnitt 5).
+- **Checklisten-Blätter und PDFs**: entstehen automatisch aus `checkliste`. Nach neuen Artikeln mit langer Checkliste
+  prüfen, dass das Blatt auf eine A4-Seite passt (`node tools/pdf.mjs` meldet die PDFs; im Zweifel Punkte kürzen).
 
 ### Wartungs-Session (geplant monatlich)
 
 1. Offene `wartung`-Issues abarbeiten (defekte Links → neue offizielle Quelle suchen oder Aussage anpassen).
+   Dazu gehören auch die Quellen in `content/echt-check.yaml`.
 2. Bis zu 2 ältere Texte an die aktuelle **Stimme** (Abschnitt 5) anpassen: Szene als Einstieg, wärmerer Ton, weniger Kästen –
    Fakten und Quellen bleiben unverändert.
 3. Artikel mit `geprueft` älter als 180 Tage: Quellen neu lesen, Menüpfade neu prüfen, Text anpassen,
