@@ -28,9 +28,12 @@ verwandt:
 
 Das Wort „Spoofing“ kommt aus dem Englischen und bedeutet laut BSI so viel wie Manipulation oder Verschleierung. Gemeint ist: Kriminelle geben sich am Telefon oder per E-Mail als jemand aus, dem Sie vertrauen – und fälschen dafür die Nummer oder den Absender.
 
-## Ein Beispiel aus dem Alltag
-
-Bei Anna klingelt das Telefon. Im Display steht eine Nummer aus ihrer Stadt. Der Anrufer stellt sich als Polizist vor und sagt, ihr Erspartes sei nicht mehr sicher. Weil die Nummer so vertraut aussieht, glaubt sie ihm zunächst.
+```szene
+figur: anna
+geste: staunen
+text: >
+  Bei Anna klingelt das Telefon. Im Display steht eine Nummer aus ihrer Stadt. Der Anrufer stellt sich als Polizist vor und sagt, ihr Erspartes sei nicht mehr sicher. Weil die Nummer so vertraut aussieht, glaubt sie ihm zunächst.
+```
 
 Genau darauf setzen die Täter. Die Polizei beschreibt diese Technik bei der Masche mit falschen Polizisten: Im Display erscheint eine vorgetäuschte Nummer, zum Beispiel mit der Vorwahl Ihres Wohnorts.
 

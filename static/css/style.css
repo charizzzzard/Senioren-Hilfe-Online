@@ -1238,3 +1238,33 @@ h1, h2, h3 { overflow-wrap: break-word; hyphens: auto; -webkit-hyphens: auto; }
   cursor: pointer;
 }
 .kopieren:hover { background: var(--papier); }
+
+/* ------------------------------------------------ Startbild (gezeichnete Szene, dezent bewegt) */
+.held-szene { display: block; width: 100%; height: auto; border: 1px solid var(--linie); background: #f1e8d8; }
+.held-szene .figur__mund-o { display: none; }
+.held-szene .figur__augen { transform-box: fill-box; transform-origin: center; }
+.held-szene__kopf { transform-box: fill-box; transform-origin: 50% 85%; }
+.held-szene__winken { transform-box: view-box; transform-origin: 338px 186px; }
+.held-szene__pflanze { transform-box: view-box; transform-origin: 50px 262px; }
+.held-szene__blase { transform-box: fill-box; }
+.held-szene__blase--foto { transform-origin: 30% 100%; }
+.held-szene__blase--herz { transform-origin: 70% 100%; }
+
+@media (prefers-reduced-motion: no-preference) {
+  .held-szene .figur__augen { animation: nl-blinzeln 5s ease-in-out 1.5s 4; }
+  .held-szene__kopf--nicken { animation: nl-nicken 1.8s ease-in-out 2.6s 1; }
+  .held-szene__winken { animation: nl-winken 2s ease-in-out .6s 2; }
+  .held-szene__blase { animation: nl-blase .6s cubic-bezier(.3, 1.5, .6, 1) both; }
+  .held-szene__blase--foto { animation-delay: 1.2s; }
+  .held-szene__blase--herz { animation-delay: 2.4s; }
+  .held-szene__dampf path { animation: nl-dampf 3s ease-in-out infinite; animation-iteration-count: 5; }
+  .held-szene__dampf path:last-child { animation-delay: 1.5s; }
+  .held-szene__pflanze { animation: nl-wiegen 6s ease-in-out 3; }
+}
+@keyframes nl-blase { from { transform: scale(0); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+@keyframes nl-dampf {
+  0% { transform: translateY(4px); opacity: 0; }
+  40% { opacity: .9; }
+  100% { transform: translateY(-10px); opacity: 0; }
+}
+@keyframes nl-wiegen { 0%, 100% { transform: rotate(0); } 50% { transform: rotate(-2.5deg); } }

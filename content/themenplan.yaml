@@ -103,15 +103,25 @@ themen:
     suchvolumen: 90500
     kd: 6
     prioritaet: 1
-    status: offen
+    slug: cookies
+    status: veroeffentlicht
     notiz: "was sind cookies: 2900 / KD 35. Quellen: BSI, Verbraucherzentrale."
+  - titel: "Was ist Phishing? Gefälschte E-Mails und Seiten einfach erklärt"
+    format: lexikon
+    keyword: was ist phishing
+    suchvolumen: 2900
+    kd: 32
+    slug: phishing
+    status: veroeffentlicht
+    notiz: "phishing mail: 12100 / KD 28; phishing: 368000 / KD 65 (OpenSEO 01.11.2026). Kernbegriff, Linkziel für viele Texte."
   - titel: Was ist ein Deepfake? Gefälschte Videos und Stimmen erkennen
     format: lexikon
     keyword: deepfake
     suchvolumen: 33100
     kd: 14
     prioritaet: 1
-    status: offen
+    slug: deepfake
+    status: veroeffentlicht
     notiz: "ki betrug: 880. Quellen: BSI, Polizei. Ruhig erklären, keine Angst machen."
   - titel: Was ist AirDrop?
     format: lexikon
@@ -127,7 +137,8 @@ themen:
     suchvolumen: 22200
     kd: 13
     prioritaet: 1
-    status: offen
+    slug: nfc
+    status: veroeffentlicht
     notiz: "was ist nfc: 2900 / KD 0"
   - titel: Was ist ein Browser?
     format: lexikon
@@ -350,7 +361,8 @@ themen:
     suchvolumen: 3600
     kd: 4
     prioritaet: 1
-    status: offen
+    slug: whatsapp-videoanruf
+    status: veroeffentlicht
     notiz: "Serie positive Alltagsthemen (Bild, Sprachnachricht, Videoanruf; externes Audit 11/2026). Symbol erklären, Kamera wechseln, Gespräch beenden; Sollzustand zeigen."
   - titel: "WhatsApp: Foto oder Bild verschicken – Schritt für Schritt"
     kategorie: whatsapp
@@ -358,7 +370,8 @@ themen:
     suchvolumen: 2400
     kd: 0
     prioritaet: 1
-    status: offen
+    slug: whatsapp-bild-senden
+    status: veroeffentlicht
     notiz: "whatsapp bilder verschicken: 1300 / KD 0 (OpenSEO 01.11.2026). Serie positive Alltagsthemen. Kamera oder Galerie, ein Bild auswählen, Sollzustand „Das Bild steht im Chat“. Quelle WhatsApp-FAQ je Plattform."
   - titel: Drittanbietersperre einrichten – Abofallen auf der Handyrechnung verhindern
     kategorie: sicherheit
@@ -486,7 +499,8 @@ themen:
     suchvolumen: 2900
     kd: 2
     prioritaet: 1
-    status: offen
+    slug: whatsapp-sprachnachricht
+    status: veroeffentlicht
     notiz: "whatsapp sprachnachricht aufnehmen: 140 (OpenSEO 01.11.2026). Serie positive Alltagsthemen. Gedrückt halten, abbrechen, anhören; ggf. kleine Demonstration, die Leser selbst starten."
   - titel: WhatsApp-Gruppe verlassen oder stumm schalten
     kategorie: whatsapp

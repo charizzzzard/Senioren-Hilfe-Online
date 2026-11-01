@@ -24,9 +24,12 @@ verwandt:
 
 Ein Passkey ist eine neue Art, sich bei Apps und Internetseiten anzumelden – ganz ohne Passwort. Immer mehr Anbieter schlagen ihn vor. Hier lesen Sie, was dahintersteckt und ob Sie mitmachen sollten.
 
-## Ein Beispiel aus dem Alltag
-
-Margarete möchte sich bei ihrem Online-Konto anmelden. Plötzlich erscheint die Frage: „Möchten Sie einen Passkey einrichten?“ Sie zögert – was ist das, und ist das sicher?
+```szene
+figur: margarete
+geste: staunen
+text: >
+  Margarete möchte sich bei ihrem Online-Konto anmelden. Plötzlich erscheint die Frage: „Möchten Sie einen Passkey einrichten?“ Sie zögert – was ist das, und ist das sicher?
+```
 
 Die Frage ist berechtigt. Dabei ist die Idee einfach.
 
