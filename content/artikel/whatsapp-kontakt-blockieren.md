@@ -5,7 +5,7 @@ beschreibung: "Unerwünschte Nachrichten oder Betrugsversuche auf WhatsApp? So b
 keyword: "whatsapp blockieren"
 kategorie: whatsapp
 veroeffentlicht: 2026-10-30
-aktualisiert: 2026-10-30
+aktualisiert: 2026-11-03
 geprueft: 2026-10-30
 kurz_gesagt: |
   Öffnen Sie den Chat mit der Person. **Android:** oben rechts auf die drei Punkte (⋮) › „Mehr“ › „Blockieren“. **iPhone:** oben auf den Namen tippen › „… blockieren“.
@@ -33,6 +33,12 @@ verwandt:
   - betrug-was-tun
   - whatsapp-konto-schuetzen
 ---
+
+```szene
+figur: thomas
+text: >
+  Thomas bekommt auf WhatsApp immer wieder Nachrichten von einer Nummer, die er nicht kennt. Er antwortet nicht – aber ärgern tut es ihn trotzdem. Geht das auch abzustellen? Ja, und zwar mit wenigen Handgriffen.
+```
 
 Manche Nachrichten möchte man einfach nicht mehr bekommen – sei es Werbung, Belästigung oder ein Betrugsversuch. Dafür gibt es in WhatsApp die Funktion **„Blockieren“**. Zusätzlich können Sie die Person bei WhatsApp **melden**.
 
@@ -78,8 +84,7 @@ Schreibt Ihnen zum ersten Mal jemand, der nicht in Ihren Kontakten gespeichert i
 
 Sie müssen unbekannten Absendern nicht antworten. Im Zweifel blockieren Sie lieber einmal zu viel als einmal zu wenig – eine Blockierung lässt sich jederzeit wieder aufheben.
 
-!!! hinweis "Gut zu wissen: Gruppen"
-    Sind Sie mit einer blockierten Person in einer gemeinsamen Gruppe, sieht sie Ihre Nachrichten in dieser Gruppe weiterhin – und Sie ihre. Wenn Sie das nicht möchten, verlassen Sie die Gruppe.
+Gut zu wissen: Sind Sie mit einer blockierten Person in einer gemeinsamen Gruppe, sieht sie Ihre Nachrichten in dieser Gruppe weiterhin – und Sie ihre. Wenn Sie das nicht möchten, verlassen Sie die Gruppe.
 
 ## Was passiert beim Melden?
 

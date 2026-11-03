@@ -5,7 +5,7 @@ beschreibung: "Mit dem WhatsApp-Code können Betrüger Ihr Konto übernehmen. So
 keyword: "whatsapp verifizierung in zwei schritten"
 kategorie: whatsapp
 veroeffentlicht: 2026-10-30
-aktualisiert: 2026-10-30
+aktualisiert: 2026-11-03
 geprueft: 2026-10-30
 kurz_gesagt: |
   Geben Sie den **sechsstelligen Code**, den WhatsApp per SMS oder Anruf schickt, **niemals** weiter – auch nicht an Freunde oder Familie.
@@ -39,6 +39,12 @@ verwandt:
   - whatsapp-kontakt-blockieren
 ---
 
+```szene
+figur: [anna, margarete]
+text: >
+  Anna ruft ihre Mutter an: „Falls dir jemand einen Code für WhatsApp schickt – bitte nie weitergeben.“ Margarete schreibt es sich auf einen Zettel. Genau darum geht es hier, und es ist schnell erledigt.
+```
+
 Wer WhatsApp auf einem neuen Handy einrichtet, bekommt einen **sechsstelligen Code** per SMS oder Anruf. Damit bestätigt WhatsApp, dass Ihnen die Telefonnummer gehört. Genau diesen Code wollen Betrüger haben: Mit ihm können sie Ihr Konto auf ihrem eigenen Handy einrichten – und dann in Ihrem Namen Ihre Kontakte um Geld bitten.
 
 ## Regel 1: Den Code niemals weitergeben
@@ -47,8 +53,7 @@ WhatsApp sagt es klar: Teilen Sie Ihren Code **niemals** mit anderen – **nicht
 
 Seien Sie deshalb misstrauisch, wenn Sie jemand nach einem Code fragt – selbst ein bekannter Kontakt. WhatsApp weist darauf hin: Kommt eine verdächtige Nachricht von einem bekannten Kontakt, wurde dessen Konto vielleicht schon übernommen. Wie Sie solche Nachrichten erkennen, lesen Sie in [„Hallo Mama“-Betrug auf WhatsApp erkennen](/artikel/whatsapp-betrug-erkennen/).
 
-!!! hinweis "Code bekommen, ohne ihn angefordert zu haben?"
-    Dann hat jemand Ihre Telefonnummer bei WhatsApp eingegeben. Das kann ein Tippfehler sein – oder jemand versucht, Ihr Konto zu übernehmen. Ohne den Code kommt diese Person aber nicht weiter. Geben Sie ihn einfach nicht weiter, dann behalten Sie die Kontrolle über Ihr Konto.
+**Code bekommen, ohne ihn angefordert zu haben?** Dann hat jemand Ihre Telefonnummer bei WhatsApp eingegeben. Das kann ein Tippfehler sein – oder jemand versucht, Ihr Konto zu übernehmen. Ohne den Code kommt diese Person aber nicht weiter. Geben Sie ihn einfach nicht weiter, dann behalten Sie die Kontrolle über Ihr Konto.
 
 ## Regel 2: Verifizierung in zwei Schritten einschalten
 
@@ -102,8 +107,7 @@ unterschrift: Schalten Sie „Verifizierung in zwei Schritten aktivieren“ ein.
 Du › Konto › Verifizierung in zwei Schritten
 ```
 
-!!! tipp "Sie haben schon eine sechsstellige PIN?"
-    Früher nutzte WhatsApp für diese Funktion eine sechsstellige PIN. Inzwischen wird sie durch ein Passwort ersetzt. Wenn Ihr Konto noch mit einer PIN geschützt ist, können Sie über denselben Weg zu einem Passwort wechseln.
+**Sie haben schon eine sechsstellige PIN?** Früher nutzte WhatsApp für diese Funktion eine sechsstellige PIN. Inzwischen wird sie durch ein Passwort ersetzt. Wenn Ihr Konto noch mit einer PIN geschützt ist, können Sie über denselben Weg zu einem Passwort wechseln.
 
 !!! hinweis "Andere Bezeichnungen auf Ihrem Handy?"
     WhatsApp ändert Menüs ab und zu. Heißt ein Punkt bei Ihnen etwas anders – zum Beispiel „Einstellungen“ statt „Du“ –, suchen Sie nach dem Bereich **„Konto“**. Dort finden Sie die Verifizierung in zwei Schritten.
