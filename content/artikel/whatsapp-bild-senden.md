@@ -5,7 +5,7 @@ beschreibung: "Ein Foto per WhatsApp verschicken: So senden Sie ein Bild aus der
 keyword: "whatsapp bild senden"
 kategorie: whatsapp
 veroeffentlicht: 2026-11-01
-aktualisiert: 2026-11-01
+aktualisiert: 2026-11-05
 geprueft: 2026-11-01
 kurz_gesagt: |
   **iPhone:** Chat öffnen › auf das **Pluszeichen** („Anhängen“) tippen › „Fotos“ › Bild auswählen › auf das **Papierflugzeug** tippen.
@@ -21,6 +21,7 @@ checkliste:
   - "iPhone, Fotos fehlen: Einstellungen › Apps › WhatsApp › Fotos › vollen Zugriff erlauben"
   - "Android, Fotos fehlen: Einstellungen › Apps › WhatsApp › Berechtigungen › Fotos und Videos › Erlauben"
   - Lieber wenige Fotos auf einmal schicken als sehr viele.
+  - "Falsches Foto? Finger drauf › Löschen › „Für alle löschen“ (bis zu 2 Tage danach)"
 quellen:
   - herausgeber: WhatsApp-Hilfebereich
     titel: Medien, Kontakte und Standort senden (iPhone)
@@ -34,6 +35,12 @@ quellen:
   - herausgeber: WhatsApp-Hilfebereich
     titel: Mediendateien können nicht heruntergeladen oder gesendet werden (Android)
     url: https://faq.whatsapp.com/android/troubleshooting/cant-download-or-send-media-files?locale=de_DE&cms_platform=android
+  - herausgeber: WhatsApp-Hilfebereich
+    titel: Nachrichten löschen (iPhone)
+    url: https://faq.whatsapp.com/1370476507114859/?locale=de_DE&cms_platform=iphone
+  - herausgeber: WhatsApp-Hilfebereich
+    titel: Nachrichten löschen (Android)
+    url: https://faq.whatsapp.com/1370476507114859/?locale=de_DE&cms_platform=android
 verwandt:
   - whatsapp-sprachnachricht
   - whatsapp-videoanruf
@@ -126,6 +133,18 @@ Wundern Sie sich nicht, wenn das Bild beim Empfänger etwas weniger scharf aussi
 
 !!! tipp "Ein Foto weiterleiten statt neu suchen"
     Sie haben ein schönes Foto von jemandem bekommen und möchten es weitergeben? Halten Sie den Finger auf das Bild und tippen Sie auf **„Weiterleiten“** – auf Android ist das ein Pfeil-Symbol. Wählen Sie den Chat aus und senden Sie. Das Bild bekommt beim Empfänger den Hinweis „Weitergeleitet“.
+
+## Falsches Foto verschickt?
+
+Das passiert jedem einmal – zum Beispiel im falschen Chat. Bis zu **zwei Tage** nach dem Senden können Sie ein Foto für alle löschen.
+
+1. Halten Sie den Finger auf das Foto im Chat.
+2. **iPhone:** Tippen Sie im Menü auf **„Löschen“** und dann auf das **Papierkorb-Symbol**. Sehen Sie „Löschen“ nicht, tippen Sie zuerst auf **„Mehr“** (drei Punkte). **Android:** Tippen Sie auf das **Papierkorb-Symbol**.
+3. Tippen Sie auf **„Für alle löschen“**.
+
+Im Chat steht dann „Diese Nachricht wurde gelöscht.“ Ganz sicher ist das aber nicht: Die andere Person hat das Foto vielleicht schon gesehen. Nutzt die andere Person WhatsApp auf dem iPhone, hat sie das Foto unter Umständen weiter in ihren Fotos. Klappt das Löschen nicht, meldet WhatsApp das nicht – fragen Sie im Zweifel kurz nach.
+
+Wählen Sie dagegen „Für mich löschen“, verschwindet das Foto nur bei Ihnen.
 
 ## Gut zu wissen
 

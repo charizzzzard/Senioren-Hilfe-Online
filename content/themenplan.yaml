@@ -515,16 +515,16 @@ themen:
     keyword: phishing mail erkennen
     suchvolumen: 880
     kd: 18
-    prioritaet: 2
+    prioritaet: 1
     status: offen
-    notiz: "paypal phishing: 480. Quellen BSI, Verbraucherzentrale Phishing-Radar."
+    notiz: "paypal phishing: 480. Quellen BSI, Verbraucherzentrale Phishing-Radar. Inhaltsprüfung 05.11.2026: von Priorität 2 auf 1 – der Echt-Check-Weg „E-Mail“ und die Wochenschau KW44 führen bisher nur auf Lexikon-Einträge, eine Anleitung fehlt."
   - titel: Smartphone für Eltern einrichten – Checkliste für Angehörige
     kategorie: angehoerige
     keyword: handy für senioren einrichten
     suchvolumen: 10
-    prioritaet: 2
+    prioritaet: 1
     status: offen
-    notiz: Geringe Suchnachfrage, aber wichtig für die Kategorie „Für Angehörige“ und als Verteiler auf viele Anleitungen.
+    notiz: "Geringe Suchnachfrage, aber wichtig für die Kategorie „Für Angehörige“ und als Verteiler auf viele Anleitungen. Inhaltsprüfung 05.11.2026: von Priorität 2 auf 1 – die Kategorie hat 0 Artikel und wird deshalb ausgeblendet. Wegen des geringen Suchvolumens steht das Thema innerhalb von Priorität 1 hinten; der Betreiber entscheidet, ob es vorgezogen wird."
 
   # ---------------------------------------------------------------- Priorität 3
   - titel: Sichere Passwörter, die man sich merken kann
@@ -576,6 +576,11 @@ themen:
     kategorie: angehoerige
     prioritaet: 3
     status: offen
+  - titel: Wer hilft mir vor Ort? Unterstützung beim Smartphone in Ihrer Nähe
+    kategorie: angehoerige
+    prioritaet: 3
+    status: offen
+    notiz: "Inhaltsprüfung 05.11.2026, Annahme (nicht belegt): docs/ZIELGRUPPE.md beschreibt „Die Vorsichtigen“, die oft niemanden haben, der hilft. Suchvolumen unbekannt – vor dem Schreiben mit get_keyword_metrics prüfen. Nur Angebote nennen, deren Träger und Erreichbarkeit aus einer offiziellen Quelle belegt sind; keine Werbung, keine kommerziellen Kurse."
 
   # ---------------------------------------------------------------- Entscheidung des Betreibers nötig (CLAUDE.md Abschnitt 8)
   - titel: ePA-App und E-Rezept-App einrichten

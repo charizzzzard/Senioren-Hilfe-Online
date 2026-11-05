@@ -20,7 +20,6 @@ quellen:
     url: https://www.verbraucherzentrale.de/wissen/digitale-welt/mobilfunk-und-festnetz/kontaktlos-bezahlen-so-geht-es-und-das-ist-zu-beachten-32517
 verwandt:
   - betrug-was-tun
-  - whatsapp-konto-schuetzen
 ---
 
 Vielleicht haben Sie es an der Kasse schon gesehen: Jemand hält einfach die Karte oder das Handy an das Kartenlesegerät, und schon ist bezahlt. Dahinter steckt **NFC**.

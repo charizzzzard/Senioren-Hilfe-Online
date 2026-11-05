@@ -5,7 +5,7 @@ beschreibung: "Gefälschte Mails im Namen der Rentenversicherung, angebliche Kon
 kategorie: aktuell
 reihe: wochenschau
 veroeffentlicht: 2026-11-01
-aktualisiert: 2026-11-01
+aktualisiert: 2026-11-05
 geprueft: 2026-11-01
 kurz_gesagt: |
   Betrüger verschicken E-Mails im Namen der Deutschen Rentenversicherung. Die Rentenversicherung fragt persönliche Daten niemals per E-Mail ab.
@@ -30,6 +30,9 @@ quellen:
   - herausgeber: Apple Support
     titel: iPhone oder iPad aktualisieren
     url: https://support.apple.com/de-de/118575
+  - herausgeber: Bundesamt für Sicherheit in der Informationstechnik (BSI)
+    titel: Betrug durch gefälschte Telefonnummern und E-Mail-Adressen
+    url: https://www.bsi.bund.de/DE/Themen/Verbraucherinnen-und-Verbraucher/Cyber-Sicherheitslage/Methoden-der-Cyber-Kriminalitaet/Spam-Phishing-Co/Gefaelschte-Absenderadressen/gefaelschte-absenderadressen.html
 verwandt: [betrug-was-tun, betrugs-sms-erkennen]
 ---
 
@@ -45,7 +48,7 @@ Die Rentenversicherung selbst warnt in einer Meldung vom 16. Oktober: Viele Vers
 
 **Was bedeutet das für Sie?** Die Rentenversicherung sagt klar: Persönliche Daten werden niemals per E-Mail angefordert. Eine solche Mail ist also immer ein Betrugsversuch – egal, wie echt sie aussieht.
 
-- Schauen Sie auf die Absenderadresse, nicht nur auf den angezeigten Namen.
+- Schauen Sie auf die Absenderadresse, nicht nur auf den angezeigten Namen. Aber auch eine echt aussehende Adresse ist kein Beweis: Laut BSI verstecken sich Betrüger gern hinter seriös klingenden Absendern. Mehr dazu: [Was ist Spoofing?](/lexikon/spoofing/)
 - Tippen Sie auf keinen Link und verschieben Sie die Mail in den Spam-Ordner.
 - Wollen Sie etwas zu Ihrem Rentenkonto wissen, gehen Sie nur über die offiziellen Seiten der Rentenversicherung.
 

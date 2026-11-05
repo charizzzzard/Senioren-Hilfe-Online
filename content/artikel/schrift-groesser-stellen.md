@@ -61,7 +61,7 @@ quellen:
     titel: Seitenzoom für Chrome unter Android verwenden
     url: https://support.google.com/accessibility/android/answer/13532420?hl=de
 verwandt:
-  - whatsapp-kontakt-blockieren
+  - whatsapp-sprachnachricht
   - whatsapp-konto-schuetzen
 ---
 
