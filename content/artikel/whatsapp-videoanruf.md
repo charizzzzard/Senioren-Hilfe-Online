@@ -5,8 +5,9 @@ beschreibung: "Die Familie sehen statt nur hören: So starten Sie einen WhatsApp
 keyword: "whatsapp videoanruf"
 kategorie: whatsapp
 veroeffentlicht: 2026-11-01
-aktualisiert: 2026-11-01
+aktualisiert: 2026-11-05
 geprueft: 2026-11-01
+getestet: "Auflegen im Videoanruf auf einem iPhone mit iOS 18 (05.11.2026)"
 kurz_gesagt: |
   Öffnen Sie den Chat mit der Person und tippen Sie oben auf die **Videokamera**. Auf Android-Handys tippen Sie danach noch auf **„Anruf“**.
   Am Anfang sieht die andere Person Sie über die **Frontkamera**. Mit „Kamera wechseln“ zeigen Sie stattdessen, was vor Ihnen liegt.
@@ -71,6 +72,13 @@ Andere Möglichkeit: Öffnen Sie in WhatsApp den Bereich **„Anrufe“**. Tippe
 - **Ist Ihr iPhone entsperrt**, ziehen Sie die Mitteilung nach unten und tippen auf **„Annehmen“**. Oder Sie tippen direkt auf die Mitteilung.
 
 Gerade keine Zeit? Ziehen Sie die Mitteilung nach unten und tippen Sie auf **„Nachricht“**. Dann lehnen Sie mit einer kurzen Nachricht ab.
+
+### Auflegen
+
+1. Tippen Sie einmal kurz auf den Bildschirm. Dann erscheinen die Knöpfe.
+2. Tippen Sie unten in der Mitte auf den **roten runden Knopf mit dem Telefonhörer**.
+
+Das Gespräch ist sofort beendet, eine Rückfrage gibt es nicht. Haben Sie selbst angerufen, sind Sie danach wieder im Chat. Wurden Sie angerufen, kommen Sie dorthin zurück, wo Sie vorher waren.
 
 ## Auf einem Android-Handy
 

@@ -6,23 +6,23 @@ keyword: "schriftgröße iphone ändern"
 kategorie: smartphone
 veroeffentlicht: 2026-10-30
 aktualisiert: 2026-11-05
-geprueft: 2026-10-30
+geprueft: 2026-11-05
 kurz_gesagt: |
-  **iPhone:** „Einstellungen“ › „Erscheinungsbild“ (bei iOS 26 und älter: „Anzeige & Helligkeit“) › „Textgröße“ – dann den Regler nach rechts ziehen.
-  **Android:** „Einstellungen“ öffnen, oben ins Suchfeld **„Schriftgröße“** eingeben und den Regler nach rechts ziehen.
+  **iPhone:** „Einstellungen“ › „Erscheinungsbild“ (bei iOS 26 und älter: „Anzeige & Helligkeit“) › „Textgröße“ – dann den Regler verschieben, bis die Schrift gut lesbar ist.
+  **Android:** „Einstellungen“ öffnen, oben ins Suchfeld **„Schriftgröße“** eingeben, den Treffer antippen und den Regler verschieben.
   Sie können nichts kaputt machen: Jede Einstellung lässt sich genauso wieder zurückstellen.
   Nur Internetseiten wie die Google-Suche zu klein? In Safari über „Seitenmenü“ › „Seitenzoom“, in Chrome über das Dreipunkt-Menü vergrößern.
 checkliste_titel: "Spickzettel: Schrift größer stellen"
 checkliste:
-  - "iPhone: Einstellungen › Erscheinungsbild (oder: Anzeige & Helligkeit) › Textgröße › Regler nach rechts"
+  - "iPhone: Einstellungen › Erscheinungsbild (oder: Anzeige & Helligkeit) › Textgröße › Regler verschieben"
   - "iPhone, noch größer: Einstellungen › Bedienungshilfen › Anzeige & Textgröße › Größerer Text"
   - "iPhone, fetter: „Fetter Text“ einschalten"
-  - "Android: Einstellungen › Suchfeld: „Schriftgröße“ › Regler nach rechts"
-  - "Samsung: Einstellungen › Anzeige › Schriftgröße und -stil"
-  - "Android, alles größer: Einstellungen › „Anzeigegröße“"
+  - "Android: Einstellungen › Lupe/Suchfeld: „Schriftgröße“ › Regler verschieben"
+  - "Samsung: Einstellungen › Lupe › „Schriftgröße und -stil“ suchen"
+  - "Android, Anzeigegröße: in den Einstellungen nach „Anzeigegröße“ suchen"
   - "iPhone, nur Internetseiten: Safari › Seitenmenü › Seitenzoom › großes A"
   - "Android, nur Internetseiten: Chrome › Dreipunkt-Menü › Zoomen"
-  - Zu groß geworden? Einfach den Regler wieder ein Stück nach links ziehen.
+  - Zu groß geworden? Einfach den Regler wieder ein Stück zurückschieben.
 quellen:
   - herausgeber: Apple Support
     titel: "iPhone-Display und Texteinstellungen anpassen (iOS 27)"
@@ -60,6 +60,9 @@ quellen:
   - herausgeber: Google – Bedienungshilfen für Android
     titel: Seitenzoom für Chrome unter Android verwenden
     url: https://support.google.com/accessibility/android/answer/13532420?hl=de
+  - herausgeber: Samsung Support
+    titel: Einstellungen des Galaxy Smartphone einfach finden
+    url: https://www.samsung.com/de/support/mobile-devices/einstellungen-einfach-finden/
 verwandt:
   - whatsapp-sprachnachricht
   - whatsapp-konto-schuetzen
@@ -72,7 +75,7 @@ text: >
   Margarete hält ihr Handy fast auf Armlänge von sich weg, um die Nachricht ihrer Freundin zu lesen. Till schaut kurz rüber: „Oma, das kann man doch größer stellen!“ Margarete lacht. „Dann zeig mal – aber langsam.“
 ```
 
-Kleine Schrift strengt an, vor allem bei Nachrichten, Kontakten oder im Kalender. Damit müssen Sie sich nicht abfinden. Zum Glück lässt sich das auf jedem Smartphone ändern. Es dauert nur wenige Handgriffe, und Sie können es jederzeit wieder zurückstellen. Kaputt gehen kann dabei nichts.
+Kleine Schrift strengt an, vor allem bei Nachrichten, Kontakten oder im Kalender. Damit müssen Sie sich nicht abfinden. Zum Glück lässt sich das auf iPhone und Android-Handys ändern. Es dauert nur wenige Handgriffe, und Sie können es jederzeit wieder zurückstellen. Kaputt gehen kann dabei nichts.
 
 !!! tipp "Erst herausfinden: iPhone oder Android?"
     Hat Ihr Handy auf der Rückseite einen **angebissenen Apfel**, ist es ein **iPhone**. Fast alle anderen Smartphones – etwa von Samsung, Xiaomi, Motorola oder Google – laufen mit **Android**. Oben in der Lesehilfe können Sie unter „Mein Handy“ auswählen, dann sehen Sie nur die passenden Schritte.
@@ -81,10 +84,10 @@ Kleine Schrift strengt an, vor allem bei Nachrichten, Kontakten oder im Kalender
 
 ### Schrift größer stellen
 
-1. Öffnen Sie die App **„Einstellungen“** (das graue Zahnrad).
+1. Öffnen Sie die App **„Einstellungen“**.
 2. Tippen Sie auf **„Erscheinungsbild“**. Finden Sie diesen Punkt nicht, tippen Sie stattdessen auf **„Anzeige & Helligkeit“** – so heißt er bei iOS 26 und älteren Versionen.
 3. Tippen Sie auf **„Textgröße“**.
-4. Ziehen Sie den **Regler nach rechts**. Oben sehen Sie sofort, wie groß die Schrift wird.
+4. Verschieben Sie den **Regler**, bis die Schrift gut lesbar ist.
 
 ```klickpfad
 Einstellungen › Erscheinungsbild › Textgröße
@@ -105,7 +108,7 @@ geraet: iphone
 titel: Textgröße
 zeilen:
   - "[regler]"
-unterschrift: Ziehen Sie den Regler nach rechts, damit die Schrift größer wird – nach links wird sie wieder kleiner.
+unterschrift: Verschieben Sie den Regler, bis die Schrift gut lesbar ist.
 ```
 
 Die neue Größe gilt in allen Apps, die das unterstützen – zum Beispiel in Nachrichten, Mail, Kalender, Kontakte und Notizen.
@@ -116,43 +119,43 @@ Reicht Ihnen die größte Stufe noch nicht?
 
 1. Öffnen Sie **„Einstellungen“** und tippen Sie auf **„Bedienungshilfen“**.
 2. Tippen Sie auf **„Anzeige & Textgröße“** und dann auf **„Größerer Text“**.
-3. Schalten Sie **„Größerer dynamischer Text“** ein. Jetzt gibt es weitere, sehr große Stufen.
-4. Ziehen Sie den Regler nach rechts, bis die Schrift gut lesbar ist.
+3. Schalten Sie **„Größerer dynamischer Text“** ein. Jetzt stehen weitere Textgrößen zur Auswahl.
+4. Verschieben Sie den Regler, bis die Schrift gut lesbar ist.
 
 ### Schrift fetter machen
 
 Dünne Buchstaben lassen sich schwer lesen. Unter **„Einstellungen“ › „Bedienungshilfen“ › „Anzeige & Textgröße“** können Sie **„Fetter Text“** einschalten. Die Schrift wird dann dicker und kräftiger.
 
 !!! tipp "Abkürzung über das Kontrollzentrum"
-    Sie können die Schriftgröße auch direkt in einer App ändern: Öffnen Sie das **Kontrollzentrum** und benutzen Sie den Regler **„Textgröße“**. Fehlt er, tippen Sie im Kontrollzentrum oben links auf das Plus, dann auf **„Steuerelement hinzufügen“** und wählen **„Textgröße“**.
+    Sie können die Schriftgröße auch direkt in einer App ändern: Öffnen Sie das **Kontrollzentrum** und benutzen Sie den Regler **„Textgröße“**. Fehlt er, tippen Sie im Kontrollzentrum oben links auf die Taste **„Hinzufügen“**, dann auf **„Steuerelement hinzufügen“** und wählen **„Textgröße“**.
 
 Außerdem gibt es den **„Anzeigezoom“**. Er vergrößert nicht nur den Text, sondern auch Symbole und Tasten.
 
 ## Auf einem Android-Handy
 
-Android-Handys gibt es von vielen Herstellern. Die Menüs heißen deshalb nicht überall gleich. Der sicherste Weg führt über die Suche in den Einstellungen.
+Android-Handys gibt es von vielen Herstellern. Die Menüs heißen deshalb nicht überall gleich. Am schnellsten finden Sie die Einstellung über die Suche in den Einstellungen.
 
 ### Schrift größer stellen
 
 1. Öffnen Sie die App **„Einstellungen“** (meist ein Zahnrad).
-2. Tippen Sie oben auf das **Suchfeld** oder die Lupe und geben Sie **„Schriftgröße“** ein.
+2. Tippen Sie oben auf die **Lupe** oder das **Suchfeld** und geben Sie **„Schriftgröße“** ein.
 3. Tippen Sie auf den Treffer **„Schriftgröße“**.
-4. Ziehen Sie den **Regler nach rechts**, bis die Schrift gut lesbar ist.
+4. Verschieben Sie den **Regler**, bis die Schrift gut lesbar ist. In der Vorschau sehen Sie, wie es aussieht.
 
-Auf vielen Geräten finden Sie die Einstellung auch unter **„Bedienungshilfen“** › **„Anzeigegröße und Text“**. Bei **Samsung**-Handys liegt sie unter **„Anzeige“** › **„Schriftgröße und -stil“**. Dort können Sie die Schrift auch **fett** stellen.
+Auf vielen Geräten finden Sie die Einstellung auch unter **„Bedienungshilfen“** › **„Anzeigegröße und Text“**. Bei **Samsung**-Handys heißt der Punkt **„Schriftgröße und -stil“**. Dort können Sie die Schrift mit dem Schalter **„Fettschrift“** auch fett stellen.
 
 Laut Google lässt sich die Schrift auf bis zu **200 Prozent** vergrößern.
 
-### Alles größer: die Anzeigegröße
+### Die Anzeigegröße
 
-Neben der Schrift können Sie auch **Symbole, Knöpfe und Bilder** vergrößern. Suchen Sie dafür in den Einstellungen nach **„Anzeigegröße“** und ziehen Sie den Regler nach rechts.
+Neben der Schriftgröße gibt es die **„Anzeigegröße“**. Suchen Sie in den Einstellungen danach und verschieben Sie den Regler. In der Vorschau sehen Sie, wie sich die Änderung auswirkt.
 
 !!! tipp "Abkürzung über die Schnelleinstellungen"
     Wischen Sie vom oberen Bildschirmrand nach unten. Gibt es dort die Kachel **„Schriftgröße“**, können Sie die Schrift direkt anpassen. Fehlt die Kachel, können Sie sie zu den Schnelleinstellungen hinzufügen.
 
 ### Lupe für den ganzen Bildschirm
 
-Für besonders kleine Inhalte gibt es unter **„Einstellungen“ › „Bedienungshilfen“ › „Vergrößerung“** eine Zoom-Funktion. Damit lässt sich der Bildschirm bis zum Achtfachen vergrößern – etwa um ein Foto oder Kleingedrucktes genauer anzusehen.
+Für besonders kleine Inhalte gibt es unter **„Einstellungen“ › „Bedienungshilfen“ › „Vergrößerung“** eine Zoom-Funktion. Damit können Sie sich Bildschirminhalte größer anzeigen lassen – etwa um ein Foto oder Kleingedrucktes genauer anzusehen.
 
 ## Nur Internetseiten größer: Safari und Chrome
 
@@ -188,7 +191,7 @@ Soll jede Internetseite größer erscheinen, öffnen Sie dieselben Einstellungen
 ## Gut zu wissen
 
 - **Nicht jede App macht mit.** Manche Apps übernehmen die größere Schrift nicht.
-- **Nicht zu groß stellen.** Ist die Schrift riesig, passen Tasten und Texte manchmal nicht mehr richtig auf den Bildschirm. Dann ziehen Sie den Regler einfach ein Stück zurück.
+- **Nicht zu groß stellen.** Ist die Schrift sehr groß, lassen sich Tasten in manchen Apps schwer antippen. Dann schieben Sie den Regler einfach ein Stück zurück.
 - **Zurück zum Anfang:** Auf Android-Handys gibt es oft den Knopf **„Einstellungen zurücksetzen“**. Damit stellen Sie Schrift- und Anzeigegröße wieder auf den ursprünglichen Wert.
 
 !!! angehoerige "Für Angehörige"
