@@ -10,19 +10,19 @@ geprueft: 2026-10-30
 schnelle_hilfe: true
 kurz_gesagt: |
   **Handeln Sie schnell, aber ohne Hektik:**
-  1. Geld überwiesen? **Sofort die Bank anrufen.**
+  1. Geld überwiesen oder abgebucht? **Sofort die Bank anrufen.** Mit PayPal bezahlt? **Sofort bei PayPal melden.**
   2. Bankdaten, PIN oder TAN verraten? **Karte und Konto sperren** – über Ihre Bank oder den **Sperr-Notruf 116 116**.
   3. **Beweise sichern** (Bildschirmfotos, Nummern, Uhrzeiten) und **Anzeige bei der Polizei** erstatten.
   Akute Gefahr, oder will jemand gleich Geld abholen? **Rufen Sie die 110.**
 checkliste_titel: "Notfallplan zum Aufbewahren"
 checkliste:
   - "Akute Gefahr oder Geldabholung angekündigt: 110"
-  - "Geld überwiesen: sofort die eigene Bank anrufen. Nummer meiner Bank: ______________"
+  - "Geld überwiesen oder abgebucht: sofort die Bank anrufen. PayPal: „Problem melden“. Nummer meiner Bank: __________"
   - "Karte oder Online-Banking sperren: Sperr-Notruf 116 116 (rund um die Uhr)"
   - IBAN bereithalten und Uhrzeit der Sperrung notieren.
   - Bildschirmfotos von Nachrichten, Nummern und Überweisungen machen.
   - Passwörter ändern, wenn ich sie verraten habe.
-  - Link angetippt und App installiert? Flugmodus einschalten.
+  - App installiert? Erst wichtige Anrufe, dann Flugmodus an und WLAN aus.
   - Anzeige bei der Polizei erstatten.
   - "Mit jemandem reden: Opfer-Telefon des Weissen Rings 116 006 (kostenfrei, täglich 7–22 Uhr)"
   - "Wichtig: Die Polizei ruft nie von der 110 an. Der Sperr-Notruf ruft nie an."
@@ -45,6 +45,30 @@ quellen:
   - herausgeber: WEISSER RING e. V.
     titel: Hilfe für Kriminalitätsopfer
     url: https://weisser-ring.de/hilfe-fuer-opfer-0
+  - herausgeber: Verbraucherzentrale
+    titel: "Internet-Betrug: So können Sie versuchen, Ihr Geld zurückzuholen"
+    url: https://www.verbraucherzentrale.de/wissen/digitale-welt/onlinehandel/internetbetrug-so-koennen-sie-versuchen-ihr-geld-zurueckzuholen-33155
+  - herausgeber: Verbraucherzentrale
+    titel: "Bezahlen im SEPA-Lastschriftverfahren: Das sollten Sie darüber wissen"
+    url: https://www.verbraucherzentrale.de/wissen/geld-versicherungen/sparen-und-anlegen/bezahlen-im-sepalastschriftverfahren-das-sollten-sie-darueber-wissen-16639
+  - herausgeber: Verbraucherzentrale
+    titel: "Kein Käuferschutz mit „PayPal-Freunde“: Worauf Sie achten sollten"
+    url: https://www.verbraucherzentrale.de/wissen/digitale-welt/onlinehandel/kein-kaeuferschutz-mit-paypalfreunde-worauf-sie-achten-sollten-33139
+  - herausgeber: PayPal-Hilfe
+    titel: Wie melde ich ein Problem mit einem Verkäufer?
+    url: https://www.paypal.com/de/cshelp/article/wie-melde-ich-ein-problem-mit-einem-verk%C3%A4ufer-help160
+  - herausgeber: Apple Support
+    titel: "iPhone-Einstellungen für Reisen auswählen (Flugmodus, iOS 27)"
+    url: https://support.apple.com/de-de/guide/iphone/iphb771143ee/27.0/ios/27.0
+  - herausgeber: Apple Support
+    titel: Flugmodus auf iPhone, iPad, Apple Watch und Apple Vision Pro verwenden
+    url: https://support.apple.com/de-de/108785
+  - herausgeber: Google Pixel-Hilfe
+    titel: Flugmodus und andere Netzwerkeinstellungen festlegen
+    url: https://support.google.com/pixelphone/answer/2819583?hl=de
+  - herausgeber: PayPal Sicherheitscenter
+    titel: Betrug oder unbefugten Kontozugriff melden
+    url: https://www.paypal.com/de/security/report-fraud
 verwandt:
   - schockanruf-enkeltrick
   - whatsapp-betrug-erkennen
@@ -60,13 +84,39 @@ Betrüger sind geschickt. Sie arbeiten mit Druck, Mitleid und gut erfundenen Ges
     - gleich jemand vorbeikommen will, um Geld oder Wertsachen abzuholen,
     - Sie gerade erst etwas übergeben haben.
 
-## Schritt 1: Geld überwiesen? Sofort die Bank anrufen
+## Schritt 1: Geld bezahlt? Sofort Bank oder PayPal informieren
 
-Rufen Sie **so schnell wie möglich** Ihre Bank oder Sparkasse an. Laut Polizei kann das Geld in einigen Fällen noch zurückgeholt werden – je früher, desto besser.
+Ob und wie Sie Ihr Geld zurückbekommen, hängt davon ab, wie Sie bezahlt haben. Eines gilt aber immer: Je schneller Sie handeln, desto besser.
+
+### Überweisung oder Kreditkarte
+
+Rufen Sie **so schnell wie möglich** Ihre Bank oder Sparkasse an.
+
+Damit Sie wissen, woran Sie sind: Ist eine Überweisung erst ausgeführt, ist das Geld laut Polizei in der Regel sehr schwer zurückzubekommen. Viele Überweisungen werden heute in Echtzeit gebucht, schreibt die Verbraucherzentrale. Der Anruf lohnt sich trotzdem: In einigen Fällen kann die Bank das Geld noch zurückholen – je früher, desto besser.
 
 - Die richtige Nummer steht auf Ihrer Bankkarte, auf Ihrem Kontoauszug oder auf der Internetseite Ihrer Bank.
 - Nehmen Sie **nie** eine Nummer aus der verdächtigen Nachricht oder dem Anruf.
 - Haben Sie mit Kreditkarte bezahlt, fragen Sie Ihre Bank, ob Sie die Zahlung zurückholen können. Die Verbraucherzentrale nennt dafür das „Charge-Back-Verfahren“.
+
+### Per Lastschrift abgebucht
+
+Hier stehen Ihre Chancen am besten. Laut Verbraucherzentrale lässt sich eine Lastschrift am einfachsten zurückholen.
+
+- Bis **8 Wochen** nach der Abbuchung können Sie sich den Betrag von Ihrer Bank erstatten lassen. Dafür widersprechen Sie der Lastschrift bei Ihrer Bank.
+- Im Online-Banking geht das oft mit einem Knopf direkt neben der Abbuchung in der Umsatzübersicht. Sonst fragen Sie Ihre Bank.
+- Haben Sie der Abbuchung **nie zugestimmt**, geht das sogar bis zu **13 Monate** danach. Warten Sie trotzdem nicht so lange.
+
+### Mit PayPal bezahlt
+
+Melden Sie die Zahlung **sofort** bei PayPal. Öffnen Sie dafür selbst die PayPal-App oder die Internetseite – nicht über einen Link aus einer Nachricht.
+
+1. Gehen Sie in Ihrem PayPal-Konto zu **„Konfliktlösungen“** und tippen Sie auf **„Problem melden“**.
+2. Wählen Sie die Zahlung aus.
+3. Wählen Sie den Grund. Haben Sie die Zahlung nicht selbst gemacht, ist das **„Unbefugte Aktivitäten in Ihrem PayPal-Konto“**. Kommt bestellte Ware nicht an, wählen Sie **„Probleme mit Ihrem Einkauf“**.
+
+Bei Einkäufen kann der **PayPal-Käuferschutz** helfen. Er gilt meist nur, wenn Sie für Waren bezahlt haben. Lässt sich das Problem mit dem Verkäufer nicht lösen, stellen Sie in den Konfliktlösungen einen **Antrag auf Käuferschutz**. Ohne diesen Antrag schließt PayPal den Fall nach 20 Tagen automatisch.
+
+Haben Sie über **„Freunde und Familie“** bezahlt, gibt es **keinen Käuferschutz**. Melden Sie es PayPal trotzdem und nennen Sie die Vorgangsnummer. Laut Verbraucherzentrale erstattet PayPal in einigen Fällen den Kaufpreis.
 
 ## Schritt 2: Karte und Konto sperren
 
@@ -92,12 +142,19 @@ Haben Sie einen **WhatsApp-Bestätigungscode** weitergegeben? Dann kann jemand a
 
 ## Schritt 4: Auf einen Link getippt oder eine App installiert?
 
+Wichtig vorab: Im Flugmodus ist das Mobilfunknetz aus. Über das Handynetz telefonieren können Sie dann nicht. Rufen Sie Ihre Bank deshalb **zuerst** an (Schritt 1) – oder nehmen Sie ein anderes Telefon.
+
 Die Verbraucherzentrale rät:
 
 1. **Schalten Sie das Smartphone in den Flugmodus.** Dann kann eine schädliche App keine Daten mehr über das Internet senden.
+    - **iPhone:** Öffnen Sie das Kontrollzentrum und tippen Sie auf die Flugmodus-Taste. Oben in der Statusleiste erscheint dann das Flugmodus-Symbol.
+    - **Android:** Wischen Sie vom oberen Bildschirmrand nach unten und tippen Sie auf **„Flugmodus“**. Je nach Hersteller kann das etwas anders aussehen.
+    - **Prüfen Sie danach das WLAN.** Wurde es im Flugmodus schon einmal eingeschaltet, merkt sich das Handy das – dann kann es an bleiben. Tippen Sie in diesem Fall noch auf das WLAN-Symbol, damit es ausgeht.
 2. **Machen Sie Bildschirmfotos** als Beweis.
 3. **Informieren Sie Ihren Mobilfunkanbieter.** Fragen Sie nach einem Nachweis über mögliche Kosten, zum Beispiel für verschickte SMS.
 4. **Erstatten Sie Anzeige bei der Polizei.**
+
+Den Flugmodus schalten Sie später mit derselben Taste wieder aus.
 
 Im schlimmsten Fall muss das Handy auf den Werkszustand zurückgesetzt werden. Lassen Sie sich dabei am besten helfen – zum Beispiel von einer vertrauten Person oder in einem Fachgeschäft.
 
