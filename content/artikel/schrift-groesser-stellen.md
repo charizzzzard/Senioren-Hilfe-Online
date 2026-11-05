@@ -5,12 +5,13 @@ beschreibung: "Die Schrift auf dem Handy ist zu klein? So ändern Sie die Schrif
 keyword: "schriftgröße iphone ändern"
 kategorie: smartphone
 veroeffentlicht: 2026-10-30
-aktualisiert: 2026-10-31
+aktualisiert: 2026-11-05
 geprueft: 2026-10-30
 kurz_gesagt: |
   **iPhone:** „Einstellungen“ › „Erscheinungsbild“ (bei iOS 26 und älter: „Anzeige & Helligkeit“) › „Textgröße“ – dann den Regler nach rechts ziehen.
   **Android:** „Einstellungen“ öffnen, oben ins Suchfeld **„Schriftgröße“** eingeben und den Regler nach rechts ziehen.
   Sie können nichts kaputt machen: Jede Einstellung lässt sich genauso wieder zurückstellen.
+  Nur Internetseiten wie die Google-Suche zu klein? In Safari über „Seitenmenü“ › „Seitenzoom“, in Chrome über das Dreipunkt-Menü vergrößern.
 checkliste_titel: "Spickzettel: Schrift größer stellen"
 checkliste:
   - "iPhone: Einstellungen › Erscheinungsbild (oder: Anzeige & Helligkeit) › Textgröße › Regler nach rechts"
@@ -19,6 +20,8 @@ checkliste:
   - "Android: Einstellungen › Suchfeld: „Schriftgröße“ › Regler nach rechts"
   - "Samsung: Einstellungen › Anzeige › Schriftgröße und -stil"
   - "Android, alles größer: Einstellungen › „Anzeigegröße“"
+  - "iPhone, nur Internetseiten: Safari › Seitenmenü › Seitenzoom › großes A"
+  - "Android, nur Internetseiten: Chrome › Dreipunkt-Menü › Zoomen"
   - Zu groß geworden? Einfach den Regler wieder ein Stück nach links ziehen.
 quellen:
   - herausgeber: Apple Support
@@ -42,6 +45,21 @@ quellen:
   - herausgeber: Samsung Support
     titel: Schriftgröße und Schriftstil auf deinem Galaxy Smartphone einstellen
     url: https://www.samsung.com/at/support/mobile-devices/einstellen-der-schriftgrosse-und-des-schriftstils-auf-deinem-galaxy-smartphone/
+  - herausgeber: Apple Support
+    titel: "Safari-Einstellungen auf dem iPhone anpassen (iOS 27)"
+    url: https://support.apple.com/de-de/guide/iphone/iphb3100d149/27.0/ios/27.0
+  - herausgeber: Apple Support
+    titel: "Safari-Einstellungen auf dem iPhone anpassen (iOS 26)"
+    url: https://support.apple.com/de-de/guide/iphone/iphb3100d149/26.0/ios/26.0
+  - herausgeber: Google Chrome-Hilfe
+    titel: "Text-, Bild- und Videogrößen ändern (zoomen) – iPhone und iPad"
+    url: https://support.google.com/chrome/answer/96810?hl=de&co=GENIE.Platform%3DiOS
+  - herausgeber: Google Chrome-Hilfe
+    titel: "Text-, Bild- und Videogrößen ändern (zoomen) – Android"
+    url: https://support.google.com/chrome/answer/96810?hl=de&co=GENIE.Platform%3DAndroid
+  - herausgeber: Google – Bedienungshilfen für Android
+    titel: Seitenzoom für Chrome unter Android verwenden
+    url: https://support.google.com/accessibility/android/answer/13532420?hl=de
 verwandt:
   - whatsapp-kontakt-blockieren
   - whatsapp-konto-schuetzen
@@ -135,6 +153,37 @@ Neben der Schrift können Sie auch **Symbole, Knöpfe und Bilder** vergrößern.
 ### Lupe für den ganzen Bildschirm
 
 Für besonders kleine Inhalte gibt es unter **„Einstellungen“ › „Bedienungshilfen“ › „Vergrößerung“** eine Zoom-Funktion. Damit lässt sich der Bildschirm bis zum Achtfachen vergrößern – etwa um ein Foto oder Kleingedrucktes genauer anzusehen.
+
+## Nur Internetseiten größer: Safari und Chrome
+
+Manchmal ist nur die Schrift im Internet zu klein – zum Beispiel bei den Ergebnissen der Google-Suche. Dafür hat Ihr Browser eine eigene Zoom-Einstellung. Der Browser ist die App, mit der Sie Internetseiten öffnen. Mit dieser Einstellung vergrößern Sie die Seite, die Sie gerade geöffnet haben.
+
+### Safari auf dem iPhone
+
+1. Öffnen Sie **„Safari“** und rufen Sie die Internetseite auf, etwa die Google-Suche.
+2. Tippen Sie links neben dem Suchfeld auf die Taste **„Seitenmenü“**.
+3. Tippen Sie auf **„Seitenzoom“**. Bei iOS 26 entfällt dieser Schritt: Dort sehen Sie die beiden Buchstaben sofort.
+4. Tippen Sie auf das **große A**, damit die Schrift größer wird. Das **kleine A** macht sie wieder kleiner.
+
+Steht die Schrift wieder auf 100 Prozent – also auf ihrer ursprünglichen Größe –, blendet Safari bei iOS 27 kurz einen Hinweis ein. So finden Sie jederzeit zum Ausgangspunkt zurück.
+
+### Chrome auf dem iPhone
+
+1. Öffnen Sie **„Chrome“** und rufen Sie die Internetseite auf.
+2. Tippen Sie auf das **Dreipunkt-Menü** und dann auf **„Text zoomen…“**.
+3. Tippen Sie oben auf dem Bildschirm auf **„Heranzoomen“**, um alles zu vergrößern. **„Herauszoomen“** macht es wieder kleiner.
+
+### Chrome auf einem Android-Handy
+
+1. Öffnen Sie **„Chrome“** und rufen Sie die Internetseite auf.
+2. Tippen Sie rechts oben auf das **Dreipunkt-Menü** und dann auf **„Zoomen“**.
+3. Verschieben Sie den **Schieberegler**, bis Sie die Seite gut lesen können.
+
+Chrome merkt sich diese Größe für die Internetseite. Andere Seiten bleiben, wie sie waren.
+
+Fehlt der Punkt „Zoomen“? Dann schalten Sie ihn einmal ein: **Dreipunkt-Menü › „Einstellungen“ › „Bedienungshilfen“ › „Zoomoption im Hauptmenü anzeigen“**. Je nach Chrome-Version heißt „Bedienungshilfen“ auch „Barrierefreiheit“.
+
+Soll jede Internetseite größer erscheinen, öffnen Sie dieselben Einstellungen. Ziehen Sie dort den Regler neben **„Standardzoom“**, bis Sie den Vorschautext gut lesen können. Lässt sich eine Seite trotzdem nicht vergrößern, schalten Sie zusätzlich **„Zoom zwingend aktivieren“** ein.
 
 ## Gut zu wissen
 
