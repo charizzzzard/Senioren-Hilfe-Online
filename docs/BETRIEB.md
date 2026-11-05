@@ -149,7 +149,7 @@ Vergleich mit allen Vorwochen in der Search Console, daher ohne gespeicherten Zu
 | Di + Fr 13:23 | Netzleicht: Faktenprüfung | Prüfer | Opus |
 | Mi 10:19 | Netzleicht: Nachprüfung | Autor | Opus |
 | täglich 19:12 | Netzleicht: Freigabe | Freigabe | Sonnet |
-| Mo 08:13 | Netzleicht: Wochenbericht | Bericht | Sonnet |
+| Mo 08:13 | Netzleicht: Wochenbericht (Zahlen per Skript, Gegenprobe vor dem Senden) | Bericht | Opus |
 | 3. des Monats 13:32 | Netzleicht: monatliche Wartung | Autor | Opus |
 | Mo 05:17 UTC | GitHub-Action „Wöchentliche Wartung“ | Technik | – |
 
