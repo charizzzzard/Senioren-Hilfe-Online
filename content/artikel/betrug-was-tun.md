@@ -5,19 +5,19 @@ beschreibung: "Auf Betrug hereingefallen? Dieser Notfallplan zeigt in Ruhe, was 
 keyword: "betrug was tun"
 kategorie: sicherheit
 veroeffentlicht: 2026-10-30
-aktualisiert: 2026-10-30
+aktualisiert: 2026-11-05
 geprueft: 2026-10-30
 schnelle_hilfe: true
 kurz_gesagt: |
   **Handeln Sie schnell, aber ohne Hektik:**
-  1. Geld überwiesen? **Sofort die Bank anrufen.**
+  1. Geld überwiesen oder abgebucht? **Sofort die Bank anrufen.** Mit PayPal bezahlt? **Sofort bei PayPal melden.**
   2. Bankdaten, PIN oder TAN verraten? **Karte und Konto sperren** – über Ihre Bank oder den **Sperr-Notruf 116 116**.
   3. **Beweise sichern** (Bildschirmfotos, Nummern, Uhrzeiten) und **Anzeige bei der Polizei** erstatten.
   Akute Gefahr, oder will jemand gleich Geld abholen? **Rufen Sie die 110.**
 checkliste_titel: "Notfallplan zum Aufbewahren"
 checkliste:
   - "Akute Gefahr oder Geldabholung angekündigt: 110"
-  - "Geld überwiesen: sofort die eigene Bank anrufen. Nummer meiner Bank: ______________"
+  - "Geld überwiesen oder abgebucht: sofort die Bank anrufen. PayPal: „Problem melden“. Nummer meiner Bank: __________"
   - "Karte oder Online-Banking sperren: Sperr-Notruf 116 116 (rund um die Uhr)"
   - IBAN bereithalten und Uhrzeit der Sperrung notieren.
   - Bildschirmfotos von Nachrichten, Nummern und Überweisungen machen.
@@ -45,6 +45,21 @@ quellen:
   - herausgeber: WEISSER RING e. V.
     titel: Hilfe für Kriminalitätsopfer
     url: https://weisser-ring.de/hilfe-fuer-opfer-0
+  - herausgeber: Verbraucherzentrale
+    titel: "Internet-Betrug: So können Sie versuchen, Ihr Geld zurückzuholen"
+    url: https://www.verbraucherzentrale.de/wissen/digitale-welt/onlinehandel/internetbetrug-so-koennen-sie-versuchen-ihr-geld-zurueckzuholen-33155
+  - herausgeber: Verbraucherzentrale
+    titel: "Bezahlen im SEPA-Lastschriftverfahren: Das sollten Sie darüber wissen"
+    url: https://www.verbraucherzentrale.de/wissen/geld-versicherungen/sparen-und-anlegen/bezahlen-im-sepalastschriftverfahren-das-sollten-sie-darueber-wissen-16639
+  - herausgeber: Verbraucherzentrale
+    titel: "Kein Käuferschutz mit „PayPal-Freunde“: Worauf Sie achten sollten"
+    url: https://www.verbraucherzentrale.de/wissen/digitale-welt/onlinehandel/kein-kaeuferschutz-mit-paypalfreunde-worauf-sie-achten-sollten-33139
+  - herausgeber: PayPal-Hilfe
+    titel: Wie melde ich ein Problem mit einem Verkäufer?
+    url: https://www.paypal.com/de/cshelp/article/wie-melde-ich-ein-problem-mit-einem-verk%C3%A4ufer-help160
+  - herausgeber: PayPal Sicherheitscenter
+    titel: Betrug oder unbefugten Kontozugriff melden
+    url: https://www.paypal.com/de/security/report-fraud
 verwandt:
   - schockanruf-enkeltrick
   - whatsapp-betrug-erkennen
@@ -60,13 +75,37 @@ Betrüger sind geschickt. Sie arbeiten mit Druck, Mitleid und gut erfundenen Ges
     - gleich jemand vorbeikommen will, um Geld oder Wertsachen abzuholen,
     - Sie gerade erst etwas übergeben haben.
 
-## Schritt 1: Geld überwiesen? Sofort die Bank anrufen
+## Schritt 1: Geld bezahlt? Sofort Bank oder PayPal informieren
+
+Ob und wie Sie Ihr Geld zurückbekommen, hängt davon ab, wie Sie bezahlt haben. Eines gilt aber immer: Je schneller Sie handeln, desto besser.
+
+### Überweisung oder Kreditkarte
 
 Rufen Sie **so schnell wie möglich** Ihre Bank oder Sparkasse an. Laut Polizei kann das Geld in einigen Fällen noch zurückgeholt werden – je früher, desto besser.
 
 - Die richtige Nummer steht auf Ihrer Bankkarte, auf Ihrem Kontoauszug oder auf der Internetseite Ihrer Bank.
 - Nehmen Sie **nie** eine Nummer aus der verdächtigen Nachricht oder dem Anruf.
 - Haben Sie mit Kreditkarte bezahlt, fragen Sie Ihre Bank, ob Sie die Zahlung zurückholen können. Die Verbraucherzentrale nennt dafür das „Charge-Back-Verfahren“.
+
+### Per Lastschrift abgebucht
+
+Hier stehen Ihre Chancen am besten. Laut Verbraucherzentrale lässt sich eine Lastschrift am einfachsten zurückholen.
+
+- Bis **8 Wochen** nach der Abbuchung können Sie sich den Betrag von Ihrer Bank erstatten lassen. Dafür widersprechen Sie der Lastschrift bei Ihrer Bank.
+- Im Online-Banking geht das oft mit einem Knopf direkt neben der Abbuchung in der Umsatzübersicht. Sonst fragen Sie Ihre Bank.
+- Haben Sie der Abbuchung **nie zugestimmt**, geht das sogar bis zu **13 Monate** danach. Warten Sie trotzdem nicht so lange.
+
+### Mit PayPal bezahlt
+
+Melden Sie die Zahlung **sofort** bei PayPal. Öffnen Sie dafür selbst die PayPal-App oder die Internetseite – nicht über einen Link aus einer Nachricht.
+
+1. Gehen Sie in Ihrem PayPal-Konto zu **„Konfliktlösungen“** und tippen Sie auf **„Problem melden“**.
+2. Wählen Sie die Zahlung aus.
+3. Wählen Sie den Grund. Haben Sie die Zahlung nicht selbst gemacht, ist das **„Unbefugte Aktivitäten in Ihrem PayPal-Konto“**. Kommt bestellte Ware nicht an, wählen Sie **„Probleme mit Ihrem Einkauf“**.
+
+Bei Einkäufen kann der **PayPal-Käuferschutz** helfen. Er gilt meist nur, wenn Sie für Waren bezahlt haben. Lässt sich das Problem mit dem Verkäufer nicht lösen, stellen Sie in den Konfliktlösungen einen **Antrag auf Käuferschutz**. Ohne diesen Antrag schließt PayPal den Fall nach 20 Tagen automatisch.
+
+Haben Sie über **„Freunde und Familie“** bezahlt, gibt es **keinen Käuferschutz**. Melden Sie es PayPal trotzdem und nennen Sie die Vorgangsnummer. Laut Verbraucherzentrale erstattet PayPal in einigen Fällen den Kaufpreis.
 
 ## Schritt 2: Karte und Konto sperren
 
