@@ -5,7 +5,7 @@ beschreibung: "„Ihr Paket wartet“ – und dazu ein Link? So erkennen Sie Bet
 keyword: "betrugs sms"
 kategorie: sicherheit
 veroeffentlicht: 2026-10-30
-aktualisiert: 2026-10-30
+aktualisiert: 2026-11-05
 geprueft: 2026-10-30
 kurz_gesagt: |
   **Tippen Sie nicht auf Links** in überraschenden SMS – egal ob angeblich vom Paketdienst, vom Zoll oder von der Bank. **Antworten Sie nicht**, sondern löschen Sie die Nachricht.
@@ -56,7 +56,9 @@ Seien Sie besonders vorsichtig, wenn eine SMS
 - nach **Passwörtern, PIN, TAN oder Kontodaten** fragt.
 
 !!! hinweis "Gut zu wissen"
-    Zollgebühren bezahlt man nicht vorab über eine Internetseite aus einer SMS. Und Banken, Behörden oder die Polizei fragen **niemals** per SMS oder Handynachricht nach PIN, TAN oder Kontodaten.
+    Zollgebühren bezahlen Sie nicht über einen Link aus einer überraschenden SMS. Es gibt eine Ausnahme: Manche Paketdienste bieten an, Zollgebühren vor der Zustellung zu bezahlen. Dafür müssen Sie sich aber vorher selbst angemeldet haben – und in der Nachricht stehen laut Verbraucherzentrale dann immer die Sendungsnummer und der Name des Absenders.
+
+    Banken, Behörden oder die Polizei fragen **niemals** per SMS oder Handynachricht nach PIN, TAN oder Kontodaten.
 
 ## So reagieren Sie richtig
 

@@ -24,7 +24,7 @@ checkliste:
   - Passwörter ändern, wenn ich sie verraten habe.
   - Link angetippt und App installiert? Flugmodus einschalten.
   - Anzeige bei der Polizei erstatten.
-  - "Mit jemandem reden: Opfer-Telefon des Weissen Rings 116 006 (kostenfrei)"
+  - "Mit jemandem reden: Opfer-Telefon des Weissen Rings 116 006 (kostenfrei, täglich 7–22 Uhr)"
   - "Wichtig: Die Polizei ruft nie von der 110 an. Der Sperr-Notruf ruft nie an."
 quellen:
   - herausgeber: Sperr-Notruf 116 116 e.V.
@@ -160,7 +160,7 @@ Erstatten Sie **auf jeden Fall** Anzeige – auch wenn der Schaden klein erschei
 
 Ein Betrug kann sehr belasten – auch wenn kein Geld verloren ging. Sprechen Sie mit einer vertrauten Person darüber.
 
-Der **WEISSE RING** hilft Opfern von Kriminalität. Sein **Opfer-Telefon** erreichen Sie unter der kostenfreien Nummer **116 006**.
+Der **WEISSE RING** hilft Opfern von Kriminalität. Sein **Opfer-Telefon** erreichen Sie unter der kostenfreien Nummer **116 006** – täglich von 7 bis 22 Uhr, bundesweit und anonym.
 
 !!! angehoerige "Für Angehörige"
     Machen Sie keine Vorwürfe – Scham hält viele Betroffene davon ab, Hilfe zu holen. Helfen Sie lieber ganz praktisch: Bank anrufen, Bildschirmfotos machen, zur Polizei begleiten. Drucken Sie diesen Notfallplan aus und legen Sie ihn neben das Telefon.

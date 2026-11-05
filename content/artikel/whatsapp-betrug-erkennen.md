@@ -5,7 +5,7 @@ beschreibung: "Angeblich schreibt Ihr Kind von einer neuen Nummer und braucht dr
 keyword: "whatsapp betrug"
 kategorie: sicherheit
 veroeffentlicht: 2026-10-30
-aktualisiert: 2026-10-31
+aktualisiert: 2026-11-05
 geprueft: 2026-10-30
 alte_urls:
   - /artikel/whatsapp-betrug-checkliste/
@@ -31,6 +31,12 @@ quellen:
   - herausgeber: WhatsApp-Hilfebereich
     titel: Jemanden blockieren und melden
     url: https://faq.whatsapp.com/1142481766359885/?locale=de_DE
+  - herausgeber: WhatsApp-Hilfebereich
+    titel: Datenschutz-Einstellungen anpassen
+    url: https://faq.whatsapp.com/3307102709559968/?locale=de_DE
+  - herausgeber: WhatsApp-Hilfebereich
+    titel: Einstellungen der Verifizierung in zwei Schritten verwalten (iPhone)
+    url: https://faq.whatsapp.com/1920866721452534/?locale=de_DE&cms_platform=iphone
   - herausgeber: Polizeiliche Kriminalprävention der Länder und des Bundes
     titel: Schockanrufe
     url: https://www.polizei-beratung.de/themen-und-tipps/betrug/schockanrufe/
@@ -109,7 +115,7 @@ Alle Schritte in der richtigen Reihenfolge finden Sie in unserem [Notfallplan na
 
 ## So sind Sie beim nächsten Mal gewappnet
 
-- **Profilbild nur für Kontakte zeigen.** Dann sehen Fremde Ihr Foto nicht. Das geht in WhatsApp unter „Einstellungen“ › „Datenschutz“ › „Profilbild“ › „Meine Kontakte“.
+- **Profilbild nur für Kontakte zeigen.** Dann sehen nur Menschen aus Ihrem Adressbuch Ihr Foto. Das geht in WhatsApp unter „Einstellungen“ › „Datenschutz“ › „Profilbild“ › „Meine Kontakte“. Auf Android-Handys erreichen Sie die Einstellungen über die drei Punkte (⋮), auf dem iPhone heißt der Punkt unten je nach Version „Du“ oder „Einstellungen“.
 - **Das WhatsApp-Konto absichern.** Geben Sie den sechsstelligen Code von WhatsApp niemals weiter und schalten Sie die „Verifizierung in zwei Schritten“ ein. Wie das geht, steht in [WhatsApp-Konto schützen](/artikel/whatsapp-konto-schuetzen/).
 - **Darüber reden.** Erzählen Sie Freundinnen und Bekannten von der Masche. Wer sie kennt, fällt seltener darauf herein – und Sie helfen damit anderen.
 

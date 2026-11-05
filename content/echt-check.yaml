@@ -5,7 +5,7 @@
 titel: "Ist das echt? Der Check für verdächtige Nachrichten und Anrufe"
 seo_titel: "Ist das echt? Check für verdächtige Nachrichten und Anrufe"
 beschreibung: "Eine merkwürdige Nachricht oder ein seltsamer Anruf? Beantworten Sie ein paar Fragen und bekommen Sie eine klare Empfehlung. Es wird nichts gespeichert."
-aktualisiert: 2026-11-01
+aktualisiert: 2026-11-05
 
 wege:
   - id: anruf
@@ -80,6 +80,7 @@ weiterlesen:
   anruf:
     - {titel: "Enkeltrick und Schockanruf: So reagieren Sie richtig", url: /artikel/schockanruf-enkeltrick/}
     - {titel: "Was ist Spoofing?", url: /lexikon/spoofing/}
+    - {titel: "Was ist ein Deepfake?", url: /lexikon/deepfake/}
   sms:
     - {titel: "Betrugs-SMS erkennen", url: /artikel/betrugs-sms-erkennen/}
     - {titel: "Was ist Smishing?", url: /lexikon/smishing/}
@@ -87,6 +88,7 @@ weiterlesen:
     - {titel: "„Hallo Mama“-Betrug auf WhatsApp erkennen", url: /artikel/whatsapp-betrug-erkennen/}
     - {titel: "WhatsApp-Kontakt blockieren und melden", url: /artikel/whatsapp-kontakt-blockieren/}
   email:
+    - {titel: "Was ist Phishing?", url: /lexikon/phishing/}
     - {titel: "Was ist Spoofing?", url: /lexikon/spoofing/}
   tuer:
     - {titel: "Falsche Polizisten: Was die echte Polizei niemals tut", url: /artikel/schockanruf-enkeltrick/#was-die-echte-polizei-niemals-tut}
