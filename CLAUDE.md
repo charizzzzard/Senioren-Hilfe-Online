@@ -30,7 +30,8 @@ Belegtes Profil, Lesergruppen und Folgerungen: **`docs/ZIELGRUPPE.md`** (vor dem
 8. **Transparenz:** Netzleicht sagt offen, dass Texte mit KI-Unterstützung entstehen (`/ueber-netzleicht/`).
 9. **Qualität vor Menge.** Höchstens 2 neue Anleitungen/Aktuell-Texte und 2 Lexikon-Einträge pro Woche,
    dazu genau eine Ausgabe „Die Woche im Netz“ (freitags). Ausnahme: Pakete, die der Betreiber ausdrücklich
-   beauftragt. Danach pausieren neue Texte, bis das Kontingent der letzten 7 Tage wieder frei ist.
+   beauftragt (Frontmatter `paket: "<Auftrag>"`). Danach pausieren neue Texte, bis das Kontingent der letzten 7 Tage
+   wieder frei ist. `tools/check.py` zählt das selbst und bricht bei Überschreitung ab.
    Massenhaft dünne Seiten verstoßen gegen Googles Richtlinien („scaled content abuse“) und gegen unser Versprechen.
 11. **Keine erfundenen Autoren.** Absender ist die „Netzleicht-Redaktion“. Keine erfundenen Personen als Autoren,
     Experten, Zitatgeber oder Erfahrungsberichte – Google wertet erfundene Autorenprofile ausdrücklich als Täuschung.
@@ -46,14 +47,18 @@ content/lexikon/*.md       Digital-Lexikon („Was ist …?“), URL /lexikon/<s
 content/seiten/*.md        Über uns, Kontakt, Impressum, Datenschutz
 content/themenplan.yaml    Priorisierte Themenliste – Quelle für die nächsten Artikel
 content/echt-check.yaml    Fragen, Ergebnisse und Quellen des „Ist das echt?“-Checks (/ist-das-echt/)
+content/belege/            Belegtabellen: jede Aussage eines Textes mit wörtlichem Zitat (docs/BETRIEB.md, Abschnitt 5)
 templates/                 Jinja2-Vorlagen (base, start, artikel, kategorie, seite, 404)
 static/                    CSS, Bilder, Favicon – wird 1:1 nach _site kopiert
 tools/build.py             Baut _site/ (Sitemap, robots.txt, Feed, JSON-LD, Weiterleitungen)
 tools/check.py             Qualitätsprüfung – muss vor jedem Merge grün sein
 tools/linkcheck.py         Prüft alle externen Links
+tools/belegcheck.py        Prüft, ob die Zitate der Belegtabellen noch auf den Quellseiten stehen (nutzt tools/seitentext.mjs)
+tools/push.py              Push-Nachricht an die Netzleicht-App (ntfy); Thema nur aus NTFY_TOPIC, nie im Repo
 tools/indexnow.py          Meldet geänderte URLs an IndexNow (läuft im Deploy)
 tools/pdf.mjs              Erzeugt die Checklisten-PDFs (Node + Playwright, läuft im Deploy)
 tools/favicons.mjs         Erzeugt favicon.ico/-192.png/apple-touch-icon.png aus static/favicon.svg (nach Logo-Änderung)
+docs/BETRIEB.md            Betriebsmodell: Rollen, Risikoklassen, Prüfung, Freigabe, Push, Zeitplan – verbindlich
 docs/STRATEGIE.md          Wachstum, Monetarisierung, Kennzahlen
 docs/ZIELGRUPPE.md         Belegtes Leserprofil und Folgerungen
 docs/WETTBEWERB.md         Google-Konkurrenzanalyse der Top-Themen (Stand, Lücken, Chancen)
@@ -67,6 +72,7 @@ pip install -r requirements.txt
 python tools/build.py                          # baut nach _site/
 python tools/check.py                          # baut + prüft (Exit 1 bei Fehlern)
 python tools/linkcheck.py                      # externe Links prüfen
+python tools/belegcheck.py [slug …]            # Zitate der Belegtabellen gegen die Quellen prüfen (braucht npm ci)
 python -m http.server 8765 --directory _site   # lokale Vorschau
 npm ci && node tools/pdf.mjs                   # optional lokal: Checklisten-PDFs nach _site/checklisten/
 ```
@@ -137,6 +143,7 @@ verwandt: [slug-a, slug-b]      # optional, wird mit Artikeln derselben Kategori
                                 #   bevorzugt den sinnvollen NÄCHSTEN Schritt (nach Betrugsnachricht: blockieren, Notfallplan)
 alte_urls: [/artikel/alt/]      # optional: erzeugt Weiterleitungen nach Umbenennung
 entwurf: true                   # optional: wird nicht gebaut
+paket: "Auftrag vom …"          # optional: vom Betreiber beauftragtes Paket – hebt das Kontingent (Regel 9) auf
 ---
 ```
 
@@ -303,29 +310,39 @@ const { chromium } = require('playwright');
 
 ## 7. Autonomer Ablauf
 
+**Verbindlich ist `docs/BETRIEB.md`:** Wer schreibt, mergt nicht. Jede Änderung bekommt eine Belegtabelle
+(`content/belege/`), geht als Pull Request mit Labels `pruefung-ausstehend` und Risikoklasse (`klasse-a|b|c`) in die
+unabhängige Faktenprüfung und erst danach live – Klasse C nach einer Einspruchsfrist des Betreibers.
+Push-Nachrichten gehen über `tools/push.py` (ntfy). Nie direkt auf `main` pushen.
+
 ### Content-Session (geplant 2× pro Woche)
 
 1. `git checkout main && git pull`; `pip install -r requirements.txt`.
-2. Offene Issues mit Label `feedback`, `wartung` oder `themenwunsch` zuerst bearbeiten – Fehler in bestehenden Artikeln
+2. Zuerst eigene PRs mit `pruefung-nachbessern` abarbeiten (Befunde der Prüfung einarbeiten, wieder auf
+   `pruefung-ausstehend` setzen). Dann offene Issues mit Label `feedback`, `wartung` oder `themenwunsch` bearbeiten – Fehler in bestehenden Artikeln
    haben Vorrang vor neuen Artikeln; Themenwünsche in den Themenplan übernehmen (siehe „Rückmeldungen“).
 3. Kurzer Blick auf Aktuelles: Gibt es eine neue, breit gemeldete Betrugsmasche (Verbraucherzentrale Phishing-Radar,
    BSI, Polizei) oder ein großes offizielles Update (Apple, Google, WhatsApp)? Wenn ja und gut belegbar: als
    „Aktuell erklärt“ vorziehen und im Themenplan ergänzen.
 4. **Kontingent prüfen (Regel 9):** Wie viele Texte haben in den letzten 7 Tagen ein `veroeffentlicht`-Datum
-   (Anleitungen/Aktuell ohne Wochenschau; Lexikon getrennt)? Ist das Kontingent erreicht, keinen neuen Text schreiben,
+   (Anleitungen/Aktuell ohne Wochenschau; Lexikon getrennt)? Im Zweifel entscheidet `tools/check.py`.
+   Ist das Kontingent erreicht, keinen neuen Text schreiben,
    sondern einen bestehenden verbessern (Wartungs-Session, Schritte 2–3) und das im PR begründen.
    Sonst nächstes Thema: höchste Priorität mit `status: offen` aus `content/themenplan.yaml`
    (bei Gleichstand: höheres Suchvolumen). Vorher prüfen, dass es noch keinen Text dazu gibt.
    Pro Session ein Haupttext (Anleitung oder Aktuell) und – wenn Quellenlage und Zeit es erlauben – zusätzlich
    ein Lexikon-Eintrag aus dem Themenplan.
 5. Recherche nach Abschnitt 6, Text nach Abschnitt 5 schreiben. Menüwege als `klickpfad`, wo hilfreich `bildschirm`/`tasten`.
-6. Selbstkontrolle: Jede Aussage gegen die Quellen lesen. Was nicht belegt ist, streichen.
+6. Belegtabelle `content/belege/artikel/<slug>.yaml` anlegen: jede belegpflichtige Aussage mit wörtlichem Zitat.
+   Was sich nicht belegen lässt, streichen oder so allgemein formulieren, wie die Quelle es hergibt.
+   `python tools/belegcheck.py <slug>` muss bestehen.
 7. `python tools/check.py` muss „Alles in Ordnung“ melden; Hinweise möglichst ebenfalls beheben.
    Bei neuen Layout-Elementen: Screenshot mobil (390 px) prüfen.
 8. In `themenplan.yaml`: `status: veroeffentlicht`, `slug:` eintragen. Neue sinnvolle Themen, die bei der Recherche auffallen, ergänzen.
 9. Branch `claude/artikel-<slug>`, Commit `artikel: <Titel>`, Push, Pull Request mit kurzer Beschreibung
-   (Thema, Quellen, Besonderheiten). Wenn der CI-Check grün ist: selbst mergen (Squash). Der Deploy läuft automatisch.
-   Ohne GitHub-Werkzeuge: nach grünem lokalen Check direkt auf `main` pushen.
+   (Thema, Quellen, Besonderheiten, was weggelassen wurde) und Labels `pruefung-ausstehend` + Klassenvorschlag.
+   **Nicht selbst mergen** – das übernimmt die Faktenprüfung (`docs/BETRIEB.md`).
+   Ohne GitHub-Werkzeuge: nichts pushen, sondern per `tools/push.py --art problem` melden.
 
 ### Die-Woche-im-Netz-Session (geplant freitags)
 
@@ -337,8 +354,9 @@ const { chromium } = require('playwright');
    Ausgabe nach Abschnitt 5 („Die Woche im Netz“) schreiben, mit internen Links auf passende Anleitungen,
    den `/ist-das-echt/`-Check oder `/artikel/betrug-was-tun/`.
 4. Fällt dabei ein Thema auf, das eine eigene Anleitung verdient: in den Themenplan aufnehmen (`notiz: aus Wochenschau KW…`).
-5. `python tools/check.py` grün; Branch `claude/woche-im-netz-<JJJJ>-kw<NN>`, Commit `woche: KW <NN>`, PR, nach grünem CI mergen.
-   Danach prüfen, dass die Ausgabe live ist und auf der Startseite erscheint.
+5. Belegtabelle anlegen, `python tools/check.py` und `python tools/belegcheck.py woche-im-netz-<JJJJ>-kw<NN>` grün;
+   Branch `claude/woche-im-netz-<JJJJ>-kw<NN>`, Commit `woche: KW <NN>`, PR mit `pruefung-ausstehend` und `klasse-c`
+   (bei neuen Maschen; sonst `klasse-b`). Nicht selbst mergen – Faktenprüfung und Einspruchsfrist (4 h) nach `docs/BETRIEB.md`.
 
 ### Rückmeldungen (Hinweise und Themenwünsche per E-Mail)
 
@@ -372,12 +390,13 @@ und keine Einzelberatung. Der Betreiber liest das Postfach. Damit Claude helfen 
    Dazu gehören auch die Quellen in `content/echt-check.yaml`.
 2. Bis zu 2 ältere Texte an die aktuelle **Stimme** (Abschnitt 5) anpassen: Szene als Einstieg, wärmerer Ton, weniger Kästen –
    Fakten und Quellen bleiben unverändert.
-3. Artikel mit `geprueft` älter als 180 Tage: Quellen neu lesen, Menüpfade neu prüfen, Text anpassen,
-   `geprueft` (und bei Änderungen `aktualisiert`) setzen. Älteste zuerst, max. 4 pro Session.
+3. Die Quellen-Nachprüfung läuft wöchentlich als eigene Aufgabe (`docs/BETRIEB.md`, Abschnitt 6). Hier nur:
+   `python tools/belegcheck.py` für alle Texte ausführen und Befunde als `wartung`-Issue festhalten;
+   ein Issue „Geräte-Prüfliste“ für den Betreiber anlegen (3–5 Handgriffe, die sich aus Quellen nicht belegen lassen).
 4. Falls die Search Console verbunden ist (OpenSEO-Werkzeuge, Projekt „Senioren-Hilfe Online (netzleicht.de)“):
    Seiten mit vielen Impressionen und wenig Klicks → Titel/Beschreibung verbessern; Suchanfragen ohne passenden
    Artikel → in den Themenplan aufnehmen. Ergebnisse knapp im PR beschreiben.
-5. Erledigte Issues schließen.
+5. Erledigte Issues schließen. Alle Änderungen als PR mit `pruefung-ausstehend` – nicht selbst mergen.
 
 ## 8. Wo Claude stoppt und fragt
 
@@ -393,7 +412,9 @@ Für diese Punkte ein GitHub-Issue mit Label `entscheidung` anlegen und **nicht*
 ## 9. Definition of Done für einen Artikel
 
 - [ ] Löst genau ein konkretes Problem; `kurz_gesagt` beantwortet es in 2–4 Zeilen.
-- [ ] Jede Fakten- und Menüangabe ist durch eine der verlinkten Quellen gedeckt.
+- [ ] Jede Fakten- und Menüangabe ist durch eine der verlinkten Quellen gedeckt – nachgewiesen in der Belegtabelle,
+      `python tools/belegcheck.py <slug>` grün.
+- [ ] Unabhängige Faktenprüfung bestanden (`docs/BETRIEB.md`).
 - [ ] Mindestens ein interner Link im Text, Kasten „Für Angehörige“, druckbare Checkliste.
 - [ ] Keine Angstsprache, kein „du“, keine Werbung.
 - [ ] `python tools/check.py` grün; Themenplan aktualisiert.

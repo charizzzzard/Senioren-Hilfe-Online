@@ -29,6 +29,11 @@ TITEL_MAX = 65
 PRUEFUNG_FAELLIG_TAGE = 180
 SATZ_MAX_WOERTER = 28
 
+# Betriebsregeln (docs/BETRIEB.md) – gelten für alles, was ab diesem Stichtag erscheint oder geändert wird
+STICHTAG = dt.date(2026, 11, 6)
+KONTINGENT = {"artikel": 2, "lexikon": 2}  # Regel 9: höchstens 2 je 7 Tage (Wochenschau zählt nicht mit)
+ZITAT_MIN_WOERTER = 4
+
 # Formulierungen, die gegen unsere Regeln verstoßen (Angst, erfundene Tests, Heilsversprechen)
 VERBOTEN = [
     r"testsieger", r"im test", r"wir haben getestet", r"unser test",
@@ -179,13 +184,77 @@ def main() -> int:
         for s in lange:
             hinweise.append(f"{name}: langer Satz ({len(s.split())} Wörter): „{s[:80]}…“")
 
+    # ---------------------------------------------------- Belegtabellen (content/belege/, docs/BETRIEB.md)
+    import yaml
+    texte = {f"{a.bereich}/{a.slug}": a for a in artikel + lexikon}
+    tabellen: dict[str, dict] = {}
+    for pfad in sorted((ROOT / "content" / "belege").glob("*/*.yaml")):
+        schluessel, rel = f"{pfad.parent.name}/{pfad.stem}", pfad.relative_to(ROOT)
+        if schluessel not in texte:
+            fehler.append(f"{rel}: gehört zu keinem Text ({schluessel}.md fehlt)")
+            continue
+        try:
+            tabelle = yaml.safe_load(pfad.read_text(encoding="utf-8")) or {}
+        except yaml.YAMLError as exc:
+            fehler.append(f"{rel}: kein gültiges YAML ({exc})")
+            continue
+        tabellen[schluessel] = tabelle
+        a = texte[schluessel]
+        quellen = {q.get("url") for q in a.quellen}
+        belege = tabelle.get("belege") or []
+        if not isinstance(tabelle.get("geprueft"), dt.date):
+            fehler.append(f"{rel}: geprueft fehlt (Datum, an dem die Zitate gelesen wurden)")
+        elif tabelle["geprueft"] != a.geprueft:
+            hinweise.append(f"{rel}: geprueft ({tabelle['geprueft']}) passt nicht zum Text ({a.geprueft})")
+        if not belege:
+            fehler.append(f"{rel}: keine Belege eingetragen")
+        for i, b in enumerate(belege, 1):
+            if not str(b.get("aussage") or "").strip():
+                fehler.append(f"{rel}: Beleg {i} ohne aussage")
+            if b.get("geraetetest"):  # auf einem echten Gerät ausprobiert (Gerät, Version, Datum)
+                if len(str(b["geraetetest"]).split()) < 3:
+                    fehler.append(f"{rel}: Beleg {i}: geraetetest braucht Gerät, Version und Datum")
+                if not a.meta.get("getestet"):
+                    hinweise.append(f"{rel}: Beleg {i} beruht auf einem Gerätetest – Feld getestet im Text fehlt")
+                continue
+            if b.get("quelle") not in quellen:
+                fehler.append(f"{rel}: Beleg {i}: quelle steht nicht in den quellen des Textes: {b.get('quelle')}")
+            if len(str(b.get("zitat") or "").split()) < ZITAT_MIN_WOERTER:
+                fehler.append(f"{rel}: Beleg {i}: zitat fehlt oder ist zu kurz (wörtlich, mind. {ZITAT_MIN_WOERTER} Wörter)")
+        ungenutzt = quellen - {b.get("quelle") for b in belege}
+        for u in sorted(ungenutzt):
+            hinweise.append(f"{rel}: Quelle ohne Beleg – Aussage belegen oder Quelle streichen: {u}")
+    ohne_tabelle = []
+    for schluessel, a in texte.items():
+        if schluessel in tabellen:
+            continue
+        if max(a.veroeffentlicht, a.aktualisiert, a.geprueft) >= STICHTAG:
+            fehler.append(f"{schluessel}.md: Belegtabelle fehlt (content/belege/{schluessel}.yaml) – Pflicht für neue und geänderte Texte")
+        else:
+            ohne_tabelle.append(schluessel)
+
+    # ---------------------------------------------------- Kontingent (Regel 9) und Wochenschau
+    for a in artikel + lexikon:
+        if a.meta.get("reihe") == "wochenschau" or a.veroeffentlicht < STICHTAG:
+            continue
+        if a.meta.get("paket"):
+            continue  # vom Betreiber ausdrücklich beauftragtes Paket (Begründung im Feld paket)
+        gleiche = [b for b in artikel + lexikon if b.bereich == a.bereich and b.meta.get("reihe") != "wochenschau"
+                   and 0 <= (a.veroeffentlicht - b.veroeffentlicht).days <= 6]
+        if len(gleiche) > KONTINGENT[a.bereich]:
+            fehler.append(f"{a.bereich}/{a.slug}.md: Regel 9 – {len(gleiche)} {a.bereich}-Texte in den 7 Tagen bis "
+                          f"{a.veroeffentlicht} (erlaubt {KONTINGENT[a.bereich]}). Ausnahme nur mit Feld paket: \"<Auftrag des Betreibers>\"")
+    wochen = Counter(a.veroeffentlicht.isocalendar()[:2] for a in artikel if a.meta.get("reihe") == "wochenschau")
+    for (jahr, kw), n in wochen.items():
+        if n > 1:
+            fehler.append(f"Wochenschau: {n} Ausgaben in KW {kw}/{jahr} (genau eine pro Woche)")
+
     for feld in ("titel", "beschreibung"):
         doppelt = [w for w, n in Counter(getattr(a, feld) for a in artikel + lexikon).items() if n > 1]
         for w in doppelt:
             fehler.append(f"{feld} mehrfach vergeben: {w}")
 
     # ---------------------------------------------------- Themenplan
-    import yaml
     plan = yaml.safe_load((ROOT / "content" / "themenplan.yaml").read_text(encoding="utf-8"))
     kategorien = {k["slug"] for k in site["kategorien"]}
     slugs = {a.slug for a in artikel + lexikon}
@@ -264,6 +333,8 @@ def main() -> int:
     # ---------------------------------------------------- Bericht
     print(f"Geprüft: {len(artikel)} Artikel, {len(lexikon)} Lexikon-Einträge, {len(html_dateien)} HTML-Seiten, "
           f"{len(daten['sitemap'])} Sitemap-Einträge")
+    if ohne_tabelle:
+        print(f"INFO: {len(ohne_tabelle)} ältere Texte noch ohne Belegtabelle – die wöchentliche Nachprüfung ergänzt sie.")
     for h in hinweise:
         print(f"HINWEIS: {h}")
     for f in fehler:

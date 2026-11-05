@@ -1,0 +1,138 @@
+# Belegtabelle für content/artikel/schrift-groesser-stellen.md (Format: docs/BETRIEB.md, Abschnitt „Belegtabelle“)
+# Jede Aussage mit einem wörtlichen Zitat aus einer selbst gelesenen Quelle. Prüfen: python tools/belegcheck.py schrift-groesser-stellen
+geprueft: 2026-11-05
+belege:
+  # ---------------------------------------------------------------- iPhone: Textgröße
+  - aussage: "iPhone (iOS 27): Einstellungen › Erscheinungsbild › Textgröße"
+    quelle: https://support.apple.com/de-de/guide/iphone/iphd6804774e/27.0/ios/27.0
+    zitat: "Tippe auf „Erscheinungsbild“ und tippe dann auf „Textgröße“."
+  - aussage: "iPhone (iOS 26 und älter): Einstellungen › Anzeige & Helligkeit › Textgröße"
+    quelle: https://support.apple.com/de-de/guide/iphone/iphd6804774e/26.0/ios/26.0
+    zitat: "Tippe auf „Anzeige & Helligkeit“ und tippe dann auf „Textgröße“."
+  - aussage: "Regler verschieben, bis die Schrift gut lesbar ist (Richtung nicht festgelegt)"
+    quelle: https://support.apple.com/de-de/guide/iphone/iphd6804774e/27.0/ios/27.0
+    zitat: "Ziehe den Regler nach links oder rechts, um die Textgröße zu ändern."
+  - aussage: "Die Größe gilt in Apps, die das unterstützen, z. B. Nachrichten, Mail, Kalender, Notizen"
+    quelle: https://support.apple.com/de-de/guide/iphone/iph3c076905a/ios
+    zitat: "Du kannst eine bevorzugte Textgröße für alle unterstützten Apps (darunter „Kalender“, „Mail“, „Nachrichten“, „Notizen“, „Einstellungen“ und mehr) festlegen."
+  - aussage: "… auch in Kontakte"
+    quelle: https://support.apple.com/de-de/102453
+    zitat: "Du kannst die Schriftgröße in Mail, Kontakte, Kalender, Telefon, Notizen und anderen Apps ändern, die dynamischen Text unterstützen."
+  - aussage: "Zurückstellen jederzeit möglich (iPhone)"
+    quelle: https://support.apple.com/de-de/102453
+    zitat: "Kehre zu den Einstellungen zurück, und passe die Schriftgröße wie benötigt an."
+  # ---------------------------------------------------------------- iPhone: Bedienungshilfen
+  - aussage: "Einstellungen › Bedienungshilfen › Anzeige & Textgröße"
+    quelle: https://support.apple.com/de-de/guide/iphone/iph3c076905a/ios
+    zitat: "„Bedienungshilfen“ > „Anzeige & Textgröße“"
+  - aussage: "„Größerer Text“ antippen und Regler bewegen"
+    quelle: https://support.apple.com/de-de/guide/iphone/iph3c076905a/ios
+    zitat: "Tippe auf „Größerer Text“ und bewege den Schieberegler, um die Textgröße anzupassen."
+  - aussage: "„Größerer dynamischer Text“ einschalten → weitere Textgrößen"
+    quelle: https://support.apple.com/de-de/guide/iphone/iph3c076905a/ios
+    zitat: "Wenn weitere Textgrößen angezeigt werden sollen, aktiviere die Option „Größerer dynamischer Text“."
+  - aussage: "„Fetter Text“ einschalten"
+    quelle: https://support.apple.com/de-de/guide/iphone/iph3c076905a/ios
+    zitat: "Text fetter machen: Aktiviere die Option „Fetter Text“."
+  - aussage: "Kontrollzentrum: Regler „Textgröße“"
+    quelle: https://support.apple.com/de-de/guide/iphone/iph3c076905a/ios
+    zitat: "Öffne das Kontrollzentrum und passe den Schieberegler „Textgröße“ an."
+  - aussage: "Fehlt der Regler: Taste „Hinzufügen“ oben links › „Steuerelement hinzufügen“ › „Textgröße“"
+    quelle: https://support.apple.com/de-de/guide/iphone/iph3c076905a/ios
+    zitat: "tippe auf die Taste „Hinzufügen“ oben links, tippe auf „Steuerelement hinzufügen“ und dann auf das Steuerelement „Textgröße“."
+  - aussage: "Anzeigezoom vergrößert auch Symbole und Tasten"
+    quelle: https://support.apple.com/de-de/guide/iphone/iph3c076905a/ios
+    zitat: "Außerdem kannst du den Anzeigezoom aktivieren, um die Textgröße sowie Elemente in Benutzeroberflächen wie Symbole und Tasten zu vergrößern."
+  - aussage: "Zu groß gestellt → Tasten in Apps schwer antippen"
+    quelle: https://support.apple.com/de-de/102453
+    zitat: "Wenn du den Text zu groß einstellst, kann es schwierig werden, auf Tasten oder andere Funktionen in Apps zu tippen."
+  # ---------------------------------------------------------------- Android
+  - aussage: "Android: Schriftgröße – Regler verschieben"
+    quelle: https://support.google.com/accessibility/android/answer/11183305?hl=de
+    zitat: "Bewege den Schieberegler nach links oder rechts, um die gewünschte Schriftgröße auszuwählen."
+  - aussage: "Vorschau zeigt die Wirkung"
+    quelle: https://support.google.com/accessibility/android/answer/11183305?hl=de
+    zitat: "kannst du dir in der Vorschau ansehen, wie sich deine Änderungen auswirken"
+  - aussage: "Bedienungshilfen › Anzeigegröße und Text"
+    quelle: https://support.google.com/accessibility/android/answer/11183305?hl=de
+    zitat: "Tippen Sie auf Bedienungshilfen Anzeigegröße und Text."
+  - aussage: "Bis zu 200 Prozent"
+    quelle: https://support.google.com/accessibility/android/answer/11183305?hl=de
+    zitat: "Du kannst die Schriftgröße auf bis zu 200 % anpassen."
+  - aussage: "Anzeigegröße gibt es zusätzlich zur Schriftgröße"
+    quelle: https://support.google.com/accessibility/android/answer/11183305?hl=de
+    zitat: "So vergrößerst bzw. verkleinerst du die Anzeigegröße:"
+  - aussage: "Schnelleinstellungen: vom oberen Rand nach unten wischen"
+    quelle: https://support.google.com/accessibility/android/answer/11183305?hl=de
+    zitat: "Wische vom oberen Displayrand nach unten, um die Schnelleinstellungen aufzurufen."
+  - aussage: "Fehlt die Kachel „Schriftgröße“, kann man sie hinzufügen"
+    quelle: https://support.google.com/accessibility/android/answer/11183305?hl=de
+    zitat: "musst du den Schnelleinstellungen zuerst die Kachel „Schriftgröße“ hinzufügen"
+  - aussage: "Nicht jede App übernimmt die größere Schrift"
+    quelle: https://support.google.com/accessibility/android/answer/11183305?hl=de
+    zitat: "Die Einstellung für die Schriftgröße wird nicht auf alle Apps angewendet."
+  - aussage: "Knopf „Einstellungen zurücksetzen“ stellt Schrift- und Anzeigegröße zurück"
+    quelle: https://support.google.com/accessibility/android/answer/11183305?hl=de
+    zitat: "tippe zum Zurücksetzen auf Einstellungen zurücksetzen"
+  - aussage: "Vergrößerung zeigt Bildschirminhalte größer an"
+    quelle: https://support.google.com/accessibility/android/answer/6006949?hl=de
+    zitat: "Sie können die Bildschirminhalte Ihres Android-Geräts heranzoomen, um sie sich größer anzeigen zu lassen."
+  - aussage: "Einstellungen › Bedienungshilfen › Vergrößerung"
+    quelle: https://support.google.com/accessibility/android/answer/6006949?hl=de
+    zitat: "Tippen Sie auf Bedienungshilfen Vergrößerung."
+  - aussage: "Samsung: Einstellungen öffnen (Zahnrad) und oben rechts auf die Lupe tippen"
+    quelle: https://www.samsung.com/de/support/mobile-devices/einstellungen-einfach-finden/
+    zitat: "Tippe jetzt oben rechts auf die Lupe, um die Suchfunktion aufzurufen."
+  - aussage: "Einstellungen-App erkennt man meist am Zahnrad"
+    quelle: https://www.samsung.com/de/support/mobile-devices/einstellungen-einfach-finden/
+    zitat: "Wische vom oberen Bildschirmrand nach unten und tippe auf das Zahnrad. Damit öffnest du die Einstellungen."
+  - aussage: "Samsung: Punkt „Schriftgröße und -stil“"
+    quelle: https://www.samsung.com/at/support/mobile-devices/einstellen-der-schriftgrosse-und-des-schriftstils-auf-deinem-galaxy-smartphone/
+    zitat: "Ändre die Schriftgröße, indem du den Schieberegler nach links oder rechts ziehst."
+  - aussage: "Samsung: Schalter „Fettschrift“"
+    quelle: https://www.samsung.com/at/support/mobile-devices/einstellen-der-schriftgrosse-und-des-schriftstils-auf-deinem-galaxy-smartphone/
+    zitat: "Tippe auf den Schalter neben Fettschrift, um die Schrift fetter erscheinen zu lassen."
+  # ---------------------------------------------------------------- Safari
+  - aussage: "Safari: Taste „Seitenmenü“ vergrößert die Webseite"
+    quelle: https://support.apple.com/de-de/guide/iphone/iphb3100d149/27.0/ios/27.0
+    zitat: "Mit der Taste „Seitenmenü“ kannst du eine Webseite vergrößern oder verkleinern."
+  - aussage: "iOS 27: links neben dem Suchfeld, dann „Seitenzoom“"
+    quelle: https://support.apple.com/de-de/guide/iphone/iphb3100d149/27.0/ios/27.0
+    zitat: "Tippe auf der linken Seite des Suchfelds auf die Taste „Seitenmenü“ und dann auf „Seitenzoom“."
+  - aussage: "Großes A vergrößert, kleines A verkleinert"
+    quelle: https://support.apple.com/de-de/guide/iphone/iphb3100d149/27.0/ios/27.0
+    zitat: "Tippe auf das große A, um die Schrift zu vergrößern, oder das kleine A, um sie zu verkleinern."
+  - aussage: "iOS 27: kurzer Hinweis bei 100 Prozent"
+    quelle: https://support.apple.com/de-de/guide/iphone/iphb3100d149/27.0/ios/27.0
+    zitat: "Ein Indikator wird kurz angezeigt, wenn die Schriftgröße auf 100 % gesetzt wird."
+  - aussage: "iOS 26: ohne Schritt „Seitenzoom“, A-Tasten direkt im Seitenmenü links neben dem Suchfeld"
+    quelle: https://support.apple.com/de-de/guide/iphone/iphb3100d149/26.0/ios/26.0
+    zitat: "Verwende die Taste „Seitenmenü“, um den Text größer oder kleiner darzustellen."
+  # ---------------------------------------------------------------- Chrome
+  - aussage: "Chrome iPhone: Dreipunkt-Menü › „Text zoomen…“"
+    quelle: https://support.google.com/chrome/answer/96810?hl=de&co=GENIE.Platform%3DiOS
+    zitat: "Tippen Sie auf Text zoomen"
+  - aussage: "Chrome iPhone: oben „Heranzoomen“ / „Herauszoomen“"
+    quelle: https://support.google.com/chrome/answer/96810?hl=de&co=GENIE.Platform%3DiOS
+    zitat: "Wählen Sie oben auf dem Bildschirm die gewünschte Zoomoption aus:"
+  - aussage: "Chrome Android: Dreipunkt-Menü rechts oben"
+    quelle: https://support.google.com/chrome/answer/96810?hl=de&co=GENIE.Platform%3DAndroid
+    zitat: "Tippen Sie rechts oben auf das Dreipunkt-Menü"
+  - aussage: "Chrome Android: Schieberegler vergrößert die Seite"
+    quelle: https://support.google.com/chrome/answer/96810?hl=de&co=GENIE.Platform%3DAndroid
+    zitat: "Mit dem Schieberegler können Sie die Inhalte auf der Seite vergrößern und verkleinern."
+  - aussage: "Chrome merkt sich die Größe pro Website, andere Seiten bleiben"
+    quelle: https://support.google.com/chrome/answer/96810?hl=de&co=GENIE.Platform%3DAndroid
+    zitat: "Die ausgewählte Zoomstufe wird für diese Website gespeichert und hat keine Auswirkungen auf andere Websites."
+  - aussage: "Fehlt „Zoomen“: „Zoomoption im Hauptmenü anzeigen“ einschalten"
+    quelle: https://support.google.com/chrome/answer/96810?hl=de&co=GENIE.Platform%3DAndroid
+    zitat: "Aktivieren Sie Zoomoption im Hauptmenü anzeigen."
+  - aussage: "„Standardzoom“ für alle Seiten, bis der Vorschautext gut lesbar ist"
+    quelle: https://support.google.com/chrome/answer/96810?hl=de&co=GENIE.Platform%3DAndroid
+    zitat: "Bewegen Sie den Schieberegler neben „Standardzoom“, bis Sie den Vorschautext gut lesen können."
+  - aussage: "„Zoom zwingend aktivieren“ für Seiten, die Zoomen verhindern"
+    quelle: https://support.google.com/chrome/answer/96810?hl=de&co=GENIE.Platform%3DAndroid
+    zitat: "Wenn Sie Seiten heranzoomen möchten, die das Zoomen verhindern, aktivieren Sie Zoom zwingend aktivieren."
+  - aussage: "Je nach Version heißt „Bedienungshilfen“ auch „Barrierefreiheit“"
+    quelle: https://support.google.com/accessibility/android/answer/13532420?hl=de
+    zitat: "Aktivieren Sie die Option Zoomoption anzeigen."

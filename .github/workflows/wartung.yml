@@ -32,12 +32,25 @@ jobs:
         continue-on-error: true
         run: python tools/linkcheck.py --bericht links.md
 
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+
+      - name: Playwright installieren (Zitat-Abgleich liest auch JavaScript-Seiten)
+        run: npm ci && npx playwright install --with-deps chromium
+
+      - name: Belege gegen die Quellen prüfen
+        id: belege
+        continue-on-error: true
+        run: python tools/belegcheck.py --bericht belege.md
+
       - name: Wartungs-Issue anlegen, wenn etwas zu tun ist
         if: always()
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          if ! grep -q "HINWEIS\|FEHLER" qualitaet.txt && [ "${{ steps.links.outcome }}" = "success" ]; then
+          if ! grep -q "HINWEIS\|FEHLER" qualitaet.txt && [ "${{ steps.links.outcome }}" = "success" ] && [ "${{ steps.belege.outcome }}" = "success" ]; then
             echo "Nichts zu tun."; exit 0
           fi
           {
@@ -49,6 +62,8 @@ jobs:
             echo '```'
             echo
             cat links.md 2>/dev/null || true
+            echo
+            cat belege.md 2>/dev/null || true
           } > bericht.md
           gh label create wartung --color FBCA04 --description "Automatische Wartung" 2>/dev/null || true
           nummer=$(gh issue list --label wartung --state open --json number --jq '.[0].number')
