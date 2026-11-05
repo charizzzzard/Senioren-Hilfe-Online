@@ -169,3 +169,7 @@ Vergleich mit allen Vorwochen in der Search Console, daher ohne gespeicherten Zu
 2. **Branch-Schutz für `main`** (GitHub → Settings → Branches → Add branch ruleset bzw. Branch protection rule):
    „Require a pull request before merging“ (0 Approvals) und „Require status checks to pass“ mit dem Check `bauen`.
    Danach ist ein direkter Push auf `main` technisch ausgeschlossen.
+3. **Repository in jeder geplanten Aufgabe hinterlegen** (claude.ai → Routinen → Aufgabe bearbeiten → Repository
+   `charizzzzard/Senioren-Hilfe-Online`). Ohne hinterlegtes Repository hat eine Aufgabe keine GitHub-Werkzeuge
+   (Probelauf vom 05.11.2026: `add_repo` nicht verfügbar) und meldet nur `problem`. Betrifft alle Aufgaben, die nicht
+   über die Oberfläche angelegt wurden. Für den Wochenbericht zusätzlich den Connector **OpenSEO** hinzufügen.
