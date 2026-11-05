@@ -5,7 +5,7 @@ beschreibung: "Enkeltrick oder Schockanruf: Ein Anrufer erzählt von einem Notfa
 keyword: "enkeltrick"
 kategorie: sicherheit
 veroeffentlicht: 2026-10-30
-aktualisiert: 2026-10-30
+aktualisiert: 2026-11-05
 geprueft: 2026-10-30
 kurz_gesagt: |
   Wenn am Telefon jemand Druck macht und es um Geld oder Wertsachen geht: **Legen Sie auf.** Das ist nicht unhöflich, sondern klug.
@@ -19,7 +19,7 @@ checkliste:
   - Ich übergebe niemals Geld oder Schmuck an Unbekannte – auch nicht an „Polizisten“.
   - Ich lasse keine Unbekannten in die Wohnung.
   - Bei einem verdächtigen Anruf rufe ich die 110.
-  - "Unser Familien-Kennwort lautet: ______________________"
+  - Wir haben ein Familien-Kennwort vereinbart. Ich schreibe es nicht auf diesen Zettel.
 quellen:
   - herausgeber: Polizeiliche Kriminalprävention der Länder und des Bundes
     titel: Schockanrufe
@@ -33,6 +33,9 @@ quellen:
   - herausgeber: Sperr-Notruf 116 116 e.V.
     titel: "Pressemeldung: Der Sperr-Notruf 116 116 ruft niemals an (26.11.2024)"
     url: https://www.sperr-notruf.de/media/pages/presse/aacf5d49d9-1749557608/04_sperr-notruf_116_116_ruft_niemals_an.pdf
+  - herausgeber: Bundesamt für Sicherheit in der Informationstechnik (BSI)
+    titel: Deepfakes – Gefahren und Gegenmaßnahmen
+    url: https://www.bsi.bund.de/DE/Themen/Unternehmen-und-Organisationen/Informationen-und-Empfehlungen/Kuenstliche-Intelligenz/Deepfakes/deepfakes_node.html
 verwandt:
   - betrug-was-tun
   - whatsapp-betrug-erkennen
@@ -44,7 +47,7 @@ Das Telefon klingelt. Eine aufgeregte Stimme sagt, Ihr Sohn habe einen schweren 
 
 Alle drei Maschen funktionieren ähnlich: Die Anrufer erfinden eine Notlage, machen Druck und wollen am Ende Geld oder Wertsachen.
 
-**Der Schockanruf:** Jemand gibt sich als Angehöriger, Polizist oder Rechtsanwalt aus. Angeblich hat ein Verwandter einen schweren Unfall verursacht. Nur mit einer „Kaution“ in bar oder in Wertsachen könne er das Gefängnis vermeiden.
+**Der Schockanruf:** Jemand gibt sich als Angehöriger, Polizist oder Rechtsanwalt aus. Angeblich hat ein Verwandter einen schweren Unfall verursacht. Nur mit einer „Kaution“ in bar oder in Wertsachen könne er das Gefängnis vermeiden. Manchmal heißt es auch, nach einem Unfall werde Geld für eine lebenswichtige Operation gebraucht.
 
 **Der Enkeltrick:** Ein Anrufer tut so, als sei er Ihr Enkel oder ein anderer Verwandter. Er nennt seinen Namen oft nicht, sondern fragt: „Rate mal, wer hier spricht?“ Dann bittet er kurzfristig um Bargeld – angeblich für einen Notfall, einen Unfall oder einen dringenden Kauf.
 
@@ -56,12 +59,14 @@ Die Polizei sagt es ganz deutlich: **Legen Sie sofort auf!** Das ist nicht unhö
 
 Sie müssen nichts erklären und sich nicht verabschieden. Ein einfaches Auflegen reicht.
 
+Manchmal verlangen die Anrufer, dass Sie in der Leitung bleiben – laut Polizei bei Anrufen auf dem Handy mitunter bis zur Geldübergabe. So sollen Sie mit niemandem sprechen können und im Schreck bleiben. Gerade dann gilt: auflegen.
+
 ## So prüfen Sie, ob ein Anruf echt ist
 
 1. **Selbst zurückrufen.** Rufen Sie die Person unter einer Nummer an, die Sie schon kennen – zum Beispiel aus Ihrem Telefonbuch.
 2. **Bei Behörden die Nummer selbst heraussuchen.** Behauptet jemand, von der Polizei oder einem Amt zu sein, suchen Sie die Telefonnummer selbst heraus oder fragen Sie die Telefonauskunft.
 3. **Den Namen selbst nennen lassen.** Raten Sie nicht, wer anruft. Bitten Sie den Anrufer, seinen Namen selbst zu nennen.
-4. **Fragen stellen.** Fragen Sie etwas, das nur der echte Verwandte wissen kann.
+4. **Fragen stellen.** Fragen Sie etwas, das nur der echte Verwandte wissen kann. Auch eine vertraut klingende Stimme ist kein Beweis: Laut BSI lassen sich Stimmen mit Künstlicher Intelligenz nachmachen. Mehr dazu: [Was ist ein Deepfake?](/lexikon/deepfake/)
 5. **Eine vertraute Person einbeziehen.** Geht es um Geld oder Wertsachen, besprechen Sie das immer erst mit Familie oder Freunden.
 
 !!! wichtig "Die Nummer im Display beweist nichts"

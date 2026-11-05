@@ -5,7 +5,7 @@ beschreibung: "Lieber sprechen als tippen? So nehmen Sie eine WhatsApp-Sprachnac
 keyword: "whatsapp sprachnachricht"
 kategorie: whatsapp
 veroeffentlicht: 2026-11-01
-aktualisiert: 2026-11-01
+aktualisiert: 2026-11-05
 geprueft: 2026-11-01
 kurz_gesagt: |
   Chat öffnen, das **Mikrofon** neben dem Textfeld **gedrückt halten**, kurz warten und sprechen. Beim **Loslassen** wird die Sprachnachricht gesendet.
@@ -20,6 +20,7 @@ checkliste:
   - Doch nicht schicken? Beim Halten nach links wischen.
   - Erst anhören? Mikrofon nach oben schieben, sprechen, Pause, Abspielen.
   - Danach Papierkorb (löschen) oder Papierflugzeug (senden).
+  - Schon gesendet? Finger auf die Nachricht halten › Löschen › „Für alle löschen“.
   - Anhören einer empfangenen Nachricht – auf das Dreieck (Abspielen) tippen.
 quellen:
   - herausgeber: WhatsApp-Hilfebereich
@@ -40,6 +41,15 @@ quellen:
   - herausgeber: WhatsApp-Hilfebereich
     titel: Sprachnachrichten abspielen (Android)
     url: https://faq.whatsapp.com/1165411581043811/?locale=de_DE&cms_platform=android
+  - herausgeber: WhatsApp-Hilfebereich
+    titel: Transkripte von Sprachnachrichten ein- oder ausschalten (iPhone)
+    url: https://faq.whatsapp.com/241617298315321/?locale=de_DE&cms_platform=iphone
+  - herausgeber: WhatsApp-Hilfebereich
+    titel: Transkripte von Sprachnachrichten ein- oder ausschalten (Android)
+    url: https://faq.whatsapp.com/241617298315321/?locale=de_DE&cms_platform=android
+  - herausgeber: WhatsApp-Hilfebereich
+    titel: Sprachnachrichten löschen
+    url: https://faq.whatsapp.com/1201272594577117/?locale=de_DE
 verwandt:
   - whatsapp-bild-senden
   - whatsapp-videoanruf
@@ -92,6 +102,16 @@ Ihre Sprachnachricht erscheint im Chat mit einem kleinen **Mikrofon** daneben. D
 
 Bleibt die Farbe grau, obwohl längst geantwortet wurde? WhatsApp nennt dazu derzeit selbst einen bekannten Fehler: Die Farbe wird nicht immer aktualisiert. Ihre Nachricht ist trotzdem angekommen.
 
+### Schon gesendet – und doch nicht gewollt?
+
+Auch eine gesendete Sprachnachricht lässt sich löschen:
+
+1. Halten Sie den Finger auf Ihre **Sprachnachricht** im Chat.
+2. **iPhone:** Tippen Sie auf **„Löschen“** und dann auf das Symbol zum Löschen. **Android:** Tippen Sie oben rechts auf das Symbol zum Löschen.
+3. Tippen Sie auf **„Für alle löschen“**.
+
+Bei der anderen Person steht dann nur noch „Diese Nachricht wurde gelöscht“. Wählen Sie dagegen „Für mich löschen“, verschwindet die Nachricht nur bei Ihnen – die andere Person kann sie weiter anhören.
+
 ## Eine Sprachnachricht anhören
 
 Bekommen Sie selbst eine Sprachnachricht, sehen Sie im Chat ein **grünes Mikrofon**. Das heißt: noch nicht angehört. Nach dem Anhören wird es **blau**.
@@ -109,12 +129,12 @@ Kommen mehrere Sprachnachrichten hintereinander, spielt WhatsApp sie **nacheinan
 
 ## Lieber lesen als hören?
 
-Wer schlecht hört, kann sich Sprachnachrichten auch als **Text** anzeigen lassen. WhatsApp nennt das „Transkript“. Der Absender sieht davon nichts.
+Wer schlecht hört, kann sich Sprachnachrichten auch als **Text** anzeigen lassen. WhatsApp nennt das „Transkript“. Der Absender sieht davon nichts. Die Funktion ist zunächst ausgeschaltet. So schalten Sie sie einmal ein:
 
-- **iPhone:** In WhatsApp auf „Einstellungen“ (oder Ihr Profilbild) tippen › „Chats“ › „Transkripte von Sprachnachrichten“. Unter „Transkripte erhalten“ wählen Sie „Manuell“. Auf dem iPhone muss dafür „Hey Siri“ eingeschaltet sein.
-- **Android:** Auf die drei Punkte (⋮) tippen › „Einstellungen“ › „Chats“ › „Transkripte von Sprachnachrichten“. Unter „Transkripte erhalten“ wählen Sie „Manuell“.
+- **iPhone:** In WhatsApp auf „Einstellungen“ (oder Ihr Profilbild) tippen › „Chats“. Schalten Sie „Transkripte von Sprachnachrichten“ ein. Tippen Sie auf „Sprache auswählen“ und wählen Sie Deutsch. Auf dem iPhone muss dafür Siri eingeschaltet sein.
+- **Android:** Auf die drei Punkte (⋮) tippen › „Einstellungen“ › „Chats“. Schalten Sie „Transkripte von Sprachnachrichten“ ein. Wählen Sie unter „Sprache auswählen“ Deutsch und tippen Sie auf „Jetzt einrichten“ oder „Auf WLAN warten“.
 
-Ist ein Transkript verfügbar, steht der Text unter der Abspielen-Taste.
+Danach halten Sie den Finger auf eine Sprachnachricht und tippen auf **„Transkribieren“**. Auf Android finden Sie den Punkt im Menü, das dabei erscheint. Es kann einen Moment dauern, bis der Text da ist. Und er kann Fehler enthalten – im Zweifel hören Sie die Nachricht doch noch an.
 
 ## Wenn es nicht klappt
 

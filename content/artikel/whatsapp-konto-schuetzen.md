@@ -5,7 +5,7 @@ beschreibung: "Mit dem WhatsApp-Code können Betrüger Ihr Konto übernehmen. So
 keyword: "whatsapp verifizierung in zwei schritten"
 kategorie: whatsapp
 veroeffentlicht: 2026-10-30
-aktualisiert: 2026-11-03
+aktualisiert: 2026-11-05
 geprueft: 2026-10-30
 kurz_gesagt: |
   Geben Sie den **sechsstelligen Code**, den WhatsApp per SMS oder Anruf schickt, **niemals** weiter – auch nicht an Freunde oder Familie.
@@ -31,6 +31,9 @@ quellen:
   - herausgeber: WhatsApp-Hilfebereich
     titel: Gehacktes Konto wiederherstellen
     url: https://faq.whatsapp.com/1131652977717250/?locale=de_DE
+  - herausgeber: WhatsApp-Hilfebereich
+    titel: Mit deinem Konto verknüpfte Geräte prüfen (iPhone)
+    url: https://faq.whatsapp.com/1428782138011916/?locale=de_DE&cms_platform=iphone
   - herausgeber: Polizeiliche Kriminalprävention der Länder und des Bundes
     titel: Messenger-Betrug
     url: https://www.polizei-beratung.de/themen-und-tipps/betrug/messenger/
@@ -116,9 +119,13 @@ Du › Konto › Verifizierung in zwei Schritten
 
 WhatsApp kann auch auf einem Computer oder Tablet benutzt werden. Diese Geräte heißen „verknüpfte Geräte“. WhatsApp empfiehlt, sie regelmäßig zu prüfen:
 
-1. Auf Android tippen Sie auf die **drei Punkte** (⋮) und dann auf **„Verknüpfte Geräte“**.
+1. Öffnen Sie die verknüpften Geräte:
+    - **Android:** Tippen Sie auf die **drei Punkte** (⋮) und dann auf **„Verknüpfte Geräte“**.
+    - **iPhone:** Tippen Sie auf **„Einstellungen“** oder Ihr **Profilbild** und dann auf **„Verknüpfte Geräte“**.
 2. Sie sehen alle Geräte, die mit Ihrem Konto verbunden sind.
-3. Kennen Sie ein Gerät nicht? Tippen Sie darauf und dann auf **„Abmelden“**.
+3. Kennen Sie ein Gerät nicht? Tippen Sie darauf und dann auf **„Abmelden“**. Auf dem iPhone bestätigen Sie noch einmal mit **„Abmelden“**.
+
+Steht dort kein Gerät, ist auch kein Computer oder Tablet mit Ihrem Konto verknüpft.
 
 ## Zusätzlich sinnvoll
 

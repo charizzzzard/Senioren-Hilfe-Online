@@ -5,7 +5,7 @@ beschreibung: "Unerwünschte Nachrichten oder Betrugsversuche auf WhatsApp? So b
 keyword: "whatsapp blockieren"
 kategorie: whatsapp
 veroeffentlicht: 2026-10-30
-aktualisiert: 2026-11-03
+aktualisiert: 2026-11-05
 geprueft: 2026-10-30
 kurz_gesagt: |
   Öffnen Sie den Chat mit der Person. **Android:** oben rechts auf die drei Punkte (⋮) › „Mehr“ › „Blockieren“. **iPhone:** oben auf den Namen tippen › „… blockieren“.
@@ -47,7 +47,9 @@ Manche Nachrichten möchte man einfach nicht mehr bekommen – sei es Werbung, B
 - Die Person kann Ihnen **keine Nachrichten mehr schicken** und Sie **nicht mehr anrufen**.
 - Sie sehen keine **Statusmeldungen** mehr von ihr.
 - Der bisherige Chat **bleibt in Ihrer Liste**. Sie können ihn danach löschen.
-- Sie können die Blockierung **jederzeit wieder aufheben**.
+- Die Person **bleibt in Ihrem Adressbuch**. Blockieren löscht keinen Kontakt.
+- Die blockierte Person sieht nicht mehr, wann Sie zuletzt online waren. Auch Ihren Status und Änderungen an Ihrem Profilbild sieht sie nicht mehr.
+- Sie können die Blockierung **jederzeit wieder aufheben**. Nachrichten und Anrufe aus der Zeit der Blockierung bekommen Sie danach aber **nicht nachgeliefert**.
 
 Gruppen lassen sich nicht blockieren. Sie können aber eine Gruppe verlassen und die Person blockieren, die die Gruppe verwaltet.
 
@@ -73,7 +75,7 @@ Gruppen lassen sich nicht blockieren. Sie können aber eine Gruppe verlassen und
 
 **Andere Möglichkeit:** Wischen Sie in der Chatliste auf dem Chat nach links. Tippen Sie auf „Mehr“ und dann auf „… blockieren“.
 
-**Blockierung aufheben:** Öffnen Sie wieder die Kontaktinfo, indem Sie im Chat auf den Namen tippen. Tippen Sie auf **„… freigeben“**.
+**Blockierung aufheben:** Öffnen Sie wieder die Kontaktinfo, indem Sie im Chat auf den Namen tippen. Tippen Sie auf **„… freigeben“**. Alle blockierten Kontakte finden Sie außerdem unter „Einstellungen“ (oder Ihr Profilbild) › „Datenschutz“ › „Kontakte“ › „Blockiert“.
 
 !!! hinweis "Menüs sehen bei Ihnen anders aus?"
     WhatsApp ändert seine Menüs gelegentlich. Wenn Sie einen Punkt nicht finden, öffnen Sie den Chat und tippen Sie oben auf den Namen der Person. In der Kontaktinfo finden Sie die Funktion zum Blockieren.
@@ -82,7 +84,7 @@ Gruppen lassen sich nicht blockieren. Sie können aber eine Gruppe verlassen und
 
 Schreibt Ihnen zum ersten Mal jemand, der nicht in Ihren Kontakten gespeichert ist? Dann zeigt WhatsApp im Chat zusätzliche Angaben an. Sie sehen zum Beispiel, ob Sie gemeinsame Gruppen haben und in welchem Land die Telefonnummer registriert ist. Das hilft bei der Entscheidung, ob Sie antworten oder die Nummer gleich blockieren und melden.
 
-Sie müssen unbekannten Absendern nicht antworten. Im Zweifel blockieren Sie lieber einmal zu viel als einmal zu wenig – eine Blockierung lässt sich jederzeit wieder aufheben.
+Sie müssen unbekannten Absendern nicht antworten. Bei einer fremden Nummer, die Ihnen komisch vorkommt, blockieren Sie lieber einmal zu viel als einmal zu wenig – eine Blockierung lässt sich jederzeit wieder aufheben. Schreibt angeblich jemand aus Ihrer Familie von einer neuen Nummer, rufen Sie vorher unter der alten Nummer an. Denn was eine blockierte Nummer in der Zwischenzeit schickt, kommt auch nach dem Freigeben nicht mehr an.
 
 Gut zu wissen: Sind Sie mit einer blockierten Person in einer gemeinsamen Gruppe, sieht sie Ihre Nachrichten in dieser Gruppe weiterhin – und Sie ihre. Wenn Sie das nicht möchten, verlassen Sie die Gruppe.
 
