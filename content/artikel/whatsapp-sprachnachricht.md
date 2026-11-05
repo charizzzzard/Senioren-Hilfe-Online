@@ -50,6 +50,9 @@ quellen:
   - herausgeber: WhatsApp-Hilfebereich
     titel: Sprachnachrichten löschen
     url: https://faq.whatsapp.com/1201272594577117/?locale=de_DE
+  - herausgeber: WhatsApp-Hilfebereich
+    titel: "Einstellungen der Verifizierung in zwei Schritten verwalten (iPhone, Menüpunkt „Du“)"
+    url: https://faq.whatsapp.com/1920866721452534/?locale=de_DE&cms_platform=iphone
 verwandt:
   - whatsapp-bild-senden
   - whatsapp-videoanruf
@@ -131,7 +134,7 @@ Kommen mehrere Sprachnachrichten hintereinander, spielt WhatsApp sie **nacheinan
 
 Wer schlecht hört, kann sich Sprachnachrichten auch als **Text** anzeigen lassen. WhatsApp nennt das „Transkript“. Der Absender sieht davon nichts. Die Funktion ist zunächst ausgeschaltet. So schalten Sie sie einmal ein:
 
-- **iPhone:** In WhatsApp auf „Einstellungen“ (oder Ihr Profilbild) tippen › „Chats“. Schalten Sie „Transkripte von Sprachnachrichten“ ein. Tippen Sie auf „Sprache auswählen“ und wählen Sie Deutsch. Auf dem iPhone muss dafür Siri eingeschaltet sein.
+- **iPhone:** In WhatsApp auf „Einstellungen“ (je nach Version „Du“ oder Ihr Profilbild) tippen › „Chats“. Schalten Sie „Transkripte von Sprachnachrichten“ ein. Tippen Sie auf „Sprache auswählen“ und wählen Sie Deutsch. Auf dem iPhone muss dafür Siri eingeschaltet sein.
 - **Android:** Auf die drei Punkte (⋮) tippen › „Einstellungen“ › „Chats“. Schalten Sie „Transkripte von Sprachnachrichten“ ein. Wählen Sie unter „Sprache auswählen“ Deutsch und tippen Sie auf „Jetzt einrichten“ oder „Auf WLAN warten“.
 
 Danach halten Sie den Finger auf eine Sprachnachricht und tippen auf **„Transkribieren“**. Auf Android finden Sie den Punkt im Menü, das dabei erscheint. Es kann einen Moment dauern, bis der Text da ist. Und er kann Fehler enthalten – im Zweifel hören Sie die Nachricht doch noch an.

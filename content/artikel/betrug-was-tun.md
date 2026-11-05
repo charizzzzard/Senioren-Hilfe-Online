@@ -69,6 +69,12 @@ quellen:
   - herausgeber: PayPal Sicherheitscenter
     titel: Betrug oder unbefugten Kontozugriff melden
     url: https://www.paypal.com/de/security/report-fraud
+  - herausgeber: Polizei (Bundeskriminalamt)
+    titel: Onlinewachen der Polizeien in Deutschland
+    url: https://www.polizei.de/Polizei/DE/Einrichtungen/Onlinewache/onlinewache_node.html
+  - herausgeber: Polizeien der Länder
+    titel: Onlinewachen der Polizeien in Deutschland (Portal)
+    url: https://portal.onlinewache.polizei.de/
 verwandt:
   - schockanruf-enkeltrick
   - whatsapp-betrug-erkennen
@@ -172,7 +178,9 @@ Bevor Sie etwas löschen, sichern Sie alles, was der Polizei helfen kann:
 
 ## Schritt 6: Anzeige bei der Polizei erstatten
 
-Erstatten Sie **auf jeden Fall** Anzeige – auch wenn der Schaden klein erscheint. Das können Sie bei jeder Polizeidienststelle tun. Außerdem gibt es in allen Bundesländern eine **Onlinewache**, über die Sie Anzeige im Internet erstatten können. Die Onlinewache ist aber nicht für Notfälle geeignet – dafür gilt immer die 110.
+Erstatten Sie **auf jeden Fall** Anzeige – auch wenn der Schaden klein erscheint. Das können Sie bei jeder Polizeidienststelle tun.
+
+Außerdem gibt es in allen Bundesländern eine **Onlinewache**, über die Sie Anzeige im Internet erstatten können – laut Polizei zum Beispiel bei Betrug. Alle Onlinewachen erreichen Sie über das gemeinsame Portal [portal.onlinewache.polizei.de](https://portal.onlinewache.polizei.de/). Dort wählen Sie zuerst aus, wo die Tat passiert ist. Die Onlinewache ist aber nicht für Notfälle geeignet – dafür gilt immer die 110.
 
 ## Schritt 7: Sich Unterstützung holen
 

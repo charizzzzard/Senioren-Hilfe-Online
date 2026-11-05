@@ -6,7 +6,7 @@ beschreibung: "Was sind Cookies? Kleine Datensätze, die Internetseiten auf Ihre
 keyword: "cookies"
 stichwoerter: ["Cookies", "Cookie"]
 veroeffentlicht: 2026-11-01
-aktualisiert: 2026-11-01
+aktualisiert: 2026-11-05
 geprueft: 2026-11-01
 kurz_gesagt: |
   **Cookies** sind kleine Datensätze, die eine Internetseite auf Ihrem Gerät speichert. Besuchen Sie die Seite später wieder, erkennt sie Sie daran wieder.
@@ -53,7 +53,7 @@ Für Cookies, die nicht unbedingt nötig sind – etwa für Werbung –, braucht
 
 Sie dürfen also ruhig ablehnen. Cookies, die für die Seite technisch nötig sind, darf sie laut Verbraucherzentrale auch ohne Ihre Zustimmung setzen – damit sie funktioniert.
 
-Ist Ihnen der Text im Cookie-Hinweis zu klein? Dann lohnt sich ein Blick in unsere Anleitung: [Schrift am Handy größer stellen](/artikel/schrift-groesser-stellen/).
+Ist Ihnen der Text im Cookie-Hinweis zu klein? Dann können Sie die Internetseite im Browser größer stellen. Wie das geht, steht in unserer Anleitung: [Nur Internetseiten größer: Safari und Chrome](/artikel/schrift-groesser-stellen/#nur-internetseiten-groesser-safari-und-chrome).
 
 ## So behalten Sie den Überblick
 

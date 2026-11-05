@@ -115,7 +115,7 @@ Alle Schritte in der richtigen Reihenfolge finden Sie in unserem [Notfallplan na
 
 ## So sind Sie beim nächsten Mal gewappnet
 
-- **Profilbild nur für Kontakte zeigen.** Dann sehen nur Menschen aus Ihrem Adressbuch Ihr Foto. Das geht in WhatsApp unter „Einstellungen“ › „Datenschutz“ › „Profilbild“ › „Meine Kontakte“. Auf Android-Handys erreichen Sie die Einstellungen über die drei Punkte (⋮), auf dem iPhone heißt der Punkt unten je nach Version „Du“ oder „Einstellungen“.
+- **Profilbild nur für Kontakte zeigen.** Dann sehen nur Menschen aus Ihrem Adressbuch Ihr Foto. Das geht in WhatsApp unter „Einstellungen“ › „Datenschutz“ › „Profilbild“ › „Meine Kontakte“. Auf Android-Handys erreichen Sie die „Einstellungen“ über die drei Punkte (⋮). Auf dem iPhone tippen Sie auf „Einstellungen“ (je nach Version „Du“ oder Ihr Profilbild).
 - **Das WhatsApp-Konto absichern.** Geben Sie den sechsstelligen Code von WhatsApp niemals weiter und schalten Sie die „Verifizierung in zwei Schritten“ ein. Wie das geht, steht in [WhatsApp-Konto schützen](/artikel/whatsapp-konto-schuetzen/).
 - **Darüber reden.** Erzählen Sie Freundinnen und Bekannten von der Masche. Wer sie kennt, fällt seltener darauf herein – und Sie helfen damit anderen.
 

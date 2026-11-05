@@ -99,7 +99,7 @@ unterschrift: Schalten Sie „Verifizierung in zwei Schritten aktivieren“ ein.
 ### Auf einem iPhone
 
 1. Öffnen Sie WhatsApp.
-2. Tippen Sie in der unteren Leiste auf **„Du“** (bei älteren Versionen: „Einstellungen“).
+2. Tippen Sie auf **„Du“** (je nach Version „Einstellungen“ oder Ihr Profilbild).
 3. Tippen Sie auf **„Konto“** und dann auf **„Verifizierung in zwei Schritten“**.
 4. Schalten Sie **„Verifizierung in zwei Schritten aktivieren“** ein.
 5. Denken Sie sich ein **sicheres Passwort** aus, geben Sie es ein und bestätigen Sie es. Schreiben Sie es auf.
@@ -121,7 +121,7 @@ WhatsApp kann auch auf einem Computer oder Tablet benutzt werden. Diese Geräte 
 
 1. Öffnen Sie die verknüpften Geräte:
     - **Android:** Tippen Sie auf die **drei Punkte** (⋮) und dann auf **„Verknüpfte Geräte“**.
-    - **iPhone:** Tippen Sie auf **„Einstellungen“** oder Ihr **Profilbild** und dann auf **„Verknüpfte Geräte“**.
+    - **iPhone:** Tippen Sie auf **„Einstellungen“** (je nach Version „Du“ oder Ihr Profilbild) und dann auf **„Verknüpfte Geräte“**.
 2. Sie sehen alle Geräte, die mit Ihrem Konto verbunden sind.
 3. Kennen Sie ein Gerät nicht? Tippen Sie darauf und dann auf **„Abmelden“**. Auf dem iPhone bestätigen Sie noch einmal mit **„Abmelden“**.
 

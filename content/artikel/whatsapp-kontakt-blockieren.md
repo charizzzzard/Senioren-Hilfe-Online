@@ -28,6 +28,9 @@ quellen:
   - herausgeber: Polizeiliche Kriminalprävention der Länder und des Bundes
     titel: Messenger-Betrug
     url: https://www.polizei-beratung.de/themen-und-tipps/betrug/messenger/
+  - herausgeber: WhatsApp-Hilfebereich
+    titel: "Einstellungen der Verifizierung in zwei Schritten verwalten (iPhone, Menüpunkt „Du“)"
+    url: https://faq.whatsapp.com/1920866721452534/?locale=de_DE&cms_platform=iphone
 verwandt:
   - whatsapp-betrug-erkennen
   - betrug-was-tun
@@ -75,7 +78,7 @@ Gruppen lassen sich nicht blockieren. Sie können aber eine Gruppe verlassen und
 
 **Andere Möglichkeit:** Wischen Sie in der Chatliste auf dem Chat nach links. Tippen Sie auf „Mehr“ und dann auf „… blockieren“.
 
-**Blockierung aufheben:** Öffnen Sie wieder die Kontaktinfo, indem Sie im Chat auf den Namen tippen. Tippen Sie auf **„… freigeben“**. Alle blockierten Kontakte finden Sie außerdem unter „Einstellungen“ (oder Ihr Profilbild) › „Datenschutz“ › „Kontakte“ › „Blockiert“.
+**Blockierung aufheben:** Öffnen Sie wieder die Kontaktinfo, indem Sie im Chat auf den Namen tippen. Tippen Sie auf **„… freigeben“**. Alle blockierten Kontakte finden Sie außerdem unter „Einstellungen“ (je nach Version „Du“ oder Ihr Profilbild) › „Datenschutz“ › „Kontakte“ › „Blockiert“.
 
 !!! hinweis "Menüs sehen bei Ihnen anders aus?"
     WhatsApp ändert seine Menüs gelegentlich. Wenn Sie einen Punkt nicht finden, öffnen Sie den Chat und tippen Sie oben auf den Namen der Person. In der Kontaktinfo finden Sie die Funktion zum Blockieren.
