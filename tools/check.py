@@ -34,6 +34,15 @@ STICHTAG = dt.date(2026, 11, 6)
 KONTINGENT = {"artikel": 2, "lexikon": 2}  # Regel 9: höchstens 2 je 7 Tage (Wochenschau zählt nicht mit)
 ZITAT_MIN_WOERTER = 4
 
+# Fehlerkatalog und Qualitätsbremse (docs/BETRIEB.md Abschnitt 9)
+FEHLER_ARTEN = {"falsch", "veraltet", "widerspruch", "unbelegt", "luecke"}
+FEHLER_ENTDECKT = {"faktenpruefung", "nachpruefung", "belegcheck", "stichprobe", "leser", "geraetetest",
+                   "betreiber", "inhaltspruefung"}
+FEHLER_PFLICHT = ("id", "gefunden", "text", "art", "live", "entdeckt_durch", "vorher", "korrektur", "ursache")
+BREMSE_ARTEN = {"falsch", "veraltet", "widerspruch"}  # sachliche Fehler, die Leser in die Irre führen können
+BREMSE_GRENZE = 2                                     # ab so vielen live gegangenen Fehlern …
+BREMSE_TAGE = 28                                      # … innerhalb dieser Tage: keine neuen Texte
+
 # Formulierungen, die gegen unsere Regeln verstoßen (Angst, erfundene Tests, Heilsversprechen)
 VERBOTEN = [
     r"testsieger", r"im test", r"wir haben getestet", r"unser test",
@@ -248,6 +257,57 @@ def main() -> int:
     for (jahr, kw), n in wochen.items():
         if n > 1:
             fehler.append(f"Wochenschau: {n} Ausgaben in KW {kw}/{jahr} (genau eine pro Woche)")
+
+    # ---------------------------------------------------- Fehlerkatalog und Qualitätsbremse
+    katalog_pfad = ROOT / "docs" / "fehlerkatalog.yaml"
+    bremse: list[dt.date] = []  # Fundtage sachlicher Fehler, die live waren (ab Stichtag)
+    if katalog_pfad.exists():
+        katalog = yaml.safe_load(katalog_pfad.read_text(encoding="utf-8")) or {}
+        ids: set[str] = set()
+        for e in katalog.get("fehler") or []:
+            eid = str(e.get("id", "?"))
+            if eid in ids:
+                fehler.append(f"fehlerkatalog.yaml: id {eid} doppelt")
+            ids.add(eid)
+            fehlt = [f for f in FEHLER_PFLICHT if e.get(f) in (None, "")]
+            if fehlt:
+                fehler.append(f"fehlerkatalog.yaml: {eid} – Feld(er) fehlen: {', '.join(fehlt)}")
+            if e.get("art") not in FEHLER_ARTEN:
+                fehler.append(f"fehlerkatalog.yaml: {eid} – art muss {' | '.join(sorted(FEHLER_ARTEN))} sein")
+            if e.get("entdeckt_durch") not in FEHLER_ENTDECKT:
+                fehler.append(f"fehlerkatalog.yaml: {eid} – entdeckt_durch muss {' | '.join(sorted(FEHLER_ENTDECKT))} sein")
+            if not isinstance(e.get("live"), bool):
+                fehler.append(f"fehlerkatalog.yaml: {eid} – live muss true oder false sein")
+            gefunden = e.get("gefunden")
+            if not isinstance(gefunden, dt.date):
+                fehler.append(f"fehlerkatalog.yaml: {eid} – gefunden muss ein Datum JJJJ-MM-TT sein")
+                continue
+            if gefunden > heute:
+                fehler.append(f"fehlerkatalog.yaml: {eid} – gefunden liegt in der Zukunft")
+            if e.get("text") not in texte:
+                hinweise.append(f"fehlerkatalog.yaml: {eid} – Text {e.get('text')} nicht gefunden (umbenannt?)")
+            if e.get("live") is True and e.get("art") in BREMSE_ARTEN and gefunden >= STICHTAG:
+                bremse.append(gefunden)
+
+    def bremse_aktiv(tag: dt.date) -> int:
+        """Anzahl sachlicher Live-Fehler, die in den BREMSE_TAGE Tagen vor `tag` gefunden wurden."""
+        return sum(1 for g in bremse if 1 <= (tag - g).days <= BREMSE_TAGE)
+
+    for a in artikel + lexikon:
+        if a.veroeffentlicht >= STICHTAG and bremse_aktiv(a.veroeffentlicht) >= BREMSE_GRENZE:
+            fehler.append(f"{a.bereich}/{a.slug}.md: Qualitätsbremse – {bremse_aktiv(a.veroeffentlicht)} sachliche Fehler "
+                          f"waren in den {BREMSE_TAGE} Tagen vor {a.veroeffentlicht} live (docs/fehlerkatalog.yaml). "
+                          "Keine neuen Texte, nur Korrekturen (docs/BETRIEB.md Abschnitt 9).")
+    if bremse_aktiv(heute) >= BREMSE_GRENZE:
+        frei = heute
+        while bremse_aktiv(frei) >= BREMSE_GRENZE:
+            frei += dt.timedelta(days=1)
+        hinweise.append(f"Qualitätsbremse aktiv: {bremse_aktiv(heute)} sachliche Live-Fehler in {BREMSE_TAGE} Tagen – "
+                        f"neue Texte frühestens mit Datum {frei}. Bis dahin nur Korrekturen; Störungsbericht nötig.")
+
+    # ---------------------------------------------------- Kennzahlen-Archiv
+    from kennzahlen import pruefen as kennzahlen_pruefen
+    fehler += kennzahlen_pruefen()
 
     for feld in ("titel", "beschreibung"):
         doppelt = [w for w, n in Counter(getattr(a, feld) for a in artikel + lexikon).items() if n > 1]
