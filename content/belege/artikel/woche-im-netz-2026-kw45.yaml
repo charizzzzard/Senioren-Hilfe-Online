@@ -1,0 +1,152 @@
+# Belegtabelle für content/artikel/woche-im-netz-2026-kw45.md (Format: docs/BETRIEB.md, Abschnitt „Belegtabelle“)
+# Prüfen: python tools/belegcheck.py woche-im-netz-2026-kw45
+geprueft: 2026-11-06
+belege:
+  # ---------------------------------------------------------------- Meldung 1: Volksbanken / Consorsbank
+  - aussage: "5. November: Mail im Namen der Volksbanken Raiffeisenbanken"
+    quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/phishingradar/phishingradar-aktuelle-warnungen-6059
+    zitat: "05. November 2026: Vermeintliche Datenaktualisierung bei den Volksbanken Raiffeisenbanken erforderlich"
+  - aussage: "Betreff „Aktualisierung Ihrer Kundendaten zwingend erforderlich“"
+    quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/phishingradar/phishingradar-aktuelle-warnungen-6059
+    zitat: "Sie wird unter dem Betreff \"Aktualisierung Ihrer Kundendaten zwingend erforderlich\" versendet."
+  - aussage: "Daten bis zum 12.11.2026 über SecureGo plus bestätigen"
+    quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/phishingradar/phishingradar-aktuelle-warnungen-6059
+    zitat: "ihre persönlichen Daten bis zum 12.11.2026 über SecureGo plus zu bestätigen"
+  - aussage: "Überweisungen bis dahin nur eingeschränkt möglich"
+    quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/phishingradar/phishingradar-aktuelle-warnungen-6059
+    zitat: "angekündigt, dass Überweisungen bis zur Bestätigung nur eingeschränkt möglich seien"
+  - aussage: "Angeblich dauert es nur etwa zwei Minuten"
+    quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/phishingradar/phishingradar-aktuelle-warnungen-6059
+    zitat: "dass die Bestätigung nur etwa zwei Minuten dauere"
+  - aussage: "Unpersönliche Anrede „Sehr geehrte Kundin, sehr geehrter Kunde“"
+    quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/phishingradar/phishingradar-aktuelle-warnungen-6059
+    zitat: "spricht die Kundschaft lediglich allgemein mit „Sehr geehrte Kundin, sehr geehrter Kunde“ an"
+  - aussage: "Anzeichen: unseriöse Absenderadresse, unpersönliche Anrede, Link in der Mail, Zeitdruck"
+    quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/phishingradar/phishingradar-aktuelle-warnungen-6059
+    zitat: "Anzeichen für Phishing: unseriöse Absenderadresse, unpersönliche Anrede, fehlende Angaben, Link in der Mail, Zeitdruck."
+  - aussage: "Rat: unbeantwortet in den Spam-Ordner, keinen Link anklicken"
+    quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/phishingradar/phishingradar-aktuelle-warnungen-6059
+    zitat: "Wir empfehlen, solche E-Mails unbeantwortet in den Spam-Ordner zu verschieben und keinesfalls auf enthaltene Links zu klicken."
+  - aussage: "Rat: Hinweise nur in der offiziellen App oder auf der bekannten Internetseite der Bank prüfen"
+    quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/phishingradar/phishingradar-aktuelle-warnungen-6059
+    zitat: "prüfen Sie Hinweise ausschließlich über die offizielle App oder die bekannte Internetseite der Bank"
+  - aussage: "3. November: Mail im Namen der Consorsbank"
+    quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/phishingradar/phishingradar-aktuelle-warnungen-6059
+    zitat: "03. November 2026: Vermeintliche Kontobestätigung im Namen der Consorsbank"
+  - aussage: "Betreff „Handeln Sie jetzt: Zugang läuft heute ab – Sperrung droht“"
+    quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/phishingradar/phishingradar-aktuelle-warnungen-6059
+    zitat: "Handeln Sie jetzt: Zugang läuft heute ab – Sperrung droht"
+  - aussage: "Angebliche Unstimmigkeiten in den Kontodaten"
+    quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/phishingradar/phishingradar-aktuelle-warnungen-6059
+    zitat: "bei einer routinemäßigen Überprüfung Unstimmigkeiten in den Kontodaten festgestellt worden seien"
+  - aussage: "Sonst Sperrung noch am selben Tag um 23:59 Uhr"
+    quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/phishingradar/phishingradar-aktuelle-warnungen-6059
+    zitat: "Andernfalls werde der Kontozugang noch am selben Tag um 23:59 Uhr automatisch gesperrt."
+  - aussage: "Die Bank spricht Sie in E-Mails grundsätzlich mit Namen an"
+    quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/phishingradar/phishingmails-woran-sie-sie-erkennen-und-worauf-sie-achten-muessen-6073
+    zitat: "sprechen Sie in E-Mails grundsätzlich mit Ihrem Namen an"
+  - aussage: "Manchmal kennen Betrüger den Namen schon"
+    quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/phishingradar/phishingmails-woran-sie-sie-erkennen-und-worauf-sie-achten-muessen-6073
+    zitat: "Manchmal haben Phishing-Täter:innen Ihren Namen aber schon herausgefunden"
+  - aussage: "Kreditinstitute fordern keine vertraulichen Daten per E-Mail, Telefon oder Post an; im Zweifel Rücksprache mit der Bank"
+    quelle: https://www.polizei-beratung.de/themen-und-tipps/gefahren-im-internet/phishing/
+    zitat: "Kreditinstitute fordern grundsätzlich keine vertraulichen Daten per E-Mail oder per Telefon oder per Post von Ihnen an. Wenn Sie sich unsicher sind, halten Sie in jedem Fall Rücksprache mit Ihrer Bank."
+  # ---------------------------------------------------------------- Meldung 2: ELSTER
+  - aussage: "4. November: Mail im Namen von ELSTER"
+    quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/phishingradar/phishingradar-aktuelle-warnungen-6059
+    zitat: "04. November 2026: Angebliche verpflichtende Datenaktualisierung im Namen von ELSTER"
+  - aussage: "Bei der Steuerverwaltung hinterlegte Daten überprüfen und aktualisieren"
+    quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/phishingradar/phishingradar-aktuelle-warnungen-6059
+    zitat: "ihre bei der Steuerverwaltung hinterlegten persönlichen Daten bis zum 4. November 2026 zu überprüfen und gegebenenfalls zu aktualisieren"
+  - aussage: "Begründung: sonst Verzögerungen bei der Steuererklärung"
+    quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/phishingradar/phishingradar-aktuelle-warnungen-6059
+    zitat: "dass fehlende oder veraltete Angaben zu Verzögerungen bei der Bearbeitung der Steuererklärung führen könnten"
+  - aussage: "Knopf „Aktualisieren Sie Ihre Daten“ nicht anklicken"
+    quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/phishingradar/phishingradar-aktuelle-warnungen-6059
+    zitat: "weshalb der enthaltene Button „Aktualisieren Sie Ihre Daten“ nicht angeklickt werden sollte"
+  - aussage: "Mit ELSTER-Konto: nur über offizielle App oder bekannte Internetseite prüfen"
+    quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/phishingradar/phishingradar-aktuelle-warnungen-6059
+    zitat: "Falls Sie ein ELSTER-Konto haben, prüfen Sie entsprechende Hinweise ausschließlich über die offizielle App oder die bekannte Internetseite."
+  - aussage: "ELSTER warnt selbst vor Betrugsversuchen im Namen der Steuerverwaltung"
+    quelle: https://www.elster.de/eportal/start
+    zitat: "Aktuell versuchen Betrüger mit gefälschten E-Mails an Informationen von Bürgerinnen und Bürgern zu gelangen."
+  - aussage: "Mails mit Titeln wie „Eine Mitteilung der Bundesbehörde“, die eine Rückzahlung der Einkommensteuer versprechen"
+    quelle: https://www.elster.de/eportal/start
+    zitat: "Sie versenden E-Mails mit Titeln wie \"Eine Mitteilung der Bundesbehörde\" und versprechen einen Anspruch auf Rückzahlung der Einkommensteuer."
+  - aussage: "Die Steuerverwaltung fordert niemals per E-Mail Steuernummer, Kontoverbindung, Kreditkartennummer oder PIN an"
+    quelle: https://www.elster.de/eportal/start
+    zitat: "Die Steuerverwaltung fordert niemals per E-Mail Informationen, wie die Steuernummer, Kontoverbindungen, Kreditkartennummern, PIN oder die Antwort auf Ihre Sicherheitsabfrage an."
+  - aussage: "Verdächtige Mails an phishing@verbraucherzentrale.nrw weiterleiten"
+    quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/phishingradar/phishingradar-aktuelle-warnungen-6059
+    zitat: "können Sie an die E-Mail-Adresse phishing@verbraucherzentrale.nrw weiterleiten"
+  - aussage: "Die Verbraucherzentrale wertet aus, beantwortet aber nicht einzeln"
+    quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/phishingradar/phishingradar-aktuelle-warnungen-6059
+    zitat: "Bitte beachten Sie, dass wir aufgrund der zahlreichen Eingänge Ihre E-Mails nicht beantworten können."
+  # ---------------------------------------------------------------- Meldung 3: Apple / iCloud+
+  - aussage: "2. November: Mail im Namen von Apple zu Rechnungsinformationen"
+    quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/phishingradar/phishingradar-aktuelle-warnungen-6059
+    zitat: "02. November 2026: Angebliche Aktualisierung der Rechnungsinformationen im Namen von Apple"
+  - aussage: "Zahlung für iCloud+-Abonnement angeblich nicht verarbeitet"
+    quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/phishingradar/phishingradar-aktuelle-warnungen-6059
+    zitat: "Angeblich konnte die Zahlung für ein iCloud+-Abonnement nicht verarbeitet werden."
+  - aussage: "Betreff „Aktualisieren Sie Ihre Rechnungsinformationen“"
+    quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/phishingradar/phishingradar-aktuelle-warnungen-6059
+    zitat: "Versendet wird die E-Mail unter dem Betreff \"Aktualisieren Sie Ihre Rechnungsinformationen\"."
+  - aussage: "Frist 24 Stunden, sonst Abonnement ausgesetzt"
+    quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/phishingradar/phishingradar-aktuelle-warnungen-6059
+    zitat: "Erfolgt innerhalb dieses Zeitraums keine Aktualisierung, wird das vermeintliche Abonnement ausgesetzt."
+  - aussage: "Hinweis „kann ignoriert werden“ soll seriös wirken"
+    quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/phishingradar/phishingradar-aktuelle-warnungen-6059
+    zitat: "soll die E-Mail zusätzlich seriöser und glaubwürdiger wirken lassen"
+  - aussage: "Zahlungsinformationen nur über die offiziellen Apple-Einstellungen oder die bekannte Internetseite prüfen"
+    quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/phishingradar/phishingradar-aktuelle-warnungen-6059
+    zitat: "prüfen Sie Ihre Zahlungsinformationen ausschließlich über die offizielle Apple-Einstellungen oder die bekannte Internetseite des Anbieters"
+  - aussage: "Apple: nie auf Links in verdächtigen oder unaufgefordert erhaltenen Nachrichten klicken"
+    quelle: https://support.apple.com/de-de/102568
+    zitat: "Klicke nie auf Links in verdächtigen oder unaufgefordert erhaltenen Nachrichten"
+  - aussage: "Verdächtige Apple-Mail an reportphishing@apple.com weiterleiten"
+    quelle: https://support.apple.com/de-de/102568
+    zitat: "Wenn du eine verdächtige E-Mail erhältst, die anscheinend von Apple stammt, leite sie bitte weiter an reportphishing@apple.com."
+  - aussage: "Passwort schon eingegeben: sofort ändern, Zwei-Faktor-Authentifizierung prüfen"
+    quelle: https://support.apple.com/de-de/102568
+    zitat: "ändere das Passwort deines Apple Accounts sofort, und vergewissere dich, dass die Zwei-Faktor-Authentifizierung aktiviert ist"
+  # ---------------------------------------------------------------- Meldung 4: Taschendiebstahl, Karte sperren
+  - aussage: "30. Oktober: Tipps gegen Taschendiebstahl auf Herbst- und Weihnachtsmärkten"
+    quelle: https://www.polizei-beratung.de/aktuelles/detailansicht/was-tun-bei-verlust-oder-diebstahl-von-debitkarten/
+    zitat: "Menschenansammlungen, wie Herbst- oder Weihnachtsmärkte bieten Taschendieben viele Gelegenheiten."
+  - aussage: "Opfer werden angerempelt oder abgelenkt, z. B. Frage nach dem Weg; Komplize stiehlt"
+    quelle: https://www.polizei-beratung.de/aktuelles/detailansicht/was-tun-bei-verlust-oder-diebstahl-von-debitkarten/
+    zitat: "Während einer das Opfer ablenkt, stiehlt eine Komplizin oder ein Komplize den Geldbeutel oder andere Wertsachen."
+  - aussage: "Ablenkung, etwa durch eine Frage nach dem Weg"
+    quelle: https://www.polizei-beratung.de/aktuelles/detailansicht/was-tun-bei-verlust-oder-diebstahl-von-debitkarten/
+    zitat: "oder die Täter nach dem Weg fragen"
+  - aussage: "Nur so viel Bargeld wie nötig"
+    quelle: https://www.polizei-beratung.de/aktuelles/detailansicht/was-tun-bei-verlust-oder-diebstahl-von-debitkarten/
+    zitat: "Nehmen Sie nur so viel Bargeld mit wie nötig."
+  - aussage: "Geld, Karten, Papiere, Smartphone in verschiedenen verschlossenen Innentaschen nah am Körper"
+    quelle: https://www.polizei-beratung.de/aktuelles/detailansicht/was-tun-bei-verlust-oder-diebstahl-von-debitkarten/
+    zitat: "in verschiedenen verschlossenen Innentaschen der Kleidung möglichst nah am Körper"
+  - aussage: "Taschen verschlossen vor dem Körper oder unter den Arm"
+    quelle: https://www.polizei-beratung.de/aktuelles/detailansicht/was-tun-bei-verlust-oder-diebstahl-von-debitkarten/
+    zitat: "Tragen Sie Hand- und Umhängetaschen verschlossen auf der Körpervorderseite oder klemmen Sie sich diese unter den Arm."
+  - aussage: "Sperr-Notruf 116 116: alle girocards und die meisten Kreditkarten"
+    quelle: https://www.polizei-beratung.de/aktuelles/detailansicht/was-tun-bei-verlust-oder-diebstahl-von-debitkarten/
+    zitat: "Über den Sperr-Notruf 116 116* ist das für alle girocards und die meisten Kreditkarten möglich."
+  - aussage: "Auch elektronischer Personalausweis oder SIM-Karte sperrbar"
+    quelle: https://www.polizei-beratung.de/aktuelles/detailansicht/was-tun-bei-verlust-oder-diebstahl-von-debitkarten/
+    zitat: "auch Ihren elektronischen Personalausweis oder Ihre SIM-Karte sperren lassen"
+  - aussage: "116 116 aus Deutschland kostenfrei"
+    quelle: https://www.polizei-beratung.de/aktuelles/detailansicht/was-tun-bei-verlust-oder-diebstahl-von-debitkarten/
+    zitat: "Sperr-Notruf 116 116 aus Deutschland kostenfrei."
+  - aussage: "Diebstahl bei der Polizei anzeigen; Polizei kann Lastschrift per Unterschrift sperren lassen"
+    quelle: https://www.polizei-beratung.de/aktuelles/detailansicht/was-tun-bei-verlust-oder-diebstahl-von-debitkarten/
+    zitat: "Zeigen Sie einen Diebstahl auch bei der Polizei an. Diese kann zusätzlich die Sperrung des elektronischen Lastschriftverfahrens per Unterschrift (SEPA-Lastschriften) veranlassen."
+  - aussage: "Beim Bezahlen per Unterschrift ist keine PIN nötig"
+    quelle: https://www.polizei-beratung.de/aktuelles/detailansicht/was-tun-bei-verlust-oder-diebstahl-von-debitkarten/
+    zitat: "ist keine Eingabe der PIN zur Autorisierung der Zahlung notwendig"
+  - aussage: "Kontobewegungen prüfen, unberechtigte Abbuchungen reklamieren"
+    quelle: https://www.polizei-beratung.de/aktuelles/detailansicht/was-tun-bei-verlust-oder-diebstahl-von-debitkarten/
+    zitat: "Prüfen Sie sorgfältig Ihre Kontobewegungen und reklamieren Sie unberechtigte Abbuchungen bei Ihrer Bank oder Sparkasse."
+  - aussage: "Kostenlose SperrApp, Daten verschlüsselt hinterlegt"
+    quelle: https://www.polizei-beratung.de/aktuelles/detailansicht/was-tun-bei-verlust-oder-diebstahl-von-debitkarten/
+    zitat: "In der App können alle Daten zu sperrbaren Karten und Ausweisen für den Ernstfall verschlüsselt hinterlegt werden."
