@@ -150,8 +150,7 @@ Laut Google lässt sich die Schrift auf bis zu **200 Prozent** vergrößern.
 
 Neben der Schriftgröße gibt es die **„Anzeigegröße“**. Suchen Sie in den Einstellungen danach und verschieben Sie den Regler. In der Vorschau sehen Sie, wie sich die Änderung auswirkt.
 
-!!! tipp "Abkürzung über die Schnelleinstellungen"
-    Wischen Sie vom oberen Bildschirmrand nach unten. Gibt es dort die Kachel **„Schriftgröße“**, können Sie die Schrift direkt anpassen. Fehlt die Kachel, können Sie sie zu den Schnelleinstellungen hinzufügen.
+Es gibt auch eine Abkürzung über die Schnelleinstellungen. Wischen Sie vom oberen Bildschirmrand nach unten. Gibt es dort die Kachel **„Schriftgröße“**, können Sie die Schrift direkt anpassen. Fehlt die Kachel, können Sie sie zu den Schnelleinstellungen hinzufügen.
 
 ### Lupe für den ganzen Bildschirm
 
