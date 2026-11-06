@@ -119,7 +119,7 @@ den Abgleich montags für alle Texte aus und legt bei Befunden ein `wartung`-Iss
 
 ## 5a. Menschliche Prüfung durch den Betreiber
 
-Google verlangt, KI-Texte vor der Veröffentlichung von Menschen nachzuprüfen (Abschnitt 11). Unser Weg mit 1–2 Stunden pro Woche:
+Google hält es für entscheidend, KI-Texte vor der Veröffentlichung manuell zu prüfen (Abschnitt 11). Unser Weg mit 1–2 Stunden pro Woche:
 
 **Jeder Klasse-C-Text** wird in der Einspruchsfrist gelesen (etwa 10 Minuten). Die Push-Nachricht „freigabe“ enthält den Link.
 Worauf achten:
