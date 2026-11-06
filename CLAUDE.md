@@ -55,10 +55,14 @@ tools/check.py             Qualitätsprüfung – muss vor jedem Merge grün sei
 tools/linkcheck.py         Prüft alle externen Links
 tools/belegcheck.py        Prüft, ob die Zitate der Belegtabellen noch auf den Quellseiten stehen (nutzt tools/seitentext.mjs)
 tools/push.py              Push-Nachricht an die Netzleicht-App (ntfy); Thema nur aus NTFY_TOPIC, nie im Repo
+tools/kennzahlen.py        Kennzahlen-Archiv: Woche eintragen, auswerten, Meilensteine, monatliche Stichprobe
 tools/indexnow.py          Meldet geänderte URLs an IndexNow (läuft im Deploy)
 tools/pdf.mjs              Erzeugt die Checklisten-PDFs (Node + Playwright, läuft im Deploy)
 tools/favicons.mjs         Erzeugt favicon.ico/-192.png/apple-touch-icon.png aus static/favicon.svg (nach Logo-Änderung)
 docs/BETRIEB.md            Betriebsmodell: Rollen, Risikoklassen, Prüfung, Freigabe, Push, Zeitplan – verbindlich
+docs/fehlerkatalog.yaml    Jeder gefundene Fehler mit Ursache; Grundlage der Qualitätsbremse (check.py)
+docs/stoerungen/           Störungsberichte (schuldfrei, mit Maßnahme)
+kennzahlen/                Öffentliches Archiv der Search-Console-Zahlen je Kalenderwoche (Google löscht nach 16 Monaten)
 docs/STRATEGIE.md          Wachstum, Monetarisierung, Kennzahlen
 docs/ZIELGRUPPE.md         Belegtes Leserprofil und Folgerungen
 docs/WETTBEWERB.md         Google-Konkurrenzanalyse der Top-Themen (Stand, Lücken, Chancen)
@@ -314,6 +318,8 @@ const { chromium } = require('playwright');
 (`content/belege/`), geht als Pull Request mit Labels `pruefung-ausstehend` und Risikoklasse (`klasse-a|b|c`) in die
 unabhängige Faktenprüfung und erst danach live – Klasse C nach einer Einspruchsfrist des Betreibers.
 Push-Nachrichten gehen über `tools/push.py` (ntfy). Nie direkt auf `main` pushen.
+Jeder gefundene Fehler kommt in `docs/fehlerkatalog.yaml`; bei zwei sachlichen Live-Fehlern in 28 Tagen greift die
+Qualitätsbremse (nur noch Korrekturen, `docs/BETRIEB.md` Abschnitt 9).
 
 ### Content-Session (geplant 2× pro Woche)
 
@@ -393,6 +399,8 @@ und keine Einzelberatung. Der Betreiber liest das Postfach. Damit Claude helfen 
 3. Die Quellen-Nachprüfung läuft wöchentlich als eigene Aufgabe (`docs/BETRIEB.md`, Abschnitt 6). Hier nur:
    `python tools/belegcheck.py` für alle Texte ausführen und Befunde als `wartung`-Issue festhalten;
    ein Issue „Geräte-Prüfliste“ für den Betreiber anlegen (3–5 Handgriffe, die sich aus Quellen nicht belegen lassen).
+   Den Fehlerkatalog des Vormonats auswerten (häufigste Arten und Ursachen) und im PR in zwei, drei Sätzen festhalten,
+   was der Prüfauftrag oder die Autor-Regeln daraus lernen sollten.
 4. Falls die Search Console verbunden ist (OpenSEO-Werkzeuge, Projekt „Senioren-Hilfe Online (netzleicht.de)“):
    Seiten mit vielen Impressionen und wenig Klicks → Titel/Beschreibung verbessern; Suchanfragen ohne passenden
    Artikel → in den Themenplan aufnehmen. Ergebnisse knapp im PR beschreiben.

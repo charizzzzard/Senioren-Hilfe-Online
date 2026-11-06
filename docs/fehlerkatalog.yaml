@@ -1,0 +1,181 @@
+# Fehlerkatalog von netzleicht.de – jede belegte Abweichung eines Textes von seinen Quellen.
+# Regeln: docs/BETRIEB.md Abschnitt 9. Öffentlich: keine personenbezogenen Daten, Leserhinweise nur sinngemäß.
+#
+# Wozu: (1) aus Fehlern lernen (Ursachen), (2) Testfälle für die Prüfer-Eichung, (3) Qualitätsbremse in tools/check.py.
+#
+# Felder:
+#   id              JJJJ-MM-TT-NN (Fundtag + laufende Nummer)
+#   gefunden        Datum, an dem der Fehler festgestellt und eingetragen wurde (nie rückdatieren)
+#   text            artikel/<slug> oder lexikon/<slug>
+#   art             falsch | veraltet | widerspruch | unbelegt | luecke
+#                     falsch      Aussage stimmt nicht (auch: zu absolut, Quelle nennt Ausnahme)
+#                     veraltet    stimmte früher, Quelle sagt heute etwas anderes
+#                     widerspruch Text widerspricht sich selbst (z. B. Checkliste gegen Fließtext)
+#                     unbelegt    Aussage steht so nicht in der Quelle (kann trotzdem stimmen)
+#                     luecke      Wichtiger Hinweis fehlte (z. B. nur Android-Weg, iPhone fehlt)
+#   live            true, wenn der Fehler auf netzleicht.de veröffentlicht war; false, wenn ihn die Prüfung vorher fand
+#   entdeckt_durch  faktenpruefung | nachpruefung (auch: beim Anlegen einer Belegtabelle) | belegcheck | stichprobe | leser |
+#                   geraetetest | betreiber | inhaltspruefung
+#   vorher          die fehlerhafte Stelle (gekürzt)
+#   korrektur       was jetzt dort steht bzw. was geändert wurde
+#   ursache         warum es passiert ist (Prozess, nicht Person)
+#   behoben_in      PR-Nummer, z. B. "#15"
+#
+# Qualitätsbremse (tools/check.py): zählt Einträge mit live: true, art falsch | veraltet | widerspruch
+# und gefunden ab dem Stichtag 06.11.2026. Die Einträge vom 05.11.2026 sind der Ausgangsbestand vor
+# Einführung der Belegtabellen und zählen nicht für die Bremse.
+
+fehler:
+  - id: 2026-11-05-01
+    gefunden: 2026-11-05
+    text: artikel/betrugs-sms-erkennen
+    art: falsch
+    live: true
+    entdeckt_durch: inhaltspruefung
+    vorher: "Zollgebühren bezahlt man nicht vorab über eine Internetseite aus einer SMS."
+    korrektur: "Ausnahme der Verbraucherzentrale ergänzt (vorab registrierter Bezahl-Service)."
+    ursache: "Ausnahme in der Quelle nicht übernommen – Aussage zu absolut."
+    behoben_in: "#15"
+
+  - id: 2026-11-05-02
+    gefunden: 2026-11-05
+    text: artikel/schockanruf-enkeltrick
+    art: widerspruch
+    live: true
+    entdeckt_durch: inhaltspruefung
+    vorher: "Checkliste: \"Unser Familien-Kennwort lautet: ______\""
+    korrektur: "Checkliste fordert nicht mehr, das Kennwort aufzuschreiben (widersprach dem Text)."
+    ursache: "Checkliste nicht gegen den Fließtext abgeglichen."
+    behoben_in: "#15"
+
+  - id: 2026-11-05-03
+    gefunden: 2026-11-05
+    text: artikel/whatsapp-sprachnachricht
+    art: veraltet
+    live: true
+    entdeckt_durch: inhaltspruefung
+    vorher: "Ist ein Transkript verfügbar, steht der Text unter der Abspielen-Taste."
+    korrektur: "Transkript-Weg nach der aktuellen WhatsApp-Hilfe, mit Quelle."
+    ursache: "Menüweg nicht gegen die aktuelle Hilfeseite geprüft, keine Quelle angegeben."
+    behoben_in: "#15"
+
+  - id: 2026-11-05-04
+    gefunden: 2026-11-05
+    text: artikel/whatsapp-konto-schuetzen
+    art: luecke
+    live: true
+    entdeckt_durch: inhaltspruefung
+    vorher: "„Verknüpfte Geräte“ nur mit dem Android-Weg."
+    korrektur: "iPhone-Weg und Quelle ergänzt."
+    ursache: "Plattformen nicht vollständig abgedeckt."
+    behoben_in: "#15"
+
+  - id: 2026-11-05-05
+    gefunden: 2026-11-05
+    text: artikel/whatsapp-betrug-erkennen
+    art: unbelegt
+    live: true
+    entdeckt_durch: inhaltspruefung
+    vorher: "Weg zum Profilbild ohne Unterscheidung nach Plattform und ohne Quelle."
+    korrektur: "Weg je Plattform präzisiert, Quelle ergänzt."
+    ursache: "Plattformunterschiede nicht aus der Quelle übernommen."
+    behoben_in: "#15"
+
+  - id: 2026-11-05-06
+    gefunden: 2026-11-05
+    text: artikel/whatsapp-kontakt-blockieren
+    art: luecke
+    live: true
+    entdeckt_durch: inhaltspruefung
+    vorher: "Kein Hinweis, dass Nachrichten aus der Zeit der Blockierung nicht nachgeliefert werden."
+    korrektur: "Hinweis ergänzt, dazu was die blockierte Person nicht mehr sieht und die iPhone-Liste der Blockierten."
+    ursache: "Folgen der Handlung nicht vollständig aus der Quelle übernommen."
+    behoben_in: "#15"
+
+  - id: 2026-11-05-07
+    gefunden: 2026-11-05
+    text: artikel/betrug-was-tun
+    art: luecke
+    live: true
+    entdeckt_durch: inhaltspruefung
+    vorher: "Opfer-Telefon 116 006 ohne Erreichbarkeit."
+    korrektur: "Erreichbarkeit ergänzt (täglich 7–22 Uhr)."
+    ursache: "Telefonnummer ohne Zeiten übernommen."
+    behoben_in: "#15"
+
+  - id: 2026-11-05-08
+    gefunden: 2026-11-05
+    text: artikel/whatsapp-konto-schuetzen
+    art: unbelegt
+    live: true
+    entdeckt_durch: inhaltspruefung
+    vorher: "Tippen Sie in der unteren Leiste auf „Du“ (bei älteren Versionen: „Einstellungen“)."
+    korrektur: "Einheitlich „Du“ bzw. „Einstellungen“ (WhatsApp-Hilfe nutzt beide); „bei älteren Versionen“ und „unten“ entfernt (in mehreren WhatsApp-Texten)."
+    ursache: "Versions- und Lageangabe ohne Beleg."
+    behoben_in: "#16"
+
+  - id: 2026-11-05-09
+    gefunden: 2026-11-05
+    text: artikel/schrift-groesser-stellen
+    art: unbelegt
+    live: true
+    entdeckt_durch: nachpruefung
+    vorher: "Ziehen Sie den Regler nach rechts. Oben sehen Sie sofort, wie groß die Schrift wird."
+    korrektur: "Verschieben Sie den Regler, bis die Schrift gut lesbar ist."
+    ursache: "Richtung und Vorschau aus Allgemeinwissen, nicht aus der Quelle."
+    behoben_in: "#17"
+
+  - id: 2026-11-05-10
+    gefunden: 2026-11-05
+    text: artikel/schrift-groesser-stellen
+    art: unbelegt
+    live: true
+    entdeckt_durch: nachpruefung
+    vorher: "Damit lässt sich der Bildschirm bis zum Achtfachen vergrößern."
+    korrektur: "Damit können Sie sich Bildschirminhalte größer anzeigen lassen."
+    ursache: "Zahl ohne Beleg in der verlinkten Quelle."
+    behoben_in: "#17"
+
+  - id: 2026-11-05-11
+    gefunden: 2026-11-05
+    text: artikel/schrift-groesser-stellen
+    art: unbelegt
+    live: true
+    entdeckt_durch: nachpruefung
+    vorher: "Bei Samsung-Handys liegt sie unter „Anzeige“ › „Schriftgröße und -stil“."
+    korrektur: "Bei Samsung-Handys heißt der Punkt „Schriftgröße und -stil“ (über die Suche in den Einstellungen, Samsung-Quelle ergänzt)."
+    ursache: "Menüpfad eines Herstellers ohne Herstellerquelle."
+    behoben_in: "#17"
+
+  - id: 2026-11-05-12
+    gefunden: 2026-11-05
+    text: artikel/schrift-groesser-stellen
+    art: unbelegt
+    live: true
+    entdeckt_durch: nachpruefung
+    vorher: "Öffnen Sie die App „Einstellungen“ (das graue Zahnrad)."
+    korrektur: "Öffnen Sie die App „Einstellungen“."
+    ursache: "Aussehen eines Symbols ohne Beleg beschrieben."
+    behoben_in: "#17"
+
+  - id: 2026-11-05-13
+    gefunden: 2026-11-05
+    text: artikel/schrift-groesser-stellen
+    art: unbelegt
+    live: true
+    entdeckt_durch: nachpruefung
+    vorher: "Fehlt er, tippen Sie im Kontrollzentrum oben links auf das Plus."
+    korrektur: "… tippen Sie im Kontrollzentrum oben links auf die Taste „Hinzufügen“."
+    ursache: "Beschriftung eines Knopfes nicht wörtlich aus der Quelle."
+    behoben_in: "#17"
+
+  - id: 2026-11-05-14
+    gefunden: 2026-11-05
+    text: artikel/schrift-groesser-stellen
+    art: unbelegt
+    live: true
+    entdeckt_durch: nachpruefung
+    vorher: "Neben der Schrift können Sie auch Symbole, Knöpfe und Bilder vergrößern."
+    korrektur: "Neben der Schriftgröße gibt es die „Anzeigegröße“ (ohne Aufzählung, was größer wird)."
+    ursache: "Wirkung einer Einstellung genauer beschrieben, als die Quelle es tut."
+    behoben_in: "#17"

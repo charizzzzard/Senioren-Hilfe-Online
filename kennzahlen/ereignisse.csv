@@ -1,0 +1,4 @@
+datum,art,beschreibung,quelle
+2026-10-30,aenderung,"Relaunch als Netzleicht, Indexierung freigegeben",https://github.com/charizzzzard/Senioren-Hilfe-Online/pull/2
+2026-11-05,aenderung,"Unabhängige Faktenprüfung, Belegtabellen und Push-Nachrichten eingeführt",https://github.com/charizzzzard/Senioren-Hilfe-Online/pull/17
+2026-11-05,stoerung,"Wochenbericht-Probe meldete eine missverständliche PR-Zahl",docs/stoerungen/2026-11-05-wochenbericht-pr-zahl.md
