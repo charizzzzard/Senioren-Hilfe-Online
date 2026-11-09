@@ -1,6 +1,6 @@
 # Betrieb von netzleicht.de
 
-Stand: 6. November 2026. Verbindlich für alle Claude-Sessions – geplante und manuelle. Ergänzt `CLAUDE.md` Abschnitt 7.
+Stand: 9. November 2026. Verbindlich für alle Claude-Sessions – geplante und manuelle. Ergänzt `CLAUDE.md` Abschnitt 7.
 
 ## 1. Grundsatz
 
@@ -28,7 +28,7 @@ Pflichtfelder, Belegtabellen, Qualitätsbremse, Format des Kennzahlen-Archivs.
 | --- | --- | --- | --- |
 | **Autor** | Content (Di, Fr), Wochenschau (Fr), Nachprüfung (Mi), Wartung (monatlich), manuelle Sessions | schreiben, Belegtabelle anlegen, Branch, Pull Request, Labels setzen | mergen, direkt auf `main` pushen |
 | **Prüfer** | Faktenprüfung (Di, Fr) – frische Session, eigenes Modell-Budget | Aussagen streichen oder vorsichtiger formulieren, Tippfehler beheben, Review schreiben, Labels setzen, Klasse A/B mergen, Einspruchsfrist für Klasse C starten | neue Aussagen ergänzen, einen Text prüfen, an dem dieselbe Session geschrieben hat |
-| **Freigabe** | täglich | Klasse C nach abgelaufener Einspruchsfrist mergen, Betriebsstörungen melden | Inhalte ändern |
+| **Freigabe** | täglich | Klasse C nach abgelaufener Einspruchsfrist mergen, Betriebscheck, gescheiterten Deploy einmal neu starten (Abschnitt 9), Betriebsstörungen melden | Inhalte ändern |
 | **Betreiber** | – | liest jeden Klasse-C-Text in der Einspruchsfrist und monatlich eine Stichprobe (Abschnitt 5a); Einspruch (Label `einspruch`), jederzeit selbst mergen oder schließen, Gerätetests, Entscheidungen nach `CLAUDE.md` Abschnitt 8 | – |
 
 Merged der Betreiber selbst, ist das die Freigabe. Belegtabelle und `tools/check.py` gelten trotzdem.
@@ -75,7 +75,8 @@ Der Autor schlägt die Klasse vor, der Prüfer legt sie fest. Es gilt die höchs
      Fehlt etwas Neues oder ist eine Aussage falsch: Label `pruefung-nachbessern` mit Befundliste – nicht selbst neu schreiben.
    - Ergebnis als PR-Kommentar mit Tabelle (Aussage – Quelle – Ergebnis) und dieser Kennzeile am Ende:
      `<!-- netzleicht-pruefung: bestanden | klasse: C | sha: <geprüfter Commit> | live-ab: 2026-11-07T14:30+01:00 -->`
-   - Bestanden, Klasse A/B: mergen (Rebase, vollständige SHA), Deploy abwarten, Seite live prüfen, Push „online“.
+   - Bestanden, Klasse A/B: mergen (Rebase, vollständige SHA), Deploy abwarten, Seite live prüfen
+     (`python tools/build.py && python tools/livecheck.py`), Push „online“. Scheitert der Deploy: Abschnitt 9.
    - Bestanden, Klasse C: Labels `pruefung-bestanden` + `einspruchsfrist`, Push „freigabe“ mit PR-Link, Zeitpunkt und
      der Bitte zu lesen (Abschnitt 5a).
    - **Kennzahlen-PRs** des Wochenberichts (Branch `claude/kennzahlen-…`, nur Dateien in `kennzahlen/`): Klasse A.
@@ -84,7 +85,8 @@ Der Autor schlägt die Klasse vor, der Prüfer legt sie fest. Es gilt die höchs
 3. **Freigabe** (täglich): Für jeden PR mit `einspruchsfrist`:
    - Label `einspruch` → nichts tun (der Betreiber entscheidet).
    - Neuer Commit nach der geprüften SHA → Labels zurück auf `pruefung-ausstehend` (erneute Prüfung).
-   - `live-ab` erreicht, CI grün → mergen, Deploy abwarten, live prüfen, Push „online“.
+   - `live-ab` erreicht, CI grün → mergen, Deploy abwarten, live prüfen (`tools/livecheck.py`), Push „online“.
+     Scheitert der Deploy: Abschnitt 9.
 
 ## 5. Belegtabelle
 
@@ -216,7 +218,21 @@ nie doppelt gemeldet):
 
 - **Keine GitHub-Werkzeuge im Lauf:** nichts pushen, Push `problem`. Nie direkt auf `main` pushen.
 - **CI im PR rot:** der nächste Autor-Lauf behebt es; der Prüfer prüft erst bei grünem CI.
-- **`main` rot oder Deploy fehlgeschlagen:** Freigabe-Lauf meldet `problem` mit Link zum Workflow.
+- **Betriebscheck (täglich, Freigabe):** `python tools/build.py && python tools/livecheck.py --versuche 2`.
+  Das Skript vergleicht die gebaute mit der Live-Sitemap und ruft jede Seite auf. Fehlt live eine Seite, die `main` baut,
+  oder ist live noch eine Seite, die `main` nicht mehr baut, gilt das wie ein gescheiterter Deploy (nächster Punkt).
+  „Die Startseite antwortet“ reicht nicht (Störungsbericht `docs/stoerungen/2026-11-06-deploy-pages.md`).
+- **Deploy auf `main` fehlgeschlagen** (Workflow „Bauen, prüfen, veröffentlichen“ oder Betriebscheck rot):
+  1. Der Workflow versucht die Veröffentlichung bei GitHub Pages selbst ein zweites Mal (nach einer Minute).
+  2. Scheitert auch das und ist der Job `bauen` grün (der Fehler liegt nur bei GitHub Pages), startet wer den Deploy
+     abwartet (Prüfer, Freigabe) – spätestens der Betriebscheck – den Workflow **einmal** neu (`workflow_dispatch` auf
+     `main`), wartet ihn ab und prüft live mit `tools/livecheck.py`. Gelingt es, kein `problem`; ging dabei ein Text
+     live, Push `online` wie nach einem Merge. Höchstens ein Neustart je Commit: Gibt es für die Head-SHA von `main`
+     schon einen `workflow_dispatch`-Lauf, wird nicht noch einmal gestartet.
+  3. Scheitert auch der Neustart, wurde schon neu gestartet oder ist `bauen` rot: Push `problem` mit Link zum Lauf,
+     den fehlenden Seiten aus `livecheck.py` und dem ersten Handgriff für den Betreiber – bei `bauen` grün
+     „GitHub › Actions › Bauen, prüfen, veröffentlichen › Run workflow (Branch main)“, bei `bauen` rot
+     „Fehler im Stand von `main` – Korrektur per PR“.
 - **Gefährlicher Fehler live entdeckt** (falsche Notrufnummer, gefährlicher Rat): Eil-PR mit `klasse-c`, Push `problem`
   mit PR-Link – der Betreiber kann sofort mergen.
 - **Quelle nicht erreichbar:** nicht als Beleg verwenden; Text in die nächste Nachprüfung.

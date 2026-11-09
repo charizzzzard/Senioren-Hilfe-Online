@@ -5,7 +5,7 @@
 | Datum | 06.11.2026, 19:14 Uhr, bis 09.11.2026, 09:25 Uhr (alle Zeiten Europe/Berlin) |
 | Auslöser (BETRIEB.md Abschnitt 9) | `main` war länger als einen Tag rot: Der letzte Lauf von „Bauen, prüfen, veröffentlichen“ auf `main` war fehlgeschlagen. |
 | Auswirkung | „Die Woche im Netz“ KW 45 (geprüft, Klasse C, Einspruchsfrist abgelaufen) war rund 62 Stunden nicht erreichbar (404). Startseite und Sitemap zeigten weiter KW 44, IndexNow wurde nicht benachrichtigt. Alle übrigen Seiten blieben unverändert erreichbar. Kein falscher Inhalt war live. |
-| Status | Deploy wiederholt, Seite live seit 09.11.2026, 09:25 Uhr. Maßnahmen gegen Wiederholung: vorgeschlagen, Entscheidung des Betreibers steht aus. |
+| Status | erledigt: Deploy wiederholt, Seite live seit 09.11.2026, 09:25 Uhr. Maßnahmen gegen Wiederholung vom Betreiber am 09.11.2026 beschlossen und umgesetzt (dieser PR und Auftrag der geplanten Aufgabe „Netzleicht: Freigabe“). |
 
 ## Was ist passiert?
 
@@ -45,15 +45,21 @@ live prüfen sollen) und vom 07.11. Ob sie den Fehler bemerkt oder gemeldet habe
 
 - 09.11.2026: Deploy neu gestartet und live geprüft (siehe oben).
 
-Vorgeschlagen, noch **nicht** umgesetzt (Entscheidung des Betreibers):
+Vom Betreiber am 09.11.2026 beschlossen und umgesetzt:
 
-- **Workflow** (`.github/workflows/deploy.yml`): Schlägt „Auf GitHub Pages veröffentlichen“ fehl, wartet der Schritt
-  kurz und versucht es einmal neu.
-- **Freigabe** (Abschnitt 9 und Auftrag der geplanten Aufgabe): Ist auf `main` nur die Veröffentlichung gescheitert
-  (Job `bauen` grün), startet die Freigabe den Workflow einmal neu und prüft danach live. Erst wenn auch das scheitert:
-  Push `problem` mit dem Handgriff, den der Betreiber tun kann („Actions › Bauen, prüfen, veröffentlichen › Run workflow“).
-- **Betriebscheck:** zusätzlich prüfen, ob die Live-Sitemap so viele URLs hat wie die gebaute, und im Push nennen,
-  welche Seite fehlt.
+- **Zweiter Versuch im Workflow** (`.github/workflows/deploy.yml`): Schlägt „Auf GitHub Pages veröffentlichen“ fehl,
+  wartet der Job eine Minute und versucht es genau einmal neu.
+- **Neustart durch die Freigabe** (BETRIEB.md Abschnitte 2, 4 und 9, Auftrag der geplanten Aufgabe „Netzleicht: Freigabe“):
+  Ist auf `main` nur die Veröffentlichung gescheitert (Job `bauen` grün), startet wer den Deploy abwartet – spätestens
+  der tägliche Betriebscheck – den Workflow einmal neu (`workflow_dispatch`) und prüft danach live. Höchstens ein Neustart
+  je Commit. Erst wenn auch das scheitert: Push `problem` mit den fehlenden Seiten und dem Handgriff für den Betreiber
+  („GitHub › Actions › Bauen, prüfen, veröffentlichen › Run workflow (Branch main)“).
+- **Live-Abgleich statt Startseiten-Check** (`tools/livecheck.py`): vergleicht die gebaute mit der Live-Sitemap, ruft
+  jede Seite, `robots.txt` und jedes Checklisten-PDF auf und nennt jede fehlende Seite einzeln. Es läuft im Deploy
+  (ersetzt das bisherige Inline-Skript, gleiche Wartezeiten) und im Betriebscheck der Freigabe.
+
+Nicht testbar war der Fehlerfall selbst: Ob der zweite Versuch im Workflow eine Pages-Ablehnung wirklich auffängt,
+zeigt sich erst beim nächsten Fehlschlag. Fängt er sie nicht auf, greift der Neustart durch die Freigabe.
 
 ## Was lernen wir daraus?
 
