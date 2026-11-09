@@ -25,8 +25,9 @@
 - **Nachkontrolle 09.11.:** `/artikel/woche-im-netz-2026-kw45/` liefert 200, die Startseite verlinkt KW 45,
   die Live-Sitemap hat 29 URLs (vorher 28).
 
-Nicht eingesehen: die Verläufe der Freigabe-Läufe vom 06.11. (er hätte nach dem Merge den Deploy abwarten und die Seite
-live prüfen sollen) und vom 07.11. Ob sie den Fehler bemerkt oder gemeldet haben, ist offen.
+Eine Push-Nachricht „online“ zur KW 45 kam nicht (Auskunft des Betreibers vom 09.11.2026) – es gab also keine falsche
+Erfolgsmeldung. Nicht eingesehen: die Verläufe der Freigabe-Läufe vom 06.11. und 07.11.; ob sie den Fehler schon vor dem
+08.11. gemeldet haben, ist offen.
 
 ## Warum?
 
