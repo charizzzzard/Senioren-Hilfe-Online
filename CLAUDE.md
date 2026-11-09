@@ -56,6 +56,7 @@ tools/linkcheck.py         Prüft alle externen Links
 tools/belegcheck.py        Prüft, ob die Zitate der Belegtabellen noch auf den Quellseiten stehen (nutzt tools/seitentext.mjs)
 tools/push.py              Push-Nachricht an die Netzleicht-App (ntfy); Thema nur aus NTFY_TOPIC, nie im Repo
 tools/kennzahlen.py        Kennzahlen-Archiv: Woche eintragen, auswerten, Meilensteine, monatliche Stichprobe
+tools/livecheck.py         Prüft, ob der gebaute Stand live ist: Sitemap-Abgleich, jede Seite 200 (Deploy, Betriebscheck)
 tools/indexnow.py          Meldet geänderte URLs an IndexNow (läuft im Deploy)
 tools/pdf.mjs              Erzeugt die Checklisten-PDFs (Node + Playwright, läuft im Deploy)
 tools/favicons.mjs         Erzeugt favicon.ico/-192.png/apple-touch-icon.png aus static/favicon.svg (nach Logo-Änderung)
@@ -76,6 +77,7 @@ pip install -r requirements.txt
 python tools/build.py                          # baut nach _site/
 python tools/check.py                          # baut + prüft (Exit 1 bei Fehlern)
 python tools/linkcheck.py                      # externe Links prüfen
+python tools/livecheck.py                      # nach build.py: ist der gebaute Stand live? (Exit 1 bei Abweichung)
 python tools/belegcheck.py [slug …]            # Zitate der Belegtabellen gegen die Quellen prüfen (braucht npm ci)
 python -m http.server 8765 --directory _site   # lokale Vorschau
 npm ci && node tools/pdf.mjs                   # optional lokal: Checklisten-PDFs nach _site/checklisten/
