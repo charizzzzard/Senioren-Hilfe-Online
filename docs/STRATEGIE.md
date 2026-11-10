@@ -21,6 +21,17 @@ druckbare Checklisten, Angehörigen-Perspektive, keine Werbung zwischen den Schr
 Spätere Hebel (jeweils Entscheidung des Betreibers): Kooperationen mit Seniorenbüros, Volkshochschulen,
 Mehrgenerationenhäusern und Seniorentreffs (Checklisten als Handout → natürliche Backlinks); Newsletter.
 
+Entschieden am 10.11.2026:
+
+- **Seite für Kursleitungen** ([#26](https://github.com/charizzzzard/Senioren-Hilfe-Online/issues/26)): entsteht ab etwa
+  25 Texten, zusammen mit dem Anschreiben an Seniorenbüros, Volkshochschulen und Bibliotheken. Sie sammelt alle
+  Checklisten-PDFs, erlaubt die Weitergabe mit dem eigenen Hinweis „Diese Checklisten dürfen Sie unverändert und kostenlos
+  kopieren und in Kursen verteilen.“ und lädt Kursleitungen ein, an kontakt@netzleicht.de zu schreiben.
+  Ob der Wortlaut rechtlich trägt, ist nicht fachkundig geprüft.
+- **Newsletter** ([#27](https://github.com/charizzzzard/Senioren-Hilfe-Online/issues/27)): grundsätzlich ja, aber erst,
+  wenn Netzleicht Besucher hat und sich abschätzen lässt, dass wiederkehrende Leser einen Newsletter möchten.
+  Netzleicht zählt keine wiederkehrenden Besucher (kein Tracking, Regel 7) – woran das abgeschätzt wird, ist noch offen.
+
 ## Kennzahlen
 
 Erst messbar, wenn die Google Search Console verbunden ist (Aufgabe des Betreibers, siehe unten).
@@ -42,7 +53,7 @@ Grundsatz: **Vertrauen vor Umsatz.** Jede Stufe wird nur nach ausdrücklicher En
 | Stufe | Schwelle (Annahme) | Maßnahme | Regeln |
 | --- | --- | --- | --- |
 | 0 | jetzt | Keine Einnahmen. Inhalte und Vertrauen aufbauen. | – |
-| 1 | ca. 5.000 Besuche/Monat | **Kaufberatungs-Artikel mit Affiliate-Links** (z. B. Seniorenhandy, Tablet, Handyvertrag) | Nur produktbezogene Artikel, nie Sicherheit/Betrug; Kennzeichnung oben im Artikel; Kriterien transparent; keine Testsieger ohne Test; Affiliate-Hinweis im Impressum/Datenschutz ergänzen |
+| 1 | ca. 5.000 Besuche/Monat | **Kaufberatungs-Artikel mit Affiliate-Links** (z. B. Seniorenhandy, Tablet, Handyvertrag) | Nur produktbezogene Artikel, nie Sicherheit/Betrug; Kennzeichnung oben im Artikel; Kriterien transparent; keine Testsieger ohne Test; Affiliate-Hinweis im Impressum/Datenschutz ergänzen. Die Kaufberatungs-Texte selbst erscheinen schon vorher, ohne Partnerlinks (Entscheidung vom 10.11.2026, [#28](https://github.com/charizzzzard/Senioren-Hilfe-Online/issues/28)) |
 | 2 | ca. 10.000 Besuche/Monat | **Eigene Produkte:** Druckmappe „Smartphone-Starthilfe“ (PDF), Angehörigen-Leitfaden | Kostenlose Checklisten bleiben kostenlos; Bezahlanbieter und Rechtstexte prüfen |
 | 3 | ca. 20.000 Besuche/Monat | **Newsletter** mit neuen Anleitungen und Betrugswarnungen; später Sponsoring durch passende, seriöse Partner | EU-Anbieter, Double-Opt-in, Datenschutzerklärung anpassen; Sponsoring klar gekennzeichnet |
 | 4 | optional | Werbung (Display-Ads) | Nur kontextbasiert, ohne Tracking-Cookies, nicht zwischen Schritten. Wahrscheinlich nicht nötig, weil es die Lesbarkeit für die Zielgruppe verschlechtert |
