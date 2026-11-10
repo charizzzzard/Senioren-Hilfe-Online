@@ -1,0 +1,207 @@
+# Belegtabelle für content/artikel/betrug-was-tun.md (Format: docs/BETRIEB.md, Abschnitt „Belegtabelle“)
+# Jede Aussage mit einem wörtlichen Zitat aus einer selbst gelesenen Quelle. Prüfen: python tools/belegcheck.py betrug-was-tun
+geprueft: 2026-11-10
+belege:
+  # ---------------------------------------------------------------- Einstieg und Notruf
+  - aussage: "Polizei: Geben Sie sich keine Mitschuld"
+    quelle: https://www.polizei-beratung.de/themen-und-tipps/betrug/messenger/
+    zitat: "Geben Sie sich keine Mitschuld. Sie sind Opfer eines Betrugs geworden."
+  - aussage: "Akute Gefahr, schnelle Hilfe nötig: Notruf 110"
+    quelle: https://www.test.de/Strafanzeige-So-erstatten-Sie-eine-Online-Anzeige-5003664-0/
+    zitat: "Wählen Sie den Notruf 110, wenn Sie schnell polizeiliche Hilfe benötigen."
+  - aussage: "110 auch bei einem verdächtigen Anruf (jemand kündigt an, Geld oder Wertsachen abzuholen)"
+    quelle: https://www.polizei-beratung.de/themen-und-tipps/betrug/schockanrufe/
+    zitat: "Informieren Sie sofort die Polizei über die 110, wenn Ihnen ein Anruf verdächtig vorkommt."
+  - aussage: "Nach einer Übergabe: auf jeden Fall an die Polizei wenden"
+    quelle: https://www.polizei-beratung.de/themen-und-tipps/betrug/schockanrufe/
+    zitat: "Wenden Sie sich auf jeden Fall an die Polizei, wenn Sie Opfer geworden sind."
+  # ---------------------------------------------------------------- Schritt 1: Geld
+  - aussage: "Wie man Geld zurückbekommt, hängt von der Zahlungsart ab; meist ist Eile nötig"
+    quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/onlinehandel/internetbetrug-so-koennen-sie-versuchen-ihr-geld-zurueckzuholen-33155
+    zitat: "Was genau zu tun ist, hängt von der gewählten Zahlungsmethode ab. Meist müssen Sie schnell reagieren."
+  - aussage: "Überwiesenes Geld ist laut Polizei in der Regel sehr schwer zurückzubekommen"
+    quelle: https://www.polizei-beratung.de/themen-und-tipps/betrug/messenger/
+    zitat: "Ist das Geld erst überwiesen, ist es in der Regel sehr schwer, es zurückzubekommen."
+  - aussage: "Viele Überweisungen werden in Echtzeit gebucht (Verbraucherzentrale)"
+    quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/onlinehandel/internetbetrug-so-koennen-sie-versuchen-ihr-geld-zurueckzuholen-33155
+    zitat: "Meist hilft noch nicht einmal ein schneller Anruf, da viele Überweisungen in Echtzeit gebucht werden."
+  - aussage: "Bank anrufen: In einigen Fällen kann das Geld zurückgeholt werden (Polizei)"
+    quelle: https://www.polizei-beratung.de/themen-und-tipps/betrug/messenger/
+    zitat: "kontaktieren Sie ihr Geldinstitut, in einigen Fällen kann das Geld zurück geholt werden"
+  - aussage: "Kreditkarte: Charge-Back-Verfahren, an die Bank wenden"
+    quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/onlinehandel/internetbetrug-so-koennen-sie-versuchen-ihr-geld-zurueckzuholen-33155
+    zitat: "Im sogenannten Charge-Back-Verfahren können Zahlungen storniert werden."
+  - aussage: "Lastschrift lässt sich am einfachsten zurückholen"
+    quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/onlinehandel/internetbetrug-so-koennen-sie-versuchen-ihr-geld-zurueckzuholen-33155
+    zitat: "Am einfachsten ist es, eine Sepa-Lastschrift zurückzuholen."
+  - aussage: "Lastschrift: Erstattung bis 8 Wochen nach der Abbuchung"
+    quelle: https://www.verbraucherzentrale.de/wissen/geld-versicherungen/sparen-und-anlegen/bezahlen-im-sepalastschriftverfahren-das-sollten-sie-darueber-wissen-16639
+    zitat: "Bereits abgebuchte Beträge können Sie sich bis 8 Wochen nach der Kontobelastung von seiner Bank erstatten lassen."
+  - aussage: "Dafür der Lastschrift bei der Bank widersprechen"
+    quelle: https://www.verbraucherzentrale.de/wissen/geld-versicherungen/sparen-und-anlegen/bezahlen-im-sepalastschriftverfahren-das-sollten-sie-darueber-wissen-16639
+    zitat: "Sie müssen dem Lastschrifteinzug gegenüber Ihrer Bank widersprechen."
+  - aussage: "Im Online-Banking oft mit einem Knopf neben der Abbuchung in der Umsatzübersicht"
+    quelle: https://www.verbraucherzentrale.de/wissen/geld-versicherungen/sparen-und-anlegen/bezahlen-im-sepalastschriftverfahren-das-sollten-sie-darueber-wissen-16639
+    zitat: "Das ist im Online-Banking bei der Umsatzübersicht oft mit einem Klick auf einen Button neben der entsprechenden Zahlungsposition möglich."
+  - aussage: "Nie zugestimmt: bis zu 13 Monate"
+    quelle: https://www.verbraucherzentrale.de/wissen/geld-versicherungen/sparen-und-anlegen/bezahlen-im-sepalastschriftverfahren-das-sollten-sie-darueber-wissen-16639
+    zitat: "Unberechtigte SEPA-Lastschriften (also ohne Mandat) können Sie sogar bis zu 13 Monaten nach Belastung zurückgeben."
+  # ---------------------------------------------------------------- PayPal
+  - aussage: "PayPal: im Konto unter „Konfliktlösungen“ auf „Problem melden“"
+    quelle: https://www.paypal.com/de/cshelp/article/wie-melde-ich-ein-problem-mit-einem-verk%C3%A4ufer-help160
+    zitat: "Klicken Sie unter Konfliktlösungen auf Problem melden."
+  - aussage: "Zahlung auswählen"
+    quelle: https://www.paypal.com/de/cshelp/article/wie-melde-ich-ein-problem-mit-einem-verk%C3%A4ufer-help160
+    zitat: "Wählen Sie die Zahlung aus und klicken Sie auf Weiter."
+  - aussage: "Grund „Unbefugte Aktivitäten in Ihrem PayPal-Konto“ (Zahlung nicht selbst gemacht)"
+    quelle: https://www.paypal.com/de/cshelp/article/wie-melde-ich-ein-problem-mit-einem-verk%C3%A4ufer-help160
+    zitat: "Unbefugte Aktivitäten in Ihrem PayPal-Konto (eine Zahlung, die Sie nicht kennen"
+  - aussage: "Grund „Probleme mit Ihrem Einkauf“ (Ware kommt nicht an)"
+    quelle: https://www.paypal.com/de/cshelp/article/wie-melde-ich-ein-problem-mit-einem-verk%C3%A4ufer-help160
+    zitat: "Probleme mit Ihrem Einkauf (ein Kauf kommt nicht an oder entspricht nicht der Beschreibung des Verkäufers)."
+  - aussage: "Lässt sich der Konflikt nicht lösen: Antrag auf Käuferschutz"
+    quelle: https://www.paypal.com/de/cshelp/article/wie-melde-ich-ein-problem-mit-einem-verk%C3%A4ufer-help160
+    zitat: "Wenn Sie den Konflikt nicht lösen können, können Sie einen Antrag auf Käuferschutz stellen."
+  - aussage: "Ohne Antrag schließt PayPal den Fall nach 20 Tagen automatisch"
+    quelle: https://www.paypal.com/de/cshelp/article/wie-melde-ich-ein-problem-mit-einem-verk%C3%A4ufer-help160
+    zitat: "Ein Konflikt wird nach 20 Tagen automatisch geschlossen, wenn kein Antrag auf Käuferschutz gestellt wurde."
+  - aussage: "Käuferschutz gilt meist nur bei Waren"
+    quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/onlinehandel/internetbetrug-so-koennen-sie-versuchen-ihr-geld-zurueckzuholen-33155
+    zitat: "springt der Käuferschutz ein – zumeist jedoch nur bei Warenverkäufen"
+  - aussage: "„Freunde und Familie“: kein Käuferschutz"
+    quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/onlinehandel/kein-kaeuferschutz-mit-paypalfreunde-worauf-sie-achten-sollten-33139
+    zitat: "Die PayPal-Freunde-Funktion ist nicht für das Online-Shopping gedacht. Daher entfällt mit ihr auch der Käuferschutz."
+  - aussage: "PayPal sofort informieren und die Vorgangsnummer nennen"
+    quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/onlinehandel/kein-kaeuferschutz-mit-paypalfreunde-worauf-sie-achten-sollten-33139
+    zitat: "Nennen Sie bei Ihrem Kontakt zu PayPal immer auch die Vorgangsnummer."
+  - aussage: "In einigen Fällen erstattet PayPal den Kaufpreis"
+    quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/onlinehandel/kein-kaeuferschutz-mit-paypalfreunde-worauf-sie-achten-sollten-33139
+    zitat: "In einigen Fällen kann PayPal betrügerische Accounts sperren und ist in solchen Fällen bereit, Ihnen den gezahlten Kaufpreis zu erstatten."
+  # ---------------------------------------------------------------- Schritt 2: Sperr-Notruf
+  - aussage: "Sperr-Notruf 116 116: rund um die Uhr, aus dem deutschen Festnetz kostenlos"
+    quelle: https://www.sperr-notruf.de/
+    zitat: "Mit einem Anruf unter 116 116 sperrst Du Deine Karten sofort – rund um die Uhr, sicher und kostenlos aus dem deutschen Festnetz."
+  - aussage: "Auch an Feiertagen"
+    quelle: https://www.sperr-notruf.de/
+    zitat: "Der Sperr-Notruf ist 24 Stunden am Tag, sieben Tage die Woche verfügbar – auch an Feiertagen."
+  - aussage: "Sperrt girocard, Kreditkarte, Online-Banking, E-Personalausweis, SIM-Karte"
+    quelle: https://www.sperr-notruf.de/
+    zitat: "ob girocard (früher ec-Karte), Kreditkarte, Online-Banking, E-Personalausweis oder SIM-Karte"
+  - aussage: "Aus dem Mobilfunknetz können Gebühren anfallen"
+    quelle: https://www.sperr-notruf.de/
+    zitat: "Anrufe aus dem deutschen Festnetz sind kostenlos, aus dem Mobilnetz können Gebühren anfallen."
+  - aussage: "Aus dem Ausland: +49 116 116 oder +49 30 4050 4050"
+    quelle: https://www.sperr-notruf.de/
+    zitat: "Der Sperr-Notruf ist auch außerhalb von Deutschland erreichbar – über +49 116 116 oder +49 30 4050 4050."
+  - aussage: "IBAN bereithalten, Zeitpunkt der Sperrung notieren"
+    quelle: https://www.sperr-notruf.de/
+    zitat: "Halte unbedingt Deine Kontonummer und Bankleitzahl (BLZ) oder Deine IBAN bereit. Notiere Dir außerdem Datum und Zeitpunkt der Sperrung."
+  - aussage: "Der Sperr-Notruf ruft niemals an"
+    quelle: https://www.sperr-notruf.de/faq
+    zitat: "Von der Rufnummer 116 116 finden grundsätzlich keine Anrufe statt!"
+  - aussage: "Betrüger geben sich als Mitarbeiter des Sperr-Notrufs aus, „116 116“ steht gefälscht im Display"
+    quelle: https://www.sperr-notruf.de/faq
+    zitat: "Es sind Kriminelle, die die Display-Anzeige Deines Telefons manipulieren, um sich als Mitarbeiter des Sperr-Notrufs, der Finanzaufsicht o.ä. auszugeben"
+  - aussage: "In solchen Fällen auflegen"
+    quelle: https://www.sperr-notruf.de/faq
+    zitat: "Lass Dich nicht darauf ein, leg sofort wieder auf."
+  - aussage: "Die Polizei ruft nie von der 110 an"
+    quelle: https://www.bundesnetzagentur.de/DE/Vportal/TK/Aerger/Faelle/Manipulation/start.html
+    zitat: "Notrufabfragestellen der Polizei rufen immer mit den Ortsnetzrufnummern der einzelnen Polizeidienststellen an."
+  - aussage: "Banken fordern keine vertraulichen Daten am Telefon an"
+    quelle: https://www.polizei-beratung.de/themen-und-tipps/gefahren-im-internet/phishing/
+    zitat: "Kreditinstitute fordern grundsätzlich keine vertraulichen Daten per E-Mail oder per Telefon oder per Post von Ihnen an."
+  # ---------------------------------------------------------------- Schritt 3: Passwörter
+  - aussage: "Passwort verraten: sofort ändern"
+    quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/phishingradar/phishingmails-woran-sie-sie-erkennen-und-worauf-sie-achten-muessen-6073
+    zitat: "Ändern Sie umgehend Passwörter und Sicherheitsfragen!"
+  - aussage: "Prüfen, ob weitere Konten betroffen sind"
+    quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/phishingradar/phishingmails-woran-sie-sie-erkennen-und-worauf-sie-achten-muessen-6073
+    zitat: "Prüfen Sie außerdem, ob weitere Accounts betroffen sind!"
+  - aussage: "WhatsApp-Bestätigungscode nie weitergeben (sonst Konto in Gefahr)"
+    quelle: https://www.polizei-beratung.de/themen-und-tipps/betrug/messenger/
+    zitat: "Teilen Sie niemals den Code zur Verifizierung Ihres Accounts, den Sie bei der Registrierung per SMS erhalten haben."
+  # ---------------------------------------------------------------- Schritt 4: App installiert
+  - aussage: "Flugmodus, damit die schädliche App keine Daten mehr über das Internet sendet"
+    quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/mobilfunk-und-festnetz/paketdienstsms-vorsicht-abzocke-58988
+    zitat: "Schalten Sie Ihr Smartphone in den Flugmodus, damit die schädliche App keine weiteren Daten über das Internet senden kann."
+  - aussage: "Im Flugmodus ist das Mobilfunknetz aus"
+    quelle: https://support.apple.com/de-de/guide/iphone/iphb771143ee/27.0/ios/27.0
+    zitat: "Wenn du den Flugmodus erstmals aktivierst, werden WLAN, Bluetooth® und mobile Netzwerke deaktiviert."
+  - aussage: "iPhone: Kontrollzentrum öffnen – von der oberen rechten Ecke nach unten wischen (iOS 27)"
+    quelle: https://support.apple.com/de-de/guide/iphone/iph59095ec58/27.0/ios/27.0
+    zitat: "Streiche von der oberen rechten Displayecke nach unten."
+  - aussage: "iPhone mit Home-Taste: vom unteren Rand nach oben wischen"
+    quelle: https://support.apple.com/de-de/guide/iphone/iph59095ec58/18.0/ios/18.0
+    zitat: "Auf einem iPhone mit Home-Taste: Streiche vom unteren Bildschirmrand nach oben."
+  - aussage: "iPhone: Kontrollzentrum öffnet sich beim Wischen von der oberen rechten Ecke nach unten"
+    geraetetest: "iPhone, iOS 18.7.8, 10.11.2026 (Betreiber)"
+  - aussage: "iPhone: Flugmodus-Taste im Kontrollzentrum"
+    quelle: https://support.apple.com/de-de/guide/iphone/iphb771143ee/27.0/ios/27.0
+    zitat: "Öffne das Kontrollzentrum und tippe dann auf die Taste „Flugmodus“"
+  - aussage: "iPhone: Flugmodus-Symbol erscheint in der Statusleiste"
+    quelle: https://support.apple.com/de-de/guide/iphone/iphb771143ee/27.0/ios/27.0
+    zitat: "Solange der Flugmodus aktiviert ist, wird das Symbol „Flugmodus“ in der Statusleiste angezeigt."
+  - aussage: "iPhone: nach dem Einschalten erscheint oben rechts das Flugzeug-Symbol"
+    geraetetest: "iPhone, iOS 18.7.8, 10.11.2026 (Betreiber)"
+  - aussage: "Android: vom oberen Rand nach unten wischen, Flugmodus ein- und ausschalten"
+    quelle: https://support.google.com/pixelphone/answer/2819583?hl=de
+    zitat: "Sie können den Flugmodus auch aktivieren oder deaktivieren, indem Sie vom oberen Displayrand nach unten wischen."
+  - aussage: "WLAN kann im Flugmodus an bleiben, wenn es dort schon einmal eingeschaltet wurde (Android)"
+    quelle: https://support.google.com/pixelphone/answer/2819583?hl=de
+    zitat: "Wenn Sie das nächste Mal den Flugmodus aktivieren, bleiben WLAN und Bluetooth aktiviert."
+  - aussage: "WLAN kann im Flugmodus an bleiben; im Kontrollzentrum wieder ausschalten (iPhone)"
+    quelle: https://support.apple.com/de-de/guide/iphone/iphb771143ee/27.0/ios/27.0
+    zitat: "Du kannst sie im Kontrollzentrum erneut deaktivieren."
+  - aussage: "iPhone: Beim Einschalten des Flugmodus blieben WLAN, Bluetooth und AirDrop an"
+    geraetetest: "iPhone, iOS 18.7.8, 10.11.2026 (Betreiber)"
+  - aussage: "Flugmodus lässt sich wieder ausschalten (iPhone)"
+    quelle: https://support.apple.com/de-de/guide/iphone/iphb771143ee/27.0/ios/27.0
+    zitat: "Du kannst den Flugmodus auch in der App „Einstellungen“ ein- und ausschalten."
+  - aussage: "Bildschirmfotos als Beweis, Anzeige bei der Polizei"
+    quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/mobilfunk-und-festnetz/paketdienstsms-vorsicht-abzocke-58988
+    zitat: "Sammeln Sie Beweise (z.B. durch Erstellen von Bildschirmfotos) und erstatten Sie Anzeige bei der Polizei"
+  - aussage: "Mobilfunkanbieter informieren, Kostennachweis über verschickte SMS"
+    quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/mobilfunk-und-festnetz/paketdienstsms-vorsicht-abzocke-58988
+    zitat: "Informieren Sie Ihren Mobilfunkanbieter und lassen Sie sich einen Kostennachweis über möglicherweise verschickte SMS erstellen."
+  - aussage: "Im schlimmsten Fall Zurücksetzen auf den Werkszustand"
+    quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/mobilfunk-und-festnetz/paketdienstsms-vorsicht-abzocke-58988
+    zitat: "Im schlimmsten Fall hilft nur ein Zurücksetzen des Geräts in den Auslieferungszustand."
+  # ---------------------------------------------------------------- Schritt 5 und 6: Beweise, Anzeige
+  - aussage: "Den gesamten Chatverlauf sichern, zum Beispiel mit Bildschirmfotos"
+    quelle: https://www.polizei-beratung.de/themen-und-tipps/betrug/messenger/
+    zitat: "Sichern Sie den gesamten Chatverlauf, z.B. durch Screenshots."
+  - aussage: "Auf jeden Fall Anzeige erstatten"
+    quelle: https://www.polizei-beratung.de/themen-und-tipps/betrug/messenger/
+    zitat: "Erstatten Sie auf jeden Fall Anzeige bei der Polizei."
+  - aussage: "Anzeige bei der Polizeidienststelle in der Nähe"
+    quelle: https://www.polizei.de/Polizei/DE/Einrichtungen/Onlinewache/onlinewache_node.html
+    zitat: "Eine Strafanzeige können Sie daher direkt bei der Polizeidienststelle in Ihrer Nähe erstatten."
+  - aussage: "Onlinewache in allen Bundesländern"
+    quelle: https://www.test.de/Strafanzeige-So-erstatten-Sie-eine-Online-Anzeige-5003664-0/
+    zitat: "Inzwischen gibt es die Onlinewache in allen Bundesländern."
+  - aussage: "Onlinewache laut Polizei zum Beispiel bei Betrug"
+    quelle: https://www.polizei.de/Polizei/DE/Einrichtungen/Onlinewache/onlinewache_node.html
+    zitat: "Dies ist beispielsweise möglich in Fällen von Diebstahl, Betrug, Sachbeschädigung oder Hass im Netz."
+  - aussage: "Gemeinsames Portal der Onlinewachen"
+    quelle: https://portal.onlinewache.polizei.de/
+    zitat: "Willkommen bei den Onlinewachen der Polizeien in Deutschland"
+  - aussage: "Dort zuerst auswählen, wo die Tat passiert ist"
+    quelle: https://www.test.de/Strafanzeige-So-erstatten-Sie-eine-Online-Anzeige-5003664-0/
+    zitat: "Wählen Sie das Bundesland aus, in dem die Straftat geschehen ist."
+  - aussage: "Onlinewache nicht für Notfälle – dafür die 110"
+    quelle: https://www.polizei.de/Polizei/DE/Einrichtungen/Onlinewache/onlinewache_node.html
+    zitat: "In dringenden Fällen wählen Sie bitte die Notrufnummer 110."
+  # ---------------------------------------------------------------- Schritt 7: Unterstützung
+  - aussage: "Opfer-Telefon 116 006, kostenfrei, täglich 7 bis 22 Uhr"
+    quelle: https://weisser-ring.de/hilfe-fuer-opfer-0
+    zitat: "Kontaktieren Sie unser Opfer-Telefon unter der kostenfreien Rufnummer 116 006. Täglich von 7 bis 22 Uhr."
+  - aussage: "Bundesweit und anonym"
+    quelle: https://weisser-ring.de/hilfe-fuer-opfer-0
+    zitat: "Die telefonische Hilfe des WEISSEN RINGS. Anonym. Bundesweit. Kostenfrei."
+  - aussage: "Mit einer vertrauten Person sprechen"
+    quelle: https://weisser-ring.de/hilfe-fuer-opfer-0
+    zitat: "Reden Sie nach Möglichkeit mit Ihrer Familie oder guten Freunden über das Vorgefallene."
+  - aussage: "Keine Vorwürfe: Scham hält Betroffene davon ab, über den Betrug zu sprechen"
+    quelle: https://www.polizei-beratung.de/themen-und-tipps/betrug/messenger/
+    zitat: "dass sich Betroffene nicht trauen über den Betrug zu sprechen"

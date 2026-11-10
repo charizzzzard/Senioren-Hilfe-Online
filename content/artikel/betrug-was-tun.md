@@ -5,8 +5,8 @@ beschreibung: "Auf Betrug hereingefallen? Dieser Notfallplan zeigt in Ruhe, was 
 keyword: "betrug was tun"
 kategorie: sicherheit
 veroeffentlicht: 2026-10-30
-aktualisiert: 2026-11-05
-geprueft: 2026-10-30
+aktualisiert: 2026-11-10
+geprueft: 2026-11-10
 schnelle_hilfe: true
 kurz_gesagt: |
   **Handeln Sie schnell, aber ohne Hektik:**
@@ -31,8 +31,17 @@ quellen:
     titel: Karte sperren unter 116 116
     url: https://www.sperr-notruf.de/
   - herausgeber: Sperr-Notruf 116 116 e.V.
-    titel: "Pressemeldung: Der Sperr-Notruf 116 116 ruft niemals an (26.11.2024)"
-    url: https://www.sperr-notruf.de/media/pages/presse/aacf5d49d9-1749557608/04_sperr-notruf_116_116_ruft_niemals_an.pdf
+    titel: "Häufige Fragen rund ums Sperren (auch: „Die 116 116 ruft bei mir an – kann das sein?“)"
+    url: https://www.sperr-notruf.de/faq
+  - herausgeber: Bundesnetzagentur
+    titel: Manipulation von Rufnummern (Polizeiliche Notrufnummer 110)
+    url: https://www.bundesnetzagentur.de/DE/Vportal/TK/Aerger/Faelle/Manipulation/start.html
+  - herausgeber: Polizeiliche Kriminalprävention der Länder und des Bundes
+    titel: Schockanrufe
+    url: https://www.polizei-beratung.de/themen-und-tipps/betrug/schockanrufe/
+  - herausgeber: Polizeiliche Kriminalprävention der Länder und des Bundes
+    titel: Phishing – nicht ins Netz gehen
+    url: https://www.polizei-beratung.de/themen-und-tipps/gefahren-im-internet/phishing/
   - herausgeber: Polizeiliche Kriminalprävention der Länder und des Bundes
     titel: Messenger-Betrug
     url: https://www.polizei-beratung.de/themen-und-tipps/betrug/messenger/
@@ -45,6 +54,9 @@ quellen:
   - herausgeber: WEISSER RING e. V.
     titel: Hilfe für Kriminalitätsopfer
     url: https://weisser-ring.de/hilfe-fuer-opfer-0
+  - herausgeber: Verbraucherzentrale
+    titel: "Phishing-Mails: Woran Sie sie erkennen und worauf Sie achten müssen"
+    url: https://www.verbraucherzentrale.de/wissen/digitale-welt/phishingradar/phishingmails-woran-sie-sie-erkennen-und-worauf-sie-achten-muessen-6073
   - herausgeber: Verbraucherzentrale
     titel: "Internet-Betrug: So können Sie versuchen, Ihr Geld zurückzuholen"
     url: https://www.verbraucherzentrale.de/wissen/digitale-welt/onlinehandel/internetbetrug-so-koennen-sie-versuchen-ihr-geld-zurueckzuholen-33155
@@ -61,14 +73,14 @@ quellen:
     titel: "iPhone-Einstellungen für Reisen auswählen (Flugmodus, iOS 27)"
     url: https://support.apple.com/de-de/guide/iphone/iphb771143ee/27.0/ios/27.0
   - herausgeber: Apple Support
-    titel: Flugmodus auf iPhone, iPad, Apple Watch und Apple Vision Pro verwenden
-    url: https://support.apple.com/de-de/108785
+    titel: "Kontrollzentrum auf dem iPhone verwenden und anpassen (iOS 27)"
+    url: https://support.apple.com/de-de/guide/iphone/iph59095ec58/27.0/ios/27.0
+  - herausgeber: Apple Support
+    titel: "Kontrollzentrum auf dem iPhone verwenden und anpassen (iOS 18)"
+    url: https://support.apple.com/de-de/guide/iphone/iph59095ec58/18.0/ios/18.0
   - herausgeber: Google Pixel-Hilfe
     titel: Flugmodus und andere Netzwerkeinstellungen festlegen
     url: https://support.google.com/pixelphone/answer/2819583?hl=de
-  - herausgeber: PayPal Sicherheitscenter
-    titel: Betrug oder unbefugten Kontozugriff melden
-    url: https://www.paypal.com/de/security/report-fraud
   - herausgeber: Polizei (Bundeskriminalamt)
     titel: Onlinewachen der Polizeien in Deutschland
     url: https://www.polizei.de/Polizei/DE/Einrichtungen/Onlinewache/onlinewache_node.html
@@ -87,8 +99,9 @@ Betrüger sind geschickt. Sie arbeiten mit Druck, Mitleid und gut erfundenen Ges
     Rufen Sie die Polizei unter **110**, wenn
 
     - Sie bedroht werden,
-    - gleich jemand vorbeikommen will, um Geld oder Wertsachen abzuholen,
-    - Sie gerade erst etwas übergeben haben.
+    - gleich jemand vorbeikommen will, um Geld oder Wertsachen abzuholen.
+
+    Haben Sie gerade erst etwas übergeben? Wenden Sie sich auch dann sofort an die Polizei.
 
 ## Schritt 1: Geld bezahlt? Sofort Bank oder PayPal informieren
 
@@ -138,11 +151,11 @@ Der Sperr-Notruf
 Halten Sie Ihre **IBAN** bereit und **notieren Sie die Uhrzeit** der Sperrung.
 
 !!! wichtig "Vorsicht vor dem zweiten Anruf"
-    Betrüger melden sich manchmal ein zweites Mal – zum Beispiel als angeblicher Mitarbeiter des Sperr-Notrufs oder der Bank. Dabei kann sogar „116 116“ im Display stehen. Doch **der Sperr-Notruf ruft niemals an**, und **die Polizei ruft nie von der 110 an**. Polizei, Banken und Behörden fragen auch niemals am Telefon nach PIN oder TAN. Legen Sie in solchen Fällen einfach auf.
+    Betrüger melden sich manchmal ein zweites Mal – zum Beispiel als angeblicher Mitarbeiter des Sperr-Notrufs. Dabei kann sogar „116 116“ im Display stehen. Doch **der Sperr-Notruf ruft niemals an**, und **die Polizei ruft nie von der 110 an**. Auch Banken fordern laut Polizei keine vertraulichen Daten wie PIN oder TAN am Telefon an. Legen Sie in solchen Fällen einfach auf.
 
 ## Schritt 3: Passwörter ändern und Konten absichern
 
-Haben Sie ein Passwort verraten oder auf einer verdächtigen Seite eingegeben? Ändern Sie es sofort – und zwar überall dort, wo Sie dasselbe Passwort benutzen.
+Haben Sie ein Passwort verraten oder auf einer verdächtigen Seite eingegeben? Ändern Sie es sofort. Prüfen Sie auch, ob weitere Konten betroffen sind – zum Beispiel, weil Sie dort dasselbe Passwort benutzen.
 
 Haben Sie einen **WhatsApp-Bestätigungscode** weitergegeben? Dann kann jemand anderes Ihr Konto übernommen haben. Wie Sie es zurückholen, steht in [WhatsApp-Konto schützen und zurückholen](/artikel/whatsapp-konto-schuetzen/).
 
@@ -153,14 +166,14 @@ Wichtig vorab: Im Flugmodus ist das Mobilfunknetz aus. Über das Handynetz telef
 Die Verbraucherzentrale rät:
 
 1. **Schalten Sie das Smartphone in den Flugmodus.** Dann kann eine schädliche App keine Daten mehr über das Internet senden.
-    - **iPhone:** Öffnen Sie das Kontrollzentrum und tippen Sie auf die Flugmodus-Taste. Oben in der Statusleiste erscheint dann das Flugmodus-Symbol.
+    - **iPhone:** Öffnen Sie das Kontrollzentrum: Wischen Sie von der oberen rechten Ecke des Bildschirms nach unten. Bei einem iPhone mit Home-Taste wischen Sie vom unteren Rand nach oben. Tippen Sie dann auf die Flugmodus-Taste. Oben in der Statusleiste erscheint das Flugmodus-Symbol.
     - **Android:** Wischen Sie vom oberen Bildschirmrand nach unten und tippen Sie auf **„Flugmodus“**. Je nach Hersteller kann das etwas anders aussehen.
     - **Prüfen Sie danach das WLAN.** Wurde es im Flugmodus schon einmal eingeschaltet, merkt sich das Handy das – dann kann es an bleiben. Tippen Sie in diesem Fall noch auf das WLAN-Symbol, damit es ausgeht.
 2. **Machen Sie Bildschirmfotos** als Beweis.
 3. **Informieren Sie Ihren Mobilfunkanbieter.** Fragen Sie nach einem Nachweis über mögliche Kosten, zum Beispiel für verschickte SMS.
 4. **Erstatten Sie Anzeige bei der Polizei.**
 
-Den Flugmodus schalten Sie später mit derselben Taste wieder aus.
+Den Flugmodus schalten Sie später auf demselben Weg wieder aus.
 
 Im schlimmsten Fall muss das Handy auf den Werkszustand zurückgesetzt werden. Lassen Sie sich dabei am besten helfen – zum Beispiel von einer vertrauten Person oder in einem Fachgeschäft.
 
@@ -178,7 +191,7 @@ Bevor Sie etwas löschen, sichern Sie alles, was der Polizei helfen kann:
 
 ## Schritt 6: Anzeige bei der Polizei erstatten
 
-Erstatten Sie **auf jeden Fall** Anzeige – auch wenn der Schaden klein erscheint. Das können Sie bei jeder Polizeidienststelle tun.
+Erstatten Sie **auf jeden Fall** Anzeige – auch wenn der Schaden klein erscheint. Das können Sie bei der Polizeidienststelle in Ihrer Nähe tun.
 
 Außerdem gibt es in allen Bundesländern eine **Onlinewache**, über die Sie Anzeige im Internet erstatten können – laut Polizei zum Beispiel bei Betrug. Alle Onlinewachen erreichen Sie über das gemeinsame Portal [portal.onlinewache.polizei.de](https://portal.onlinewache.polizei.de/). Dort wählen Sie zuerst aus, wo die Tat passiert ist. Die Onlinewache ist aber nicht für Notfälle geeignet – dafür gilt immer die 110.
 

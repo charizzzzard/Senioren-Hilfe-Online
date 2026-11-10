@@ -1,0 +1,129 @@
+# Belegtabelle für content/artikel/schockanruf-enkeltrick.md (Format: docs/BETRIEB.md, Abschnitt „Belegtabelle“)
+# Jede Aussage mit einem wörtlichen Zitat aus einer selbst gelesenen Quelle. Prüfen: python tools/belegcheck.py schockanruf-enkeltrick
+geprueft: 2026-11-10
+belege:
+  # ---------------------------------------------------------------- Die Maschen
+  - aussage: "Alle Maschen: Angst, Druck, Ziel sind Geld oder Wertsachen"
+    quelle: https://www.polizei-beratung.de/themen-und-tipps/betrug/schockanrufe/
+    zitat: "Ziel der Kriminellen ist immer, an das Vermögen der Betroffenen, wie Bargeld, Gold oder Schmuck, zu gelangen."
+  - aussage: "Schockanruf: Anrufer gibt sich als Verwandter oder guter Bekannter aus"
+    quelle: https://www.polizei-beratung.de/themen-und-tipps/betrug/schockanrufe/
+    zitat: "Sie behaupten, mit dem Opfer verwandt oder gut bekannt zu sein"
+  - aussage: "… oder als Polizist oder andere Amtsperson"
+    quelle: https://www.polizei-beratung.de/themen-und-tipps/betrug/schockanrufe/
+    zitat: "Dabei geben sie sich zum Beispiel als Polizeibeamte oder andere Amtspersonen aus."
+  - aussage: "Schwerer Unfall, „Kaution“ in bar oder Wertsachen, sonst Haft"
+    quelle: https://www.polizei-beratung.de/themen-und-tipps/betrug/schockanrufe/
+    zitat: "einen schweren oder sogar tödlichen Unfall verursacht zu haben und nur durch eine Kaution in Form von Bargeld oder anderen Wertgegenständen verhindern zu können, in Haft zu gehen"
+  - aussage: "Variante: Geld für eine lebenswichtige Operation nach einem Unfall"
+    quelle: https://www.polizei-beratung.de/themen-und-tipps/betrug/schockanrufe/
+    zitat: "Geld für eine lebenserhaltende Operation nach einem Unfall zu benötigen."
+  - aussage: "Enkeltrick: „Rate mal, wer hier spricht“, gibt sich als Verwandter aus, bittet kurzfristig um Bargeld"
+    quelle: https://www.polizei-beratung.de/themen-und-tipps/betrug/enkeltrick/
+    zitat: "geben sich als Verwandte, Enkel oder auch gute Bekannte aus und bitten kurzfristig um Bargeld"
+  - aussage: "Angeblich Notfall, Unfall oder dringender Kauf"
+    quelle: https://www.polizei-beratung.de/themen-und-tipps/betrug/enkeltrick/
+    zitat: "Als Grund wird ein finanzieller Engpass oder eine Notlage vorgetäuscht, beispielsweise ein Unfall, ein Auto- oder Computerkauf."
+  - aussage: "Falsche Polizisten: Geld sei auf der Bank oder zu Hause nicht mehr sicher"
+    quelle: https://www.polizei-beratung.de/themen-und-tipps/betrug/betrug-durch-falsche-polizisten/
+    zitat: "dass Geld- und Wertgegenstände bei ihren Opfern zuhause oder auf der Bank nicht mehr sicher seien"
+  - aussage: "Ein „Kollege“ soll es abholen"
+    quelle: https://www.polizei-beratung.de/themen-und-tipps/betrug/betrug-durch-falsche-polizisten/
+    zitat: "an einen Unbekannten zu übergeben, der sich ebenfalls als Polizist ausgibt"
+  # ---------------------------------------------------------------- Auflegen
+  - aussage: "Polizei: sofort auflegen – das ist nicht unhöflich, sondern gibt Zeit zum Durchatmen"
+    quelle: https://www.polizei-beratung.de/themen-und-tipps/betrug/schockanrufe/
+    zitat: "Legen Sie sofort auf! Das ist nicht unhöflich, sondern ermöglicht Ihnen, durchzuatmen und sich neu zu sortieren."
+  - aussage: "Einfach auflegen reicht"
+    quelle: https://www.polizei-beratung.de/themen-und-tipps/betrug/betrug-durch-falsche-polizisten/
+    zitat: "Lassen Sie sich am Telefon nicht unter Druck setzen. Legen Sie einfach auf."
+  - aussage: "Bei Anrufen auf dem Handy mitunter bis zur Geldübergabe in der Leitung gehalten"
+    quelle: https://www.polizei-beratung.de/themen-und-tipps/betrug/schockanrufe/
+    zitat: "Es kann bei einem Anruf über das Handy vorkommen, dass die Betroffenen bis zur Geldübergabe in der Leitung gehalten werden."
+  - aussage: "… damit sie mit niemandem sprechen und im Schreck bleiben"
+    quelle: https://www.polizei-beratung.de/themen-und-tipps/betrug/schockanrufe/
+    zitat: "Stattdessen sollen sie in der Schocksituation bleiben und nicht aus dem emotionalen Zustand herauskommen."
+  # ---------------------------------------------------------------- Prüfen
+  - aussage: "Unter einer bekannten Nummer zurückrufen"
+    quelle: https://www.polizei-beratung.de/themen-und-tipps/betrug/enkeltrick/
+    zitat: "Rufen Sie die jeweilige Person unter der Ihnen bekannten Nummer an und lassen Sie sich den Sachverhalt bestätigen."
+  - aussage: "Bei Behörden die Nummer selbst heraussuchen oder die Telefonauskunft fragen"
+    quelle: https://www.polizei-beratung.de/themen-und-tipps/betrug/betrug-durch-falsche-polizisten/
+    zitat: "Suchen Sie die Telefonnummer der Behörde selbst heraus oder lassen Sie sich diese durch die Telefonauskunft geben."
+  - aussage: "Nicht raten, wer anruft – Namen selbst nennen lassen"
+    quelle: https://www.polizei-beratung.de/themen-und-tipps/betrug/enkeltrick/
+    zitat: "Raten Sie nicht, wer anruft, sondern fordern Sie Anrufer grundsätzlich dazu auf, ihren Namen selbst zu nennen."
+  - aussage: "Etwas fragen, das nur der echte Verwandte wissen kann"
+    quelle: https://www.polizei-beratung.de/themen-und-tipps/betrug/enkeltrick/
+    zitat: "Erfragen Sie beim Anrufer Dinge, die nur der richtige Verwandte/Bekannte wissen kann."
+  - aussage: "Stimmen lassen sich mit KI nachmachen (BSI)"
+    quelle: https://www.bsi.bund.de/DE/Themen/Unternehmen-und-Organisationen/Informationen-und-Empfehlungen/Kuenstliche-Intelligenz/Deepfakes/deepfakes_node.html
+    zitat: "Beim Text-to-Speech-Verfahren wird zu einem vorgegebenen Text ein Audio-Signal erzeugt, welches sich sowohl für den Menschen als auch für eine automatische Sprechererkennung wie eine Zielperson anhört."
+  - aussage: "Geldforderungen erst mit Familie oder nahestehenden Personen besprechen"
+    quelle: https://www.polizei-beratung.de/themen-und-tipps/betrug/enkeltrick/
+    zitat: "Besprechen Sie dies mit Familienangehörigen oder anderen Ihnen nahe stehenden Personen."
+  # ---------------------------------------------------------------- Nummer im Display, 110
+  - aussage: "Angezeigte Nummer kann gefälscht sein („Call-ID-Spoofing“), etwa eine Nummer aus der eigenen Gegend"
+    quelle: https://www.polizei-beratung.de/themen-und-tipps/betrug/betrug-durch-falsche-polizisten/
+    zitat: "eine vorgetäuschte Rufnummer z. B. aus dem Vorwahlbereich des Angerufenen, erscheinen lässt"
+  - aussage: "Steht die 110 im Display, ist die Anzeige in jedem Fall gefälscht"
+    quelle: https://www.bundesnetzagentur.de/DE/Vportal/TK/Aerger/Faelle/Manipulation/start.html
+    zitat: "Erscheint die Notrufnummer 110 als Absenderrufnummer bei einem Anruf, ist diese Anzeige in jedem Fall manipuliert."
+  - aussage: "Die Polizei ruft nie von der 110 an"
+    quelle: https://www.bundesnetzagentur.de/DE/Vportal/TK/Aerger/Faelle/Manipulation/start.html
+    zitat: "Notrufabfragestellen der Polizei rufen immer mit den Ortsnetzrufnummern der einzelnen Polizeidienststellen an."
+  # ---------------------------------------------------------------- Was die Polizei niemals tut
+  - aussage: "Polizei bittet niemals um Geld"
+    quelle: https://www.polizei-beratung.de/themen-und-tipps/betrug/betrug-durch-falsche-polizisten/
+    zitat: "Die Polizei wird Sie niemals um Geldbeträge bitten."
+  - aussage: "Fragt niemals nach Bargeld oder Schmuck, verwahrt niemals Geld oder Wertsachen"
+    quelle: https://www.polizei-beratung.de/themen-und-tipps/betrug/betrug-durch-falsche-polizisten/
+    zitat: "dass echte Polizeibeamte niemals nach Bargeld oder Schmuck fragen, und auch niemals Geld oder andere Wertgegenstände für Bürgerinnen und Bürger verwahren"
+  - aussage: "Niemals Geld oder Wertsachen an Unbekannte übergeben – auch nicht an angebliche Polizisten"
+    quelle: https://www.polizei-beratung.de/themen-und-tipps/betrug/enkeltrick/
+    zitat: "Übergeben Sie niemals Geld oder Wertsachen wie Schmuck an unbekannte Personen, auch nicht an die Polizei."
+  - aussage: "Am Telefon keine Angaben zu Geld und finanziellen Verhältnissen"
+    quelle: https://www.polizei-beratung.de/themen-und-tipps/betrug/betrug-durch-falsche-polizisten/
+    zitat: "Geben Sie am Telefon keine Details zu Ihren finanziellen Verhältnissen preis."
+  # ---------------------------------------------------------------- An der Tür
+  - aussage: "Keine Unbekannten in die Wohnung lassen"
+    quelle: https://www.polizei-beratung.de/themen-und-tipps/betrug/betrug-durch-falsche-polizisten/
+    zitat: "Lassen Sie grundsätzlich keine Unbekannten in Ihre Wohnung."
+  - aussage: "Dienstausweis zeigen lassen"
+    quelle: https://www.polizei-beratung.de/themen-und-tipps/betrug/betrug-durch-falsche-polizisten/
+    zitat: "Fordern Sie von angeblichen Amtspersonen, zum Beispiel Polizisten, den Dienstausweis."
+  - aussage: "Im Zweifel bei der Behörde anrufen, Besucher vor der abgeschlossenen Tür warten lassen"
+    quelle: https://www.polizei-beratung.de/themen-und-tipps/betrug/betrug-durch-falsche-polizisten/
+    zitat: "Lassen Sie den Besucher währenddessen vor der abgesperrten Tür warten."
+  # ---------------------------------------------------------------- 110 und Anzeige
+  - aussage: "Verdächtiger Anruf (auch: Abholung angekündigt): 110"
+    quelle: https://www.polizei-beratung.de/themen-und-tipps/betrug/schockanrufe/
+    zitat: "Informieren Sie sofort die Polizei über die 110, wenn Ihnen ein Anruf verdächtig vorkommt."
+  - aussage: "Beim Enkeltrick wird ein Bote angekündigt, der das Geld abholt"
+    quelle: https://www.polizei-beratung.de/themen-und-tipps/betrug/enkeltrick/
+    zitat: "Sobald das Opfer zahlen will, wird ein Bote angekündigt, der das Geld abholt."
+  - aussage: "Schon übergeben: auf jeden Fall an die Polizei wenden"
+    quelle: https://www.polizei-beratung.de/themen-und-tipps/betrug/schockanrufe/
+    zitat: "Wenden Sie sich auf jeden Fall an die Polizei, wenn Sie Opfer geworden sind."
+  - aussage: "… und Anzeige erstatten"
+    quelle: https://www.polizei-beratung.de/themen-und-tipps/betrug/enkeltrick/
+    zitat: "zeigen Sie die Tat unbedingt bei der Polizei an"
+  # ---------------------------------------------------------------- Vorbeugen
+  - aussage: "Familien-Kennwort vereinbaren"
+    quelle: https://www.polizei-beratung.de/themen-und-tipps/betrug/schockanrufe/
+    zitat: "Vereinbaren Sie innerhalb der Familie oder mit weiteren Angehörigen und Freunden ein Kennwort zur Identifizierung am Telefon."
+  - aussage: "Vornamen im Telefonbuch abkürzen (aus Herta Schmidt wird H. Schmidt) oder weglassen"
+    quelle: https://www.polizei-beratung.de/themen-und-tipps/betrug/enkeltrick/
+    zitat: "Lassen Sie Ihren Vornamen im Telefonbuch abkürzen (aus Herta Schmidt wird beispielsweise H. Schmidt) oder lassen Sie den Vornamen ganz weg."
+  - aussage: "Eintrag ganz löschen ist möglich"
+    quelle: https://www.polizei-beratung.de/themen-und-tipps/betrug/schockanrufe/
+    zitat: "Ggf. löschen Sie Ihren gesamten Eintrag."
+  - aussage: "Ein voller (älterer) Vorname kann das Alter verraten"
+    quelle: https://www.polizei-beratung.de/themen-und-tipps/betrug/enkeltrick/
+    zitat: "sind für die Täter ein Hinweis darauf, dass sich ältere Menschen hinter diesen Einträgen verbergen"
+  - aussage: "Größere Geldbeträge und Wertsachen nicht zu Hause, sondern auf der Bank aufbewahren"
+    quelle: https://www.polizei-beratung.de/themen-und-tipps/betrug/enkeltrick/
+    zitat: "nicht zuhause auf, sondern auf der Bank oder im Bankschließfach"
+  - aussage: "Sich gedanklich vorbereiten"
+    quelle: https://www.polizei-beratung.de/themen-und-tipps/betrug/schockanrufe/
+    zitat: "Bereiten Sie sich gedanklich auf solche Anrufe vor."
