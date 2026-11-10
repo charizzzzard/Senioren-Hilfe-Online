@@ -32,7 +32,7 @@ Erfolgsmeldung. Nicht eingesehen: die Verläufe der Freigabe-Läufe vom 06.11. u
 ## Warum?
 
 1. **GitHub Pages hat das Deployment abgelehnt.** Die Meldung nennt keinen Grund. githubstatus.com führt für diesen
-   Zeitpunkt keine Störung (die nächstgelegene Pages-Störung: 06.11., 00:36–01:20 Uhr). Derselbe Workflow lief vorher
+   Zeitpunkt keine Störung (die nächstgelegene gemeldete Störung, „Degraded performance for multiple GitHub services“: 06.11., 00:36–01:20 Uhr). Derselbe Workflow lief vorher
    (06.11., 13:33 Uhr) und beim Neustart ohne jede Änderung durch. Das spricht für ein vorübergehendes Problem bei GitHub;
    belegt ist es nicht.
 2. **Der Workflow versucht es nicht ein zweites Mal.** Ein einzelner Fehlschlag bei GitHub reicht, damit eine geprüfte
