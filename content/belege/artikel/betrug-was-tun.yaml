@@ -174,15 +174,15 @@ belege:
   - aussage: "Auf jeden Fall Anzeige erstatten"
     quelle: https://www.polizei-beratung.de/themen-und-tipps/betrug/messenger/
     zitat: "Erstatten Sie auf jeden Fall Anzeige bei der Polizei."
-  - aussage: "Anzeige bei der Polizeidienststelle in der Nähe"
-    quelle: https://www.polizei.de/Polizei/DE/Einrichtungen/Onlinewache/onlinewache_node.html
-    zitat: "Eine Strafanzeige können Sie daher direkt bei der Polizeidienststelle in Ihrer Nähe erstatten."
+  - aussage: "Anzeige persönlich auf der Polizeiwache"
+    quelle: https://www.test.de/Strafanzeige-So-erstatten-Sie-eine-Online-Anzeige-5003664-0/
+    zitat: "Wer lieber persönlich zur Polizeiwache gehen möchte, soll das auch weiterhin tun."
   - aussage: "Onlinewache in allen Bundesländern"
     quelle: https://www.test.de/Strafanzeige-So-erstatten-Sie-eine-Online-Anzeige-5003664-0/
     zitat: "Inzwischen gibt es die Onlinewache in allen Bundesländern."
-  - aussage: "Onlinewache laut Polizei zum Beispiel bei Betrug"
-    quelle: https://www.polizei.de/Polizei/DE/Einrichtungen/Onlinewache/onlinewache_node.html
-    zitat: "Dies ist beispielsweise möglich in Fällen von Diebstahl, Betrug, Sachbeschädigung oder Hass im Netz."
+  - aussage: "Onlinewache zum Beispiel bei Betrug"
+    quelle: https://www.test.de/Strafanzeige-So-erstatten-Sie-eine-Online-Anzeige-5003664-0/
+    zitat: "Zum Beispiel Betrug, Diebstahl und Sachbeschädigung."
   - aussage: "Gemeinsames Portal der Onlinewachen"
     quelle: https://portal.onlinewache.polizei.de/
     zitat: "Willkommen bei den Onlinewachen der Polizeien in Deutschland"
@@ -190,8 +190,8 @@ belege:
     quelle: https://www.test.de/Strafanzeige-So-erstatten-Sie-eine-Online-Anzeige-5003664-0/
     zitat: "Wählen Sie das Bundesland aus, in dem die Straftat geschehen ist."
   - aussage: "Onlinewache nicht für Notfälle – dafür die 110"
-    quelle: https://www.polizei.de/Polizei/DE/Einrichtungen/Onlinewache/onlinewache_node.html
-    zitat: "In dringenden Fällen wählen Sie bitte die Notrufnummer 110."
+    quelle: https://www.test.de/Strafanzeige-So-erstatten-Sie-eine-Online-Anzeige-5003664-0/
+    zitat: "Die Onlinewache ist nicht für Notfälle geeignet!"
   # ---------------------------------------------------------------- Schritt 7: Unterstützung
   - aussage: "Opfer-Telefon 116 006, kostenfrei, täglich 7 bis 22 Uhr"
     quelle: https://weisser-ring.de/hilfe-fuer-opfer-0

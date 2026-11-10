@@ -86,7 +86,7 @@ fehler:
     live: true
     entdeckt_durch: nachpruefung
     vorher: "Ändern Sie es sofort – und zwar überall dort, wo Sie dasselbe Passwort benutzen. / Das können Sie bei jeder Polizeidienststelle tun."
-    korrektur: "Passwort-Rat mit Quelle der Verbraucherzentrale belegt und daran angeglichen; „bei der Polizeidienststelle in Ihrer Nähe“ wie in der Polizei-Quelle."
+    korrektur: "Passwort-Rat mit Quelle der Verbraucherzentrale belegt und daran angeglichen; „persönlich auf der Polizeiwache“ nach Stiftung Warentest."
     ursache: "Zwei Ratschläge ohne Quelle im Text bzw. weiter gefasst als die Quelle."
     behoben_in: "#32"
     altbestand: true

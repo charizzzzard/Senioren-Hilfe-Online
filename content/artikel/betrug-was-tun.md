@@ -81,9 +81,6 @@ quellen:
   - herausgeber: Google Pixel-Hilfe
     titel: Flugmodus und andere Netzwerkeinstellungen festlegen
     url: https://support.google.com/pixelphone/answer/2819583?hl=de
-  - herausgeber: Polizei (Bundeskriminalamt)
-    titel: Onlinewachen der Polizeien in Deutschland
-    url: https://www.polizei.de/Polizei/DE/Einrichtungen/Onlinewache/onlinewache_node.html
   - herausgeber: Polizeien der Länder
     titel: Onlinewachen der Polizeien in Deutschland (Portal)
     url: https://portal.onlinewache.polizei.de/
@@ -191,9 +188,9 @@ Bevor Sie etwas löschen, sichern Sie alles, was der Polizei helfen kann:
 
 ## Schritt 6: Anzeige bei der Polizei erstatten
 
-Erstatten Sie **auf jeden Fall** Anzeige – auch wenn der Schaden klein erscheint. Das können Sie bei der Polizeidienststelle in Ihrer Nähe tun.
+Erstatten Sie **auf jeden Fall** Anzeige – auch wenn der Schaden klein erscheint. Das geht persönlich auf der Polizeiwache.
 
-Außerdem gibt es in allen Bundesländern eine **Onlinewache**, über die Sie Anzeige im Internet erstatten können – laut Polizei zum Beispiel bei Betrug. Alle Onlinewachen erreichen Sie über das gemeinsame Portal [portal.onlinewache.polizei.de](https://portal.onlinewache.polizei.de/). Dort wählen Sie zuerst aus, wo die Tat passiert ist. Die Onlinewache ist aber nicht für Notfälle geeignet – dafür gilt immer die 110.
+Außerdem gibt es in allen Bundesländern eine **Onlinewache**, über die Sie Anzeige im Internet erstatten können – zum Beispiel bei Betrug. Alle Onlinewachen erreichen Sie über das gemeinsame Portal [portal.onlinewache.polizei.de](https://portal.onlinewache.polizei.de/). Dort wählen Sie zuerst aus, wo die Tat passiert ist. Die Onlinewache ist aber nicht für Notfälle geeignet – dafür gilt immer die 110.
 
 ## Schritt 7: Sich Unterstützung holen
 
