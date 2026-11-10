@@ -749,10 +749,11 @@ themen:
     keyword: seniorenhandy
     suchvolumen: 27100
     kd: 0
-    prioritaet: 4
+    prioritaet: 0
+    fruehestens: 2026-12-08
     status: offen
     monetarisierung: spaeter_moeglich
-    notiz: "smartphone für senioren: 3600, handy für senioren: 3600, seniorenhandy test: 2400 (wir testen nicht – keine Testsieger!). Ohne Affiliate-Links veröffentlichen; Monetarisierung nur nach Entscheidung des Betreibers."
+    notiz: "smartphone für senioren: 3600, handy für senioren: 3600, seniorenhandy test: 2400 (wir testen nicht – keine Testsieger!). Ohne Affiliate-Links veröffentlichen; Monetarisierung nur nach Entscheidung des Betreibers. Entscheidung des Betreibers vom 10.11.2026 (Issue #28): direkt nach der Saison „Neues Handy“ – innerhalb von Priorität 0 als letztes Thema, nicht vor dem 08.12.2026 (fruehestens), möglichst noch vor Weihnachten. Form: Kriterien und Gerätearten mit Beispielen, ausdrücklich ohne Test und ohne Rangfolge. Netzleicht testet keine Geräte; jede Aussage aus frei zugänglichen Quellen (Verbraucherzentrale, Stiftung Warentest, Hersteller-Hilfeseiten, etwa zu vereinfachten Bedienmodi). Partnerlinks bleiben eine eigene Entscheidung."
   - titel: Tablet für ältere Menschen – worauf es ankommt
     kategorie: angehoerige
     keyword: tablet für senioren
