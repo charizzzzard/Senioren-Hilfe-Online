@@ -1,7 +1,7 @@
 ---
 titel: "WhatsApp-Backup: Chats sichern und auf dem neuen Handy wiederherstellen"
 seo_titel: "WhatsApp-Backup: Chats sichern (iPhone und Android)"
-beschreibung: "Angst, alte Chats und Fotos zu verlieren? So erstellen Sie ein WhatsApp-Backup auf dem iPhone oder Android-Handy und holen die Chats später zurück."
+beschreibung: "Sorge, alte Chats und Fotos zu verlieren? So erstellen Sie ein WhatsApp-Backup auf dem iPhone oder Android-Handy und holen die Chats später zurück."
 keyword: "whatsapp backup"
 kategorie: whatsapp
 veroeffentlicht: 2026-11-10
@@ -22,7 +22,7 @@ checkliste:
   - "Geklappt? Unter „Chat-Backup“ stehen Zeitpunkt und Größe des letzten Backups."
   - Verschlüsseltes Backup? Passwort oder Schlüssel aufschreiben und gut verwahren.
   - Neues Handy – dieselbe Telefonnummer verwenden.
-  - "Beim Einrichten auf „Wiederherstellen“ tippen, nicht auf „Überspringen“."
+  - "Beim Einrichten die Chats wiederherstellen – nicht auf „Überspringen“ tippen."
 quellen:
   - herausgeber: WhatsApp-Hilfebereich
     titel: Chatverlauf sichern (iPhone)
@@ -60,7 +60,7 @@ Kennen Sie diese Sorge? In WhatsApp stecken oft Jahre an Nachrichten, Fotos und 
 
 ## Wo wird das Backup gespeichert?
 
-WhatsApp legt die Sicherung nicht auf dem Handy selbst ab, sondern im Internet:
+WhatsApp speichert die Sicherung online:
 
 - **iPhone:** in Ihrer **iCloud**, dem Online-Speicher von Apple.
 - **Android:** in Ihrem **Google-Konto**.
@@ -85,7 +85,7 @@ WhatsApp › Einstellungen › Chats › Chat-Backup
 ### Auf dem iPhone
 
 1. Öffnen Sie **WhatsApp**.
-2. Tippen Sie auf **„Einstellungen“**. Je nach Version tippen Sie stattdessen auf **Ihr Profilbild**.
+2. Tippen Sie auf **„Einstellungen“** oder auf **Ihr Profilbild**.
 3. Tippen Sie auf **„Chats“** und dann auf **„Chat-Backup“**.
 4. Tippen Sie auf **„Backup jetzt erstellen“**.
 
@@ -137,12 +137,12 @@ WhatsApp holt zuerst die Nachrichten zurück. Lassen Sie die App so lange geöff
 - **Vom iPhone zu Android – oder umgekehrt?** Ein Backup vom iPhone lässt sich derzeit nicht auf Android wiederherstellen und umgekehrt. Für einen solchen Wechsel gibt es bei WhatsApp eine eigene Übertragungsfunktion.
 - **Das Backup ist sehr alt?** Ist das letzte Backup älter als 120 Tage, lässt es sich unter Umständen nicht mehr wiederherstellen.
 - **Videos fehlen?** Videos werden nur wiederhergestellt, wenn sie beim Backup eingeschlossen waren.
-- **Zu wenig Speicher?** Der freie Platz auf dem Handy muss größer sein als das Backup. Sonst kommt es nur teilweise zurück.
+- **Zu wenig Speicher?** Der freie Platz auf dem Handy muss größer sein als das Backup. Sonst kommt es unter Umständen nur teilweise zurück.
 - **Chats fehlen schon?** Dann erstellen Sie jetzt **kein neues Backup** – es würde das alte, vollständige ersetzen.
 
 ### Bei mir sieht es anders aus
 
-WhatsApp ändert seine Menüs ab und zu. Sehen Sie Punkte wie **„Cloud-Backup“** oder **„WhatsApp-Cloud-Speicher“**, nutzt Ihr Handy schon den neuen Speicher von WhatsApp. Halten Sie WhatsApp aktuell, dann stimmen die Bezeichnungen am ehesten.
+WhatsApp ändert seine Menüs ab und zu. Sehen Sie Punkte wie **„Cloud-Backup“** oder **„WhatsApp-Cloud-Speicher“**, ist bei Ihnen vielleicht schon der neue Speicher von WhatsApp verfügbar. Halten Sie WhatsApp aktuell, dann stimmen die Bezeichnungen am ehesten.
 
 Vorsicht bei **„Chat exportieren“**: Das ist kein Backup. Ein exportierter Chat lässt sich nicht wieder in WhatsApp einlesen.
 
