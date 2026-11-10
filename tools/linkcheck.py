@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Prüft alle externen Links (Quellen und Links im Text) auf Erreichbarkeit.
+"""Prüft alle externen Links (Quellen und Links im Text, dazu content/echt-check.yaml) auf Erreichbarkeit.
 
 Aufruf:  python tools/linkcheck.py [--bericht datei.md]
 Exit-Code 1, wenn mindestens ein Link sicher defekt ist (404, 410, DNS-Fehler).
@@ -60,6 +60,11 @@ def main() -> int:
         urls += re.findall(r"\]\((https?://[^)\s]+)\)", rumpf)
         for url in urls:
             fundstellen.setdefault(url, set()).add(datei.name)
+    # Der „Ist das echt?“-Check hat eigene Quellen (CLAUDE.md Abschnitt 7, Wartung) – sie stehen in keiner Markdown-Datei.
+    echt_check = CONTENT / "echt-check.yaml"
+    if echt_check.exists():
+        for url in re.findall(r"https?://[^\s\"'<>)}\]]+", echt_check.read_text(encoding="utf-8")):
+            fundstellen.setdefault(url.rstrip(".,;"), set()).add(echt_check.name)
 
     with ThreadPoolExecutor(max_workers=6) as pool:
         ergebnisse = dict(zip(fundstellen, pool.map(pruefe, fundstellen)))

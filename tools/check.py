@@ -9,12 +9,15 @@ Aufruf:  python tools/check.py
 from __future__ import annotations
 
 import datetime as dt
+import os
 import re
+import subprocess
 import sys
 from collections import Counter
 from html.parser import HTMLParser
 from pathlib import Path
 from urllib.parse import urlsplit
+from zoneinfo import ZoneInfo, ZoneInfoNotFoundError
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from build import ROOT, BuildError, build  # noqa: E402
@@ -112,10 +115,36 @@ def saetze(html: str) -> list[str]:
     return ergebnis
 
 
+def heute_in_deutschland() -> dt.date:
+    """Der Kalendertag in Deutschland. Die Texte tragen deutsche Daten, GitHub-Runner und Cloud-Container laufen
+    in UTC – kurz nach Mitternacht läge ein Datum von heute sonst „in der Zukunft“."""
+    try:
+        return dt.datetime.now(ZoneInfo("Europe/Berlin")).date()
+    except ZoneInfoNotFoundError:
+        return dt.date.today()
+
+
+def texte_auf_vergleichsstand() -> tuple[set[str] | None, str]:
+    """Texte (artikel/<slug>, lexikon/<slug>), die es auf dem Vergleichsstand schon gibt – None, wenn er fehlt.
+
+    Kontingent (Regel 9) und Qualitätsbremse regeln, ob ein NEUER Text dazukommen darf. Ein Text, der schon
+    veröffentlicht ist, darf den Build nicht nachträglich abbrechen: Sonst ist `main` rot, und auch Korrekturen
+    gehen nicht mehr live. Neu ist ein Text, den es auf dem Vergleichsstand nicht gibt.
+    Vergleichsstand: Umgebungsvariable NETZLEICHT_BASIS (setzt der Deploy-Workflow), sonst origin/main.
+    """
+    basis = os.environ.get("NETZLEICHT_BASIS", "").strip() or "origin/main"
+    try:
+        aus = subprocess.run(["git", "ls-tree", "-r", "--name-only", basis, "--", "content/artikel", "content/lexikon"],
+                             cwd=ROOT, check=True, capture_output=True, text=True).stdout
+    except (OSError, subprocess.CalledProcessError):
+        return None, basis
+    return {f"{Path(z).parent.name}/{Path(z).stem}" for z in aus.splitlines() if z.endswith(".md")}, basis
+
+
 def main() -> int:
     fehler: list[str] = []
     hinweise: list[str] = []
-    heute = dt.date.today()
+    heute = heute_in_deutschland()
 
     try:
         daten = build(OUT)
@@ -243,6 +272,15 @@ def main() -> int:
             ohne_tabelle.append(schluessel)
 
     # ---------------------------------------------------- Kontingent (Regel 9) und Wochenschau
+    # Diese Regeln und die Qualitätsbremse entscheiden über NEUE Texte. Sie brechen nur ab, wenn ein Text beteiligt
+    # ist, den es auf dem Vergleichsstand (main) noch nicht gibt – siehe texte_auf_vergleichsstand().
+    vorhanden, basis = texte_auf_vergleichsstand()
+    if vorhanden is None:
+        print(f"INFO: Vergleichsstand {basis} nicht gefunden – Kontingent und Qualitätsbremse gelten für alle Texte.")
+
+    def ist_neu(a) -> bool:
+        return vorhanden is None or f"{a.bereich}/{a.slug}" not in vorhanden
+
     for a in artikel + lexikon:
         if a.meta.get("reihe") == "wochenschau" or a.veroeffentlicht < STICHTAG:
             continue
@@ -251,12 +289,23 @@ def main() -> int:
         gleiche = [b for b in artikel + lexikon if b.bereich == a.bereich and b.meta.get("reihe") != "wochenschau"
                    and 0 <= (a.veroeffentlicht - b.veroeffentlicht).days <= 6]
         if len(gleiche) > KONTINGENT[a.bereich]:
-            fehler.append(f"{a.bereich}/{a.slug}.md: Regel 9 – {len(gleiche)} {a.bereich}-Texte in den 7 Tagen bis "
-                          f"{a.veroeffentlicht} (erlaubt {KONTINGENT[a.bereich]}). Ausnahme nur mit Feld paket: \"<Auftrag des Betreibers>\"")
-    wochen = Counter(a.veroeffentlicht.isocalendar()[:2] for a in artikel if a.meta.get("reihe") == "wochenschau")
-    for (jahr, kw), n in wochen.items():
-        if n > 1:
-            fehler.append(f"Wochenschau: {n} Ausgaben in KW {kw}/{jahr} (genau eine pro Woche)")
+            meldung = (f"{a.bereich}/{a.slug}.md: Regel 9 – {len(gleiche)} {a.bereich}-Texte in den 7 Tagen bis "
+                       f"{a.veroeffentlicht} (erlaubt {KONTINGENT[a.bereich]}).")
+            if any(ist_neu(b) for b in gleiche):
+                fehler.append(meldung + " Ausnahme nur mit Feld paket: \"<Auftrag des Betreibers>\"")
+            elif 0 <= (heute - a.veroeffentlicht).days <= 6:
+                hinweise.append(meldung + " Die Texte sind schon veröffentlicht; neue Texte pausieren, bis das Kontingent frei ist.")
+    wochen: dict[tuple[int, int], list] = {}
+    for a in artikel:
+        if a.meta.get("reihe") == "wochenschau":
+            wochen.setdefault(tuple(a.veroeffentlicht.isocalendar()[:2]), []).append(a)
+    for (jahr, kw), ausgaben in wochen.items():
+        if len(ausgaben) > 1:
+            meldung = f"Wochenschau: {len(ausgaben)} Ausgaben in KW {kw}/{jahr} (genau eine pro Woche)"
+            if any(ist_neu(a) for a in ausgaben):
+                fehler.append(meldung)
+            elif 0 <= (heute - max(a.veroeffentlicht for a in ausgaben)).days <= 6:
+                hinweise.append(meldung + " – beide sind schon veröffentlicht.")
 
     # ---------------------------------------------------- Fehlerkatalog und Qualitätsbremse
     katalog_pfad = ROOT / "docs" / "fehlerkatalog.yaml"
@@ -293,10 +342,18 @@ def main() -> int:
         """Anzahl sachlicher Live-Fehler, die in den BREMSE_TAGE Tagen vor `tag` gefunden wurden."""
         return sum(1 for g in bremse if 1 <= (tag - g).days <= BREMSE_TAGE)
 
+    # Die Bremse hält NEUE Texte auf. Texte, die schon veröffentlicht sind, bleiben unberührt: Bräche der Build
+    # ihretwegen ab, wäre main rot und auch die Korrekturen gingen nicht live. Der Fall tritt ein, wenn ein Text
+    # erscheint, bevor die Fehlerfunde der Nachprüfung (mit früherem Datum) auf main ankommen.
     for a in artikel + lexikon:
-        if a.veroeffentlicht >= STICHTAG and bremse_aktiv(a.veroeffentlicht) >= BREMSE_GRENZE:
-            fehler.append(f"{a.bereich}/{a.slug}.md: Qualitätsbremse – {bremse_aktiv(a.veroeffentlicht)} sachliche Fehler "
-                          f"waren in den {BREMSE_TAGE} Tagen vor {a.veroeffentlicht} live (docs/fehlerkatalog.yaml). "
+        if a.veroeffentlicht < STICHTAG or not ist_neu(a):
+            continue
+        anzahl, tag = bremse_aktiv(a.veroeffentlicht), a.veroeffentlicht
+        if vorhanden is not None and bremse_aktiv(heute) > anzahl:
+            anzahl, tag = bremse_aktiv(heute), heute  # neuer Text: es zählt auch der Tag, an dem er erscheinen würde
+        if anzahl >= BREMSE_GRENZE:
+            fehler.append(f"{a.bereich}/{a.slug}.md: Qualitätsbremse – {anzahl} sachliche Fehler "
+                          f"waren in den {BREMSE_TAGE} Tagen vor {tag} live (docs/fehlerkatalog.yaml). "
                           "Keine neuen Texte, nur Korrekturen (docs/BETRIEB.md Abschnitt 9).")
     if bremse_aktiv(heute) >= BREMSE_GRENZE:
         frei = heute

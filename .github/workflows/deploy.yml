@@ -18,6 +18,8 @@ jobs:
       contents: read
     steps:
       - uses: actions/checkout@v6
+        with:
+          fetch-depth: 2 # im Pull Request ist HEAD der Merge-Commit und HEAD^1 der Stand von main
 
       - uses: actions/setup-python@v6
         with:
@@ -27,7 +29,12 @@ jobs:
       - name: Abhängigkeiten installieren
         run: pip install -r requirements.txt
 
+      # Kontingent (Regel 9) und Qualitätsbremse halten NEUE Texte auf: im Pull Request alles, was es auf main noch
+      # nicht gibt (Vergleichsstand HEAD^1). Auf main selbst ist nichts neu (Vergleichsstand HEAD) – ein schon
+      # veröffentlichter Text kann den Deploy und damit die Korrekturen nie blockieren (tools/check.py).
       - name: Seite bauen und Qualität prüfen
+        env:
+          NETZLEICHT_BASIS: ${{ github.event_name == 'pull_request' && 'HEAD^1' || 'HEAD' }}
         run: python tools/check.py
 
       - uses: actions/setup-node@v4
@@ -47,8 +54,9 @@ jobs:
       - name: Chromium installieren
         run: npx playwright install --with-deps chromium
 
+      # Eine Checkliste mit mehr als einer A4-Seite ist im Pull Request ein Fehler, auf main nur ein Hinweis.
       - name: Checklisten-PDFs erzeugen
-        run: node tools/pdf.mjs
+        run: node tools/pdf.mjs _site ${{ github.event_name != 'pull_request' && '--nur-hinweis' || '' }}
 
       - name: Pages konfigurieren
         if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
