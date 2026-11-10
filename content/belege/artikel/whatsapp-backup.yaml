@@ -1,0 +1,181 @@
+# Belegtabelle für content/artikel/whatsapp-backup.md (Format: docs/BETRIEB.md, Abschnitt „Belegtabelle“)
+# Jede Aussage mit einem wörtlichen Zitat aus einer selbst gelesenen Quelle (gelesen am 10.11.2026 mit tools/seitentext.mjs).
+# Prüfen: python tools/belegcheck.py whatsapp-backup
+geprueft: 2026-11-10
+belege:
+  # ---------------------------------------------------------------- Speicherort
+  - aussage: "iPhone: Backup in iCloud; iCloud-Speicher kommt von Apple"
+    quelle: https://faq.whatsapp.com/481135090640375/?locale=de_DE&cms_platform=iphone
+    zitat: "Der iCloud-Speicher wird von Apple bereitgestellt und verwaltet."
+  - aussage: "Android: Backup im Google-Konto"
+    quelle: https://faq.whatsapp.com/481135090640375/?locale=de_DE&cms_platform=android
+    zitat: "Du kannst deinen WhatsApp-Chatverlauf entweder über den WhatsApp-Cloud-Speicher oder dein Google-Konto sichern."
+  - aussage: "WhatsApp-Cloud-Speicher ist neu, in Testphase, evtl. noch nicht verfügbar"
+    quelle: https://faq.whatsapp.com/481135090640375/?locale=de_DE&cms_platform=iphone
+    zitat: "Der WhatsApp-Cloud-Speicher ist eine neue Funktion, die wir gerade entwickeln und testen. Möglicherweise ist sie für dich noch nicht verfügbar."
+  # ---------------------------------------------------------------- Voraussetzungen
+  - aussage: "Genügend freier Speicher auf dem Handy"
+    quelle: https://faq.whatsapp.com/481135090640375/?locale=de_DE&cms_platform=iphone
+    zitat: "Du hast genügend freien Speicherplatz auf deinem Gerät, um das Backup zu erstellen."
+  - aussage: "Stabile Internetverbindung"
+    quelle: https://faq.whatsapp.com/481135090640375/?locale=de_DE&cms_platform=iphone
+    zitat: "Du hast eine stabile und starke Internetverbindung."
+  - aussage: "iPhone: neuestes iOS"
+    quelle: https://faq.whatsapp.com/481135090640375/?locale=de_DE&cms_platform=iphone
+    zitat: "Dein iPhone verfügt über das neueste iOS."
+  - aussage: "iPhone: genug Platz in iCloud"
+    quelle: https://faq.whatsapp.com/481135090640375/?locale=de_DE&cms_platform=iphone
+    zitat: "Dein iCloud-Konto hat ausreichend Speicherplatz für dein Backup."
+  - aussage: "Android: Google-Konto auf dem Gerät eingerichtet"
+    quelle: https://faq.whatsapp.com/481135090640375/?locale=de_DE&cms_platform=android
+    zitat: "Ein Google-Konto auf deinem Gerät aktiviert haben."
+  - aussage: "Android: genug Platz im Google-Konto"
+    quelle: https://faq.whatsapp.com/481135090640375/?locale=de_DE&cms_platform=android
+    zitat: "genügend freien Speicherplatz in deinem Google-Konto haben."
+  # ---------------------------------------------------------------- Backup erstellen
+  - aussage: "iPhone: Einstellungen oder Profilbild antippen"
+    quelle: https://faq.whatsapp.com/481135090640375/?locale=de_DE&cms_platform=iphone
+    zitat: "Tippe in WhatsApp auf Einstellungen oder dein Profilbild."
+  - aussage: "iPhone: Chats › Chat-Backup › Backup jetzt erstellen"
+    quelle: https://faq.whatsapp.com/481135090640375/?locale=de_DE&cms_platform=iphone
+    zitat: "Tippe auf Chats > Chat-Backup > Backup jetzt erstellen."
+  - aussage: "iPhone: Option „Videos in Chats einschließen“ ein- oder ausschalten"
+    quelle: https://faq.whatsapp.com/481135090640375/?locale=de_DE&cms_platform=iphone
+    zitat: "Aktiviere oder deaktiviere die Optionen Videos in Chats einschließen und Status-Archiv einschließen."
+  - aussage: "Bei eingeschalteter Option werden Videos aus den Chats gesichert"
+    quelle: https://faq.whatsapp.com/481135090640375/?locale=de_DE&cms_platform=iphone
+    zitat: "Videos in Chats einschließen: Videos, die in deinen Chats gesendet und empfangen werden, werden gesichert."
+  - aussage: "Android: Einstellungen in WhatsApp öffnen"
+    quelle: https://faq.whatsapp.com/481135090640375/?locale=de_DE&cms_platform=android
+    zitat: "Öffne die Einstellungen in WhatsApp."
+  - aussage: "Android: Chats › Chat-Backup › Sichern"
+    quelle: https://faq.whatsapp.com/481135090640375/?locale=de_DE&cms_platform=android
+    zitat: "Tippe auf Chats > Chat-Backup > Sichern."
+  - aussage: "Android: Optionen „Videos in Chats einschließen“ und „Über mobile Daten sichern“"
+    quelle: https://faq.whatsapp.com/481135090640375/?locale=de_DE&cms_platform=android
+    zitat: "Du kannst die Optionen Videos in Chats einschließen, Über mobile Daten sichern und Status-Archiv einschließen aktivieren oder deaktivieren."
+  - aussage: "Backups können groß sein, mobile Daten verbrauchen; WLAN verbinden, um Gebühren zu vermeiden"
+    quelle: https://faq.whatsapp.com/481135090640375/?locale=de_DE&cms_platform=android
+    zitat: "Backup-Dateien können unterschiedlich groß sein und mobile Daten verbrauchen. Verbinde dein Telefon vor dem Erstellen eines Backups in deinem Google-Konto mit einem WLAN, um mögliche Gebühren für mobile Daten zu vermeiden."
+  # ---------------------------------------------------------------- Sollzustand
+  - aussage: "Unter „Chat-Backup“ stehen Zeitpunkt und Größe des letzten Backups"
+    quelle: https://faq.whatsapp.com/618575946635920/?locale=de_DE&cms_platform=iphone
+    zitat: "Wenn deine Chats gesichert sind, siehst du den Zeitpunkt und die Größe deines letzten Backups."
+  - aussage: "Sollzustand auch auf Android"
+    quelle: https://faq.whatsapp.com/618575946635920/?locale=de_DE&cms_platform=android
+    zitat: "Wenn deine Chats gesichert sind, siehst du den Zeitpunkt und die Größe deines letzten Backups."
+  # ---------------------------------------------------------------- Automatisch
+  - aussage: "iPhone: „Autom. Backup“ antippen und Häufigkeit wählen"
+    quelle: https://faq.whatsapp.com/481135090640375/?locale=de_DE&cms_platform=iphone
+    zitat: "Tippe auf Autom. Backup und wähle die Häufigkeit der Backups aus."
+  - aussage: "iPhone: täglich, wöchentlich oder monatlich"
+    quelle: https://faq.whatsapp.com/481135090640375/?locale=de_DE&cms_platform=iphone
+    zitat: "kannst du auswählen, wie häufig WhatsApp deine Chats sichern soll (täglich, wöchentlich oder monatlich)."
+  - aussage: "Android: Zeitintervall außer „Niemals“ / „Nur, wenn ich auf „Sichern“ tippe“ wählen"
+    quelle: https://faq.whatsapp.com/481135090640375/?locale=de_DE&cms_platform=android
+    zitat: "Wähle ein anderes Zeitintervall als Niemals oder Nur, wenn ich auf „Sichern“ tippe aus."
+  - aussage: "Android: Google-Konto auswählen"
+    quelle: https://faq.whatsapp.com/481135090640375/?locale=de_DE&cms_platform=android
+    zitat: "Wähle das Google-Konto aus, in dem deine Chats gesichert werden sollen."
+  - aussage: "Android, täglich: Sicherung jede Nacht"
+    quelle: https://faq.whatsapp.com/481135090640375/?locale=de_DE&cms_platform=android
+    zitat: "werden deine Chats jede Nacht nach der Erstellung des lokalen Backups in deinem Google-Konto gesichert."
+  - aussage: "Nur ein Backup; jedes neue ersetzt das vorherige"
+    quelle: https://faq.whatsapp.com/618575946635920/?locale=de_DE&cms_platform=android
+    zitat: "Du kannst nur ein Backup pro Konto sichern. Jedes neue Backup ersetzt das vorherige"
+  - aussage: "Nachrichten nach dem letzten Backup sind nicht enthalten"
+    quelle: https://faq.whatsapp.com/618575946635920/?locale=de_DE&cms_platform=android
+    zitat: "Keine Nachrichten, die nach dem letzten Backup gesendet oder empfangen wurden, können wiederhergestellt werden."
+  - aussage: "Regelmäßig sichern"
+    quelle: https://faq.whatsapp.com/618575946635920/?locale=de_DE&cms_platform=android
+    zitat: "solltest du regelmäßig ein Backup deiner WhatsApp-Daten erstellen."
+  # ---------------------------------------------------------------- Verschlüsselt
+  - aussage: "Menüpunkt „Ende-zu-Ende-verschlüsseltes Backup“ unter Chat-Backup"
+    quelle: https://faq.whatsapp.com/481135090640375/?locale=de_DE&cms_platform=iphone
+    zitat: "Tippe auf Chats > Chat-Backup > Ende-zu-Ende-verschlüsseltes Backup."
+  - aussage: "Schutz durch Passkey, Passwort oder 64-stelligen Schlüssel"
+    quelle: https://faq.whatsapp.com/490592613091019/?locale=de_DE&cms_platform=android
+    zitat: "Ende-zu-Ende-verschlüsselte Backups werden entweder durch einen Passkey, ein Passwort oder einen 64-stelligen Verschlüsselungsschlüssel geschützt."
+  - aussage: "Freiwillig (man kann es aktivieren)"
+    quelle: https://faq.whatsapp.com/490592613091019/?locale=de_DE&cms_platform=android
+    zitat: "Du kannst die Ende-zu-Ende-Verschlüsselung für diese Backups aktivieren."
+  - aussage: "Ohne Passwort/Schlüssel/Passkey kein Zugriff"
+    quelle: https://faq.whatsapp.com/490592613091019/?locale=de_DE&cms_platform=android
+    zitat: "Ohne dein Passwort, deinen Verschlüsselungsschlüssel oder deinen Passkey kannst du nicht auf dein verschlüsseltes Backup zugreifen."
+  - aussage: "WhatsApp kann Passwort/Schlüssel weder senden noch zurücksetzen"
+    quelle: https://faq.whatsapp.com/490592613091019/?locale=de_DE&cms_platform=android
+    zitat: "WhatsApp kann dir weder eine Kopie deines Passworts oder Verschlüsselungsschlüssels senden noch dein Passwort oder deinen Verschlüsselungsschlüssel zurücksetzen"
+  - aussage: "Passwort bzw. Schlüssel notieren"
+    quelle: https://faq.whatsapp.com/481135090640375/?locale=de_DE&cms_platform=android
+    zitat: "Vergewissere dich, dass du dein Passwort oder deinen Verschlüsselungsschlüssel notiert hast"
+  # ---------------------------------------------------------------- Wiederherstellen
+  - aussage: "Neues Gerät / altes defekt: Chats mit Backup wiederherstellen"
+    quelle: https://faq.whatsapp.com/618575946635920/?locale=de_DE&cms_platform=android
+    zitat: "Wenn dein altes Telefon defekt oder verloren gegangen ist, kannst du deine Chats auf einem neuen Gerät mithilfe deines Backups wiederherstellen."
+  - aussage: "WhatsApp installieren, beim Einrichten „Wiederherstellen“ antippen (Android)"
+    quelle: https://faq.whatsapp.com/618575946635920/?locale=de_DE&cms_platform=android
+    zitat: "Tippe auf Wiederherstellen, wenn du dazu aufgefordert wirst."
+  - aussage: "Dieselbe Telefonnummer"
+    quelle: https://faq.whatsapp.com/618575946635920/?locale=de_DE&cms_platform=android
+    zitat: "Die zum Wiederherstellen des Backups verwendete Telefonnummer muss die gleiche sein, die auch beim Erstellen des Backups verwendet wurde."
+  - aussage: "iPhone: dieselbe Telefonnummer und dasselbe iCloud-Konto"
+    quelle: https://faq.whatsapp.com/481135090640375/?locale=de_DE&cms_platform=iphone
+    zitat: "Du benutzt dieselbe Telefonnummer und dasselbe iCloud-Konto, mit denen das Backup erstellt wurde."
+  - aussage: "iPhone: Telefonnummer und Apple-ID verifizieren, „Chatverlauf wiederherstellen“"
+    quelle: https://faq.whatsapp.com/618575946635920/?locale=de_DE&cms_platform=iphone
+    zitat: "Verifiziere deine Telefonnummer und deine Apple-ID."
+  - aussage: "iPhone: „Chatverlauf wiederherstellen“ antippen"
+    quelle: https://faq.whatsapp.com/618575946635920/?locale=de_DE&cms_platform=iphone
+    zitat: "Tippe auf Chatverlauf wiederherstellen."
+  - aussage: "Erst Nachrichten; App geöffnet lassen, bis Chats angezeigt werden"
+    quelle: https://faq.whatsapp.com/618575946635920/?locale=de_DE&cms_platform=iphone
+    zitat: "Zunächst stellt WhatsApp deine Nachrichten wieder her. Lasse WhatsApp geöffnet, bis deine Chats angezeigt werden."
+  - aussage: "Danach Fotos und Videos im Hintergrund"
+    quelle: https://faq.whatsapp.com/618575946635920/?locale=de_DE&cms_platform=iphone
+    zitat: "Danach stellt WhatsApp deine Bilder, Videos und sonstigen Medien im Hintergrund wieder her."
+  - aussage: "Kann eine Weile dauern"
+    quelle: https://faq.whatsapp.com/618575946635920/?locale=de_DE&cms_platform=iphone
+    zitat: "Die Wiederherstellung kann eine Weile dauern."
+  - aussage: "Dabei WLAN und Strom"
+    quelle: https://faq.whatsapp.com/618575946635920/?locale=de_DE&cms_platform=iphone
+    zitat: "sollte dein iPhone mit einem WLAN verbunden und an eine Stromquelle angeschlossen sein."
+  - aussage: "Nicht auf „Überspringen“ tippen, wenn man alte Chats behalten will"
+    quelle: https://faq.whatsapp.com/618575946635920/?locale=de_DE&cms_platform=android
+    zitat: "Tippe nicht auf Überspringen, wenn du deine alten Chats behalten willst."
+  - aussage: "Nach Überspringen wird das alte Backup beim nächsten Backup ersetzt, alter Verlauf nicht wiederherstellbar"
+    quelle: https://faq.whatsapp.com/618575946635920/?locale=de_DE&cms_platform=android
+    zitat: "Beim nächsten Backup wird das frühere Backup ausschließlich durch die Chats ersetzt, die du nach dem Überspringen erhalten hast. Dein alter Chatverlauf kann nicht wiederhergestellt werden."
+  # ---------------------------------------------------------------- Wenn es nicht klappt
+  - aussage: "Backup iPhone ↔ Android nicht wiederherstellbar"
+    quelle: https://faq.whatsapp.com/618575946635920/?locale=de_DE&cms_platform=iphone
+    zitat: "Es ist derzeit nicht möglich, auf Android erstellte Backups auf deinem iPhone oder auf deinem iPhone erstellte Backups auf Android wiederherzustellen."
+  - aussage: "Für den Wechsel gibt es eine eigene Übertragung"
+    quelle: https://faq.whatsapp.com/618575946635920/?locale=de_DE&cms_platform=android
+    zitat: "Chats von einem iPhone auf ein Android-Gerät übertragen"
+  - aussage: "Backup älter als 120 Tage evtl. nicht wiederherstellbar"
+    quelle: https://faq.whatsapp.com/618575946635920/?locale=de_DE&cms_platform=android
+    zitat: "Wenn dein letztes Backup älter als 120 Tage ist, ist es unter Umständen nicht möglich, dein Backup wiederherzustellen"
+  - aussage: "Videos nur, wenn beim Backup eingeschlossen"
+    quelle: https://faq.whatsapp.com/618575946635920/?locale=de_DE&cms_platform=android
+    zitat: "Videos werden nur wiederhergestellt, wenn du die Option Inklusive Videos aktiviert hast, bevor du dein letztes Backup erstellt hast."
+  - aussage: "Freier Speicher muss größer sein als das Backup, sonst teilweise"
+    quelle: https://faq.whatsapp.com/618575946635920/?locale=de_DE&cms_platform=android
+    zitat: "Der freie Speicherplatz deines Telefons muss größer sein als das Backup, das du wiederherstellen möchtest. Wenn dein Telefon nicht genügend freien Speicherplatz aufweist, kann es zu einem teilweisen Backup kommen."
+  - aussage: "Fehlende Chats: kein neues Backup erstellen"
+    quelle: https://faq.whatsapp.com/618575946635920/?locale=de_DE&cms_platform=android
+    zitat: "Wenn du versuchst, bereits fehlende Chats wiederherzustellen, solltest du kein neues Backup erstellen."
+  - aussage: "Neuer Speicher zeigt sich als „Cloud-Backup“ mit Auswahl WhatsApp"
+    quelle: https://faq.whatsapp.com/481135090640375/?locale=de_DE&cms_platform=iphone
+    zitat: "Wähle WhatsApp oder iCloud aus."
+  - aussage: "Menüpunkt „Cloud-Backup“"
+    quelle: https://faq.whatsapp.com/481135090640375/?locale=de_DE&cms_platform=android
+    zitat: "Tippe auf Chats > Chat-Backup. Tippe auf Cloud-Backup."
+  - aussage: "WhatsApp aktuell halten"
+    quelle: https://faq.whatsapp.com/481135090640375/?locale=de_DE&cms_platform=android
+    zitat: "empfehlen wir dir, WhatsApp auf deinem Gerät auf dem neuesten Stand zu halten"
+  - aussage: "„Chat exportieren“ ist kein Backup, kann nicht wieder importiert werden"
+    quelle: https://faq.whatsapp.com/1180414079177245/?locale=de_DE&cms_platform=iphone
+    zitat: "Dein Chatverlauf kann nicht wieder importiert werden, da es sich um eine Text- und keine Backup-Datei handelt."
+  - aussage: "WhatsApp kann Chats nicht für Sie wiederherstellen"
+    quelle: https://faq.whatsapp.com/618575946635920/?locale=de_DE&cms_platform=android
+    zitat: "Wir können deine Chats, Kontakte oder Mediendateien nicht für dich wiederherstellen, übertragen oder löschen."

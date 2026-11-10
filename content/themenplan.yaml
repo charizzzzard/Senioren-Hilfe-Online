@@ -332,7 +332,8 @@ themen:
     suchvolumen: 14800
     kd: 0
     prioritaet: 1
-    status: offen
+    status: veroeffentlicht
+    slug: whatsapp-backup
   - titel: Screenshot auf dem Android-Handy machen
     kategorie: smartphone
     keyword: screenshot android
