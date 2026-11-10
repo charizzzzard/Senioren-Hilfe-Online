@@ -118,6 +118,33 @@ fehler:
     ursache: "Versions- und Lageangabe ohne Beleg."
     behoben_in: "#16"
 
+  # ---- Nachprüfung des Altbestands vom 10.11.2026, Teil d (Lexikon: Deepfake, NFC; Wochenschau KW 44 ohne Befund).
+  # Weitere Einträge zu diesem Pull Request bitte hier anfügen, nicht am Dateiende: Die Teile a bis g liegen
+  # gleichzeitig offen und stehen deshalb an verschiedenen Stellen der Datei (check.py verlangt keine Reihenfolge).
+  - id: 2026-11-10-51
+    gefunden: 2026-11-10
+    text: lexikon/deepfake
+    art: unbelegt
+    live: true
+    entdeckt_durch: nachpruefung
+    vorher: "Der beste Schutz ist das Wissen, dass es solche Fälschungen gibt."
+    korrektur: "Ein wichtiger Schutz ist das Wissen … (Das BSI nennt Aufklärung „eine zentrale Maßnahme“, nicht die beste.)"
+    ursache: "Superlativ, den die Quelle nicht hergibt."
+    behoben_in: "#35"
+    altbestand: true
+
+  - id: 2026-11-10-52
+    gefunden: 2026-11-10
+    text: lexikon/nfc
+    art: unbelegt
+    live: true
+    entdeckt_durch: nachpruefung
+    vorher: "Beim Bezahlen wird laut BSI nicht Ihre Kartennummer übertragen, sondern ein verschlüsselter Code."
+    korrektur: "Beim Bezahlen wird laut BSI ein verschlüsselter Code übertragen. (Das BSI nennt ihn die verschlüsselte Version der Konto- und Bezahldaten.)"
+    ursache: "Aussage der Quelle um eine Verneinung erweitert, die dort so nicht steht."
+    behoben_in: "#35"
+    altbestand: true
+
   - id: 2026-11-05-09
     gefunden: 2026-11-05
     text: artikel/schrift-groesser-stellen

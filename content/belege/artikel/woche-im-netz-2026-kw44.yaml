@@ -1,0 +1,132 @@
+# Belegtabelle für content/artikel/woche-im-netz-2026-kw44.md (Format: docs/BETRIEB.md, Abschnitt „Belegtabelle“)
+# Die Ausgabe ist am Stand ihres Erscheinungstags (01.11.2026) gemessen und nicht umgeschrieben. Die Meldungen des
+# Phishing-Radars vom 27. bis 30. Oktober stehen heute im Archiv der Verbraucherzentrale.
+# Prüfen: python tools/belegcheck.py woche-im-netz-2026-kw44
+geprueft: 2026-11-10
+belege:
+  # ---------------------------------------------------------------- Rentenversicherung
+  - aussage: "Verbraucherzentrale, 29. Oktober: Mail im Namen der Deutschen Rentenversicherung, Daten im Online-Portal prüfen und aktualisieren"
+    quelle: https://www.verbraucherzentrale.de/phishingradar-archiv-71872
+    zitat: "29. Oktober 2026: Vermeintliche Datenaktualisierung im Namen der Deutschen Rentenversicherung"
+  - aussage: "Über einen Link; Betreff „Ihre Mailservice VerwaltungsCenter“"
+    quelle: https://www.verbraucherzentrale.de/phishingradar-archiv-71872
+    zitat: "Im Namen der Deutschen Rentenversicherung wird zur angeblichen Überprüfung und Aktualisierung persönlicher Daten im Online-Portal aufgefordert."
+  - aussage: "Begründung: angeblich neue EU-Vorschriften"
+    quelle: https://www.verbraucherzentrale.de/phishingradar-archiv-71872
+    zitat: "Begründet wird die Aufforderung mit angeblich neuen EU-Vorschriften zur Speicherung und Verarbeitung personenbezogener Daten."
+  - aussage: "Meldung der Rentenversicherung vom 16. Oktober: viele Versicherte bekommen gefälschte E-Mails"
+    quelle: https://www.deutsche-rentenversicherung.de/DRV/DE/Ueber-uns-und-Presse/Presse/Meldungen/2026/260213-vorsicht_phishing_mails.html
+    zitat: "Aktuell erhalten viele Versicherte gefälschte E-Mails, die angeblich von der Deutschen Rentenversicherung stammen."
+  - aussage: "Datum der Meldung"
+    quelle: https://www.deutsche-rentenversicherung.de/DRV/DE/Ueber-uns-und-Presse/Presse/Meldungen/2026/260213-vorsicht_phishing_mails.html
+    zitat: "Datum: 16.10.2026 Aktuell erhalten viele Versicherte gefälschte E-Mails"
+  - aussage: "Angebliches Sicherheitsupdate mit Bankverbindung; Renteninformation; Erstattung wegen Fehlbuchung"
+    quelle: https://www.deutsche-rentenversicherung.de/DRV/DE/Ueber-uns-und-Presse/Presse/Meldungen/2026/260213-vorsicht_phishing_mails.html
+    zitat: "So sollen beispielsweise unter dem Vorwand eines Sicherheitsupdates persönliche Daten, wie die Bankverbindung, eingegeben werden."
+  - aussage: "… jährliche Renteninformation"
+    quelle: https://www.deutsche-rentenversicherung.de/DRV/DE/Ueber-uns-und-Presse/Presse/Meldungen/2026/260213-vorsicht_phishing_mails.html
+    zitat: "Manchmal stellen die Betrüger den Versand wichtiger Dokumente, wie der jährlichen Renteninformation, in Aussicht."
+  - aussage: "… angebliche Fehlbuchung mit Erstattung"
+    quelle: https://www.deutsche-rentenversicherung.de/DRV/DE/Ueber-uns-und-Presse/Presse/Meldungen/2026/260213-vorsicht_phishing_mails.html
+    zitat: "In anderen Fällen werden Empfänger über eine angebliche Fehlbuchung informiert, die zu einer Beitragserstattung führe."
+  - aussage: "Logo und Design der Rentenversicherung, Sprachstil mit KI nachgeahmt"
+    quelle: https://www.deutsche-rentenversicherung.de/DRV/DE/Ueber-uns-und-Presse/Presse/Meldungen/2026/260213-vorsicht_phishing_mails.html
+    zitat: "So nutzen die Betrüger nicht nur Logo und Design der DRV, sondern imitieren mit Hilfe von KI auch den Sprachstil und gebrauchen ähnliche Formulierungen."
+  - aussage: "Persönliche Daten werden niemals per E-Mail angefordert"
+    quelle: https://www.deutsche-rentenversicherung.de/DRV/DE/Ueber-uns-und-Presse/Presse/Meldungen/2026/260213-vorsicht_phishing_mails.html
+    zitat: "Persönliche Daten werden niemals per Mail angefordert!"
+  - aussage: "Auf die Absenderadresse schauen, nicht nur auf den Namen"
+    quelle: https://www.deutsche-rentenversicherung.de/DRV/DE/Ueber-uns-und-Presse/Presse/Meldungen/2026/260213-vorsicht_phishing_mails.html
+    zitat: "Überprüfen Sie daher immer die Mail-Adresse des Absenders und nicht nur den Namen."
+  - aussage: "BSI: Betrüger verstecken sich gern hinter seriös klingenden Absendern"
+    quelle: https://www.bsi.bund.de/DE/Themen/Verbraucherinnen-und-Verbraucher/Cyber-Sicherheitslage/Methoden-der-Cyber-Kriminalitaet/Spam-Phishing-Co/Gefaelschte-Absenderadressen/gefaelschte-absenderadressen.html
+    zitat: "versteckt sich gern hinter seriös klingenden Absenderadressen"
+  - aussage: "Keinen Link antippen, Mail in den Spam-Ordner"
+    quelle: https://www.deutsche-rentenversicherung.de/DRV/DE/Ueber-uns-und-Presse/Presse/Meldungen/2026/260213-vorsicht_phishing_mails.html
+    zitat: "Sollte Ihnen eine E-Mail verdächtig vorkommen, verschieben Sie diese bitte sofort in den Spam-Ordner. Klicken Sie keine Links an"
+  - aussage: "Rentenkonto nur über die offiziellen Seiten der Rentenversicherung"
+    quelle: https://www.verbraucherzentrale.de/phishingradar-archiv-71872
+    zitat: "nutzen Sie ausschließlich die offiziellen Seiten der Deutschen Rentenversicherung"
+  - aussage: "Schon getippt: Gerät vom Internet trennen"
+    quelle: https://www.deutsche-rentenversicherung.de/DRV/DE/Ueber-uns-und-Presse/Presse/Meldungen/2026/260213-vorsicht_phishing_mails.html
+    zitat: "Trennen Sie das Gerät vom Internet, um das Senden von Daten zu verhindern."
+  - aussage: "Bankdaten eingegeben: Karte sperren oder Bank informieren"
+    quelle: https://www.deutsche-rentenversicherung.de/DRV/DE/Ueber-uns-und-Presse/Presse/Meldungen/2026/260213-vorsicht_phishing_mails.html
+    zitat: "Wenn Sie Ihre Bankdaten eingegeben haben, sperren Sie umgehend Ihre Karten oder informieren Sie Ihre Bank."
+  - aussage: "Passwörter von einem anderen Gerät aus ändern"
+    quelle: https://www.deutsche-rentenversicherung.de/DRV/DE/Ueber-uns-und-Presse/Presse/Meldungen/2026/260213-vorsicht_phishing_mails.html
+    zitat: "Falls Sie Zugangsdaten eingegeben haben, ändern Sie Ihre Passwörter von einem anderen Gerät aus."
+  - aussage: "Bildschirmfotos machen und Anzeige erstatten"
+    quelle: https://www.deutsche-rentenversicherung.de/DRV/DE/Ueber-uns-und-Presse/Presse/Meldungen/2026/260213-vorsicht_phishing_mails.html
+    zitat: "Machen Sie Screenshots der Phishing-Seite und erstatten Sie Anzeige bei der Polizei."
+  # ---------------------------------------------------------------- Drohung mit Sperrung
+  - aussage: "30. Oktober: Mail im Namen der Commerzbank"
+    quelle: https://www.verbraucherzentrale.de/phishingradar-archiv-71872
+    zitat: "30. Oktober 2026: Angebliche Sicherheitsaktualisierung bei der Commerzbank"
+  - aussage: "Betreff: Karte „vorsorglich GESPERRT“, Kontosperrung in 24 Stunden"
+    quelle: https://www.verbraucherzentrale.de/phishingradar-archiv-71872
+    zitat: "Ihre Karte wurde vorsorglich GESPERRT – Die Sperrung Ihres Kontos erfolgt automatisch in 24 Stunden"
+  - aussage: "Verweis auf eine EU-Richtlinie, um glaubwürdiger zu wirken"
+    quelle: https://www.verbraucherzentrale.de/phishingradar-archiv-71872
+    zitat: "Dazu verweist die Nachricht auf die europäische Zahlungsdiensterichtlinie PSD3"
+  - aussage: "… das soll die Glaubwürdigkeit erhöhen"
+    quelle: https://www.verbraucherzentrale.de/phishingradar-archiv-71872
+    zitat: "Bezugnahme auf gesetzliche Sicherheitsvorgaben zur Erhöhung der Glaubwürdigkeit"
+  - aussage: "28. Oktober: Mail im Namen von PayPal über eine angebliche Rückerstattung, per Link zu bestätigen"
+    quelle: https://www.verbraucherzentrale.de/phishingradar-archiv-71872
+    zitat: "Die Kundschaft wird dazu aufgefordert, den Erhalt der Rückzahlung über einen Link zu bestätigen."
+  - aussage: "Ein Betrag wird nicht genannt"
+    quelle: https://www.verbraucherzentrale.de/phishingradar-archiv-71872
+    zitat: "Auffällig ist, dass weder ein konkreter Rückerstattungsbetrag noch Angaben zu der angeblich zugrunde liegenden Transaktion genannt werden."
+  - aussage: "27. Oktober: Mail im Namen von WEB.DE, „Ihr WEB Zugang wird in Kürze gesperrt“"
+    quelle: https://www.verbraucherzentrale.de/phishingradar-archiv-71872
+    zitat: "27. Oktober 2026: Vermeintliche Kontobestätigung im Namen von WEB.DE"
+  - aussage: "Kurze Frist und Drohung als Warnzeichen (Handlungsdruck)"
+    quelle: https://www.verbraucherzentrale.de/phishingradar-archiv-71872
+    zitat: "kurze Fristsetzung und Erzeugung von Handlungsdruck durch angedrohte Karten- und Kontosperrung"
+  - aussage: "Verbraucherzentrale: unbeantwortet in den Spam-Ordner verschieben"
+    quelle: https://www.verbraucherzentrale.de/phishingradar-archiv-71872
+    zitat: "Wir empfehlen Ihnen, solche E-Mails immer unbeantwortet in den Spam-Ordner zu verschieben und keinerlei Aufforderungen nachzugehen."
+  - aussage: "Nur in der offiziellen App oder auf der bekannten Internetseite prüfen"
+    quelle: https://www.verbraucherzentrale.de/phishingradar-archiv-71872
+    zitat: "prüfen Sie entsprechende Hinweise ausschließlich über die offizielle Banking-App oder die bekannte Internetseite der Bank"
+  - aussage: "Verdächtige Mails an phishing@verbraucherzentrale.nrw weiterleiten"
+    quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/phishingradar/phishingradar-aktuelle-warnungen-6059
+    zitat: "Verdächtige E-Mails, die Sie selbst erhalten haben, können Sie an die E-Mail-Adresse phishing@verbraucherzentrale.nrw weiterleiten."
+  - aussage: "Die Verbraucherzentrale wertet aus, beantwortet aber nicht einzeln"
+    quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/phishingradar/phishingradar-aktuelle-warnungen-6059
+    zitat: "Bitte beachten Sie, dass wir aufgrund der zahlreichen Eingänge Ihre E-Mails nicht beantworten können."
+  # ---------------------------------------------------------------- iPhone-Update
+  - aussage: "iOS 27.2 am 26. Oktober veröffentlicht, für iPhone 11 und neuer"
+    quelle: https://support.apple.com/de-de/149230
+    zitat: "Veröffentlicht am 26. Oktober 2026"
+  - aussage: "… iPhone 11 und neuer"
+    quelle: https://support.apple.com/de-de/149230
+    zitat: "Verfügbar für: iPhone 11 und neuer"
+  - aussage: "iOS 26.7.2 und iOS 18.7.11 stehen in Apples Liste der Sicherheitsupdates"
+    quelle: https://support.apple.com/de-de/100100
+    zitat: "iOS 26.7.2 und iPadOS 26.7.2"
+  - aussage: "iOS 18.7.11 für iPhone XS, iPhone XS Max und iPhone XR"
+    quelle: https://support.apple.com/de-de/149225
+    zitat: "Verfügbar für: iPhone XS, iPhone XS Max, iPhone XR"
+  - aussage: "iOS 18.7.11 am 26. Oktober veröffentlicht"
+    quelle: https://support.apple.com/de-de/149225
+    zitat: "Veröffentlicht am 26. Oktober 2026"
+  - aussage: "Eine Lücke möglicherweise ausgenutzt: „äußerst ausgefeilter Angriff auf bestimmte Zielpersonen“"
+    quelle: https://support.apple.com/de-de/149225
+    zitat: "dass dieses Problem durch einen äußerst ausgefeilten Angriff auf bestimmte Zielpersonen in iOS-Versionen vor iOS 27 ausgenutzt worden sein könnte"
+  - aussage: "Vorher Backup machen"
+    quelle: https://support.apple.com/de-de/118575
+    zitat: "Erstelle ein Backup deines Geräts mit iCloud oder deinem Computer."
+  - aussage: "Ans Ladekabel hängen und mit dem WLAN verbinden"
+    quelle: https://support.apple.com/de-de/118575
+    zitat: "Schließe dein Gerät an die Stromversorgung an, und stelle über WLAN eine Verbindung mit dem Internet her."
+  - aussage: "Einstellungen › Allgemein › Softwareupdate"
+    quelle: https://support.apple.com/de-de/118575
+    zitat: "Tippe auf „Softwareupdate“. Die aktuell installierte Version von iOS wird angezeigt und ob ein Update verfügbar ist."
+  - aussage: "„Laden und installieren“, dann den Hinweisen folgen"
+    quelle: https://support.apple.com/de-de/118575
+    zitat: "Wenn ein Update verfügbar ist, tippe auf „Laden und installieren“, und folge den Anweisungen auf dem Bildschirm."
+  - aussage: "„Automatische Updates“: iPhone lädt und installiert Updates von selbst"
+    quelle: https://support.apple.com/de-de/118575
+    zitat: "Automatische Installation: Wenn ein Update verfügbar ist, lädt und installiert das iPhone das Update über Nacht"
