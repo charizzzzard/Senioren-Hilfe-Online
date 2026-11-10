@@ -5,11 +5,11 @@ beschreibung: "Enkeltrick oder Schockanruf: Ein Anrufer erzählt von einem Notfa
 keyword: "enkeltrick"
 kategorie: sicherheit
 veroeffentlicht: 2026-10-30
-aktualisiert: 2026-11-05
-geprueft: 2026-10-30
+aktualisiert: 2026-11-10
+geprueft: 2026-11-10
 kurz_gesagt: |
   Wenn am Telefon jemand Druck macht und es um Geld oder Wertsachen geht: **Legen Sie auf.** Das ist nicht unhöflich, sondern klug.
-  Rufen Sie dann die Person oder Behörde **unter einer Nummer an, die Sie selbst kennen** oder selbst heraussuchen. Die echte Polizei verlangt **niemals** Geld und holt **niemals** Wertsachen ab. Kommt Ihnen ein Anruf verdächtig vor, rufen Sie die **110**.
+  Rufen Sie dann die Person oder Behörde **unter einer Nummer an, die Sie selbst kennen** oder selbst heraussuchen. Die echte Polizei bittet **niemals** um Geld und verwahrt **niemals** Wertsachen. Kommt Ihnen ein Anruf verdächtig vor, rufen Sie die **110**.
 checkliste_titel: "Checkliste: Verdächtiger Anruf"
 checkliste:
   - Ich lege auf, wenn jemand Druck macht oder nach Geld fragt.
@@ -30,9 +30,9 @@ quellen:
   - herausgeber: Polizeiliche Kriminalprävention der Länder und des Bundes
     titel: Betrug durch falsche Polizisten
     url: https://www.polizei-beratung.de/themen-und-tipps/betrug/betrug-durch-falsche-polizisten/
-  - herausgeber: Sperr-Notruf 116 116 e.V.
-    titel: "Pressemeldung: Der Sperr-Notruf 116 116 ruft niemals an (26.11.2024)"
-    url: https://www.sperr-notruf.de/media/pages/presse/aacf5d49d9-1749557608/04_sperr-notruf_116_116_ruft_niemals_an.pdf
+  - herausgeber: Bundesnetzagentur
+    titel: Manipulation von Rufnummern (Polizeiliche Notrufnummer 110)
+    url: https://www.bundesnetzagentur.de/DE/Vportal/TK/Aerger/Faelle/Manipulation/start.html
   - herausgeber: Bundesamt für Sicherheit in der Informationstechnik (BSI)
     titel: Deepfakes – Gefahren und Gegenmaßnahmen
     url: https://www.bsi.bund.de/DE/Themen/Unternehmen-und-Organisationen/Informationen-und-Empfehlungen/Kuenstliche-Intelligenz/Deepfakes/deepfakes_node.html
@@ -43,11 +43,11 @@ verwandt:
 
 Das Telefon klingelt. Eine aufgeregte Stimme sagt, Ihr Sohn habe einen schweren Unfall verursacht und brauche sofort Geld für eine Kaution. Oder ein freundlicher „Polizeibeamter“ warnt, Ihr Erspartes sei zu Hause nicht mehr sicher. Solche Anrufe – bekannt als Enkeltrick oder Schockanruf – sollen Sie überrumpeln. Mit ein paar einfachen Regeln lassen Sie sich davon nicht einfangen.
 
-## Die drei häufigsten Maschen
+## Drei Maschen am Telefon
 
 Alle drei Maschen funktionieren ähnlich: Die Anrufer erfinden eine Notlage, machen Druck und wollen am Ende Geld oder Wertsachen.
 
-**Der Schockanruf:** Jemand gibt sich als Angehöriger, Polizist oder Rechtsanwalt aus. Angeblich hat ein Verwandter einen schweren Unfall verursacht. Nur mit einer „Kaution“ in bar oder in Wertsachen könne er das Gefängnis vermeiden. Manchmal heißt es auch, nach einem Unfall werde Geld für eine lebenswichtige Operation gebraucht.
+**Der Schockanruf:** Jemand gibt sich als Angehöriger oder guter Bekannter aus – oder als Polizist oder andere Amtsperson. Angeblich hat ein Verwandter einen schweren Unfall verursacht. Nur mit einer „Kaution“ in bar oder in Wertsachen könne er das Gefängnis vermeiden. Manchmal heißt es auch, nach einem Unfall werde Geld für eine lebenswichtige Operation gebraucht.
 
 **Der Enkeltrick:** Ein Anrufer tut so, als sei er Ihr Enkel oder ein anderer Verwandter. Er nennt seinen Namen oft nicht, sondern fragt: „Rate mal, wer hier spricht?“ Dann bittet er kurzfristig um Bargeld – angeblich für einen Notfall, einen Unfall oder einen dringenden Kauf.
 
@@ -70,14 +70,13 @@ Manchmal verlangen die Anrufer, dass Sie in der Leitung bleiben – laut Polizei
 5. **Eine vertraute Person einbeziehen.** Geht es um Geld oder Wertsachen, besprechen Sie das immer erst mit Familie oder Freunden.
 
 !!! wichtig "Die Nummer im Display beweist nichts"
-    Betrüger können die angezeigte Nummer fälschen. Das nennt man [„Call-ID-Spoofing“](/lexikon/spoofing/). Im Display kann dann eine Nummer aus Ihrer Gegend erscheinen – sogar die 110. Doch die echte Polizei ruft **niemals** von der 110 an.
+    Betrüger können die angezeigte Nummer fälschen. Das nennt man [„Call-ID-Spoofing“](/lexikon/spoofing/). Im Display kann dann eine Nummer aus Ihrer Gegend erscheinen. Steht dort die 110, ist die Anzeige in jedem Fall gefälscht: Die Polizei ruft **nie** von der 110 an.
 
 ## Was die echte Polizei niemals tut
 
 - Sie bittet Sie **niemals** am Telefon um Geld.
 - Sie fragt **niemals** nach Bargeld oder Schmuck.
 - Sie **verwahrt niemals** Geld oder Wertsachen für Bürgerinnen und Bürger.
-- Sie schickt **niemals** jemanden vorbei, um Ihr Erspartes abzuholen.
 
 Übergeben Sie deshalb niemals Geld oder Wertsachen an Unbekannte – auch nicht an jemanden, der sich als Polizist ausgibt.
 
@@ -91,7 +90,8 @@ Manchmal verlangen die Anrufer, dass Sie in der Leitung bleiben – laut Polizei
 
 - Wenn Ihnen ein Anruf verdächtig vorkommt.
 - Wenn sich jemand angekündigt hat, um Geld oder Wertsachen abzuholen.
-- Wenn Sie bereits Geld oder Wertsachen übergeben haben. Erstatten Sie dann auf jeden Fall Anzeige. Unser [Notfallplan nach einem Betrug](/artikel/betrug-was-tun/) zeigt die nächsten Schritte.
+
+Haben Sie bereits Geld oder Wertsachen übergeben? Wenden Sie sich auf jeden Fall an die Polizei und erstatten Sie Anzeige. Unser [Notfallplan nach einem Betrug](/artikel/betrug-was-tun/) zeigt die nächsten Schritte.
 
 ## So beugen Sie vor
 
