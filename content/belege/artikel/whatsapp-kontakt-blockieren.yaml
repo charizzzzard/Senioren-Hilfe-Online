@@ -1,0 +1,100 @@
+# Belegtabelle für content/artikel/whatsapp-kontakt-blockieren.md (Format: docs/BETRIEB.md, Abschnitt „Belegtabelle“)
+# Jede Aussage mit einem wörtlichen Zitat aus einer selbst gelesenen Quelle. Prüfen: python tools/belegcheck.py whatsapp-kontakt-blockieren
+geprueft: 2026-11-10
+belege:
+  # ---------------------------------------------------------------- Was Blockieren bewirkt
+  - aussage: "Blockierte können keine Nachrichten mehr schicken und nicht mehr anrufen"
+    quelle: https://faq.whatsapp.com/1142481766359885/?locale=de_DE&cms_platform=android
+    zitat: "Blockierte Kontakte oder Telefonnummern können dich nicht mehr anrufen oder dir Nachrichten senden."
+  - aussage: "Keine Statusmeldungen mehr von der Person"
+    quelle: https://faq.whatsapp.com/1142481766359885/?locale=de_DE&cms_platform=android
+    zitat: "Du kannst den Empfang von Nachrichten, Anrufen und Statusmeldungen von Personen verhindern, indem du diese blockierst."
+  - aussage: "Zusätzlich melden möglich"
+    quelle: https://faq.whatsapp.com/1142481766359885/?locale=de_DE&cms_platform=android
+    zitat: "Du kannst sie auch melden, wenn du glaubst, dass sie problematische Inhalte oder Spam senden."
+  - aussage: "Der bisherige Chat bleibt in der Liste; man kann ihn löschen"
+    quelle: https://faq.whatsapp.com/1142481766359885/?locale=de_DE&cms_platform=android
+    zitat: "Wenn du eine Person blockierst, verbleibt der bestehende Chat in deiner Chatliste."
+  - aussage: "Die Person bleibt im Adressbuch"
+    quelle: https://faq.whatsapp.com/1142481766359885/?locale=de_DE&cms_platform=android
+    zitat: "Das Blockieren eines Kontakts entfernt ihn nicht aus deiner Kontaktliste."
+  - aussage: "Blockierte sehen „zuletzt online“, Status und Änderungen am Profilbild nicht mehr"
+    quelle: https://faq.whatsapp.com/1142481766359885/?locale=de_DE&cms_platform=android
+    zitat: "deine Statusmeldungen und Änderungen an deinem Profilbild sind für von dir blockierte Absender*innen nicht sichtbar"
+  - aussage: "Nach dem Aufheben wird nichts nachgeliefert"
+    quelle: https://faq.whatsapp.com/1142481766359885/?locale=de_DE&cms_platform=android
+    zitat: "erhältst du keine Nachrichten, Anrufe oder Statusmeldungen, die er dir gesendet hat, während du ihn blockiert hattest"
+  - aussage: "Gruppen lassen sich nicht blockieren; Gruppe verlassen und Admin blockieren"
+    quelle: https://faq.whatsapp.com/1142481766359885/?locale=de_DE&cms_platform=android
+    zitat: "Du kannst keine Gruppen blockieren. Du hast aber die Möglichkeit, eine Gruppe zu verlassen und den*die Gruppenadmin zu blockieren."
+  - aussage: "Bei Betrug zuerst Bildschirmfotos"
+    quelle: https://faq.whatsapp.com/1142481766359885/?locale=de_DE&cms_platform=android
+    zitat: "Es empfiehlt sich, Screenshots zu erstellen oder eine Kopie deines Chatverlaufs zu sichern."
+  - aussage: "Polizei: blockieren, der Polizei melden, danach Chat löschen"
+    quelle: https://www.polizei-beratung.de/themen-und-tipps/betrug/messenger/
+    zitat: "Löschen Sie anschließend den Chat/die Nummer der Betrüger."
+  - aussage: "Polizei: Vorfall melden"
+    quelle: https://www.polizei-beratung.de/themen-und-tipps/betrug/messenger/
+    zitat: "Melden Sie den Vorfall der Polizei. Nur so erhält die Polizei Hinweise auf Fallzahlen und Schadenssummen"
+  # ---------------------------------------------------------------- Android
+  - aussage: "Chat öffnen"
+    quelle: https://faq.whatsapp.com/1142481766359885/?locale=de_DE&cms_platform=android
+    zitat: "Öffne den Chat mit dem Kontakt in der Chatliste."
+  - aussage: "Drei Punkte › „Mehr“ › „Blockieren“ › „Blockieren“"
+    quelle: https://faq.whatsapp.com/1142481766359885/?locale=de_DE&cms_platform=android
+    zitat: "Tippe auf Weitere Optionen (drei vertikale Punkte) > Mehr > Blockieren > Blockieren."
+  - aussage: "Häkchen „An WhatsApp melden“ entfernen, wenn man nicht melden möchte"
+    quelle: https://faq.whatsapp.com/1142481766359885/?locale=de_DE&cms_platform=android
+    zitat: "Entferne das Häkchen aus dem Kästchen neben An WhatsApp melden, wenn du die Person, die du blockierst, nicht melden möchtest."
+  - aussage: "Bei unbekannten Nummern Kästchen aktivieren, wenn man melden möchte"
+    quelle: https://faq.whatsapp.com/1142481766359885/?locale=de_DE&cms_platform=android
+    zitat: "Aktiviere das Kästchen neben An WhatsApp melden, wenn du den*die unbekannte*n Absender*in melden möchtest."
+  - aussage: "Aufheben: Einstellungen › Datenschutz › Kontakte › Blockierte Konten"
+    quelle: https://faq.whatsapp.com/1142481766359885/?locale=de_DE&cms_platform=android
+    zitat: "Tippe auf Datenschutz > Kontakte > Blockierte Konten."
+  - aussage: "Namen antippen, dann „… freigeben“"
+    quelle: https://faq.whatsapp.com/1142481766359885/?locale=de_DE&cms_platform=android
+    zitat: "Tippe auf {Kontakt} freigeben oder {Telefonnummer} freigeben."
+  # ---------------------------------------------------------------- iPhone
+  - aussage: "Chat antippen, auf den Namen tippen, „… blockieren“ › „Blockieren“"
+    quelle: https://faq.whatsapp.com/1142481766359885/?locale=de_DE&cms_platform=iphone
+    zitat: "Tippe auf den Namen des Kontakts und dann auf {Kontaktname} blockieren > Blockieren."
+  - aussage: "„Blockieren und melden“ schickt die letzten fünf Nachrichten an WhatsApp"
+    quelle: https://faq.whatsapp.com/1142481766359885/?locale=de_DE&cms_platform=iphone
+    zitat: "Du kannst auch auf Blockieren und melden tippen, um die letzten fünf Nachrichten im Chat mit WhatsApp zu teilen."
+  - aussage: "In der Chatliste nach links wischen"
+    quelle: https://faq.whatsapp.com/1142481766359885/?locale=de_DE&cms_platform=iphone
+    zitat: "Wische auf dem Chat nach links."
+  - aussage: "„Mehr“, dann zweimal „… blockieren“"
+    quelle: https://faq.whatsapp.com/1142481766359885/?locale=de_DE&cms_platform=iphone
+    zitat: "{Name des Kontakts} blockieren > {Name des Kontakts} blockieren."
+  - aussage: "Aufheben in der Kontaktinfo: „… freigeben“"
+    quelle: https://faq.whatsapp.com/1142481766359885/?locale=de_DE&cms_platform=iphone
+    zitat: "Tippe auf den Namen des*der Absender*in bzw. die unbekannte Telefonnummer und anschließend auf {Name des Kontakts} freigeben"
+  - aussage: "Liste: Einstellungen oder Profilbild › Datenschutz › Kontakte › Blockiert"
+    quelle: https://faq.whatsapp.com/1142481766359885/?locale=de_DE&cms_platform=iphone
+    zitat: "Tippe auf Einstellungen oder dein Profilbild und dann auf Datenschutz > Kontakte > Blockiert."
+  - aussage: "iPhone: Der Einstieg heißt in der WhatsApp-Hilfe auch „Du“"
+    quelle: https://faq.whatsapp.com/1920866721452534/?locale=de_DE&cms_platform=iphone
+    zitat: "Tippe auf Du > Konto > Verifizierung in zwei Schritten."
+  - aussage: "iPhone: Der Einstieg in WhatsApp heißt „Du“"
+    geraetetest: "iPhone, iOS 18.7.8, 10.11.2026 (Betreiber)"
+  # ---------------------------------------------------------------- Unbekannte Nummern, Gruppen, Melden
+  - aussage: "Erste Nachricht einer unbekannten Nummer: WhatsApp zeigt gemeinsame Gruppen und das Land der Nummer"
+    quelle: https://faq.whatsapp.com/2286952358121083/?locale=de_DE
+    zitat: "Mithilfe dieser Details kannst du feststellen, ob ihr gemeinsame Gruppen habt und in welchem Land die Telefonnummer der Person registriert ist."
+  - aussage: "Dann entscheiden: antworten oder blockieren bzw. melden"
+    quelle: https://faq.whatsapp.com/2286952358121083/?locale=de_DE
+    zitat: "Mit diesem Wissen kannst du entscheiden, ob du antwortest, die Person als Kontakt hinzufügst oder sie blockierst bzw. meldest."
+  - aussage: "Angeblich jemand aus der Familie mit neuer Nummer: vorher unter der alten Nummer anrufen"
+    quelle: https://www.polizei-beratung.de/themen-und-tipps/betrug/messenger/
+    zitat: "Fragen Sie bei der Ihnen bekannten Person unter der alten Nummer nach, ob die Nachricht wirklich von ihr kommt."
+  - aussage: "In gemeinsamen Gruppen sieht die blockierte Person Ihre Nachrichten weiter – und Sie ihre"
+    quelle: https://faq.whatsapp.com/1142481766359885/?locale=de_DE&cms_platform=android
+    zitat: "Wenn du einen Kontakt blockierst, kann dieser deine Nachrichten in einer gemeinsamen Gruppe weiterhin sehen. Du siehst auch weiterhin seine Nachrichten in dieser Gruppe."
+  - aussage: "Melden: WhatsApp erhält bis zu fünf der letzten Nachrichten"
+    quelle: https://faq.whatsapp.com/1142481766359885/?locale=de_DE&cms_platform=android
+    zitat: "Wenn du jemanden meldest, erhält WhatsApp bis zu fünf der letzten Nachrichten, die dir gesendet wurden."
+  - aussage: "Die gemeldete Person wird nicht informiert"
+    quelle: https://faq.whatsapp.com/1142481766359885/?locale=de_DE&cms_platform=android
+    zitat: "Die Person bzw. die Gruppe wird darüber nicht informiert."

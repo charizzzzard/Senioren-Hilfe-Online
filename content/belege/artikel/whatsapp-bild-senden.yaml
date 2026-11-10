@@ -1,0 +1,124 @@
+# Belegtabelle für content/artikel/whatsapp-bild-senden.md (Format: docs/BETRIEB.md, Abschnitt „Belegtabelle“)
+# Jede Aussage mit einem wörtlichen Zitat aus einer selbst gelesenen Quelle. Prüfen: python tools/belegcheck.py whatsapp-bild-senden
+geprueft: 2026-11-10
+belege:
+  # ---------------------------------------------------------------- Vorbereitung
+  - aussage: "WhatsApp braucht die Erlaubnis, auf die Fotos zuzugreifen"
+    quelle: https://faq.whatsapp.com/453914586839706/?locale=de_DE&cms_platform=iphone
+    zitat: "musst du der App in den Einstellungen deines iPhones unter Datenschutz erlauben, auf die Kontakte, Fotos, Kamera und Ortungsdienste deines Telefons zuzugreifen"
+  # ---------------------------------------------------------------- iPhone
+  - aussage: "Chat öffnen"
+    quelle: https://faq.whatsapp.com/453914586839706/?locale=de_DE&cms_platform=iphone
+    zitat: "Öffne einen Einzel- oder Gruppenchat."
+  - aussage: "Pluszeichen heißt „Anhängen“"
+    quelle: https://faq.whatsapp.com/453914586839706/?locale=de_DE&cms_platform=iphone
+    zitat: "Um andere Mediendateien anzuhängen, tippe auf Anhängen (Pluszeichen)."
+  - aussage: "„Fotos“ zeigt die vorhandenen Bilder"
+    quelle: https://faq.whatsapp.com/453914586839706/?locale=de_DE&cms_platform=iphone
+    zitat: "Tippe auf Fotos, um ein vorhandenes Bild oder Video von deinem iPhone auszuwählen."
+  - aussage: "„Senden“ ist das Papierflugzeug im grünen Kreis"
+    quelle: https://faq.whatsapp.com/453914586839706/?locale=de_DE&cms_platform=iphone
+    zitat: "Tippe auf Senden (Papierflugzeug in einem grünen Kreis) oder auf Senden, wenn du dazu aufgefordert wirst."
+  - aussage: "Weiteres Bild: im Textfeld auf das Pluszeichen, auswählen, „Weiter“"
+    quelle: https://faq.whatsapp.com/453914586839706/?locale=de_DE&cms_platform=iphone
+    zitat: "Um weitere Bilder oder Videos hinzuzufügen, tippe im Textfeld auf Element hinzufügen (Pluszeichen). Tippe, um weitere Bilder oder Videos auszuwählen, und tippe dann auf Weiter."
+  - aussage: "Neues Foto über das Kamera-Symbol"
+    quelle: https://faq.whatsapp.com/453914586839706/?locale=de_DE&cms_platform=iphone
+    zitat: "Um ein Foto oder Video aufzunehmen, tippe auf Kamera."
+  # ---------------------------------------------------------------- Android
+  - aussage: "Büroklammer heißt „Anhängen“"
+    quelle: https://faq.whatsapp.com/453914586839706/?locale=de_DE&cms_platform=android
+    zitat: "Um andere Mediendateien anzuhängen, tippe auf Anhängen (Büroklammer)."
+  - aussage: "„Galerie“ zeigt die Bilder; Finger länger halten für mehrere"
+    quelle: https://faq.whatsapp.com/453914586839706/?locale=de_DE&cms_platform=android
+    zitat: "Galerie, um ein Foto oder Video von deinem Telefon auszuwählen. Tippe und halte, um bis zu 100 Bilder auszuwählen."
+  - aussage: "„Senden“ ist der Pfeil nach rechts im Kreis"
+    quelle: https://faq.whatsapp.com/453914586839706/?locale=de_DE&cms_platform=android
+    zitat: "bevor du auf Senden (Pfeil nach rechts in einem Kreis) tippst"
+  - aussage: "Neues Foto über das Kamera-Symbol"
+    quelle: https://faq.whatsapp.com/453914586839706/?locale=de_DE&cms_platform=android
+    zitat: "Um ein Foto oder Video aufzunehmen, tippe auf Kamera."
+  # ---------------------------------------------------------------- Qualität und Weiterleiten
+  - aussage: "WhatsApp verkleinert Fotos beim Verschicken meist"
+    quelle: https://faq.whatsapp.com/453914586839706/?locale=de_DE&cms_platform=iphone
+    zitat: "da Mediendateien beim Teilen meist komprimiert werden"
+  - aussage: "Symbol „HD“: „Standardqualität“ oder „HD-Qualität“"
+    quelle: https://faq.whatsapp.com/453914586839706/?locale=de_DE&cms_platform=iphone
+    zitat: "> Standardqualität oder HD-Qualität, bevor du auf Senden"
+  - aussage: "Viele Bilder auf einmal können Probleme machen"
+    quelle: https://faq.whatsapp.com/453914586839706/?locale=de_DE&cms_platform=iphone
+    zitat: "Beim gleichzeitigen Senden einer größeren Anzahl von Bildern können Probleme auftreten."
+  - aussage: "Lieber weniger Bilder auf einmal"
+    quelle: https://faq.whatsapp.com/453914586839706/?locale=de_DE&cms_platform=iphone
+    zitat: "Versuche in der Zwischenzeit, eine kleinere Anzahl von Bildern auf einmal zu senden."
+  - aussage: "Weiterleiten: Finger auf das Bild halten, „Weiterleiten“"
+    quelle: https://faq.whatsapp.com/453914586839706/?locale=de_DE&cms_platform=iphone
+    zitat: "Tippe und halte die Nachricht, die du weiterleiten möchtest, und tippe dann auf Weiterleiten."
+  - aussage: "Android: Weiterleiten ist ein Pfeil-Symbol"
+    quelle: https://faq.whatsapp.com/453914586839706/?locale=de_DE&cms_platform=android
+    zitat: "Tippe auf Weiterleiten (Pfeil nach rechts mit geschwungenem Pfeilende)."
+  - aussage: "Hinweis „Weitergeleitet“"
+    quelle: https://faq.whatsapp.com/453914586839706/?locale=de_DE&cms_platform=iphone
+    zitat: "werden mit dem Label Weitergeleitet gekennzeichnet"
+  # ---------------------------------------------------------------- Wenn es nicht klappt
+  - aussage: "iPhone: Einstellungen › Apps › WhatsApp › Fotos"
+    quelle: https://faq.whatsapp.com/1096027074615511/?locale=de_DE&cms_platform=iphone
+    zitat: "Öffne die Einstellungen deines iPhones > Apps > WhatsApp > Fotos."
+  - aussage: "iPhone: vollen Zugriff erlauben (Name der Option wechselt)"
+    quelle: https://faq.whatsapp.com/1096027074615511/?locale=de_DE&cms_platform=iphone
+    zitat: "Tippe auf Fotos und ändere die Einstellung zu Voller Zugriff."
+  - aussage: "iPhone: Ohne Erlaubnis sieht man nur einige oder keine Bilder"
+    quelle: https://faq.whatsapp.com/1096027074615511/?locale=de_DE&cms_platform=iphone
+    zitat: "Wenn du nur einige oder keine deiner Bilder in WhatsApp sehen kannst, musst du möglicherweise deine Berechtigungen aktualisieren."
+  - aussage: "Android: Einstellungen › Apps › WhatsApp › Berechtigungen"
+    quelle: https://faq.whatsapp.com/1096027074615511/?locale=de_DE&cms_platform=android
+    zitat: "Öffne die Einstellungen deines Telefons > Apps > WhatsApp > Berechtigungen."
+  - aussage: "Android: „Fotos und Videos“ › „Erlauben“"
+    quelle: https://faq.whatsapp.com/1096027074615511/?locale=de_DE&cms_platform=android
+    zitat: "Tippe auf Fotos und Videos und wähle Erlauben aus."
+  - aussage: "Android: Namen hängen von Version und Marke ab"
+    quelle: https://faq.whatsapp.com/1096027074615511/?locale=de_DE&cms_platform=android
+    zitat: "Die Namen der Berechtigungen, die du siehst, hängen von deiner Android-Version und deiner Handymarke ab."
+  - aussage: "Meist liegt es an einer schwachen Internetverbindung"
+    quelle: https://faq.whatsapp.com/1096027074615511/?locale=de_DE&cms_platform=iphone
+    zitat: "liegt dies meist an einer schwachen Internetverbindung"
+  - aussage: "Handy neu starten"
+    quelle: https://faq.whatsapp.com/1096027074615511/?locale=de_DE&cms_platform=iphone
+    zitat: "Führe einen Neustart deines Telefons durch oder schalte es aus und wieder ein."
+  - aussage: "WhatsApp aktualisieren"
+    quelle: https://faq.whatsapp.com/1096027074615511/?locale=de_DE&cms_platform=iphone
+    zitat: "Aktualisiere WhatsApp auf die neueste Version."
+  - aussage: "Zwischen WLAN und mobilen Daten wechseln"
+    quelle: https://faq.whatsapp.com/1096027074615511/?locale=de_DE&cms_platform=iphone
+    zitat: "Versuche, dich mit mobilen Daten zu verbinden, wenn du dich im WLAN befindest, und umgekehrt."
+  # ---------------------------------------------------------------- Falsches Foto
+  - aussage: "Für alle löschen: bis zu zwei Tage nach dem Senden"
+    quelle: https://faq.whatsapp.com/1370476507114859/?locale=de_DE&cms_platform=iphone
+    zitat: "Du kannst bis zu zwei Tage nach dem Senden deiner Nachricht die Option Für alle löschen anfordern."
+  - aussage: "iPhone: Finger halten, im Menü „Löschen“"
+    quelle: https://faq.whatsapp.com/1370476507114859/?locale=de_DE&cms_platform=iphone
+    zitat: "Tippe und halte die Nachricht und wähle im Menü Löschen aus."
+  - aussage: "iPhone: sonst zuerst „Mehr“ (drei Punkte)"
+    quelle: https://faq.whatsapp.com/1370476507114859/?locale=de_DE&cms_platform=iphone
+    zitat: "Wenn du dazu aufgefordert wirst, tippe auf Mehr (drei horizontale Punkte) und wähle im Menü Löschen aus."
+  - aussage: "iPhone: Papierkorb › „Für alle löschen“"
+    quelle: https://faq.whatsapp.com/1370476507114859/?locale=de_DE&cms_platform=iphone
+    zitat: "Tippe auf Nachricht löschen (Papierkorb) > Für alle löschen."
+  - aussage: "Android: Papierkorb › „Für alle löschen“"
+    quelle: https://faq.whatsapp.com/1370476507114859/?locale=de_DE&cms_platform=android
+    zitat: "Tippe auf Löschen (Papierkorb) > Für alle löschen."
+  - aussage: "Im Chat steht dann „Diese Nachricht wurde gelöscht.“"
+    quelle: https://faq.whatsapp.com/1370476507114859/?locale=de_DE&cms_platform=iphone
+    zitat: "„Diese Nachricht wurde gelöscht.“"
+  - aussage: "Die andere Person hat das Foto vielleicht schon gesehen"
+    quelle: https://faq.whatsapp.com/1370476507114859/?locale=de_DE&cms_platform=iphone
+    zitat: "Empfänger*innen können deine Nachricht möglicherweise sehen, bevor sie gelöscht wird oder wenn das Löschen nicht erfolgreich war."
+  - aussage: "Auf dem iPhone des Empfängers bleibt das Foto unter Umständen in den Fotos"
+    quelle: https://faq.whatsapp.com/1370476507114859/?locale=de_DE&cms_platform=iphone
+    zitat: "haben in ihren Fotos möglicherweise weiterhin Medien, die du gesendet hast, obwohl die Nachricht im WhatsApp-Chat gelöscht wurde"
+  - aussage: "WhatsApp meldet nicht, wenn das Löschen nicht geklappt hat"
+    quelle: https://faq.whatsapp.com/1370476507114859/?locale=de_DE&cms_platform=iphone
+    zitat: "Du wirst nicht darüber benachrichtigt, falls das Löschen für alle nicht funktioniert hat."
+  - aussage: "„Für mich löschen“: verschwindet nur bei Ihnen"
+    quelle: https://faq.whatsapp.com/1370476507114859/?locale=de_DE&cms_platform=iphone
+    zitat: "Dies hat keine Auswirkungen in den Chats der Empfänger deiner Nachrichten."

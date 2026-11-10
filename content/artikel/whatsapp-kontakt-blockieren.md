@@ -5,10 +5,10 @@ beschreibung: "Unerwünschte Nachrichten oder Betrugsversuche auf WhatsApp? So b
 keyword: "whatsapp blockieren"
 kategorie: whatsapp
 veroeffentlicht: 2026-10-30
-aktualisiert: 2026-11-05
-geprueft: 2026-10-30
+aktualisiert: 2026-11-10
+geprueft: 2026-11-10
 kurz_gesagt: |
-  Öffnen Sie den Chat mit der Person. **Android:** oben rechts auf die drei Punkte (⋮) › „Mehr“ › „Blockieren“. **iPhone:** oben auf den Namen tippen › „… blockieren“.
+  Öffnen Sie den Chat mit der Person. **Android:** auf die drei Punkte (⋮) › „Mehr“ › „Blockieren“. **iPhone:** auf den Namen tippen › „… blockieren“.
   Machen Sie **vorher ein Bildschirmfoto** vom Chat, wenn es um Betrug geht. Blockierte Personen können Ihnen keine Nachrichten mehr schicken und Sie nicht mehr anrufen.
 checkliste_titel: "Checkliste: Kontakt blockieren"
 checkliste:
@@ -25,6 +25,9 @@ quellen:
   - herausgeber: WhatsApp-Hilfebereich
     titel: Jemanden blockieren und melden (iPhone)
     url: https://faq.whatsapp.com/1142481766359885/?locale=de_DE&cms_platform=iphone
+  - herausgeber: WhatsApp-Hilfebereich
+    titel: Informationen zu verdächtigen Nachrichten und Betrug
+    url: https://faq.whatsapp.com/2286952358121083/?locale=de_DE
   - herausgeber: Polizeiliche Kriminalprävention der Länder und des Bundes
     titel: Messenger-Betrug
     url: https://www.polizei-beratung.de/themen-und-tipps/betrug/messenger/
@@ -62,26 +65,26 @@ Gruppen lassen sich nicht blockieren. Sie können aber eine Gruppe verlassen und
 ## Auf einem Android-Handy
 
 1. Öffnen Sie den **Chat** mit der Person.
-2. Tippen Sie oben rechts auf die **drei Punkte** (⋮).
+2. Tippen Sie auf die **drei Punkte** (⋮).
 3. Tippen Sie auf **„Mehr“** und dann auf **„Blockieren“**.
-4. Möchten Sie die Person auch melden, lassen Sie das Häkchen bei **„An WhatsApp melden“** gesetzt. Sonst entfernen Sie es.
+4. Möchten Sie die Person auch melden, achten Sie darauf, dass bei **„An WhatsApp melden“** ein Häkchen gesetzt ist. Sonst entfernen Sie es.
 5. Tippen Sie noch einmal auf **„Blockieren“**.
 
-**Blockierung aufheben:** Tippen Sie auf die drei Punkte (⋮) › „Einstellungen“ › „Datenschutz“ › „Kontakte“ › „Blockierte Kontakte“. Tippen Sie auf den Namen und dann auf **„… freigeben“**.
+**Blockierung aufheben:** Tippen Sie auf die drei Punkte (⋮) › „Einstellungen“ › „Datenschutz“ › „Kontakte“ › „Blockierte Konten“. Tippen Sie auf den Namen und dann auf **„… freigeben“**.
 
 ## Auf einem iPhone
 
 1. Öffnen Sie den **Chat** mit der Person.
-2. Tippen Sie oben auf den **Namen** der Person.
+2. Tippen Sie auf den **Namen** der Person.
 3. Tippen Sie auf **„[Name] blockieren“** und bestätigen Sie mit **„Blockieren“**.
 4. Möchten Sie die Person auch melden, wählen Sie stattdessen **„Blockieren und melden“**. Dann werden die letzten fünf Nachrichten aus dem Chat an WhatsApp geschickt.
 
-**Andere Möglichkeit:** Wischen Sie in der Chatliste auf dem Chat nach links. Tippen Sie auf „Mehr“ und dann auf „… blockieren“.
+**Andere Möglichkeit:** Wischen Sie in der Chatliste auf dem Chat nach links. Tippen Sie auf „Mehr“ und dann zweimal auf „… blockieren“.
 
-**Blockierung aufheben:** Öffnen Sie wieder die Kontaktinfo, indem Sie im Chat auf den Namen tippen. Tippen Sie auf **„… freigeben“**. Alle blockierten Kontakte finden Sie außerdem unter „Einstellungen“ (je nach Version „Du“ oder Ihr Profilbild) › „Datenschutz“ › „Kontakte“ › „Blockiert“.
+**Blockierung aufheben:** Öffnen Sie wieder die Kontaktinfo, indem Sie im Chat auf den Namen tippen. Tippen Sie auf **„… freigeben“**. Alle blockierten Kontakte finden Sie außerdem unter „Du“ (je nach Version „Einstellungen“ oder Ihr Profilbild) › „Datenschutz“ › „Kontakte“ › „Blockiert“.
 
 !!! hinweis "Menüs sehen bei Ihnen anders aus?"
-    WhatsApp ändert seine Menüs gelegentlich. Wenn Sie einen Punkt nicht finden, öffnen Sie den Chat und tippen Sie oben auf den Namen der Person. In der Kontaktinfo finden Sie die Funktion zum Blockieren.
+    WhatsApp ändert seine Menüs gelegentlich. Wenn Sie einen Punkt nicht finden, öffnen Sie den Chat und tippen Sie auf den Namen der Person. In der Kontaktinfo finden Sie die Funktion zum Blockieren.
 
 ## Nachrichten von unbekannten Nummern
 
