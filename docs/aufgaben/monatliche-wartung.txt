@@ -1,0 +1,17 @@
+Du betreibst autonom die Website https://netzleicht.de (GitHub-Repository charizzzzard/Senioren-Hilfe-Online). Rolle in dieser Session: AUTOR (monatliche Wartung). Alle Änderungen gehen als Pull Request in die unabhängige Faktenprüfung – du mergst NICHT.
+
+Vorbereitung: Falls das Repository nicht im Arbeitsverzeichnis liegt, füge es mit add_repo hinzu (owner charizzzzard, repo Senioren-Hilfe-Online, access push) und klone es. Dann `git checkout main && git pull`, `python -m pip install -r requirements.txt` und `npm ci`.
+Lies zuerst CLAUDE.md (insbesondere Abschnitte 2, 6, 7 „Wartungs-Session“ und 8) und docs/BETRIEB.md vollständig – docs/BETRIEB.md ist verbindlich.
+
+Push-Nachrichten (nur wenn unten verlangt): `NTFY_TOPIC=<NTFY_TOPIC> python tools/push.py --art … --titel "…" --text "…" --link "…"`. Fehlt tools/push.py, sende per curl ein JSON {"topic","title","message","click"} an https://ntfy.sh/. Das Thema ist geheim: niemals ins Repository, in Commits, PRs oder Issues schreiben.
+
+Aufgabe:
+1. `python tools/check.py`, `python tools/linkcheck.py` und `python tools/belegcheck.py` (alle Texte) ausführen. Befunde des Zitat-Abgleichs und defekte Links in einem `wartung`-Issue festhalten (bestehendes offenes `wartung`-Issue kommentieren statt ein neues anzulegen); die betroffenen Texte prüft die wöchentliche Nachprüfung zuerst.
+2. Offene Issues mit Label `wartung` oder `feedback` abarbeiten, soweit sie ohne neue Faktenrecherche lösbar sind (z. B. defekte Quelle durch gleichwertige offizielle Quelle ersetzen – Zitat in der Belegtabelle anpassen). Alles andere der Nachprüfung überlassen.
+3. Issue „Geräte-Prüfliste <Monat JJJJ>“ für den Betreiber anlegen (Label `geraetetest`): 3–5 konkrete Handgriffe je iPhone und Android, die sich aus Quellen nicht wörtlich belegen lassen oder deren `geraetetest`-Beleg älter als 6 Monate ist – jeweils mit Frage, was genau zu beobachten ist (Lage, Beschriftung, Rückfrage, Ergebnis), Link zum Text.
+4. Fehlerkatalog auswerten (falls docs/fehlerkatalog.yaml existiert): Einträge des Vormonats per Skript nach art, live und entdeckt_durch zählen; häufigste Ursachen nennen. Im PR in zwei, drei Sätzen festhalten, was Prüfauftrag oder Autor-Regeln daraus lernen sollten. Hat die Faktenprüfung im Vormonat keinen einzigen Befund gehabt, die Stichprobe aber schon: das ausdrücklich als Hinweis für den Betreiber nennen.
+5. Search Console über die OpenSEO-Werkzeuge (Projekt „Senioren-Hilfe Online (netzleicht.de)“) und das Archiv (`python tools/kennzahlen.py auswerten`, falls vorhanden): nur bei mindestens 500 Impressionen einer Seite in 28 Tagen Titel/Beschreibung verbessern, wenn die Klickrate auffällig niedrig ist; Wochen mit Google-Updates (kennzahlen/ereignisse.csv) nicht bewerten. Suchanfragen ohne passenden Text in den Themenplan aufnehmen. Ergebnisse knapp im PR beschreiben. Kurzen Eintrag im OpenSEO-Recherche-Log anlegen.
+6. Änderungen auf Branch `claude/wartung-<JJJJ-MM>`, Pull Request mit Labels `pruefung-ausstehend` und Risikoklasse (docs/BETRIEB.md Abschnitt 3). NICHT mergen, nie direkt auf main pushen. Ohne GitHub-Werkzeuge: nichts pushen, Push-Nachricht `--art problem`.
+7. Push-Nachricht `--art info` mit 2–4 Zeilen nur, wenn es Befunde gibt (fehlende Zitate, defekte Links, Geräte-Prüfliste angelegt, auffällige Fehler-Häufung – mit Link zum Issue oder PR). Sonst keine Nachricht.
+
+Zum Schluss: Fasse auf Deutsch in 3–5 Sätzen zusammen, was geprüft und vorbereitet wurde und ob etwas die Entscheidung des Betreibers braucht.

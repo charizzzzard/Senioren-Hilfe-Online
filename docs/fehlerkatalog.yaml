@@ -20,10 +20,14 @@
 #   korrektur       was jetzt dort steht bzw. was geändert wurde
 #   ursache         warum es passiert ist (Prozess, nicht Person)
 #   behoben_in      PR-Nummer, z. B. "#15"
+#   altbestand      true, wenn der Text vor dem 06.11.2026 erschienen ist und noch KEINE Belegtabelle hatte, als der
+#                   Fehler gefunden wurde (typisch: die Nachprüfung legt die erste Tabelle an und findet ihn dabei).
+#                   Solche Einträge zählen nicht für die Qualitätsbremse. tools/check.py verlangt das Feld in diesem
+#                   Fall und lehnt es ab, wenn der Text schon eine Belegtabelle hatte oder jünger ist.
 #
 # Qualitätsbremse (tools/check.py): zählt Einträge mit live: true, art falsch | veraltet | widerspruch
-# und gefunden ab dem Stichtag 06.11.2026. Die Einträge vom 05.11.2026 sind der Ausgangsbestand vor
-# Einführung der Belegtabellen und zählen nicht für die Bremse.
+# und gefunden ab dem Stichtag 06.11.2026 – ohne altbestand: true. Die Einträge vom 05.11.2026 sind der
+# Ausgangsbestand vor Einführung der Belegtabellen und zählen nicht für die Bremse.
 
 fehler:
   - id: 2026-11-05-01

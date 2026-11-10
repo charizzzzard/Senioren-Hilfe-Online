@@ -1,6 +1,7 @@
 # Strategie: Wachstum und Monetarisierung
 
-Stand: 30. Oktober 2026. Zahlen in diesem Dokument sind **Annahmen und Zielwerte**, keine Messwerte.
+Stand: 30. Oktober 2026; Abschnitt „Stand und Entscheidungen vom 10. November 2026“ ergänzt.
+Zahlen in diesem Dokument sind **Annahmen und Zielwerte**, keine Messwerte.
 
 ## Positionierung
 
@@ -23,7 +24,7 @@ Mehrgenerationenhäusern und Seniorentreffs (Checklisten als Handout → natürl
 
 ## Kennzahlen
 
-Erst messbar, wenn die Google Search Console verbunden ist (Aufgabe des Betreibers, siehe unten).
+Die Google Search Console ist verbunden (Daten seit 31.10.2026). Die Wochenwerte stehen im Archiv `kennzahlen/`.
 
 | Kennzahl | Quelle | Ziel nach 6 Monaten (Annahme) | Ziel nach 12 Monaten (Annahme) |
 | --- | --- | --- | --- |
@@ -66,3 +67,42 @@ mit den Netzleicht-Checklisten als Material.
 3. **Postfach `kontakt@netzleicht.de`** regelmäßig lesen; Fehlermeldungen von Lesern als GitHub-Issue mit Label `feedback` anlegen.
 4. **Rechtstexte:** Impressum und Datenschutzerklärung wurden vom Betreiber bereitgestellt bzw. übernommen; eine Prüfung durch eine
    fachkundige Stelle ist vor einer Monetarisierung sinnvoll.
+
+Stand dieser vier Punkte: siehe nächster Abschnitt.
+
+## Stand und Entscheidungen vom 10. November 2026
+
+Auskünfte und Entscheidungen des Betreibers aus der Betriebsprüfung vom 10.11.2026. Was hier steht, gilt, bis er es ändert.
+
+**Schwerpunkt bis Ende Januar 2027: Vertrauen und Qualität.** Zuerst bekommen alle Texte ihre Belegtabelle, dazu
+Gerätetests und Stichproben. Neue Texte erscheinen im normalen Takt (Regel 9), ohne Zusatzpakete.
+
+| Thema | Stand |
+| --- | --- |
+| Zeit des Betreibers | 1–2 Stunden pro Woche (Klasse-C-Texte lesen, Stichprobe, Gerätetests, Postfach) |
+| Geräte für Tests | ein iPhone mit älterem iOS; kein Android-Gerät, kein iPhone mit iOS 26 oder 27 (`docs/BETRIEB.md` Abschnitt 6) |
+| Push-Nachrichten | kommen an, die Menge passt |
+| Search Console | verbunden (über OpenSEO abrufbar, geprüft am 10.11.2026) |
+| Bing Webmaster Tools | angemeldet (Auskunft des Betreibers) |
+| Postfach `kontakt@netzleicht.de` | wird mindestens wöchentlich gelesen (Auskunft des Betreibers) |
+| Rechtstexte | noch nicht fachkundig geprüft – offen |
+
+**Reihenfolge der Themen:** Die Saison „Neues Handy“ hat Vorrang (Priorität 0 im Themenplan): WhatsApp-Backup,
+WhatsApp auf ein neues Handy übertragen, neues iPhone einrichten, neues Android-Handy einrichten, Phishing-E-Mails
+erkennen, Smartphone für Eltern einrichten. Danach geht es nach Priorität und Suchvolumen weiter.
+Die Themen aus `docs/SEO-ANALYSE-2026-11.md` (Anhang A) stehen seit dem 10.11.2026 im Themenplan.
+
+**Qualitätsbremse:** Fehler in Texten von vor dem 06.11.2026, die bei der ersten Nachprüfung auffallen, zählen als
+Ausgangsbestand (`docs/BETRIEB.md` Abschnitt 9). Die Nachprüfung läuft bis dahin zweimal pro Woche.
+
+**Bekanntheit:** Seniorenbüros, Volkshochschulen und Bibliotheken schreibt der Betreiber selbst an – aber erst ab
+etwa 25 Texten. Dann bereitet Claude eine Adressliste aus öffentlichen Quellen und einen Mustertext als Issue vor.
+Claude schreibt niemanden an.
+
+**Vorhaben, die der Betreiber grundsätzlich angehen will** – umgesetzt wird jeweils erst nach seiner Antwort im Issue:
+
+| Vorhaben | Issue |
+| --- | --- |
+| Seite für Kursleitungen, Checklisten frei weitergeben | [#26](https://github.com/charizzzzard/Senioren-Hilfe-Online/issues/26) |
+| Newsletter oder WhatsApp-Kanal für „Die Woche im Netz“ | [#27](https://github.com/charizzzzard/Senioren-Hilfe-Online/issues/27) |
+| Kaufberatung ohne Partnerlinks (Seniorenhandy, Tablet) | [#28](https://github.com/charizzzzard/Senioren-Hilfe-Online/issues/28) |
