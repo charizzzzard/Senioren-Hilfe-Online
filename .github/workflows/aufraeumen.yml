@@ -1,0 +1,37 @@
+name: GitHub aufräumen
+
+# Löscht Branches, deren Pull Request seit mindestens 3 Tagen gemergt oder geschlossen ist
+# und die danach keine neuen Commits bekommen haben. Branches ohne Pull Request werden nur gemeldet.
+# Regeln: tools/aufraeumen.py. Ergebnis: Zusammenfassung des Laufs (Actions › GitHub aufräumen).
+
+on:
+  schedule:
+    - cron: "41 5 * * 1" # montags 05:41 UTC, nach der wöchentlichen Wartung
+  workflow_dispatch:
+    inputs:
+      probelauf:
+        description: "Nur anzeigen, nichts löschen"
+        type: boolean
+        default: true
+
+jobs:
+  aufraeumen:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: read
+    steps:
+      - uses: actions/checkout@v6
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+
+      - name: Branches erledigter Pull Requests löschen
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          PROBELAUF: ${{ github.event_name == 'workflow_dispatch' && inputs.probelauf }}
+        run: |
+          if [ "$PROBELAUF" = "true" ]; then extra="--probelauf"; else extra=""; fi
+          python tools/aufraeumen.py --bericht bericht.md $extra
+          cat bericht.md >> "$GITHUB_STEP_SUMMARY"
