@@ -63,10 +63,12 @@ tools/favicons.mjs         Erzeugt favicon.ico/-192.png/apple-touch-icon.png aus
 docs/BETRIEB.md            Betriebsmodell: Rollen, Risikoklassen, Prüfung, Freigabe, Push, Zeitplan – verbindlich
 docs/fehlerkatalog.yaml    Jeder gefundene Fehler mit Ursache; Grundlage der Qualitätsbremse (check.py)
 docs/stoerungen/           Störungsberichte (schuldfrei, mit Maßnahme)
+docs/aufgaben/             Wortlaut der geplanten Aufgaben (Sicherung; das Push-Thema steht dort nie)
 kennzahlen/                Öffentliches Archiv der Search-Console-Zahlen je Kalenderwoche (Google löscht nach 16 Monaten)
 docs/STRATEGIE.md          Wachstum, Monetarisierung, Kennzahlen
 docs/ZIELGRUPPE.md         Belegtes Leserprofil und Folgerungen
 docs/WETTBEWERB.md         Google-Konkurrenzanalyse der Top-Themen (Stand, Lücken, Chancen)
+docs/SEO-ANALYSE-2026-11.md  Suchdaten, Saison und Maßnahmenplan vom 01.11.2026 (Grundlage für Ergänzungen im Themenplan)
 .github/workflows/         deploy.yml (Build → Check → PDFs → Pages → Live-Test → IndexNow), wartung.yml (wöchentlich)
 ```
 
@@ -337,7 +339,8 @@ Qualitätsbremse (nur noch Korrekturen, `docs/BETRIEB.md` Abschnitt 9).
    Ist das Kontingent erreicht, keinen neuen Text schreiben,
    sondern einen bestehenden verbessern (Wartungs-Session, Schritte 2–3) und das im PR begründen.
    Sonst nächstes Thema: höchste Priorität mit `status: offen` aus `content/themenplan.yaml`
-   (bei Gleichstand: höheres Suchvolumen). Vorher prüfen, dass es noch keinen Text dazu gibt.
+   (bei Gleichstand: höheres Suchvolumen). Priorität 0 kommt vor Priorität 1 – das ist ein Vorrang, den der
+   Betreiber festgelegt hat (z. B. eine Saison). Vorher prüfen, dass es noch keinen Text dazu gibt.
    Pro Session ein Haupttext (Anleitung oder Aktuell) und – wenn Quellenlage und Zeit es erlauben – zusätzlich
    ein Lexikon-Eintrag aus dem Themenplan.
 5. Recherche nach Abschnitt 6, Text nach Abschnitt 5 schreiben. Menüwege als `klickpfad`, wo hilfreich `bildschirm`/`tasten`.

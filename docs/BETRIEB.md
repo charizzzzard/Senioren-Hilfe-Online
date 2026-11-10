@@ -139,7 +139,11 @@ ist das ein Hinweis, den Prüfauftrag zu schärfen.
 
 ## 6. Nachprüfung (wöchentlich)
 
-Jeden Mittwoch bis zu drei Texte, in dieser Reihenfolge:
+Jeden Mittwoch bis zu drei Texte – und zusätzlich jeden Montag, solange noch Texte ohne Belegtabelle live sind
+(Entscheidung des Betreibers vom 10.11.2026; die Aufgabe stellt den Montag selbst ab, sobald `tools/check.py` keine
+„älteren Texte ohne Belegtabelle“ mehr meldet). Beide Läufe starten abends nach der Freigabe: So ist der Pull Request
+des vorigen Laufs im Regelfall schon gemergt, und zwei Nachprüfungen hängen nicht gleichzeitig Einträge an den
+Fehlerkatalog an. Reihenfolge:
 1. Texte mit Befund aus `tools/belegcheck.py` oder einem offenen `wartung`-/`feedback`-Issue,
 2. Texte ohne Belegtabelle,
 3. Texte mit dem ältesten `geprueft`.
@@ -147,6 +151,8 @@ Jeden Mittwoch bis zu drei Texte, in dieser Reihenfolge:
 Für jeden Text: alle Quellen neu lesen (versionsgenau), jede belegpflichtige Aussage prüfen, Belegtabelle anlegen oder ergänzen,
 Fehler beheben, `geprueft` setzen (nur wenn wirklich alles geprüft ist), `aktualisiert` nur bei inhaltlicher Änderung.
 Jeden behobenen Fehler in `docs/fehlerkatalog.yaml` eintragen (`live: true`, `entdeckt_durch: nachpruefung` bzw. `belegcheck`).
+Hatte der Text bisher keine Belegtabelle und ist er vor dem 06.11.2026 erschienen, bekommt der Eintrag `altbestand: true`
+(Abschnitt 9, Qualitätsbremse).
 Dann Pull Request wie in Abschnitt 4 – auch die Nachprüfung wird unabhängig geprüft.
 
 Zusätzlich aus Anlass: neue iOS-, Android- oder WhatsApp-Version mit geänderten Menüs (meist aus der Wochenschau bekannt) →
@@ -155,6 +161,9 @@ betroffene Texte vorziehen.
 **Gerätetests:** Einmal im Monat legt die Wartung ein Issue „Geräte-Prüfliste“ an: drei bis fünf konkrete Handgriffe,
 die sich aus Quellen nicht belegen lassen, je für iPhone und Android. Die Antworten des Betreibers werden als `geraetetest`
 in die Belegtabelle und ins Feld `getestet` übernommen.
+Zum Testen steht derzeit nur ein iPhone mit älterem iOS bereit (Auskunft des Betreibers vom 10.11.2026). Die Prüfliste
+fragt deshalb nur Handgriffe ab, die sich dort prüfen lassen. Angaben zu Android und zum aktuellen iOS beruhen allein
+auf den Quellen; `getestet` nennt immer Gerät und Version und gilt nur dafür.
 
 ## 7. Push-Nachrichten (ntfy)
 
@@ -203,12 +212,15 @@ nie doppelt gemeldet):
 
 ## 8. Zeitplan der geplanten Aufgaben
 
+Der Wortlaut jedes Auftrags ist unter `docs/aufgaben/` gesichert (ohne das Push-Thema). Wer einen Auftrag in
+claude.ai ändert, ändert im selben Zug die Datei dort – sonst weiß niemand, was eine Aufgabe gerade tut.
+
 | Wann (Europe/Berlin) | Aufgabe | Rolle | Modell |
 | --- | --- | --- | --- |
 | Di + Fr 10:37 | Netzleicht: neuer Artikel | Autor | Opus |
 | Fr 07:43 | Netzleicht: Die Woche im Netz | Autor | Opus |
 | Di + Fr 13:23 | Netzleicht: Faktenprüfung | Prüfer | Opus |
-| Mi 10:19 | Netzleicht: Nachprüfung | Autor | Opus |
+| Mi 20:07, vorübergehend auch Mo 20:07 | Netzleicht: Nachprüfung (Mo nur, bis alle Texte eine Belegtabelle haben) | Autor | Opus |
 | täglich 19:12 | Netzleicht: Freigabe | Freigabe | Sonnet |
 | Mo 08:13 | Netzleicht: Wochenbericht (Zahlen per Skript, Gegenprobe vor dem Senden, Kennzahlen-PR, am 1. Montag im Monat Stichprobe) | Bericht | Opus |
 | 3. des Monats 13:32 | Netzleicht: monatliche Wartung | Autor | Opus |
@@ -251,6 +263,12 @@ Texten gefunden, erscheinen keine neuen Texte – auch keine Wochenschau –, bi
 Korrekturen, Nachprüfungen und Wartung. `tools/check.py` setzt das durch und nennt das Datum, ab dem es weitergeht.
 Zusätzlich ist ein Störungsbericht nötig. Grundlage: Fehlerbudget-Prinzip aus dem Google-SRE-Handbuch (Abschnitt 11).
 Die Einträge vom 05.11.2026 sind der Ausgangsbestand vor den Belegtabellen und zählen nicht.
+
+**Altbestand** (Entscheidung des Betreibers vom 10.11.2026): Dasselbe gilt für Fehler in Texten, die vor dem 06.11.2026
+erschienen sind und noch keine Belegtabelle hatten, als der Fehler gefunden wurde – typisch bei der ersten Nachprüfung.
+Sie werden korrigiert und im Fehlerkatalog geführt (`altbestand: true`), lösen die Bremse aber nicht aus: Sie misst den
+Prozess mit Belegtabellen, nicht die Texte davor. Hat ein Text seine Belegtabelle, zählt jeder spätere Fehler.
+`tools/check.py` prüft beides. Die Auslöser für Störungsberichte (unten) bleiben davon unberührt.
 
 **Bremse und Kontingent halten neue Texte auf – nie den Deploy.** `tools/check.py` bricht wegen der Qualitätsbremse,
 des Kontingents (Regel 9) oder einer zweiten Wochenschau nur ab, wenn ein Text beteiligt ist, den es auf `main` noch

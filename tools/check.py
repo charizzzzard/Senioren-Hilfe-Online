@@ -124,21 +124,30 @@ def heute_in_deutschland() -> dt.date:
         return dt.date.today()
 
 
-def texte_auf_vergleichsstand() -> tuple[set[str] | None, str]:
-    """Texte (artikel/<slug>, lexikon/<slug>), die es auf dem Vergleichsstand schon gibt – None, wenn er fehlt.
+def vergleichsstand() -> str:
+    """Der Stand, gegen den „neu“ gemessen wird: NETZLEICHT_BASIS (setzt der Deploy-Workflow), sonst origin/main."""
+    return os.environ.get("NETZLEICHT_BASIS", "").strip() or "origin/main"
+
+
+def git_ausgabe(*argumente: str) -> str | None:
+    try:
+        return subprocess.run(["git", *argumente], cwd=ROOT, check=True, capture_output=True, text=True).stdout
+    except (OSError, subprocess.CalledProcessError):
+        return None
+
+
+def texte_auf_vergleichsstand(ordner: str = "content") -> set[str] | None:
+    """Schlüssel (artikel/<slug>, lexikon/<slug>) der Dateien, die es unter `ordner` auf dem Vergleichsstand
+    schon gibt – None, wenn der Vergleichsstand fehlt.
 
     Kontingent (Regel 9) und Qualitätsbremse regeln, ob ein NEUER Text dazukommen darf. Ein Text, der schon
     veröffentlicht ist, darf den Build nicht nachträglich abbrechen: Sonst ist `main` rot, und auch Korrekturen
     gehen nicht mehr live. Neu ist ein Text, den es auf dem Vergleichsstand nicht gibt.
-    Vergleichsstand: Umgebungsvariable NETZLEICHT_BASIS (setzt der Deploy-Workflow), sonst origin/main.
     """
-    basis = os.environ.get("NETZLEICHT_BASIS", "").strip() or "origin/main"
-    try:
-        aus = subprocess.run(["git", "ls-tree", "-r", "--name-only", basis, "--", "content/artikel", "content/lexikon"],
-                             cwd=ROOT, check=True, capture_output=True, text=True).stdout
-    except (OSError, subprocess.CalledProcessError):
-        return None, basis
-    return {f"{Path(z).parent.name}/{Path(z).stem}" for z in aus.splitlines() if z.endswith(".md")}, basis
+    aus = git_ausgabe("ls-tree", "-r", "--name-only", vergleichsstand(), "--", f"{ordner}/artikel", f"{ordner}/lexikon")
+    if aus is None:
+        return None
+    return {f"{Path(z).parent.name}/{Path(z).stem}" for z in aus.splitlines() if z.endswith((".md", ".yaml"))}
 
 
 def main() -> int:
@@ -274,9 +283,9 @@ def main() -> int:
     # ---------------------------------------------------- Kontingent (Regel 9) und Wochenschau
     # Diese Regeln und die Qualitätsbremse entscheiden über NEUE Texte. Sie brechen nur ab, wenn ein Text beteiligt
     # ist, den es auf dem Vergleichsstand (main) noch nicht gibt – siehe texte_auf_vergleichsstand().
-    vorhanden, basis = texte_auf_vergleichsstand()
+    vorhanden = texte_auf_vergleichsstand()
     if vorhanden is None:
-        print(f"INFO: Vergleichsstand {basis} nicht gefunden – Kontingent und Qualitätsbremse gelten für alle Texte.")
+        print(f"INFO: Vergleichsstand {vergleichsstand()} nicht gefunden – Kontingent und Qualitätsbremse gelten für alle Texte.")
 
     def ist_neu(a) -> bool:
         return vorhanden is None or f"{a.bereich}/{a.slug}" not in vorhanden
@@ -309,10 +318,17 @@ def main() -> int:
 
     # ---------------------------------------------------- Fehlerkatalog und Qualitätsbremse
     katalog_pfad = ROOT / "docs" / "fehlerkatalog.yaml"
-    bremse: list[dt.date] = []  # Fundtage sachlicher Fehler, die live waren (ab Stichtag)
+    bremse: list[dt.date] = []  # Fundtage sachlicher Fehler, die live waren (ab Stichtag, ohne Altbestand)
     if katalog_pfad.exists():
         katalog = yaml.safe_load(katalog_pfad.read_text(encoding="utf-8")) or {}
         ids: set[str] = set()
+        # Für die Prüfung von „altbestand“: Welche Einträge und Belegtabellen gab es auf dem Vergleichsstand schon?
+        tabellen_vorher = texte_auf_vergleichsstand("content/belege")
+        try:
+            katalog_vorher = yaml.safe_load(git_ausgabe("show", f"{vergleichsstand()}:docs/fehlerkatalog.yaml") or "") or {}
+            ids_vorher = {str(e.get("id")) for e in katalog_vorher.get("fehler") or []}
+        except (yaml.YAMLError, AttributeError):
+            ids_vorher = set()
         for e in katalog.get("fehler") or []:
             eid = str(e.get("id", "?"))
             if eid in ids:
@@ -335,7 +351,26 @@ def main() -> int:
                 fehler.append(f"fehlerkatalog.yaml: {eid} – gefunden liegt in der Zukunft")
             if e.get("text") not in texte:
                 hinweise.append(f"fehlerkatalog.yaml: {eid} – Text {e.get('text')} nicht gefunden (umbenannt?)")
-            if e.get("live") is True and e.get("art") in BREMSE_ARTEN and gefunden >= STICHTAG:
+            # Altbestand (Entscheidung des Betreibers vom 10.11.2026): Fehler in einem Text von vor dem Stichtag,
+            # gefunden, bevor er seine erste Belegtabelle hatte, zählen wie die Einträge vom 05.11. nicht für die
+            # Bremse. Sie misst den Prozess mit Belegtabellen – nicht die Texte, die davor entstanden sind.
+            altbestand = e.get("altbestand")
+            if altbestand not in (None, True, False):
+                fehler.append(f"fehlerkatalog.yaml: {eid} – altbestand muss true oder false sein")
+            betroffen = texte.get(e.get("text"))
+            alt_text = betroffen is not None and betroffen.veroeffentlicht < STICHTAG
+            bremsbar = e.get("live") is True and e.get("art") in BREMSE_ARTEN and gefunden >= STICHTAG
+            if altbestand is True and betroffen is not None and not alt_text:
+                fehler.append(f"fehlerkatalog.yaml: {eid} – altbestand gilt nur für Texte, die vor dem {STICHTAG} erschienen sind")
+            if tabellen_vorher is not None and eid not in ids_vorher and alt_text:  # neuer Eintrag zu einem alten Text
+                hatte_tabelle = e.get("text") in tabellen_vorher
+                if altbestand is True and hatte_tabelle:
+                    fehler.append(f"fehlerkatalog.yaml: {eid} – altbestand: true passt nicht, {e.get('text')} hatte schon "
+                                  "eine Belegtabelle. Der Fehler zählt für die Qualitätsbremse.")
+                elif altbestand is None and bremsbar and not hatte_tabelle:
+                    fehler.append(f"fehlerkatalog.yaml: {eid} – {e.get('text')} hatte bisher keine Belegtabelle: bitte "
+                                  "altbestand: true ergänzen (zählt dann nicht für die Qualitätsbremse, docs/BETRIEB.md Abschnitt 9).")
+            if bremsbar and altbestand is not True:
                 bremse.append(gefunden)
 
     def bremse_aktiv(tag: dt.date) -> int:
@@ -450,6 +485,10 @@ def main() -> int:
     # ---------------------------------------------------- Bericht
     print(f"Geprüft: {len(artikel)} Artikel, {len(lexikon)} Lexikon-Einträge, {len(html_dateien)} HTML-Seiten, "
           f"{len(daten['sitemap'])} Sitemap-Einträge")
+    if vorhanden is not None:
+        neue = sorted(f"{a.bereich}/{a.slug}" for a in artikel + lexikon if ist_neu(a))
+        print(f"Vergleichsstand {vergleichsstand()}: " + (f"neu sind {', '.join(neue)} – für sie gelten Kontingent und "
+              "Qualitätsbremse." if neue else "kein neuer Text."))
     if ohne_tabelle:
         print(f"INFO: {len(ohne_tabelle)} ältere Texte noch ohne Belegtabelle – die wöchentliche Nachprüfung ergänzt sie.")
     for h in hinweise:

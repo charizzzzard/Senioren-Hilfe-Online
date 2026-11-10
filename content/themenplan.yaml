@@ -1,7 +1,8 @@
 # Themenplan für netzleicht.de
 #
-# Claude arbeitet diese Liste ab: höchste Priorität (1 = zuerst) mit status "offen".
+# Claude arbeitet diese Liste ab: höchste Priorität mit status "offen" – 0 kommt vor 1, 1 vor 2 usw.
 # Bei gleicher Priorität: höheres Suchvolumen zuerst.
+# prioritaet: 0 = Vorrang, den der Betreiber ausdrücklich festgelegt hat (z. B. eine Saison). Nur er vergibt sie.
 # format: anleitung (Standard, content/artikel/) | lexikon (content/lexikon/, „Was ist …?“)
 #         Aktuelle Themen sind Anleitungen mit kategorie: aktuell (Rubrik „Aktuell erklärt“).
 # status: offen | in_arbeit | veroeffentlicht | zurueckgestellt
@@ -306,6 +307,150 @@ themen:
     status: offen
     notiz: Nur Fakten von EZB/Bundesbank, keine Finanzberatung.
 
+  # ---------------------------------------------------------------- Priorität 0: Vorrang (Auftrag des Betreibers vom 10.11.2026)
+  # Saison „Neues Handy“: Im Dezember wird doppelt so oft gesucht (docs/SEO-ANALYSE-2026-11.md, Abschnitt 4.2).
+  # Priorität 0 kommt vor Priorität 1. Es bleibt bei 2 Anleitungen pro Woche (Regel 9) – kein Paket.
+  # Zu dieser Gruppe gehören außerdem drei Themen weiter unten: WhatsApp-Backup, Phishing-E-Mails erkennen
+  # und „Smartphone für Eltern einrichten“ (dort ebenfalls prioritaet: 0).
+  - titel: WhatsApp auf ein neues Handy übertragen
+    kategorie: whatsapp
+    keyword: whatsapp auf neues handy übertragen
+    suchvolumen: 8100
+    kd: 0
+    prioritaet: 0
+    status: offen
+    notiz: "Saison: Dez. 2025 12.100. Abgrenzen von whatsapp backup (Sichern) – hier: Umzug. Verlinken."
+  - titel: Neues iPhone einrichten – Schritt für Schritt
+    kategorie: smartphone
+    keyword: neues iphone einrichten
+    suchvolumen: 6600
+    kd: 0
+    prioritaet: 0
+    status: offen
+    notiz: "Saison: Dez. 2025 12.100. Schnellstart vom alten iPhone, Apple-ID, Sollzustand je Schritt. Apple-Handbuch als Quelle."
+  - titel: Neues Android-Handy einrichten
+    kategorie: smartphone
+    keyword: neues handy einrichten
+    suchvolumen: 5400
+    kd: 0
+    prioritaet: 0
+    status: offen
+    notiz: "Saison: Dez. 2025 6.600. daten auf neues handy übertragen 2.900 (KD 13). Eigener Samsung-Abschnitt (Smart Switch) – nur mit Samsung-Hilfe als Quelle."
+
+  # ---------------------------------------------------------------- Ergänzung aus docs/SEO-ANALYSE-2026-11.md (Suchdaten: OpenSEO, Google DE, Abruf 01.11.2026)
+  - titel: Screenshot auf dem Samsung-Handy machen
+    kategorie: smartphone
+    keyword: screenshot samsung
+    suchvolumen: 27100
+    kd: 0
+    prioritaet: 1
+    status: offen
+    notiz: "Fast 3× so viele Suchen wie screenshot android (9.900). Tasten, Wischgeste, wo das Bild landet. Samsung-Hilfe als Quelle."
+  - titel: iPhone ausschalten und neu starten
+    kategorie: smartphone
+    keyword: iphone ausschalten
+    suchvolumen: 22200
+    kd: 0
+    prioritaet: 1
+    status: offen
+    notiz: "iphone neustart 12.100, iphone neu starten 3.600. tasten-Komponente je Modell (Face ID / Home-Taste)."
+  - titel: Handy verloren – so orten und sperren Sie es
+    kategorie: sicherheit
+    keyword: handy orten
+    suchvolumen: 22200
+    kd: 6
+    prioritaet: 1
+    status: offen
+    notiz: "iphone orten 6.600, handy verloren was tun 2.900, sim karte sperren 720. Wo ist? / Mein Gerät finden; SIM sperren beim Anbieter."
+  - titel: Rufnummer unterdrücken – iPhone und Android
+    kategorie: smartphone
+    keyword: rufnummer unterdrücken
+    suchvolumen: 14800
+    kd: 0
+    prioritaet: 1
+    status: offen
+    notiz: "nummer unterdrücken iphone 12.100, samsung nummer unterdrücken 5.400, nummer unterdrücken android 2.900. SERP: blau.de Platz 1."
+  - titel: WhatsApp-Kontakt löschen
+    kategorie: whatsapp
+    keyword: whatsapp kontakt löschen
+    suchvolumen: 14800
+    kd: 2
+    prioritaet: 1
+    status: offen
+    notiz: "Was passiert mit dem Chat? Unterschied zu Blockieren – auf /artikel/whatsapp-kontakt-blockieren/ verlinken. WhatsApp-FAQ als Quelle."
+  - titel: Mailbox abhören – bei allen großen Anbietern
+    kategorie: smartphone
+    keyword: mailbox abhören
+    suchvolumen: 12100
+    kd: 1
+    prioritaet: 1
+    status: offen
+    notiz: "mailbox einrichten 2.900. Kurzwahlen nur aus offiziellen Anbieter-Hilfeseiten (Telekom, Vodafone, o2 …)."
+  - titel: Mailbox ausschalten
+    kategorie: smartphone
+    keyword: mailbox ausschalten
+    suchvolumen: 12100
+    kd: 1
+    prioritaet: 2
+    status: offen
+    notiz: "Eigene Suchabsicht; Anbieter-Codes nur aus offiziellen Quellen. Mit „Mailbox abhören“ verlinken."
+  - titel: Startbildschirm und verschwundene Symbole auf dem Samsung-Handy
+    kategorie: smartphone
+    keyword: home bildschirm samsung
+    suchvolumen: 18100
+    kd: 0
+    prioritaet: 2
+    status: offen
+    notiz: "internet symbol samsung 9.900, app-icons samsung 6.600. Botschaft: Das Symbol lässt sich zurückholen (nur wenn Samsung-Hilfe es belegt)."
+  - titel: WhatsApp-Chat wiederherstellen
+    kategorie: whatsapp
+    keyword: whatsapp chat wiederherstellen
+    suchvolumen: 9900
+    kd: 1
+    prioritaet: 2
+    status: offen
+    notiz: "whatsapp gelöschte nachrichten lesen 2.900 – ehrlich sagen, was nicht geht. Setzt Backup voraus → verlinken."
+  - titel: Aktuelle Betrugsmaschen – ruhig erklärt
+    kategorie: sicherheit
+    keyword: neueste betrugsmasche
+    suchvolumen: 8100
+    kd: 11
+    prioritaet: 2
+    status: offen
+    notiz: "Gepflegte Übersicht (kein Nachrichtentext), aus Die Woche im Netz gespeist. Nachfrage schwankt stark (Dez. 2025 40.500, Sept. 2026 1.900). Keine Werbung."
+  - titel: Ping-Anrufe – kurz klingeln, nicht zurückrufen
+    kategorie: sicherheit
+    keyword: ping anruf
+    suchvolumen: 4400
+    kd: 5
+    prioritaet: 2
+    status: offen
+    notiz: "Bundesnetzagentur als Hauptquelle."
+  - titel: iPhone-Code vergessen – was jetzt?
+    kategorie: smartphone
+    keyword: iphone code vergessen
+    suchvolumen: 2900
+    kd: 0
+    prioritaet: 2
+    status: offen
+    notiz: "sim pin vergessen 1.600, puk vergessen 1.300 (eigener Text). Datenverlust-Risiko klar und ruhig erklären."
+  - titel: Gelöschte Fotos auf dem iPhone wiederherstellen
+    kategorie: smartphone
+    keyword: gelöschte fotos wiederherstellen iphone
+    suchvolumen: 3600
+    kd: 0
+    prioritaet: 2
+    status: offen
+    notiz: "Android: 1.300. Album „Zuletzt gelöscht“ – Frist nur laut Apple-Handbuch nennen."
+  - titel: Cookies löschen auf dem iPhone
+    kategorie: smartphone
+    keyword: cookies löschen iphone
+    suchvolumen: 5400
+    kd: 22
+    prioritaet: 3
+    status: offen
+    notiz: "cookies löschen android 4.400. Anschluss an Lexikon „Cookies“ (90.500)."
+
   # ---------------------------------------------------------------- Priorität 1: viel Nachfrage, geringe Schwierigkeit, passt genau zur Zielgruppe
   - titel: WhatsApp-Status – was ist das und wie funktioniert er?
     kategorie: whatsapp
@@ -331,7 +476,7 @@ themen:
     wettbewerb: "SERP 11/2026: Forum-Thread und Technikportale – gute Chance, iPhone/Android getrennt"
     suchvolumen: 14800
     kd: 0
-    prioritaet: 1
+    prioritaet: 0
     status: offen
   - titel: Screenshot auf dem Android-Handy machen
     kategorie: smartphone
@@ -515,14 +660,14 @@ themen:
     keyword: phishing mail erkennen
     suchvolumen: 880
     kd: 18
-    prioritaet: 1
+    prioritaet: 0
     status: offen
     notiz: "paypal phishing: 480. Quellen BSI, Verbraucherzentrale Phishing-Radar. Inhaltsprüfung 05.11.2026: von Priorität 2 auf 1 – der Echt-Check-Weg „E-Mail“ und die Wochenschau KW44 führen bisher nur auf Lexikon-Einträge, eine Anleitung fehlt."
   - titel: Smartphone für Eltern einrichten – Checkliste für Angehörige
     kategorie: angehoerige
     keyword: handy für senioren einrichten
     suchvolumen: 10
-    prioritaet: 1
+    prioritaet: 0
     status: offen
     notiz: "Geringe Suchnachfrage, aber wichtig für die Kategorie „Für Angehörige“ und als Verteiler auf viele Anleitungen. Inhaltsprüfung 05.11.2026: von Priorität 2 auf 1 – die Kategorie hat 0 Artikel und wird deshalb ausgeblendet. Wegen des geringen Suchvolumens steht das Thema innerhalb von Priorität 1 hinten; der Betreiber entscheidet, ob es vorgezogen wird."
 
