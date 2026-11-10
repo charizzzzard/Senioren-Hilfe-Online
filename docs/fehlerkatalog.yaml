@@ -140,6 +140,69 @@ fehler:
     ursache: "Zahl ohne Beleg in der verlinkten Quelle."
     behoben_in: "#17"
 
+  # ---- Nachprüfung des Altbestands vom 10.11.2026, Teil e (WhatsApp: blockieren, Bild senden, Sprachnachricht).
+  # Weitere Einträge zu diesem Pull Request bitte hier anfügen, nicht am Dateiende: Die Teile a bis g liegen
+  # gleichzeitig offen und stehen deshalb an verschiedenen Stellen der Datei (check.py verlangt keine Reihenfolge).
+  - id: 2026-11-10-61
+    gefunden: 2026-11-10
+    text: artikel/whatsapp-sprachnachricht
+    art: falsch
+    live: true
+    entdeckt_durch: nachpruefung
+    vorher: "Android: … Wählen Sie unter „Sprache auswählen“ Deutsch und tippen Sie auf „Jetzt einrichten“ oder „Auf WLAN warten“."
+    korrektur: "Android: WhatsApp nennt derzeit nur Englisch, Portugiesisch, Spanisch und Russisch – Deutsch fehlt noch. Für deutsche Nachrichten gehen Transkripte nur auf dem iPhone."
+    ursache: "iPhone-Angabe (Deutsch wird unterstützt) auf Android übertragen; die Sprachenliste der Android-Hilfe nicht gelesen."
+    behoben_in: "#36"
+    altbestand: true
+
+  - id: 2026-11-10-62
+    gefunden: 2026-11-10
+    text: artikel/whatsapp-kontakt-blockieren
+    art: falsch
+    live: true
+    entdeckt_durch: nachpruefung
+    vorher: "Android, Blockierung aufheben: … „Datenschutz“ › „Kontakte“ › „Blockierte Kontakte“."
+    korrektur: "… „Datenschutz“ › „Kontakte“ › „Blockierte Konten“ (so nennt es die WhatsApp-Hilfe für Android)."
+    ursache: "Zwei Varianten der Hilfe („Blockierte Kontakte“ und „Kontakte › Blockierte Konten“) zu einem Weg vermischt."
+    behoben_in: "#36"
+    altbestand: true
+
+  - id: 2026-11-10-63
+    gefunden: 2026-11-10
+    text: artikel/whatsapp-kontakt-blockieren
+    art: falsch
+    live: true
+    entdeckt_durch: nachpruefung
+    vorher: "Möchten Sie die Person auch melden, lassen Sie das Häkchen bei „An WhatsApp melden“ gesetzt."
+    korrektur: "… achten Sie darauf, dass bei „An WhatsApp melden“ ein Häkchen gesetzt ist. (Bei unbekannten Nummern muss man es laut Hilfe erst setzen.)"
+    ursache: "Fall „gespeicherter Kontakt“ verallgemeinert; die Quelle nennt für unbekannte Nummern das Gegenteil."
+    behoben_in: "#36"
+    altbestand: true
+
+  - id: 2026-11-10-64
+    gefunden: 2026-11-10
+    text: artikel/whatsapp-kontakt-blockieren
+    art: unbelegt
+    live: true
+    entdeckt_durch: nachpruefung
+    vorher: "Tippen Sie oben rechts auf die drei Punkte (⋮). / Tippen Sie oben auf den Namen der Person. (auch in „Kurz gesagt“ und im Hinweiskasten)"
+    korrektur: "Lageangaben „oben rechts“ und „oben“ gestrichen – die WhatsApp-Hilfe nennt sie nicht. Steht auf der nächsten Geräte-Prüfliste."
+    ursache: "Lage eines Symbols ohne Beleg beschrieben."
+    behoben_in: "#36"
+    altbestand: true
+
+  - id: 2026-11-10-65
+    gefunden: 2026-11-10
+    text: artikel/whatsapp-kontakt-blockieren
+    art: unbelegt
+    live: true
+    entdeckt_durch: nachpruefung
+    vorher: "Abschnitt „Nachrichten von unbekannten Nummern“ (gemeinsame Gruppen, Land der Nummer) ohne Quelle im Text."
+    korrektur: "WhatsApp-Seite „Informationen zu verdächtigen Nachrichten und Betrug“ als Quelle ergänzt; der Wortlaut stimmt."
+    ursache: "Aussage aus einer Seite übernommen, die nicht in der Quellenliste stand."
+    behoben_in: "#36"
+    altbestand: true
+
   - id: 2026-11-05-11
     gefunden: 2026-11-05
     text: artikel/schrift-groesser-stellen

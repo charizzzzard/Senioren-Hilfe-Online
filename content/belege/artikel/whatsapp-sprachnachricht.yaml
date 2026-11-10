@@ -1,0 +1,153 @@
+# Belegtabelle für content/artikel/whatsapp-sprachnachricht.md (Format: docs/BETRIEB.md, Abschnitt „Belegtabelle“)
+# Jede Aussage mit einem wörtlichen Zitat aus einer selbst gelesenen Quelle. Prüfen: python tools/belegcheck.py whatsapp-sprachnachricht
+geprueft: 2026-11-10
+belege:
+  # ---------------------------------------------------------------- Aufnehmen und senden
+  - aussage: "Chat öffnen"
+    quelle: https://faq.whatsapp.com/657157755756612/?locale=de_DE&cms_platform=iphone
+    zitat: "Öffne den Chat, in dem du eine Sprachnachricht senden möchtest."
+  - aussage: "Mikrofon neben dem Textfeld gedrückt halten und sprechen (iPhone)"
+    quelle: https://faq.whatsapp.com/657157755756612/?locale=de_DE&cms_platform=iphone
+    zitat: "neben dem Textfeld gedrückt und fange einfach an, zu sprechen"
+  - aussage: "… genauso auf Android"
+    quelle: https://faq.whatsapp.com/657157755756612/?locale=de_DE&cms_platform=android
+    zitat: "neben dem Textfeld gedrückt und fange einfach an, zu sprechen"
+  - aussage: "Einen Moment warten, sonst fehlt manchmal der Anfang"
+    quelle: https://faq.whatsapp.com/657157755756612/?locale=de_DE&cms_platform=iphone
+    zitat: "Wenn der Anfang deiner Nachricht nicht aufgenommen wird, musst du möglicherweise eine Sekunde warten, bis du anfangen kannst, zu sprechen."
+  - aussage: "Loslassen sendet die Nachricht"
+    quelle: https://faq.whatsapp.com/657157755756612/?locale=de_DE&cms_platform=iphone
+    zitat: "los, um deine Nachricht automatisch zu senden"
+  - aussage: "Abbrechen: nach links wischen, die Aufnahme wird gelöscht (iPhone)"
+    quelle: https://faq.whatsapp.com/657157755756612/?locale=de_DE&cms_platform=iphone
+    zitat: "wischen, um deine Sprachnachricht abzubrechen und zu löschen"
+  - aussage: "Abbrechen: nach links wischen (Android)"
+    quelle: https://faq.whatsapp.com/657157755756612/?locale=de_DE&cms_platform=android
+    zitat: "kannst du nach links wischen, um die Aufnahme abzubrechen"
+  # ---------------------------------------------------------------- Erst anhören
+  - aussage: "Mikrofon halten und nach oben schieben: freihändige Aufnahme (iPhone)"
+    quelle: https://faq.whatsapp.com/1044960269529733/?locale=de_DE&cms_platform=iphone
+    zitat: "und schiebe das Symbol nach oben für die freihändige Aufnahme"
+  - aussage: "… Android"
+    quelle: https://faq.whatsapp.com/1044960269529733/?locale=de_DE&cms_platform=android
+    zitat: "und schiebe das Symbol nach oben, um freihändig aufzunehmen"
+  - aussage: "Pause: zwei senkrechte Striche"
+    quelle: https://faq.whatsapp.com/1044960269529733/?locale=de_DE&cms_platform=iphone
+    zitat: "Wenn du fertig bist, tippe auf Anhalten (zwei parallele vertikale Linien in einem Kreis)."
+  - aussage: "Abspielen zum Anhören"
+    quelle: https://faq.whatsapp.com/1044960269529733/?locale=de_DE&cms_platform=iphone
+    zitat: "Tippe auf Abspielen (Pfeilspitze nach rechts), um dir deine Aufnahme anzuhören."
+  - aussage: "Papierkorb löscht, Mikrofon setzt fort, Papierflugzeug sendet"
+    quelle: https://faq.whatsapp.com/1044960269529733/?locale=de_DE&cms_platform=iphone
+    zitat: "um die Aufnahme fortzusetzen, oder tippe auf Senden (Papierflugzeug in einem Kreis), um sie zu senden"
+  - aussage: "Papierkorb löscht die Aufnahme"
+    quelle: https://faq.whatsapp.com/1044960269529733/?locale=de_DE&cms_platform=iphone
+    zitat: "Tippe auf Sprachnachricht löschen (Papierkorb), um die Sprachnachricht zu löschen."
+  # ---------------------------------------------------------------- Hat es geklappt
+  - aussage: "Graues Mikrofon: noch nicht von allen abgespielt"
+    quelle: https://faq.whatsapp.com/657157755756612/?locale=de_DE&cms_platform=iphone
+    zitat: "Graues Mikrofon bedeutet, dass die Nachricht noch nicht von allen (aber möglicherweise von einigen) Empfänger*innen abgespielt wurde."
+  - aussage: "Blaues Mikrofon: von allen abgespielt"
+    quelle: https://faq.whatsapp.com/657157755756612/?locale=de_DE&cms_platform=iphone
+    zitat: "Blaues Mikrofon bedeutet, dass die Nachricht von allen Empfänger*innen abgespielt wurde."
+  - aussage: "Bekannter Fehler: Farbe wird nicht immer aktualisiert"
+    quelle: https://faq.whatsapp.com/657157755756612/?locale=de_DE&cms_platform=iphone
+    zitat: "Es gibt ein Problem, bei dem die Mikrofonfarbe nicht aktualisiert wird, sobald eine Sprachnachricht abgespielt wurde."
+  - aussage: "Gesendete Sprachnachricht löschen, iPhone: Finger halten, „Löschen“, Papierkorb"
+    quelle: https://faq.whatsapp.com/1201272594577117/?locale=de_DE&cms_platform=iphone
+    zitat: "Tippe auf Nachricht löschen (Papierkorb)."
+  - aussage: "… iPhone: Finger auf die Sprachnachricht halten"
+    quelle: https://faq.whatsapp.com/1201272594577117/?locale=de_DE&cms_platform=iphone
+    zitat: "Tippe und halte die Sprachnachricht, die du löschen möchtest."
+  - aussage: "Android: oben rechts auf das Symbol zum Löschen"
+    quelle: https://faq.whatsapp.com/1201272594577117/?locale=de_DE&cms_platform=android
+    zitat: "Tippe oben rechts auf deinem Bildschirm auf"
+  - aussage: "„Für alle löschen“ oder „Für mich löschen“"
+    quelle: https://faq.whatsapp.com/1201272594577117/?locale=de_DE&cms_platform=iphone
+    zitat: "Tippe auf Für alle löschen oder Für mich löschen."
+  - aussage: "Bei der anderen Person steht „Diese Nachricht wurde gelöscht“"
+    quelle: https://faq.whatsapp.com/1201272594577117/?locale=de_DE&cms_platform=iphone
+    zitat: "Die Empfänger*innen erhalten diese Meldung: Diese Nachricht wurde gelöscht."
+  - aussage: "„Für mich löschen“: die andere Person kann sie weiter anhören"
+    quelle: https://faq.whatsapp.com/1201272594577117/?locale=de_DE&cms_platform=iphone
+    zitat: "können deine Empfänger*innen die Sprachnachrichten weiterhin in ihrem Chatfenster sehen"
+  # ---------------------------------------------------------------- Anhören
+  - aussage: "Grünes Mikrofon: noch nicht abgespielt"
+    quelle: https://faq.whatsapp.com/1165411581043811/?locale=de_DE&cms_platform=iphone
+    zitat: "Bei Sprachnachrichten, die du noch nicht abgespielt hast, siehst du ein grünes Mikrofon"
+  - aussage: "Blaues Mikrofon: schon abgespielt"
+    quelle: https://faq.whatsapp.com/1165411581043811/?locale=de_DE&cms_platform=iphone
+    zitat: "Bei Sprachnachrichten, die du bereits abgespielt hast, siehst du ein blaues Mikrofon"
+  - aussage: "Handy ans Ohr halten"
+    quelle: https://faq.whatsapp.com/1165411581043811/?locale=de_DE&cms_platform=iphone
+    zitat: "Über den Telefonhörer: Halte das Telefon ans Ohr, um die Nachricht anzuhören."
+  - aussage: "Handy vom Kopf weghalten: Lautsprecher"
+    quelle: https://faq.whatsapp.com/1165411581043811/?locale=de_DE&cms_platform=iphone
+    zitat: "Über die Freisprechfunktion: Halte das Telefon von deinem Kopf weg, um die Nachricht anzuhören."
+  - aussage: "Kopfhörer"
+    quelle: https://faq.whatsapp.com/1165411581043811/?locale=de_DE&cms_platform=iphone
+    zitat: "Über Kopfhörer: Sprachnachrichten werden über Kopfhörer wiedergegeben, wenn du sie angeschlossen hast."
+  - aussage: "Mehrere Nachrichten werden nacheinander abgespielt; Pause hält an"
+    quelle: https://faq.whatsapp.com/1165411581043811/?locale=de_DE&cms_platform=iphone
+    zitat: "werden sie von WhatsApp automatisch nacheinander wiedergegeben, sobald du auf Abspielen tippst"
+  - aussage: "„1x“: 1,5- oder 2-fache Geschwindigkeit, nicht langsamer"
+    quelle: https://faq.whatsapp.com/1165411581043811/?locale=de_DE&cms_platform=iphone
+    zitat: "kannst du auf das 1x-Symbol tippen, um die Geschwindigkeit auf das 1,5- oder 2-Fache zu erhöhen. Du kannst die Geschwindigkeit nicht auf weniger als das 1-Fache verringern."
+  - aussage: "Android: dieselben Angaben zum Abspielen"
+    quelle: https://faq.whatsapp.com/1165411581043811/?locale=de_DE&cms_platform=android
+    zitat: "kannst du auf das 1x-Symbol tippen, um die Geschwindigkeit auf das 1,5- oder 2-Fache zu erhöhen"
+  # ---------------------------------------------------------------- Transkripte
+  - aussage: "Transkripte für Menschen, die schlecht hören"
+    quelle: https://faq.whatsapp.com/241617298315321/?locale=de_DE&cms_platform=iphone
+    zitat: "Falls du gehörlos oder schwerhörig bist, kannst du mit Transkripten Sprachnachrichten als Text lesen, anstatt sie anzuhören."
+  - aussage: "Der Absender sieht das Transkript nicht"
+    quelle: https://faq.whatsapp.com/241617298315321/?locale=de_DE&cms_platform=iphone
+    zitat: "Der*Die Absenderin der Nachricht kann dieses Transkript nicht sehen."
+  - aussage: "Die Funktion muss erst eingeschaltet werden"
+    quelle: https://faq.whatsapp.com/241617298315321/?locale=de_DE&cms_platform=android
+    zitat: "Transkripte von Sprachnachrichten sind standardmäßig deaktiviert und müssen daher aktiviert werden."
+  - aussage: "iPhone: Deutsch wird unterstützt"
+    quelle: https://faq.whatsapp.com/241617298315321/?locale=de_DE&cms_platform=iphone
+    zitat: "Es werden nur Englisch, Arabisch, Chinesisch, Französisch, Deutsch, Italienisch, Japanisch, Koreanisch, Portugiesisch, Russisch, Spanisch und Türkisch unterstützt."
+  - aussage: "Android: derzeit nur Englisch, Portugiesisch, Spanisch und Russisch"
+    quelle: https://faq.whatsapp.com/241617298315321/?locale=de_DE&cms_platform=android
+    zitat: "Derzeit werden nur Englisch, Portugiesisch, Spanisch und Russisch unterstützt."
+  - aussage: "iPhone: Einstellungen oder Profilbild › Chats"
+    quelle: https://faq.whatsapp.com/241617298315321/?locale=de_DE&cms_platform=iphone
+    zitat: "Tippe in WhatsApp auf Einstellungen oder dein Profilbild."
+  - aussage: "iPhone: Der Einstieg heißt in der WhatsApp-Hilfe auch „Du“"
+    quelle: https://faq.whatsapp.com/1920866721452534/?locale=de_DE&cms_platform=iphone
+    zitat: "Tippe auf Du > Konto > Verifizierung in zwei Schritten."
+  - aussage: "iPhone: Der Einstieg in WhatsApp heißt „Du“"
+    geraetetest: "iPhone, iOS 18.7.8, 10.11.2026 (Betreiber)"
+  - aussage: "iPhone: „Transkripte von Sprachnachrichten“ einschalten"
+    quelle: https://faq.whatsapp.com/241617298315321/?locale=de_DE&cms_platform=iphone
+    zitat: "Schalte die Option Transkripte von Sprachnachrichten ein oder aus."
+  - aussage: "iPhone: „Sprache auswählen“"
+    quelle: https://faq.whatsapp.com/241617298315321/?locale=de_DE&cms_platform=iphone
+    zitat: "Tippe auf Sprache auswählen und wähle dann die Sprache aus, in der die meisten Sprachnachrichten, die du erhältst, verfasst sind."
+  - aussage: "iPhone: Siri muss eingeschaltet sein"
+    quelle: https://faq.whatsapp.com/241617298315321/?locale=de_DE&cms_platform=iphone
+    zitat: "Außerdem muss Siri aktiviert sein."
+  - aussage: "Android: drei Punkte › Einstellungen › Chats"
+    quelle: https://faq.whatsapp.com/241617298315321/?locale=de_DE&cms_platform=android
+    zitat: "Weitere Optionen (drei vertikale Punkte) > Einstellungen > Chats"
+  - aussage: "Finger auf die Sprachnachricht halten, „Transkribieren“ (iPhone)"
+    quelle: https://faq.whatsapp.com/241617298315321/?locale=de_DE&cms_platform=iphone
+    zitat: "Tippe und halte eine Sprachnachricht und tippe dann auf Transkribieren."
+  - aussage: "Android: „Transkribieren“ im Menü mit den drei Punkten"
+    quelle: https://faq.whatsapp.com/241617298315321/?locale=de_DE&cms_platform=android
+    zitat: "Tippe und halte eine Sprachnachricht und tippe dann auf Weitere Optionen (drei vertikale Punkte) > Transkribieren."
+  - aussage: "Es kann einen Moment dauern"
+    quelle: https://faq.whatsapp.com/241617298315321/?locale=de_DE&cms_platform=iphone
+    zitat: "Es könnte einen Moment dauern, bis das Transkript der Sprachnachricht verfügbar wird."
+  - aussage: "Der Text kann Fehler enthalten"
+    quelle: https://faq.whatsapp.com/241617298315321/?locale=de_DE&cms_platform=android
+    zitat: "Es ist möglich, dass Transkriptionen von Sprachnachrichten ungenau sind."
+  # ---------------------------------------------------------------- Wenn es nicht klappt
+  - aussage: "Aufnahme verschwindet vor dem Senden: Handy neu starten"
+    quelle: https://faq.whatsapp.com/657157755756612/?locale=de_DE&cms_platform=iphone
+    zitat: "starte dein Telefon neu und probiere es noch einmal"
+  - aussage: "WhatsApp aktuell halten; Updates beheben Fehler"
+    quelle: https://faq.whatsapp.com/657157755756612/?locale=de_DE&cms_platform=iphone
+    zitat: "Updates werden regelmäßig veröffentlicht und können Fehler und andere Probleme beheben."

@@ -6,7 +6,7 @@ keyword: "whatsapp bild senden"
 kategorie: whatsapp
 veroeffentlicht: 2026-11-01
 aktualisiert: 2026-11-05
-geprueft: 2026-11-01
+geprueft: 2026-11-10
 kurz_gesagt: |
   **iPhone:** Chat öffnen › auf das **Pluszeichen** („Anhängen“) tippen › „Fotos“ › Bild auswählen › auf das **Papierflugzeug** tippen.
   **Android:** Chat öffnen › auf die **Büroklammer** („Anhängen“) tippen › „Galerie“ › Bild auswählen › auf den **Pfeil** zum Senden tippen.
@@ -24,17 +24,17 @@ checkliste:
   - "Falsches Foto? Finger drauf › Löschen › „Für alle löschen“ (bis zu 2 Tage danach)"
 quellen:
   - herausgeber: WhatsApp-Hilfebereich
-    titel: Medien, Kontakte und Standort senden (iPhone)
-    url: https://faq.whatsapp.com/180873353158032/?locale=de_DE&cms_platform=iphone
+    titel: Medien, Dokumente, Standort oder Kontakte senden (iPhone)
+    url: https://faq.whatsapp.com/453914586839706/?locale=de_DE&cms_platform=iphone
   - herausgeber: WhatsApp-Hilfebereich
-    titel: Medien, Kontakte und Standort senden (Android)
-    url: https://faq.whatsapp.com/180873353158032/?locale=de_DE&cms_platform=android
+    titel: Medien, Dokumente, Standort oder Kontakte teilen (Android)
+    url: https://faq.whatsapp.com/453914586839706/?locale=de_DE&cms_platform=android
   - herausgeber: WhatsApp-Hilfebereich
     titel: Mediendateien können nicht heruntergeladen oder gesendet werden (iPhone)
-    url: https://faq.whatsapp.com/android/troubleshooting/cant-download-or-send-media-files?locale=de_DE&cms_platform=iphone
+    url: https://faq.whatsapp.com/1096027074615511/?locale=de_DE&cms_platform=iphone
   - herausgeber: WhatsApp-Hilfebereich
     titel: Mediendateien können nicht heruntergeladen oder gesendet werden (Android)
-    url: https://faq.whatsapp.com/android/troubleshooting/cant-download-or-send-media-files?locale=de_DE&cms_platform=android
+    url: https://faq.whatsapp.com/1096027074615511/?locale=de_DE&cms_platform=android
   - herausgeber: WhatsApp-Hilfebereich
     titel: Nachrichten löschen (iPhone)
     url: https://faq.whatsapp.com/1370476507114859/?locale=de_DE&cms_platform=iphone
