@@ -6,8 +6,8 @@ beschreibung: "Ein Deepfake ist ein mit Künstlicher Intelligenz gefälschtes Vi
 keyword: "deepfake"
 stichwoerter: ["Deepfakes", "Deepfake"]
 veroeffentlicht: 2026-11-01
-aktualisiert: 2026-11-01
-geprueft: 2026-11-01
+aktualisiert: 2026-11-10
+geprueft: 2026-11-10
 kurz_gesagt: |
   Ein **Deepfake** ist ein Video, Bild oder eine Sprachaufnahme, die mit Künstlicher Intelligenz (KI) gefälscht wurde. Darin scheint eine echte Person etwas zu sagen oder zu tun, was sie nie getan hat.
   Wichtigster Schutz: Kommt Ihnen eine Bitte um Geld komisch vor, legen Sie auf und rufen die Person unter der Ihnen bekannten Nummer zurück.
@@ -61,7 +61,7 @@ Ehrlich gesagt: Das wird immer schwieriger. Für KI-Bilder schreibt das BSI, das
 
 ## So schützen Sie sich
 
-Der beste Schutz ist das Wissen, dass es solche Fälschungen gibt. Dann gilt bei jeder ungewöhnlichen Bitte um Geld:
+Ein wichtiger Schutz ist das Wissen, dass es solche Fälschungen gibt. Dann gilt bei jeder ungewöhnlichen Bitte um Geld:
 
 1. **Nicht drängen lassen.** Nehmen Sie sich Zeit.
 2. **Auflegen und zurückrufen** – unter der Nummer, die Sie kennen, nicht unter der, die Ihnen genannt wird.

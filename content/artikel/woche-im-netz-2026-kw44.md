@@ -6,7 +6,7 @@ kategorie: aktuell
 reihe: wochenschau
 veroeffentlicht: 2026-11-01
 aktualisiert: 2026-11-05
-geprueft: 2026-11-01
+geprueft: 2026-11-10
 kurz_gesagt: |
   Betrüger verschicken E-Mails im Namen der Deutschen Rentenversicherung. Die Rentenversicherung fragt persönliche Daten niemals per E-Mail ab.
   Mails, die mit einer Sperrung von Karte oder Konto drohen, gehören in den Spam-Ordner. Prüfen Sie so etwas nur in der offiziellen App oder auf der bekannten Internetseite.
@@ -15,6 +15,9 @@ quellen:
   - herausgeber: Verbraucherzentrale
     titel: "Phishing-Radar: Aktuelle Warnungen (Stand 30. Oktober 2026)"
     url: https://www.verbraucherzentrale.de/wissen/digitale-welt/phishingradar/phishingradar-aktuelle-warnungen-6059
+  - herausgeber: Verbraucherzentrale
+    titel: "Phishing-Radar: Archiv (dort stehen inzwischen die Meldungen vom 27. bis 30. Oktober 2026)"
+    url: https://www.verbraucherzentrale.de/phishingradar-archiv-71872
   - herausgeber: Deutsche Rentenversicherung
     titel: "Warnung: Phishing-Mails im Stil der DRV im Umlauf (16.10.2026)"
     url: https://www.deutsche-rentenversicherung.de/DRV/DE/Ueber-uns-und-Presse/Presse/Meldungen/2026/260213-vorsicht_phishing_mails.html

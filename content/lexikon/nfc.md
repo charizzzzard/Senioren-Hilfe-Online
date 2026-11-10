@@ -6,8 +6,8 @@ beschreibung: "NFC ist die Funktechnik, mit der Sie kontaktlos bezahlen – mit 
 keyword: "nfc"
 stichwoerter: ["NFC"]
 veroeffentlicht: 2026-11-01
-aktualisiert: 2026-11-01
-geprueft: 2026-11-01
+aktualisiert: 2026-11-10
+geprueft: 2026-11-10
 kurz_gesagt: |
   **NFC** steht für „Near Field Communication“, auf Deutsch Nahfeldkommunikation. Mit dieser Funktechnik bezahlen Sie kontaktlos – mit Bankkarte oder Handy, aus höchstens wenigen Zentimetern Abstand.
   Kleine Beträge gehen oft ohne PIN. Geht Karte oder Handy verloren, lassen Sie sie über den Sperr-Notruf 116 116 sperren.
@@ -46,7 +46,7 @@ NFC kann noch mehr. Das BSI nennt zum Beispiel die **Online-Ausweisfunktion** mi
 
 ## Wie sicher ist das?
 
-Beim Bezahlen wird laut BSI nicht Ihre Kartennummer übertragen, sondern ein **verschlüsselter Code**. Er gilt nur für diesen einen Bezahlvorgang.
+Beim Bezahlen wird laut BSI ein **verschlüsselter Code** übertragen. Er gilt nur für diesen einen Bezahlvorgang.
 
 Daten „im Vorbeigehen“ aus der Tasche auszulesen, hält das BSI für **unwahrscheinlich**: Ein Täter müsste beim Bezahlen sehr nah an Sie heran.
 

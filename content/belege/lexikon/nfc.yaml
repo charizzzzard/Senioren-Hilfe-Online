@@ -1,0 +1,79 @@
+# Belegtabelle für content/lexikon/nfc.md (Format: docs/BETRIEB.md, Abschnitt „Belegtabelle“)
+# Jede Aussage mit einem wörtlichen Zitat aus einer selbst gelesenen Quelle. Prüfen: python tools/belegcheck.py lexikon/nfc
+geprueft: 2026-11-10
+belege:
+  - aussage: "NFC = Near Field Communication, auf Deutsch Nahfeldkommunikation"
+    quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/mobilfunk-und-festnetz/kontaktlos-bezahlen-so-geht-es-und-das-ist-zu-beachten-32517
+    zitat: "NFC bedeutet Near-Field-Communication, auf Deutsch Nahfeldkommunikation."
+  - aussage: "Kontaktlos bezahlen mit Karte oder Handy"
+    quelle: https://www.bsi.bund.de/DE/Themen/Verbraucherinnen-und-Verbraucher/Informationen-und-Empfehlungen/Online-Banking-Online-Shopping-und-mobil-bezahlen/Mobile-Payment-Mobil-bezahlen/Kontaktloses-Bezahlen-NFC/kontaktloses-bezahlen-nfc_node.html
+    zitat: "Dabei kann sowohl eine Giro- oder Kreditkarte als auch ein Smartphone (oder andere mobile Endgeräte Smart Watches und Tablets) zum Übertragen der Bezahldaten dienen."
+  - aussage: "Nur aus wenigen Zentimetern Abstand"
+    quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/mobilfunk-und-festnetz/kontaktlos-bezahlen-so-geht-es-und-das-ist-zu-beachten-32517
+    zitat: "NFC-Zahlungen sind nur mit einem Abstand von wenigen Zentimetern möglich"
+  - aussage: "Kleine Beträge gehen ohne PIN"
+    quelle: https://www.bsi.bund.de/DE/Themen/Verbraucherinnen-und-Verbraucher/Informationen-und-Empfehlungen/Online-Banking-Online-Shopping-und-mobil-bezahlen/Mobile-Payment-Mobil-bezahlen/Kontaktloses-Bezahlen-NFC/kontaktloses-bezahlen-nfc_node.html
+    zitat: "Geringe Beträge funktionieren sogar ohne die Eingabe einer PIN."
+  - aussage: "Sperr-Notruf 116 116 sperrt Karten und SIM-Karten"
+    quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/mobilfunk-und-festnetz/kontaktlos-bezahlen-so-geht-es-und-das-ist-zu-beachten-32517
+    zitat: "Der stets erreichbare Sperrnotruf 116 116 gilt für Girokarten, Kreditkarten und auch SIM-Karten"
+  - aussage: "Sperr-Notruf rund um die Uhr erreichbar"
+    quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/mobilfunk-und-festnetz/kontaktlos-bezahlen-so-geht-es-und-das-ist-zu-beachten-32517
+    zitat: "Die Rufnummer 116 116 ist 24 Stunden pro Tag, 365 Tage im Jahr erreichbar."
+  - aussage: "Verlust: Karten sofort sperren lassen"
+    quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/mobilfunk-und-festnetz/kontaktlos-bezahlen-so-geht-es-und-das-ist-zu-beachten-32517
+    zitat: "Wenn Sie Ihre Girocard, Kreditkarte oder das Smartphone verlieren, sollten Sie die Karten sofort sperren lassen"
+  - aussage: "Funkstandard, ähnlich wie WLAN oder Bluetooth"
+    quelle: https://www.bsi.bund.de/DE/Themen/Verbraucherinnen-und-Verbraucher/Informationen-und-Empfehlungen/Online-Banking-Online-Shopping-und-mobil-bezahlen/Mobile-Payment-Mobil-bezahlen/Kontaktloses-Bezahlen-NFC/kontaktloses-bezahlen-nfc_node.html
+    zitat: "NFC ist ähnlich wie WLAN und Bluetooth ein sehr häufig eingesetzter Funkstandard in unserem digitalen Alltag."
+  - aussage: "Höchstens zehn Zentimeter zwischen Karte oder Handy und Lesegerät"
+    quelle: https://www.bsi.bund.de/DE/Themen/Verbraucherinnen-und-Verbraucher/Informationen-und-Empfehlungen/Online-Banking-Online-Shopping-und-mobil-bezahlen/Mobile-Payment-Mobil-bezahlen/Kontaktloses-Bezahlen-NFC/kontaktloses-bezahlen-nfc_node.html
+    zitat: "in unserem Fall Smartphone bzw. Bankkarte und Bezahlterminal – maximal zehn Zentimeter betragen"
+  - aussage: "Karte mit NFC erkennt man am Wellen-Symbol"
+    quelle: https://www.bsi.bund.de/DE/Themen/Verbraucherinnen-und-Verbraucher/Informationen-und-Empfehlungen/Online-Banking-Online-Shopping-und-mobil-bezahlen/Mobile-Payment-Mobil-bezahlen/Kontaktloses-Bezahlen-NFC/kontaktloses-bezahlen-nfc_node.html
+    zitat: "NFC funktioniert mit einer entsprechenden Girokarte (erkennbar am Wellen-Symbol)"
+  - aussage: "Handy oder Smartwatch mit NFC und installierter App"
+    quelle: https://www.bsi.bund.de/DE/Themen/Verbraucherinnen-und-Verbraucher/Informationen-und-Empfehlungen/Online-Banking-Online-Shopping-und-mobil-bezahlen/Mobile-Payment-Mobil-bezahlen/Kontaktloses-Bezahlen-NFC/kontaktloses-bezahlen-nfc_node.html
+    zitat: "oder mit NFC-fähigen Smartphones (oder auch einiger Smart Watches sowie Tablets) samt installierter App"
+  - aussage: "Bezahl-App von Apple, Google oder der Bank"
+    quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/mobilfunk-und-festnetz/kontaktlos-bezahlen-so-geht-es-und-das-ist-zu-beachten-32517
+    zitat: "Um Mobile Payment zu nutzen, benötigen Sie auf Ihrem Smartphone eine Bezahl-App. Anbieter wie Apple oder Google bieten solche Apps fast schon automatisch an."
+  - aussage: "Karte in der App hinterlegen"
+    quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/mobilfunk-und-festnetz/kontaktlos-bezahlen-so-geht-es-und-das-ist-zu-beachten-32517
+    zitat: "In der Regel muss jedoch eine Kreditkarte oder eine Girocard hinterlegt werden."
+  - aussage: "Auch Online-Ausweisfunktion (AusweisApp) und Schließsysteme an Autos oder Gebäuden"
+    quelle: https://www.bsi.bund.de/DE/Themen/Verbraucherinnen-und-Verbraucher/Informationen-und-Empfehlungen/Online-Banking-Online-Shopping-und-mobil-bezahlen/Mobile-Payment-Mobil-bezahlen/Kontaktloses-Bezahlen-NFC/kontaktloses-bezahlen-nfc_node.html
+    zitat: "Funktionen der Online-Ausweisfunktion über die AusweisApp oder \"schlüssellose\" Zugangssysteme bei Autos oder Gebäuden"
+  - aussage: "Übertragen wird ein verschlüsselter Code"
+    quelle: https://www.bsi.bund.de/DE/Themen/Verbraucherinnen-und-Verbraucher/Informationen-und-Empfehlungen/Online-Banking-Online-Shopping-und-mobil-bezahlen/Mobile-Payment-Mobil-bezahlen/Kontaktloses-Bezahlen-NFC/kontaktloses-bezahlen-nfc_node.html
+    zitat: "Beim Bezahlvorgang wird ein sogenannter Token samt kryptografischer Verschlüsselung übertragen."
+  - aussage: "Er gilt nur für diesen einen Bezahlvorgang"
+    quelle: https://www.bsi.bund.de/DE/Themen/Verbraucherinnen-und-Verbraucher/Informationen-und-Empfehlungen/Online-Banking-Online-Shopping-und-mobil-bezahlen/Mobile-Payment-Mobil-bezahlen/Kontaktloses-Bezahlen-NFC/kontaktloses-bezahlen-nfc_node.html
+    zitat: "Dieser Datensatz ist nur für diesen einen Bezahlvorgang gültig."
+  - aussage: "Auslesen „im Vorbeigehen“ ist unwahrscheinlich"
+    quelle: https://www.bsi.bund.de/DE/Themen/Verbraucherinnen-und-Verbraucher/Informationen-und-Empfehlungen/Online-Banking-Online-Shopping-und-mobil-bezahlen/Mobile-Payment-Mobil-bezahlen/Kontaktloses-Bezahlen-NFC/kontaktloses-bezahlen-nfc_node.html
+    zitat: "Karten \"im Vorbeigehen\" abzugreifen ist also unwahrscheinlich."
+  - aussage: "Ein Täter müsste beim Bezahlen sehr nah heran"
+    quelle: https://www.bsi.bund.de/DE/Themen/Verbraucherinnen-und-Verbraucher/Informationen-und-Empfehlungen/Online-Banking-Online-Shopping-und-mobil-bezahlen/Mobile-Payment-Mobil-bezahlen/Kontaktloses-Bezahlen-NFC/kontaktloses-bezahlen-nfc_node.html
+    zitat: "Doch dazu müssten Betrüger zum Zeitpunkt der Transaktion räumlich sehr nah an ihr Opfer heran."
+  - aussage: "Unter 50 Euro ohne PIN, ab und zu trotzdem PIN-Abfrage"
+    quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/mobilfunk-und-festnetz/kontaktlos-bezahlen-so-geht-es-und-das-ist-zu-beachten-32517
+    zitat: "Zur Sicherheit findet auch bei Summen unter 50 Euro sporadisch eine PIN-Abfrage statt."
+  - aussage: "Über 50 Euro mit PIN"
+    quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/mobilfunk-und-festnetz/kontaktlos-bezahlen-so-geht-es-und-das-ist-zu-beachten-32517
+    zitat: "Sind es mehr als 50 Euro, ist die PIN erforderlich."
+  - aussage: "Handy und Bezahl-App mit PIN, Fingerabdruck oder Gesichtserkennung schützen"
+    quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/mobilfunk-und-festnetz/kontaktlos-bezahlen-so-geht-es-und-das-ist-zu-beachten-32517
+    zitat: "Schützen Sie Ihr Smartphone und wenn möglich Ihre Zahlungs-App mit einem zusätzlichen PIN oder per Fingerabdruck oder Face-ID."
+  - aussage: "Benachrichtigungen über Zahlungen einschalten, wenn die App das anbietet"
+    quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/mobilfunk-und-festnetz/kontaktlos-bezahlen-so-geht-es-und-das-ist-zu-beachten-32517
+    zitat: "Manche Zahlungs-Apps für Smartphones bieten an, Sie über Transaktionen zu benachrichtigen, beispielsweise per SMS. Wenn Ihre App das anbietet, schalten Sie das ein."
+  - aussage: "Bank fragen, ob sie die kontaktlose Funktion abschalten kann"
+    quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/mobilfunk-und-festnetz/kontaktlos-bezahlen-so-geht-es-und-das-ist-zu-beachten-32517
+    zitat: "erkundigen Sie sich bei Ihrer Bank oder Sparkasse, ob Sie die Funktion für Sie deaktivieren kann"
+  - aussage: "Android: NFC abschalten unter „Drahtlos und Netzwerke“ oder „Verbinden und Freigeben“"
+    quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/mobilfunk-und-festnetz/kontaktlos-bezahlen-so-geht-es-und-das-ist-zu-beachten-32517
+    zitat: "in der Kategorie „Drahtlos und Netzwerke“ oder „Verbinden und Freigeben“"
+  - aussage: "iPhone: NFC lässt sich derzeit nicht abschalten"
+    quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/mobilfunk-und-festnetz/kontaktlos-bezahlen-so-geht-es-und-das-ist-zu-beachten-32517
+    zitat: "Auf dem iPhone lässt sich der NFC-Chip derzeit nicht deaktivieren."

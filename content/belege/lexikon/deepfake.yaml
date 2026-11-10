@@ -1,0 +1,94 @@
+# Belegtabelle für content/lexikon/deepfake.md (Format: docs/BETRIEB.md, Abschnitt „Belegtabelle“)
+# Jede Aussage mit einem wörtlichen Zitat aus einer selbst gelesenen Quelle. Prüfen: python tools/belegcheck.py lexikon/deepfake
+geprueft: 2026-11-10
+belege:
+  - aussage: "Name von den „tiefen neuronalen Netzen“ (deep neural networks)"
+    quelle: https://www.bsi.bund.de/DE/Themen/Unternehmen-und-Organisationen/Informationen-und-Empfehlungen/Kuenstliche-Intelligenz/Deepfakes/deepfakes_node.html
+    zitat: "Aufgrund der Nutzung von tiefen neuronalen Netzen (englisch: deep neural networks), werden solche Verfahren umgangssprachlich als „Deepfakes“ bezeichnet."
+  - aussage: "Früher sehr aufwendig, mit KI heute deutlich einfacher und in hoher Qualität"
+    quelle: https://www.bsi.bund.de/DE/Themen/Unternehmen-und-Organisationen/Informationen-und-Empfehlungen/Kuenstliche-Intelligenz/Deepfakes/deepfakes_node.html
+    zitat: "Durch Methoden aus dem Bereich der Künstlichen Intelligenz (KI) ist dies heute jedoch deutlich einfacher und Fälschungen können mit vergleichsweise wenig Aufwand und Expertise in einer hohen Qualität erstellt werden."
+  - aussage: "Eine Person scheint etwas zu sagen, was sie nie gesagt hat"
+    quelle: https://www.bsi.bund.de/DE/Themen/Unternehmen-und-Organisationen/Informationen-und-Empfehlungen/Kuenstliche-Intelligenz/Deepfakes/deepfakes_node.html
+    zitat: "bei denen eine Person Aussagen trifft, die sie in der Realität nie getätigt hat"
+  - aussage: "Drei Arten: Video/Bild, Stimme (Audio), Text"
+    quelle: https://www.bsi.bund.de/DE/Themen/Unternehmen-und-Organisationen/Informationen-und-Empfehlungen/Kuenstliche-Intelligenz/Deepfakes/deepfakes_node.html
+    zitat: "im Wesentlichen in die drei Medienformen Video/ Bild, Audio und Text untergliedert werden"
+  - aussage: "Gesicht tauschen oder Mimik und Lippen verändern"
+    quelle: https://www.bsi.bund.de/DE/Themen/Unternehmen-und-Organisationen/Informationen-und-Empfehlungen/Kuenstliche-Intelligenz/Deepfakes/deepfakes_node.html
+    zitat: "Beim „Face Reenactment“ werden die Kopfbewegung, Mimik oder Lippenbewegung einer Person manipuliert."
+  - aussage: "Software spricht einen beliebigen Text mit der Stimme einer bestimmten Person"
+    quelle: https://www.bsi.bund.de/DE/Themen/Unternehmen-und-Organisationen/Informationen-und-Empfehlungen/Kuenstliche-Intelligenz/Deepfakes/deepfakes_node.html
+    zitat: "Beim Text-to-Speech-Verfahren wird zu einem vorgegebenen Text ein Audio-Signal erzeugt, welches sich sowohl für den Menschen als auch für eine automatische Sprechererkennung wie eine Zielperson anhört."
+  - aussage: "… oder verwandelt eine Stimme in eine andere"
+    quelle: https://www.bsi.bund.de/DE/Themen/Unternehmen-und-Organisationen/Informationen-und-Empfehlungen/Kuenstliche-Intelligenz/Deepfakes/deepfakes_node.html
+    zitat: "Bei einem Voice Conversion Verfahren wird hingegen ein Audiosignal zu einer Zielstimme konvertiert."
+  - aussage: "Dafür braucht sie Aufnahmen der echten Person"
+    quelle: https://www.bsi.bund.de/DE/Themen/Unternehmen-und-Organisationen/Informationen-und-Empfehlungen/Kuenstliche-Intelligenz/Deepfakes/deepfakes_node.html
+    zitat: "dass von der Zielperson Audio-Aufnahmen in einer möglichst hohen und konstanten Qualität benötigt werden"
+  - aussage: "KI schreibt lange Texte, die man auf den ersten Blick nicht von menschlichen unterscheiden kann"
+    quelle: https://www.bsi.bund.de/DE/Themen/Unternehmen-und-Organisationen/Informationen-und-Empfehlungen/Kuenstliche-Intelligenz/Deepfakes/deepfakes_node.html
+    zitat: "Bei diesen kann auf den ersten Blick nicht unterschieden werden, ob sie von einem Menschen oder von einer Maschine geschrieben wurden."
+  - aussage: "Betrug: Anruf mit der Stimme eines Vorgesetzten, um eine Überweisung auszulösen"
+    quelle: https://www.bsi.bund.de/DE/Themen/Unternehmen-und-Organisationen/Informationen-und-Empfehlungen/Kuenstliche-Intelligenz/Deepfakes/deepfakes_node.html
+    zitat: "Beispielsweise könnte er eine Person mit der Stimme von deren Führungskraft anrufen, um eine Geldtransaktion auszulösen"
+  - aussage: "Falschmeldungen"
+    quelle: https://www.bsi.bund.de/DE/Themen/Unternehmen-und-Organisationen/Informationen-und-Empfehlungen/Kuenstliche-Intelligenz/Deepfakes/deepfakes_node.html
+    zitat: "glaubwürdige Desinformationskampagnen durchzuführen, indem manipulierte Medieninhalte von Schlüsselpersonen erzeugt und verbreitet werden"
+  - aussage: "Gefälschte Profile in sozialen Netzwerken und Fake-Shops mit KI-Produktbildern"
+    quelle: https://www.bsi.bund.de/DE/Themen/Verbraucherinnen-und-Verbraucher/Informationen-und-Empfehlungen/Technologien_sicher_gestalten/Kuenstliche-Intelligenz/KI-Bilderkennung/ki-bilderkennung.html
+    zitat: "wenn damit Produktbilder für Fakeshops erstellt werden"
+  - aussage: "… Fake-Profile"
+    quelle: https://www.bsi.bund.de/DE/Themen/Verbraucherinnen-und-Verbraucher/Informationen-und-Empfehlungen/Technologien_sicher_gestalten/Kuenstliche-Intelligenz/KI-Bilderkennung/ki-bilderkennung.html
+    zitat: "indem Fake-Profile in sozialen Netzwerken erstellt werden, die Anwenderinnen und Anwender täuschen"
+  - aussage: "Täter nutzen Hilfsbereitschaft, Vertrauen, Angst oder Respekt vor Autorität aus"
+    quelle: https://www.bsi.bund.de/DE/Themen/Verbraucherinnen-und-Verbraucher/Informationen-und-Empfehlungen/Technologien_sicher_gestalten/Kuenstliche-Intelligenz/KI-Bilderkennung/ki-bilderkennung.html
+    zitat: "menschliche Eigenschaften wie Hilfsbereitschaft, Vertrauen, Angst oder Respekt vor Autorität aus"
+  - aussage: "Erkennen wird immer schwieriger"
+    quelle: https://www.bsi.bund.de/DE/Themen/Verbraucherinnen-und-Verbraucher/Informationen-und-Empfehlungen/Technologien_sicher_gestalten/Kuenstliche-Intelligenz/KI-Bilderkennung/ki-bilderkennung.html
+    zitat: "Gleichzeitig wird es immer schwieriger, echte Bilder von KI-generierten Bildern zu unterscheiden."
+  - aussage: "Keine Methode bekannt, die Bilder vieler Generatoren zuverlässig erkennt"
+    quelle: https://www.bsi.bund.de/DE/Themen/Verbraucherinnen-und-Verbraucher/Informationen-und-Empfehlungen/Technologien_sicher_gestalten/Kuenstliche-Intelligenz/KI-Bilderkennung/ki-bilderkennung.html
+    zitat: "es ist aktuell noch keine Methode bekannt, die zuverlässig Bilder vieler Generatoren erkennt"
+  - aussage: "Stimmen: metallischer Klang"
+    quelle: https://www.bsi.bund.de/DE/Themen/Unternehmen-und-Organisationen/Informationen-und-Empfehlungen/Kuenstliche-Intelligenz/Deepfakes/deepfakes_node.html
+    zitat: "das vom menschlichen Gehör als „metallisch“ wahrgenommen wird"
+  - aussage: "Stimmen: falsche Aussprache einzelner Wörter"
+    quelle: https://www.bsi.bund.de/DE/Themen/Unternehmen-und-Organisationen/Informationen-und-Empfehlungen/Kuenstliche-Intelligenz/Deepfakes/deepfakes_node.html
+    zitat: "Häufig können TTS-Verfahren nicht alle Wörter korrekt aussprechen."
+  - aussage: "Stimmen: sehr gleichförmige Betonung"
+    quelle: https://www.bsi.bund.de/DE/Themen/Unternehmen-und-Organisationen/Informationen-und-Empfehlungen/Kuenstliche-Intelligenz/Deepfakes/deepfakes_node.html
+    zitat: "kann das erzeugte Audio-Signal sehr monoton hinsichtlich der Betonung der Wörter sein"
+  - aussage: "Videos: sichtbare Übergänge am Rand des Gesichts"
+    quelle: https://www.bsi.bund.de/DE/Themen/Unternehmen-und-Organisationen/Informationen-und-Empfehlungen/Kuenstliche-Intelligenz/Deepfakes/deepfakes_node.html
+    zitat: "Dadurch kann es zu sichtbaren Artefakten an der Naht rund um das Gesichts kommen."
+  - aussage: "Videos: verwaschene Zähne oder Augen"
+    quelle: https://www.bsi.bund.de/DE/Themen/Unternehmen-und-Organisationen/Informationen-und-Empfehlungen/Kuenstliche-Intelligenz/Deepfakes/deepfakes_node.html
+    zitat: "scharfe Konturen, wie sie in den Zähnen oder im Auge vorkommen, zu erzeugen. Bei genauem Hinsehen wirken diese auffällig verwaschen."
+  - aussage: "Videos: wenig Mimik, unpassendes Licht – besonders bei starker Kopfdrehung"
+    quelle: https://www.bsi.bund.de/DE/Themen/Unternehmen-und-Organisationen/Informationen-und-Empfehlungen/Kuenstliche-Intelligenz/Deepfakes/deepfakes_node.html
+    zitat: "sodass ein starkes Drehen des Kopfes zu Bildfehlern führen kann"
+  - aussage: "Bilder: Fehler an den Händen, etwa die Zahl der Finger"
+    quelle: https://www.bsi.bund.de/DE/Themen/Verbraucherinnen-und-Verbraucher/Informationen-und-Empfehlungen/Technologien_sicher_gestalten/Kuenstliche-Intelligenz/KI-Bilderkennung/ki-bilderkennung.html
+    zitat: "Überprüfen Sie die Anzahl der Finger, deren Proportionen und Anordnung."
+  - aussage: "Bilder: unleserliche Schrift"
+    quelle: https://www.bsi.bund.de/DE/Themen/Verbraucherinnen-und-Verbraucher/Informationen-und-Empfehlungen/Technologien_sicher_gestalten/Kuenstliche-Intelligenz/KI-Bilderkennung/ki-bilderkennung.html
+    zitat: "Manche KI-Bildgeneratoren haben Schwierigkeiten, Text korrekt darzustellen."
+  - aussage: "Bilder: Schatten, die nicht zusammenpassen"
+    quelle: https://www.bsi.bund.de/DE/Themen/Verbraucherinnen-und-Verbraucher/Informationen-und-Empfehlungen/Technologien_sicher_gestalten/Kuenstliche-Intelligenz/KI-Bilderkennung/ki-bilderkennung.html
+    zitat: "Unstimmigkeiten im Schattenwurf oder nur teilweise vorhandene Reflexionen deuten auf ein KI-generiertes Bild hin."
+  - aussage: "Wissen um solche Fälschungen ist ein wichtiger Schutz"
+    quelle: https://www.bsi.bund.de/DE/Themen/Unternehmen-und-Organisationen/Informationen-und-Empfehlungen/Kuenstliche-Intelligenz/Deepfakes/deepfakes_node.html
+    zitat: "Eine zentrale Maßnahme gegen Deepfake-Angriffe stellt die Schulung potentiell betroffener Personen dar."
+  - aussage: "Nicht drängen lassen, Zeit nehmen"
+    quelle: https://www.polizei-beratung.de/themen-und-tipps/betrug/enkeltrick/
+    zitat: "Lassen Sie sich nicht drängen und unter Druck setzen. Nehmen Sie sich Zeit, um die Angaben des Anrufers zu überprüfen."
+  - aussage: "Unter der bekannten Nummer zurückrufen"
+    quelle: https://www.polizei-beratung.de/themen-und-tipps/betrug/enkeltrick/
+    zitat: "Rufen Sie die jeweilige Person unter der Ihnen bekannten Nummer an und lassen Sie sich den Sachverhalt bestätigen."
+  - aussage: "Nachfragen, was nur die echte Person wissen kann"
+    quelle: https://www.polizei-beratung.de/themen-und-tipps/betrug/enkeltrick/
+    zitat: "Erfragen Sie beim Anrufer Dinge, die nur der richtige Verwandte/Bekannte wissen kann."
+  - aussage: "Verdächtiger Anruf: Polizei über die 110 informieren"
+    quelle: https://www.polizei-beratung.de/themen-und-tipps/betrug/enkeltrick/
+    zitat: "Kommt Ihnen ein Anruf verdächtig vor, informieren Sie unverzüglich die Polizei unter der Nummer 110."
