@@ -211,6 +211,18 @@ fehler:
     behoben_in: "#32"
     altbestand: true
 
+  - id: 2026-11-10-14
+    gefunden: 2026-11-10
+    text: artikel/schockanruf-enkeltrick
+    art: unbelegt
+    live: true
+    entdeckt_durch: nachpruefung
+    vorher: "Im Display kann dann eine Nummer aus Ihrer Gegend erscheinen – sogar die 110."
+    korrektur: "Steht dort die 110, ist die Anzeige in jedem Fall gefälscht. Laut Bundesnetzagentur müssen solche Anrufe seit dem 01.12.2022 abgebrochen werden; Betroffene sollten sie nicht mehr bekommen."
+    ursache: "Aussage stand in keiner Quelle des Textes; die Seite der Bundesnetzagentur dazu war nicht gelesen."
+    behoben_in: "#32"
+    altbestand: true
+
   - id: 2026-11-05-03
     gefunden: 2026-11-05
     text: artikel/whatsapp-sprachnachricht
