@@ -72,13 +72,13 @@ docs/WETTBEWERB.md         Google-Konkurrenzanalyse der Top-Themen (Stand, Lück
 ## 4. Befehle
 
 ```bash
-pip install -r requirements.txt
+python -m pip install -r requirements.txt      # mit „python -m“: sonst installiert pip mitunter für ein anderes Python
 python tools/build.py                          # baut nach _site/
 python tools/check.py                          # baut + prüft (Exit 1 bei Fehlern)
 python tools/linkcheck.py                      # externe Links prüfen
 python tools/belegcheck.py [slug …]            # Zitate der Belegtabellen gegen die Quellen prüfen (braucht npm ci)
 python -m http.server 8765 --directory _site   # lokale Vorschau
-npm ci && node tools/pdf.mjs                   # optional lokal: Checklisten-PDFs nach _site/checklisten/
+npm ci && node tools/pdf.mjs                   # optional lokal: Checklisten-PDFs nach _site/checklisten/ (meldet die Seitenzahl)
 ```
 
 Push auf `main` veröffentlicht automatisch auf https://netzleicht.de (GitHub Pages, Custom Domain).
@@ -323,7 +323,7 @@ Qualitätsbremse (nur noch Korrekturen, `docs/BETRIEB.md` Abschnitt 9).
 
 ### Content-Session (geplant 2× pro Woche)
 
-1. `git checkout main && git pull`; `pip install -r requirements.txt`.
+1. `git checkout main && git pull`; `python -m pip install -r requirements.txt`.
 2. Zuerst eigene PRs mit `pruefung-nachbessern` abarbeiten (Befunde der Prüfung einarbeiten, wieder auf
    `pruefung-ausstehend` setzen). Dann offene Issues mit Label `feedback`, `wartung` oder `themenwunsch` bearbeiten – Fehler in bestehenden Artikeln
    haben Vorrang vor neuen Artikeln; Themenwünsche in den Themenplan übernehmen (siehe „Rückmeldungen“).
@@ -352,7 +352,7 @@ Qualitätsbremse (nur noch Korrekturen, `docs/BETRIEB.md` Abschnitt 9).
 
 ### Die-Woche-im-Netz-Session (geplant freitags)
 
-1. `git checkout main && git pull`; `pip install -r requirements.txt`.
+1. `git checkout main && git pull`; `python -m pip install -r requirements.txt`.
 2. Meldungen der letzten 7 Tage sammeln, zuerst bei: Verbraucherzentrale Phishing-Radar, polizei-beratung.de und
    Polizei-Pressestellen, BSI, Bundesnetzagentur, Apple-Sicherheitsupdates (support.apple.com/de-de/100100),
    Google/Android-, WhatsApp- und Samsung-Ankündigungen. Jede Quelle selbst lesen (Abschnitt 6).
@@ -388,7 +388,8 @@ und keine Einzelberatung. Der Betreiber liest das Postfach. Damit Claude helfen 
   formulieren („Die Schrift am Handy größer stellen“). Nach neuen Anleitungen prüfen, ob eine häufiger gesuchte
   Aufgabe (Suchvolumen im Themenplan) einen Platz verdient.
 - **Checklisten-Blätter und PDFs**: entstehen automatisch aus `checkliste`. Nach neuen Artikeln mit langer Checkliste
-  prüfen, dass das Blatt auf eine A4-Seite passt (`node tools/pdf.mjs` meldet die PDFs; im Zweifel Punkte kürzen).
+  prüfen, dass das Blatt auf eine A4-Seite passt (`node tools/pdf.mjs` meldet die Seitenzahl und bricht bei mehr als
+  einer Seite ab; dann Punkte kürzen).
 
 ### Wartungs-Session (geplant monatlich)
 

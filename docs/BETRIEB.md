@@ -236,6 +236,24 @@ Korrekturen, Nachprüfungen und Wartung. `tools/check.py` setzt das durch und ne
 Zusätzlich ist ein Störungsbericht nötig. Grundlage: Fehlerbudget-Prinzip aus dem Google-SRE-Handbuch (Abschnitt 11).
 Die Einträge vom 05.11.2026 sind der Ausgangsbestand vor den Belegtabellen und zählen nicht.
 
+**Bremse und Kontingent halten neue Texte auf – nie den Deploy.** `tools/check.py` bricht wegen der Qualitätsbremse,
+des Kontingents (Regel 9) oder einer zweiten Wochenschau nur ab, wenn ein Text beteiligt ist, den es auf `main` noch
+nicht gibt (Vergleichsstand `origin/main`; der Deploy-Workflow setzt ihn über `NETZLEICHT_BASIS`). Ein Text, der schon
+veröffentlicht ist, macht `main` nicht nachträglich rot: Sonst ginge nichts mehr live, auch keine Korrektur.
+Für einen neuen Text zählt zusätzlich der heutige Tag – nicht nur sein `veroeffentlicht`-Datum.
+
+Das CI eines Pull Requests kennt nur den Stand von `main` beim letzten Push. **Vor dem Merge eines PR mit neuem Text**
+(Prüfer bei Klasse A/B, Freigabe bei Klasse C) deshalb einmal gegen den aktuellen Stand prüfen:
+
+```bash
+git fetch origin && git checkout --detach origin/main
+git merge --no-commit --no-ff <geprüfte SHA> && python tools/check.py
+git merge --abort; git checkout -
+```
+
+Meldet `check.py` dabei die Qualitätsbremse oder Regel 9, oder lässt sich der Stand nicht zusammenführen: nicht mergen,
+im PR kurz kommentieren, Label `pruefung-nachbessern` (bei Klasse C zusätzlich `einspruchsfrist` entfernen).
+
 ### Störungsberichte
 
 **Auslöser** (vorher festgelegt, damit niemand abwägen muss):

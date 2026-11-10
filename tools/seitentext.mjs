@@ -15,7 +15,12 @@ const browser = await chromium.launch(proxy ? { proxy: { server: proxy } } : {})
 const seite = await browser.newPage({ locale: "de-DE" });
 const ergebnis = {};
 
-for (const url of urls) {
+// Lädt eine Seite beim ersten Mal nicht (Zeitüberschreitung, Netzfehler), folgt genau ein zweiter Versuch –
+// sonst meldet der Zitat-Abgleich „NICHT ERREICHBAR“ und bremst Autor-Läufe und Wartung ohne Grund.
+const versuche = urls.flatMap((url) => [url, url]);
+for (const [nr, url] of versuche.entries()) {
+  if (nr % 2 === 1 && ergebnis[url]?.ok) continue;
+  if (nr % 2 === 1) await seite.waitForTimeout(3000);
   try {
     const antwort = await seite.goto(url, { waitUntil: "domcontentloaded", timeout: 45000 });
     await seite.waitForTimeout(6000);
