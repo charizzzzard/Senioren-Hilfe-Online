@@ -1,0 +1,111 @@
+# Belegtabelle für content/artikel/whatsapp-betrug-erkennen.md (Format: docs/BETRIEB.md, Abschnitt „Belegtabelle“)
+# Jede Aussage mit einem wörtlichen Zitat aus einer selbst gelesenen Quelle. Prüfen: python tools/belegcheck.py whatsapp-betrug-erkennen
+geprueft: 2026-11-10
+belege:
+  # ---------------------------------------------------------------- Die Masche
+  - aussage: "„Hallo Mama, hallo Papa, das ist meine neue Handynummer …“ ist laut Polizei der häufigste Einstieg"
+    quelle: https://www.polizei-beratung.de/themen-und-tipps/betrug/messenger/
+    zitat: "So oder so ähnlich lautet aktuell der am häufigsten verwendete Einstieg in einen Chat über SMS oder Messenger"
+  - aussage: "Ein Anruf unter der alten Nummer schützt vor diesem Betrug"
+    quelle: https://www.polizei-beratung.de/themen-und-tipps/betrug/messenger/
+    zitat: "Unter der alten Nummer nachfragen schützt vor Betrug."
+  - aussage: "Betrüger geben sich als Verwandte aus; das Handy sei verloren gegangen"
+    quelle: https://www.polizei-beratung.de/themen-und-tipps/betrug/messenger/
+    zitat: "Sie geben beispielsweise vor, Verwandte zu sein und das Handy verloren zu haben."
+  - aussage: "Erste Nachricht manchmal per SMS, dann schnell zu WhatsApp"
+    quelle: https://www.polizei-beratung.de/themen-und-tipps/betrug/messenger/
+    zitat: "Erster Kontakt über SMS dient oft als Einfallstor und die Betrüger versuchen schnell, die Kommunikation auf einen Messenger zu leiten."
+  - aussage: "Manche plaudern erst, um Vertrauen zu schaffen"
+    quelle: https://faq.whatsapp.com/2286952358121083/?locale=de_DE
+    zitat: "Die Person beginnt eine Unterhaltung mit dir, um dein Vertrauen zu gewinnen, bevor sie dich nach persönlichen Informationen fragt."
+  - aussage: "Es geht um Geld: schnelle Überweisung, weil es angeblich eilt"
+    quelle: https://www.polizei-beratung.de/themen-und-tipps/betrug/messenger/
+    zitat: "Die vermeintlichen Eltern oder Großeltern werden darum gebeten, zeitnah online Geld zu überweisen"
+  - aussage: "Profilbild für alle sichtbar: Betrüger schätzen daran ab, ob jemand ein „geeignetes Opfer“ ist, etwa wegen des Alters"
+    quelle: https://www.polizei-beratung.de/themen-und-tipps/betrug/messenger/
+    zitat: "anhand des für alle sichtbaren Profilbilds ausspionieren, ob Sie ein geeignetes Opfer sind, zum Beispiel auf Grund Ihres Alters"
+  # ---------------------------------------------------------------- Warnzeichen
+  - aussage: "Warnzeichen: Bitte um Geld"
+    quelle: https://faq.whatsapp.com/2286952358121083/?locale=de_DE
+    zitat: "Du wirst um Geld gebeten oder es wird behauptet, dass du für die Nutzung von WhatsApp zahlen musst."
+  - aussage: "Warnzeichen: Druck"
+    quelle: https://www.polizei-beratung.de/themen-und-tipps/betrug/messenger/
+    zitat: "Um Druck aufzubauen, wird dann behauptet, dass es sich um eine Mahnung handelt und die Überweisung deshalb zügig erfolgen muss"
+  - aussage: "Warnzeichen: Link öffnen oder App laden"
+    quelle: https://faq.whatsapp.com/2286952358121083/?locale=de_DE
+    zitat: "Du wirst aufgefordert, einen Link zu öffnen, über einen Link neue Funktionen zu aktivieren oder eine App herunterzuladen."
+  - aussage: "Warnzeichen: Frage nach Passwörtern oder Kontodaten"
+    quelle: https://faq.whatsapp.com/2286952358121083/?locale=de_DE
+    zitat: "Du wirst gebeten, persönliche Informationen zu teilen, beispielsweise Kreditkarten- oder Kontonummern, dein Geburtsdatum oder Passwörter."
+  - aussage: "Warnzeichen: Die Person behauptet, Sie zu kennen (angeblich jemand aus der Familie)"
+    quelle: https://faq.whatsapp.com/2286952358121083/?locale=de_DE
+    zitat: "Betrüger*innen geben sich häufig als Freund*innen oder Familienmitglieder aus"
+  # ---------------------------------------------------------------- Prüfen
+  - aussage: "Bei Geldbitten per WhatsApp immer misstrauisch sein, nichts überweisen"
+    quelle: https://www.polizei-beratung.de/themen-und-tipps/betrug/messenger/
+    zitat: "Wenn Sie per WhatsApp oder andere Messenger um Geldüberweisungen gebeten werden, seien Sie immer misstrauisch."
+  - aussage: "Unter der alten, bekannten Nummer nachfragen"
+    quelle: https://www.polizei-beratung.de/themen-und-tipps/betrug/messenger/
+    zitat: "Fragen Sie bei der Ihnen bekannten Person unter der alten Nummer nach, ob die Nachricht wirklich von ihr kommt."
+  - aussage: "Neue Nummer erst nach der Prüfung speichern"
+    quelle: https://www.polizei-beratung.de/themen-und-tipps/betrug/messenger/
+    zitat: "unter einer bereits bekannten Telefonnummer, bevor Sie eine angeblich neue Nummer abspeichern"
+  - aussage: "Polizei empfiehlt ein Familien-Kennwort für das Telefon"
+    quelle: https://www.polizei-beratung.de/themen-und-tipps/betrug/schockanrufe/
+    zitat: "Vereinbaren Sie innerhalb der Familie oder mit weiteren Angehörigen und Freunden ein Kennwort zur Identifizierung am Telefon."
+  # ---------------------------------------------------------------- Wenn es Betrug ist
+  - aussage: "Nummer blockieren, Vorfall der Polizei melden, danach Chat löschen"
+    quelle: https://www.polizei-beratung.de/themen-und-tipps/betrug/messenger/
+    zitat: "Löschen Sie anschließend den Chat/die Nummer der Betrüger."
+  - aussage: "Vorfall der Polizei melden"
+    quelle: https://www.polizei-beratung.de/themen-und-tipps/betrug/messenger/
+    zitat: "Melden Sie den Vorfall der Polizei. Nur so erhält die Polizei Hinweise auf Fallzahlen und Schadenssummen"
+  - aussage: "Chat sichern (Bildschirmfoto), bevor man etwas löscht"
+    quelle: https://faq.whatsapp.com/1142481766359885/?locale=de_DE&cms_platform=android
+    zitat: "Es empfiehlt sich, Screenshots zu erstellen oder eine Kopie deines Chatverlaufs zu sichern."
+  - aussage: "Blockierte Nummern können nicht mehr schreiben"
+    quelle: https://faq.whatsapp.com/1142481766359885/?locale=de_DE&cms_platform=android
+    zitat: "Blockierte Kontakte oder Telefonnummern können dich nicht mehr anrufen oder dir Nachrichten senden."
+  - aussage: "Blockieren und melden"
+    quelle: https://faq.whatsapp.com/2286952358121083/?locale=de_DE
+    zitat: "Alternativ kannst du die Nachricht melden, die Person blockieren und die Nachricht löschen."
+  - aussage: "Nicht mit den Betrügern schreiben oder telefonieren, auch nicht zum Spaß"
+    quelle: https://www.polizei-beratung.de/themen-und-tipps/betrug/messenger/
+    zitat: "Schreiben und telefonieren Sie niemals mit mutmaßlichen Betrügern, auch nicht zum Spaß!"
+  # ---------------------------------------------------------------- Schon überwiesen
+  - aussage: "Polizei: Geben Sie sich keine Mitschuld"
+    quelle: https://www.polizei-beratung.de/themen-und-tipps/betrug/messenger/
+    zitat: "Geben Sie sich keine Mitschuld. Sie sind Opfer eines Betrugs geworden."
+  - aussage: "Sofort die Bank anrufen – in einigen Fällen kann das Geld zurückgeholt werden"
+    quelle: https://www.polizei-beratung.de/themen-und-tipps/betrug/messenger/
+    zitat: "kontaktieren Sie ihr Geldinstitut, in einigen Fällen kann das Geld zurück geholt werden"
+  - aussage: "Den ganzen Chat sichern, zum Beispiel mit Bildschirmfotos"
+    quelle: https://www.polizei-beratung.de/themen-und-tipps/betrug/messenger/
+    zitat: "Sichern Sie den gesamten Chatverlauf, z.B. durch Screenshots."
+  - aussage: "Anzeige erstatten"
+    quelle: https://www.polizei-beratung.de/themen-und-tipps/betrug/messenger/
+    zitat: "Erstatten Sie auf jeden Fall Anzeige bei der Polizei."
+  # ---------------------------------------------------------------- Vorbeugen
+  - aussage: "Profilbild nur für Kontakte: „Datenschutz“ › „Profilbild“ › „Meine Kontakte“"
+    quelle: https://www.polizei-beratung.de/themen-und-tipps/betrug/messenger/
+    zitat: "Wählen Sie \"Profilbild\" aus und setzen Sie die Auswahl auf \"Meine Kontakte\"."
+  - aussage: "Android: drei Punkte › „Einstellungen“ › „Datenschutz“"
+    quelle: https://faq.whatsapp.com/3307102709559968/?locale=de_DE&cms_platform=android
+    zitat: "Tippe auf Weitere Optionen (drei vertikale Punkte) > Einstellungen > Datenschutz."
+  - aussage: "iPhone: WhatsApp-Einstellungen › „Datenschutz“"
+    quelle: https://faq.whatsapp.com/3307102709559968/?locale=de_DE&cms_platform=iphone
+    zitat: "Öffne die WhatsApp-Einstellungen > Datenschutz."
+  - aussage: "iPhone: Der Einstieg heißt in der WhatsApp-Hilfe „Du“"
+    quelle: https://faq.whatsapp.com/1920866721452534/?locale=de_DE&cms_platform=iphone
+    zitat: "Tippe auf Du > Konto > Verifizierung in zwei Schritten."
+  - aussage: "iPhone: Der Einstieg in WhatsApp heißt „Du“"
+    geraetetest: "iPhone, iOS 18.7.8, 10.11.2026 (Betreiber)"
+  - aussage: "Code nie weitergeben"
+    quelle: https://www.polizei-beratung.de/themen-und-tipps/betrug/messenger/
+    zitat: "Teilen Sie niemals den Code zur Verifizierung Ihres Accounts, den Sie bei der Registrierung per SMS erhalten haben."
+  - aussage: "Verifizierung in zwei Schritten einschalten"
+    quelle: https://www.polizei-beratung.de/themen-und-tipps/betrug/messenger/
+    zitat: "Richten Sie eine persönliche PIN für Ihren Account ein, auch bekannt als Verifizierung in zwei Schritten."
+  - aussage: "Darüber reden und andere warnen"
+    quelle: https://www.polizei-beratung.de/themen-und-tipps/betrug/messenger/
+    zitat: "Informieren Sie andere, damit sie nicht Opfer eines Betrugs werden."

@@ -1,0 +1,149 @@
+# Belegtabelle für content/artikel/whatsapp-konto-schuetzen.md (Format: docs/BETRIEB.md, Abschnitt „Belegtabelle“)
+# Jede Aussage mit einem wörtlichen Zitat aus einer selbst gelesenen Quelle. Prüfen: python tools/belegcheck.py whatsapp-konto-schuetzen
+geprueft: 2026-11-10
+belege:
+  # ---------------------------------------------------------------- Der Code
+  - aussage: "Beim Einrichten kommt ein sechsstelliger Code per SMS oder Anruf; er bestätigt, dass die Nummer Ihnen gehört"
+    quelle: https://faq.whatsapp.com/506595211487528/?locale=de_DE
+    zitat: "Um zu bestätigen, dass die Telefonnummer dir gehört, wirst du aufgefordert, einen sechsstelligen Registrierungscode einzugeben, den du per SMS oder Telefonanruf erhalten hast."
+  - aussage: "Mit dem Code können Betrüger das Konto übernehmen"
+    quelle: https://faq.whatsapp.com/479314433984258/?locale=de_DE
+    zitat: "Wenn eine Person versucht, dein Konto zu übernehmen, braucht sie den SMS-Verifizierungscode, der an deine Telefonnummer gesendet wird."
+  - aussage: "… und sich in Chats und Gruppen als Sie ausgeben"
+    quelle: https://faq.whatsapp.com/1131652977717250/?locale=de_DE
+    zitat: "da sich diese Person in Chats und Gruppen für dich ausgeben könnte"
+  - aussage: "Code niemals teilen – nicht einmal mit Freunden oder der Familie"
+    quelle: https://faq.whatsapp.com/1131652977717250/?locale=de_DE
+    zitat: "Du solltest deinen Registrierungscode niemals mit anderen teilen, nicht einmal mit Freund*innen oder der Familie."
+  - aussage: "Dasselbe gilt für das Passwort"
+    quelle: https://faq.whatsapp.com/1095301557782068/?locale=de_DE&cms_platform=iphone
+    zitat: "Teile niemals deinen Registrierungscode oder dein Passwort mit anderen."
+  - aussage: "Verdächtige Nachricht von einem bekannten Kontakt: dessen Konto könnte übernommen sein"
+    quelle: https://faq.whatsapp.com/2286952358121083/?locale=de_DE
+    zitat: "Wenn du eine verdächtige Nachricht von einem bekannten Kontakt erhältst, könnte sein Konto gehackt worden sein."
+  - aussage: "Code ohne Anforderung: Jemand hat Ihre Nummer eingegeben – Tippfehler oder Übernahmeversuch"
+    quelle: https://faq.whatsapp.com/479314433984258/?locale=de_DE
+    zitat: "Dies ist häufig der Fall, wenn ein*e andere*r Benutzer*in versehentlich deine Nummer statt der eigenen bei der Registrierung angibt. Dies kann auch der Fall sein, wenn jemand versucht, dein Konto zu übernehmen."
+  - aussage: "Ohne den Code kommt die Person nicht weiter; Sie behalten die Kontrolle"
+    quelle: https://faq.whatsapp.com/479314433984258/?locale=de_DE
+    zitat: "Du behältst somit die Kontrolle über dein WhatsApp-Konto."
+  # ---------------------------------------------------------------- Verifizierung in zwei Schritten
+  - aussage: "Nach dem Code folgt bei eingeschalteter Funktion eine zweite Prüfung – zum Beispiel mit dem Passwort"
+    quelle: https://faq.whatsapp.com/506595211487528/?locale=de_DE
+    zitat: "Wenn du die Verifizierung in zwei Schritten aktivierst, kannst du deine Telefonnummer, ein Passwort oder deine E-Mail-Adresse für die zusätzliche Authentifizierung verwenden."
+  - aussage: "Die zweite Prüfung erscheint nach der Registrierung der Nummer"
+    quelle: https://faq.whatsapp.com/506595211487528/?locale=de_DE
+    zitat: "Dieser Bildschirm erscheint, nachdem du deine Telefonnummer erfolgreich bei WhatsApp registriert hast."
+  - aussage: "WhatsApp empfiehlt, die Funktion einzuschalten"
+    quelle: https://faq.whatsapp.com/1095301557782068/?locale=de_DE&cms_platform=iphone
+    zitat: "Aktiviere die Verifizierung in zwei Schritten."
+  - aussage: "Die Polizei empfiehlt sie ebenfalls"
+    quelle: https://www.polizei-beratung.de/themen-und-tipps/betrug/messenger/
+    zitat: "Richten Sie eine persönliche PIN für Ihren Account ein, auch bekannt als Verifizierung in zwei Schritten."
+  - aussage: "Android: drei Punkte › Einstellungen › Konto › Verifizierung in zwei Schritten"
+    quelle: https://faq.whatsapp.com/1920866721452534/?locale=de_DE&cms_platform=android
+    zitat: "Tippe auf Mehr (drei vertikale Punkte) > Einstellungen > Konto > Verifizierung in zwei Schritten."
+  - aussage: "Android: „Verifizierung in zwei Schritten aktivieren“ einschalten"
+    quelle: https://faq.whatsapp.com/1920866721452534/?locale=de_DE&cms_platform=android
+    zitat: "Aktiviere die Option Verifizierung in zwei Schritten aktivieren."
+  - aussage: "Android: sicheres Passwort erstellen und bestätigen"
+    quelle: https://faq.whatsapp.com/1920866721452534/?locale=de_DE&cms_platform=android
+    zitat: "Erstelle ein sicheres Passwort und bestätige es."
+  - aussage: "Android: E-Mail-Adresse angeben und „Weiter“ – oder „Überspringen“"
+    quelle: https://faq.whatsapp.com/1920866721452534/?locale=de_DE&cms_platform=android
+    zitat: "Gib eine E-Mail-Adresse an, auf die du Zugriff hast, und tippe auf Weiter oder tippe auf Überspringen."
+  - aussage: "Android: „Diesem Gerät vertrauen“ oder „Überspringen“"
+    quelle: https://faq.whatsapp.com/1920866721452534/?locale=de_DE&cms_platform=android
+    zitat: "Tippe auf Diesem Gerät vertrauen oder Überspringen."
+  - aussage: "Passwort vergessen: Verifizieren geht auch per E-Mail"
+    quelle: https://faq.whatsapp.com/2183055648554771/?locale=de_DE&cms_platform=iphone
+    zitat: "Falls du dich beim Anmelden nicht mehr an dein Passwort erinnerst, kannst du eine andere Methode nutzen, um dein Konto zu verifizieren."
+  - aussage: "… nämlich E-Mail, SMS oder Sprachanruf"
+    quelle: https://faq.whatsapp.com/2183055648554771/?locale=de_DE&cms_platform=iphone
+    zitat: "Wähle E-Mail, SMS oder Sprachanruf aus."
+  - aussage: "iPhone: „Du“ › Konto › Verifizierung in zwei Schritten"
+    quelle: https://faq.whatsapp.com/1920866721452534/?locale=de_DE&cms_platform=iphone
+    zitat: "Tippe auf Du > Konto > Verifizierung in zwei Schritten."
+  - aussage: "iPhone: Der Einstieg heißt „Du“ und liegt ganz unten rechts in der Leiste"
+    geraetetest: "iPhone, iOS 18.7.8, 10.11.2026 (Betreiber)"
+  - aussage: "iPhone: Der Einstieg heißt je nach Stelle der Hilfe auch „Einstellungen“ oder zeigt das Profilbild"
+    quelle: https://faq.whatsapp.com/1428782138011916/?locale=de_DE&cms_platform=iphone
+    zitat: "tippe auf Einstellungen oder dein Profilbild und dann auf Verknüpfte Geräte"
+  - aussage: "iPhone: „Verifizierung in zwei Schritten aktivieren“ einschalten"
+    quelle: https://faq.whatsapp.com/1920866721452534/?locale=de_DE&cms_platform=iphone
+    zitat: "Aktiviere die Option Verifizierung in zwei Schritten aktivieren."
+  - aussage: "iPhone: sicheres Passwort erstellen und bestätigen"
+    quelle: https://faq.whatsapp.com/1920866721452534/?locale=de_DE&cms_platform=iphone
+    zitat: "Erstelle ein sicheres Passwort und bestätige es."
+  - aussage: "iPhone: E-Mail-Adresse und „Weiter“ – oder „Überspringen“"
+    quelle: https://faq.whatsapp.com/1920866721452534/?locale=de_DE&cms_platform=iphone
+    zitat: "Gib eine E-Mail-Adresse an, auf die du Zugriff hast, und tippe auf Weiter oder tippe auf Überspringen."
+  - aussage: "iPhone: „Diesem Gerät vertrauen“ oder „Überspringen“"
+    quelle: https://faq.whatsapp.com/1920866721452534/?locale=de_DE&cms_platform=iphone
+    zitat: "Tippe auf Diesem Gerät vertrauen oder Überspringen."
+  - aussage: "Die sechsstellige PIN wird durch ein Passwort ersetzt; Wechsel über denselben Weg"
+    quelle: https://faq.whatsapp.com/1920866721452534/?locale=de_DE&cms_platform=iphone
+    zitat: "WhatsApp ersetzt die sechsstellige PIN für die Verifizierung in zwei Schritten durch ein Passwort. Wenn dein Konto bereits durch eine PIN geschützt wird, kannst du mit den hier beschriebenen Schritten zu einem Passwort wechseln."
+  # ---------------------------------------------------------------- Verknüpfte Geräte
+  - aussage: "WhatsApp empfiehlt, verknüpfte Geräte regelmäßig zu prüfen"
+    quelle: https://faq.whatsapp.com/1428782138011916/?locale=de_DE&cms_platform=iphone
+    zitat: "Es ist wichtig, deine verknüpften Geräte regelmäßig zu prüfen."
+  - aussage: "Android: drei Punkte › „Verknüpfte Geräte“"
+    quelle: https://faq.whatsapp.com/1428782138011916/?locale=de_DE&cms_platform=android
+    zitat: "tippe auf Weitere Optionen (drei vertikale Punkte) > Verknüpfte Geräte"
+  - aussage: "Android: Gerät antippen, dann „Abmelden“"
+    quelle: https://faq.whatsapp.com/1428782138011916/?locale=de_DE&cms_platform=android
+    zitat: "Tippe auf ein Gerät und dann auf Abmelden."
+  - aussage: "iPhone: Gerät antippen, „Abmelden“ und noch einmal „Abmelden“"
+    quelle: https://faq.whatsapp.com/1428782138011916/?locale=de_DE&cms_platform=iphone
+    zitat: "Tippe auf ein Gerät und dann auf Abmelden > Abmelden."
+  - aussage: "Verknüpfte Geräte sind zum Beispiel Sitzungen von WhatsApp Web am Computer"
+    quelle: https://faq.whatsapp.com/1428782138011916/?locale=de_DE&cms_platform=iphone
+    zitat: "kannst du dich auf deinem Telefon von allen aktiven WhatsApp Web-Sitzungen abmelden"
+  # ---------------------------------------------------------------- Zusätzlich sinnvoll
+  - aussage: "Profilbild nur für gespeicherte Kontakte (Polizei)"
+    quelle: https://www.polizei-beratung.de/themen-und-tipps/betrug/messenger/
+    zitat: "Das Profilbild sollte nur für gespeicherte Kontakte sichtbar sein."
+  - aussage: "Handy mit Bildschirmsperre, Fingerabdruck oder Gesichtserkennung schützen"
+    quelle: https://faq.whatsapp.com/1095301557782068/?locale=de_DE&cms_platform=iphone
+    zitat: "Dazu gehören unter anderem Passwörter, Passkeys und das Entsperren über Fingerabdruck, Gesichtserkennung oder Displaysperre."
+  - aussage: "App-Sperre, etwa mit dem Fingerabdruck"
+    quelle: https://faq.whatsapp.com/1095301557782068/?locale=de_DE&cms_platform=iphone
+    zitat: "kannst du die App-Sperre verwenden, um den Zugriff auf dein WhatsApp-Konto auf bestimmten Geräten mit biometrischen Daten"
+  - aussage: "Passkey: Bestätigung mit Fingerabdruck, Gesichtserkennung oder Bildschirmsperre"
+    quelle: https://faq.whatsapp.com/1095301557782068/?locale=de_DE&cms_platform=iphone
+    zitat: "Wenn du einen Passkey einrichtest, verknüpft WhatsApp dein Konto mit dem Sicherheitssystem deines Geräts – wie Fingerabdruck, Gesichtserkennung oder Bildschirmsperre."
+  # ---------------------------------------------------------------- Konto übernommen
+  - aussage: "Meldung „Deine Telefonnummer wurde auf einem neuen Gerät bei WhatsApp registriert“"
+    quelle: https://faq.whatsapp.com/1095301557782068/?locale=de_DE&cms_platform=iphone
+    zitat: "Wenn dir beim Öffnen von WhatsApp die Nachricht „Deine Telefonnummer wurde auf einem neuen Gerät bei WhatsApp registriert“ angezeigt wird"
+  - aussage: "„Erneut anmelden“, dann „Weiter“"
+    quelle: https://faq.whatsapp.com/1131652977717250/?locale=de_DE
+    zitat: "Tippe auf Erneut anmelden > Weiter."
+  - aussage: "Telefonnummer eingeben, wenn gefragt"
+    quelle: https://faq.whatsapp.com/1131652977717250/?locale=de_DE
+    zitat: "Wenn du dazu aufgefordert wirst, gib deine Telefonnummer im vollständigen internationalen Format ein"
+  - aussage: "Sechsstelligen Code eingeben (SMS oder Anruf)"
+    quelle: https://faq.whatsapp.com/1131652977717250/?locale=de_DE
+    zitat: "Gib den sechsstelligen Code ein, den du per SMS oder Telefonanruf erhältst."
+  - aussage: "Danach werden alle anderen automatisch abgemeldet"
+    quelle: https://faq.whatsapp.com/1131652977717250/?locale=de_DE
+    zitat: "werden alle Geräte, die bei deinem WhatsApp-Konto angemeldet sind, automatisch abgemeldet"
+  - aussage: "Unbekannte PIN: in seltenen Fällen hat der Betrüger die Funktion eingeschaltet"
+    quelle: https://faq.whatsapp.com/1131652977717250/?locale=de_DE
+    zitat: "könnte in seltenen Fällen jemand anderes, der dein Konto verwendet, die Verifizierung in zwei Schritten aktiviert haben"
+  - aussage: "Dann sieben Tage warten und es erneut versuchen"
+    quelle: https://faq.whatsapp.com/1131652977717250/?locale=de_DE
+    zitat: "Wenn du die PIN nicht hast, warte sieben Tage und versuche es erneut."
+  - aussage: "Familie und Freunde benachrichtigen"
+    quelle: https://faq.whatsapp.com/1131652977717250/?locale=de_DE
+    zitat: "solltest du Familie und Freund*innen benachrichtigen"
+  - aussage: "Ein Passwort zu ändern, wirft niemanden aus dem Konto"
+    quelle: https://faq.whatsapp.com/1131652977717250/?locale=de_DE
+    zitat: "Wenn du dein Passwort änderst, wird niemand aus deinem Konto entfernt."
+  - aussage: "Zurück geht es nur über die Neuanmeldung mit dem Code"
+    quelle: https://faq.whatsapp.com/1131652977717250/?locale=de_DE
+    zitat: "kannst du die Kontrolle nur zurückgewinnen, indem du dein Konto wie oben beschrieben mit dem sechsstelligen Code, der an deine Telefonnummer gesendet wird, erneut registrierst"
+  - aussage: "Danach Sicherheitsfunktionen einschalten und verknüpfte Geräte prüfen"
+    quelle: https://faq.whatsapp.com/1131652977717250/?locale=de_DE
+    zitat: "Außerdem empfehlen wir dir, die mit deinem Konto verknüpften Geräte zu überprüfen."
