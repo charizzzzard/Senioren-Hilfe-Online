@@ -1,0 +1,61 @@
+# Belegtabelle für content/lexikon/smishing.md (Format: docs/BETRIEB.md, Abschnitt „Belegtabelle“)
+# Jede Aussage mit einem wörtlichen Zitat aus einer selbst gelesenen Quelle. Prüfen: python tools/belegcheck.py lexikon/smishing
+geprueft: 2026-11-10
+belege:
+  - aussage: "Smishing: Kunstwort aus SMS und Phishing"
+    quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/mobilfunk-und-festnetz/paketdienstsms-vorsicht-abzocke-58988
+    zitat: "Diese Betrugsform wird in der Fachwelt als \"Smishing\" bezeichnet: Die Kombination der Begriffe SMS und Phishing."
+  - aussage: "SMS angeblicher Paketdienste mit Link auf eine fremde Internetseite"
+    quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/mobilfunk-und-festnetz/paketdienstsms-vorsicht-abzocke-58988
+    zitat: "Enthalten ist jedes Mal ein Link auf seltsame Internetseiten."
+  - aussage: "Phishing: jemand will an Ihre Daten"
+    quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/mobilfunk-und-festnetz/paketdienstsms-vorsicht-abzocke-58988
+    zitat: "Über solche Nachrichten sollen u.a. schädliche SMS installiert, persönliche Daten erschlichen oder Geld abgezockt werden."
+  - aussage: "Die Verbraucherzentralen warnen vor SMS angeblicher Paketdienste"
+    quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/mobilfunk-und-festnetz/paketdienstsms-vorsicht-abzocke-58988
+    zitat: "Die Verbraucherzentralen warnen vor SMS von angeblichen Paketdiensten, in denen Empfänger auf einen Link tippen sollen."
+  - aussage: "Die Seite sieht oft aus wie die eines bekannten Unternehmens"
+    quelle: https://www.bundesnetzagentur.de/DE/Vportal/TK/Aerger/Faelle/SMSSpam/start.html
+    zitat: "Häufig wird auf den Seiten die Corporate Identity von bekannten Unternehmen, wie Banken, Sparkassen oder Paketzustellern, genutzt"
+  - aussage: "Folgen: schädliche App, Massen-SMS, Abofallen"
+    quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/mobilfunk-und-festnetz/paketdienstsms-vorsicht-abzocke-58988
+    zitat: "Die Folge können schädliche Apps, Massen-SMS und Abofallen sein."
+  - aussage: "Angebliche Gebühren, mit denen Kreditkartendaten erbeutet werden"
+    quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/mobilfunk-und-festnetz/paketdienstsms-vorsicht-abzocke-58988
+    zitat: "Die Kriminellen erhalten somit Ihre Kreditkartendaten."
+  - aussage: "Angeblich auch von einer Bank oder Behörde"
+    quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/mobilfunk-und-festnetz/paketdienstsms-vorsicht-abzocke-58988
+    zitat: "die eine neue Sprachnachricht oder angebliche Nachrichten der Bank oder des Finanzamts vorgaukeln"
+  - aussage: "Schnell handeln (Beispiel der Bundesnetzagentur: „läuft in Kürze ab“)"
+    quelle: https://www.bundesnetzagentur.de/DE/Vportal/TK/Aerger/Faelle/SMSSpam/start.html
+    zitat: "Ihre Registrierung für die Banking-to-go-App läuft in Kürze ab."
+  - aussage: "Angebliche Zollgebühren"
+    quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/mobilfunk-und-festnetz/paketdienstsms-vorsicht-abzocke-58988
+    zitat: "Mal sollen angeblich Zollgebühren bezahlt werden, mal fehlen angeblich Informationen für die Zustellung."
+  - aussage: "Nicht auf den Link tippen"
+    quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/mobilfunk-und-festnetz/paketdienstsms-vorsicht-abzocke-58988
+    zitat: "Öffnen Sie keinen Link aus SMS unbekannter Herkunft!"
+  - aussage: "Nicht antworten, SMS löschen"
+    quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/mobilfunk-und-festnetz/paketdienstsms-vorsicht-abzocke-58988
+    zitat: "Antworten Sie nicht auf die SMS, sondern löschen Sie sie!"
+  - aussage: "Paketstatus direkt auf der Internetseite des Paketdienstes prüfen"
+    quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/mobilfunk-und-festnetz/paketdienstsms-vorsicht-abzocke-58988
+    zitat: "öffnen Sie die Internetseite des Paketdienstes in einem Browser und geben Sie dort die Sendungsnummer ein, um den Status zu prüfen"
+  - aussage: "Spam-SMS bei der Bundesnetzagentur melden (Beschwerdeformular)"
+    quelle: https://www.bundesnetzagentur.de/DE/Vportal/TK/Aerger/Faelle/SMSSpam/start.html
+    zitat: "Anhand Ihrer Beschwerde können wir Verstöße prüfen und geeignete Maßnahmen ergreifen"
+  - aussage: "Nachrichten-Apps: nur SMS von Nummern aus den Kontakten"
+    quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/mobilfunk-und-festnetz/paketdienstsms-vorsicht-abzocke-58988
+    zitat: "Sie können in den Einstellungen vieler Nachrichten-Apps festlegen, dass nur SMS von solchen Nummern empfangen werden, die Sie in den Kontakten gespeichert haben."
+  - aussage: "Manche Handys haben einen Spam-Filter"
+    quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/mobilfunk-und-festnetz/paketdienstsms-vorsicht-abzocke-58988
+    zitat: "Manche Smartphones oder Sicherheits-Apps bieten Spam-Filter."
+  - aussage: "Handynummer nur angeben, wo es nötig ist"
+    quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/mobilfunk-und-festnetz/paketdienstsms-vorsicht-abzocke-58988
+    zitat: "Geben Sie Ihre Handynummer nur an, wenn es zwingend nötig ist."
+  - aussage: "Drittanbietersperre beim Mobilfunkanbieter"
+    quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/mobilfunk-und-festnetz/paketdienstsms-vorsicht-abzocke-58988
+    zitat: "sollten Sie bei Ihrem Mobilfunkanbieter eine Drittanbietersperre aktivieren"
+  - aussage: "Über Drittanbieter können unbemerkt teure Abos abgeschlossen werden"
+    quelle: https://www.bundesnetzagentur.de/DE/Vportal/TK/Aerger/Faelle/SMSSpam/start.html
+    zitat: "Abschluss von hochpreisigen Abonnements über Drittanbieter möglich"
