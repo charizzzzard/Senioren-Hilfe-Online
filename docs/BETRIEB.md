@@ -230,6 +230,8 @@ claude.ai ändert, ändert im selben Zug die Datei dort – sonst weiß niemand,
 
 - **Keine GitHub-Werkzeuge im Lauf:** nichts pushen, Push `problem`. Nie direkt auf `main` pushen.
 - **CI im PR rot:** der nächste Autor-Lauf behebt es; der Prüfer prüft erst bei grünem CI.
+- **Lauf von der Plattform abgebrochen** (z. B. Nutzungslimit): Der Lauf kann selbst nichts mehr melden. Der
+  Lauf-Wächter der Freigabe (täglich 19:12) meldet ihn am selben Abend per Push `problem`, mit dem Handgriff zum Nachholen.
 - **Betriebscheck (täglich, Freigabe):** `python tools/build.py && python tools/livecheck.py --versuche 2`.
   Das Skript vergleicht die gebaute mit der Live-Sitemap und ruft jede Seite auf. Fehlt live eine Seite, die `main` baut,
   oder ist live noch eine Seite, die `main` nicht mehr baut, gilt das wie ein gescheiterter Deploy (nächster Punkt).

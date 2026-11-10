@@ -35,6 +35,10 @@ Rollen und Modelle der Aufgaben: `docs/BETRIEB.md` Abschnitte 2 und 8.
 
 ## Änderungen
 
+- **10.11.2026 – Freigabe:** neuer Schritt 2e „Lauf-Wächter“: meldet per Push `problem` jeden Netzleicht-Lauf, der in
+  den letzten 26 Stunden gescheitert ist – auch Läufe, die die Plattform abbricht (z. B. wegen des Nutzungslimits) und
+  die deshalb selbst nichts mehr melden können. Anlass: Der Lauf „neuer Artikel“ vom 10.11. brach um 10:42 Uhr wegen
+  des Nutzungslimits ab, ohne dass jemand davon erfuhr. Schritt 2f fasst mehrere Probleme in einer Nachricht zusammen.
 - **10.11.2026 – Nachprüfung:** Zeitplan von Mi 10:19 auf Mo + Mi 20:07; neuer Schritt 0, der den Montagslauf abstellt,
   sobald `tools/check.py` keine älteren Texte ohne Belegtabelle mehr meldet (Entscheidung des Betreibers, damit die
   17 Texte aus der Zeit vor den Belegtabellen schneller geprüft sind). Der Abend liegt nach der Freigabe um 19:12:
