@@ -154,7 +154,7 @@ Halten Sie Ihre **IBAN** bereit und **notieren Sie die Uhrzeit** der Sperrung.
 
 Haben Sie ein Passwort verraten oder auf einer verdächtigen Seite eingegeben? Ändern Sie es sofort. Prüfen Sie auch, ob weitere Konten betroffen sind – zum Beispiel, weil Sie dort dasselbe Passwort benutzen.
 
-Haben Sie einen **WhatsApp-Bestätigungscode** weitergegeben? Dann kann jemand anderes Ihr Konto übernommen haben. Wie Sie es zurückholen, steht in [WhatsApp-Konto schützen und zurückholen](/artikel/whatsapp-konto-schuetzen/).
+Haben Sie einen **Code von WhatsApp** weitergegeben? Dann kann jemand anderes Ihr Konto übernommen haben. Wie Sie es zurückholen, steht in [WhatsApp-Konto schützen und zurückholen](/artikel/whatsapp-konto-schuetzen/).
 
 ## Schritt 4: Auf einen Link getippt oder eine App installiert?
 

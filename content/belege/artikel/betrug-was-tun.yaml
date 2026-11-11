@@ -118,7 +118,7 @@ belege:
   - aussage: "Prüfen, ob weitere Konten betroffen sind"
     quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/phishingradar/phishingmails-woran-sie-sie-erkennen-und-worauf-sie-achten-muessen-6073
     zitat: "Prüfen Sie außerdem, ob weitere Accounts betroffen sind!"
-  - aussage: "WhatsApp-Bestätigungscode nie weitergeben (sonst Konto in Gefahr)"
+  - aussage: "Code von WhatsApp nie weitergeben (sonst Konto in Gefahr)"
     quelle: https://www.polizei-beratung.de/themen-und-tipps/betrug/messenger/
     zitat: "Teilen Sie niemals den Code zur Verifizierung Ihres Accounts, den Sie bei der Registrierung per SMS erhalten haben."
   # ---------------------------------------------------------------- Schritt 4: App installiert
