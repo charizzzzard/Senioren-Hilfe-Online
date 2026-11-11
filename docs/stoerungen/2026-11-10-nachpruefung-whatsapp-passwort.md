@@ -5,7 +5,7 @@
 | Datum | 10.11.2026, einmalige Nachprüfung des Altbestands |
 | Auslöser (BETRIEB.md Abschnitt 9) | Ein sachlicher Fehler war live (Fehlerkatalog 2026-11-10-23, Art „falsch“, Altbestand) |
 | Auswirkung | Die Anleitung „WhatsApp-Konto schützen“ versprach vom 30.10. bis zur Korrektur mehr Schutz, als die WhatsApp-Hilfe beschreibt. Kein Handgriff und keine Nummer waren falsch. |
-| Status | korrigiert in PR #33 (wartet auf die Faktenprüfung) |
+| Status | korrigiert in PR #34 (wartet auf die Faktenprüfung) |
 
 ## Was ist passiert?
 

@@ -86,7 +86,7 @@ fehler:
     vorher: "Mit einem einzigen Anruf lässt sie sich fast immer aufdecken."
     korrektur: "Ein einziger Anruf unter der alten Nummer schützt laut Polizei vor diesem Betrug."
     ursache: "Häufigkeitsangabe ohne Beleg."
-    behoben_in: "#33"
+    behoben_in: "#34"
     altbestand: true
 
   - id: 2026-11-10-22
@@ -98,7 +98,7 @@ fehler:
     vorher: "Oft plaudern sie erst ein wenig. / Kennwort „am Telefon oder per Nachricht“ / nicht schreiben, „auch nicht, um ihnen die Meinung zu sagen“"
     korrektur: "An den Wortlaut der Quellen angeglichen: „Manche plaudern …“, Kennwort „am Telefon“, „auch nicht zum Spaß“."
     ursache: "Drei Stellen freier formuliert als die Quelle."
-    behoben_in: "#33"
+    behoben_in: "#34"
     altbestand: true
 
   - id: 2026-11-10-23
@@ -110,7 +110,7 @@ fehler:
     vorher: "Dann braucht jeder, der Ihr Konto auf einem anderen Handy einrichten will, zusätzlich Ihr Passwort."
     korrektur: "Dann reicht der Code allein nicht mehr: … muss sich zusätzlich ausweisen – zum Beispiel mit Ihrem Passwort. (WhatsApp nennt Telefonnummer, Passwort oder E-Mail-Adresse.)"
     ursache: "Wirkung einer Sicherheitsfunktion gefolgert statt zitiert – zu absolut, die Quelle nennt weitere Wege."
-    behoben_in: "#33"
+    behoben_in: "#34"
     altbestand: true
 
   - id: 2026-11-10-24
@@ -122,7 +122,7 @@ fehler:
     vorher: "Kein echter Mitarbeiter von WhatsApp und kein echter Bekannter braucht ihn."
     korrektur: "Dasselbe gilt für Ihr Passwort. (WhatsApp: Registrierungscode oder Passwort niemals teilen.)"
     ursache: "Begründung ergänzt, die in keiner Quelle steht."
-    behoben_in: "#33"
+    behoben_in: "#34"
     altbestand: true
 
   - id: 2026-11-10-25
@@ -134,7 +134,7 @@ fehler:
     vorher: "Tippen Sie oben rechts auf die drei Punkte (⋮) …"
     korrektur: "Tippen Sie auf die drei Punkte (⋮) … – die Lage nennt die WhatsApp-Hilfe nicht."
     ursache: "Lage eines Symbols ohne Beleg beschrieben; für Android steht kein Testgerät bereit."
-    behoben_in: "#33"
+    behoben_in: "#34"
     altbestand: true
 
   - id: 2026-11-10-26
@@ -146,7 +146,7 @@ fehler:
     vorher: "Werden Sie nach einer PIN oder einem Passwort gefragt, das Sie nicht kennen? Dann hat der Betrüger vielleicht selbst die Verifizierung in zwei Schritten eingeschaltet."
     korrektur: "Nur die PIN genannt, wie in der Quelle, und „in seltenen Fällen“ übernommen."
     ursache: "Aussage der Quelle auf das Passwort ausgedehnt, Einschränkung weggelassen."
-    behoben_in: "#33"
+    behoben_in: "#34"
     altbestand: true
 
   - id: 2026-11-10-27
@@ -158,7 +158,7 @@ fehler:
     vorher: "… mit E-Mail-Adresse kommen Sie aber leichter wieder an Ihr Konto, falls Sie das Passwort vergessen."
     korrektur: "Mit E-Mail-Adresse haben Sie einen Weg mehr, sich auszuweisen – belegt mit der WhatsApp-Seite „Ich habe mein Passwort vergessen“."
     ursache: "Nutzen einer Angabe behauptet, ohne dass eine der Quellen ihn nannte."
-    behoben_in: "#33"
+    behoben_in: "#34"
     altbestand: true
 
   - id: 2026-11-05-05
