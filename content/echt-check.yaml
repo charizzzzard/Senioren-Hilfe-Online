@@ -28,7 +28,7 @@ fragen:
     hinweis: "Die Polizei rät: Lassen Sie sich nicht drängen und nicht unter Druck setzen. Nehmen Sie sich Zeit."
   - id: code
     frage: "Werden Sie nach einem Code, einer PIN, einer TAN oder einem Passwort gefragt?"
-    hinweis: "Banken fordern laut Polizei grundsätzlich keine vertraulichen Daten per E-Mail, Telefon oder Post an. Den Bestätigungscode von WhatsApp sollen Sie niemandem geben."
+    hinweis: "Banken fordern laut Polizei grundsätzlich keine vertraulichen Daten per E-Mail, Telefon oder Post an. Den Code von WhatsApp sollen Sie niemandem geben."
   - id: link
     frage: "Sollen Sie einen Link antippen, eine Datei öffnen oder eine App installieren?"
     hinweis: "Über solche Links können schädliche Apps auf das Handy kommen oder Daten abgegriffen werden."
