@@ -162,6 +162,56 @@ fehler:
     ursache: "Aussehen eines Symbols ohne Beleg beschrieben."
     behoben_in: "#17"
 
+  # ---- Nachprüfung des Altbestands vom 10.11.2026, Teil f (WhatsApp-Videoanruf, Schrift größer stellen).
+  # Weitere Einträge zu diesem Pull Request bitte hier anfügen, nicht am Dateiende: Die Teile a bis g liegen
+  # gleichzeitig offen und stehen deshalb an verschiedenen Stellen der Datei (check.py verlangt keine Reihenfolge).
+  - id: 2026-11-11-81
+    gefunden: 2026-11-11
+    text: artikel/schrift-groesser-stellen
+    art: luecke
+    live: true
+    entdeckt_durch: geraetetest
+    vorher: "Safari: „Seitenmenü“ › „Seitenzoom“ (iOS 27), bei iOS 26 ohne „Seitenzoom“. Ältere iPhones kamen nicht vor. Zum Regler der Textgröße stand keine Richtung."
+    korrektur: "Hinweis für iOS 18 ergänzt: Die Taste heißt dort bei Apple „Seiteneinstellungen“, „Seitenzoom“ gibt es nicht (Apple-Handbuch 18.0 und Gerätetest mit iOS 18.7.8). Richtung des Reglers und Beispieltext mit Versionsangabe ergänzt."
+    ursache: "Ältere iPhones bisher nicht geprüft; die Richtung des Reglers nennt keine Quelle."
+    behoben_in: "#38"
+
+  - id: 2026-11-11-82
+    gefunden: 2026-11-11
+    text: artikel/whatsapp-videoanruf
+    art: unbelegt
+    live: true
+    entdeckt_durch: nachpruefung
+    vorher: "Wie alle WhatsApp-Anrufe laufen Videoanrufe über das Internet, nicht über die Telefonminuten Ihres Vertrags."
+    korrektur: "Videoanrufe laufen über das Internet. Für Sprachanrufe schreibt WhatsApp ausdrücklich: Sie nutzen die Internetverbindung des Handys und nicht die Gesprächsminuten Ihres Vertrags."
+    ursache: "Aussage der Quelle über Sprachanrufe auf alle Anrufe übertragen."
+    behoben_in: "#38"
+    altbestand: true
+
+  - id: 2026-11-11-83
+    gefunden: 2026-11-11
+    text: artikel/whatsapp-videoanruf
+    art: unbelegt
+    live: true
+    entdeckt_durch: nachpruefung
+    vorher: "… tippen Sie oben auf die Videokamera. / Sie sehen jetzt das Gesicht der anderen Person groß auf dem Bildschirm. Ihr eigenes Bild erscheint klein in einer Ecke."
+    korrektur: "„oben“ gestrichen. Sollzustand ohne Größe und Lage: Sie sehen die andere Person, dazu zeigt WhatsApp Ihr eigenes Kamerabild. Steht auf der nächsten Geräte-Prüfliste."
+    ursache: "Lage und Größe von Bedienelementen ohne Beleg beschrieben."
+    behoben_in: "#38"
+    altbestand: true
+
+  - id: 2026-11-11-84
+    gefunden: 2026-11-11
+    text: artikel/whatsapp-videoanruf
+    art: unbelegt
+    live: true
+    entdeckt_durch: nachpruefung
+    vorher: "Dabei geht nichts kaputt … / … sonst ruckelt das Bild. / Dann kann ein Update helfen. / Notruf: weder die 112 noch die 110 (WhatsApp nennt nur die 112)."
+    korrektur: "Drei Folgerungen ohne Quelle gestrichen oder an den Wortlaut von WhatsApp angeglichen (starke Internetverbindung; älteres Betriebssystem oder ältere WhatsApp-Version). Für die 110 als Notrufnummer ist die Bundesnetzagentur als Quelle ergänzt."
+    ursache: "Naheliegende Folgerungen als Tatsache formuliert; eine Quelle für die 110 fehlte."
+    behoben_in: "#38"
+    altbestand: true
+
   - id: 2026-11-05-13
     gefunden: 2026-11-05
     text: artikel/schrift-groesser-stellen

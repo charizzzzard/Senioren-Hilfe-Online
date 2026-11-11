@@ -1,5 +1,7 @@
 # Belegtabelle für content/artikel/schrift-groesser-stellen.md (Format: docs/BETRIEB.md, Abschnitt „Belegtabelle“)
 # Jede Aussage mit einem wörtlichen Zitat aus einer selbst gelesenen Quelle. Prüfen: python tools/belegcheck.py schrift-groesser-stellen
+# Am 11.11.2026 ergänzt: Gerätetests Nr. 1 und 2 aus Issue #25 und die Apple-Handbuchseiten für iOS 18.
+# Die übrigen Zitate sind am 05.11.2026 gelesen; geprueft bleibt deshalb auf diesem Datum.
 geprueft: 2026-11-05
 belege:
   # ---------------------------------------------------------------- iPhone: Textgröße
@@ -9,6 +11,13 @@ belege:
   - aussage: "iPhone (iOS 26 und älter): Einstellungen › Anzeige & Helligkeit › Textgröße"
     quelle: https://support.apple.com/de-de/guide/iphone/iphd6804774e/26.0/ios/26.0
     zitat: "Tippe auf „Anzeige & Helligkeit“ und tippe dann auf „Textgröße“."
+  - aussage: "iPhone (iOS 18): Einstellungen › Anzeige & Helligkeit › Textgröße – „Anzeige & Helligkeit“ gilt auch für ältere Versionen"
+    quelle: https://support.apple.com/de-de/guide/iphone/iphd6804774e/18.0/ios/18.0
+    zitat: "Wähle „Einstellungen“ > „Anzeige & Helligkeit“. Tippe auf „Textgröße“."
+  - aussage: "iPhone (iOS 18.7.8): Den Weg „Anzeige & Helligkeit“ › „Textgröße“ gibt es"
+    geraetetest: "iPhone, iOS 18.7.8, 10.11.2026 (Betreiber)"
+  - aussage: "iPhone (iOS 18.7.8): Regler nach rechts = größer, nach links = kleiner; oben steht ein Beispieltext, der sich sofort mit ändert"
+    geraetetest: "iPhone, iOS 18.7.8, 10.11.2026 (Betreiber)"
   - aussage: "Regler verschieben, bis die Schrift gut lesbar ist (Richtung nicht festgelegt)"
     quelle: https://support.apple.com/de-de/guide/iphone/iphd6804774e/27.0/ios/27.0
     zitat: "Ziehe den Regler nach links oder rechts, um die Textgröße zu ändern."
@@ -108,6 +117,14 @@ belege:
   - aussage: "iOS 26: ohne Schritt „Seitenzoom“, A-Tasten direkt im Seitenmenü links neben dem Suchfeld"
     quelle: https://support.apple.com/de-de/guide/iphone/iphb3100d149/26.0/ios/26.0
     zitat: "Verwende die Taste „Seitenmenü“, um den Text größer oder kleiner darzustellen."
+  - aussage: "iOS 18: Die Taste heißt bei Apple „Seiteneinstellungen“ und liegt links neben dem Suchfeld"
+    quelle: https://support.apple.com/de-de/guide/iphone/iphb3100d149/18.0/ios/18.0
+    zitat: "Tippe auf die Taste „Seiteneinstellungen“ links neben dem Suchfeld."
+  - aussage: "iOS 18: kein Schritt „Seitenzoom“ – nach der Taste folgen gleich das große und das kleine A"
+    quelle: https://support.apple.com/de-de/guide/iphone/iphb3100d149/18.0/ios/18.0
+    zitat: "Tippe auf die Taste „Seiteneinstellungen“ links neben dem Suchfeld. Tippe auf das große A, um die Schrift zu vergrößern, oder das kleine A, um sie zu verkleinern."
+  - aussage: "Safari (iOS 18.7.8): Taste ganz links neben dem Suchfeld, also in der Adressleiste (Rechteck, darunter zwei Striche); nach dem Antippen stehen das kleine und das große A unten in der Mitte; einen Punkt „Seitenzoom“ gibt es nicht"
+    geraetetest: "iPhone, iOS 18.7.8, 10.11.2026 (Betreiber)"
   # ---------------------------------------------------------------- Chrome
   - aussage: "Chrome iPhone: Dreipunkt-Menü › „Text zoomen…“"
     quelle: https://support.google.com/chrome/answer/96810?hl=de&co=GENIE.Platform%3DiOS
