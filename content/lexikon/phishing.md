@@ -6,8 +6,8 @@ beschreibung: "Was ist Phishing? Betrüger wollen mit gefälschten E-Mails und I
 keyword: "was ist phishing"
 stichwoerter: ["Phishing-Mails", "Phishing-Mail", "Phishing"]
 veroeffentlicht: 2026-11-01
-aktualisiert: 2026-11-01
-geprueft: 2026-11-01
+aktualisiert: 2026-11-10
+geprueft: 2026-11-10
 kurz_gesagt: |
   **Phishing** heißt: Betrüger verschicken gefälschte E-Mails oder Nachrichten, die aussehen wie von Ihrer Bank, einem Shop oder einer Behörde. Sie wollen damit an Passwörter, PIN oder Kartendaten kommen.
   Grundregel: Kein seriöser Anbieter fragt per E-Mail nach Ihren Zugangsdaten. Tippen Sie nicht auf den Link – rufen Sie die Seite selbst auf.
@@ -35,7 +35,7 @@ text: >
   Margarete bekommt eine E-Mail mit dem Logo ihrer Bank: „Ihre Karte wird in 24 Stunden gesperrt. Bitte bestätigen Sie jetzt Ihre Daten.“ Darunter ein großer Knopf. Ihr Herz klopft. Dann denkt sie: Warum sollte meine Bank so drängeln?
 ```
 
-Margarete hat richtig reagiert. Solche Mails sind keine Seltenheit: Die Verbraucherzentralen zeigen im **Phishing-Radar** laufend neue Beispiele, etwa angeblich von Banken, PayPal oder der Rentenversicherung.
+Margarete hat richtig reagiert. Solche Mails sind keine Seltenheit: Die Verbraucherzentralen zeigen im **Phishing-Radar** laufend aktuelle Betrugsversuche.
 
 ## So funktioniert die Masche
 
@@ -59,7 +59,7 @@ Früher erkannte man Phishing oft an schlechtem Deutsch. Das reicht heute nicht 
 ## So schützen Sie sich
 
 - **Grundregel des BSI:** Kein Kreditkarteninstitut und kein seriöser Anbieter fordert Sie per E-Mail auf, vertrauliche Zugangsdaten preiszugeben.
-- **Nicht auf Links in verdächtigen Mails tippen.** Rufen Sie die Seite lieber selbst auf – über die Ihnen bekannte Adresse oder die offizielle App.
+- **Nicht auf Links in verdächtigen Mails tippen.** Rufen Sie die Seite lieber selbst auf – über die Startseite des Anbieters.
 - **Im Zweifel anrufen:** Fragen Sie beim Anbieter nach – unter einer Nummer, die Sie selbst heraussuchen.
 - **Keine Anhänge** aus verdächtigen Mails öffnen.
 - **Updates installieren:** Halten Sie Handy, Computer und Apps auf dem aktuellen Stand.

@@ -96,6 +96,57 @@ fehler:
     ursache: "Folgen der Handlung nicht vollständig aus der Quelle übernommen."
     behoben_in: "#15"
 
+  # ---- Nachprüfung des Altbestands vom 10.11.2026, Teil c (Lexikon: Phishing, Smishing, Spoofing).
+  # Weitere Einträge zu diesem Pull Request bitte hier anfügen, nicht am Dateiende: Die Teile a bis g liegen
+  # gleichzeitig offen und stehen deshalb an verschiedenen Stellen der Datei (check.py verlangt keine Reihenfolge).
+  - id: 2026-11-10-41
+    gefunden: 2026-11-10
+    text: lexikon/phishing
+    art: unbelegt
+    live: true
+    entdeckt_durch: nachpruefung
+    vorher: "… zeigen im Phishing-Radar laufend neue Beispiele, etwa angeblich von Banken, PayPal oder der Rentenversicherung."
+    korrektur: "… zeigen im Phishing-Radar laufend aktuelle Betrugsversuche. (Die Beispiele auf der Seite wechseln täglich und lassen sich nicht dauerhaft belegen.)"
+    ursache: "Tagesaktuelle Beispiele in einem Text, der dauerhaft gelten soll."
+    behoben_in: "#35"
+    altbestand: true
+
+  - id: 2026-11-10-42
+    gefunden: 2026-11-10
+    text: lexikon/phishing
+    art: unbelegt
+    live: true
+    entdeckt_durch: nachpruefung
+    vorher: "Rufen Sie die Seite lieber selbst auf – über die Ihnen bekannte Adresse oder die offizielle App."
+    korrektur: "… über die Startseite des Anbieters. (Wortlaut des BSI; die App nennt das BSI nicht.)"
+    ursache: "Rat um einen Weg ergänzt, den die Quelle nicht nennt."
+    behoben_in: "#35"
+    altbestand: true
+
+  - id: 2026-11-10-43
+    gefunden: 2026-11-10
+    text: lexikon/smishing
+    art: unbelegt
+    live: true
+    entdeckt_durch: nachpruefung
+    vorher: "… landet auf einer gefälschten Seite. / … oder eine kleine Gebühr bezahlen. / Dann können fremde Firmen nichts über Ihre Handyrechnung abbuchen."
+    korrektur: "Wie in „Betrugs-SMS erkennen“ an Verbraucherzentrale und Bundesnetzagentur angeglichen (fremde Seite, angebliche Zollgebühren, Abos über Drittanbieter)."
+    ursache: "Drei Stellen genauer formuliert, als die Quellen es hergeben."
+    behoben_in: "#35"
+    altbestand: true
+
+  - id: 2026-11-10-44
+    gefunden: 2026-11-10
+    text: lexikon/spoofing
+    art: unbelegt
+    live: true
+    entdeckt_durch: nachpruefung
+    vorher: "… eine vertraute Nummer – etwa die Ihrer Bank oder sogar die 110. / Selbst die 110 oder die 116 116 können gefälscht im Display stehen."
+    korrektur: "Steht die 110 im Display, ist die Anzeige in jedem Fall gefälscht: Die Polizei ruft nie von der 110 an. Auch der Sperr-Notruf 116 116 ruft niemals an. (Belegt mit Bundesnetzagentur und Sperr-Notruf-FAQ.) In „Kurz gesagt“ steht jetzt „eine Nummer aus Ihrer Stadt“."
+    ursache: "Aussage stand in keiner Quelle des Textes; die Seite der Bundesnetzagentur dazu war nicht gelesen."
+    behoben_in: "#35"
+    altbestand: true
+
   - id: 2026-11-05-07
     gefunden: 2026-11-05
     text: artikel/betrug-was-tun

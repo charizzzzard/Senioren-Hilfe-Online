@@ -6,8 +6,8 @@ beschreibung: "Smishing ist Betrug per SMS – zum Beispiel mit angeblichen Pake
 keyword: "smishing"
 stichwoerter: ["Smishing"]
 veroeffentlicht: 2026-10-30
-aktualisiert: 2026-10-30
-geprueft: 2026-10-30
+aktualisiert: 2026-11-10
+geprueft: 2026-11-10
 kurz_gesagt: |
   **Smishing** ist ein Kunstwort aus **SMS** und **Phishing**. Gemeint sind gefälschte SMS, die Sie auf eine betrügerische Internetseite locken sollen – oft als angebliche Nachricht vom Paketdienst.
   Tippen Sie nicht auf den Link, antworten Sie nicht und löschen Sie die SMS.
@@ -36,7 +36,7 @@ Genau das ist typisches Smishing. Die Verbraucherzentralen warnen vor solchen SM
 
 ## Was die Betrüger wollen
 
-Wer auf den Link tippt, landet auf einer gefälschten Seite. Laut Verbraucherzentrale können die Folgen sein:
+Wer auf den Link tippt, landet auf einer fremden Internetseite. Oft sieht sie aus wie die Seite eines bekannten Unternehmens. Laut Verbraucherzentrale können die Folgen sein:
 
 - eine **schädliche App** auf dem Handy,
 - **Massen-SMS**, die vom eigenen Handy verschickt werden,
@@ -46,7 +46,7 @@ Wer auf den Link tippt, landet auf einer gefälschten Seite. Laut Verbraucherzen
 
 - Die SMS kommt **überraschend** und enthält einen **Link**.
 - Sie stammt angeblich von einem Paketdienst, einer Bank oder einer Behörde.
-- Sie sollen **schnell handeln** oder eine kleine Gebühr bezahlen.
+- Sie sollen **schnell handeln** oder angebliche Zollgebühren bezahlen.
 
 ## Was Sie tun können
 
@@ -61,6 +61,6 @@ Die Verbraucherzentrale nennt einige einfache Schritte:
 
 - In vielen Nachrichten-Apps können Sie einstellen, dass nur SMS von Nummern aus Ihren **Kontakten** angezeigt werden. Manche Handys haben auch einen **Spam-Filter**.
 - Geben Sie Ihre **Handynummer** nur dort an, wo es wirklich nötig ist.
-- Lassen Sie bei Ihrem Mobilfunkanbieter eine **Drittanbietersperre** einrichten. Dann können fremde Firmen nichts über Ihre Handyrechnung abbuchen.
+- Lassen Sie bei Ihrem Mobilfunkanbieter eine **Drittanbietersperre** einrichten. Der Hintergrund: Über Drittanbieter können laut Bundesnetzagentur unbemerkt teure Abos abgeschlossen werden.
 
 Eine ausführliche Anleitung – auch für den Fall, dass Sie schon getippt haben – finden Sie in [Betrugs-SMS erkennen](/artikel/betrugs-sms-erkennen/).

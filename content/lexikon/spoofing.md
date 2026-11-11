@@ -6,10 +6,10 @@ beschreibung: "Beim Spoofing fälschen Betrüger die angezeigte Telefonnummer od
 keyword: "spoofing"
 stichwoerter: ["Call-ID-Spoofing", "Spoofing"]
 veroeffentlicht: 2026-10-30
-aktualisiert: 2026-10-30
-geprueft: 2026-10-30
+aktualisiert: 2026-11-10
+geprueft: 2026-11-10
 kurz_gesagt: |
-  **Spoofing** heißt: Betrüger **fälschen**, wer sie zu sein scheinen. Am Telefon zeigt das Display dann eine vertraute Nummer – etwa die Ihrer Bank oder sogar die **110** –, obwohl Kriminelle anrufen.
+  **Spoofing** heißt: Betrüger **fälschen**, wer sie zu sein scheinen. Am Telefon zeigt das Display dann eine vertraute Nummer – etwa die Ihrer Bank oder eine Nummer aus Ihrer Stadt –, obwohl Kriminelle anrufen.
   Die wichtigste Regel: **Auflegen** und die Stelle selbst zurückrufen, unter einer Nummer, die Sie **selbst heraussuchen**.
 quellen:
   - herausgeber: Bundesamt für Sicherheit in der Informationstechnik (BSI)
@@ -18,9 +18,15 @@ quellen:
   - herausgeber: Polizeiliche Kriminalprävention der Länder und des Bundes
     titel: Betrug durch falsche Polizisten
     url: https://www.polizei-beratung.de/themen-und-tipps/betrug/betrug-durch-falsche-polizisten/
+  - herausgeber: Bundesnetzagentur
+    titel: Manipulation von Rufnummern (Polizeiliche Notrufnummer 110)
+    url: https://www.bundesnetzagentur.de/DE/Vportal/TK/Aerger/Faelle/Manipulation/start.html
   - herausgeber: Sperr-Notruf 116 116 e.V.
-    titel: "Pressemeldung: Der Sperr-Notruf 116 116 ruft niemals an (26.11.2024)"
-    url: https://www.sperr-notruf.de/media/pages/presse/aacf5d49d9-1749557608/04_sperr-notruf_116_116_ruft_niemals_an.pdf
+    titel: "Häufige Fragen rund ums Sperren (auch: „Die 116 116 ruft bei mir an – kann das sein?“)"
+    url: https://www.sperr-notruf.de/faq
+  - herausgeber: Polizeiliche Kriminalprävention der Länder und des Bundes
+    titel: Phishing – nicht ins Netz gehen
+    url: https://www.polizei-beratung.de/themen-und-tipps/gefahren-im-internet/phishing/
 verwandt:
   - schockanruf-enkeltrick
   - betrug-was-tun
@@ -42,7 +48,7 @@ Genau darauf setzen die Täter. Die Polizei beschreibt diese Technik bei der Mas
 Fachleute sprechen von **Call-ID-Spoofing**. Laut BSI ist die angezeigte Nummer dabei entweder bekannt oder nur leicht verändert. Unter Zeitdruck fällt das kaum auf.
 
 !!! wichtig "Die 110 ruft Sie nicht an"
-    Selbst die **110** oder die **116 116** können gefälscht im Display stehen. Doch die Polizei ruft nicht von der 110 an, und der Sperr-Notruf 116 116 ruft niemals an. Polizei, Banken und Behörden fragen außerdem nie am Telefon nach PIN oder TAN.
+    Steht die **110** im Display, ist die Anzeige in jedem Fall gefälscht: Die Polizei ruft nie von der 110 an. Auch der Sperr-Notruf **116 116** ruft niemals an. Und Banken fordern laut Polizei keine vertraulichen Daten wie PIN oder TAN am Telefon an.
 
 Ein wichtiger Hinweis des BSI: Wenn Sie eine gefälschte Nummer zurückrufen, landen Sie oft bei der **echten** Stelle. Dort weiß aber niemand etwas von dem Anruf. Deshalb hilft nur eins: auflegen und die Stelle über einen Weg kontaktieren, den Sie selbst wählen.
 
@@ -58,4 +64,4 @@ Das BSI rät:
 2. **Beenden Sie das Gespräch** so schnell wie möglich – legen Sie einfach auf.
 3. **Melden Sie sich selbst** bei der Person, Behörde oder Firma – über einen anderen Weg, zum Beispiel mit einer Nummer aus Ihrem Telefonbuch oder von der offiziellen Internetseite.
 
-Welche Maschen am Telefon besonders häufig sind, lesen Sie in [Enkeltrick und Schockanruf: So reagieren Sie richtig](/artikel/schockanruf-enkeltrick/). Ist schon etwas passiert, hilft der [Notfallplan nach einem Betrug](/artikel/betrug-was-tun/).
+Wie Betrüger am Telefon vorgehen, lesen Sie in [Enkeltrick und Schockanruf: So reagieren Sie richtig](/artikel/schockanruf-enkeltrick/). Ist schon etwas passiert, hilft der [Notfallplan nach einem Betrug](/artikel/betrug-was-tun/).

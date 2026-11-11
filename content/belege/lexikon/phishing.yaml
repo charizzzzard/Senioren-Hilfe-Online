@@ -1,0 +1,61 @@
+# Belegtabelle für content/lexikon/phishing.md (Format: docs/BETRIEB.md, Abschnitt „Belegtabelle“)
+# Jede Aussage mit einem wörtlichen Zitat aus einer selbst gelesenen Quelle. Prüfen: python tools/belegcheck.py lexikon/phishing
+geprueft: 2026-11-10
+belege:
+  - aussage: "Phishing: gefälschte E-Mails, die an vertrauliche Daten wie PIN oder Kreditkartennummer wollen"
+    quelle: https://www.bsi.bund.de/DE/Themen/Verbraucherinnen-und-Verbraucher/Cyber-Sicherheitslage/Methoden-der-Cyber-Kriminalitaet/Spam-Phishing-Co/Passwortdiebstahl-durch-Phishing/Wie-erkenne-ich-Phishing-in-E-Mails-und-auf-Webseiten/wie-erkenne-ich-phishing-in-e-mails-und-auf-webseiten_node.html
+    zitat: "Sie werden aufgefordert, vertrauliche Daten wie die PIN für Ihren Online-Bankzugang oder eine Kreditkartennummer einzugeben."
+  - aussage: "Die Mails sehen aus wie von der Bank, einem Shop oder einer bekannten Stelle"
+    quelle: https://www.bsi.bund.de/DE/Themen/Verbraucherinnen-und-Verbraucher/Cyber-Sicherheitslage/Methoden-der-Cyber-Kriminalitaet/Spam-Phishing-Co/Passwortdiebstahl-durch-Phishing/Wie-erkenne-ich-Phishing-in-E-Mails-und-auf-Webseiten/wie-erkenne-ich-phishing-in-e-mails-und-auf-webseiten_node.html
+    zitat: "Die Mail scheint von einer bekannten Person oder Organisation zu stammen, jedoch kommt Ihnen das Anliegen des Absenders ungewöhnlich vor."
+  - aussage: "Grundregel: Kein seriöser Anbieter fragt per E-Mail nach Zugangsdaten"
+    quelle: https://www.bsi.bund.de/DE/Themen/Verbraucherinnen-und-Verbraucher/Cyber-Sicherheitslage/Methoden-der-Cyber-Kriminalitaet/Spam-Phishing-Co/Passwortdiebstahl-durch-Phishing/Schutz-gegen-Phishing/schutz-gegen-phishing.html
+    zitat: "Kein Kreditkarteninstitut und kein seriöser Anbieter fordert Sie per E-Mail auf, vertrauliche Zugangsdaten preiszugeben"
+  - aussage: "Phishing-Radar der Verbraucherzentralen zeigt laufend aktuelle Betrugsversuche"
+    quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/phishingradar/phishingradar-aktuelle-warnungen-6059
+    zitat: "Hier zeigen wir kontinuierlich aktuelle Betrugsversuche, die uns über unser Phishing-Radar erreichen."
+  - aussage: "Gefälschte Internetseite, zum Beispiel einer Bank oder eines Versandhändlers; eingegebene Daten landen bei den Tätern"
+    quelle: https://www.bsi.bund.de/DE/Themen/Verbraucherinnen-und-Verbraucher/Cyber-Sicherheitslage/Methoden-der-Cyber-Kriminalitaet/Spam-Phishing-Co/Passwortdiebstahl-durch-Phishing/Wie-erkenne-ich-Phishing-in-E-Mails-und-auf-Webseiten/wie-erkenne-ich-phishing-in-e-mails-und-auf-webseiten_node.html
+    zitat: "Wer sich täuschen lässt und auf einer gefälschten Bank-Website arglos zum Beispiel seine Kreditkartennummer einschließlich Gültigkeitsdauer und Sicherheitscode eintippt, gibt den Tätern alles an die Hand"
+  - aussage: "… auch gefälschte Seiten von Shops"
+    quelle: https://www.bsi.bund.de/DE/Themen/Verbraucherinnen-und-Verbraucher/Cyber-Sicherheitslage/Methoden-der-Cyber-Kriminalitaet/Spam-Phishing-Co/Passwortdiebstahl-durch-Phishing/Wie-erkenne-ich-Phishing-in-E-Mails-und-auf-Webseiten/wie-erkenne-ich-phishing-in-e-mails-und-auf-webseiten_node.html
+    zitat: "Auch gefälschte Websites von Online-Versandhändlern zielen darauf ab, mit ausspionierten Account-Daten auf fremder Leute Kosten einzukaufen."
+  - aussage: "Anhang öffnen kann Schadsoftware auf das Gerät bringen – meist unbemerkt"
+    quelle: https://www.bsi.bund.de/DE/Themen/Verbraucherinnen-und-Verbraucher/Cyber-Sicherheitslage/Methoden-der-Cyber-Kriminalitaet/Spam-Phishing-Co/Passwortdiebstahl-durch-Phishing/Wie-erkenne-ich-Phishing-in-E-Mails-und-auf-Webseiten/wie-erkenne-ich-phishing-in-e-mails-und-auf-webseiten_node.html
+    zitat: "Jeder unbedachte Klick auf einen solchen bösartigen Anhang führt dann – vom Anwender meist unbemerkt – zu einer Infektion mit einem Schadprogramm."
+  - aussage: "Misstrauen, wenn mindestens eines der Merkmale zutrifft"
+    quelle: https://www.bsi.bund.de/DE/Themen/Verbraucherinnen-und-Verbraucher/Cyber-Sicherheitslage/Methoden-der-Cyber-Kriminalitaet/Spam-Phishing-Co/Passwortdiebstahl-durch-Phishing/Wie-erkenne-ich-Phishing-in-E-Mails-und-auf-Webseiten/wie-erkenne-ich-phishing-in-e-mails-und-auf-webseiten_node.html
+    zitat: "auf die mindestens eines der folgenden Merkmale zutrifft, sollten Sie misstrauisch werden"
+  - aussage: "Merkmal: dringender Handlungsbedarf („Ihre Daten gehen sonst verloren“)"
+    quelle: https://www.bsi.bund.de/DE/Themen/Verbraucherinnen-und-Verbraucher/Cyber-Sicherheitslage/Methoden-der-Cyber-Kriminalitaet/Spam-Phishing-Co/Passwortdiebstahl-durch-Phishing/Wie-erkenne-ich-Phishing-in-E-Mails-und-auf-Webseiten/wie-erkenne-ich-phishing-in-e-mails-und-auf-webseiten_node.html
+    zitat: "Der Text der Mail gibt dringenden Handlungsbedarf vor"
+  - aussage: "Merkmal: Drohungen, etwa mit einer Kontosperrung"
+    quelle: https://www.bsi.bund.de/DE/Themen/Verbraucherinnen-und-Verbraucher/Cyber-Sicherheitslage/Methoden-der-Cyber-Kriminalitaet/Spam-Phishing-Co/Passwortdiebstahl-durch-Phishing/Wie-erkenne-ich-Phishing-in-E-Mails-und-auf-Webseiten/wie-erkenne-ich-phishing-in-e-mails-und-auf-webseiten_node.html
+    zitat: "Wenn Sie das nicht tun, müssen wir Ihr Konto leider sperren"
+  - aussage: "Schlechtes Deutsch ist kein verlässliches Merkmal mehr"
+    quelle: https://www.bsi.bund.de/DE/Themen/Verbraucherinnen-und-Verbraucher/Cyber-Sicherheitslage/Methoden-der-Cyber-Kriminalitaet/Spam-Phishing-Co/Passwortdiebstahl-durch-Phishing/Wie-erkenne-ich-Phishing-in-E-Mails-und-auf-Webseiten/wie-erkenne-ich-phishing-in-e-mails-und-auf-webseiten_node.html
+    zitat: "Tippfehler oder seltsame Umlaute im Text sind nur noch selten ein eindeutiger Hinweis auf einen Phishing-Versuch. Auch bei gut formuliertem Text sollten Sie deshalb wachsam sein."
+  - aussage: "„https“ ist keine Entwarnung mehr – Betrüger nutzen es ebenfalls"
+    quelle: https://www.bsi.bund.de/DE/Themen/Verbraucherinnen-und-Verbraucher/Cyber-Sicherheitslage/Methoden-der-Cyber-Kriminalitaet/Spam-Phishing-Co/Passwortdiebstahl-durch-Phishing/Wie-erkenne-ich-Phishing-in-E-Mails-und-auf-Webseiten/wie-erkenne-ich-phishing-in-e-mails-und-auf-webseiten_node.html
+    zitat: "bedeutet heute also keine Entwarnung mehr"
+  - aussage: "Nicht auf Links in verdächtigen Mails tippen; die Seite über die Startseite des Anbieters aufrufen"
+    quelle: https://www.bsi.bund.de/DE/Themen/Verbraucherinnen-und-Verbraucher/Cyber-Sicherheitslage/Methoden-der-Cyber-Kriminalitaet/Spam-Phishing-Co/Passwortdiebstahl-durch-Phishing/Schutz-gegen-Phishing/schutz-gegen-phishing.html
+    zitat: "Klicken Sie niemals auf Links in einer dubiosen E-Mail. Versuchen Sie im Zweifelsfall stattdessen, die im E-Mail-Text genannte Seite über die Startseite der betreffenden Organisation zu erreichen"
+  - aussage: "Im Zweifel telefonisch beim Anbieter nachfragen"
+    quelle: https://www.bsi.bund.de/DE/Themen/Verbraucherinnen-und-Verbraucher/Cyber-Sicherheitslage/Methoden-der-Cyber-Kriminalitaet/Spam-Phishing-Co/Passwortdiebstahl-durch-Phishing/Schutz-gegen-Phishing/schutz-gegen-phishing.html
+    zitat: "fragen Sie am besten telefonisch bei dem genannten Anbieter nach"
+  - aussage: "Keine Anhänge aus verdächtigen Mails öffnen"
+    quelle: https://www.bsi.bund.de/DE/Themen/Verbraucherinnen-und-Verbraucher/Cyber-Sicherheitslage/Methoden-der-Cyber-Kriminalitaet/Spam-Phishing-Co/Passwortdiebstahl-durch-Phishing/Schutz-gegen-Phishing/schutz-gegen-phishing.html
+    zitat: "Öffnen Sie insbesondere niemals Dateien im Anhang einer verdächtigen E-Mail."
+  - aussage: "Updates installieren"
+    quelle: https://www.bsi.bund.de/DE/Themen/Verbraucherinnen-und-Verbraucher/Cyber-Sicherheitslage/Methoden-der-Cyber-Kriminalitaet/Spam-Phishing-Co/Passwortdiebstahl-durch-Phishing/Schutz-gegen-Phishing/schutz-gegen-phishing.html
+    zitat: "Halten Sie Ihre Geräte mit Updates des Betriebssystems und der Programme bzw. Apps auf dem aktuellen Stand."
+  - aussage: "Verdächtige Mails an phishing@verbraucherzentrale.nrw weiterleiten"
+    quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/phishingradar/phishingradar-aktuelle-warnungen-6059
+    zitat: "Verdächtige E-Mails, die Sie selbst erhalten haben, können Sie an die E-Mail-Adresse phishing@verbraucherzentrale.nrw weiterleiten."
+  - aussage: "Keine einzelnen Antworten"
+    quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/phishingradar/phishingradar-aktuelle-warnungen-6059
+    zitat: "Bitte beachten Sie, dass wir aufgrund der zahlreichen Eingänge Ihre E-Mails nicht beantworten können."
+  - aussage: "Die Meldung hilft, andere zu warnen"
+    quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/phishingradar/phishingradar-aktuelle-warnungen-6059
+    zitat: "Auf dieser Basis informieren wir über aktuelle Betrugsmaschen."

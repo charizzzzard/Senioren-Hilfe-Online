@@ -1,0 +1,49 @@
+# Belegtabelle für content/lexikon/spoofing.md (Format: docs/BETRIEB.md, Abschnitt „Belegtabelle“)
+# Jede Aussage mit einem wörtlichen Zitat aus einer selbst gelesenen Quelle. Prüfen: python tools/belegcheck.py lexikon/spoofing
+geprueft: 2026-11-10
+belege:
+  - aussage: "Spoofing (engl. Manipulation, Verschleierung): Kriminelle geben sich am Telefon oder per E-Mail als seriöse Stelle aus, zum Beispiel als Bank"
+    quelle: https://www.bsi.bund.de/DE/Themen/Verbraucherinnen-und-Verbraucher/Cyber-Sicherheitslage/Methoden-der-Cyber-Kriminalitaet/Spam-Phishing-Co/Gefaelschte-Absenderadressen/gefaelschte-absenderadressen.html
+    zitat: "Beim Spoofing (engl. Manipulation, Verschleierung) geben sich Kriminelle am Telefon oder per E-Mail als seriöse Behörden, Unternehmen, Institutionen (z.B. Banken oder Vereine) oder Einzelpersonen aus."
+  - aussage: "Das Display zeigt eine vertraute Nummer"
+    quelle: https://www.bsi.bund.de/DE/Themen/Verbraucherinnen-und-Verbraucher/Cyber-Sicherheitslage/Methoden-der-Cyber-Kriminalitaet/Spam-Phishing-Co/Gefaelschte-Absenderadressen/gefaelschte-absenderadressen.html
+    zitat: "Opfer werden meist von vermeintlich bekannten Telefon- oder E-Mail-Absendern kontaktiert."
+  - aussage: "Polizei: vorgetäuschte Nummer, zum Beispiel mit der Vorwahl des Wohnorts"
+    quelle: https://www.polizei-beratung.de/themen-und-tipps/betrug/betrug-durch-falsche-polizisten/
+    zitat: "eine vorgetäuschte Rufnummer z. B. aus dem Vorwahlbereich des Angerufenen, erscheinen lässt"
+  - aussage: "Falsche Polizisten: Erspartes sei nicht mehr sicher"
+    quelle: https://www.polizei-beratung.de/themen-und-tipps/betrug/betrug-durch-falsche-polizisten/
+    zitat: "dass Geld- und Wertgegenstände bei ihren Opfern zuhause oder auf der Bank nicht mehr sicher seien"
+  - aussage: "Call-ID-Spoofing: Nummer ist bekannt oder leicht verändert; unter Zeitdruck fällt das kaum auf"
+    quelle: https://www.bsi.bund.de/DE/Themen/Verbraucherinnen-und-Verbraucher/Cyber-Sicherheitslage/Methoden-der-Cyber-Kriminalitaet/Spam-Phishing-Co/Gefaelschte-Absenderadressen/gefaelschte-absenderadressen.html
+    zitat: "ist die angezeigte Telefonnummer entweder bekannt oder leicht verlängert bzw. verändert, sodass ein Betrug (gerade unter möglichem Zeitdruck) erst einmal kaum auffällt"
+  - aussage: "Steht die 110 im Display, ist die Anzeige in jedem Fall gefälscht"
+    quelle: https://www.bundesnetzagentur.de/DE/Vportal/TK/Aerger/Faelle/Manipulation/start.html
+    zitat: "Erscheint die Notrufnummer 110 als Absenderrufnummer bei einem Anruf, ist diese Anzeige in jedem Fall manipuliert."
+  - aussage: "Die Polizei ruft nie von der 110 an"
+    quelle: https://www.bundesnetzagentur.de/DE/Vportal/TK/Aerger/Faelle/Manipulation/start.html
+    zitat: "Notrufabfragestellen der Polizei rufen immer mit den Ortsnetzrufnummern der einzelnen Polizeidienststellen an."
+  - aussage: "Der Sperr-Notruf 116 116 ruft niemals an"
+    quelle: https://www.sperr-notruf.de/faq
+    zitat: "Von der Rufnummer 116 116 finden grundsätzlich keine Anrufe statt!"
+  - aussage: "Banken fordern keine vertraulichen Daten am Telefon an"
+    quelle: https://www.polizei-beratung.de/themen-und-tipps/gefahren-im-internet/phishing/
+    zitat: "Kreditinstitute fordern grundsätzlich keine vertraulichen Daten per E-Mail oder per Telefon oder per Post von Ihnen an."
+  - aussage: "Rückruf einer gefälschten Nummer landet bei der echten Stelle, die von nichts weiß"
+    quelle: https://www.bsi.bund.de/DE/Themen/Verbraucherinnen-und-Verbraucher/Cyber-Sicherheitslage/Methoden-der-Cyber-Kriminalitaet/Spam-Phishing-Co/Gefaelschte-Absenderadressen/gefaelschte-absenderadressen.html
+    zitat: "wird nicht die gefälschte Nummer, sondern die richtige Nummer angewählt und man landet bei der eigentlich bekannten Rufnummer - jedoch ohne, dass die angerufene Person von dem Betrug Kenntnis hat"
+  - aussage: "E-Mail: seriös klingende Absender, damit die Nachricht geöffnet wird"
+    quelle: https://www.bsi.bund.de/DE/Themen/Verbraucherinnen-und-Verbraucher/Cyber-Sicherheitslage/Methoden-der-Cyber-Kriminalitaet/Spam-Phishing-Co/Gefaelschte-Absenderadressen/gefaelschte-absenderadressen.html
+    zitat: "Außerdem soll der vertrauenerweckende Name die Chance erhöhen, dass Empfängerinnen und Empfänger die E-Mail tatsächlich öffnen."
+  - aussage: "Ziel: Daten abgreifen oder auf gefälschte Internetseiten locken"
+    quelle: https://www.bsi.bund.de/DE/Themen/Verbraucherinnen-und-Verbraucher/Cyber-Sicherheitslage/Methoden-der-Cyber-Kriminalitaet/Spam-Phishing-Co/Gefaelschte-Absenderadressen/gefaelschte-absenderadressen.html
+    zitat: "um entweder auf direktem Wege sensible und persönliche Daten abzugreifen oder einen weiteren Angriff - z.B. durch Verlinkung auf gefälschte Webseiten - vorzubereiten"
+  - aussage: "BSI: Forderungen nach persönlichen Daten oder Geld nicht nachkommen"
+    quelle: https://www.bsi.bund.de/DE/Themen/Verbraucherinnen-und-Verbraucher/Cyber-Sicherheitslage/Methoden-der-Cyber-Kriminalitaet/Spam-Phishing-Co/Gefaelschte-Absenderadressen/gefaelschte-absenderadressen.html
+    zitat: "zweifelhaften Aufforderungen nach persönlichen Daten oder Geld per E-Mail oder Anruf nicht nachzukommen"
+  - aussage: "BSI: Gespräch schnellstmöglich beenden"
+    quelle: https://www.bsi.bund.de/DE/Themen/Verbraucherinnen-und-Verbraucher/Cyber-Sicherheitslage/Methoden-der-Cyber-Kriminalitaet/Spam-Phishing-Co/Gefaelschte-Absenderadressen/gefaelschte-absenderadressen.html
+    zitat: "die Kommunikation schnellstmöglich zu beenden"
+  - aussage: "BSI: die Stelle über einen anderen Weg selbst kontaktieren"
+    quelle: https://www.bsi.bund.de/DE/Themen/Verbraucherinnen-und-Verbraucher/Cyber-Sicherheitslage/Methoden-der-Cyber-Kriminalitaet/Spam-Phishing-Co/Gefaelschte-Absenderadressen/gefaelschte-absenderadressen.html
+    zitat: "die Person, Behörde oder das Unternehmen über einen anderen Kommunikationsweg zu kontaktieren und die Anfrage zu verifizieren"
