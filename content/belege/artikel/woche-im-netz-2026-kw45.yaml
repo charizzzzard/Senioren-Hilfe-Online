@@ -1,6 +1,6 @@
 # Belegtabelle für content/artikel/woche-im-netz-2026-kw45.md (Format: docs/BETRIEB.md, Abschnitt „Belegtabelle“)
 # Prüfen: python tools/belegcheck.py woche-im-netz-2026-kw45
-geprueft: 2026-11-06
+geprueft: 2026-11-11
 belege:
   # ---------------------------------------------------------------- Meldung 1: Volksbanken / Consorsbank
   - aussage: "5. November: Mail im Namen der Volksbanken Raiffeisenbanken"
@@ -31,16 +31,16 @@ belege:
     quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/phishingradar/phishingradar-aktuelle-warnungen-6059
     zitat: "prüfen Sie Hinweise ausschließlich über die offizielle App oder die bekannte Internetseite der Bank"
   - aussage: "3. November: Mail im Namen der Consorsbank"
-    quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/phishingradar/phishingradar-aktuelle-warnungen-6059
+    quelle: https://www.verbraucherzentrale.de/phishingradar-archiv-71872
     zitat: "03. November 2026: Vermeintliche Kontobestätigung im Namen der Consorsbank"
   - aussage: "Betreff „Handeln Sie jetzt: Zugang läuft heute ab – Sperrung droht“"
-    quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/phishingradar/phishingradar-aktuelle-warnungen-6059
+    quelle: https://www.verbraucherzentrale.de/phishingradar-archiv-71872
     zitat: "Handeln Sie jetzt: Zugang läuft heute ab – Sperrung droht"
   - aussage: "Angebliche Unstimmigkeiten in den Kontodaten"
-    quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/phishingradar/phishingradar-aktuelle-warnungen-6059
+    quelle: https://www.verbraucherzentrale.de/phishingradar-archiv-71872
     zitat: "bei einer routinemäßigen Überprüfung Unstimmigkeiten in den Kontodaten festgestellt worden seien"
   - aussage: "Sonst Sperrung noch am selben Tag um 23:59 Uhr"
-    quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/phishingradar/phishingradar-aktuelle-warnungen-6059
+    quelle: https://www.verbraucherzentrale.de/phishingradar-archiv-71872
     zitat: "Andernfalls werde der Kontozugang noch am selben Tag um 23:59 Uhr automatisch gesperrt."
   - aussage: "Die Bank spricht Sie in E-Mails grundsätzlich mit Namen an"
     quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/phishingradar/phishingmails-woran-sie-sie-erkennen-und-worauf-sie-achten-muessen-6073
@@ -84,22 +84,22 @@ belege:
     zitat: "Bitte beachten Sie, dass wir aufgrund der zahlreichen Eingänge Ihre E-Mails nicht beantworten können."
   # ---------------------------------------------------------------- Meldung 3: Apple / iCloud+
   - aussage: "2. November: Mail im Namen von Apple zu Rechnungsinformationen"
-    quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/phishingradar/phishingradar-aktuelle-warnungen-6059
+    quelle: https://www.verbraucherzentrale.de/phishingradar-archiv-71872
     zitat: "02. November 2026: Angebliche Aktualisierung der Rechnungsinformationen im Namen von Apple"
   - aussage: "Zahlung für iCloud+-Abonnement angeblich nicht verarbeitet"
-    quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/phishingradar/phishingradar-aktuelle-warnungen-6059
+    quelle: https://www.verbraucherzentrale.de/phishingradar-archiv-71872
     zitat: "Angeblich konnte die Zahlung für ein iCloud+-Abonnement nicht verarbeitet werden."
   - aussage: "Betreff „Aktualisieren Sie Ihre Rechnungsinformationen“"
-    quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/phishingradar/phishingradar-aktuelle-warnungen-6059
+    quelle: https://www.verbraucherzentrale.de/phishingradar-archiv-71872
     zitat: "Versendet wird die E-Mail unter dem Betreff \"Aktualisieren Sie Ihre Rechnungsinformationen\"."
   - aussage: "Frist 24 Stunden, sonst Abonnement ausgesetzt"
-    quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/phishingradar/phishingradar-aktuelle-warnungen-6059
+    quelle: https://www.verbraucherzentrale.de/phishingradar-archiv-71872
     zitat: "Erfolgt innerhalb dieses Zeitraums keine Aktualisierung, wird das vermeintliche Abonnement ausgesetzt."
   - aussage: "Hinweis „kann ignoriert werden“ soll seriös wirken"
-    quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/phishingradar/phishingradar-aktuelle-warnungen-6059
+    quelle: https://www.verbraucherzentrale.de/phishingradar-archiv-71872
     zitat: "soll die E-Mail zusätzlich seriöser und glaubwürdiger wirken lassen"
   - aussage: "Zahlungsinformationen nur über die offiziellen Apple-Einstellungen oder die bekannte Internetseite prüfen"
-    quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/phishingradar/phishingradar-aktuelle-warnungen-6059
+    quelle: https://www.verbraucherzentrale.de/phishingradar-archiv-71872
     zitat: "prüfen Sie Ihre Zahlungsinformationen ausschließlich über die offizielle Apple-Einstellungen oder die bekannte Internetseite des Anbieters"
   - aussage: "Apple: nie auf Links in verdächtigen oder unaufgefordert erhaltenen Nachrichten klicken"
     quelle: https://support.apple.com/de-de/102568
@@ -150,3 +150,6 @@ belege:
   - aussage: "Kostenlose SperrApp, Daten verschlüsselt hinterlegt"
     quelle: https://www.polizei-beratung.de/aktuelles/detailansicht/was-tun-bei-verlust-oder-diebstahl-von-debitkarten/
     zitat: "In der App können alle Daten zu sperrbaren Karten und Ausweisen für den Ernstfall verschlüsselt hinterlegt werden."
+  - aussage: "Die SperrApp des Sperr-Notrufs ist kostenlos"
+    quelle: https://www.polizei-beratung.de/aktuelles/detailansicht/was-tun-bei-verlust-oder-diebstahl-von-debitkarten/
+    zitat: "bietet der Sperr-Notruf eine kostenlose SperrApp für Android und iOS an"
