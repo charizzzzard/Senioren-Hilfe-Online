@@ -64,7 +64,7 @@ fehler:
     vorher: "Rufen Sie die Polizei unter 110, wenn … Sie gerade erst etwas übergeben haben."
     korrektur: "Für diesen Fall heißt es jetzt: sofort an die Polizei wenden. Die 110 nennt die Polizei-Quelle für den verdächtigen Anruf."
     ursache: "Rat der Quelle („an die Polizei wenden“) um die Notrufnummer ergänzt."
-    behoben_in: "#32"
+    behoben_in: "#33"
     altbestand: true
 
   - id: 2026-11-10-02
@@ -76,7 +76,7 @@ fehler:
     vorher: "… als angeblicher Mitarbeiter des Sperr-Notrufs oder der Bank. … Polizei, Banken und Behörden fragen auch niemals am Telefon nach PIN oder TAN."
     korrektur: "„oder der Bank“ gestrichen. Die Aussagen stehen jetzt so, wie ladbare Seiten sie belegen (Sperr-Notruf-FAQ, Bundesnetzagentur, Polizei)."
     ursache: "Einzige Quelle war ein PDF, das der Zitat-Abgleich nicht lesen kann; ein Detail stand auch dort nicht."
-    behoben_in: "#32"
+    behoben_in: "#33"
     altbestand: true
 
   - id: 2026-11-10-03
@@ -88,7 +88,7 @@ fehler:
     vorher: "Ändern Sie es sofort – und zwar überall dort, wo Sie dasselbe Passwort benutzen. / Das können Sie bei jeder Polizeidienststelle tun."
     korrektur: "Passwort-Rat mit Quelle der Verbraucherzentrale belegt und daran angeglichen; „persönlich auf der Polizeiwache“ nach Stiftung Warentest."
     ursache: "Zwei Ratschläge ohne Quelle im Text bzw. weiter gefasst als die Quelle."
-    behoben_in: "#32"
+    behoben_in: "#33"
     altbestand: true
 
   - id: 2026-11-10-04
@@ -100,7 +100,7 @@ fehler:
     vorher: "Fast immer steckt Betrug dahinter."
     korrektur: "Die Verbraucherzentralen warnen vor diesen Nachrichten angeblicher Paketdienste."
     ursache: "Häufigkeitsangabe ohne Beleg."
-    behoben_in: "#32"
+    behoben_in: "#33"
     altbestand: true
 
   - id: 2026-11-10-05
@@ -112,7 +112,7 @@ fehler:
     vorher: "3. Möchten Sie die Nummer auch an Google melden, wählen Sie „Spam melden“. Tippen Sie dann auf „OK“."
     korrektur: "Schritt gestrichen; die Google-Hilfe nennt nur „Blockieren“ und „OK“."
     ursache: "Schritt steht nicht (mehr) auf der Hilfeseite; ohne Gerät nicht prüfbar."
-    behoben_in: "#32"
+    behoben_in: "#33"
     altbestand: true
 
   - id: 2026-11-10-06
@@ -124,7 +124,7 @@ fehler:
     vorher: "Auf ihrer Seite zu SMS-Spam gibt es ein Beschwerdeformular „SMS oder Messenger“."
     korrektur: "… führt ein Link „Direkt zum Beschwerdeformular“."
     ursache: "Name eines Formulars nicht wörtlich aus der Quelle."
-    behoben_in: "#32"
+    behoben_in: "#33"
     altbestand: true
 
   - id: 2026-11-10-07
@@ -136,7 +136,7 @@ fehler:
     vorher: "Drittanbietersperre einrichten. Dann können fremde Firmen nichts über Ihre Handyrechnung abbuchen."
     korrektur: "Rat der Verbraucherzentrale und Hintergrund der Bundesnetzagentur (unbemerkte teure Abos über Drittanbieter)."
     ursache: "Wirkung einer Einstellung beschrieben, ohne dass eine Quelle sie so nennt."
-    behoben_in: "#32"
+    behoben_in: "#33"
     altbestand: true
 
   - id: 2026-11-10-08
@@ -148,7 +148,7 @@ fehler:
     vorher: "… landet auf einer gefälschten Internetseite. / … erbeuten Kreditkarten- oder Bankdaten. / Zollgebühren oder andere kleine Beträge / nach Passwörtern, PIN, TAN oder Kontodaten fragt."
     korrektur: "An die Wortwahl von Verbraucherzentrale und Bundesnetzagentur angeglichen (fremde Seite, Kreditkartendaten und persönliche Daten, Zollgebühren)."
     ursache: "Merkmale genauer aufgezählt, als die Quellen sie nennen."
-    behoben_in: "#32"
+    behoben_in: "#33"
     altbestand: true
 
   - id: 2026-11-10-09
@@ -160,7 +160,7 @@ fehler:
     vorher: "iPhone-Weg zum Sperren und Filtern ohne Versionsangabe; „Datenschutz & Sicherheit“ › „Blockierte Kontakte“ und die Taste „Filtern“ › „Filter verwalten“."
     korrektur: "Als Weg für iOS 26 und 27 gekennzeichnet; Absatz für iOS 18 ergänzt (Apple-Handbuch 18.0 und Gerätetest mit iOS 18.7.8)."
     ursache: "Versionsunterschiede nicht genannt; ältere iPhones bisher nicht geprüft."
-    behoben_in: "#32"
+    behoben_in: "#33"
     altbestand: true
 
   - id: 2026-11-10-10
@@ -172,7 +172,7 @@ fehler:
     vorher: "Jemand gibt sich als Angehöriger, Polizist oder Rechtsanwalt aus."
     korrektur: "… als Angehöriger oder guter Bekannter aus – oder als Polizist oder andere Amtsperson."
     ursache: "Beispiel („Rechtsanwalt“) nicht aus der Quelle."
-    behoben_in: "#32"
+    behoben_in: "#33"
     altbestand: true
 
   - id: 2026-11-10-11
@@ -184,7 +184,7 @@ fehler:
     vorher: "Überschrift „Die drei häufigsten Maschen“"
     korrektur: "„Drei Maschen am Telefon“"
     ursache: "Rangfolge behauptet, die keine Quelle nennt."
-    behoben_in: "#32"
+    behoben_in: "#33"
     altbestand: true
 
   - id: 2026-11-10-12
@@ -196,7 +196,7 @@ fehler:
     vorher: "Die echte Polizei … holt niemals Wertsachen ab. / Sie schickt niemals jemanden vorbei, um Ihr Erspartes abzuholen."
     korrektur: "Wortlaut der Polizei: bittet niemals um Geld, verwahrt niemals Geld oder Wertsachen. Der Listenpunkt ist gestrichen."
     ursache: "Folgerung aus der Quelle als eigene Aussage der Polizei formuliert."
-    behoben_in: "#32"
+    behoben_in: "#33"
     altbestand: true
 
   - id: 2026-11-10-13
@@ -208,7 +208,7 @@ fehler:
     vorher: "Wann Sie die 110 rufen: … Wenn Sie bereits Geld oder Wertsachen übergeben haben."
     korrektur: "Eigener Satz: auf jeden Fall an die Polizei wenden und Anzeige erstatten."
     ursache: "Rat der Quelle („an die Polizei wenden“) um die Notrufnummer ergänzt."
-    behoben_in: "#32"
+    behoben_in: "#33"
     altbestand: true
 
   - id: 2026-11-10-14
@@ -220,7 +220,7 @@ fehler:
     vorher: "Im Display kann dann eine Nummer aus Ihrer Gegend erscheinen – sogar die 110."
     korrektur: "Steht dort die 110, ist die Anzeige in jedem Fall gefälscht. Laut Bundesnetzagentur müssen solche Anrufe seit dem 01.12.2022 abgebrochen werden; Betroffene sollten sie nicht mehr bekommen."
     ursache: "Aussage stand in keiner Quelle des Textes; die Seite der Bundesnetzagentur dazu war nicht gelesen."
-    behoben_in: "#32"
+    behoben_in: "#33"
     altbestand: true
 
   - id: 2026-11-05-03
