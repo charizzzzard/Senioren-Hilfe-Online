@@ -130,7 +130,7 @@ fehler:
     vorher: "Der beste Schutz ist das Wissen, dass es solche Fälschungen gibt."
     korrektur: "Ein wichtiger Schutz ist das Wissen … (Das BSI nennt Aufklärung „eine zentrale Maßnahme“, nicht die beste.)"
     ursache: "Superlativ, den die Quelle nicht hergibt."
-    behoben_in: "#35"
+    behoben_in: "#36"
     altbestand: true
 
   - id: 2026-11-10-52
@@ -142,7 +142,7 @@ fehler:
     vorher: "Beim Bezahlen wird laut BSI nicht Ihre Kartennummer übertragen, sondern ein verschlüsselter Code."
     korrektur: "Beim Bezahlen wird laut BSI ein verschlüsselter Code übertragen. (Das BSI nennt ihn die verschlüsselte Version der Konto- und Bezahldaten.)"
     ursache: "Aussage der Quelle um eine Verneinung erweitert, die dort so nicht steht."
-    behoben_in: "#35"
+    behoben_in: "#36"
     altbestand: true
 
   - id: 2026-11-05-09
