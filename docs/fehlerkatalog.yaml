@@ -218,7 +218,7 @@ fehler:
     live: true
     entdeckt_durch: nachpruefung
     vorher: "Im Display kann dann eine Nummer aus Ihrer Gegend erscheinen – sogar die 110."
-    korrektur: "Steht dort die 110, ist die Anzeige in jedem Fall gefälscht. Laut Bundesnetzagentur müssen solche Anrufe seit dem 01.12.2022 abgebrochen werden; Betroffene sollten sie nicht mehr bekommen."
+    korrektur: "Im Display kann dann eine Nummer aus Ihrer Gegend erscheinen. Steht dort die 110, ist die Anzeige in jedem Fall gefälscht: Die Polizei ruft nie von der 110 an. (Belegt mit der Seite der Bundesnetzagentur zur manipulierten 110.)"
     ursache: "Aussage stand in keiner Quelle des Textes; die Seite der Bundesnetzagentur dazu war nicht gelesen."
     behoben_in: "#33"
     altbestand: true
