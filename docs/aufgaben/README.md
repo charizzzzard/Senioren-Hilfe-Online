@@ -42,6 +42,10 @@ Ausnahme: Den Montag der Nachprüfung erwartet das Werkzeug ohnehin nur, solange
 
 ## Änderungen
 
+- **11.11.2026 – Freigabe, Faktenprüfung, Wochenbericht:** Neues Label `gelesen` (setzt nur der Betreiber): Die Freigabe
+  merged einen gelesenen Klasse-C-PR schon beim nächsten Lauf. Die Faktenprüfung schickt höchstens eine `freigabe`-Nachricht
+  pro Lauf, mit Lesezeit; ein altes `gelesen` entfernt sie beim Start der Frist. Der Wochenbericht nennt „davon gelesen“.
+  Anlass: Die vier Klasse-C-PRs #33–#36 bestehen voraussichtlich im selben Lauf (Entscheidungen des Betreibers vom 11.11.2026).
 - **11.11.2026 – alle sieben Aufgaben:** Lebenszeichen als letzter Schritt (Kommentar in Issue #39). Die Freigabe
   gleicht in Schritt 2e jetzt diese Lebenszeichen ab statt der Liste der geplanten Aufgaben. Anlass: Der Freigabe-Lauf
   vom 10.11. fand das Werkzeug `list_triggers` nicht – geplante Läufe haben es nicht. Ein abgebrochener Lauf wäre also
