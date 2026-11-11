@@ -142,7 +142,7 @@ fehler:
     live: true
     entdeckt_durch: nachpruefung
     vorher: "… eine vertraute Nummer – etwa die Ihrer Bank oder sogar die 110. / Selbst die 110 oder die 116 116 können gefälscht im Display stehen."
-    korrektur: "Steht die 110 im Display, ist die Anzeige in jedem Fall gefälscht. Laut Bundesnetzagentur müssen solche Anrufe seit dem 01.12.2022 abgebrochen werden. In „Kurz gesagt“ steht jetzt „eine Nummer aus Ihrer Stadt“."
+    korrektur: "Steht die 110 im Display, ist die Anzeige in jedem Fall gefälscht: Die Polizei ruft nie von der 110 an. Auch der Sperr-Notruf 116 116 ruft niemals an. (Belegt mit Bundesnetzagentur und Sperr-Notruf-FAQ.) In „Kurz gesagt“ steht jetzt „eine Nummer aus Ihrer Stadt“."
     ursache: "Aussage stand in keiner Quelle des Textes; die Seite der Bundesnetzagentur dazu war nicht gelesen."
     behoben_in: "#35"
     altbestand: true
