@@ -5,7 +5,7 @@
 | Datum | 10.11.2026, einmalige Nachprüfung des Altbestands |
 | Auslöser (BETRIEB.md Abschnitt 9) | Drei sachliche Fehler waren live (Fehlerkatalog 2026-11-10-61 bis -63, Art „falsch“, Altbestand) |
 | Auswirkung | „WhatsApp-Sprachnachricht“ (seit 01.11.) und „WhatsApp-Kontakt blockieren“ (seit 30.10.) nannten für Android je eine Angabe, die der WhatsApp-Hilfe widerspricht. Kein Sicherheitsrisiko; Leser suchen schlimmstenfalls eine Einstellung vergeblich. |
-| Status | korrigiert in PR #36 (wartet auf die Faktenprüfung) |
+| Status | korrigiert in PR #37 (wartet auf die Faktenprüfung) |
 
 ## Was ist passiert?
 

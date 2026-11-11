@@ -152,7 +152,7 @@ fehler:
     vorher: "Android: … Wählen Sie unter „Sprache auswählen“ Deutsch und tippen Sie auf „Jetzt einrichten“ oder „Auf WLAN warten“."
     korrektur: "Android: WhatsApp nennt derzeit nur Englisch, Portugiesisch, Spanisch und Russisch – Deutsch fehlt noch. Für deutsche Nachrichten gehen Transkripte nur auf dem iPhone."
     ursache: "iPhone-Angabe (Deutsch wird unterstützt) auf Android übertragen; die Sprachenliste der Android-Hilfe nicht gelesen."
-    behoben_in: "#36"
+    behoben_in: "#37"
     altbestand: true
 
   - id: 2026-11-10-62
@@ -164,7 +164,7 @@ fehler:
     vorher: "Android, Blockierung aufheben: … „Datenschutz“ › „Kontakte“ › „Blockierte Kontakte“."
     korrektur: "… „Datenschutz“ › „Kontakte“ › „Blockierte Konten“ (so nennt es die WhatsApp-Hilfe für Android)."
     ursache: "Zwei Varianten der Hilfe („Blockierte Kontakte“ und „Kontakte › Blockierte Konten“) zu einem Weg vermischt."
-    behoben_in: "#36"
+    behoben_in: "#37"
     altbestand: true
 
   - id: 2026-11-10-63
@@ -176,7 +176,7 @@ fehler:
     vorher: "Möchten Sie die Person auch melden, lassen Sie das Häkchen bei „An WhatsApp melden“ gesetzt."
     korrektur: "… achten Sie darauf, dass bei „An WhatsApp melden“ ein Häkchen gesetzt ist. (Bei unbekannten Nummern muss man es laut Hilfe erst setzen.)"
     ursache: "Fall „gespeicherter Kontakt“ verallgemeinert; die Quelle nennt für unbekannte Nummern das Gegenteil."
-    behoben_in: "#36"
+    behoben_in: "#37"
     altbestand: true
 
   - id: 2026-11-10-64
@@ -188,7 +188,7 @@ fehler:
     vorher: "Tippen Sie oben rechts auf die drei Punkte (⋮). / Tippen Sie oben auf den Namen der Person. (auch in „Kurz gesagt“ und im Hinweiskasten)"
     korrektur: "Lageangaben „oben rechts“ und „oben“ gestrichen – die WhatsApp-Hilfe nennt sie nicht. Steht auf der nächsten Geräte-Prüfliste."
     ursache: "Lage eines Symbols ohne Beleg beschrieben."
-    behoben_in: "#36"
+    behoben_in: "#37"
     altbestand: true
 
   - id: 2026-11-10-65
@@ -200,7 +200,7 @@ fehler:
     vorher: "Abschnitt „Nachrichten von unbekannten Nummern“ (gemeinsame Gruppen, Land der Nummer) ohne Quelle im Text."
     korrektur: "WhatsApp-Seite „Informationen zu verdächtigen Nachrichten und Betrug“ als Quelle ergänzt; der Wortlaut stimmt."
     ursache: "Aussage aus einer Seite übernommen, die nicht in der Quellenliste stand."
-    behoben_in: "#36"
+    behoben_in: "#37"
     altbestand: true
 
   - id: 2026-11-05-11
