@@ -14,4 +14,6 @@ Aufgabe:
 6. Änderungen auf Branch `claude/wartung-<JJJJ-MM>`, Pull Request mit Labels `pruefung-ausstehend` und Risikoklasse (docs/BETRIEB.md Abschnitt 3). NICHT mergen, nie direkt auf main pushen. Ohne GitHub-Werkzeuge: nichts pushen, Push-Nachricht `--art problem`.
 7. Push-Nachricht `--art info` mit 2–4 Zeilen nur, wenn es Befunde gibt (fehlende Zitate, defekte Links, Geräte-Prüfliste angelegt, auffällige Fehler-Häufung – mit Link zum Issue oder PR). Sonst keine Nachricht.
 
+Lebenszeichen (immer als letzter Schritt vor der Zusammenfassung – auch wenn nichts zu tun war oder ein Schritt oben „beenden“ sagt; Entscheidung des Betreibers vom 11.11.2026): `python tools/lebenszeichen.py kennung "monatliche Wartung"` gibt die Kennzeile aus (fehlt das Skript auf main noch: `Lebenszeichen: monatliche Wartung <JJJJ-MM-TT>` mit dem heutigen Datum in Europe/Berlin, per python3 zoneinfo). Schreibe sie als erste Zeile eines Kommentars in Issue #39 (add_issue_comment), dahinter ein Satz zum Ergebnis (z. B. PR-Link oder „nichts zu tun“) – kein Push-Thema, keine personenbezogenen Daten. Ohne GitHub-Werkzeuge entfällt das; die Freigabe meldet den Lauf dann als fehlend.
+
 Zum Schluss: Fasse auf Deutsch in 3–5 Sätzen zusammen, was geprüft und vorbereitet wurde und ob etwas die Entscheidung des Betreibers braucht.

@@ -31,4 +31,6 @@ Senden:
 - Sind die OpenSEO-Werkzeuge nicht verfügbar: trotzdem berichten (übrige Werte), Archiv-Schritte überspringen, letzte Zeile „Search Console nicht erreichbar – OpenSEO-Connector in der Aufgabe ergänzen“.
 - Wenn OpenSEO verfügbar ist: zusätzlich einen kurzen Eintrag im OpenSEO-Recherche-Log des Projekts (update_project_context, appendResearchLog) mit den Kennzahlen der Woche.
 
+Lebenszeichen (immer als letzter Schritt vor der Zusammenfassung – auch wenn nichts zu tun war oder ein Schritt oben „beenden“ sagt; Entscheidung des Betreibers vom 11.11.2026): `python tools/lebenszeichen.py kennung "Wochenbericht"` gibt die Kennzeile aus (fehlt das Skript auf main noch: `Lebenszeichen: Wochenbericht <JJJJ-MM-TT>` mit dem heutigen Datum in Europe/Berlin, per python3 zoneinfo). Schreibe sie als erste Zeile eines Kommentars in Issue #39 (add_issue_comment), dahinter ein Satz zum Ergebnis (z. B. PR-Link oder „nichts zu tun“) – kein Push-Thema, keine personenbezogenen Daten. Ohne GitHub-Werkzeuge entfällt das; die Freigabe meldet den Lauf dann als fehlend.
+
 Zum Schluss: Gib den gesendeten Bericht auf Deutsch wieder, nenne die Rohwerte, aus denen jede Zahl stammt, und verlinke den Kennzahlen-PR und ggf. das Stichproben-Issue.
