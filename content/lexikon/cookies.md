@@ -6,8 +6,8 @@ beschreibung: "Was sind Cookies? Kleine Datensätze, die Internetseiten auf Ihre
 keyword: "cookies"
 stichwoerter: ["Cookies", "Cookie"]
 veroeffentlicht: 2026-11-01
-aktualisiert: 2026-11-05
-geprueft: 2026-11-01
+aktualisiert: 2026-11-11
+geprueft: 2026-11-11
 kurz_gesagt: |
   **Cookies** sind kleine Datensätze, die eine Internetseite auf Ihrem Gerät speichert. Besuchen Sie die Seite später wieder, erkennt sie Sie daran wieder.
   Manche Cookies sind nötig, etwa für den Warenkorb. Werbe- und Analyse-Cookies dürfen nur mit Ihrer Zustimmung gesetzt werden – Sie dürfen sie ablehnen.
@@ -31,7 +31,7 @@ text: >
   Thomas öffnet die Internetseite seines Kegelvereins. Kaum ist sie da, schiebt sich ein Kasten davor: „Wir verwenden Cookies.“ Darunter zwei Knöpfe. Welchen soll er nehmen? Und was passiert, wenn er den falschen erwischt?
 ```
 
-Keine Sorge: Mit diesem Kasten kann Thomas nichts kaputt machen. Er entscheidet nur, was die Seite über ihn speichern darf.
+Keine Sorge: Mit diesem Kasten entscheidet Thomas nur, was die Seite über ihn speichern darf. Und diese Entscheidung trifft er frei.
 
 ## Was ein Cookie ist
 
@@ -39,7 +39,7 @@ Ein Cookie ist ein kleiner Datensatz. Ihr Browser – das Programm, mit dem Sie 
 
 ## Nützliche und weniger nützliche Cookies
 
-**Nützlich** sind zum Beispiel Cookies, die sich Ihren **Warenkorb** merken. Ohne sie wäre der Warenkorb bei jedem Klick wieder leer. Laut Verbraucherzentrale wären Online-Shopping und Online-Banking ohne bestimmte Cookies kaum möglich. Viele dieser Cookies verschwinden von selbst, wenn Sie den Browser schließen. Man nennt sie **Session-Cookies**.
+**Nützlich** sind zum Beispiel Cookies, die sich Ihren **Warenkorb** merken. Ohne sie wäre der Warenkorb auf jeder neuen Seite des Shops wieder leer. Laut Verbraucherzentrale wären Online-Shopping und Online-Banking ohne bestimmte Cookies kaum möglich. Viele dieser Cookies verschwinden von selbst, wenn Sie den Browser schließen. Man nennt sie **Session-Cookies**.
 
 **Kritischer** sind Cookies für **Werbung und Analyse**. Mit ihnen können Firmen nachvollziehen, welche Seiten Sie besuchen – theoretisch über Jahre. So entsteht ein Profil über Ihre Interessen, das für Werbung genutzt wird. Das BSI weist darauf hin, dass solche Profile auch für Internet-Kriminelle interessant sein können.
 
@@ -59,7 +59,7 @@ Ist Ihnen der Text im Cookie-Hinweis zu klein? Dann können Sie die Internetseit
 
 - **Werbe- und Analyse-Cookies ablehnen**, wenn Sie gefragt werden. Die Verbraucherzentrale rät besonders, Tracking-Cookies von fremden Firmen (Drittanbietern) abzulehnen.
 - **Cookies beim Schließen löschen:** Das BSI empfiehlt, Cookies beim Schließen des Browsers automatisch löschen zu lassen. Viele Browser bieten das in den Einstellungen an.
-- **Privater Modus:** Manche Browser haben einen „privaten“ oder „Inkognito“-Modus. Dort werden Cookies nach dem Schließen nicht behalten.
+- **Privater Modus:** Manche Browser haben einen „privaten“ oder „Inkognito“-Modus. Das BSI nennt ihn als Alternative zum Löschen. Laut Verbraucherzentrale werden dort insgesamt weniger Daten im Browser gespeichert.
 - **An fremden Geräten immer abmelden:** Nutzen Sie einen Computer in der Bücherei oder im Hotel, melden Sie sich nach dem Surfen ab. Sonst bleiben Sie unter Umständen angemeldet.
 
 Netzleicht übrigens setzt keine Cookies. Deshalb sehen Sie bei uns auch keinen Cookie-Hinweis. Mehr dazu steht in unserer [Datenschutzerklärung](/datenschutz/).

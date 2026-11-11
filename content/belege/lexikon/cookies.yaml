@@ -1,0 +1,96 @@
+# Belegtabelle für content/lexikon/cookies.md (Format: docs/BETRIEB.md, Abschnitt „Belegtabelle“)
+# Jede Aussage mit einem wörtlichen Zitat aus einer selbst gelesenen Quelle. Prüfen: python tools/belegcheck.py lexikon/cookies
+geprueft: 2026-11-11
+belege:
+  # ---------------------------------------------------------------- Was ein Cookie ist
+  - aussage: "Cookies sind kleine Datensätze, die beim Besuch einer Internetseite auf dem Gerät gespeichert werden; später erkennt die Seite Sie wieder"
+    quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/datenschutz/cookies-kontrollieren-und-verwalten-so-gehts-11996
+    zitat: "sind kleine Datensätze, die auf Ihrem Gerät gespeichert werden, wenn Sie eine Webseite besuchen. Surfen Sie später noch einmal auf derselben Internetseite, kann die Seite Sie wiedererkennen."
+  - aussage: "Der Browser legt den Datensatz auf dem Gerät ab"
+    quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/datenschutz/cookies-kontrollieren-und-verwalten-so-gehts-11996
+    zitat: "werden kleine Datensätze in Ihrem Browser auf Ihrem Gerät gespeichert"
+  - aussage: "Verbreitete Deutung: wie in einem Glückskeks stecken Informationen darin"
+    quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/datenschutz/cookies-kontrollieren-und-verwalten-so-gehts-11996
+    zitat: "wie in einem Glückskeks (auf Englisch: fortune cookie) – Informationen verpackt und transportiert werden"
+  # ---------------------------------------------------------------- Nützliche Cookies
+  - aussage: "Manche Cookies sind nützlich bzw. nötig, etwa für den Warenkorb"
+    quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/datenschutz/cookies-kontrollieren-und-verwalten-so-gehts-11996
+    zitat: "Cookies können nützlich sein, wenn Sie mehrere Schritte auf einer Webseite vornehmen – zum Beispiel ein Produkt in den Warenkorb legen."
+  - aussage: "Ohne sie wäre der Warenkorb auf jeder neuen Seite des Shops wieder leer"
+    quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/datenschutz/cookies-kontrollieren-und-verwalten-so-gehts-11996
+    zitat: "ohne sie wäre der digitale Warenkorb bei jedem Aufruf einer neuen Unterseite wieder leer"
+  - aussage: "Online-Shopping und Online-Banking wären ohne bestimmte Cookies kaum möglich"
+    quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/datenschutz/cookies-kontrollieren-und-verwalten-so-gehts-11996
+    zitat: "Online-Shopping, Onlinebanking und Co. wären ohne Cookies problematisch bis unmöglich."
+  - aussage: "Session-Cookies verschwinden von selbst, in der Regel beim Schließen des Browsers"
+    quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/datenschutz/cookies-kontrollieren-und-verwalten-so-gehts-11996
+    zitat: "Diese temporären Cookies werden nach jeder beendeten Internet-Sitzung automatisch gelöscht."
+  - aussage: "Session-Cookies gehören zu den technisch nötigen Cookies"
+    quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/datenschutz/cookies-kontrollieren-und-verwalten-so-gehts-11996
+    zitat: "Zu den technisch erforderlichen Cookies können zum Beispiel sogenannte \"Session Cookies\" gehören."
+  # ---------------------------------------------------------------- Werbung und Analyse
+  - aussage: "Firmen können das Surfverhalten theoretisch über Jahre verfolgen und ein Profil erstellen"
+    quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/datenschutz/cookies-kontrollieren-und-verwalten-so-gehts-11996
+    zitat: "Mit Hilfe von Cookies können Unternehmen Ihr Surfverhalten theoretisch über Jahre verfolgen, die gesammelten Informationen zusammenfügen und so ein umfassendes Profil über Sie erstellen."
+  - aussage: "Zum Profil gehören die besuchten Seiten und damit die Interessen"
+    quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/datenschutz/cookies-kontrollieren-und-verwalten-so-gehts-11996
+    zitat: "Besuchte Seiten - und somit Ihre Interessenschwerpunkte"
+  - aussage: "Das Profil wird für Werbung genutzt"
+    quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/datenschutz/cookies-kontrollieren-und-verwalten-so-gehts-11996
+    zitat: "Diese Informationen können Unternehmen dann u.a. zu Werbezwecken professionell vermarkten."
+  - aussage: "BSI: Solche Profile können auch für Internet-Kriminelle interessant sein"
+    quelle: https://www.bsi.bund.de/DE/Themen/Verbraucherinnen-und-Verbraucher/Informationen-und-Empfehlungen/Cyber-Sicherheitsempfehlungen/Updates-Browser-Open-Source-Software/Der-Browser/JavaScript-Cookies-Fingerprints/javascript-cookies-fingerprints_node.html
+    zitat: "Hieraus können detaillierte Nutzerprofile entstehen, die sowohl für Marketingzwecke genutzt werden, als auch für Internet-Kriminelle attraktiv sind."
+  # ---------------------------------------------------------------- Cookie-Hinweis
+  - aussage: "Nicht nötige Cookies (etwa Werbung) brauchen die ausdrückliche Zustimmung"
+    quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/datenschutz/cookies-kontrollieren-und-verwalten-so-gehts-11996
+    zitat: "die für den Aufruf der Internetseite nicht zwingend notwendig sind, wie etwa Werbe- oder Tracking-Cookies. Dazu bedarf es der ausdrücklichen Einwilligung"
+  - aussage: "So steht es im Gesetz"
+    quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/datenschutz/cookies-kontrollieren-und-verwalten-so-gehts-11996
+    zitat: "Das steht so auch ausdrücklich im Gesetz"
+  - aussage: "Auch Analyse-Cookies sind für den Betrieb nicht nötig"
+    quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/datenschutz/cookies-kontrollieren-und-verwalten-so-gehts-11996
+    zitat: "Diese Cookies sind für den eigentlichen Betrieb der Seite nicht nötig, helfen den Betreibern aber, die Seiten und Angebote zu verbessern."
+  - aussage: "Einwilligung ist nötig, wenn Cookies nicht technisch erforderlich sind"
+    quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/datenschutz/cookies-kontrollieren-und-verwalten-so-gehts-11996
+    zitat: "Demnach müssen Betreiber:innen von Webseiten eine Einwilligung vor dem Setzen von Cookies einholen, wenn diese nicht technisch erforderlich sind."
+  - aussage: "Sie entscheiden frei, ob Sie zustimmen"
+    quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/datenschutz/cookies-kontrollieren-und-verwalten-so-gehts-11996
+    zitat: "Ob Sie eine Einwilligung in nicht notwendige Cookies erteilen, können Sie frei entscheiden."
+  - aussage: "Häkchen für solche Cookies dürfen nicht schon gesetzt sein"
+    quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/datenschutz/cookies-kontrollieren-und-verwalten-so-gehts-11996
+    zitat: "Die Einwilligung zur Anwendung von Cookies darf nicht in Form von voreingestellten Häkchen oder Kreuzchen erfolgen"
+  - aussage: "Lehnen Sie ab, dürfen diese Cookies nicht gesetzt werden"
+    quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/datenschutz/cookies-kontrollieren-und-verwalten-so-gehts-11996
+    zitat: "Werden die Werbe- oder Tracking-Cookies abgelehnt, dürfen auch keine gesetzt werden."
+  - aussage: "Technisch nötige Cookies darf die Seite auch ohne Zustimmung setzen"
+    quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/datenschutz/cookies-kontrollieren-und-verwalten-so-gehts-11996
+    zitat: "Diese Art von Cookies kann von Webseitenbetreiber:innen auch ohne Einwilligung der Nutzer:innen gesetzt werden."
+  # ---------------------------------------------------------------- Überblick behalten
+  - aussage: "Verbraucherzentrale: Analyse- und Marketing-Cookies prüfen, besonders Tracking-Cookies von Drittanbietern ablehnen"
+    quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/datenschutz/cookies-kontrollieren-und-verwalten-so-gehts-11996
+    zitat: "Deshalb sollten Sie genau prüfen, ob sie Analyse- und Marketing-Cookies zulassen und deaktivieren Sie insbesondere Tracking-Cookies von Drittanbietern."
+  - aussage: "Bei der Abfrage nur die nötigen Cookies erlauben"
+    quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/datenschutz/cookies-kontrollieren-und-verwalten-so-gehts-11996
+    zitat: "Erlauben Sie bei der Cookie-Abfrage unbedingt nur die essentiellen oder notwendigen Cookies."
+  - aussage: "BSI empfiehlt, Cookies beim Schließen des Browsers löschen zu lassen"
+    quelle: https://www.bsi.bund.de/DE/Themen/Verbraucherinnen-und-Verbraucher/Informationen-und-Empfehlungen/Cyber-Sicherheitsempfehlungen/Updates-Browser-Open-Source-Software/Der-Browser/JavaScript-Cookies-Fingerprints/javascript-cookies-fingerprints_node.html
+    zitat: "Es empfiehlt sich, Cookies standardmäßig beim Schließen des Browsers"
+  - aussage: "Viele Browser bieten das automatische Löschen in den Einstellungen an"
+    quelle: https://www.bsi.bund.de/DE/Themen/Verbraucherinnen-und-Verbraucher/Informationen-und-Empfehlungen/Cyber-Sicherheitsempfehlungen/Updates-Browser-Open-Source-Software/Der-Browser/JavaScript-Cookies-Fingerprints/javascript-cookies-fingerprints_node.html
+    zitat: "Sie können in den meisten Browsern einstellen, dass dauerhafte Cookies automatisch nach jedem Schließen des Browsers gelöscht werden"
+  - aussage: "Manche Browser haben einen privaten oder Inkognito-Modus; das BSI nennt ihn als Alternative zum Löschen"
+    quelle: https://www.bsi.bund.de/DE/Themen/Verbraucherinnen-und-Verbraucher/Informationen-und-Empfehlungen/Cyber-Sicherheitsempfehlungen/Updates-Browser-Open-Source-Software/Der-Browser/JavaScript-Cookies-Fingerprints/javascript-cookies-fingerprints_node.html
+    zitat: "Alternativ bieten manche Web-Browser hierfür auch einen sogenannten Inkognito oder privaten Modus an."
+  - aussage: "Verbraucherzentrale: Im Inkognito-Modus werden insgesamt weniger Daten im Browser gespeichert"
+    quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/datenschutz/cookies-kontrollieren-und-verwalten-so-gehts-11996
+    zitat: "Hierbei werden insgesamt weniger Daten im Browser gespeichert."
+  - aussage: "An öffentlich zugänglichen Geräten immer abmelden"
+    quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/datenschutz/cookies-kontrollieren-und-verwalten-so-gehts-11996
+    zitat: "Nach der Nutzung an öffentlich zugänglichen Geräten immer ausloggen!"
+  - aussage: "Sonst bleiben Sie unter Umständen angemeldet"
+    quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/datenschutz/cookies-kontrollieren-und-verwalten-so-gehts-11996
+    zitat: "dass Ihre Zugangsdaten gespeichert bleiben, auch wenn Sie den Browser schließen"
+  - aussage: "Eine Seite, die nur nötige Cookies einsetzt, braucht keinen Cookie-Hinweis (Netzleicht setzt gar keine)"
+    quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/datenschutz/cookies-kontrollieren-und-verwalten-so-gehts-11996
+    zitat: "Eine Webseite, die nur technisch notwendig Cookies einsetzt, benötigt daher auch gar kein lästiges Cookie-Banner."

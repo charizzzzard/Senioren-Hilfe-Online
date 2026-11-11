@@ -173,6 +173,45 @@ fehler:
     ursache: "Beschriftung eines Knopfes nicht wörtlich aus der Quelle."
     behoben_in: "#17"
 
+  # ---- Nachprüfung des Altbestands vom 10.11.2026, Teil g (Lexikon Passkey, Lexikon Cookies).
+  # Weitere Einträge zu diesem Pull Request bitte hier anfügen, nicht am Dateiende: Die Teile a bis g liegen
+  # gleichzeitig offen und stehen deshalb an verschiedenen Stellen der Datei (check.py verlangt keine Reihenfolge).
+  - id: 2026-11-11-91
+    gefunden: 2026-11-11
+    text: lexikon/passkey
+    art: falsch
+    live: true
+    entdeckt_durch: nachpruefung
+    vorher: "Ihr Geheimnis verlässt Ihr Gerät also nicht."
+    korrektur: "Beim Anmelden wird der geheime Schlüssel laut BSI nicht preisgegeben. (Das BSI nennt auch Passkeys, die in einer Cloud synchronisiert werden – der Schlüssel kann das Gerät also verlassen.)"
+    ursache: "Aus „der Anbieter bekommt nur das Gegenstück“ gefolgert; die Ausnahme auf derselben Quellseite übersehen."
+    behoben_in: "#40"
+    altbestand: true
+
+  - id: 2026-11-11-92
+    gefunden: 2026-11-11
+    text: lexikon/passkey
+    art: unbelegt
+    live: true
+    entdeckt_durch: nachpruefung
+    vorher: "Folgen Sie dafür keinem Link aus einer überraschenden Nachricht oder E-Mail. / Sie können ihn nicht vergessen – es gibt nichts, was Sie sich merken müssen."
+    korrektur: "Rat mit der BSI-Seite „Wie schützt man sich gegen Phishing?“ belegt und daran angeglichen (zweifelhafte E-Mail; Seite über die Startseite des Anbieters aufrufen). „Nicht vergessen – anders als ein Passwort“ nach dem Wortlaut des BSI."
+    ursache: "Sicherheitsrat ohne Quelle im Text; eine Aussage weiter gefasst als die Quelle."
+    behoben_in: "#40"
+    altbestand: true
+
+  - id: 2026-11-11-93
+    gefunden: 2026-11-11
+    text: lexikon/cookies
+    art: unbelegt
+    live: true
+    entdeckt_durch: nachpruefung
+    vorher: "Mit diesem Kasten kann Thomas nichts kaputt machen. / … bei jedem Klick wieder leer. / Privater Modus: Dort werden Cookies nach dem Schließen nicht behalten."
+    korrektur: "An die Quellen angeglichen: Thomas entscheidet frei; Warenkorb „auf jeder neuen Seite des Shops“ leer; privater Modus als Alternative zum Löschen (BSI), dort werden insgesamt weniger Daten gespeichert (Verbraucherzentrale)."
+    ursache: "Beruhigung und zwei Details genauer formuliert, als die Quellen es hergeben."
+    behoben_in: "#40"
+    altbestand: true
+
   - id: 2026-11-05-14
     gefunden: 2026-11-05
     text: artikel/schrift-groesser-stellen
