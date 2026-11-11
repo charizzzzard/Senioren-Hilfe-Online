@@ -6,8 +6,8 @@ beschreibung: "Ein Passkey ersetzt das Passwort: Sie melden sich mit Fingerabdru
 keyword: "passkey"
 stichwoerter: ["Passkeys", "Passkey"]
 veroeffentlicht: 2026-10-30
-aktualisiert: 2026-10-30
-geprueft: 2026-10-30
+aktualisiert: 2026-11-11
+geprueft: 2026-11-11
 kurz_gesagt: |
   Ein **Passkey** ist eine Anmeldung **ohne Passwort**. Statt ein Passwort einzutippen, bestätigen Sie die Anmeldung auf Ihrem Gerät – zum Beispiel mit Ihrem **Fingerabdruck**, Ihrem **Gesicht** oder der **Bildschirmsperre** Ihres Handys.
   Laut Bundesamt für Sicherheit in der Informationstechnik (BSI) ist das sicherer und bequemer als ein Passwort.
@@ -18,6 +18,9 @@ quellen:
   - herausgeber: WhatsApp-Hilfebereich
     titel: Informationen zur Verifizierung in zwei Schritten
     url: https://faq.whatsapp.com/1278661612895630/?locale=de_DE
+  - herausgeber: Bundesamt für Sicherheit in der Informationstechnik (BSI)
+    titel: Wie schützt man sich gegen Phishing?
+    url: https://www.bsi.bund.de/DE/Themen/Verbraucherinnen-und-Verbraucher/Cyber-Sicherheitslage/Methoden-der-Cyber-Kriminalitaet/Spam-Phishing-Co/Passwortdiebstahl-durch-Phishing/Schutz-gegen-Phishing/schutz-gegen-phishing.html
 verwandt:
   - whatsapp-konto-schuetzen
 ---
@@ -41,14 +44,14 @@ Bisher melden Sie sich meist mit Benutzernamen und Passwort an. Mit einem Passke
 2. Wenn Sie sich danach anmelden möchten, wählen Sie nur aus, wer sich anmeldet.
 3. Dann bestätigen Sie die Anmeldung auf Ihrem Gerät – zum Beispiel mit Ihrem **Fingerabdruck** oder einem **Gesichtsscan**.
 
-Alles Weitere passiert im Hintergrund. Ihr Gerät speichert dabei einen geheimen Schlüssel. Der Anbieter bekommt nur ein passendes Gegenstück. Ihr Geheimnis verlässt Ihr Gerät also nicht.
+Alles Weitere passiert im Hintergrund. Ihr Gerät speichert dabei einen geheimen Schlüssel. Der Anbieter bekommt nur ein passendes Gegenstück. Beim Anmelden wird der geheime Schlüssel laut BSI nicht preisgegeben.
 
 ## Warum ein Passkey sicherer ist
 
 Das BSI nennt mehrere Vorteile gegenüber Passwörtern:
 
 - Ein Passkey kann **nicht zu einfach** oder zu kurz sein.
-- Sie können ihn **nicht vergessen** – es gibt nichts, was Sie sich merken müssen.
+- Sie können ihn **nicht vergessen** – anders als ein Passwort.
 - Er geht **seltener durch Phishing** oder Datendiebstahl verloren. Selbst wenn Sie auf eine gefälschte Internetseite geraten, wird der geheime Schlüssel nicht verraten. Die Anmeldung dort schlägt einfach fehl.
 - Jeder Passkey gehört zu **genau einem Konto**. Wird einer missbraucht, sind nicht gleich mehrere Konten in Gefahr.
 
@@ -62,5 +65,5 @@ Auch WhatsApp bietet Passkeys an. Laut WhatsApp-Hilfe verknüpft der Passkey Ihr
 ## Worauf Sie achten sollten
 
 - Richten Sie einen Passkey nur **direkt in der App oder auf der Internetseite** des Anbieters ein – über die Sicherheitseinstellungen.
-- Folgen Sie dafür keinem Link aus einer überraschenden Nachricht oder E-Mail.
+- Folgen Sie dafür keinem Link aus einer zweifelhaften E-Mail. Das BSI rät, die Seite stattdessen über die Startseite des Anbieters aufzurufen.
 - Unsicher? Lassen Sie sich von einer vertrauten Person helfen. Der Passkey ist ein Angebot – Sie entscheiden, ob und wann Sie ihn nutzen.

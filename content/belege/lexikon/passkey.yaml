@@ -1,0 +1,78 @@
+# Belegtabelle für content/lexikon/passkey.md (Format: docs/BETRIEB.md, Abschnitt „Belegtabelle“)
+# Jede Aussage mit einem wörtlichen Zitat aus einer selbst gelesenen Quelle. Prüfen: python tools/belegcheck.py lexikon/passkey
+geprueft: 2026-11-11
+belege:
+  # ---------------------------------------------------------------- Was ein Passkey ist
+  - aussage: "Ein Passkey ist eine Anmeldung ohne Passwort"
+    quelle: https://www.bsi.bund.de/DE/Themen/Verbraucherinnen-und-Verbraucher/Informationen-und-Empfehlungen/Cyber-Sicherheitsempfehlungen/Accountschutz/Passkeys/passkeys-anmelden-ohne-passwort.html
+    zitat: "Wenn von Passkey die Rede ist, ist ein passwortloses Anmelden gemeint."
+  - aussage: "Bestätigen mit Fingerabdruck oder Gesicht statt Passwort"
+    quelle: https://www.bsi.bund.de/DE/Themen/Verbraucherinnen-und-Verbraucher/Informationen-und-Empfehlungen/Cyber-Sicherheitsempfehlungen/Accountschutz/Passkeys/passkeys-anmelden-ohne-passwort.html
+    zitat: "bestätigen den Login etwa mit Ihrem Fingerabdruck oder einem Gesichtsscan"
+  - aussage: "… oder mit der Bildschirmsperre des Handys"
+    quelle: https://faq.whatsapp.com/1278661612895630/?locale=de_DE
+    zitat: "mit dem Sicherheitssystem deines Geräts – wie Fingerabdruck, Gesichtserkennung oder Bildschirmsperre"
+  - aussage: "Laut BSI sicherer und bequemer als ein Passwort"
+    quelle: https://www.bsi.bund.de/DE/Themen/Verbraucherinnen-und-Verbraucher/Informationen-und-Empfehlungen/Cyber-Sicherheitsempfehlungen/Accountschutz/Passkeys/passkeys-anmelden-ohne-passwort.html
+    zitat: "Falls Ihnen ein Onlinedienst die Anmeldung mit Passkey anbietet, stellt das für Sie einen Gewinn an Sicherheit und Komfort dar."
+  - aussage: "Immer mehr Anbieter schlagen Passkeys vor"
+    quelle: https://www.bsi.bund.de/DE/Themen/Verbraucherinnen-und-Verbraucher/Informationen-und-Empfehlungen/Cyber-Sicherheitsempfehlungen/Accountschutz/Passkeys/passkeys-anmelden-ohne-passwort.html
+    zitat: "Zahlreiche Onlinedienste und Hersteller werben immer häufiger für eine Technologie, die sicher und zugleich einfach sein soll"
+  - aussage: "Bisher meldet man sich meist mit Benutzername und Passwort an"
+    quelle: https://www.bsi.bund.de/DE/Themen/Verbraucherinnen-und-Verbraucher/Informationen-und-Empfehlungen/Cyber-Sicherheitsempfehlungen/Accountschutz/Passkeys/passkeys-anmelden-ohne-passwort.html
+    zitat: "Heute nutzen Sie dafür wahrscheinlich ein Passwort, Sie haben aber auch die Möglichkeit, stattdessen einen Passkey zu verwenden."
+  # ---------------------------------------------------------------- So funktioniert ein Passkey
+  - aussage: "Einmal einrichten, mit wenigen Klicks in den Sicherheitseinstellungen der App oder Internetseite"
+    quelle: https://www.bsi.bund.de/DE/Themen/Verbraucherinnen-und-Verbraucher/Informationen-und-Empfehlungen/Cyber-Sicherheitsempfehlungen/Accountschutz/Passkeys/passkeys-anmelden-ohne-passwort.html
+    zitat: "Einen Passkey richten Sie einmalig und mit wenigen Klicks in den Sicherheitseinstellungen der Webseite oder App ein."
+  - aussage: "Beim Anmelden nur auswählen, wer sich anmeldet"
+    quelle: https://www.bsi.bund.de/DE/Themen/Verbraucherinnen-und-Verbraucher/Informationen-und-Empfehlungen/Cyber-Sicherheitsempfehlungen/Accountschutz/Passkeys/passkeys-anmelden-ohne-passwort.html
+    zitat: "wählen Sie nur noch aus, wer sich anmeldet"
+  - aussage: "Alles Weitere passiert im Hintergrund"
+    quelle: https://www.bsi.bund.de/DE/Themen/Verbraucherinnen-und-Verbraucher/Informationen-und-Empfehlungen/Cyber-Sicherheitsempfehlungen/Accountschutz/Passkeys/passkeys-anmelden-ohne-passwort.html
+    zitat: "Die übrigen sicherheitsrelevanten Berechnungen laufen im Hintergrund ab und sind für die Nutzenden nicht sichtbar."
+  - aussage: "Das Gerät speichert einen geheimen Schlüssel"
+    quelle: https://www.bsi.bund.de/DE/Themen/Verbraucherinnen-und-Verbraucher/Informationen-und-Empfehlungen/Cyber-Sicherheitsempfehlungen/Accountschutz/Passkeys/passkeys-anmelden-ohne-passwort.html
+    zitat: "hinterlegt Ihr Gerät einen sogenannten geheimen Schlüssel im internen Speicher"
+  - aussage: "Der Anbieter bekommt nur ein passendes Gegenstück"
+    quelle: https://www.bsi.bund.de/DE/Themen/Verbraucherinnen-und-Verbraucher/Informationen-und-Empfehlungen/Cyber-Sicherheitsempfehlungen/Accountschutz/Passkeys/passkeys-anmelden-ohne-passwort.html
+    zitat: "Gleichzeitig wird ein passender öffentlicher Schlüssel erstellt, der bei Ihrem Onlinedienst"
+  - aussage: "Beim Anmelden wird der geheime Schlüssel nicht preisgegeben"
+    quelle: https://www.bsi.bund.de/DE/Themen/Verbraucherinnen-und-Verbraucher/Informationen-und-Empfehlungen/Cyber-Sicherheitsempfehlungen/Accountschutz/Passkeys/passkeys-anmelden-ohne-passwort.html
+    zitat: "wird der geheime Schlüssel niemals preisgegeben"
+  # ---------------------------------------------------------------- Warum sicherer
+  - aussage: "Kann nicht zu einfach oder zu kurz sein"
+    quelle: https://www.bsi.bund.de/DE/Themen/Verbraucherinnen-und-Verbraucher/Informationen-und-Empfehlungen/Cyber-Sicherheitsempfehlungen/Accountschutz/Passkeys/passkeys-anmelden-ohne-passwort.html
+    zitat: "Passkeys können nicht zu simpel oder zu kurz sein – Passwörter dagegen schon."
+  - aussage: "Kann nicht vergessen werden – anders als ein Passwort"
+    quelle: https://www.bsi.bund.de/DE/Themen/Verbraucherinnen-und-Verbraucher/Informationen-und-Empfehlungen/Cyber-Sicherheitsempfehlungen/Accountschutz/Passkeys/passkeys-anmelden-ohne-passwort.html
+    zitat: "Passkeys können im Gegensatz zu Passwörtern nicht vergessen werden."
+  - aussage: "Geht seltener durch Phishing oder Datendiebstahl verloren"
+    quelle: https://www.bsi.bund.de/DE/Themen/Verbraucherinnen-und-Verbraucher/Informationen-und-Empfehlungen/Cyber-Sicherheitsempfehlungen/Accountschutz/Passkeys/passkeys-anmelden-ohne-passwort.html
+    zitat: "Es ist unwahrscheinlicher, dass Passkeys durch Phishing oder Datendiebstahl verloren gehen."
+  - aussage: "Auf einer gefälschten Internetseite wird der geheime Schlüssel nicht verraten; die Anmeldung schlägt fehl"
+    quelle: https://www.bsi.bund.de/DE/Themen/Verbraucherinnen-und-Verbraucher/Informationen-und-Empfehlungen/Cyber-Sicherheitsempfehlungen/Accountschutz/Passkeys/passkeys-anmelden-ohne-passwort.html
+    zitat: "sich auf einer gefälschten Webseite einzuloggen, wird der geheime Schlüssel niemals preisgegeben. Der Login scheitert"
+  - aussage: "Jeder Passkey gehört zu genau einem Konto; bei Missbrauch sind nicht mehrere Konten in Gefahr"
+    quelle: https://www.bsi.bund.de/DE/Themen/Verbraucherinnen-und-Verbraucher/Informationen-und-Empfehlungen/Cyber-Sicherheitsempfehlungen/Accountschutz/Passkeys/passkeys-anmelden-ohne-passwort.html
+    zitat: "Jeder Passkey schützt immer genau einen Account – so können nie mehrere Accounts gefährdet sein, sollte ein Passkey missbraucht werden."
+  - aussage: "BSI: Bei einem vertrauten Anbieter ohne Weiteres nutzen und das Passwort ersetzen"
+    quelle: https://www.bsi.bund.de/DE/Themen/Verbraucherinnen-und-Verbraucher/Informationen-und-Empfehlungen/Cyber-Sicherheitsempfehlungen/Accountschutz/Passkeys/passkeys-anmelden-ohne-passwort.html
+    zitat: "Wenn Ihnen also von einem vertrauten Diensteanbieter vorgeschlagen wird, Passkey einzurichten, können Sie die Technologie ohne weiteres verwenden und Ihr Passwort ersetzen."
+  # ---------------------------------------------------------------- WhatsApp
+  - aussage: "WhatsApp bietet Passkeys an; der Passkey verknüpft das Konto mit dem Sicherheitssystem des Geräts"
+    quelle: https://faq.whatsapp.com/1278661612895630/?locale=de_DE
+    zitat: "Wenn du einen Passkey einrichtest, verknüpft WhatsApp dein Konto mit dem Sicherheitssystem deines Geräts"
+  - aussage: "Mit eingeschalteter Verifizierung in zwei Schritten meldet man sich damit schneller an"
+    quelle: https://faq.whatsapp.com/1278661612895630/?locale=de_DE
+    zitat: "Mit einem Passkey kannst du dich schneller anmelden, wenn die Verifizierung in zwei Schritten aktiviert ist."
+  # ---------------------------------------------------------------- Worauf Sie achten sollten
+  - aussage: "Einrichten über die Sicherheitseinstellungen in der App oder auf der Internetseite des Anbieters"
+    quelle: https://www.bsi.bund.de/DE/Themen/Verbraucherinnen-und-Verbraucher/Informationen-und-Empfehlungen/Cyber-Sicherheitsempfehlungen/Accountschutz/Passkeys/passkeys-anmelden-ohne-passwort.html
+    zitat: "Das geht über die Sicherheitseinstellungen auf der Webseite oder in der App des Anbieters."
+  - aussage: "Keinem Link aus einer zweifelhaften E-Mail folgen; die Seite über die Startseite des Anbieters aufrufen"
+    quelle: https://www.bsi.bund.de/DE/Themen/Verbraucherinnen-und-Verbraucher/Cyber-Sicherheitslage/Methoden-der-Cyber-Kriminalitaet/Spam-Phishing-Co/Passwortdiebstahl-durch-Phishing/Schutz-gegen-Phishing/schutz-gegen-phishing.html
+    zitat: "Klicken Sie niemals auf Links in einer dubiosen E-Mail. Versuchen Sie im Zweifelsfall stattdessen, die im E-Mail-Text genannte Seite über die Startseite der betreffenden Organisation zu erreichen"
+  - aussage: "Der Passkey ist ein Angebot – beim Anmelden kann man weiter das Passwort wählen"
+    quelle: https://www.bsi.bund.de/DE/Themen/Verbraucherinnen-und-Verbraucher/Informationen-und-Empfehlungen/Cyber-Sicherheitsempfehlungen/Accountschutz/Passkeys/passkeys-anmelden-ohne-passwort.html
+    zitat: "In der Regel werden Sie von nun an beim Login gefragt, ob Sie ein Passwort eingeben oder Ihren Passkey nutzen möchten."
