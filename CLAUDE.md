@@ -57,6 +57,7 @@ tools/belegcheck.py        Prüft, ob die Zitate der Belegtabellen noch auf den 
 tools/push.py              Push-Nachricht an die Netzleicht-App (ntfy); Thema nur aus NTFY_TOPIC, nie im Repo
 tools/kennzahlen.py        Kennzahlen-Archiv: Woche eintragen, auswerten, Meilensteine, monatliche Stichprobe
 tools/livecheck.py         Prüft, ob der gebaute Stand live ist: Sitemap-Abgleich, jede Seite 200 (Deploy, Betriebscheck)
+tools/lebenszeichen.py     Lebenszeichen der geplanten Aufgaben (Issue #39): Kennzeile ausgeben, fehlende Läufe finden (Freigabe)
 tools/indexnow.py          Meldet geänderte URLs an IndexNow (läuft im Deploy)
 tools/pdf.mjs              Erzeugt die Checklisten-PDFs (Node + Playwright, läuft im Deploy)
 tools/favicons.mjs         Erzeugt favicon.ico/-192.png/apple-touch-icon.png aus static/favicon.svg (nach Logo-Änderung)

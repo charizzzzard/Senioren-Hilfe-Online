@@ -16,5 +16,7 @@ Aufgabe: die Ausgabe „Die Woche im Netz“ für die laufende Kalenderwoche vor
 7. Branch `claude/woche-im-netz-<JJJJ>-kw<NN>`, Commit `woche: KW <NN>`, Push, Pull Request (Meldungen, gelesene Quellen, was weggelassen wurde). Labels `pruefung-ausstehend` und `klasse-c` (bei neuen Maschen, Betrug, Geld oder Sicherheitswarnungen – sonst `klasse-b`). NICHT mergen. Nie direkt auf main pushen. Ohne GitHub-Werkzeuge: nichts pushen, Push-Nachricht `--art problem`.
 8. Sonst keine Push-Nachricht – die Faktenprüfung meldet die Freigabe.
 
+Lebenszeichen (immer als letzter Schritt vor der Zusammenfassung – auch wenn nichts zu tun war oder ein Schritt oben „beenden“ sagt; Entscheidung des Betreibers vom 11.11.2026): `python tools/lebenszeichen.py kennung "Die Woche im Netz"` gibt die Kennzeile aus (fehlt das Skript auf main noch: `Lebenszeichen: Die Woche im Netz <JJJJ-MM-TT>` mit dem heutigen Datum in Europe/Berlin, per python3 zoneinfo). Schreibe sie als erste Zeile eines Kommentars in Issue #39 (add_issue_comment), dahinter ein Satz zum Ergebnis (z. B. PR-Link oder „nichts zu tun“) – kein Push-Thema, keine personenbezogenen Daten. Ohne GitHub-Werkzeuge entfällt das; die Freigabe meldet den Lauf dann als fehlend.
+
 Schreibe niemals personenbezogene Daten ins Repository oder in Issues – das Repository ist öffentlich.
 Zum Schluss: Fasse auf Deutsch in 3–5 Sätzen zusammen, welche Meldungen die Ausgabe enthält (mit PR-Link) oder warum diese Woche keine Ausgabe vorbereitet wurde.

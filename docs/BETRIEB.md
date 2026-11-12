@@ -53,6 +53,7 @@ Der Autor schlägt die Klasse vor, der Prüfer legt sie fest. Es gilt die höchs
 | `pruefung-bestanden` | Prüfung bestanden |
 | `einspruchsfrist` | Klasse C, läuft – geht nach Ablauf live |
 | `einspruch` | Betreiber widerspricht – PR bleibt liegen, bis er entscheidet |
+| `gelesen` | Betreiber hat den Klasse-C-PR gelesen – die nächste Freigabe merged ihn, auch vor Ablauf der Frist |
 | `stichprobe` | Issue: monatliche Stichprobe für den Betreiber (Abschnitt 5a) |
 
 1. **Autor:** Branch `claude/<art>-<slug>` (z. B. `claude/artikel-…`, `claude/woche-im-netz-…`, `claude/nachpruefung-…`),
@@ -84,6 +85,7 @@ Der Autor schlägt die Klasse vor, der Prüfer legt sie fest. Es gilt die höchs
      Keine Push-Nachricht „online“.
 3. **Freigabe** (täglich): Für jeden PR mit `einspruchsfrist`:
    - Label `einspruch` → nichts tun (der Betreiber entscheidet).
+   - Label `gelesen` → mergen wie nach Ablauf der Frist, auch wenn `live-ab` noch nicht erreicht ist.
    - Neuer Commit nach der geprüften SHA → Labels zurück auf `pruefung-ausstehend` (erneute Prüfung).
    - `live-ab` erreicht, CI grün → mergen, Deploy abwarten, live prüfen (`tools/livecheck.py`), Push „online“.
      Scheitert der Deploy: Abschnitt 9.
@@ -128,7 +130,18 @@ Worauf achten:
 1. Den Text einmal ganz lesen, am besten auf dem Handy: Ist etwas unklar, beängstigend oder klingt zu sicher?
 2. Zwei Aussagen aus der Belegtabelle wählen, die Quelle öffnen: Steht es dort wirklich so?
 3. Telefonnummern, Fristen und Beträge mit der Quelle vergleichen.
-4. Passt etwas nicht: Label `einspruch` setzen und im PR kurz schreiben, was auffiel. Sonst nichts tun – der Text geht nach Ablauf live.
+4. Passt etwas nicht: Label `einspruch` setzen und im PR kurz schreiben, was auffiel. Soll der Autor etwas ändern: zusätzlich
+   `pruefung-nachbessern` setzen – der nächste Autor-Lauf arbeitet es ein. Ist alles in Ordnung: Label `gelesen` setzen
+   (freiwillig) – dann geht der PR mit der nächsten Freigabe (19:12) live. Ohne Label geht er nach Ablauf der Frist live.
+
+Die Labels `gelesen` und `einspruch` setzt nur der Betreiber. Keine Claude-Session setzt sie; `gelesen` entfernen Faktenprüfung
+und Freigabe, sobald ein neuer Stand geprüft werden muss – die Bestätigung gilt nur für den gelesenen Stand.
+Darum `gelesen` erst setzen, wenn die Push-Nachricht „freigabe“ da ist. Wie viele Klasse-C-PRs mit und ohne `gelesen`
+live gingen, steht im Wochenbericht.
+
+Entscheidungen des Betreibers vom 11.11.2026: Auch Korrekturen aus der Nachprüfung (Altbestand) werden ganz gelesen;
+die Frist bleibt 24 Stunden; mehrere Klasse-C-PRs eines Prüf-Laufs kommen in **einer** Push-Nachricht mit der Lesezeit
+(Zahl der Texte × 10 Minuten).
 
 **Monatliche Stichprobe:** Der Wochenbericht am ersten Montag im Monat wählt per Zufall einen veröffentlichten Text
 (`python tools/kennzahlen.py stichprobe` – fest je Monat, Wochenschau ausgenommen) und legt ein Issue mit Label
@@ -174,7 +187,7 @@ Senden: `NTFY_TOPIC=<thema> python tools/push.py --art <art> --titel "…" --tex
 | Art | Wann | Wer sendet |
 | --- | --- | --- |
 | `online` | etwas ist live gegangen (Titel, Link) | Prüfer, Freigabe |
-| `freigabe` | Klasse C bestanden – Einspruch bis … möglich (PR-Link) | Prüfer |
+| `freigabe` | Klasse C bestanden – Lesezeit, Frist, `gelesen`/`einspruch`; mehrere PRs eines Laufs in einer Nachricht | Prüfer |
 | `problem` | Lauf gescheitert, CI auf `main` rot, Deploy fehlgeschlagen, keine GitHub-Werkzeuge, gefährlicher Fehler live entdeckt | jeder Lauf |
 | `bericht` | Wochenbericht (montags) | Wochenbericht |
 | `meilenstein` | ein Ziel ist erstmals erreicht | Wochenbericht |
@@ -230,6 +243,12 @@ claude.ai ändert, ändert im selben Zug die Datei dort – sonst weiß niemand,
 
 - **Keine GitHub-Werkzeuge im Lauf:** nichts pushen, Push `problem`. Nie direkt auf `main` pushen.
 - **CI im PR rot:** der nächste Autor-Lauf behebt es; der Prüfer prüft erst bei grünem CI.
+- **Lauf von der Plattform abgebrochen** (z. B. Nutzungslimit): Der Lauf kann selbst nichts mehr melden. Darum schreibt
+  jeder Lauf als letzten Schritt ein Lebenszeichen in Issue #39 (`python tools/lebenszeichen.py kennung "<Aufgabe>"`).
+  Der Lauf-Wächter der Freigabe (täglich 19:12) gleicht die Lebenszeichen mit dem Zeitplan ab
+  (`python tools/lebenszeichen.py pruefen`). Fehlt eines, meldet er den Lauf per Push `problem` mit dem Handgriff zum
+  Nachholen. Spätestens am Abend des nächsten Tages kommt die Meldung. Die Liste der geplanten Aufgaben selbst sehen
+  geplante Läufe nicht (Freigabe-Lauf vom 10.11.2026).
 - **Betriebscheck (täglich, Freigabe):** `python tools/build.py && python tools/livecheck.py --versuche 2`.
   Das Skript vergleicht die gebaute mit der Live-Sitemap und ruft jede Seite auf. Fehlt live eine Seite, die `main` baut,
   oder ist live noch eine Seite, die `main` nicht mehr baut, gilt das wie ein gescheiterter Deploy (nächster Punkt).
@@ -294,7 +313,7 @@ im PR kurz kommentieren, Label `pruefung-nachbessern` (bei Klasse C zusätzlich 
 - ein sachlicher Fehler (Fehlerkatalog `live: true`, `art` falsch, veraltet oder widerspruch) war live,
 - die Qualitätsbremse greift,
 - eine Push-Nachricht enthielt eine falsche oder missverständliche Angabe,
-- ein PR wurde ohne bestandene Prüfung oder vor Ablauf der Einspruchsfrist gemergt,
+- ein PR wurde ohne bestandene Prüfung oder vor Ablauf der Einspruchsfrist gemergt (ohne Label `gelesen` des Betreibers),
 - eine geplante Aufgabe ist zweimal hintereinander gescheitert oder `main` war länger als einen Tag rot.
 
 **Form:** `docs/stoerungen/<JJJJ-MM-TT>-<kurz>.md` mit „Was ist passiert?“, „Warum?“ (Prozess, keine Schuld), „Was wurde
