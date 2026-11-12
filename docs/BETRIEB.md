@@ -1,6 +1,6 @@
 # Betrieb von netzleicht.de
 
-Stand: 6. November 2026. Verbindlich für alle Claude-Sessions – geplante und manuelle. Ergänzt `CLAUDE.md` Abschnitt 7.
+Stand: 9. November 2026. Verbindlich für alle Claude-Sessions – geplante und manuelle. Ergänzt `CLAUDE.md` Abschnitt 7.
 
 ## 1. Grundsatz
 
@@ -28,7 +28,7 @@ Pflichtfelder, Belegtabellen, Qualitätsbremse, Format des Kennzahlen-Archivs.
 | --- | --- | --- | --- |
 | **Autor** | Content (Di, Fr), Wochenschau (Fr), Nachprüfung (Mi), Wartung (monatlich), manuelle Sessions | schreiben, Belegtabelle anlegen, Branch, Pull Request, Labels setzen | mergen, direkt auf `main` pushen |
 | **Prüfer** | Faktenprüfung (Di, Fr) – frische Session, eigenes Modell-Budget | Aussagen streichen oder vorsichtiger formulieren, Tippfehler beheben, Review schreiben, Labels setzen, Klasse A/B mergen, Einspruchsfrist für Klasse C starten | neue Aussagen ergänzen, einen Text prüfen, an dem dieselbe Session geschrieben hat |
-| **Freigabe** | täglich | Klasse C nach abgelaufener Einspruchsfrist mergen, Betriebsstörungen melden | Inhalte ändern |
+| **Freigabe** | täglich | Klasse C nach abgelaufener Einspruchsfrist mergen, Betriebscheck, gescheiterten Deploy einmal neu starten (Abschnitt 9), Betriebsstörungen melden | Inhalte ändern |
 | **Betreiber** | – | liest jeden Klasse-C-Text in der Einspruchsfrist und monatlich eine Stichprobe (Abschnitt 5a); Einspruch (Label `einspruch`), jederzeit selbst mergen oder schließen, Gerätetests, Entscheidungen nach `CLAUDE.md` Abschnitt 8 | – |
 
 Merged der Betreiber selbst, ist das die Freigabe. Belegtabelle und `tools/check.py` gelten trotzdem.
@@ -53,6 +53,7 @@ Der Autor schlägt die Klasse vor, der Prüfer legt sie fest. Es gilt die höchs
 | `pruefung-bestanden` | Prüfung bestanden |
 | `einspruchsfrist` | Klasse C, läuft – geht nach Ablauf live |
 | `einspruch` | Betreiber widerspricht – PR bleibt liegen, bis er entscheidet |
+| `gelesen` | Betreiber hat den Klasse-C-PR gelesen – die nächste Freigabe merged ihn, auch vor Ablauf der Frist |
 | `stichprobe` | Issue: monatliche Stichprobe für den Betreiber (Abschnitt 5a) |
 
 1. **Autor:** Branch `claude/<art>-<slug>` (z. B. `claude/artikel-…`, `claude/woche-im-netz-…`, `claude/nachpruefung-…`),
@@ -75,7 +76,8 @@ Der Autor schlägt die Klasse vor, der Prüfer legt sie fest. Es gilt die höchs
      Fehlt etwas Neues oder ist eine Aussage falsch: Label `pruefung-nachbessern` mit Befundliste – nicht selbst neu schreiben.
    - Ergebnis als PR-Kommentar mit Tabelle (Aussage – Quelle – Ergebnis) und dieser Kennzeile am Ende:
      `<!-- netzleicht-pruefung: bestanden | klasse: C | sha: <geprüfter Commit> | live-ab: 2026-11-07T14:30+01:00 -->`
-   - Bestanden, Klasse A/B: mergen (Rebase, vollständige SHA), Deploy abwarten, Seite live prüfen, Push „online“.
+   - Bestanden, Klasse A/B: mergen (Rebase, vollständige SHA), Deploy abwarten, Seite live prüfen
+     (`python tools/build.py && python tools/livecheck.py`), Push „online“. Scheitert der Deploy: Abschnitt 9.
    - Bestanden, Klasse C: Labels `pruefung-bestanden` + `einspruchsfrist`, Push „freigabe“ mit PR-Link, Zeitpunkt und
      der Bitte zu lesen (Abschnitt 5a).
    - **Kennzahlen-PRs** des Wochenberichts (Branch `claude/kennzahlen-…`, nur Dateien in `kennzahlen/`): Klasse A.
@@ -83,8 +85,10 @@ Der Autor schlägt die Klasse vor, der Prüfer legt sie fest. Es gilt die höchs
      Keine Push-Nachricht „online“.
 3. **Freigabe** (täglich): Für jeden PR mit `einspruchsfrist`:
    - Label `einspruch` → nichts tun (der Betreiber entscheidet).
+   - Label `gelesen` → mergen wie nach Ablauf der Frist, auch wenn `live-ab` noch nicht erreicht ist.
    - Neuer Commit nach der geprüften SHA → Labels zurück auf `pruefung-ausstehend` (erneute Prüfung).
-   - `live-ab` erreicht, CI grün → mergen, Deploy abwarten, live prüfen, Push „online“.
+   - `live-ab` erreicht, CI grün → mergen, Deploy abwarten, live prüfen (`tools/livecheck.py`), Push „online“.
+     Scheitert der Deploy: Abschnitt 9.
 
 ## 5. Belegtabelle
 
@@ -126,7 +130,18 @@ Worauf achten:
 1. Den Text einmal ganz lesen, am besten auf dem Handy: Ist etwas unklar, beängstigend oder klingt zu sicher?
 2. Zwei Aussagen aus der Belegtabelle wählen, die Quelle öffnen: Steht es dort wirklich so?
 3. Telefonnummern, Fristen und Beträge mit der Quelle vergleichen.
-4. Passt etwas nicht: Label `einspruch` setzen und im PR kurz schreiben, was auffiel. Sonst nichts tun – der Text geht nach Ablauf live.
+4. Passt etwas nicht: Label `einspruch` setzen und im PR kurz schreiben, was auffiel. Soll der Autor etwas ändern: zusätzlich
+   `pruefung-nachbessern` setzen – der nächste Autor-Lauf arbeitet es ein. Ist alles in Ordnung: Label `gelesen` setzen
+   (freiwillig) – dann geht der PR mit der nächsten Freigabe (19:12) live. Ohne Label geht er nach Ablauf der Frist live.
+
+Die Labels `gelesen` und `einspruch` setzt nur der Betreiber. Keine Claude-Session setzt sie; `gelesen` entfernen Faktenprüfung
+und Freigabe, sobald ein neuer Stand geprüft werden muss – die Bestätigung gilt nur für den gelesenen Stand.
+Darum `gelesen` erst setzen, wenn die Push-Nachricht „freigabe“ da ist. Wie viele Klasse-C-PRs mit und ohne `gelesen`
+live gingen, steht im Wochenbericht.
+
+Entscheidungen des Betreibers vom 11.11.2026: Auch Korrekturen aus der Nachprüfung (Altbestand) werden ganz gelesen;
+die Frist bleibt 24 Stunden; mehrere Klasse-C-PRs eines Prüf-Laufs kommen in **einer** Push-Nachricht mit der Lesezeit
+(Zahl der Texte × 10 Minuten).
 
 **Monatliche Stichprobe:** Der Wochenbericht am ersten Montag im Monat wählt per Zufall einen veröffentlichten Text
 (`python tools/kennzahlen.py stichprobe` – fest je Monat, Wochenschau ausgenommen) und legt ein Issue mit Label
@@ -137,7 +152,11 @@ ist das ein Hinweis, den Prüfauftrag zu schärfen.
 
 ## 6. Nachprüfung (wöchentlich)
 
-Jeden Mittwoch bis zu drei Texte, in dieser Reihenfolge:
+Jeden Mittwoch bis zu drei Texte – und zusätzlich jeden Montag, solange noch Texte ohne Belegtabelle live sind
+(Entscheidung des Betreibers vom 10.11.2026; die Aufgabe stellt den Montag selbst ab, sobald `tools/check.py` keine
+„älteren Texte ohne Belegtabelle“ mehr meldet). Beide Läufe starten abends nach der Freigabe: So ist der Pull Request
+des vorigen Laufs im Regelfall schon gemergt, und zwei Nachprüfungen hängen nicht gleichzeitig Einträge an den
+Fehlerkatalog an. Reihenfolge:
 1. Texte mit Befund aus `tools/belegcheck.py` oder einem offenen `wartung`-/`feedback`-Issue,
 2. Texte ohne Belegtabelle,
 3. Texte mit dem ältesten `geprueft`.
@@ -145,6 +164,8 @@ Jeden Mittwoch bis zu drei Texte, in dieser Reihenfolge:
 Für jeden Text: alle Quellen neu lesen (versionsgenau), jede belegpflichtige Aussage prüfen, Belegtabelle anlegen oder ergänzen,
 Fehler beheben, `geprueft` setzen (nur wenn wirklich alles geprüft ist), `aktualisiert` nur bei inhaltlicher Änderung.
 Jeden behobenen Fehler in `docs/fehlerkatalog.yaml` eintragen (`live: true`, `entdeckt_durch: nachpruefung` bzw. `belegcheck`).
+Hatte der Text bisher keine Belegtabelle und ist er vor dem 06.11.2026 erschienen, bekommt der Eintrag `altbestand: true`
+(Abschnitt 9, Qualitätsbremse).
 Dann Pull Request wie in Abschnitt 4 – auch die Nachprüfung wird unabhängig geprüft.
 
 Zusätzlich aus Anlass: neue iOS-, Android- oder WhatsApp-Version mit geänderten Menüs (meist aus der Wochenschau bekannt) →
@@ -153,6 +174,9 @@ betroffene Texte vorziehen.
 **Gerätetests:** Einmal im Monat legt die Wartung ein Issue „Geräte-Prüfliste“ an: drei bis fünf konkrete Handgriffe,
 die sich aus Quellen nicht belegen lassen, je für iPhone und Android. Die Antworten des Betreibers werden als `geraetetest`
 in die Belegtabelle und ins Feld `getestet` übernommen.
+Zum Testen steht derzeit nur ein iPhone mit älterem iOS bereit (Auskunft des Betreibers vom 10.11.2026). Die Prüfliste
+fragt deshalb nur Handgriffe ab, die sich dort prüfen lassen. Angaben zu Android und zum aktuellen iOS beruhen allein
+auf den Quellen; `getestet` nennt immer Gerät und Version und gilt nur dafür.
 
 ## 7. Push-Nachrichten (ntfy)
 
@@ -163,7 +187,7 @@ Senden: `NTFY_TOPIC=<thema> python tools/push.py --art <art> --titel "…" --tex
 | Art | Wann | Wer sendet |
 | --- | --- | --- |
 | `online` | etwas ist live gegangen (Titel, Link) | Prüfer, Freigabe |
-| `freigabe` | Klasse C bestanden – Einspruch bis … möglich (PR-Link) | Prüfer |
+| `freigabe` | Klasse C bestanden – Lesezeit, Frist, `gelesen`/`einspruch`; mehrere PRs eines Laufs in einer Nachricht | Prüfer |
 | `problem` | Lauf gescheitert, CI auf `main` rot, Deploy fehlgeschlagen, keine GitHub-Werkzeuge, gefährlicher Fehler live entdeckt | jeder Lauf |
 | `bericht` | Wochenbericht (montags) | Wochenbericht |
 | `meilenstein` | ein Ziel ist erstmals erreicht | Wochenbericht |
@@ -201,12 +225,15 @@ nie doppelt gemeldet):
 
 ## 8. Zeitplan der geplanten Aufgaben
 
+Der Wortlaut jedes Auftrags ist unter `docs/aufgaben/` gesichert (ohne das Push-Thema). Wer einen Auftrag in
+claude.ai ändert, ändert im selben Zug die Datei dort – sonst weiß niemand, was eine Aufgabe gerade tut.
+
 | Wann (Europe/Berlin) | Aufgabe | Rolle | Modell |
 | --- | --- | --- | --- |
 | Di + Fr 10:37 | Netzleicht: neuer Artikel | Autor | Opus |
 | Fr 07:43 | Netzleicht: Die Woche im Netz | Autor | Opus |
 | Di + Fr 13:23 | Netzleicht: Faktenprüfung | Prüfer | Opus |
-| Mi 10:19 | Netzleicht: Nachprüfung | Autor | Opus |
+| Mi 20:07, vorübergehend auch Mo 20:07 | Netzleicht: Nachprüfung (Mo nur, bis alle Texte eine Belegtabelle haben) | Autor | Opus |
 | täglich 19:12 | Netzleicht: Freigabe | Freigabe | Sonnet |
 | Mo 08:13 | Netzleicht: Wochenbericht (Zahlen per Skript, Gegenprobe vor dem Senden, Kennzahlen-PR, am 1. Montag im Monat Stichprobe) | Bericht | Opus |
 | 3. des Monats 13:32 | Netzleicht: monatliche Wartung | Autor | Opus |
@@ -216,7 +243,27 @@ nie doppelt gemeldet):
 
 - **Keine GitHub-Werkzeuge im Lauf:** nichts pushen, Push `problem`. Nie direkt auf `main` pushen.
 - **CI im PR rot:** der nächste Autor-Lauf behebt es; der Prüfer prüft erst bei grünem CI.
-- **`main` rot oder Deploy fehlgeschlagen:** Freigabe-Lauf meldet `problem` mit Link zum Workflow.
+- **Lauf von der Plattform abgebrochen** (z. B. Nutzungslimit): Der Lauf kann selbst nichts mehr melden. Darum schreibt
+  jeder Lauf als letzten Schritt ein Lebenszeichen in Issue #39 (`python tools/lebenszeichen.py kennung "<Aufgabe>"`).
+  Der Lauf-Wächter der Freigabe (täglich 19:12) gleicht die Lebenszeichen mit dem Zeitplan ab
+  (`python tools/lebenszeichen.py pruefen`). Fehlt eines, meldet er den Lauf per Push `problem` mit dem Handgriff zum
+  Nachholen. Spätestens am Abend des nächsten Tages kommt die Meldung. Die Liste der geplanten Aufgaben selbst sehen
+  geplante Läufe nicht (Freigabe-Lauf vom 10.11.2026).
+- **Betriebscheck (täglich, Freigabe):** `python tools/build.py && python tools/livecheck.py --versuche 2`.
+  Das Skript vergleicht die gebaute mit der Live-Sitemap und ruft jede Seite auf. Fehlt live eine Seite, die `main` baut,
+  oder ist live noch eine Seite, die `main` nicht mehr baut, gilt das wie ein gescheiterter Deploy (nächster Punkt).
+  „Die Startseite antwortet“ reicht nicht (Störungsbericht `docs/stoerungen/2026-11-06-deploy-pages.md`).
+- **Deploy auf `main` fehlgeschlagen** (Workflow „Bauen, prüfen, veröffentlichen“ oder Betriebscheck rot):
+  1. Der Workflow versucht die Veröffentlichung bei GitHub Pages selbst ein zweites Mal (nach einer Minute).
+  2. Scheitert auch das und ist der Job `bauen` grün (der Fehler liegt nur bei GitHub Pages), startet wer den Deploy
+     abwartet (Prüfer, Freigabe) – spätestens der Betriebscheck – den Workflow **einmal** neu (`workflow_dispatch` auf
+     `main`), wartet ihn ab und prüft live mit `tools/livecheck.py`. Gelingt es, kein `problem`; ging dabei ein Text
+     live, Push `online` wie nach einem Merge. Höchstens ein Neustart je Commit: Gibt es für die Head-SHA von `main`
+     schon einen `workflow_dispatch`-Lauf, wird nicht noch einmal gestartet.
+  3. Scheitert auch der Neustart, wurde schon neu gestartet oder ist `bauen` rot: Push `problem` mit Link zum Lauf,
+     den fehlenden Seiten aus `livecheck.py` und dem ersten Handgriff für den Betreiber – bei `bauen` grün
+     „GitHub › Actions › Bauen, prüfen, veröffentlichen › Run workflow (Branch main)“, bei `bauen` rot
+     „Fehler im Stand von `main` – Korrektur per PR“.
 - **Gefährlicher Fehler live entdeckt** (falsche Notrufnummer, gefährlicher Rat): Eil-PR mit `klasse-c`, Push `problem`
   mit PR-Link – der Betreiber kann sofort mergen.
 - **Quelle nicht erreichbar:** nicht als Beleg verwenden; Text in die nächste Nachprüfung.
@@ -236,13 +283,37 @@ Korrekturen, Nachprüfungen und Wartung. `tools/check.py` setzt das durch und ne
 Zusätzlich ist ein Störungsbericht nötig. Grundlage: Fehlerbudget-Prinzip aus dem Google-SRE-Handbuch (Abschnitt 11).
 Die Einträge vom 05.11.2026 sind der Ausgangsbestand vor den Belegtabellen und zählen nicht.
 
+**Altbestand** (Entscheidung des Betreibers vom 10.11.2026): Dasselbe gilt für Fehler in Texten, die vor dem 06.11.2026
+erschienen sind und noch keine Belegtabelle hatten, als der Fehler gefunden wurde – typisch bei der ersten Nachprüfung.
+Sie werden korrigiert und im Fehlerkatalog geführt (`altbestand: true`), lösen die Bremse aber nicht aus: Sie misst den
+Prozess mit Belegtabellen, nicht die Texte davor. Hat ein Text seine Belegtabelle, zählt jeder spätere Fehler.
+`tools/check.py` prüft beides. Die Auslöser für Störungsberichte (unten) bleiben davon unberührt.
+
+**Bremse und Kontingent halten neue Texte auf – nie den Deploy.** `tools/check.py` bricht wegen der Qualitätsbremse,
+des Kontingents (Regel 9) oder einer zweiten Wochenschau nur ab, wenn ein Text beteiligt ist, den es auf `main` noch
+nicht gibt (Vergleichsstand `origin/main`; der Deploy-Workflow setzt ihn über `NETZLEICHT_BASIS`). Ein Text, der schon
+veröffentlicht ist, macht `main` nicht nachträglich rot: Sonst ginge nichts mehr live, auch keine Korrektur.
+Für einen neuen Text zählt zusätzlich der heutige Tag – nicht nur sein `veroeffentlicht`-Datum.
+
+Das CI eines Pull Requests kennt nur den Stand von `main` beim letzten Push. **Vor dem Merge eines PR mit neuem Text**
+(Prüfer bei Klasse A/B, Freigabe bei Klasse C) deshalb einmal gegen den aktuellen Stand prüfen:
+
+```bash
+git fetch origin && git checkout --detach origin/main
+git merge --no-commit --no-ff <geprüfte SHA> && python tools/check.py
+git merge --abort; git checkout -
+```
+
+Meldet `check.py` dabei die Qualitätsbremse oder Regel 9, oder lässt sich der Stand nicht zusammenführen: nicht mergen,
+im PR kurz kommentieren, Label `pruefung-nachbessern` (bei Klasse C zusätzlich `einspruchsfrist` entfernen).
+
 ### Störungsberichte
 
 **Auslöser** (vorher festgelegt, damit niemand abwägen muss):
 - ein sachlicher Fehler (Fehlerkatalog `live: true`, `art` falsch, veraltet oder widerspruch) war live,
 - die Qualitätsbremse greift,
 - eine Push-Nachricht enthielt eine falsche oder missverständliche Angabe,
-- ein PR wurde ohne bestandene Prüfung oder vor Ablauf der Einspruchsfrist gemergt,
+- ein PR wurde ohne bestandene Prüfung oder vor Ablauf der Einspruchsfrist gemergt (ohne Label `gelesen` des Betreibers),
 - eine geplante Aufgabe ist zweimal hintereinander gescheitert oder `main` war länger als einen Tag rot.
 
 **Form:** `docs/stoerungen/<JJJJ-MM-TT>-<kurz>.md` mit „Was ist passiert?“, „Warum?“ (Prozess, keine Schuld), „Was wurde

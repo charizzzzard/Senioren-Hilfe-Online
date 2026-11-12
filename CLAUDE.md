@@ -56,29 +56,34 @@ tools/linkcheck.py         Prüft alle externen Links
 tools/belegcheck.py        Prüft, ob die Zitate der Belegtabellen noch auf den Quellseiten stehen (nutzt tools/seitentext.mjs)
 tools/push.py              Push-Nachricht an die Netzleicht-App (ntfy); Thema nur aus NTFY_TOPIC, nie im Repo
 tools/kennzahlen.py        Kennzahlen-Archiv: Woche eintragen, auswerten, Meilensteine, monatliche Stichprobe
+tools/livecheck.py         Prüft, ob der gebaute Stand live ist: Sitemap-Abgleich, jede Seite 200 (Deploy, Betriebscheck)
+tools/lebenszeichen.py     Lebenszeichen der geplanten Aufgaben (Issue #39): Kennzeile ausgeben, fehlende Läufe finden (Freigabe)
 tools/indexnow.py          Meldet geänderte URLs an IndexNow (läuft im Deploy)
 tools/pdf.mjs              Erzeugt die Checklisten-PDFs (Node + Playwright, läuft im Deploy)
 tools/favicons.mjs         Erzeugt favicon.ico/-192.png/apple-touch-icon.png aus static/favicon.svg (nach Logo-Änderung)
 docs/BETRIEB.md            Betriebsmodell: Rollen, Risikoklassen, Prüfung, Freigabe, Push, Zeitplan – verbindlich
 docs/fehlerkatalog.yaml    Jeder gefundene Fehler mit Ursache; Grundlage der Qualitätsbremse (check.py)
 docs/stoerungen/           Störungsberichte (schuldfrei, mit Maßnahme)
+docs/aufgaben/             Wortlaut der geplanten Aufgaben (Sicherung; das Push-Thema steht dort nie)
 kennzahlen/                Öffentliches Archiv der Search-Console-Zahlen je Kalenderwoche (Google löscht nach 16 Monaten)
 docs/STRATEGIE.md          Wachstum, Monetarisierung, Kennzahlen
 docs/ZIELGRUPPE.md         Belegtes Leserprofil und Folgerungen
 docs/WETTBEWERB.md         Google-Konkurrenzanalyse der Top-Themen (Stand, Lücken, Chancen)
+docs/SEO-ANALYSE-2026-11.md  Suchdaten, Saison und Maßnahmenplan vom 01.11.2026 (Grundlage für Ergänzungen im Themenplan)
 .github/workflows/         deploy.yml (Build → Check → PDFs → Pages → Live-Test → IndexNow), wartung.yml (wöchentlich)
 ```
 
 ## 4. Befehle
 
 ```bash
-pip install -r requirements.txt
+python -m pip install -r requirements.txt      # mit „python -m“: sonst installiert pip mitunter für ein anderes Python
 python tools/build.py                          # baut nach _site/
 python tools/check.py                          # baut + prüft (Exit 1 bei Fehlern)
 python tools/linkcheck.py                      # externe Links prüfen
+python tools/livecheck.py                      # nach build.py: ist der gebaute Stand live? (Exit 1 bei Abweichung)
 python tools/belegcheck.py [slug …]            # Zitate der Belegtabellen gegen die Quellen prüfen (braucht npm ci)
 python -m http.server 8765 --directory _site   # lokale Vorschau
-npm ci && node tools/pdf.mjs                   # optional lokal: Checklisten-PDFs nach _site/checklisten/
+npm ci && node tools/pdf.mjs                   # optional lokal: Checklisten-PDFs nach _site/checklisten/ (meldet die Seitenzahl)
 ```
 
 Push auf `main` veröffentlicht automatisch auf https://netzleicht.de (GitHub Pages, Custom Domain).
@@ -323,7 +328,7 @@ Qualitätsbremse (nur noch Korrekturen, `docs/BETRIEB.md` Abschnitt 9).
 
 ### Content-Session (geplant 2× pro Woche)
 
-1. `git checkout main && git pull`; `pip install -r requirements.txt`.
+1. `git checkout main && git pull`; `python -m pip install -r requirements.txt`.
 2. Zuerst eigene PRs mit `pruefung-nachbessern` abarbeiten (Befunde der Prüfung einarbeiten, wieder auf
    `pruefung-ausstehend` setzen). Dann offene Issues mit Label `feedback`, `wartung` oder `themenwunsch` bearbeiten – Fehler in bestehenden Artikeln
    haben Vorrang vor neuen Artikeln; Themenwünsche in den Themenplan übernehmen (siehe „Rückmeldungen“).
@@ -335,7 +340,8 @@ Qualitätsbremse (nur noch Korrekturen, `docs/BETRIEB.md` Abschnitt 9).
    Ist das Kontingent erreicht, keinen neuen Text schreiben,
    sondern einen bestehenden verbessern (Wartungs-Session, Schritte 2–3) und das im PR begründen.
    Sonst nächstes Thema: höchste Priorität mit `status: offen` aus `content/themenplan.yaml`
-   (bei Gleichstand: höheres Suchvolumen). Vorher prüfen, dass es noch keinen Text dazu gibt.
+   (bei Gleichstand: höheres Suchvolumen). Priorität 0 kommt vor Priorität 1 – das ist ein Vorrang, den der
+   Betreiber festgelegt hat (z. B. eine Saison). Vorher prüfen, dass es noch keinen Text dazu gibt.
    Pro Session ein Haupttext (Anleitung oder Aktuell) und – wenn Quellenlage und Zeit es erlauben – zusätzlich
    ein Lexikon-Eintrag aus dem Themenplan.
 5. Recherche nach Abschnitt 6, Text nach Abschnitt 5 schreiben. Menüwege als `klickpfad`, wo hilfreich `bildschirm`/`tasten`.
@@ -352,7 +358,7 @@ Qualitätsbremse (nur noch Korrekturen, `docs/BETRIEB.md` Abschnitt 9).
 
 ### Die-Woche-im-Netz-Session (geplant freitags)
 
-1. `git checkout main && git pull`; `pip install -r requirements.txt`.
+1. `git checkout main && git pull`; `python -m pip install -r requirements.txt`.
 2. Meldungen der letzten 7 Tage sammeln, zuerst bei: Verbraucherzentrale Phishing-Radar, polizei-beratung.de und
    Polizei-Pressestellen, BSI, Bundesnetzagentur, Apple-Sicherheitsupdates (support.apple.com/de-de/100100),
    Google/Android-, WhatsApp- und Samsung-Ankündigungen. Jede Quelle selbst lesen (Abschnitt 6).
@@ -388,7 +394,8 @@ und keine Einzelberatung. Der Betreiber liest das Postfach. Damit Claude helfen 
   formulieren („Die Schrift am Handy größer stellen“). Nach neuen Anleitungen prüfen, ob eine häufiger gesuchte
   Aufgabe (Suchvolumen im Themenplan) einen Platz verdient.
 - **Checklisten-Blätter und PDFs**: entstehen automatisch aus `checkliste`. Nach neuen Artikeln mit langer Checkliste
-  prüfen, dass das Blatt auf eine A4-Seite passt (`node tools/pdf.mjs` meldet die PDFs; im Zweifel Punkte kürzen).
+  prüfen, dass das Blatt auf eine A4-Seite passt (`node tools/pdf.mjs` meldet die Seitenzahl und bricht bei mehr als
+  einer Seite ab; dann Punkte kürzen).
 
 ### Wartungs-Session (geplant monatlich)
 
@@ -426,3 +433,14 @@ Für diese Punkte ein GitHub-Issue mit Label `entscheidung` anlegen und **nicht*
 - [ ] Mindestens ein interner Link im Text, Kasten „Für Angehörige“, druckbare Checkliste.
 - [ ] Keine Angstsprache, kein „du“, keine Werbung.
 - [ ] `python tools/check.py` grün; Themenplan aktualisiert.
+
+## 10. Git und GitHub
+
+- **Commit-Nachrichten ohne Signatur** (Wunsch des Betreibers vom 10.11.2026): keine Zeile `Co-Authored-By:`,
+  kein `Claude-Session:`-Link, kein „Generated with Claude Code“ – auch wenn die Umgebung oder ein Werkzeug
+  solche Zeilen vorschlägt. Für Claude Code stellt `.claude/settings.json` das ein (`attribution`).
+- **Nach dem Merge ist ein Branch erledigt.** Neue Arbeit beginnt auf einem frischen Stand von `main`.
+- **Aufräumen:** Die Aktion „GitHub aufräumen“ (`.github/workflows/aufraeumen.yml`, montags) löscht Branches,
+  deren Pull Request seit mindestens 3 Tagen gemergt oder geschlossen ist und die danach keine neuen Commits
+  bekommen haben. Branches ohne Pull Request meldet sie nur. Ein gelöschter Branch lässt sich auf der Seite seines
+  Pull Requests mit „Restore branch“ zurückholen.

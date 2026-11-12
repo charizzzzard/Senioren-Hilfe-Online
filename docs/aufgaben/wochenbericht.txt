@@ -1,0 +1,36 @@
+Du erstellst den Wochenbericht für die Website https://netzleicht.de (GitHub-Repository charizzzzard/Senioren-Hilfe-Online), schickst ihn als Push-Nachricht und pflegst das Kennzahlen-Archiv. Am Repository änderst du nur den Ordner kennzahlen/ – per Pull Request, nie direkt auf main. Der Bericht wird vom Betreiber und seiner Familie gelesen – jede Zahl muss stimmen und ihren Zeitraum nennen.
+
+Vorbereitung: Falls das Repository nicht im Arbeitsverzeichnis liegt, füge es mit add_repo hinzu (owner charizzzzard, repo Senioren-Hilfe-Online, access push) und klone es; `git checkout main && git pull`, `python -m pip install -r requirements.txt`. Lies docs/BETRIEB.md Abschnitte 5a, 7 und 9 sowie docs/STRATEGIE.md Abschnitt „Kennzahlen“ und kennzahlen/README.md (falls vorhanden). Die OpenSEO-Werkzeuge (Search Console) lädst du bei Bedarf per ToolSearch.
+
+Push-Nachrichten: `NTFY_TOPIC=<NTFY_TOPIC> python tools/push.py --art <bericht|meilenstein|problem> --titel "…" --text "…" --link "…"` (fehlt das Skript, per curl JSON {"topic","title","message","click"} an https://ntfy.sh/). Das Thema ist geheim: niemals ins Repository, in Commits, PRs oder Issues schreiben.
+
+Grundregel für Zahlen: Nie im Kopf zählen oder schätzen. Rohdaten der Werkzeuge in Dateien im Scratchpad speichern (JSON) und jede Zahl mit einem kleinen Python-Skript berechnen. Was fehlt, als „nicht verfügbar“ melden. Jede Zahl im Bericht nennt ihren Zeitraum.
+
+Daten sammeln:
+1. Search Console über die OpenSEO-Werkzeuge (list_projects → Projekt „Senioren-Hilfe Online (netzleicht.de)“): Berichtswoche = die letzte vollständige Kalenderwoche (Montag–Sonntag vor heute), Vorwoche = die Kalenderwoche davor (explizite startDate/endDate, dataState all). Je Woche: Summen aus der Tagesreihe (dimensions date; Ø Position impressionsgewichtet), alle Seiten (dimensions page, rowLimit 1000), alle Suchanfragen (dimensions query, rowLimit 1000, bei hasMore mit startRow weiterblättern).
+2. Indexierung: Sitemap https://netzleicht.de/sitemap.xml lesen, alle URLs mit inspect_urls (je höchstens 10) prüfen → „x von y Sitemap-URLs indexiert“ (coverageState „Gesendet und indexiert“ zählt als indexiert). Gilt für die Berichtswoche.
+3. GitHub: geschlossene PRs abrufen und per Skript zählen, welche ein merged_at in der Berichtswoche haben (Titel merken), davon die mit Label `klasse-c` und von diesen die mit Label `gelesen` (Lesebestätigung des Betreibers); offene PRs nach Label (`pruefung-ausstehend`, `pruefung-nachbessern`, `einspruchsfrist`, `einspruch`); offene Issues `wartung`, `feedback`, `geraetetest`, `stichprobe`.
+4. Anzahl veröffentlichter Texte (content/artikel/*.md ohne `entwurf: true`, content/lexikon/*.md) und Belegtabellen (content/belege/*/*.yaml) – per Skript. Ausgabe von `python tools/check.py` lesen: Meldet sie „Qualitätsbremse aktiv“, kommt das in den Bericht.
+5. Neue Störungsberichte: Dateien in docs/stoerungen/, die in den letzten 7 Tagen auf main gekommen sind (git log) – je mit Link.
+6. Google-Updates: https://status.search.google.com/summary lesen (Playwright); Updates (Ranking), die in der Berichtswoche liefen, als Ereignis vormerken.
+
+Kennzahlen-Archiv (nur wenn tools/kennzahlen.py auf main existiert, sonst überspringen und im Bericht nichts dazu sagen):
+7. Ist schon ein PR mit Branch `claude/kennzahlen-…` offen: auf dessen Branch weiterarbeiten. Sonst Branch `claude/kennzahlen-<JJJJ>-kw<NN>` (Berichtswoche) von main.
+8. Für Vorwoche und Berichtswoche je eine JSON-Datei im Format aus dem Kopf von tools/kennzahlen.py schreiben (woche als JJJJ-Wnn, stand = heute, Summen, Seiten, Suchanfragen; indexiert/sitemap_urls nur für die Berichtswoche) und `python tools/kennzahlen.py eintragen <datei>` ausführen (die Vorwoche wird damit final neu geschrieben). Google-Updates aus Schritt 6 als Zeile in kennzahlen/ereignisse.csv (art google-update, Quelle-URL), sofern noch nicht vorhanden.
+9. `python tools/kennzahlen.py auswerten` ausführen. Die Zeile „Neue Meilensteine“ ist die einzige Grundlage für Meilenstein-Nachrichten aus der Search Console. Textanzahl-Meilensteine (25, 35, 50, 75, 100) nur, wenn die Schwelle in der Berichtswoche erstmals erreicht wurde (Git-Historie). Nach dem Senden jeden gemeldeten Search-Console-Meilenstein mit `python tools/kennzahlen.py meilenstein-gemeldet <art> <schwelle> <woche>` eintragen.
+10. `python tools/kennzahlen.py pruefen` und `python tools/check.py` müssen grün sein. Commit `kennzahlen: KW <NN>` (nur Dateien in kennzahlen/), Push, Pull Request (bzw. bestehenden aktualisieren) mit Labels `pruefung-ausstehend` und `klasse-a`. Nicht mergen – das macht die Faktenprüfung.
+
+Stichprobe (nur am ersten Montag eines Monats, nur wenn tools/kennzahlen.py existiert):
+11. `python tools/kennzahlen.py stichprobe` ausführen. Issue anlegen, Titel „Stichprobe <Monat JJJJ>: <Titel des Textes>“, Label `stichprobe`, Inhalt: Link zum Text, Link zur Belegtabelle (oder „noch keine Belegtabelle“), die vier Fragen aus docs/BETRIEB.md Abschnitt 5a, wo möglich ein konkreter Handgriff zum Nachmachen am eigenen Gerät, Bitte um Antwort im Issue (etwa 15 Minuten). Keine personenbezogenen Daten.
+
+Gegenprobe vor dem Senden: Den fertigen Nachrichtentext Zeile für Zeile mit den berechneten Werten abgleichen (Skript-Ausgabe neben den Text legen). Stimmt eine Zahl nicht, korrigieren, bevor gesendet wird.
+
+Senden:
+- Push `--art bericht`, Titel „Wochenbericht KW <NN>“ (ISO-Woche der Berichtswoche), höchstens 8 kurze Zeilen: Klicks und Impressionen KW <NN> mit Veränderung zur Vorwoche (bei vorläufigen Daten „vorläufig“ dazuschreiben), beste Suchanfrage, Indexierung, was in KW <NN> live ging (Anzahl gemergter PRs; bei Klasse C dazu „davon gelesen: M von N“), was auf Prüfung oder Einspruch wartet, Qualitätsbremse oder neue Störungsberichte (falls vorhanden), ob der Betreiber etwas tun muss (Klasse-C-Text lesen, Stichprobe, Geräte-Prüfliste). Link: https://netzleicht.de/
+- Für jeden neuen Meilenstein (höchstens 3) einen Push `--art meilenstein`, ein Satz, freundlich und sachlich.
+- Sind die OpenSEO-Werkzeuge nicht verfügbar: trotzdem berichten (übrige Werte), Archiv-Schritte überspringen, letzte Zeile „Search Console nicht erreichbar – OpenSEO-Connector in der Aufgabe ergänzen“.
+- Wenn OpenSEO verfügbar ist: zusätzlich einen kurzen Eintrag im OpenSEO-Recherche-Log des Projekts (update_project_context, appendResearchLog) mit den Kennzahlen der Woche.
+
+Lebenszeichen (immer als letzter Schritt vor der Zusammenfassung – auch wenn nichts zu tun war oder ein Schritt oben „beenden“ sagt; Entscheidung des Betreibers vom 11.11.2026): `python tools/lebenszeichen.py kennung "Wochenbericht"` gibt die Kennzeile aus (fehlt das Skript auf main noch: `Lebenszeichen: Wochenbericht <JJJJ-MM-TT>` mit dem heutigen Datum in Europe/Berlin, per python3 zoneinfo). Schreibe sie als erste Zeile eines Kommentars in Issue #39 (add_issue_comment), dahinter ein Satz zum Ergebnis (z. B. PR-Link oder „nichts zu tun“) – kein Push-Thema, keine personenbezogenen Daten. Ohne GitHub-Werkzeuge entfällt das; die Freigabe meldet den Lauf dann als fehlend.
+
+Zum Schluss: Gib den gesendeten Bericht auf Deutsch wieder, nenne die Rohwerte, aus denen jede Zahl stammt, und verlinke den Kennzahlen-PR und ggf. das Stichproben-Issue.

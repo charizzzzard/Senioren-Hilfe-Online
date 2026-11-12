@@ -1,6 +1,8 @@
 // Erzeugt aus allen Checklisten-Druckseiten (_site/artikel/<slug>/checkliste/) ein PDF unter _site/checklisten/<slug>.pdf.
-// Aufruf nach dem Bauen:  node tools/pdf.mjs
-// Läuft im Deploy (GitHub Actions) mit Playwright/Chromium. Bricht ab, wenn ein PDF fehlt.
+// Aufruf nach dem Bauen:  node tools/pdf.mjs [_site] [--nur-hinweis]
+// Läuft im Deploy (GitHub Actions) mit Playwright/Chromium. Bricht ab, wenn ein PDF fehlt oder eine Checkliste
+// nicht auf EINE A4-Seite passt (CLAUDE.md Abschnitt 5). Mit --nur-hinweis wird die Seitenzahl nur gemeldet –
+// so blockiert auf main eine zu lange Checkliste nicht die Veröffentlichung.
 import { createServer } from "node:http";
 import { readFile, readdir, mkdir, stat } from "node:fs/promises";
 import { createRequire } from "node:module";
@@ -9,7 +11,9 @@ import path from "node:path";
 const require = createRequire(import.meta.url);
 const { chromium } = require("playwright");
 
-const SITE = path.resolve(process.argv[2] || "_site");
+const argumente = process.argv.slice(2);
+const NUR_HINWEIS = argumente.includes("--nur-hinweis");
+const SITE = path.resolve(argumente.find((a) => !a.startsWith("--")) || "_site");
 const TYPEN = { ".html": "text/html; charset=utf-8", ".css": "text/css", ".js": "text/javascript",
   ".woff2": "font/woff2", ".svg": "image/svg+xml", ".png": "image/png", ".webp": "image/webp", ".jpg": "image/jpeg" };
 
@@ -35,14 +39,18 @@ await mkdir(path.join(SITE, "checklisten"), { recursive: true });
 const browser = await chromium.launch();
 const seite = await browser.newPage();
 let fehler = 0;
+const zuLang = [];
 for (const slug of slugs) {
   const ziel = path.join(SITE, "checklisten", `${slug}.pdf`);
   try {
     await seite.goto(`${basis}/artikel/${slug}/checkliste/`, { waitUntil: "networkidle" });
     await seite.evaluate(() => document.fonts.ready);
     await seite.pdf({ path: ziel, format: "A4", printBackground: true, preferCSSPageSize: true });
-    const groesse = (await stat(ziel)).size;
-    console.log(`PDF: ${slug}.pdf (${Math.round(groesse / 1024)} KB)`);
+    const inhalt = await readFile(ziel);
+    // Seitenobjekte zählen ("/Type /Page", nicht "/Pages") – Chromium schreibt sie unkomprimiert
+    const seiten = (inhalt.toString("latin1").match(/\/Type\s*\/Page(?![s\w])/g) || []).length;
+    console.log(`PDF: ${slug}.pdf (${Math.round(inhalt.length / 1024)} KB, ${seiten} ${seiten === 1 ? "Seite" : "Seiten"})`);
+    if (seiten !== 1) zuLang.push(`${slug}.pdf hat ${seiten} Seiten`);
   } catch (e) {
     fehler++;
     console.error(`FEHLER bei ${slug}: ${e.message}`);
@@ -50,4 +58,8 @@ for (const slug of slugs) {
 }
 await browser.close();
 server.close();
+for (const z of zuLang) {
+  console.error(`${NUR_HINWEIS ? "HINWEIS" : "FEHLER"}: ${z} – die Checkliste muss auf eine A4-Seite passen (Punkte kürzen).`);
+}
 if (fehler || !slugs.length) { console.error(`${fehler} Fehler, ${slugs.length} Checklisten`); process.exit(1); }
+if (zuLang.length && !NUR_HINWEIS) process.exit(1);

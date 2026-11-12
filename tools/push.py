@@ -25,6 +25,7 @@ import argparse
 import json
 import os
 import sys
+import time
 import urllib.error
 import urllib.request
 
@@ -37,6 +38,7 @@ ARTEN = {
     "info": (["information_source"], 2),
 }
 MAX_TEXT = 3500  # ntfy erlaubt mehr, Handys zeigen aber nur den Anfang
+PAUSEN = (0, 3, 10)  # Sekunden vor jedem Versuch – eine verlorene „freigabe“-Nachricht kostet die Einspruchsfrist
 
 
 def senden(art: str, titel: str, text: str, link: str | None = None, server: str | None = None) -> int:
@@ -59,14 +61,22 @@ def senden(art: str, titel: str, text: str, link: str | None = None, server: str
         ziel, data=json.dumps(nachricht).encode("utf-8"),
         headers={"Content-Type": "application/json"}, method="POST",
     )
-    try:
-        with urllib.request.urlopen(anfrage, timeout=20) as antwort:
-            antwort.read()
-            print(f"Push gesendet ({antwort.status}): {nachricht['title']}")
-            return 0
-    except (urllib.error.URLError, TimeoutError) as exc:
-        print(f"Push fehlgeschlagen: {exc}", file=sys.stderr)
-        return 1
+    for versuch, pause in enumerate(PAUSEN, start=1):
+        time.sleep(pause)
+        try:
+            with urllib.request.urlopen(anfrage, timeout=20) as antwort:
+                antwort.read()
+                print(f"Push gesendet ({antwort.status}): {nachricht['title']}")
+                return 0
+        except urllib.error.HTTPError as exc:
+            if exc.code < 500 and exc.code != 429:  # z. B. 400/403: ein neuer Versuch ändert nichts
+                print(f"Push fehlgeschlagen: {exc}", file=sys.stderr)
+                return 1
+            print(f"Push-Versuch {versuch} von {len(PAUSEN)} fehlgeschlagen: {exc}", file=sys.stderr)
+        except (urllib.error.URLError, TimeoutError, ConnectionError) as exc:
+            print(f"Push-Versuch {versuch} von {len(PAUSEN)} fehlgeschlagen: {exc}", file=sys.stderr)
+    print("Push fehlgeschlagen – Nachricht nicht zugestellt.", file=sys.stderr)
+    return 1
 
 
 def main() -> int:
