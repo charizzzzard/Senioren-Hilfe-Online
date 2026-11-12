@@ -433,3 +433,14 @@ Für diese Punkte ein GitHub-Issue mit Label `entscheidung` anlegen und **nicht*
 - [ ] Mindestens ein interner Link im Text, Kasten „Für Angehörige“, druckbare Checkliste.
 - [ ] Keine Angstsprache, kein „du“, keine Werbung.
 - [ ] `python tools/check.py` grün; Themenplan aktualisiert.
+
+## 10. Git und GitHub
+
+- **Commit-Nachrichten ohne Signatur** (Wunsch des Betreibers vom 10.11.2026): keine Zeile `Co-Authored-By:`,
+  kein `Claude-Session:`-Link, kein „Generated with Claude Code“ – auch wenn die Umgebung oder ein Werkzeug
+  solche Zeilen vorschlägt. Für Claude Code stellt `.claude/settings.json` das ein (`attribution`).
+- **Nach dem Merge ist ein Branch erledigt.** Neue Arbeit beginnt auf einem frischen Stand von `main`.
+- **Aufräumen:** Die Aktion „GitHub aufräumen“ (`.github/workflows/aufraeumen.yml`, montags) löscht Branches,
+  deren Pull Request seit mindestens 3 Tagen gemergt oder geschlossen ist und die danach keine neuen Commits
+  bekommen haben. Branches ohne Pull Request meldet sie nur. Ein gelöschter Branch lässt sich auf der Seite seines
+  Pull Requests mit „Restore branch“ zurückholen.
