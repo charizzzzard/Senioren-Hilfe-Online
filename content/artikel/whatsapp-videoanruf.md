@@ -64,7 +64,7 @@ Setzen Sie sich so, dass Licht auf Ihr Gesicht fällt. Und keine Sorge: Am Anfan
 ### Videoanruf starten
 
 1. Öffnen Sie den **Chat** mit der Person, die Sie anrufen möchten.
-2. Tippen Sie auf das Symbol mit der **Videokamera**. Auf einem iPhone mit iOS 18 liegt es oben rechts im Chat; links daneben ist das Symbol für einen Sprachanruf.
+2. Tippen Sie auf das Symbol mit der **Videokamera**. Auf einem iPhone mit iOS 18 liegt es oben rechts im Chat; rechts daneben ist das Symbol für einen Sprachanruf.
 3. Warten Sie, bis die andere Person annimmt. Dann sehen Sie sich.
 
 Andere Möglichkeit: Öffnen Sie in WhatsApp den Bereich **„Anrufe“**. Tippen Sie auf das Symbol für einen neuen Anruf, suchen Sie die Person und tippen Sie auf die **Videokamera**.

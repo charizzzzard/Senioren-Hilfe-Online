@@ -32,7 +32,7 @@ belege:
   - aussage: "iPhone: auf das Symbol mit der Videokamera tippen"
     quelle: https://faq.whatsapp.com/1862285217468140/?locale=de_DE&cms_platform=iphone
     zitat: "Tippe auf Videoanruf (Videokamera)."
-  - aussage: "iPhone mit iOS 18: Videokamera oben rechts im Chat, links daneben das Symbol für einen Sprachanruf"
+  - aussage: "iPhone mit iOS 18: Videokamera oben rechts im Chat, rechts daneben das Symbol für einen Sprachanruf (Korrektur des Betreibers vom 13.11.)"
     geraetetest: "iPhone, iOS 18.7.8, 13.11.2026 (Betreiber)"
   - aussage: "iPhone, andere Möglichkeit: Bereich „Anrufe“, Symbol für neuen Anruf, Person suchen, Videokamera"
     quelle: https://faq.whatsapp.com/1862285217468140/?locale=de_DE&cms_platform=iphone
