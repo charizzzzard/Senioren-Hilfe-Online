@@ -1,0 +1,145 @@
+# Belegtabelle für content/artikel/whatsapp-videoanruf.md (Format: docs/BETRIEB.md, Abschnitt „Belegtabelle“)
+# Jede Aussage mit einem wörtlichen Zitat aus einer selbst gelesenen Quelle. Prüfen: python tools/belegcheck.py whatsapp-videoanruf
+# Symbole stehen auf den WhatsApp-Seiten als Bild; ihr Name steht im Bildtext (z. B. „Videoanruf (Videokamera)“).
+geprueft: 2026-11-11
+belege:
+  # ---------------------------------------------------------------- Bevor Sie anrufen
+  - aussage: "Videoanrufe laufen über das Internet; beide Seiten brauchen eine starke Internetverbindung"
+    quelle: https://faq.whatsapp.com/1862285217468140/?locale=de_DE&cms_platform=iphone
+    zitat: "Vergewissere dich, dass deine Kontakte und du eine starke Internetverbindung habt, wenn ihr Videoanrufe tätigt oder empfangt."
+  - aussage: "Android: beide Seiten brauchen eine starke Internetverbindung"
+    quelle: https://faq.whatsapp.com/1862285217468140/?locale=de_DE&cms_platform=android
+    zitat: "Vergewissere dich, dass deine Kontakte und du eine starke Internetverbindung habt, wenn ihr Videoanrufe tätigt oder empfangt."
+  - aussage: "Sprachanrufe nutzen laut WhatsApp die Internetverbindung des Handys und nicht die Gesprächsminuten des Vertrags"
+    quelle: https://faq.whatsapp.com/1153602608602452/?locale=de_DE&cms_platform=iphone
+    zitat: "Sprachanrufe verwenden die Internetverbindung deines Telefons und nicht die Sprachminuten deines Vertrags."
+  - aussage: "Im WLAN anrufen spart Datenvolumen – WhatsApp rät selbst dazu"
+    quelle: https://faq.whatsapp.com/1862285217468140/?locale=de_DE&cms_platform=iphone
+    zitat: "Um Daten zu sparen, tätige und nimm Anrufe an, wenn du mit einem WLAN verbunden bist."
+  - aussage: "Android: Im WLAN anrufen spart Datenvolumen"
+    quelle: https://faq.whatsapp.com/1862285217468140/?locale=de_DE&cms_platform=android
+    zitat: "Um Daten zu sparen, tätige und nimm Anrufe an, wenn du mit einem WLAN verbunden bist."
+  - aussage: "Am Anfang sieht die andere Person Sie über die Frontkamera"
+    quelle: https://faq.whatsapp.com/1862285217468140/?locale=de_DE&cms_platform=iphone
+    zitat: "Videoanrufe beginnen standardmäßig mit der Frontkamera."
+  - aussage: "Android: Videoanrufe beginnen mit der Frontkamera"
+    quelle: https://faq.whatsapp.com/1862285217468140/?locale=de_DE&cms_platform=android
+    zitat: "Videoanrufe beginnen standardmäßig mit der Frontkamera."
+  # ---------------------------------------------------------------- iPhone: starten
+  - aussage: "iPhone: Chat mit der Person öffnen"
+    quelle: https://faq.whatsapp.com/1862285217468140/?locale=de_DE&cms_platform=iphone
+    zitat: "Öffne einen Einzelchat mit dem Kontakt, den du anrufen möchtest."
+  - aussage: "iPhone: auf das Symbol mit der Videokamera tippen"
+    quelle: https://faq.whatsapp.com/1862285217468140/?locale=de_DE&cms_platform=iphone
+    zitat: "Tippe auf Videoanruf (Videokamera)."
+  - aussage: "iPhone mit iOS 18: Videokamera oben rechts im Chat, rechts daneben das Symbol für einen Sprachanruf (Korrektur des Betreibers vom 13.11.)"
+    geraetetest: "iPhone, iOS 18.7.8, 13.11.2026 (Betreiber)"
+  - aussage: "iPhone, andere Möglichkeit: Bereich „Anrufe“, Symbol für neuen Anruf, Person suchen, Videokamera"
+    quelle: https://faq.whatsapp.com/1862285217468140/?locale=de_DE&cms_platform=iphone
+    zitat: "Alternativ kannst du WhatsApp öffnen und den Anrufe-Tab aufrufen. Tippe dann auf Gruppenanruf oder Neuer Anruf (Telefon mit Pluszeichen). Suche nach dem Kontakt, mit dem du einen Videoanruf starten möchtest, und tippe dann auf Videoanruf (Videokamera)."
+  # ---------------------------------------------------------------- iPhone: annehmen
+  - aussage: "iPhone gesperrt: Mitteilung „Eingehender Videoanruf“"
+    quelle: https://faq.whatsapp.com/1862285217468140/?locale=de_DE&cms_platform=iphone
+    zitat: "Wenn dein Telefon gesperrt ist und du einen Videoanruf erhältst, wird dir die Mitteilung Eingehender Videoanruf"
+  - aussage: "iPhone gesperrt: auf der Mitteilung wischen, um anzunehmen"
+    quelle: https://faq.whatsapp.com/1862285217468140/?locale=de_DE&cms_platform=iphone
+    zitat: "Wische auf der Benachrichtigung, um den Anruf anzunehmen."
+  - aussage: "iPhone entsperrt: Mitteilung nach unten ziehen und „Annehmen“ tippen – oder direkt auf die Mitteilung tippen"
+    quelle: https://faq.whatsapp.com/1862285217468140/?locale=de_DE&cms_platform=iphone
+    zitat: "Du kannst die Benachrichtigung nach unten ziehen und dann auf Annehmen tippen oder auf die Benachrichtigung tippen, um den Anruf anzunehmen."
+  - aussage: "iPhone: Mitteilung nach unten ziehen, „Nachricht“ – mit kurzer Nachricht ablehnen"
+    quelle: https://faq.whatsapp.com/1862285217468140/?locale=de_DE&cms_platform=iphone
+    zitat: "Ziehe die Benachrichtigung nach unten und tippe auf Nachricht, um den Anruf mit einer kurzen Nachricht abzulehnen."
+  # ---------------------------------------------------------------- iPhone: auflegen (Gerätetest vom 05.11.2026, Feld getestet)
+  - aussage: "iPhone: einmal auf den Bildschirm tippen, dann erscheinen die Knöpfe; unten in der Mitte der rote runde Knopf mit dem Telefonhörer"
+    geraetetest: "iPhone, iOS 18, 05.11.2026 (Betreiber)"
+  - aussage: "iPhone: Gespräch ist sofort beendet, keine Rückfrage; nach eigenem Anruf wieder im Chat, nach angenommenem Anruf dort, wo man vorher war"
+    geraetetest: "iPhone, iOS 18, 05.11.2026 (Betreiber)"
+  # ---------------------------------------------------------------- Android: starten
+  - aussage: "Android: Chat mit der Person öffnen"
+    quelle: https://faq.whatsapp.com/1862285217468140/?locale=de_DE&cms_platform=android
+    zitat: "Öffne einen WhatsApp-Chat mit dem Kontakt, den du anrufen möchtest."
+  - aussage: "Android: auf die Videokamera tippen, danach auf „Anruf“"
+    quelle: https://faq.whatsapp.com/1862285217468140/?locale=de_DE&cms_platform=android
+    zitat: "Tippe auf Videoanruf (Videokamera) > Anruf."
+  - aussage: "Android, andere Möglichkeit: Bereich „Anrufe“, Symbol für neuen Anruf, Person suchen, Videokamera"
+    quelle: https://faq.whatsapp.com/1862285217468140/?locale=de_DE&cms_platform=android
+    zitat: "Alternativ kannst du WhatsApp öffnen und den Anrufe-Tab aufrufen. Tippe dann auf Gruppenanruf oder Neuer Anruf (Telefon mit Pluszeichen). Suche nach dem Kontakt, mit dem du einen Videoanruf starten möchtest, und tippe dann auf Videoanruf (Videokamera)."
+  # ---------------------------------------------------------------- Android: annehmen
+  - aussage: "Android gesperrt: Es öffnet sich ein Bildschirm für den Videoanruf"
+    quelle: https://faq.whatsapp.com/1862285217468140/?locale=de_DE&cms_platform=android
+    zitat: "Wenn dein Telefon gesperrt ist und du einen Anruf erhältst, öffnet sich der Bildschirm WhatsApp-Videoanruf."
+  - aussage: "Android gesperrt: weiße Videokamera im blauen Kreis nach oben wischen"
+    quelle: https://faq.whatsapp.com/1862285217468140/?locale=de_DE&cms_platform=android
+    zitat: "Zum Annehmen nach oben wischen (weiße Videokamera in blauem Kreis) zum Annehmen nach oben."
+  - aussage: "Android entsperrt: kleines Fenster „Eingehender Videoanruf“, auf „Video“ tippen"
+    quelle: https://faq.whatsapp.com/1862285217468140/?locale=de_DE&cms_platform=android
+    zitat: "Wenn dein Telefon entsperrt ist und du einen Videoanruf erhältst, öffnet sich das Pop-up Eingehender Videoanruf. Hier kannst du auf Ablehnen oder Video tippen."
+  - aussage: "Android: manchmal „Video deaktivieren“ – annehmen, ohne dass man Sie sieht"
+    quelle: https://faq.whatsapp.com/1862285217468140/?locale=de_DE&cms_platform=android
+    zitat: "Wenn die Möglichkeit angeboten wird, kannst du auf Video deaktivieren tippen, um den Anruf ohne Video anzunehmen."
+  # ---------------------------------------------------------------- Hat es geklappt / Während des Gesprächs
+  - aussage: "WhatsApp zeigt das eigene Kamerabild; die andere Person sieht diese Übertragung"
+    quelle: https://faq.whatsapp.com/1862285217468140/?locale=de_DE&cms_platform=iphone
+    zitat: "Du kannst deine eigene Videokachel verbergen, um mehr Platz auf dem Bildschirm zu haben. Dadurch wird deine eigene Videoübertragung nicht für andere ausgeschaltet."
+  - aussage: "iPhone mit iOS 18: andere Person im Vollbild, eigenes Bild klein oben rechts und verschiebbar; Antippen tauscht die Bilder"
+    geraetetest: "iPhone, iOS 18.7.8, 13.11.2026 (Betreiber)"
+  - aussage: "iPhone: Symbol „Kamera wechseln“ mit zwei gebogenen Pfeilen wechselt zwischen Front- und Rückkamera (hin und zurück)"
+    quelle: https://faq.whatsapp.com/1862285217468140/?locale=de_DE&cms_platform=iphone
+    zitat: "Um während eines Videoanrufs zwischen der Front- und Rückkamera deines Geräts zu wechseln, tippe auf Kamera wechseln (Kamera mit zwei gebogenen Pfeilen in einem Kreis)."
+  - aussage: "Android: Symbol „Kamera wechseln“ mit zwei gebogenen Pfeilen"
+    quelle: https://faq.whatsapp.com/1862285217468140/?locale=de_DE&cms_platform=android
+    zitat: "tippe auf Kamera wechseln (zwei um einen weißen Punkt gebogene weiße Pfeile in einem Kreis)."
+  - aussage: "Bild ausschalten: durchgestrichene Videokamera"
+    quelle: https://faq.whatsapp.com/1862285217468140/?locale=de_DE&cms_platform=iphone
+    zitat: "Tippe auf Kamera aus (durchgestrichene Videokamera), um dein Video während des Anrufs auszuschalten."
+  - aussage: "Android: Bild ausschalten mit der durchgestrichenen Videokamera"
+    quelle: https://faq.whatsapp.com/1862285217468140/?locale=de_DE&cms_platform=android
+    zitat: "Tippe auf Kamera aus (durchgestrichene Videokamera), um dein Video während des Anrufs auszuschalten."
+  - aussage: "Ohne Bild läuft das Gespräch als Sprachanruf weiter – man hört Sie weiter"
+    quelle: https://faq.whatsapp.com/1862285217468140/?locale=de_DE&cms_platform=iphone
+    zitat: "Von einem Video- zu einem Sprachanruf wechseln"
+  - aussage: "Mit einem Tipp auf die Videokamera schalten Sie Ihr Bild wieder ein"
+    quelle: https://faq.whatsapp.com/1862285217468140/?locale=de_DE&cms_platform=iphone
+    zitat: "Tippe auf Videoanruf (Videokamera), um dein Video wieder einzuschalten."
+  - aussage: "Eigenes Kamerabild an den Rand ziehen, bis es verschwindet"
+    quelle: https://faq.whatsapp.com/1862285217468140/?locale=de_DE&cms_platform=iphone
+    zitat: "Um dein Kamerabild zu verbergen, ziehe es an den Rand des Bildschirms, bis es verschwindet."
+  - aussage: "Die andere Person sieht Sie trotzdem weiter"
+    quelle: https://faq.whatsapp.com/1862285217468140/?locale=de_DE&cms_platform=android
+    zitat: "Dadurch wird deine eigene Videoübertragung nicht für andere ausgeschaltet."
+  - aussage: "Zum Zurückholen wieder hereinziehen"
+    quelle: https://faq.whatsapp.com/1862285217468140/?locale=de_DE&cms_platform=iphone
+    zitat: "Um es wiederherzustellen, tippe oder ziehe das verborgene Kamerabild zurück auf den Bildschirm."
+  # ---------------------------------------------------------------- Wenn es nicht klappt
+  - aussage: "Niemand nimmt ab: Videonotiz hinterlassen, „Videonotiz aufnehmen“"
+    quelle: https://faq.whatsapp.com/1862285217468140/?locale=de_DE&cms_platform=iphone
+    zitat: "Tippe auf Videonotiz aufnehmen, um die Aufnahme zu starten."
+  - aussage: "Quadrat beendet die Aufnahme"
+    quelle: https://faq.whatsapp.com/1862285217468140/?locale=de_DE&cms_platform=iphone
+    zitat: "Tippe auf Aufnahme beenden (Quadrat in einem Kreis), um die Aufnahme zu beenden."
+  - aussage: "Papierflugzeug sendet die Videonotiz"
+    quelle: https://faq.whatsapp.com/1862285217468140/?locale=de_DE&cms_platform=iphone
+    zitat: "oder auf Senden (Papierflugzeug in einem Kreis), um sie zu senden."
+  - aussage: "Die Videonotiz erscheint im Chat, die andere Person bekommt eine Benachrichtigung"
+    quelle: https://faq.whatsapp.com/1862285217468140/?locale=de_DE&cms_platform=iphone
+    zitat: "Sobald du die Videonotiz gesendet hast, wird sie in deinem Chat angezeigt und die andere Person erhält eine Benachrichtigung."
+  - aussage: "Android: Videonotiz mit denselben Schritten"
+    quelle: https://faq.whatsapp.com/1862285217468140/?locale=de_DE&cms_platform=android
+    zitat: "Tippe auf Aufnahme beenden (Quadrat in einem Kreis), um die Aufnahme zu beenden."
+  - aussage: "Anruf funktioniert nicht: möglicherweise älteres Betriebssystem oder ältere WhatsApp-Version bei der anderen Person"
+    quelle: https://faq.whatsapp.com/1862285217468140/?locale=de_DE&cms_platform=iphone
+    zitat: "Falls dein Anruf nicht funktioniert, verwendet die andere Person möglicherweise ein älteres Betriebssystem oder eine ältere WhatsApp-Version."
+  # ---------------------------------------------------------------- Notruf
+  - aussage: "Über WhatsApp erreichen Sie keine Notrufnummern, zum Beispiel nicht die 112"
+    quelle: https://faq.whatsapp.com/1862285217468140/?locale=de_DE&cms_platform=iphone
+    zitat: "Du kannst über WhatsApp nicht auf Notrufnummern zugreifen (z. B. 112 in Deutschland)."
+  - aussage: "Android: keine Notrufnummern über WhatsApp"
+    quelle: https://faq.whatsapp.com/1862285217468140/?locale=de_DE&cms_platform=android
+    zitat: "Du kannst über WhatsApp nicht auf Notrufnummern zugreifen (z. B. 112 in Deutschland)."
+  - aussage: "Für Notrufe einen anderen Weg nehmen – die normale Telefon-App"
+    quelle: https://faq.whatsapp.com/1153602608602452/?locale=de_DE&cms_platform=iphone
+    zitat: "Verwende bitte andere Kommunikationsmittel für Notrufe."
+  - aussage: "Auch die 110 ist eine Notrufnummer"
+    quelle: https://www.bundesnetzagentur.de/DE/Vportal/TK/Aerger/Faelle/Manipulation/start.html
+    zitat: "zählen die Notrufnummern 110 und 112"
