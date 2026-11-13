@@ -183,3 +183,58 @@ fehler:
     korrektur: "Neben der Schriftgröße gibt es die „Anzeigegröße“ (ohne Aufzählung, was größer wird)."
     ursache: "Wirkung einer Einstellung genauer beschrieben, als die Quelle es tut."
     behoben_in: "#17"
+
+  - id: 2026-11-10-31
+    gefunden: 2026-11-10
+    text: artikel/whatsapp-backup
+    art: falsch
+    live: false
+    entdeckt_durch: faktenpruefung
+    vorher: "WhatsApp legt die Sicherung nicht auf dem Handy selbst ab, sondern im Internet:"
+    korrektur: "WhatsApp speichert die Sicherung online:"
+    ursache: "Aussage für beide Geräte verallgemeinert, ohne den Android-Hinweis auf das lokale Backup zu berücksichtigen – zu absolut."
+    behoben_in: "#30"
+
+  - id: 2026-11-10-32
+    gefunden: 2026-11-10
+    text: artikel/whatsapp-backup
+    art: unbelegt
+    live: false
+    entdeckt_durch: faktenpruefung
+    vorher: "Tippen Sie auf „Einstellungen“. Je nach Version tippen Sie stattdessen auf Ihr Profilbild."
+    korrektur: "Tippen Sie auf „Einstellungen“ oder auf Ihr Profilbild."
+    ursache: "Quelle nennt eine Alternative („oder“), der Text hat einen Grund dazuerfunden."
+    behoben_in: "#30"
+
+  - id: 2026-11-10-33
+    gefunden: 2026-11-10
+    text: artikel/whatsapp-backup
+    art: unbelegt
+    live: false
+    entdeckt_durch: faktenpruefung
+    vorher: "Sonst kommt es nur teilweise zurück."
+    korrektur: "Sonst kommt es unter Umständen nur teilweise zurück."
+    ursache: "Möglichkeit der Quelle („kann“) als Gewissheit formuliert."
+    behoben_in: "#30"
+
+  - id: 2026-11-10-34
+    gefunden: 2026-11-10
+    text: artikel/whatsapp-backup
+    art: unbelegt
+    live: false
+    entdeckt_durch: faktenpruefung
+    vorher: "Sehen Sie Punkte wie „Cloud-Backup“ …, nutzt Ihr Handy schon den neuen Speicher von WhatsApp."
+    korrektur: "… ist bei Ihnen vielleicht schon der neue Speicher von WhatsApp verfügbar."
+    ursache: "Schluss vom sichtbaren Menüpunkt auf die Nutzung; die Quelle beschreibt nur die Auswahl."
+    behoben_in: "#30"
+
+  - id: 2026-11-10-35
+    gefunden: 2026-11-10
+    text: artikel/whatsapp-backup
+    art: falsch
+    live: false
+    entdeckt_durch: faktenpruefung
+    vorher: "Checkliste: \"Beim Einrichten auf „Wiederherstellen“ tippen, nicht auf „Überspringen“.\""
+    korrektur: "Checkliste: \"Beim Einrichten die Chats wiederherstellen – nicht auf „Überspringen“ tippen.\""
+    ursache: "Android-Beschriftung in eine Checkliste für beide Geräte übernommen; auf dem iPhone heißt der Knopf „Chatverlauf wiederherstellen“."
+    behoben_in: "#30"
