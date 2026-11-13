@@ -28,8 +28,8 @@ belege:
     quelle: https://faq.whatsapp.com/1142481766359885/?locale=de_DE&cms_platform=android
     zitat: "Du kannst keine Gruppen blockieren. Du hast aber die Möglichkeit, eine Gruppe zu verlassen und den*die Gruppenadmin zu blockieren."
   - aussage: "Bei Betrug zuerst Bildschirmfotos"
-    quelle: https://faq.whatsapp.com/1142481766359885/?locale=de_DE&cms_platform=android
-    zitat: "Es empfiehlt sich, Screenshots zu erstellen oder eine Kopie deines Chatverlaufs zu sichern."
+    quelle: https://www.polizei-beratung.de/themen-und-tipps/betrug/messenger/
+    zitat: "Sichern Sie den gesamten Chatverlauf, z.B. durch Screenshots."
   - aussage: "Polizei: blockieren, der Polizei melden, danach Chat löschen"
     quelle: https://www.polizei-beratung.de/themen-und-tipps/betrug/messenger/
     zitat: "Löschen Sie anschließend den Chat/die Nummer der Betrüger."
@@ -59,6 +59,8 @@ belege:
   - aussage: "Chat antippen, auf den Namen tippen, „… blockieren“ › „Blockieren“"
     quelle: https://faq.whatsapp.com/1142481766359885/?locale=de_DE&cms_platform=iphone
     zitat: "Tippe auf den Namen des Kontakts und dann auf {Kontaktname} blockieren > Blockieren."
+  - aussage: "iPhone mit iOS 18: Der Name der Person steht im Chat oben"
+    geraetetest: "iPhone, iOS 18.7.8, 13.11.2026 (Betreiber)"
   - aussage: "„Blockieren und melden“ schickt die letzten fünf Nachrichten an WhatsApp"
     quelle: https://faq.whatsapp.com/1142481766359885/?locale=de_DE&cms_platform=iphone
     zitat: "Du kannst auch auf Blockieren und melden tippen, um die letzten fünf Nachrichten im Chat mit WhatsApp zu teilen."

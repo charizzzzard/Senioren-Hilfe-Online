@@ -5,7 +5,7 @@ beschreibung: "Unerwünschte Nachrichten oder Betrugsversuche auf WhatsApp? So b
 keyword: "whatsapp blockieren"
 kategorie: whatsapp
 veroeffentlicht: 2026-10-30
-aktualisiert: 2026-11-10
+aktualisiert: 2026-11-13
 geprueft: 2026-11-10
 kurz_gesagt: |
   Öffnen Sie den Chat mit der Person. **Android:** auf die drei Punkte (⋮) › „Mehr“ › „Blockieren“. **iPhone:** auf den Namen tippen › „… blockieren“.
@@ -75,7 +75,7 @@ Gruppen lassen sich nicht blockieren. Sie können aber eine Gruppe verlassen und
 ## Auf einem iPhone
 
 1. Öffnen Sie den **Chat** mit der Person.
-2. Tippen Sie auf den **Namen** der Person.
+2. Tippen Sie oben auf den **Namen** der Person – so war es auf einem iPhone mit iOS 18.
 3. Tippen Sie auf **„[Name] blockieren“** und bestätigen Sie mit **„Blockieren“**.
 4. Möchten Sie die Person auch melden, wählen Sie stattdessen **„Blockieren und melden“**. Dann werden die letzten fünf Nachrichten aus dem Chat an WhatsApp geschickt.
 

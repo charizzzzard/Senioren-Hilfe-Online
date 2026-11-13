@@ -203,6 +203,18 @@ fehler:
     behoben_in: "#37"
     altbestand: true
 
+  - id: 2026-11-13-66
+    gefunden: 2026-11-13
+    text: artikel/whatsapp-sprachnachricht
+    art: falsch
+    live: true
+    entdeckt_durch: geraetetest
+    vorher: "Tippen Sie auf „Sprache auswählen“ und wählen Sie Deutsch."
+    korrektur: "Zeigt WhatsApp darunter „Sprache auswählen“, tippen Sie darauf … – auf einem iPhone mit iOS 18 fehlte der Punkt beim Gerätetest."
+    ursache: "Schritt aus der Hilfeseite als für alle iPhones gültig übernommen; die Hilfe nennt keine Version, am Testgerät (iOS 18.7.8) fehlte er."
+    behoben_in: "#37"
+    altbestand: true
+
   - id: 2026-11-05-11
     gefunden: 2026-11-05
     text: artikel/schrift-groesser-stellen
