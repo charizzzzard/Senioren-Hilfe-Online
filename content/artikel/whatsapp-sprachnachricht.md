@@ -5,7 +5,7 @@ beschreibung: "Lieber sprechen als tippen? So nehmen Sie eine WhatsApp-Sprachnac
 keyword: "whatsapp sprachnachricht"
 kategorie: whatsapp
 veroeffentlicht: 2026-11-01
-aktualisiert: 2026-11-10
+aktualisiert: 2026-11-13
 geprueft: 2026-11-10
 kurz_gesagt: |
   Chat öffnen, das **Mikrofon** neben dem Textfeld **gedrückt halten**, kurz warten und sprechen. Beim **Loslassen** wird die Sprachnachricht gesendet.
@@ -137,7 +137,7 @@ Kommen mehrere Sprachnachrichten hintereinander, spielt WhatsApp sie **nacheinan
 
 Wer schlecht hört, kann sich Sprachnachrichten auch als **Text** anzeigen lassen. WhatsApp nennt das „Transkript“. Für deutsche Nachrichten geht das laut WhatsApp derzeit nur auf dem iPhone. Der Absender sieht davon nichts. Die Funktion ist zunächst ausgeschaltet. So schalten Sie sie einmal ein:
 
-- **iPhone:** In WhatsApp auf „Du“ (je nach Version „Einstellungen“ oder Ihr Profilbild) tippen › „Chats“. Schalten Sie „Transkripte von Sprachnachrichten“ ein. Tippen Sie auf „Sprache auswählen“ und wählen Sie Deutsch. Auf dem iPhone muss dafür Siri eingeschaltet sein.
+- **iPhone:** In WhatsApp auf „Du“ (je nach Version „Einstellungen“ oder Ihr Profilbild) tippen › „Chats“. Schalten Sie „Transkripte von Sprachnachrichten“ ein. Auf dem iPhone muss dafür Siri eingeschaltet sein. Zeigt WhatsApp danach „Sprache auswählen“, tippen Sie darauf und wählen Sie Deutsch. Auf einem iPhone mit iOS 18 haben wir diesen Punkt nicht gefunden.
 - **Android:** Hier nennt WhatsApp derzeit nur Englisch, Portugiesisch, Spanisch und Russisch als Sprachen – Deutsch fehlt noch. Die Einstellung finden Sie so: auf die drei Punkte (⋮) tippen › „Einstellungen“ › „Chats“ › „Transkripte von Sprachnachrichten“.
 
 Danach halten Sie den Finger auf eine Sprachnachricht und tippen auf **„Transkribieren“**. Auf Android finden Sie den Punkt im Menü, das dabei erscheint. Es kann einen Moment dauern, bis der Text da ist. Und er kann Fehler enthalten – im Zweifel hören Sie die Nachricht doch noch an.

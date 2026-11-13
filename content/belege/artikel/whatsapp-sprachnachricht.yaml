@@ -126,6 +126,8 @@ belege:
   - aussage: "iPhone: „Sprache auswählen“"
     quelle: https://faq.whatsapp.com/241617298315321/?locale=de_DE&cms_platform=iphone
     zitat: "Tippe auf Sprache auswählen und wähle dann die Sprache aus, in der die meisten Sprachnachrichten, die du erhältst, verfasst sind."
+  - aussage: "iPhone mit iOS 18: „Transkripte von Sprachnachrichten“ vorhanden, „Sprache auswählen“ nicht gefunden"
+    geraetetest: "iPhone, iOS 18.7.8, 13.11.2026 (Betreiber)"
   - aussage: "iPhone: Siri muss eingeschaltet sein"
     quelle: https://faq.whatsapp.com/241617298315321/?locale=de_DE&cms_platform=iphone
     zitat: "Außerdem muss Siri aktiviert sein."
