@@ -1,0 +1,210 @@
+# Belegtabelle für content/artikel/betrugs-sms-erkennen.md (Format: docs/BETRIEB.md, Abschnitt „Belegtabelle“)
+# Jede Aussage mit einem wörtlichen Zitat aus einer selbst gelesenen Quelle. Prüfen: python tools/belegcheck.py betrugs-sms-erkennen
+geprueft: 2026-11-10
+belege:
+  # ---------------------------------------------------------------- Die Masche
+  - aussage: "Sehr viele Menschen bekommen SMS angeblicher Paketdienste"
+    quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/mobilfunk-und-festnetz/paketdienstsms-vorsicht-abzocke-58988
+    zitat: "Viele Handynutzer:innen werden von SMS belästigt, die angeblich von Paketdiensten stammen."
+  - aussage: "Die Verbraucherzentralen warnen vor diesen SMS"
+    quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/mobilfunk-und-festnetz/paketdienstsms-vorsicht-abzocke-58988
+    zitat: "Die Verbraucherzentralen warnen vor SMS von angeblichen Paketdiensten, in denen Empfänger auf einen Link tippen sollen."
+  - aussage: "„Smishing“: Kunstwort aus SMS und Phishing"
+    quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/mobilfunk-und-festnetz/paketdienstsms-vorsicht-abzocke-58988
+    zitat: "Diese Betrugsform wird in der Fachwelt als \"Smishing\" bezeichnet: Die Kombination der Begriffe SMS und Phishing."
+  - aussage: "Die SMS enthält jedes Mal einen Link auf eine fremde Internetseite"
+    quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/mobilfunk-und-festnetz/paketdienstsms-vorsicht-abzocke-58988
+    zitat: "Enthalten ist jedes Mal ein Link auf seltsame Internetseiten."
+  - aussage: "Die Seite sieht oft aus wie die eines bekannten Unternehmens"
+    quelle: https://www.bundesnetzagentur.de/DE/Vportal/TK/Aerger/Faelle/SMSSpam/start.html
+    zitat: "Häufig wird auf den Seiten die Corporate Identity von bekannten Unternehmen, wie Banken, Sparkassen oder Paketzustellern, genutzt"
+  - aussage: "Folgen: schädliche Apps, Massen-SMS, Abofallen"
+    quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/mobilfunk-und-festnetz/paketdienstsms-vorsicht-abzocke-58988
+    zitat: "Die Folge können schädliche Apps, Massen-SMS und Abofallen sein."
+  - aussage: "Das Handy verschickt danach selbst Massen-SMS"
+    quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/mobilfunk-und-festnetz/paketdienstsms-vorsicht-abzocke-58988
+    zitat: "schädliche Apps zu verbreiten, die Daten auslesen und massenweise SMS an gespeicherte Kontakte senden"
+  - aussage: "Angebliche Gebühren; Betrüger erbeuten Kreditkartendaten"
+    quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/mobilfunk-und-festnetz/paketdienstsms-vorsicht-abzocke-58988
+    zitat: "Die Kriminellen erhalten somit Ihre Kreditkartendaten."
+  - aussage: "… oder andere persönliche Daten"
+    quelle: https://www.bundesnetzagentur.de/DE/Vportal/TK/Aerger/Faelle/SMSSpam/start.html
+    zitat: "Auf den beworbenen Internetseiten wird zur Eingabe von persönlichen Daten, insbesondere auch Kreditkartendaten aufgefordert."
+  # ---------------------------------------------------------------- Erkennen
+  - aussage: "Merkmal: angebliche Zollgebühren"
+    quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/mobilfunk-und-festnetz/paketdienstsms-vorsicht-abzocke-58988
+    zitat: "Mal sollen angeblich Zollgebühren bezahlt werden, mal fehlen angeblich Informationen für die Zustellung."
+  - aussage: "Merkmal: Zeitdruck („läuft in Kürze ab“ – Beispiel der Bundesnetzagentur)"
+    quelle: https://www.bundesnetzagentur.de/DE/Vportal/TK/Aerger/Faelle/SMSSpam/start.html
+    zitat: "Ihre Registrierung für die Banking-to-go-App läuft in Kürze ab."
+  - aussage: "Zollgebühren zahlt man nicht vorab über eine Internetseite"
+    quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/mobilfunk-und-festnetz/paketdienstsms-vorsicht-abzocke-58988
+    zitat: "Das heißt, eventuelle Zollgebühren sind nicht vor der Zustellung eines Pakets über eine Internetseite zu bezahlen."
+  - aussage: "Ausnahme: Bezahl-Service mancher Paketdienste, nur nach eigener Anmeldung"
+    quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/mobilfunk-und-festnetz/paketdienstsms-vorsicht-abzocke-58988
+    zitat: "Es gibt Paketdienste, die das Bezahlen vor der Zustellung als Service anbieten. Dafür müssen Sie sich aber vorher registrieren"
+  - aussage: "Dann stehen immer Sendungsnummer und Name des Absenders in der Nachricht"
+    quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/mobilfunk-und-festnetz/paketdienstsms-vorsicht-abzocke-58988
+    zitat: "In diesen Nachrichten befinden sich dann immer eine Sendungsnummer und der Name des Absenders."
+  - aussage: "Über Links in SMS keine persönlichen Daten angeben"
+    quelle: https://www.bundesnetzagentur.de/DE/Vportal/TK/Aerger/Faelle/SMSSpam/start.html
+    zitat: "Geben Sie keine persönlichen Daten über Links in SMS oder E-Mails an, es sei denn, Sie haben den Absender verifiziert."
+  # ---------------------------------------------------------------- Richtig reagieren
+  - aussage: "Nicht auf den Link tippen"
+    quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/mobilfunk-und-festnetz/paketdienstsms-vorsicht-abzocke-58988
+    zitat: "Öffnen Sie keinen Link aus SMS unbekannter Herkunft!"
+  - aussage: "Nicht antworten, löschen – jede Antwort zeigt, dass die Nummer benutzt wird"
+    quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/mobilfunk-und-festnetz/paketdienstsms-vorsicht-abzocke-58988
+    zitat: "Antworten Sie nicht auf die SMS, sondern löschen Sie sie! Jede andere Reaktion zeigt, dass die Handynummer aktiv genutzt wird."
+  - aussage: "Absender sperren möglich, aber die Nummern wechseln ständig"
+    quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/mobilfunk-und-festnetz/paketdienstsms-vorsicht-abzocke-58988
+    zitat: "Doch das schützt nicht vor weiteren ähnlichen Nachrichten, denn die Nummern wechseln ständig."
+  - aussage: "Paket erwartet: Seite des Paketdienstes selbst öffnen, Sendungsnummer eingeben"
+    quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/mobilfunk-und-festnetz/paketdienstsms-vorsicht-abzocke-58988
+    zitat: "öffnen Sie die Internetseite des Paketdienstes in einem Browser und geben Sie dort die Sendungsnummer ein, um den Status zu prüfen"
+  # ---------------------------------------------------------------- Melden
+  - aussage: "Bundesnetzagentur: Link „Direkt zum Beschwerdeformular“"
+    quelle: https://www.bundesnetzagentur.de/DE/Vportal/TK/Aerger/Faelle/SMSSpam/start.html
+    zitat: "Beschwerde Direkt zum Beschwerdeformular"
+  - aussage: "Behörde kann mit den Hinweisen vorgehen, zum Beispiel Rufnummern abschalten lassen"
+    quelle: https://www.bundesnetzagentur.de/DE/Vportal/TK/Aerger/Faelle/SMSSpam/start.html
+    zitat: "Anordnung der Abschaltung von Rufnummern, so dass die Rufnummer technisch nicht mehr erreichbar ist"
+  # ---------------------------------------------------------------- Schon getippt
+  - aussage: "Keine Installation einer neuen App erlauben"
+    quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/mobilfunk-und-festnetz/paketdienstsms-vorsicht-abzocke-58988
+    zitat: "Haben Sie den Link in der Nachricht angetippt, erlauben Sie keine Installation einer neuen App!"
+  - aussage: "App installiert: Flugmodus, damit die App keine Daten mehr sendet"
+    quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/mobilfunk-und-festnetz/paketdienstsms-vorsicht-abzocke-58988
+    zitat: "Schalten Sie Ihr Smartphone in den Flugmodus, damit die schädliche App keine weiteren Daten über das Internet senden kann."
+  - aussage: "Im Flugmodus ist das Mobilfunknetz aus"
+    quelle: https://support.apple.com/de-de/108785
+    zitat: "Mit dem Flugmodus kannst du die Mobilfunk- und WLAN-Funktionen deines Geräts während eines Flugs deaktivieren."
+  - aussage: "WLAN kann im Flugmodus an bleiben – deshalb prüfen"
+    quelle: https://support.google.com/pixelphone/answer/2819583?hl=de
+    zitat: "Wenn Sie das nächste Mal den Flugmodus aktivieren, bleiben WLAN und Bluetooth aktiviert."
+  - aussage: "Bildschirmfotos als Beweis, Anzeige bei der Polizei"
+    quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/mobilfunk-und-festnetz/paketdienstsms-vorsicht-abzocke-58988
+    zitat: "Sammeln Sie Beweise (z.B. durch Erstellen von Bildschirmfotos) und erstatten Sie Anzeige bei der Polizei"
+  - aussage: "Mobilfunkanbieter informieren, Nachweis über verschickte SMS"
+    quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/mobilfunk-und-festnetz/paketdienstsms-vorsicht-abzocke-58988
+    zitat: "Informieren Sie Ihren Mobilfunkanbieter und lassen Sie sich einen Kostennachweis über möglicherweise verschickte SMS erstellen."
+  - aussage: "Im schlimmsten Fall Zurücksetzen auf den Werkszustand"
+    quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/mobilfunk-und-festnetz/paketdienstsms-vorsicht-abzocke-58988
+    zitat: "Im schlimmsten Fall hilft nur ein Zurücksetzen des Geräts in den Auslieferungszustand."
+  - aussage: "Bezahlt: Bank informieren, Abbuchungen beobachten"
+    quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/mobilfunk-und-festnetz/paketdienstsms-vorsicht-abzocke-58988
+    zitat: "Beobachten Sie die Abbuchungen von Ihrer Kreditkarte genau und informieren Sie vorsorglich Ihre Bank."
+  - aussage: "Im Zweifel Karte sperren lassen"
+    quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/mobilfunk-und-festnetz/paketdienstsms-vorsicht-abzocke-58988
+    zitat: "Im Zweifel lassen Sie die Kreditkarte sperren und beantragen Sie eine neue."
+  - aussage: "Sperr-Notruf 116 116 sperrt Karten"
+    quelle: https://www.sperr-notruf.de/
+    zitat: "Mit einem Anruf unter 116 116 sperrst Du Deine Karten sofort"
+  - aussage: "Charge-Back-Verfahren über die Bank"
+    quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/mobilfunk-und-festnetz/paketdienstsms-vorsicht-abzocke-58988
+    zitat: "Eventuell können Sie das gezahlte Geld über ein \"Charge-Back-Verfahren\" zurückholen. Setzen Sie sich dazu mit Ihrer Bank in Verbindung."
+  # ---------------------------------------------------------------- iPhone: sperren (iOS 27)
+  - aussage: "iPhone: in der Unterhaltung oben auf das Symbol der Person tippen"
+    quelle: https://support.apple.com/de-de/guide/iphone/iph3f94d910d/27.0/ios/27.0
+    zitat: "Gehe zur Konversation mit einer Person, die du blockieren möchtest, und tippe dann oben auf das Symbol der Person."
+  - aussage: "„Info“, nach unten scrollen, „Kontakt blockieren“"
+    quelle: https://support.apple.com/de-de/guide/iphone/iph3f94d910d/27.0/ios/27.0
+    zitat: "Tippe auf „Info“, scrolle nach unten und tippe auf „Kontakt blockieren“."
+  - aussage: "Die Person erfährt davon nichts"
+    quelle: https://support.apple.com/de-de/guide/iphone/iph3f94d910d/27.0/ios/27.0
+    zitat: "Absender:innen der Nachricht wissen nicht, dass ihre Nachrichten blockiert wurden."
+  - aussage: "Auch in anderen Apps gesperrt, etwa in „Telefon“"
+    quelle: https://support.apple.com/de-de/guide/iphone/iph3f94d910d/27.0/ios/27.0
+    zitat: "wird dieser Kontakt auch in den Apps „Mail“, „Telefon“, „FaceTime“, „Kalender“ und anderen Apps blockiert"
+  - aussage: "Aufheben: Einstellungen › Datenschutz & Sicherheit › Blockierte Kontakte"
+    quelle: https://support.apple.com/de-de/guide/iphone/iph3f94d910d/27.0/ios/27.0
+    zitat: "Tippe auf „Datenschutz & Sicherheit“, tippe auf „Blockierte Kontakte“ und führe beliebige der folgenden Schritte aus:"
+  # ---------------------------------------------------------------- iPhone: filtern (iOS 27 und 26)
+  - aussage: "iOS 27: Taste „Filtern“ in der Liste der Unterhaltungen, dann „Filter verwalten“"
+    quelle: https://support.apple.com/de-de/guide/iphone/iph203ab0be4/27.0/ios/27.0
+    zitat: "die Taste „Filtern“ und tippe dann auf „Filter verwalten“."
+  - aussage: "iOS 26: „Filtern verwalten“"
+    quelle: https://support.apple.com/de-de/guide/iphone/iph203ab0be4/26.0/ios/26.0
+    zitat: "Tippe oben rechts in der Konversationsliste auf die Taste „Filtern“ und tippe dann auf „Filtern verwalten“."
+  - aussage: "„Unbekannte Absender:innen überprüfen“ einschalten (iOS 27)"
+    quelle: https://support.apple.com/de-de/guide/iphone/iph203ab0be4/27.0/ios/27.0
+    zitat: "Aktiviere die Option „Unbekannte Absender:innen überprüfen“."
+  - aussage: "… heißt in iOS 26 genauso"
+    quelle: https://support.apple.com/de-de/guide/iphone/iph203ab0be4/26.0/ios/26.0
+    zitat: "Aktiviere die Option „Unbekannte Absender:innen überprüfen“."
+  - aussage: "Eigener Ordner, ohne Mitteilung"
+    quelle: https://support.apple.com/de-de/guide/iphone/iph203ab0be4/27.0/ios/27.0
+    zitat: "Ihre Nachrichten werden in andere Ordner gefiltert und du erhältst keine Mitteilungen für sie, außer du legst Mitteilungen fest."
+  - aussage: "Ordner „Unbekannte Absender:innen“ über die Taste „Filtern“ (iOS 27)"
+    quelle: https://support.apple.com/de-de/guide/iphone/iph203ab0be4/27.0/ios/27.0
+    zitat: "die Taste „Filtern“ und tippe dann auf „Unbekannte Absender:innen“."
+  - aussage: "iOS 26: Ordner „Unbekannte Absender“"
+    quelle: https://support.apple.com/de-de/guide/iphone/iph203ab0be4/26.0/ios/26.0
+    zitat: "Tippe oben rechts in der Konversationsliste auf die Taste „Filtern“ und tippe dann auf „Unbekannte Absender“."
+  - aussage: "Echte Nachricht: antippen, dann „Als bekannt markieren“"
+    quelle: https://support.apple.com/de-de/guide/iphone/iph203ab0be4/27.0/ios/27.0
+    zitat: "tippe dann auf „Als bekannt markieren“."
+  # ---------------------------------------------------------------- iPhone mit iOS 18
+  - aussage: "iOS 18: oben auf den Namen oder die Nummer tippen"
+    quelle: https://support.apple.com/de-de/guide/iphone/iph203ab0be4/18.0/ios/18.0
+    zitat: "Tippe in der Konversation der App „Nachrichten“ auf den Namen oder die Telefonnummer ganz oben."
+  - aussage: "iOS 18: „Info“, dann „Anrufer blockieren“"
+    quelle: https://support.apple.com/de-de/guide/iphone/iph203ab0be4/18.0/ios/18.0
+    zitat: "scrolle nach unten und tippe auf „Anrufer blockieren“."
+  - aussage: "iOS 18: Einstellungen › Apps › Nachrichten › Blockierte Kontakte"
+    quelle: https://support.apple.com/de-de/guide/iphone/iph203ab0be4/18.0/ios/18.0
+    zitat: "Tippe auf „Blockierte Kontakte“ und führe beliebige der folgenden Schritte aus:"
+  - aussage: "„Blockierte Kontakte“ liegt unter Einstellungen › Apps › Nachrichten (ebenso unter FaceTime und Telefon, eine gemeinsame Liste)"
+    geraetetest: "iPhone, iOS 18.7.8, 10.11.2026 (Betreiber)"
+  - aussage: "iOS 18: unter „Nachrichtenfilter“ die Option „Unbekannte Absender filtern“"
+    quelle: https://support.apple.com/de-de/guide/iphone/iph203ab0be4/18.0/ios/18.0
+    zitat: "Scrolle nach unten zu „Nachrichtenfilter“ und aktiviere die Option „Unbekannte Absender filtern“."
+  - aussage: "iOS 18: oben links „Filter“, dann „Unbekannte Absender“"
+    quelle: https://support.apple.com/de-de/guide/iphone/iph203ab0be4/18.0/ios/18.0
+    zitat: "Tippe oben links in der Konversationsliste auf „Filter“ und danach auf „Unbekannte Absender“."
+  - aussage: "Nachrichten hat vorgefertigte Filter, darunter „Unbekannte Absender“ (außerdem: Alle Nachrichten, Bekannte Absender, Ungelesene Nachrichten, Spam, Zuletzt gelöscht)"
+    geraetetest: "iPhone, iOS 18.7.8, 10.11.2026 (Betreiber)"
+  # ---------------------------------------------------------------- Android (Google Messages)
+  - aussage: "Finger auf die Unterhaltung halten"
+    quelle: https://support.google.com/messages/answer/7029021?hl=de&co=GENIE.Platform%3DAndroid
+    zitat: "Halten Sie auf dem Startbildschirm die Unterhaltung gedrückt, die Sie blockieren möchten."
+  - aussage: "„Blockieren“, dann „OK“"
+    quelle: https://support.google.com/messages/answer/7029021?hl=de&co=GENIE.Platform%3DAndroid
+    zitat: "Tippen Sie auf „Blockieren“"
+  - aussage: "Aufheben im Ordner „Als Spam markiert und blockiert“ (über Profilbild oder Dreipunkt-Menü)"
+    quelle: https://support.google.com/messages/answer/7029021?hl=de&co=GENIE.Platform%3DAndroid
+    zitat: "Als Spam markiert und blockiert."
+  - aussage: "Kontakt auswählen"
+    quelle: https://support.google.com/messages/answer/7029021?hl=de&co=GENIE.Platform%3DAndroid
+    zitat: "Wählen Sie den Kontakt aus der Liste aus."
+  - aussage: "„Blockierung aufheben“"
+    quelle: https://support.google.com/messages/answer/7029021?hl=de&co=GENIE.Platform%3DAndroid
+    zitat: "Tippen Sie auf Blockierung aufheben."
+  - aussage: "Spamschutz ist von Anfang an eingeschaltet"
+    quelle: https://support.google.com/messages/answer/9327903?hl=de
+    zitat: "Der Spamschutz ist im Standardschutzmodus aktiviert."
+  - aussage: "Rechts oben auf das Profilbild tippen"
+    quelle: https://support.google.com/messages/answer/9327903?hl=de
+    zitat: "Tippe rechts oben auf dein Profilbild oder deine Initiale."
+  - aussage: "Einstellungen für Messages › Sicherheit und Datenschutz › Schutz vor Spam und Betrug; nur sichtbar, wenn verfügbar"
+    quelle: https://support.google.com/messages/answer/9327903?hl=de
+    zitat: "Die Funktion „Schutz vor Spam und Betrug“ wird nur dann angezeigt, wenn sie auf deinem Gerät verfügbar ist."
+  # ---------------------------------------------------------------- Vorbeugen
+  - aussage: "Spam-Filter können die Zahl solcher SMS verringern"
+    quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/mobilfunk-und-festnetz/paketdienstsms-vorsicht-abzocke-58988
+    zitat: "Manche Smartphones oder Sicherheits-Apps bieten Spam-Filter. Sie können helfen, die Zahl solcher SMS zu verringern."
+  - aussage: "Handynummer sparsam weitergeben"
+    quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/mobilfunk-und-festnetz/paketdienstsms-vorsicht-abzocke-58988
+    zitat: "Geben Sie Ihre Handynummer nur an, wenn es zwingend nötig ist."
+  - aussage: "Updates installieren"
+    quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/mobilfunk-und-festnetz/paketdienstsms-vorsicht-abzocke-58988
+    zitat: "Halten Sie Betriebssysteme, Apps und Virenschutz durch Updates immer auf dem aktuellen Stand."
+  - aussage: "Drittanbietersperre beim Mobilfunkanbieter aktivieren"
+    quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/mobilfunk-und-festnetz/paketdienstsms-vorsicht-abzocke-58988
+    zitat: "sollten Sie bei Ihrem Mobilfunkanbieter eine Drittanbietersperre aktivieren"
+  - aussage: "Über Drittanbieter können unbemerkt teure Abos abgeschlossen werden"
+    quelle: https://www.bundesnetzagentur.de/DE/Vportal/TK/Aerger/Faelle/SMSSpam/start.html
+    zitat: "Abschluss von hochpreisigen Abonnements über Drittanbieter möglich"
+  - aussage: "Android: keine Apps aus unbekannten Quellen"
+    quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/mobilfunk-und-festnetz/paketdienstsms-vorsicht-abzocke-58988
+    zitat: "deaktivieren Sie die Möglichkeit, dass Apps aus unbekannten Quellen installiert werden dürfen"
