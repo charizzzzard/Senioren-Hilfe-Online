@@ -318,8 +318,9 @@ themen:
     suchvolumen: 8100
     kd: 0
     prioritaet: 0
-    status: offen
-    notiz: "Saison: Dez. 2025 12.100. Abgrenzen von whatsapp backup (Sichern) – hier: Umzug. Verlinken."
+    status: veroeffentlicht
+    slug: whatsapp-auf-neues-handy-uebertragen
+    notiz: "Saison: Dez. 2025 12.100. Abgrenzen von whatsapp backup (Sichern) – hier: Umzug. Verlinken. Link auf /artikel/whatsapp-backup/ nachtragen, sobald PR #30 gemergt ist."
   - titel: Neues iPhone einrichten – Schritt für Schritt
     kategorie: smartphone
     keyword: neues iphone einrichten
