@@ -5,7 +5,7 @@ beschreibung: "Die Familie sehen statt nur hören: So starten Sie einen WhatsApp
 keyword: "whatsapp videoanruf"
 kategorie: whatsapp
 veroeffentlicht: 2026-11-01
-aktualisiert: 2026-11-11
+aktualisiert: 2026-11-13
 geprueft: 2026-11-11
 getestet: "Auflegen im Videoanruf auf einem iPhone mit iOS 18 (05.11.2026)"
 kurz_gesagt: |
@@ -64,7 +64,7 @@ Setzen Sie sich so, dass Licht auf Ihr Gesicht fällt. Und keine Sorge: Am Anfan
 ### Videoanruf starten
 
 1. Öffnen Sie den **Chat** mit der Person, die Sie anrufen möchten.
-2. Tippen Sie auf das Symbol mit der **Videokamera**.
+2. Tippen Sie auf das Symbol mit der **Videokamera**. Auf einem iPhone mit iOS 18 liegt es oben rechts im Chat; links daneben ist das Symbol für einen Sprachanruf.
 3. Warten Sie, bis die andere Person annimmt. Dann sehen Sie sich.
 
 Andere Möglichkeit: Öffnen Sie in WhatsApp den Bereich **„Anrufe“**. Tippen Sie auf das Symbol für einen neuen Anruf, suchen Sie die Person und tippen Sie auf die **Videokamera**.
@@ -104,6 +104,8 @@ Manchmal bietet Ihr Handy auch **„Video deaktivieren“** an. Dann nehmen Sie 
 ## Hat es geklappt?
 
 Sie sehen jetzt die andere Person auf dem Bildschirm. Dazu zeigt WhatsApp Ihr eigenes Kamerabild – so sehen Sie, was die andere Person von Ihnen sieht. Geschafft!
+
+Auf einem iPhone mit iOS 18 sieht das so aus: Die andere Person füllt den ganzen Bildschirm. Ihr eigenes Bild steht klein oben rechts, und Sie können es verschieben. Tippen Sie darauf, tauschen die beiden Bilder: Dann sind Sie groß zu sehen und die andere Person klein.
 
 Wenn Sie fertig sind, legen Sie auf – wie bei jedem Anruf.
 

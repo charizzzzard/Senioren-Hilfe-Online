@@ -32,6 +32,8 @@ belege:
   - aussage: "iPhone: auf das Symbol mit der Videokamera tippen"
     quelle: https://faq.whatsapp.com/1862285217468140/?locale=de_DE&cms_platform=iphone
     zitat: "Tippe auf Videoanruf (Videokamera)."
+  - aussage: "iPhone mit iOS 18: Videokamera oben rechts im Chat, links daneben das Symbol für einen Sprachanruf"
+    geraetetest: "iPhone, iOS 18.7.8, 13.11.2026 (Betreiber)"
   - aussage: "iPhone, andere Möglichkeit: Bereich „Anrufe“, Symbol für neuen Anruf, Person suchen, Videokamera"
     quelle: https://faq.whatsapp.com/1862285217468140/?locale=de_DE&cms_platform=iphone
     zitat: "Alternativ kannst du WhatsApp öffnen und den Anrufe-Tab aufrufen. Tippe dann auf Gruppenanruf oder Neuer Anruf (Telefon mit Pluszeichen). Suche nach dem Kontakt, mit dem du einen Videoanruf starten möchtest, und tippe dann auf Videoanruf (Videokamera)."
@@ -80,6 +82,8 @@ belege:
   - aussage: "WhatsApp zeigt das eigene Kamerabild; die andere Person sieht diese Übertragung"
     quelle: https://faq.whatsapp.com/1862285217468140/?locale=de_DE&cms_platform=iphone
     zitat: "Du kannst deine eigene Videokachel verbergen, um mehr Platz auf dem Bildschirm zu haben. Dadurch wird deine eigene Videoübertragung nicht für andere ausgeschaltet."
+  - aussage: "iPhone mit iOS 18: andere Person im Vollbild, eigenes Bild klein oben rechts und verschiebbar; Antippen tauscht die Bilder"
+    geraetetest: "iPhone, iOS 18.7.8, 13.11.2026 (Betreiber)"
   - aussage: "iPhone: Symbol „Kamera wechseln“ mit zwei gebogenen Pfeilen wechselt zwischen Front- und Rückkamera (hin und zurück)"
     quelle: https://faq.whatsapp.com/1862285217468140/?locale=de_DE&cms_platform=iphone
     zitat: "Um während eines Videoanrufs zwischen der Front- und Rückkamera deines Geräts zu wechseln, tippe auf Kamera wechseln (Kamera mit zwei gebogenen Pfeilen in einem Kreis)."
