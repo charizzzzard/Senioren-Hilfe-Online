@@ -148,7 +148,7 @@ belege:
   # ---------------------------------------------------------------- Wenn es nicht klappt
   - aussage: "Backup iPhone ↔ Android nicht wiederherstellbar"
     quelle: https://faq.whatsapp.com/618575946635920/?locale=de_DE&cms_platform=iphone
-    zitat: "Es ist derzeit nicht möglich, auf Android erstellte Backups auf deinem iPhone oder auf deinem iPhone erstellte Backups auf Android wiederherzustellen."
+    zitat: "Es ist nicht möglich, auf Android erstellte Backups auf deinem iPhone oder auf deinem iPhone erstellte Backups auf Android wiederherzustellen."
   - aussage: "Für den Wechsel gibt es eine eigene Übertragung"
     quelle: https://faq.whatsapp.com/618575946635920/?locale=de_DE&cms_platform=android
     zitat: "Chats von einem iPhone auf ein Android-Gerät übertragen"

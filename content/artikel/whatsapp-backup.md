@@ -134,7 +134,7 @@ WhatsApp holt zuerst die Nachrichten zurück. Lassen Sie die App so lange geöff
 
 ## Wenn es nicht klappt
 
-- **Vom iPhone zu Android – oder umgekehrt?** Ein Backup vom iPhone lässt sich derzeit nicht auf Android wiederherstellen und umgekehrt. Für einen solchen Wechsel gibt es bei WhatsApp eine eigene Übertragungsfunktion.
+- **Vom iPhone zu Android – oder umgekehrt?** Ein Backup vom iPhone lässt sich nicht auf Android wiederherstellen und umgekehrt. Für einen solchen Wechsel gibt es bei WhatsApp eine eigene Übertragungsfunktion.
 - **Das Backup ist sehr alt?** Ist das letzte Backup älter als 120 Tage, lässt es sich unter Umständen nicht mehr wiederherstellen.
 - **Videos fehlen?** Videos werden nur wiederhergestellt, wenn sie beim Backup eingeschlossen waren.
 - **Zu wenig Speicher?** Der freie Platz auf dem Handy muss größer sein als das Backup. Sonst kommt es unter Umständen nur teilweise zurück.
