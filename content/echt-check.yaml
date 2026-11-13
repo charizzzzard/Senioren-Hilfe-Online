@@ -5,7 +5,7 @@
 titel: "Ist das echt? Der Check für verdächtige Nachrichten und Anrufe"
 seo_titel: "Ist das echt? Check für verdächtige Nachrichten und Anrufe"
 beschreibung: "Eine merkwürdige Nachricht oder ein seltsamer Anruf? Beantworten Sie ein paar Fragen und bekommen Sie eine klare Empfehlung. Es wird nichts gespeichert."
-aktualisiert: 2026-11-05
+aktualisiert: 2026-11-10
 
 wege:
   - id: anruf
@@ -28,7 +28,7 @@ fragen:
     hinweis: "Die Polizei rät: Lassen Sie sich nicht drängen und nicht unter Druck setzen. Nehmen Sie sich Zeit."
   - id: code
     frage: "Werden Sie nach einem Code, einer PIN, einer TAN oder einem Passwort gefragt?"
-    hinweis: "Polizei, Banken und Behörden fragen niemals nach PIN oder TAN – weder am Telefon noch per E-Mail oder Handynachricht. Den Bestätigungscode von WhatsApp sollen Sie niemandem geben."
+    hinweis: "Banken fordern laut Polizei grundsätzlich keine vertraulichen Daten per E-Mail, Telefon oder Post an. Den Code von WhatsApp sollen Sie niemandem geben."
   - id: link
     frage: "Sollen Sie einen Link antippen, eine Datei öffnen oder eine App installieren?"
     hinweis: "Über solche Links können schädliche Apps auf das Handy kommen oder Daten abgegriffen werden."
@@ -106,9 +106,9 @@ quellen:
   - herausgeber: Polizeiliche Kriminalprävention der Länder und des Bundes
     titel: Messenger-Betrug
     url: https://www.polizei-beratung.de/themen-und-tipps/betrug/messenger/
-  - herausgeber: Sperr-Notruf 116 116 e.V.
-    titel: "Pressemeldung: Der Sperr-Notruf 116 116 ruft niemals an (26.11.2024)"
-    url: https://www.sperr-notruf.de/media/pages/presse/aacf5d49d9-1749557608/04_sperr-notruf_116_116_ruft_niemals_an.pdf
+  - herausgeber: Polizeiliche Kriminalprävention der Länder und des Bundes
+    titel: Phishing – nicht ins Netz gehen
+    url: https://www.polizei-beratung.de/themen-und-tipps/gefahren-im-internet/phishing/
   - herausgeber: Verbraucherzentrale
     titel: "Paketdienst-SMS: Vorsicht, Abzocke!"
     url: https://www.verbraucherzentrale.de/wissen/digitale-welt/mobilfunk-und-festnetz/paketdienstsms-vorsicht-abzocke-58988
@@ -121,3 +121,6 @@ quellen:
   - herausgeber: WhatsApp-Hilfebereich
     titel: Verifizierungscode erhalten, ohne ihn angefordert zu haben
     url: https://faq.whatsapp.com/479314433984258/?locale=de_DE
+  - herausgeber: WhatsApp-Hilfebereich
+    titel: Informationen zu verdächtigen Nachrichten und Betrug
+    url: https://faq.whatsapp.com/2286952358121083/?locale=de_DE
