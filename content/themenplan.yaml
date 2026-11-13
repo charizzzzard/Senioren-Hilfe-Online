@@ -710,7 +710,7 @@ themen:
     kd: 26
     prioritaet: 3
     status: offen
-    notiz: Hohe Nachfrage, aber oft Fragen zu bestimmten Geräten/Versionen. Fokus auf „wie und warum“.
+    notiz: "Hohe Nachfrage, aber oft Fragen zu bestimmten Geräten/Versionen. Fokus auf „wie und warum“. Ergänzung aus Wochenschau KW46: Apple-Updates vom 09.11.2026 auch für ältere iPhones (iOS 18.7.12 für iPhone XS/XR); Anleitung Apple support.apple.com/de-de/118575 (inkl. automatische Updates)."
   - titel: Automatische Bildschirmsperre einstellen
     kategorie: smartphone
     keyword: automatische sperre iphone
