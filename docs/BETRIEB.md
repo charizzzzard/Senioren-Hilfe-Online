@@ -219,6 +219,8 @@ mit `python tools/kennzahlen.py auswerten`; gemeldete Meilensteine stehen in `ke
 nie doppelt gemeldet):
 - Klicks pro Woche: 10, 50, 100, 250, 500, 1.000 · Impressionen pro Woche: 1.000, 10.000, 100.000
 - erste Suchanfrage mit mindestens 10 Impressionen auf Position 1–3
+- 20.000 Klicks in vier aufeinanderfolgenden Wochen (`klicks_4wochen`) – dann zusätzlich ein Issue `entscheidung`:
+  Erinnerung an den Newsletter (#27). `kennzahlen.py auswerten` nennt diesen Auftrag in der Zeile darunter.
 - alle Sitemap-URLs indexiert
 - veröffentlichte Texte: 25, 35, 50, 75, 100
 - Ziele aus `docs/STRATEGIE.md`: 1.000 Klicks pro Monat, 35 Artikel
