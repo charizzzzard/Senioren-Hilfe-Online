@@ -96,7 +96,7 @@ Dort sehen Sie, welche Version installiert ist und ob ein Update verfügbar ist.
 
 Genau das steckt auch hinter den Mails dieser Woche: eine Drohung oder ein Geldversprechen, damit Sie schnell und unüberlegt handeln.
 
-**Was bedeutet das für Sie?** Die Polizei gibt einfache Tipps, die immer helfen:
+**Was bedeutet das für Sie?** Die Polizei gibt einfache Tipps:
 
 - Seien Sie wachsam, wenn eine Anfrage drängt oder zu gut erscheint.
 - Prüfen Sie, wer wirklich dahintersteckt – über einen Weg, den Sie selbst kennen. Rufen Sie zum Beispiel die offizielle Nummer an, nicht die Nummer aus der Mail.
