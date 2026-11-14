@@ -1,0 +1,224 @@
+# Belegtabelle für content/artikel/whatsapp-auf-neues-handy-uebertragen.md (Format: docs/BETRIEB.md, Abschnitt „Belegtabelle“)
+# Prüfen: python tools/belegcheck.py whatsapp-auf-neues-handy-uebertragen
+geprueft: 2026-11-13
+belege:
+  # ---------------------------------------------------------------- Grundsätzliches
+  - aussage: "Funktion „Chats übertragen“ überträgt den gesamten Chat- und Medienverlauf (Android zu Android)"
+    quelle: https://faq.whatsapp.com/209942271778103/?locale=de_DE&cms_platform=android
+    zitat: "kannst du mit der WhatsApp-Funktion „Chats übertragen“ deinen gesamten Chat- und Medienverlauf übertragen."
+  - aussage: "Dasselbe für iPhone zu iPhone"
+    quelle: https://faq.whatsapp.com/209942271778103/?locale=de_DE&cms_platform=iphone
+    zitat: "Wenn du von einem iPhone zu einem anderen iPhone wechselst, kannst du mit der WhatsApp-Funktion „Chats übertragen“ deinen gesamten Chat- und Medienverlauf übertragen."
+  - aussage: "Backup stellt Chatdaten wieder her; Übertragung nimmt alle Kontoinformationen, Nachrichten, Bilder, Videos, Dokumente mit"
+    quelle: https://faq.whatsapp.com/209942271778103/?locale=de_DE&cms_platform=android
+    zitat: "Mit Backups werden Chatdaten wiederhergestellt. Die Funktion „Chats übertragen“ dagegen ermöglicht dir die Übertragung aller Kontoinformationen mit allen persönlichen Nachrichten, Bildern, Videos, Dokumenten usw."
+  # ---------------------------------------------------------------- Voraussetzungen
+  - aussage: "Dieselbe Telefonnummer auf dem neuen Handy"
+    quelle: https://faq.whatsapp.com/209942271778103/?locale=de_DE&cms_platform=android
+    zitat: "Du verwendest auf deinem neuen Gerät dieselbe Telefonnummer wie auf deinem alten Telefon."
+  - aussage: "SIM-Karte auf das neue Handy übertragen"
+    quelle: https://faq.whatsapp.com/1374388673551120/?locale=de_DE&cms_platform=android
+    zitat: "übertrage deine SIM-Karte auf das neue Gerät und melde dich mit deiner alten Nummer bei WhatsApp an"
+  - aussage: "Neues Handy darf vor dem Start noch nicht bei WhatsApp angemeldet sein"
+    quelle: https://faq.whatsapp.com/209942271778103/?locale=de_DE&cms_platform=android
+    zitat: "Dein neues Telefon darf vor dem Start der Migration auf deinem alten Telefon nicht bei WhatsApp registriert sein."
+  - aussage: "Handys nahe beieinander"
+    quelle: https://faq.whatsapp.com/209942271778103/?locale=de_DE&cms_platform=android
+    zitat: "Deine Telefone müssen nahe beieinander sein."
+  - aussage: "Beide am Strom"
+    quelle: https://faq.whatsapp.com/209942271778103/?locale=de_DE&cms_platform=android
+    zitat: "Beide Geräte sollten an eine Stromquelle angeschlossen sein."
+  - aussage: "Android: WLAN an beiden Handys eingeschaltet (Verbindung nicht nötig)"
+    quelle: https://faq.whatsapp.com/209942271778103/?locale=de_DE&cms_platform=android
+    zitat: "Auf beiden Telefonen muss WLAN aktiviert sein. Die Telefone müssen nicht mit einem Netzwerk verbunden sein."
+  - aussage: "iPhone: WLAN an und beide mit dem Internet verbunden"
+    quelle: https://faq.whatsapp.com/209942271778103/?locale=de_DE&cms_platform=iphone
+    zitat: "Auf beiden Telefonen muss WLAN aktiviert sein und beide Telefone müssen mit dem Internet verbunden sein."
+  - aussage: "iPhone: neueste iOS-Version auf beiden Geräten"
+    quelle: https://faq.whatsapp.com/209942271778103/?locale=de_DE&cms_platform=iphone
+    zitat: "Die neueste iOS-Version ist auf beiden Geräten installiert."
+  - aussage: "iPhone: neueste WhatsApp-Version aus dem App Store"
+    quelle: https://faq.whatsapp.com/209942271778103/?locale=de_DE&cms_platform=iphone
+    zitat: "Die neueste Version von WhatsApp aus dem App Store ist installiert."
+  - aussage: "Android: mindestens Android 6 auf beiden Handys"
+    quelle: https://faq.whatsapp.com/209942271778103/?locale=de_DE&cms_platform=android
+    zitat: "Android 6 oder höher ist auf deinem alten und deinem neuen Android-Telefon installiert."
+  # ---------------------------------------------------------------- Neue Telefonnummer
+  - aussage: "Neue Nummer: zuerst auf dem alten Handy ändern"
+    quelle: https://faq.whatsapp.com/1374388673551120/?locale=de_DE&cms_platform=android
+    zitat: "musst du zunächst die Nummer auf deinem alten Telefon ändern, bevor du dein Konto überträgst"
+  - aussage: "Auf eine neue Nummer lassen sich Chats nicht übertragen"
+    quelle: https://faq.whatsapp.com/1039228717453239/?locale=de_DE
+    zitat: "Es ist nicht möglich, deine Chats auf eine neue Telefonnummer zu übertragen."
+  - aussage: "Wer sich mit neuer Nummer auf dem neuen Handy anmeldet, verliert den Chatverlauf"
+    quelle: https://faq.whatsapp.com/1374388673551120/?locale=de_DE&cms_platform=android
+    zitat: "Wenn du dich mit einer neuen Telefonnummer auf einem neuen Telefon registrierst, ohne diesen Schritt durchzuführen, verlierst du deinen Chatverlauf."
+  # ---------------------------------------------------------------- Android zu Android
+  - aussage: "Altes Android-Handy: Weitere Optionen › Einstellungen › Chats › Chats übertragen › Starten"
+    quelle: https://faq.whatsapp.com/209942271778103/?locale=de_DE&cms_platform=android
+    zitat: "Tippe auf Weitere Optionen > Einstellungen > Chats > Chats übertragen > Starten."
+  - aussage: "Berechtigungen erlauben, auf QR-Code auf dem neuen Handy warten"
+    quelle: https://faq.whatsapp.com/209942271778103/?locale=de_DE&cms_platform=android
+    zitat: "Gewähre die angeforderten Berechtigungen und warte auf den QR-Code, der auf deinem neuen Telefon erscheinen wird."
+  - aussage: "Neues Android-Handy: WhatsApp herunterladen und öffnen"
+    quelle: https://faq.whatsapp.com/209942271778103/?locale=de_DE&cms_platform=android
+    zitat: "Lade WhatsApp auf dein neues Telefon herunter und öffne es."
+  - aussage: "„Zustimmen und fortfahren“"
+    quelle: https://faq.whatsapp.com/209942271778103/?locale=de_DE&cms_platform=android
+    zitat: "Tippe auf Zustimmen und fortfahren."
+  - aussage: "Telefonnummer bestätigen, Berechtigungen erlauben"
+    quelle: https://faq.whatsapp.com/209942271778103/?locale=de_DE&cms_platform=android
+    zitat: "Verifiziere deine Telefonnummer und gewähre die angeforderten Berechtigungen."
+  - aussage: "„Chats wiederherstellen oder übertragen“ › „Von altem Telefon übertragen“"
+    quelle: https://faq.whatsapp.com/209942271778103/?locale=de_DE&cms_platform=android
+    zitat: "Wähle unter Chats wiederherstellen oder übertragen die Option Von altem Telefon übertragen aus."
+  - aussage: "„Weiter“, „Starten“, Zugriff auf WLAN-Geräte in der Nähe erlauben"
+    quelle: https://faq.whatsapp.com/209942271778103/?locale=de_DE&cms_platform=android
+    zitat: "Tippe auf Weiter > Starten und gewähre den Zugriff auf WLAN-Geräte in der Nähe."
+  - aussage: "Mit der Kamera des alten Handys den QR-Code auf dem neuen scannen"
+    quelle: https://faq.whatsapp.com/209942271778103/?locale=de_DE&cms_platform=android
+    zitat: "Scanne mit der Kamera deines alten Telefons den QR-Code auf deinem neuen Telefon."
+  - aussage: "Auf dem neuen Handy „Akzeptieren“, verbindet die Handys"
+    quelle: https://faq.whatsapp.com/209942271778103/?locale=de_DE&cms_platform=android
+    zitat: "Tippe auf deinem neuen Telefon auf Akzeptieren, um es mit deinem alten Telefon zu verbinden."
+  - aussage: "Android 12 und älter: genauer Standort nötig, WhatsApp erfasst ihn nicht"
+    quelle: https://faq.whatsapp.com/209942271778103/?locale=de_DE&cms_platform=android
+    zitat: "Bei Geräten mit Android 12 und darunter sind Berechtigungen für den genauen Standort erforderlich, der aber von WhatsApp nicht erfasst wird."
+  # ---------------------------------------------------------------- iPhone zu iPhone
+  - aussage: "Altes iPhone: Profilbild › Chats › Chats auf iPhone übertragen › Starten"
+    quelle: https://faq.whatsapp.com/209942271778103/?locale=de_DE&cms_platform=iphone
+    zitat: "Tippe auf dein Profilbild > Chats > Chats auf iPhone übertragen > Starten."
+  - aussage: "Kamerazugriff: „Erlauben“"
+    quelle: https://faq.whatsapp.com/209942271778103/?locale=de_DE&cms_platform=iphone
+    zitat: "Tippe bei der Meldung WhatsApp möchte auf deine Kamera zugreifen auf Erlauben"
+  - aussage: "Neues iPhone: WhatsApp öffnen"
+    quelle: https://faq.whatsapp.com/209942271778103/?locale=de_DE&cms_platform=iphone
+    zitat: "Öffne WhatsApp auf deinem neuen Telefon."
+  - aussage: "„Zustimmen & fortfahren“, Telefonnummer bestätigen"
+    quelle: https://faq.whatsapp.com/209942271778103/?locale=de_DE&cms_platform=iphone
+    zitat: "Tippe auf Zustimmen & fortfahren und verifiziere dann deine Telefonnummer."
+  - aussage: "Meldung „Chatverlauf auf iPhone übertragen“ › „Weiter“, Zugriff auf lokales Netzwerk"
+    quelle: https://faq.whatsapp.com/209942271778103/?locale=de_DE&cms_platform=iphone
+    zitat: "Tippe bei der Meldung Chatverlauf auf iPhone übertragen auf Weiter und gewähre Zugriff auf das lokale Netzwerk."
+  - aussage: "Mit der WhatsApp-Kamera des alten iPhones den QR-Code auf dem neuen scannen"
+    quelle: https://faq.whatsapp.com/209942271778103/?locale=de_DE&cms_platform=iphone
+    zitat: "Scanne mit der WhatsApp-Kamera deines alten Telefons den QR-Code auf deinem neuen Telefon."
+  # ---------------------------------------------------------------- Während der Übertragung
+  - aussage: "Fortschritt als Prozentbalken; Handys entsperrt, WhatsApp nicht beenden; Nachrichten pausiert; jederzeit abbrechen"
+    quelle: https://faq.whatsapp.com/209942271778103/?locale=de_DE&cms_platform=iphone
+    zitat: "Während der Übertragung deines Chatverlaufs wird der Fortschritt über einen Prozentbalken angezeigt. Achte darauf, dass die Telefone nebeneinander liegen und entsperrt bleiben, und beende WhatsApp nicht. Während der Übertragung ist der Austausch von Nachrichten pausiert. Du kannst den Vorgang jederzeit Abbrechen."
+  - aussage: "Android: beide Handys entsperrt, WhatsApp nicht beenden"
+    quelle: https://faq.whatsapp.com/209942271778103/?locale=de_DE&cms_platform=android
+    zitat: "Achte darauf, dass beide Telefone entsperrt bleiben, und beende WhatsApp nicht."
+  - aussage: "Dauer hängt von der Datenmenge ab"
+    quelle: https://faq.whatsapp.com/1295296267926284/?locale=de_DE
+    zitat: "Wie lange die Übertragung deiner Daten dauert, hängt davon ab, wie viele Daten übertragen werden."
+  - aussage: "Verifizierung in zwei Schritten abschließen, wenn eingeschaltet"
+    quelle: https://faq.whatsapp.com/1374388673551120/?locale=de_DE&cms_platform=android
+    zitat: "Wenn die Verifizierung in zwei Schritten aktiviert ist, schließe sie ab."
+  # ---------------------------------------------------------------- Sollzustand
+  - aussage: "Meldung „Übertragung abgeschlossen“ › „Weiter“; iPhone: Namen eingeben, dann Chatliste mit allen Chats"
+    quelle: https://faq.whatsapp.com/209942271778103/?locale=de_DE&cms_platform=iphone
+    zitat: "Tippe auf Weiter, wenn die Meldung Übertragung abgeschlossen erscheint. Die Seite zum Einrichten deines Profils wird angezeigt. Gib dort deinen Namen ein. Danach siehst du die Chatliste mit allen bereits vorhandenen Chats."
+  - aussage: "Android: nach Abschluss „Weiter“"
+    quelle: https://faq.whatsapp.com/209942271778103/?locale=de_DE&cms_platform=android
+    zitat: "Sobald der Import abgeschlossen ist, tippe auf Weiter."
+  - aussage: "Android: Bildschirm „Übertragung abgeschlossen“ › „Weiter“ › Chats"
+    quelle: https://faq.whatsapp.com/1374388673551120/?locale=de_DE&cms_platform=android
+    zitat: "Du wirst zum Chats-Tab weitergeleitet."
+  # ---------------------------------------------------------------- Altes Handy nicht löschen
+  - aussage: "Altes Handy erst löschen/zurücksetzen/WhatsApp deinstallieren, wenn die Übertragung bestätigt ist; bis dahin Daten noch dort"
+    quelle: https://faq.whatsapp.com/209942271778103/?locale=de_DE&cms_platform=android
+    zitat: "Solange du nicht bestätigen kannst, dass die Daten erfolgreich auf dein neues Telefon übertragen wurden, solltest du auf deinem alten Telefon keine Daten löschen, es nicht zurücksetzen oder WhatsApp deinstallieren."
+  - aussage: "… falls die Übertragung hängen bleibt oder eine Fehlermeldung kommt"
+    quelle: https://faq.whatsapp.com/209942271778103/?locale=de_DE&cms_platform=android
+    zitat: "falls deine Übertragung fehlschlägt, hängen bleibt oder du eine Fehlermeldung erhältst"
+  # ---------------------------------------------------------------- Was nicht mitkommt
+  - aussage: "Medien aus WhatsApp-Kanälen werden nicht übertragen (Android)"
+    quelle: https://faq.whatsapp.com/209942271778103/?locale=de_DE&cms_platform=android
+    zitat: "über WhatsApp-Kanäle erhaltene Mediendateien kannst du nicht übertragen"
+  - aussage: "iPhone zu iPhone: Anrufliste und Kanal-Medien werden nicht übertragen"
+    quelle: https://faq.whatsapp.com/209942271778103/?locale=de_DE&cms_platform=iphone
+    zitat: "deine Anrufliste oder über WhatsApp-Kanäle empfangene Mediendateien kannst du nicht übertragen"
+  - aussage: "Android zu iPhone: Anrufliste wird nicht übertragen"
+    quelle: https://faq.whatsapp.com/686469079565350/?locale=de_DE
+    zitat: "Deine WhatsApp-Anrufliste kann nicht von einem Android-Gerät auf ein iPhone übertragen werden."
+  - aussage: "WhatsApp Business: Übertragung derzeit nicht möglich"
+    quelle: https://faq.whatsapp.com/209942271778103/?locale=de_DE&cms_platform=android
+    zitat: "Es ist derzeit nicht möglich, Chats in der WhatsApp Business-App zu übertragen."
+  # ---------------------------------------------------------------- iPhone zu Android
+  - aussage: "iPhone: Chats › Chatverlauf übertragen › Auf Android-Gerät übertragen"
+    quelle: https://faq.whatsapp.com/1295296267926284/?locale=de_DE
+    zitat: "Öffne WhatsApp auf deinem iPhone und wähle Chats > Chatverlauf übertragen > Auf Android-Gerät übertragen aus."
+  - aussage: "Wenn die Chats vorbereitet sind, „Weiter“"
+    quelle: https://faq.whatsapp.com/1295296267926284/?locale=de_DE
+    zitat: "Wenn die Chats vorbereitet sind, tippe auf Weiter."
+  - aussage: "Android-Handy: WhatsApp mit derselben Nummer einrichten"
+    quelle: https://faq.whatsapp.com/1295296267926284/?locale=de_DE
+    zitat: "Öffne WhatsApp auf deinem Android-Gerät und verifiziere dein Konto mit derselben Telefonnummer, die du auf deinem iPhone verwendest."
+  - aussage: "QR-Code auf dem Android-Handy mit der iPhone-Kamera scannen"
+    quelle: https://faq.whatsapp.com/1295296267926284/?locale=de_DE
+    zitat: "Scanne den QR-Code mit der Kamera deines iPhones."
+  - aussage: "Android 6 oder höher"
+    quelle: https://faq.whatsapp.com/1295296267926284/?locale=de_DE
+    zitat: "Du hast ein Android-Gerät mit Android 6 oder höher."
+  # ---------------------------------------------------------------- Android zu iPhone
+  - aussage: "App „Auf iOS übertragen“ auf dem Android-Handy; andere Apps nicht unterstützt"
+    quelle: https://faq.whatsapp.com/686469079565350/?locale=de_DE
+    zitat: "Die App „Auf iOS übertragen“ ist auf deinem Android-Telefon installiert. Hinweis: Andere Apps zur Datenübertragung werden nicht unterstützt"
+  - aussage: "iPhone muss neu oder auf Werkseinstellungen zurückgesetzt sein; schon benutzt → Weg nicht verfügbar"
+    quelle: https://faq.whatsapp.com/686469079565350/?locale=de_DE
+    zitat: "Wenn du dein iPhone bereits eingerichtet und benutzt hast, steht dir diese Übertragungsmöglichkeit nicht zur Verfügung."
+  - aussage: "Neu oder zurückgesetzt"
+    quelle: https://faq.whatsapp.com/686469079565350/?locale=de_DE
+    zitat: "Dein iPhone muss fabrikneu oder auf die Werkseinstellungen zurückgesetzt sein"
+  - aussage: "iOS 15.5 oder höher"
+    quelle: https://faq.whatsapp.com/686469079565350/?locale=de_DE
+    zitat: "Auf deinem iPhone ist iOS 15.5 oder höher installiert."
+  - aussage: "App öffnen und Anweisungen folgen"
+    quelle: https://faq.whatsapp.com/686469079565350/?locale=de_DE
+    zitat: "Öffne die App „Auf iOS übertragen“ auf deinem Android-Gerät und folge den Anweisungen auf dem Bildschirm."
+  - aussage: "WhatsApp auswählen"
+    quelle: https://faq.whatsapp.com/686469079565350/?locale=de_DE
+    zitat: "Wähle WhatsApp auf dem Bildschirm zur Datenübertragung aus."
+  - aussage: "WhatsApp auf dem iPhone installieren, mit derselben Nummer anmelden"
+    quelle: https://faq.whatsapp.com/686469079565350/?locale=de_DE
+    zitat: "Öffne WhatsApp und melde dich mit derselben Telefonnummer an, die du auf deinem alten Gerät verwendet hast."
+  - aussage: "Danach sehen Sie Ihre Chats"
+    quelle: https://faq.whatsapp.com/686469079565350/?locale=de_DE
+    zitat: "Nachdem du die Aktivierung deines neuen Geräts abgeschlossen hast, siehst du deine Chats."
+  # ---------------------------------------------------------------- Wenn es nicht klappt
+  - aussage: "QR-Code erscheint nicht (Android): WLAN an, Berechtigungen annehmen"
+    quelle: https://faq.whatsapp.com/1039228717453239/?locale=de_DE
+    zitat: "Akzeptiere alle angefragten Berechtigungen."
+  - aussage: "QR-Code erscheint nicht (iPhone): Internet und lokales Netzwerk"
+    quelle: https://faq.whatsapp.com/1039228717453239/?locale=de_DE
+    zitat: "Beide iPhones müssen über die Berechtigung für das lokale Netzwerk verfügen."
+  - aussage: "Hängt: beide Handys aus, 30 Sekunden warten, wieder ein, neu versuchen"
+    quelle: https://faq.whatsapp.com/1039228717453239/?locale=de_DE
+    zitat: "Schalte beide Telefone aus, warte 30 Sekunden und schalte sie wieder ein. Probiere dann erneut, deinen Chatverlauf zu übertragen."
+  - aussage: "Bei Fehlermeldung von vorn beginnen"
+    quelle: https://faq.whatsapp.com/1039228717453239/?locale=de_DE
+    zitat: "starte beide Telefone neu und beginne mit dem Übertragungsvorgang von vorne"
+  - aussage: "Chats gehen nicht verloren, bleiben auf dem alten Handy"
+    quelle: https://faq.whatsapp.com/1039228717453239/?locale=de_DE
+    zitat: "Deine Chats gehen nicht verloren, wenn eine Übertragung hängenbleibt oder ein Fehler angezeigt wird."
+  - aussage: "Übertragen nur vor dem Einrichten auf dem neuen Handy; dort deinstallieren"
+    quelle: https://faq.whatsapp.com/1039228717453239/?locale=de_DE
+    zitat: "Vergewissere dich, dass du WhatsApp auf deinem neuen Gerät deinstalliert hast, bevor du die Übertragung von deinem alten Gerät startest."
+  - aussage: "Nur vor Aktivierung auf dem neuen Handy"
+    quelle: https://faq.whatsapp.com/1039228717453239/?locale=de_DE
+    zitat: "Du kannst deine Chats nur übertragen, bevor du WhatsApp auf deinem neuen Telefon aktiviert hast."
+  - aussage: "Alte und neue Chats lassen sich nicht zusammenführen"
+    quelle: https://faq.whatsapp.com/1039228717453239/?locale=de_DE
+    zitat: "Neue Chats von deinem neuen Telefon und alte Chats von deinem alten Telefon können nicht zusammengeführt werden."
+  - aussage: "Warten auf Bestätigungscode nach mehreren Versuchen, nicht beschleunigbar"
+    quelle: https://faq.whatsapp.com/1039228717453239/?locale=de_DE
+    zitat: "auf einen Verifizierungscode warten musst, kannst du das Verfahren nicht beschleunigen"
+  - aussage: "Fremde Apps nicht unterstützt, Chats können verloren gehen"
+    quelle: https://faq.whatsapp.com/1039228717453239/?locale=de_DE
+    zitat: "Das Verwenden von Apps zur Chatübertragung, die nicht von WhatsApp stammen, wird nicht unterstützt und kann zum Verlust der Chats führen."
+  # ---------------------------------------------------------------- Altes Handy weitergeben
+  - aussage: "Vor Weitergabe/Rückgabe alle Daten löschen, auch Speicherkarte"
+    quelle: https://faq.whatsapp.com/1197347060992858/?locale=de_DE
+    zitat: "Wenn du dein altes Telefon weiterreichen oder deinem Mobilfunkanbieter zurückgeben möchtest, solltest du vorher alle deine Daten löschen. Das gilt auch für eine eventuelle SD-Karte."
