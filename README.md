@@ -8,6 +8,10 @@ Regeln und Abläufe stehen in [CLAUDE.md](CLAUDE.md), Wachstum und Monetarisieru
 die Zielgruppe in [docs/ZIELGRUPPE.md](docs/ZIELGRUPPE.md), die Google-Konkurrenz in [docs/WETTBEWERB.md](docs/WETTBEWERB.md)
 und die nächsten Themen in [content/themenplan.yaml](content/themenplan.yaml).
 
+Der gemeinsame [Entwurf zum Gesamtbetrieb](docs/BETRIEBSSYSTEM.md) verbindet Qualität, Nutzerwege, Suchwachstum und
+Verbreitung. Das lesende Cockpit `python tools/betrieb.py` zeigt vorhandene Daten und offene Nachweise; der Entwurf
+ändert keine aktiven Zeitpläne oder Freigaberegeln.
+
 Was es auf der Seite gibt: Anleitungen, das Digital-Lexikon (mit Erklärkästchen im Text), die wöchentliche Rubrik
 „Die Woche im Netz“ (freitags), den interaktiven „Ist das echt?“-Check und zu jeder Checkliste ein Druckblatt und ein PDF.
 

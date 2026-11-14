@@ -29,6 +29,11 @@ jobs:
       - name: Abhängigkeiten installieren
         run: pip install -r requirements.txt
 
+      - name: Lesende Betriebsübersicht prüfen
+        run: |
+          python tools/betrieb.py --validate
+          python -m unittest discover -s tests -p 'test_betrieb.py'
+
       # Kontingent (Regel 9) und Qualitätsbremse halten NEUE Texte auf: im Pull Request alles, was es auf main noch
       # nicht gibt (Vergleichsstand HEAD^1). Auf main selbst ist nichts neu (Vergleichsstand HEAD) – ein schon
       # veröffentlichter Text kann den Deploy und damit die Korrekturen nie blockieren (tools/check.py).

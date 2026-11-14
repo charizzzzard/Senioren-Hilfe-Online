@@ -1,0 +1,13 @@
+Du übernimmst die Umsetzung des beigefügten UMSETZUNGSPLAN-FUER-CLAUDE.md für netzleicht.de auf dem vorgesehenen Ubuntu-Server.
+
+Lies zuerst den Plan vollständig sowie CLAUDE.md, docs/BETRIEB.md, docs/STRATEGIE.md und docs/aufgaben/ im aktuellen Repository charizzzzard/Senioren-Hilfe-Online. Gleiche die aktiven geplanten Aufgaben mit den Sicherungen ab; beachte insbesondere die bereits in aktiven Aufträgen berücksichtigte Betreiberentscheidung aus PR #45 zur Gültigkeit von „gelesen“ bis zum nächsten Commit.
+
+Beginne mit Phase 0, einer rein lesenden Bestandsaufnahme. Entscheide anhand des tatsächlichen Tarifs zwischen dem offiziellen Self-hosted Runner für Team/Enterprise und dem CLI-/systemd-Weg. Beide Wege dürfen dieselben redaktionellen Aufgaben nicht gleichzeitig ausführen.
+
+Erstelle anschließend den ersten konkreten Infrastruktur-PR mit Bestandsaufnahme, Architekturentscheidung, reproduzierbarer Konfiguration, Prüfungen und Migrations-/Rückweg. Setze die weiteren Phasen nacheinander um. Die Dateien mit .example im Namen sind Vorlagen; fehlende Programme, Zugänge und Versionswerte sind zu implementieren bzw. zu verifizieren, nicht als bereits vorhanden zu behandeln.
+
+Erhalte GitHub Pages, vorhandene Skripte und Actions, Inhaltskontingente, unabhängige Prüfung, Qualitätsbremse, Klasse-C-Verfahren und bestehende Betreiberentscheidungen. Der Autor kann nicht selbst veröffentlichen. Quellenzugriff, Gerätebelege, Kostenbuch und externe Vorgänge müssen nachprüfbar sein. Mehr Automatisierung ist kein Auftrag für zusätzliche ungeprüfte Inhalte.
+
+Arbeite ohne pauschale Rechteumgehung und ohne root im redaktionellen Betrieb. Bündele fehlende Kontozugriffe, Architekturentscheidungen und Budgets in einer kurzen Einrichtungsliste. Erfinde keine Zugangsdaten, keine Endpoint-Adressen und keine Testergebnisse. Bis ein Startkonfigurationswert freigegeben ist, bleiben die davon abhängigen kostenpflichtigen oder produktiv schreibenden Schritte deaktiviert; unabhängige Implementierung und lokale Tests führst du weiter.
+
+Berichte nach jeder Phase knapp: konkret geliefert, tatsächlich geprüft, Belege/PRs, verbleibender Engpass und nächster Schritt. Erkläre einen Produktivbetrieb erst nach einem vollständigen Pilotlauf und den Abnahmetests des Plans für betriebsbereit.
