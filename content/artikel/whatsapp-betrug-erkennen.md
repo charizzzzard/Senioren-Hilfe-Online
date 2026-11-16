@@ -5,22 +5,21 @@ beschreibung: "Angeblich schreibt Ihr Kind von einer neuen Nummer und braucht dr
 keyword: "whatsapp betrug"
 kategorie: sicherheit
 veroeffentlicht: 2026-10-30
-aktualisiert: 2026-11-10
+aktualisiert: 2026-11-16
 geprueft: 2026-11-10
 alte_urls:
   - /artikel/whatsapp-betrug-checkliste/
 kurz_gesagt: |
   Schreibt jemand „Hallo Mama“ oder „Hallo Papa“ von einer **neuen Nummer** und bittet bald um Geld, ist besondere Vorsicht geboten.
-  **Überweisen Sie nichts** und rufen Sie Ihr Kind oder Enkelkind unter der **alten, bekannten Nummer** an. Ist die Nachricht falsch: Bildschirmfoto machen, Nummer blockieren und melden, die Polizei informieren.
+  **Überweisen Sie nichts** und rufen Sie Ihr Kind oder Enkelkind unter der **alten, bekannten Nummer** an. Ist die Nachricht falsch: Nummer blockieren und melden, die Polizei informieren und erst danach den Chat löschen.
 checkliste_titel: "Checkliste: Verdächtige WhatsApp-Nachricht"
 checkliste:
   - Ich antworte nicht sofort und lasse mich nicht drängen.
   - Ich überweise kein Geld und gebe keine Codes oder Passwörter weiter.
   - Ich rufe die Person unter der alten, mir bekannten Nummer an.
   - Ich speichere eine neue Nummer erst, wenn ich sie so geprüft habe.
-  - Ist es Betrug, mache ich ein Bildschirmfoto vom Chat.
-  - Dann blockiere und melde ich die Nummer und informiere die Polizei.
-  - Habe ich schon Geld überwiesen, rufe ich sofort meine Bank an.
+  - Ist es Betrug, blockiere und melde ich die Nummer und informiere die Polizei.
+  - Habe ich schon Geld überwiesen, rufe ich sofort meine Bank an und sichere den Chat mit Bildschirmfotos.
 quellen:
   - herausgeber: Polizeiliche Kriminalprävention der Länder und des Bundes
     titel: Messenger-Betrug
@@ -99,10 +98,9 @@ text: >
 
 Stellt sich heraus, dass die Nachricht nicht aus Ihrer Familie kommt, gehen Sie so vor:
 
-1. **Bildschirmfoto machen.** Sichern Sie den Chat, bevor Sie etwas löschen. Das hilft später der Polizei.
-2. **Nummer blockieren und melden.** Dann kann Ihnen diese Nummer nicht mehr schreiben. Wie das geht, zeigt unsere Anleitung [WhatsApp-Kontakt blockieren und melden](/artikel/whatsapp-kontakt-blockieren/).
-3. **Polizei informieren.** Die Polizei rät, solche Vorfälle zu melden – auch wenn nichts passiert ist.
-4. **Chat löschen.** Erst ganz zum Schluss.
+1. **Nummer blockieren und melden.** Dann kann Ihnen diese Nummer nicht mehr schreiben. Wie das geht, zeigt unsere Anleitung [WhatsApp-Kontakt blockieren und melden](/artikel/whatsapp-kontakt-blockieren/).
+2. **Polizei informieren.** Die Polizei rät, solche Vorfälle zu melden – auch wenn nichts passiert ist.
+3. **Chat löschen.** Erst ganz zum Schluss.
 
 Und noch etwas: Schreiben oder telefonieren Sie nicht mit den Betrügern, auch nicht zum Spaß. Die Polizei rät ausdrücklich davon ab.
 

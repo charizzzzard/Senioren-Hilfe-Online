@@ -60,9 +60,6 @@ belege:
   - aussage: "Vorfall der Polizei melden"
     quelle: https://www.polizei-beratung.de/themen-und-tipps/betrug/messenger/
     zitat: "Melden Sie den Vorfall der Polizei. Nur so erhält die Polizei Hinweise auf Fallzahlen und Schadenssummen"
-  - aussage: "Chat sichern (Bildschirmfoto), bevor man etwas löscht"
-    quelle: https://faq.whatsapp.com/1142481766359885/?locale=de_DE&cms_platform=android
-    zitat: "Es empfiehlt sich, Screenshots zu erstellen oder eine Kopie deines Chatverlaufs zu sichern."
   - aussage: "Blockierte Nummern können nicht mehr schreiben"
     quelle: https://faq.whatsapp.com/1142481766359885/?locale=de_DE&cms_platform=android
     zitat: "Blockierte Kontakte oder Telefonnummern können dich nicht mehr anrufen oder dir Nachrichten senden."
@@ -79,6 +76,9 @@ belege:
   - aussage: "Sofort die Bank anrufen – in einigen Fällen kann das Geld zurückgeholt werden"
     quelle: https://www.polizei-beratung.de/themen-und-tipps/betrug/messenger/
     zitat: "kontaktieren Sie ihr Geldinstitut, in einigen Fällen kann das Geld zurück geholt werden"
+  - aussage: "Chat sichern gilt laut Polizei für den Fall „schon Geld überwiesen“ (Abschnitt dazu, Checkliste) – nicht als Schritt unter „Wenn es Betrug ist“"
+    quelle: https://www.polizei-beratung.de/themen-und-tipps/betrug/messenger/
+    zitat: "Der Betrug war erfolgreich und Sie haben bereits Geld überwiesen?"
   - aussage: "Den ganzen Chat sichern, zum Beispiel mit Bildschirmfotos"
     quelle: https://www.polizei-beratung.de/themen-und-tipps/betrug/messenger/
     zitat: "Sichern Sie den gesamten Chatverlauf, z.B. durch Screenshots."
