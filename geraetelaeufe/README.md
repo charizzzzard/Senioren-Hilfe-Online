@@ -26,7 +26,7 @@ Mobile Next nennt je nach Tarif sieben, dreißig oder mehr Tage Aufbewahrung. Di
 
 Die Protokolle vom 16.11. sind aus den verlinkten PR-Berichten übernommen. Ihre `herkunft.art` kennzeichnet diese Übertragung. Bestätigte Beobachtungen, offene Punkte und unbekannte Werte bleiben unverändert; eine erneute eigene Gerätesichtung wird nicht behauptet.
 
-**Ihre Bilder sind noch nicht exportiert.** Deshalb stehen `herkunft.bildexport: ausstehend` und `bilder: []` in beiden Dateien. Sie sind dauerhafte Berichtsbelege, noch kein vollständiges Screenshot-Archiv. Die verbundene Claude-Session soll die bestehenden Anbieterbilder sichern, ohne neu zu reservieren. Sind sie nicht mehr erreichbar, wird das vermerkt.
+**Bildexport (16.11.2026):** Die vier beim Anbieter gespeicherten Screenshots der beiden Läufe sind ohne neue Reservierung exportiert, byte-identisch mit den Downloads während der Läufe und unverändert abgelegt (`static/img/geraetetest/<lauf-id>/`, Prüfsummen und Maße im Protokoll). Mehr hat der Anbieter für diese Sitzungen nicht gespeichert; Elementlisten und Aufrufverlauf wurden nicht exportiert. Für mehrere Fälle gibt es deshalb kein Bild – das steht unter `grenzen`. Die Anbieterkopien laufen laut Anbieter am 16.12.2026 ab.
 
 ## Bild-Metadaten nach einem tatsächlichen Import
 
