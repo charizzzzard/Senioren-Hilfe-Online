@@ -1,0 +1,84 @@
+schema_version: 1
+id: 2026-11-16-a56-schriftgroesse-02
+datum: '2026-11-16'
+anbieter: Mobile Next
+testart: automatisierter Realgerätetest
+herkunft:
+  art: uebertragener_pr_bericht
+  quelle: https://github.com/charizzzzard/Senioren-Hilfe-Online/pull/48#issuecomment-6917886141
+  bildexport: ausstehend
+  hinweis: Bericht übernommen; private Rohbelege hier nicht erneut geprüft.
+text:
+  pfad: content/artikel/schrift-groesser-stellen.md
+  commit: 64f33f6e3c70743c04b1968abca2c1dcd4709417
+  blob: 48ea1ef20a951a4fbcbccd7549231ed8e7cfb4d8
+  abschnitt: Auf einem Android-Handy, einschließlich Checkliste
+geraet:
+  plattform: android
+  modell: Galaxy A56
+  modellcode: SM-A566U1
+  variante: US-Modell
+  system: Android 15
+  oberflaeche: null
+  sprache: Deutsch (Deutschland)
+  app_version: null
+abdeckung: Teilprüfung des Samsung-Kernpfads; kein vollständiger Artikeltest.
+zeit:
+  gesamt_s: 266
+  bereitstellung_s: 34
+  sprachwechsel_s: 71
+  test_s: 88
+  rueckstellung_ca_s: 70
+  berechtigungspausen: Keine erkennbar; nur an Phasengrenzen gemessen.
+kosten:
+  usd: 0
+  freie_minuten_vorher: 95
+  freie_minuten_nachher: 90
+  verbrauch_freiminuten: 5
+  hinweis: Kein Abo, Mehrverbrauchsgrenze 0 USD laut Bericht.
+rueckstellung:
+  sprache: Englisch wiederhergestellt und Deutsch entfernt, laut Bericht.
+  schriftgroesse: Regler auf Ausgangswert zurückgestellt, Vorschau wie zuvor.
+  sonstige_werte: Kein vollständiger Vorher-Nachher-Vergleich aller möglicherweise berührten Einstellungen.
+  reservierung_beendet: true
+faelle:
+  - id: t1-appname
+    aussage: Die App heißt Einstellungen.
+    beobachtung: Beschriftung in der App-Liste gelesen; Symbol nicht bewertet.
+    status: confirmed
+  - id: t2-sucheinstieg
+    aussage: Oben auf die Lupe oder das Suchfeld tippen und Schriftgröße eingeben.
+    beobachtung: Eingabefeld nach Öffnen unten. Deutsche Einstellungen-Startseite und Lupe nicht neu vollständig geprüft.
+    status: not_tested
+  - id: t3-suchtreffer
+    aussage: Die Suche nach Schriftgröße führt zur passenden Systemeinstellung.
+    beobachtung: Treffer unter Anzeige öffnet Schriftgröße und -stil; weiterer Treffer Schriftgröße gehört zur Samsung-Tastatur.
+    status: confirmed
+  - id: t4-regler
+    aussage: Verschieben des Reglers vergrößert die Vorschau.
+    beobachtung: Acht Stufen; eine Stufe nach rechts vergrößert sichtbar den Vorschautext.
+    status: confirmed
+  - id: t5-seitentitel
+    aussage: Die Seite heißt Schriftgröße und -stil.
+    beobachtung: Seitentitel wörtlich gelesen.
+    status: confirmed
+  - id: t6-schalter
+    aussage: Der Schalter heißt Fettschrift.
+    beobachtung: Auf diesem Gerät Fette Schriftart; Quelle Samsung Österreich nennt Fettschrift. Ursache der Abweichung nicht geklärt.
+    status: mismatch
+  - id: t7-rueckweg
+    aussage: Zurückschieben stellt den Ausgangswert wieder her.
+    beobachtung: Eine Stufe zurück, Regler und Vorschau wie zuvor.
+    status: confirmed
+  - id: t8-checkliste
+    aussage: Nach dem vollständigen Begriff Schriftgröße und -stil suchen.
+    beobachtung: Nur mit Schriftgröße gesucht, nicht mit dem vollständigen Checklisten-Begriff.
+    status: not_tested
+grenzen:
+  - One-UI-Version dieser Einheit nicht abgelesen; 7.0 der ersten Einheit wird nicht übernommen.
+  - Modellvariante und Sprache dokumentiert; keine Gleichheit sämtlicher deutscher Geräte behauptet.
+  - Zwei Fehltipps mit veralteten Element-Referenzen; kein vollständiger Vergleich der Verbindungsschalter.
+  - Bildschirmaufnahme, Gerätelogs, Fettschrift-Wirkung und alle anderen Artikelabschnitte nicht geprüft.
+  - Screenshots vorher/nachher laut Quellbericht beim Anbieter; kein lokaler Bildexport vorhanden.
+folge: https://github.com/charizzzzard/Senioren-Hilfe-Online/issues/52
+bilder: []

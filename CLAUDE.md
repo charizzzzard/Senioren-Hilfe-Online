@@ -48,6 +48,7 @@ content/seiten/*.md        Über uns, Kontakt, Impressum, Datenschutz
 content/themenplan.yaml    Priorisierte Themenliste – Quelle für die nächsten Artikel
 content/echt-check.yaml    Fragen, Ergebnisse und Quellen des „Ist das echt?“-Checks (/ist-das-echt/)
 content/belege/            Belegtabellen: jede Aussage eines Textes mit wörtlichem Zitat (docs/BETRIEB.md, Abschnitt 5)
+geraetelaeufe/             bereinigte dauerhafte Laufprotokolle; reale Bilder unter static/img/geraetetest/
 templates/                 Jinja2-Vorlagen (base, start, artikel, kategorie, seite, 404)
 static/                    CSS, Bilder, Favicon – wird 1:1 nach _site kopiert
 tools/build.py             Baut _site/ (Sitemap, robots.txt, Feed, JSON-LD, Weiterleitungen)
@@ -208,8 +209,10 @@ Die Animation läuft nur kurz, wenn die Szene ins Bild kommt, und entfällt bei 
 
 - **Keine KI-generierten Screenshots** und keine fotorealistischen Nachbildungen echter App-Oberflächen: Bildgeneratoren
   erfinden Beschriftungen – falsche Knöpfe verwirren genau unsere Leser.
-- Stattdessen **nachgebaute Bildschirme** als Code (siehe unten): Sie zeigen nur Beschriftungen, die gegen die Hersteller-Hilfe
-  geprüft sind, und sind als „Vereinfachte Darstellung“ gekennzeichnet.
+- Für Geräteanleitungen bevorzugen wir **echte, passende Screenshots** aus dem Laufarchiv `geraetelaeufe/`.
+  Die bestehende `bildschirm`-Komponente referenziert sie über `screenshot: {lauf: …, bild: …}` (Syntax im Archiv-README).
+  Noch nicht ersetzbare **nachgebaute Bildschirme** bleiben als „Vereinfachte Darstellung“ gekennzeichnet und zeigen
+  nur gegen die Hersteller-Hilfe geprüfte Beschriftungen. Bei regulären Überarbeitungen passende reale Bilder einsetzen.
 - **Echte Screenshots** stammen vom Betreiber oder aus einem nachvollziehbar dokumentierten realen Cloud-Gerätetest
   nach `docs/GERAETETESTS.md`. Persönliche Daten vorher entfernen, Gerät/Version/Sprache und Testart zuordnen;
   Veröffentlichung nur als geprüfter Inhalts-PR. Keine generierten App-Oberflächen als Screenshot ausgeben.

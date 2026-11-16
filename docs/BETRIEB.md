@@ -158,7 +158,7 @@ Jeden Mittwoch bis zu drei Texte – und zusätzlich jeden Montag, solange noch 
 „älteren Texte ohne Belegtabelle“ mehr meldet). Beide Läufe starten abends nach der Freigabe: So ist der Pull Request
 des vorigen Laufs im Regelfall schon gemergt, und zwei Nachprüfungen hängen nicht gleichzeitig Einträge an den
 Fehlerkatalog an. Reihenfolge:
-1. Texte mit Befund aus `tools/belegcheck.py` oder einem offenen `wartung`-/`feedback`-Issue,
+1. Texte mit Befund aus `tools/belegcheck.py`, einem offenen `wartung`-/`feedback`-Issue oder einem `geraetetest`-Issue mit konkretem Befund zu einem Text,
 2. Texte ohne Belegtabelle,
 3. Texte mit dem ältesten `geprueft`.
 
@@ -174,7 +174,9 @@ betroffene Texte vorziehen.
 
 **Gerätetests:** Standard ist `docs/GERAETETESTS.md`. Der Betreiber hat Mobile Next am 16.11.2026 als bevorzugte
 Quelle für reale Cloud-Geräte im vorhandenen kostenlosen Kontingent freigegeben: höchstens acht Minuten je Sitzung,
-0 USD zusätzliche Gerätekosten, keine neue Einzelgenehmigung für jeden vorbereiteten Routinelauf. Zusätzliche
+0 USD zusätzliche Gerätekosten, keine neue Einzelgenehmigung für jeden vorbereiteten Routinelauf. Dauerhafte, bereinigte
+Laufprotokolle und Bildzuordnungen stehen in `geraetelaeufe/` (Format im README); freigegebene Screenshots in
+`static/img/geraetetest/`. Vor einer neuen Buchung vorhandene Belege abgleichen; temporäre Anbieter-Links genügen nicht als Dauersicherung. Zusätzliche
 Kosten oder Verträge bleiben eine eigene Entscheidung.
 
 Bereits passende Belege werden nicht monatlich neu abgefragt oder getestet. Konkrete Befunde, relevante Menüänderungen
