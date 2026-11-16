@@ -1,7 +1,8 @@
 # Belegtabelle für content/artikel/woche-im-netz-2026-kw46.md (Format: docs/BETRIEB.md, Abschnitt „Belegtabelle“)
 # Prüfen: python tools/belegcheck.py woche-im-netz-2026-kw46
 # Hinweis: Einträge des Phishing-Radars wandern nach einigen Tagen ins Archiv (https://www.verbraucherzentrale.de/phishingradar-archiv-71872).
-geprueft: 2026-11-13
+# 16.11.2026 (Nachprüfung): Deutsche-Bank-Eintrag vom 6. November steht nur noch im Archiv – Belege umgestellt.
+geprueft: 2026-11-16
 belege:
   # ---------------------------------------------------------------- Meldung 1: Consorsbank, easybank, PayPal
   - aussage: "12. November: Mail im Namen der Consorsbank"
@@ -75,30 +76,33 @@ belege:
     quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/phishingradar/phishingradar-aktuelle-warnungen-6059
     zitat: "unbeantwortet in den Spam-Ordner zu verschieben und keinesfalls auf enthaltene Links zu klicken. Falls Sie CHECK24 nutzen"
   - aussage: "6. November: Mail im Namen der Deutschen Bank"
-    quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/phishingradar/phishingradar-aktuelle-warnungen-6059
+    quelle: https://www.verbraucherzentrale.de/phishingradar-archiv-71872
     zitat: "06. November 2026: Vermeintliche Aktualisierung der Stammdaten im Namen der Deutschen Bank"
   - aussage: "Betreff „Dokumentenprüfung zur Einhaltung der Geldwäscheverordnung!“"
-    quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/phishingradar/phishingradar-aktuelle-warnungen-6059
+    quelle: https://www.verbraucherzentrale.de/phishingradar-archiv-71872
     zitat: "Dokumentenprüfung zur Einhaltung der Geldwäscheverordnung!"
   - aussage: "Ausweis- oder Passkopie, Adressnachweis und Steueridentifikationsnummer einreichen"
-    quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/phishingradar/phishingradar-aktuelle-warnungen-6059
+    quelle: https://www.verbraucherzentrale.de/phishingradar-archiv-71872
     zitat: "eine Kopie des Personalausweises oder Reisepasses, ein aktueller Adressnachweis und die Steueridentifikationsnummer eingereicht werden"
   - aussage: "Über einen Link hochladen"
-    quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/phishingradar/phishingradar-aktuelle-warnungen-6059
+    quelle: https://www.verbraucherzentrale.de/phishingradar-archiv-71872
     zitat: "innerhalb von 14 Tagen über einen Link in einem angeblich verschlüsselten KYC-Portal hochgeladen werden"
   - aussage: "Angedroht: Kontosperrung und Ende der Geschäftsbeziehung"
-    quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/phishingradar/phishingradar-aktuelle-warnungen-6059
+    quelle: https://www.verbraucherzentrale.de/phishingradar-archiv-71872
     zitat: "eine automatische Kontosperrung ab dem 15. Tag, eine Beendigung der Geschäftsbeziehung ab dem 30. Tag"
   - aussage: "Anzeichen: Aufforderung zur Übermittlung sensibler Dokumente"
-    quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/phishingradar/phishingradar-aktuelle-warnungen-6059
+    quelle: https://www.verbraucherzentrale.de/phishingradar-archiv-71872
     zitat: "Aufforderung zur Übermittlung sensibler Dokumente"
   - aussage: "Rat: solche Aufforderungen ignorieren, um sensible Daten zu schützen"
-    quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/phishingradar/phishingradar-aktuelle-warnungen-6059
+    quelle: https://www.verbraucherzentrale.de/phishingradar-archiv-71872
     zitat: "Wir raten Ihnen, solche Aufforderungen zu ignorieren und Phishing-Mails unbeantwortet in den Spam-Ordner zu verschieben, um Ihre sensiblen Daten zu schützen."
+  - aussage: "Rat: Hinweise nur in der offiziellen App oder auf der bekannten Internetseite prüfen (Deutsche Bank)"
+    quelle: https://www.verbraucherzentrale.de/phishingradar-archiv-71872
+    zitat: "prüfen Sie entsprechende Hinweise ausschließlich über die offizielle Banking-App oder die bekannte Internetseite der Bank"
   # ---------------------------------------------------------------- Meldung 3: Apple-Updates
   - aussage: "9. November: iOS 27.2.1 für iPhone 11 und neuer"
     quelle: https://support.apple.com/de-de/100100
-    zitat: "iPhone 11 und neuer, iPad Pro (12,9″, 4. Generation und neuer)"
+    zitat: 'iPhone 11 und neuer, iPad Pro (12,9", 4. Generation und neuer)'
   - aussage: "iOS 27.2.1 veröffentlicht am 9. November 2026"
     quelle: https://support.apple.com/de-de/149715
     zitat: "Veröffentlicht am 9. November 2026"

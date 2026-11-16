@@ -91,7 +91,11 @@ def main() -> int:
             grund = texte.get(url, {}).get("fehler", "nicht geladen")
             probleme.append((name, "NICHT ERREICHBAR", b, grund))
         elif not any(normal(zitat) in t for t in normiert[url]):
-            probleme.append((name, "ZITAT FEHLT", b, ""))
+            status = texte.get(url, {}).get("status")
+            if isinstance(status, int) and status >= 400:  # z. B. 403: Seite sperrt den Abruf, Inhalt unbekannt
+                probleme.append((name, "NICHT ERREICHBAR", b, f"HTTP {status}"))
+            else:
+                probleme.append((name, "ZITAT FEHLT", b, ""))
 
     for name, art, b, grund in probleme:
         print(f"{art}: {name} – {b.get('aussage', '')[:70]}\n    Quelle: {b.get('quelle')}\n    Zitat:  „{b.get('zitat', '')[:120]}“"
