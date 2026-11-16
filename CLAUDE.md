@@ -210,7 +210,9 @@ Die Animation läuft nur kurz, wenn die Szene ins Bild kommt, und entfällt bei 
   erfinden Beschriftungen – falsche Knöpfe verwirren genau unsere Leser.
 - Stattdessen **nachgebaute Bildschirme** als Code (siehe unten): Sie zeigen nur Beschriftungen, die gegen die Hersteller-Hilfe
   geprüft sind, und sind als „Vereinfachte Darstellung“ gekennzeichnet.
-- **Echte Screenshots** liefert nur der Betreiber; persönliche Daten vorher entfernen.
+- **Echte Screenshots** stammen vom Betreiber oder aus einem nachvollziehbar dokumentierten realen Cloud-Gerätetest
+  nach `docs/GERAETETESTS.md`. Persönliche Daten vorher entfernen, Gerät/Version/Sprache und Testart zuordnen;
+  Veröffentlichung nur als geprüfter Inhalts-PR. Keine generierten App-Oberflächen als Screenshot ausgeben.
 - **Illustrationen** (Stimmungsbilder im Netzleicht-Stil) dürfen KI-generiert sein, wenn klar illustrativ, ohne reale Personen
   und ohne nachgebildete Bedienoberflächen. Ablage als WebP unter `static/img/`, immer mit Alternativtext.
 
@@ -326,6 +328,15 @@ unabhängige Faktenprüfung und erst danach live – Klasse C nach einer Einspru
 Push-Nachrichten gehen über `tools/push.py` (ntfy). Nie direkt auf `main` pushen.
 Jeder gefundene Fehler kommt in `docs/fehlerkatalog.yaml`; bei zwei sachlichen Live-Fehlern in 28 Tagen greift die
 Qualitätsbremse (nur noch Korrekturen, `docs/BETRIEB.md` Abschnitt 9).
+
+### Gezielte Gerätetests
+
+Der Betreiber hat am 16.11.2026 Mobile Next als bevorzugte Quelle für digitale Gerätetests im bestehenden kostenlosen
+Kontingent freigegeben. Standard: `docs/GERAETETESTS.md`. Vor Reservierung Quellen und Prüfpaket vorbereiten;
+bereits passende Belege wiederverwenden, nur offene Aussagen testen. Höchstens acht Minuten je Sitzung,
+0 USD zusätzliche Gerätekosten; kein kostenpflichtiger Mehrverbrauch. Innerhalb dieses Rahmens keine erneute
+Einzelgenehmigung erfragen. Neue Kosten brauchen eine eigene Betreiberentscheidung. Tatsächliche Connector-Verfügbarkeit
+je ausführendem Lauf prüfen; keine Sitzung buchen, wenn Zugang oder Vorbereitung fehlen. Autoren-/Prüfertrennung bleibt.
 
 ### Content-Session (geplant 2× pro Woche)
 
