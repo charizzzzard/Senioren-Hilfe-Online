@@ -37,11 +37,20 @@ Ausnahme: Den Montag der Nachprüfung erwartet das Werkzeug ohnehin nur, solange
    Aufgaben und in der ntfy-App des Betreibers).
 3. Zeitplan aus der Tabelle eintragen, Zeitzone Europe/Berlin.
 4. Repository `charizzzzard/Senioren-Hilfe-Online` hinterlegen und den Connector OpenSEO hinzufügen
-   (`docs/BETRIEB.md` Abschnitt 10) – ohne hinterlegtes Repository hat der Lauf keine GitHub-Werkzeuge.
+   (`docs/BETRIEB.md` Abschnitt 10) – ohne hinterlegtes Repository hat der Lauf keine GitHub-Werkzeuge. Mobile Next nur bei den
+   Aufgaben hinterlegen, die Gerätetests ausführen sollen (Stand 16.11.2026: bei keiner).
 5. Jeder Lauf soll eine neue Session starten (nicht dieselbe fortsetzen).
 
 ## Änderungen
 
+- **16.11.2026 – Nachprüfung, neuer Artikel:** Gerätetests nach `docs/GERAETETESTS.md` (Standard v1, PR #48).
+  Nachprüfung (Schritt 4a) und neuer Artikel (Schritt 5a) reservieren ein Mobile-Next-Gerät nur, wenn die Werkzeuge im Lauf
+  verfügbar sind und ein Prüfpaket vorliegt – eine Sitzung, höchstens 8 Minuten, 0 USD; sonst keine Reservierung, der Handgriff
+  kommt in die Geräte-Prüfliste. Die Nachprüfung nimmt offene `geraetetest`-Issues mit konkretem Befund auf (Schritt 2, Punkt a).
+  Die monatliche Wartung bleibt unverändert (monatliche Geräte-Prüfliste, CLAUDE.md Abschnitt 7). Connector-Stand am
+  16.11.2026: Alle sieben Aufgaben haben nur OpenSEO hinterlegt; ein geplanter Lauf startet mit `github`, `OpenSEO` und
+  `claude-code-remote` – Mobile Next ist in keiner Aufgabe verfügbar. Kein neuer Zeitplan. Anlass: Auftrag des Betreibers vom
+  16.11.2026 nach dem Samsung-Pilot.
 - **14.11.2026 – Faktenprüfung, Freigabe:** `gelesen` bleibt gültig, solange nach dem Setzen kein Commit dazukommt
   (`tools/gelesen.py`). Die Faktenprüfung entfernt nur noch veraltete Labels; die Freigabe entfernt keine mehr und merged
   vorzeitig nur bei „gültig“. Anlass: Der Betreiber hatte #35 und #36 schon vor der Prüfung gelesen – nach der alten Regel
