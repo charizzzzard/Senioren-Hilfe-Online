@@ -1,10 +1,10 @@
 # Digitaler Geräte-Pilot: Samsung über Remote-MCP
 
-Stand: 16.11.2026. Ausführbarer Erkundungsauftrag, noch kein durchgeführter Gerätetest. Ein eigener VPS oder neuer Zeitplan ist dafür nicht erforderlich. Inhaltliche Korrekturen gehen weiterhin durch die unabhängige Faktenprüfung.
+Stand: 16.11.2026. Der erste technische Erkundungslauf ist abgeschlossen: teilweise geeignet. Die verbindliche Artikelprüfung steht noch aus. Ein eigener VPS oder neuer Zeitplan ist dafür nicht erforderlich. Inhaltliche Korrekturen gehen weiterhin durch die unabhängige Faktenprüfung.
 
 ## 1. Der kleinste nächste Schritt
 
-Mobile Next bietet einen gehosteten MCP-Endpunkt für reale Cloud-Geräte. Er lässt sich direkt mit Claude Web oder Claude Code verbinden. Für Netzleicht wird zuerst der kostenlose Einstieg ohne Kreditkarte verwendet. Der Betreiber hat noch kein Konto und übernimmt Kontoanlage und OAuth-Autorisierung im eigenen Browser. Keine Zugangsdaten in GitHub oder in diesen Auftrag schreiben.
+Mobile Next bietet einen gehosteten MCP-Endpunkt für reale Cloud-Geräte. Er lässt sich direkt mit Claude Web oder Claude Code verbinden. Für Netzleicht wurde ein kostenloses Startkontingent autorisiert und der erste Lauf durchgeführt. Die folgende Einrichtung bleibt für eine Wiederherstellung dokumentiert; sie muss nicht erneut angelegt werden. Ein Abo besteht laut Pilot-Kommentar nicht, kostenpflichtiger Mehrverbrauch ist auf 0 USD gedeckelt. Ob eine Karte hinterlegt ist, war über die Werkzeuge nicht einsehbar. Keine Zugangsdaten in GitHub oder in diesen Auftrag schreiben.
 
 Remote-Endpunkt:
 
@@ -26,7 +26,7 @@ Dann den angebotenen OAuth-Weg verwenden; verfügbare CLI-Befehle an der install
 
 | Quelle | Belegter Nutzen | Grenze / Entscheidung |
 |---|---|---|
-| Mobile Next Remote-MCP | Reale Android-/iOS-Geräte, gehosteter Connector und kostenlose Erkundung | Erste Wahl für diesen Pilot; freie deutsche Einstellungen und tatsächliche Verfügbarkeit erst am Konto/Gerät prüfen |
+| Mobile Next Remote-MCP | Reale Android-/iOS-Geräte, gehosteter Connector und kostenlose Erkundung | Englische Einstellungen am US-Galaxy A56 erreichbar; Deutsch, tatsächliche Änderungen und Übertragbarkeit auf EU-Geräte offen |
 | Samsung Remote Test Lab | Reale Samsung-Geräte, Bildschirmsteuerung und dokumentierte RDB-/ADB-Verbindung | Rückfalloption; Samsung-Konto, Reservierung und die MCP-Anbindung sind gesondert zu erproben |
 | BrowserStack App Live | Reale Geräte und dokumentierte Geräteeinstellungen | Kein erster Kauf: System-Apps sind je nach Plattform/Gerät/Sitzung eingeschränkt; iOS-Settings nicht frei wie am Privatgerät |
 | Android-Emulator mit Samsung-Skin | Hilft bei allgemeinen Android-/Website-Tests | Kein Beweis für One-UI-Menüs auf einem realen Samsung |
@@ -37,11 +37,11 @@ Quellen: [Mobile Next Cloud](https://mobilenext.ai/docs/cloud/introduction), [Sa
 
 Laut [Preisseite vom 16.11.2026](https://mobilenext.ai/pricing) bietet Hobby zehn Minuten täglich und eine gleichzeitige Sitzung, ohne Kreditkarte. Abgerechnet wird die Reservierungszeit mit einem Minimum von fünf Minuten. Kostenpflichtiges Starter wird mit 29 USD/Monat und 200 Minuten beschrieben, Mehrverbrauch mit 0,15 USD/Minute; das ist kein hier freigegebener Tarif. Die Seite nennt außerdem eine kostenlose Registrierungserprobung, deren tatsächliche Zuteilung im Konto zu prüfen ist.
 
-Für diesen Pilot: **0 Euro zusätzliche Gerätekosten**, keine Karte, kein Abo, kein Mehrverbrauch. Vor Reservierung den tatsächlich aktiven Tarif und Restminuten im Konto prüfen: Hobby oder ein kartenloses Testkontingent mit gesperrtem kostenpflichtigem Mehrverbrauch. Modellnutzung bleibt beim vorhandenen Claude-Konto und ist von Geräteminuten zu unterscheiden.
+Für diesen Pilot und den Folgeauftrag: **0 USD zusätzliche Gerätekosten**, kein Aboabschluss, keine neue Kartenhinterlegung, kein kostenpflichtiger Mehrverbrauch. Der erste Lauf nutzte das kostenlose Startkontingent unter dem Tarifnamen `starter`, ohne Abo und mit Mehrverbrauchsgrenze 0 USD. Der Name allein beweist keine kostenpflichtige Buchung. Vor jeder neuen Reservierung aktiven Vertragsstatus, Kostenbegrenzung und Restminuten erneut prüfen; 95 freie Minuten waren der Stand nach dem ersten Lauf, kein dauerhaft garantierter Bestand. Der Kartenstatus bleibt ohne Dashboard-Prüfung unbekannt. Modellnutzung bleibt beim vorhandenen Claude-Konto und ist von Geräteminuten zu unterscheiden.
 
 Zuerst Konto, Berechtigung, Tool-Schemas und Katalog prüfen; erst dann eine Reservierung. Eine neue Sitzung, Ziel höchstens acht Minuten einschließlich Bereitstellung; die Vorbereitung muss vorher abgeschlossen sein. Timer vor der Reservierung starten, bei unerwarteter Abrechnung oder knappem Kontingent stoppen. Wenn keine geeignete Konfiguration verfügbar ist, berichten statt mehrere Geräte durchzuprobieren.
 
-## 4. Erster Auftrag an die interaktive Claude-Session
+## 4. Katalog und Kontingent vor der Reservierung
 
 > Untersuche für Netzleicht den verbundenen Remote-MCP `mobilenext`. Lies zuerst die aktuell verfügbaren Tool-Schemas. Liste über `mobilenext_list_available_devices` den Gerätekatalog und schon reservierte Geräte. Reserviere in diesem ersten Schritt noch nichts. Melde passende reale Samsung-Modelle, Android-Versionen, bekannte Beschränkungen und ob Tarif/Restminuten tatsächlich einsehbar sind. Erfinde fehlende Angaben nicht. Verwende die `mobilenext_*`-Werkzeuge dieses Remote-Connectors; die `mobile_*`-Namen des lokalen Open-Source-Servers sind ein anderer Zugang.
 
@@ -63,26 +63,52 @@ Der Anbieter dokumentiert asynchrone Bereitstellung und eine automatische Freiga
 
 **Ergebnis des ersten Laufs:** `geeignet`, `teilweise geeignet` oder `blockiert`, jeweils mit konkreten beobachteten Fähigkeiten. Keine neue Serverarchitektur und noch keine Website-Änderung.
 
-## 6. Danach: Artikelprüfung nach dem Merge von #38
+## 6. Folgeauftrag: Deutsch und Samsung-Kernpfad nach #38
 
-PR #38 verändert „Schrift größer stellen“ und ist am Abrufzeitpunkt noch offen. Der technische Geräte-Erkundungslauf kann jetzt stattfinden; die verbindliche Artikelprüfung verwendet erst anschließend den dann aktuellen, veröffentlichten Text und dessen genaue Commit-SHA. Alternativ ist ein Test einer ausdrücklich benannten PR-SHA ein Vorabtest und gilt nicht pauschal für spätere Änderungen.
+**Startbedingung:** #38 ist tatsächlich gemergt und erfolgreich veröffentlicht. Am 16.11.2026 ist der PR beim Abruf noch offen. Bis zum Merge keine Artikelprüfung starten und keinen konkurrierenden Korrektur-PR anlegen. Konto-/Katalogprüfung und Vorbereitung können ohne Reservierung erfolgen; es wird hier keine neue geplante Aufgabe eingerichtet.
 
-Prüfauftrag: Voraussetzungen → jeder im Text beschriebene sichtbare Handgriff → wörtliche Menübeschriftungen → sichtbare Veränderung der Schrift → benannter Sollzustand → Rückweg. Nicht durch ADB-Settings, Deep Links oder eine andere gefundene Route abkürzen. Ein allgemeiner Android-Test bestätigt keinen Samsung-spezifischen Weg.
+Vor der Reservierung die aktuelle `main`-Commit-SHA und die Blob-SHA von `content/artikel/schrift-groesser-stellen.md` notieren. Den Text nur aus dieser festen Revision lesen. Prüfliste, Tool-Schemas, Restkontingent und Timer vorher vorbereiten; späteren Änderungen dürfen die Befunde nicht pauschal zugeordnet werden.
 
-Pro Aussage erfassen:
+**Prüfumfang dieses einen Laufs:** der dann vorhandene Android-/Samsung-Kernabschnitt zur System-Schriftgröße einschließlich seiner Kurzfassung und Checklisten-Punkte. Priorität: Einstellungen öffnen → Lupe/Suchfeld → den im Text genannten Suchbegriff eingeben → den tatsächlichen Treffer lesen → Schriftgrößen-Regler und Vorschau → ursprüngliche Stellung wiederherstellen. Nicht per schon bekanntem Pfad „Display“ an der zu prüfenden Suche vorbeigehen. Abweichungen wörtlich notieren, ohne den Text während des Tests zu korrigieren. Fettschrift nur bei verbleibender Zeit als getrennten Untertest behandeln.
 
-- genaue Text-SHA und Abschnitt;
-- Gerät, OS-/One-UI-Version, Sprache, Zeitpunkt und Testart `automatisierter Realgerätetest`;
-- Ausgangslage, sichtbare Handlung, tatsächlich gelesene Beschriftung und beobachtetes Ergebnis;
-- private Belegverweise, Rückweg und Status `confirmed`, `mismatch`, `blocked` oder `not_tested`.
+Anzeigegröße, Schnelleinstellungen, Vergrößerungsfunktion, 200-Prozent-Angabe, Chrome und iPhone bleiben außerhalb dieses engen Tests; ihre Artikelangaben werden dadurch nicht bestätigt.
 
-Zuerst ein kurzer Ergebnistext im PR, passend dazu konkrete Belege in den vorhandenen Tabellen. `geraetetest` bleibt im bestehenden Format darstellbar, nennt aber eindeutig Cloud-Gerät und automatisierte Prüfung. Neue Schemafelder nur nach geprüfter Anpassung von Build und Checker. Eine Quellenprüfung wird weiterhin als Quellenprüfung geführt; ein Gerätetest beweist keine Verständlichkeit für ältere Menschen.
+### Ablauf und Zeitgrenzen
 
-Rohe Screenshots, Sitzungs- und Download-URLs, Kontodaten und Gerätekennungen bleiben privat. Nur bewusst bereinigte Beispiele öffentlich übernehmen. Das Feld `getestet` und öffentliche Abbildungen erst nach dem tatsächlichen Test und unabhängig geprüftem Inhalts-PR anpassen. Abweichungen dem bestehenden Vorgang zuordnen; keinen konkurrierenden Korrektur-PR zu #38 beginnen.
+Gesamt höchstens acht Minuten ab Beginn der Reservierung einschließlich Bereitstellung, Sprachwechsel, Rückstellen und Freigabe. Nur eine neue Reservierung; vorhandene Sitzungen nicht verändern. Die Zeitplanung ist ein Abbruchplan, kein bereits gemessener Aufwand.
 
-## 7. Bisher tatsächlich geprüft
+1. Aktuelle Modellvariante, Software und Ausgangssprache erfassen. Wenn ein anderes Modell geliefert wird, dessen Identität dokumentieren und die alten Gerätedaten nicht übernehmen.
+2. Deutsch über die normale Oberfläche hinzufügen und als aktive Sprache setzen. Dauer separat messen; angebotene Sprach-/Regionsvarianten wörtlich notieren. Den erreichten deutschen Zustand am Bildschirm belegen. Ist Deutsch nicht spätestens bei zweieinhalb Minuten Gesamtlaufzeit aktiv, beginnen keine Schriftgrößen-Tests mehr: Sprache zurückstellen und mit `blocked` beenden.
+3. Den eingefrorenen Artikel-Kernpfad über die sichtbare Oberfläche ausführen. Tatsächliche Beschriftungen und Vorschau privat sichern. Kein ADB-Settings-Zugriff, Deep Link oder Ersetzen durch eine alternative Route.
+4. Vor einer Regleränderung die ursprüngliche Stellung eindeutig erfassen. Lässt sie sich nicht sicher wiederherstellen, diesen Untertest blockieren. Andernfalls eine kleine, sichtbare Änderung vornehmen, Wirkung prüfen und sofort zur ursprünglichen Stellung zurückkehren. Nur „bedienbar“ gemeldete Elemente bestätigen keine ausgeführte Änderung.
+5. Spätestens nach fünf Minuten keine neuen Prüfschritte mehr beginnen. Ursprüngliche Schrift-/Fetteinstellung und Sprach-/Regionskonfiguration wiederherstellen, insbesondere English (United States) als aktive Ausgangssprache; gegebenenfalls neu hinzugefügtes Deutsch wieder entfernen. Keine pauschale Zurücksetzen-Funktion verwenden. Abweichende Ausgangszustände werden entsprechend behandelt.
+6. Spätestens nach sieben Minuten die Freigabe einleiten und bis zur Acht-Minuten-Grenze prüfen, dass die eigene Reservierung beendet ist. Bei Verbindungsproblemen Freigabe/Dashboard-Kontrolle priorisieren. Misslingt die Rückstellung, trotzdem unverzüglich freigeben und die offene Rückstellung melden; keine Sitzung deswegen weiterlaufen lassen. Eine tatsächliche Zeitüberschreitung als solche ausweisen.
 
-- Öffentliche Anbieter- und Installationsdokumentation am 16.11.2026 gelesen.
-- Remote-Endpunkt mit einer nicht authentifizierten MCP-Initialisierungsanfrage erreicht: HTTP 401 mit OAuth-Verweis. Das belegt Erreichbarkeit und fehlende Autorisierung, keinen erfolgreichen MCP-Handshake oder Gerätetest.
-- Lokales Open-Source-Paket `@mobilenext/mobile-mcp` in einer separaten Erkundungsumgebung untersucht, npm-Version 1.0.17. Der erste lokale stdio-Handshake ist fehlgeschlagen; diese Variante wird nicht als funktionierend ausgegeben und ist für den empfohlenen Remote-Zugang nicht nötig.
-- Kein Konto angelegt, kein Gerät reserviert und kein Artikel am Cloud-Gerät bestätigt. Nächste Voraussetzung ist die Kontoautorisierung durch den Betreiber.
+### Ergebnis und Geltungsbereich
+
+Pro Teilprüfung erfassen: Text-/Blob-SHA und Abschnitt, Gerät samt Modellvariante, OS/One UI, aktive Sprache/Region, Zeitpunkt, sichtbare Handlung, wörtliche Beschriftung, beobachtetes Ergebnis, privater Belegverweis und Rückweg. Status je Aussage: `confirmed`, `mismatch`, `blocked` oder `not_tested`.
+
+Der gesamte Lauf gilt bei fehlender Zeit, gesperrter Funktion, fehlgeschlagenem Sprachwechsel oder unvollständiger Rückstellung als `blocked`. Bereits sauber belegte Einzelbefunde bleiben erhalten; unvollständige Prüfschritte werden nicht als Erfolg ausgegeben. Reservierungsdauer, Sprachwechsel-Dauer, kostenlose Minuten vor/nach dem Lauf, tatsächliche Kosten, Rückstellung und Freigabe separat nennen.
+
+**Deutsch auf SM-A566U1 bleibt ein Test der US-Variante.** Ein erfolgreich umgestelltes Gerät belegt noch keine identischen Menünamen auf EU-Modellen oder allen Samsung-Handys. Im Ergebnis und jedem späteren Gerätebeleg den Geltungsbereich nennen; eine EU-Gegenprobe bleibt offen.
+
+Ergebnis zuerst als Kommentar in diesem PR dokumentieren. Keine Artikeländerung während des Laufs und kein konkurrierender Korrektur-PR zu #38. Nach dessen Merge neue Befunde in einem kleinen, unabhängig geprüften Inhalts-PR dem dann aktuellen Text zuordnen. Vor Übernahme nochmals prüfen, ob die Datei seit dem Test geändert wurde.
+
+`geraetetest` bleibt im vorhandenen Format darstellbar, muss aber Cloud-Gerät, Modellvariante, Sprache und automatisierten Realgerätetest eindeutig benennen. Neue Schemafelder nur nach geprüfter Anpassung von Build und Checker. `getestet`, `geprueft` und öffentliche Abbildungen nicht pauschal für den ganzen Artikel ändern. Ein Gerätebefund ersetzt weder Quellenprüfung noch einen menschlichen Verständlichkeitstest.
+
+## 7. Nachweisstand nach dem ersten Lauf
+
+Quelle: [Ergebnis der Claude-Session vom 16.11.2026](https://github.com/charizzzzard/Senioren-Hilfe-Online/pull/48#issuecomment-6917296072). Der folgende Stand übernimmt den dokumentierten Pilotbefund; private Rohbelege wurden von dieser Session nicht selbst am Gerät nachgeprüft.
+
+| Bereich | Dokumentierter Befund | Weiter offen |
+|---|---|---|
+| Kontingent/Kosten | 100 → 95 freie Minuten; fünf Minuten Mindestabrechnung; 0 USD; kein Abo, Mehrverbrauchsgrenze 0 USD | Kartenstatus über Werkzeuge nicht einsehbar; vor erneutem Lauf Kontostand prüfen |
+| Reservierung | Ein Gerät; Freigabe nach 4:51 Minuten; anschließend keine offene Reservierung | Zustand bei jedem neuen Lauf erneut prüfen |
+| Hardware/Software | Galaxy A56 5G, SM-A566U1 (US), One UI 7.0, Android 15, Softwarestand August 2025 | Kein Nachweis einer EU-Variante |
+| Sprache | English (United States); Deutsch wurde zum Hinzufügen angeboten | Deutsch noch nicht hinzugefügt oder aktiviert |
+| Schriftgröße | Oberfläche „Settings“ → „Display“ → „Font size and style“ erreichbar; acht Reglerstufen gemeldet | Suchweg des deutschen Artikels, tatsächliche Änderung, Vorschau und Rückweg ungeprüft |
+| Bedienung/Belege | UI-Elementliste, Tippen, Wischen, Zurück und zwei private Screenshots dokumentiert | Kein menschlicher Anwendungstest, keine Bestätigung von Artikelangaben |
+
+Am Gerät wurde laut Pilot-Kommentar nichts verstellt. Ein vorhandener Menüpunkt „Remote management“ wurde nicht untersucht; mögliche Sperren bleiben pro Funktion zu prüfen.
+
+Rohe Screenshots, Sitzungs-/Download-URLs, Konto-, IMEI- und Gerätekennungen bleiben privat. Die zwei Screenshots des ersten Laufs sind laut Kommentar beim Anbieter gespeichert; benötigte Belege vor Ende ihrer dort angegebenen Aufbewahrung in den eigenen privaten Belegspeicher übernehmen. Im öffentlichen PR nur bereinigte Befunde und Referenzen veröffentlichen.
