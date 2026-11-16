@@ -42,6 +42,10 @@ Ausnahme: Den Montag der Nachprüfung erwartet das Werkzeug ohnehin nur, solange
 
 ## Änderungen
 
+- **14.11.2026 – Faktenprüfung, Freigabe:** `gelesen` bleibt gültig, solange nach dem Setzen kein Commit dazukommt
+  (`tools/gelesen.py`). Die Faktenprüfung entfernt nur noch veraltete Labels; die Freigabe entfernt keine mehr und merged
+  vorzeitig nur bei „gültig“. Anlass: Der Betreiber hatte #35 und #36 schon vor der Prüfung gelesen – nach der alten Regel
+  hätte er das Label nach der Prüfung noch einmal setzen müssen.
 - **11.11.2026 – Freigabe, Faktenprüfung, Wochenbericht:** Neues Label `gelesen` (setzt nur der Betreiber): Die Freigabe
   merged einen gelesenen Klasse-C-PR schon beim nächsten Lauf. Die Faktenprüfung schickt höchstens eine `freigabe`-Nachricht
   pro Lauf, mit Lesezeit; ein altes `gelesen` entfernt sie beim Start der Frist. Der Wochenbericht nennt „davon gelesen“.

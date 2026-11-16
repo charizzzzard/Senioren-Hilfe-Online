@@ -13,6 +13,10 @@ obwohl jede schreibende Session ihre Arbeit selbst „geprüft“ hatte. Ein gr�
 Was sich zählen lässt, prüft Code (`tools/check.py`), nicht das Modell: Kontingent (Regel 9), eine Wochenschau pro Woche,
 Pflichtfelder, Belegtabellen, Qualitätsbremse, Format des Kennzahlen-Archivs.
 
+**Zusätzliche Ausbauvorhaben:** Fehler und Nachbesserungen gehen vor laufender Qualitätsarbeit, Gerätebelegen,
+Nutzerwegen und Verbreitung. Höchstens ein zusätzliches Ausbauvorhaben gleichzeitig; normale Redaktion und dringende
+Korrekturen bleiben getrennt. Themenplan, bestehende Issues und PRs genügen als Arbeitsgrundlage; kein weiteres Register.
+
 **Keine Prüfschicht fängt alles.** Deshalb mehrere, die sich ergänzen – und jede wird selbst beobachtet:
 
 | Schicht | Was sie findet | Wie wir sehen, ob sie wirkt |
@@ -53,7 +57,7 @@ Der Autor schlägt die Klasse vor, der Prüfer legt sie fest. Es gilt die höchs
 | `pruefung-bestanden` | Prüfung bestanden |
 | `einspruchsfrist` | Klasse C, läuft – geht nach Ablauf live |
 | `einspruch` | Betreiber widerspricht – PR bleibt liegen, bis er entscheidet |
-| `gelesen` | Betreiber hat den Klasse-C-PR gelesen – die nächste Freigabe merged ihn, auch vor Ablauf der Frist |
+| `gelesen` | Betreiber hat den Klasse-C-PR gelesen – die nächste Freigabe merged ihn, auch vor Ablauf der Frist; gilt, solange danach kein neuer Commit kommt |
 | `stichprobe` | Issue: monatliche Stichprobe für den Betreiber (Abschnitt 5a) |
 
 1. **Autor:** Branch `claude/<art>-<slug>` (z. B. `claude/artikel-…`, `claude/woche-im-netz-…`, `claude/nachpruefung-…`),
@@ -85,7 +89,7 @@ Der Autor schlägt die Klasse vor, der Prüfer legt sie fest. Es gilt die höchs
      Keine Push-Nachricht „online“.
 3. **Freigabe** (täglich): Für jeden PR mit `einspruchsfrist`:
    - Label `einspruch` → nichts tun (der Betreiber entscheidet).
-   - Label `gelesen` → mergen wie nach Ablauf der Frist, auch wenn `live-ab` noch nicht erreicht ist.
+   - Label `gelesen`, das `python tools/gelesen.py <Nr>` als gültig meldet → mergen wie nach Ablauf der Frist, auch wenn `live-ab` noch nicht erreicht ist.
    - Neuer Commit nach der geprüften SHA → Labels zurück auf `pruefung-ausstehend` (erneute Prüfung).
    - `live-ab` erreicht, CI grün → mergen, Deploy abwarten, live prüfen (`tools/livecheck.py`), Push „online“.
      Scheitert der Deploy: Abschnitt 9.
@@ -121,6 +125,12 @@ Quelle es hergibt (Beispiel: „Regler verschieben, bis die Schrift gut lesbar i
 (auch JavaScript-Seiten) und prüft, ob jedes Zitat noch wörtlich dort steht. Die GitHub-Action „Wöchentliche Wartung“ führt
 den Abgleich montags für alle Texte aus und legt bei Befunden ein `wartung`-Issue an.
 
+**Nachweisarten unterscheiden:** Quellenabgleich, automatisierter Emulatorlauf, automatisierter Realgerätetest und
+menschlicher Anwendungstest werden ausdrücklich als solche bezeichnet. Ein Emulator belegt keine Samsung-One-UI-Menüs;
+ein Realgerätetest belegt keine menschliche Verständlichkeit. Gerätebelege nennen Textstand, Gerät, Version, Sprache,
+Zeitpunkt, tatsächlich ausgeführte Schritte, Ergebnis und Rückweg. Nur die geprüften Aussagen gelten als abgedeckt.
+Eine vorhandene Belegdatei oder Testangabe allein ist keine bestätigte Prüfung.
+
 ## 5a. Menschliche Prüfung durch den Betreiber
 
 Google hält es für entscheidend, KI-Texte vor der Veröffentlichung manuell zu prüfen (Abschnitt 11). Unser Weg mit 1–2 Stunden pro Woche:
@@ -134,10 +144,11 @@ Worauf achten:
    `pruefung-nachbessern` setzen – der nächste Autor-Lauf arbeitet es ein. Ist alles in Ordnung: Label `gelesen` setzen
    (freiwillig) – dann geht der PR mit der nächsten Freigabe (19:12) live. Ohne Label geht er nach Ablauf der Frist live.
 
-Die Labels `gelesen` und `einspruch` setzt nur der Betreiber. Keine Claude-Session setzt sie; `gelesen` entfernen Faktenprüfung
-und Freigabe, sobald ein neuer Stand geprüft werden muss – die Bestätigung gilt nur für den gelesenen Stand.
-Darum `gelesen` erst setzen, wenn die Push-Nachricht „freigabe“ da ist. Wie viele Klasse-C-PRs mit und ohne `gelesen`
-live gingen, steht im Wochenbericht.
+Die Labels `gelesen` und `einspruch` setzt nur der Betreiber; keine Claude-Session setzt sie. `gelesen` darf schon vor der
+Faktenprüfung gesetzt werden. Es gilt für den gelesenen Stand, solange danach kein neuer Commit dazukommt
+(`python tools/gelesen.py <Nr>`, Entscheidung des Betreibers vom 14.11.2026). Kommt einer dazu – vom Autor oder als Kürzung
+der Faktenprüfung –, entfernt die Faktenprüfung das Label, und die Push-Nachricht „freigabe“ nennt den PR wieder zum Lesen.
+Wie viele Klasse-C-PRs mit und ohne `gelesen` live gingen, steht im Wochenbericht.
 
 Entscheidungen des Betreibers vom 11.11.2026: Auch Korrekturen aus der Nachprüfung (Altbestand) werden ganz gelesen;
 die Frist bleibt 24 Stunden; mehrere Klasse-C-PRs eines Prüf-Laufs kommen in **einer** Push-Nachricht mit der Lesezeit
@@ -234,12 +245,21 @@ claude.ai ändert, ändert im selben Zug die Datei dort – sonst weiß niemand,
 | --- | --- | --- | --- |
 | Di + Fr 10:37 | Netzleicht: neuer Artikel | Autor | Opus |
 | Fr 07:43 | Netzleicht: Die Woche im Netz | Autor | Opus |
-| Di + Fr 13:23 | Netzleicht: Faktenprüfung | Prüfer | Opus |
+| Di + Fr 13:23 | Netzleicht: Faktenprüfung | Prüfer | Opus (Effort xhigh, Stand 16.11.2026) |
 | Mi 20:07, vorübergehend auch Mo 20:07 | Netzleicht: Nachprüfung (Mo nur, bis alle Texte eine Belegtabelle haben) | Autor | Opus |
 | täglich 19:12 | Netzleicht: Freigabe | Freigabe | Sonnet |
 | Mo 08:13 | Netzleicht: Wochenbericht (Zahlen per Skript, Gegenprobe vor dem Senden, Kennzahlen-PR, am 1. Montag im Monat Stichprobe) | Bericht | Opus |
 | 3. des Monats 13:32 | Netzleicht: monatliche Wartung | Autor | Opus |
 | Mo 05:17 UTC | GitHub-Action „Wöchentliche Wartung“ | Technik | – |
+| Mo 05:41 UTC | GitHub-Action „GitHub aufräumen“ | Technik | – |
+
+GitHub-Zeiten sind geplante Startzeiten; die Plattform kann Läufe verzögert starten. Beide vorhandenen Actions
+bleiben von den sieben redaktionellen Aufgaben getrennt.
+
+**Monatliche Kostenübersicht:** Vorhandene Laufmetadaten im bestehenden Wartungsbericht zusammenfassen: Modell,
+Effort, Laufdauer und ausgewiesene Kosten samt Einheit und Herkunft. Listenpreis-Äquivalente nicht als tatsächliche
+Abrechnung ausgeben; fehlt die Abrechnung, bleibt sie unbekannt. Geräte- oder SEO-Kosten getrennt ausweisen.
+Dafür keinen eigenen Dienst, kein neues Suchzahlenarchiv und keine regelmäßigen Bericht-Commits einführen.
 
 ## 9. Störungen
 
