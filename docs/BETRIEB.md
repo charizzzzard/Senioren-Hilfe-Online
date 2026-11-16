@@ -172,12 +172,21 @@ Dann Pull Request wie in Abschnitt 4 – auch die Nachprüfung wird unabhängig 
 Zusätzlich aus Anlass: neue iOS-, Android- oder WhatsApp-Version mit geänderten Menüs (meist aus der Wochenschau bekannt) →
 betroffene Texte vorziehen.
 
-**Gerätetests:** Einmal im Monat legt die Wartung ein Issue „Geräte-Prüfliste“ an: drei bis fünf konkrete Handgriffe,
-die sich aus Quellen nicht belegen lassen, je für iPhone und Android. Die Antworten des Betreibers werden als `geraetetest`
-in die Belegtabelle und ins Feld `getestet` übernommen.
-Zum Testen steht derzeit nur ein iPhone mit älterem iOS bereit (Auskunft des Betreibers vom 10.11.2026). Die Prüfliste
-fragt deshalb nur Handgriffe ab, die sich dort prüfen lassen. Angaben zu Android und zum aktuellen iOS beruhen allein
-auf den Quellen; `getestet` nennt immer Gerät und Version und gilt nur dafür.
+**Gerätetests:** Standard ist `docs/GERAETETESTS.md`. Der Betreiber hat Mobile Next am 16.11.2026 als bevorzugte
+Quelle für reale Cloud-Geräte im vorhandenen kostenlosen Kontingent freigegeben: höchstens acht Minuten je Sitzung,
+0 USD zusätzliche Gerätekosten, keine neue Einzelgenehmigung für jeden vorbereiteten Routinelauf. Zusätzliche
+Kosten oder Verträge bleiben eine eigene Entscheidung.
+
+Die Wartung führt offene Gerätefragen in der vorhandenen Geräte-Prüfliste zusammen; eine neue Liste nur bei Bedarf.
+Bereits passende Belege werden nicht monatlich neu abgefragt oder getestet. Konkrete Befunde, relevante Menüänderungen
+und unbelegte neue Handgriffe begründen gezielte Tests. Reale Bedienung, Emulator, Quellenprüfung und menschliche
+Verständlichkeit werden getrennt ausgewiesen. Cloud-Gerätebelege nennen Modellvariante, tatsächliche Software, Sprache
+und geprüfte Aussagen; unbekannte Werte werden nicht von einer anderen Einheit übernommen.
+
+Für menschliche Tests steht weiterhin das iPhone des Betreibers zur Verfügung. Zusätzlich sind konkrete Cloud-Samsung-
+Beobachtungen aus PR #48 verfügbar, mit den dort genannten Grenzen. Gerätebelege werden im bestehenden Format und
+unabhängig geprüft in den Inhalt übernommen; `getestet` gilt nur für den tatsächlich abgedeckten Umfang. Die bestehenden
+Prüf-, Kontingent- und Freigaberegeln bleiben erhalten.
 
 ## 7. Push-Nachrichten (ntfy)
 
