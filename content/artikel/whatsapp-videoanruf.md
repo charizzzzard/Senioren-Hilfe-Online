@@ -5,11 +5,11 @@ beschreibung: "Die Familie sehen statt nur hören: So starten Sie einen WhatsApp
 keyword: "whatsapp videoanruf"
 kategorie: whatsapp
 veroeffentlicht: 2026-11-01
-aktualisiert: 2026-11-05
-geprueft: 2026-11-01
+aktualisiert: 2026-11-13
+geprueft: 2026-11-11
 getestet: "Auflegen im Videoanruf auf einem iPhone mit iOS 18 (05.11.2026)"
 kurz_gesagt: |
-  Öffnen Sie den Chat mit der Person und tippen Sie oben auf die **Videokamera**. Auf Android-Handys tippen Sie danach noch auf **„Anruf“**.
+  Öffnen Sie den Chat mit der Person und tippen Sie auf die **Videokamera**. Auf Android-Handys tippen Sie danach noch auf **„Anruf“**.
   Am Anfang sieht die andere Person Sie über die **Frontkamera**. Mit „Kamera wechseln“ zeigen Sie stattdessen, was vor Ihnen liegt.
   Videoanrufe laufen über das Internet. Im **WLAN** sparen Sie Datenvolumen. Notrufnummern wie die 112 erreichen Sie über WhatsApp nicht.
 checkliste_titel: "Spickzettel: WhatsApp-Videoanruf"
@@ -33,6 +33,9 @@ quellen:
   - herausgeber: WhatsApp-Hilfebereich
     titel: Einzel-Sprachanrufe tätigen (iPhone)
     url: https://faq.whatsapp.com/1153602608602452/?locale=de_DE&cms_platform=iphone
+  - herausgeber: Bundesnetzagentur
+    titel: Manipulation von Rufnummern (Notrufnummern 110 und 112)
+    url: https://www.bundesnetzagentur.de/DE/Vportal/TK/Aerger/Faelle/Manipulation/start.html
 verwandt:
   - whatsapp-bild-senden
   - whatsapp-sprachnachricht
@@ -48,11 +51,11 @@ text: >
 
 Eine Stimme am Telefon ist schön. Ein Gesicht dazu ist noch schöner. Mit einem **WhatsApp-Videoanruf** sehen Sie Ihre Kinder, Enkel oder Freunde auf dem Bildschirm – egal, wie weit sie entfernt wohnen.
 
-**Danach können Sie einen WhatsApp-Videoanruf starten, einen Anruf annehmen und während des Gesprächs die Kamera wechseln.** Dabei geht nichts kaputt: Im schlimmsten Fall legen Sie auf und versuchen es noch einmal.
+**Danach können Sie einen WhatsApp-Videoanruf starten, einen Anruf annehmen und während des Gesprächs die Kamera wechseln.** Und wenn etwas nicht gleich klappt: Sie legen auf und versuchen es noch einmal.
 
 ## Bevor Sie anrufen
 
-Wie alle WhatsApp-Anrufe laufen Videoanrufe über das **Internet**, nicht über die Telefonminuten Ihres Vertrags. Wenn Sie zu Hause sind, verbinden Sie Ihr Handy am besten mit dem **WLAN**. WhatsApp rät selbst dazu, damit Sie Datenvolumen sparen. Beide Seiten brauchen eine gute Verbindung – sonst ruckelt das Bild.
+Videoanrufe laufen über das **Internet**. Für Sprachanrufe schreibt WhatsApp ausdrücklich: Sie nutzen die Internetverbindung des Handys und nicht die Gesprächsminuten Ihres Vertrags. Wenn Sie zu Hause sind, verbinden Sie Ihr Handy am besten mit dem **WLAN**. WhatsApp rät selbst dazu, damit Sie Datenvolumen sparen. Beide Seiten brauchen laut WhatsApp eine starke Internetverbindung.
 
 Setzen Sie sich so, dass Licht auf Ihr Gesicht fällt. Und keine Sorge: Am Anfang sieht die andere Person Sie über die **Frontkamera** – also die Kamera auf der Bildschirmseite.
 
@@ -61,7 +64,7 @@ Setzen Sie sich so, dass Licht auf Ihr Gesicht fällt. Und keine Sorge: Am Anfan
 ### Videoanruf starten
 
 1. Öffnen Sie den **Chat** mit der Person, die Sie anrufen möchten.
-2. Tippen Sie auf das Symbol mit der **Videokamera**.
+2. Tippen Sie auf das Symbol mit der **Videokamera**. Auf einem iPhone mit iOS 18 liegt es oben rechts im Chat; rechts daneben ist das Symbol für einen Sprachanruf.
 3. Warten Sie, bis die andere Person annimmt. Dann sehen Sie sich.
 
 Andere Möglichkeit: Öffnen Sie in WhatsApp den Bereich **„Anrufe“**. Tippen Sie auf das Symbol für einen neuen Anruf, suchen Sie die Person und tippen Sie auf die **Videokamera**.
@@ -100,7 +103,9 @@ Manchmal bietet Ihr Handy auch **„Video deaktivieren“** an. Dann nehmen Sie 
 
 ## Hat es geklappt?
 
-Sie sehen jetzt das Gesicht der anderen Person groß auf dem Bildschirm. Ihr eigenes Bild erscheint klein in einer Ecke – so sehen Sie, was die andere Person von Ihnen sieht. Geschafft!
+Sie sehen jetzt die andere Person auf dem Bildschirm. Dazu zeigt WhatsApp Ihr eigenes Kamerabild – so sehen Sie, was die andere Person von Ihnen sieht. Geschafft!
+
+Auf einem iPhone mit iOS 18 sieht das so aus: Die andere Person füllt den ganzen Bildschirm. Ihr eigenes Bild steht klein oben rechts, und Sie können es verschieben. Tippen Sie darauf, tauschen die beiden Bilder: Dann sind Sie groß zu sehen und die andere Person klein.
 
 Wenn Sie fertig sind, legen Sie auf – wie bei jedem Anruf.
 
@@ -110,13 +115,13 @@ Wenn Sie fertig sind, legen Sie auf – wie bei jedem Anruf.
 
 **Bild kurz ausschalten:** Tippen Sie auf die **durchgestrichene Videokamera**. Dann sieht man Sie nicht mehr, hört Sie aber weiter. Mit einem Tipp auf die **Videokamera** schalten Sie Ihr Bild wieder ein.
 
-**Ihr eigenes kleines Bild stört?** Ziehen Sie es an den Rand des Bildschirms, bis es verschwindet. Die andere Person sieht Sie trotzdem weiter. Zum Zurückholen ziehen Sie es wieder herein.
+**Ihr eigenes Kamerabild stört?** Ziehen Sie es an den Rand des Bildschirms, bis es verschwindet. Die andere Person sieht Sie trotzdem weiter. Zum Zurückholen ziehen Sie es wieder herein.
 
 ## Wenn es nicht klappt
 
 - **Niemand nimmt ab?** Sie können eine kurze **Videonotiz** hinterlassen: Tippen Sie auf „Videonotiz aufnehmen“ und sprechen Sie Ihre Nachricht. Tippen Sie dann auf das **Quadrat**, um die Aufnahme zu beenden, und auf das **Papierflugzeug**, um sie zu senden. Die Videonotiz erscheint im Chat, und die andere Person bekommt eine Benachrichtigung.
-- **Das Bild ruckelt oder friert ein?** Beide Seiten brauchen eine gute Internetverbindung. Wechseln Sie, wenn möglich, ins WLAN – oder versuchen Sie es später noch einmal.
-- **Der Anruf funktioniert gar nicht?** Möglicherweise nutzt die andere Person eine ältere Version von WhatsApp oder ihres Handys. Dann kann ein Update helfen.
+- **Das Bild ruckelt oder friert ein?** Für Videoanrufe brauchen laut WhatsApp beide Seiten eine starke Internetverbindung. Versuchen Sie es an einem Platz mit besserem Empfang oder später noch einmal.
+- **Der Anruf funktioniert gar nicht?** Möglicherweise nutzt die andere Person laut WhatsApp ein älteres Betriebssystem oder eine ältere WhatsApp-Version. Fragen Sie nach, ob dort alles auf dem neuesten Stand ist.
 
 !!! wichtig "Notruf nie über WhatsApp"
     Über WhatsApp erreichen Sie **keine Notrufnummern** – weder die 112 noch die 110. Im Notfall rufen Sie immer über die normale Telefon-App Ihres Handys an.
