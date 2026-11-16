@@ -38,10 +38,17 @@ Ausnahme: Den Montag der Nachprüfung erwartet das Werkzeug ohnehin nur, solange
 3. Zeitplan aus der Tabelle eintragen, Zeitzone Europe/Berlin.
 4. Repository `charizzzzard/Senioren-Hilfe-Online` hinterlegen und den Connector OpenSEO hinzufügen
    (`docs/BETRIEB.md` Abschnitt 10) – ohne hinterlegtes Repository hat der Lauf keine GitHub-Werkzeuge. Mobile Next nur bei den
-   Aufgaben hinterlegen, die Gerätetests ausführen sollen (Stand 16.11.2026: bei keiner).
+   Aufgaben „Netzleicht: neuer Artikel“ und „Netzleicht: Nachprüfung“ hinterlegen. Die Faktenprüfung liest gespeicherte
+   Belege über GitHub. Der tatsächliche Connector-Stand muss nach dem manuellen Hinzufügen bestätigt werden.
 5. Jeder Lauf soll eine neue Session starten (nicht dieselbe fortsetzen).
 
 ## Änderungen
+
+- **Vorbereitet, noch nicht aktiv umgestellt – Laufarchiv und echte Screenshots:** Die Sicherungen für neuer Artikel,
+  Nachprüfung und Faktenprüfung werden mit `geraetelaeufe/README.md` abgeglichen. Aktive Aufgaben erst nach geprüftem
+  Merge auf denselben Wortlaut umstellen; dieser Branch behauptet keine bereits erfolgte Aktualisierung.
+  Die beiden schreibenden Aufgaben brauchen Mobile Next, die Faktenprüfung liest das Repository. Keine neue Aufgabe
+  und keine Änderung der Zeitpläne. Die monatliche Wartung bleibt unverändert.
 
 - **16.11.2026 – Nachprüfung, neuer Artikel:** Gerätetests nach `docs/GERAETETESTS.md` (Standard v1, PR #48).
   Nachprüfung (Schritt 4a) und neuer Artikel (Schritt 5a) reservieren ein Mobile-Next-Gerät nur, wenn die Werkzeuge im Lauf

@@ -167,6 +167,68 @@ def figuren_liste(wert, quelle: str) -> list[dict]:
     return [{"key": k, **FIGUREN[k]} for k in schluessel]
 
 
+def screenshot_daten(daten: dict, quelle: str) -> dict:
+    """Lädt einen freigegebenen, dauerhaft gespeicherten PNG-Beleg aus einem Laufprotokoll."""
+    verweis = daten.get("screenshot")
+    if not isinstance(verweis, dict):
+        raise BuildError(f"{quelle}: screenshot braucht lauf und bild")
+    lauf_id, bild_id = verweis.get("lauf"), verweis.get("bild")
+    for wert in (lauf_id, bild_id):
+        if not isinstance(wert, str) or not re.fullmatch(r"[a-z0-9]+(?:-[a-z0-9]+)*", wert):
+            raise BuildError(f"{quelle}: ungültige Lauf-/Bildkennung")
+    alt = daten.get("alt")
+    if not isinstance(alt, str) or not alt.strip():
+        raise BuildError(f"{quelle}: echter Screenshot braucht einen alt-Text")
+    try:
+        lauf = yaml.safe_load((ROOT / "geraetelaeufe" / f"{lauf_id}.yaml").read_text(encoding="utf-8"))
+    except (OSError, yaml.YAMLError) as exc:
+        raise BuildError(f"{quelle}: Laufprotokoll {lauf_id} nicht lesbar") from exc
+    if (not isinstance(lauf, dict) or type(lauf.get("schema_version")) is not int
+            or lauf["schema_version"] != 1 or lauf.get("id") != lauf_id):
+        raise BuildError(f"{quelle}: Laufprotokoll hat falsche Kennung oder Version")
+    bilder, geraet = lauf.get("bilder"), lauf.get("geraet")
+    if not isinstance(bilder, list) or not isinstance(geraet, dict):
+        raise BuildError(f"{quelle}: Lauf braucht bilder und geraet")
+    treffer = [b for b in bilder if isinstance(b, dict) and b.get("id") == bild_id]
+    if len(treffer) != 1 or treffer[0].get("freigabe") != "bereinigt":
+        raise BuildError(f"{quelle}: Bild {bild_id} fehlt, ist doppelt oder nicht bereinigt freigegeben")
+    bild = treffer[0]
+    plattform = geraet.get("plattform")
+    if not isinstance(plattform, str) or {"android": "android", "ios": "iphone"}.get(plattform) != daten.get("geraet"):
+        raise BuildError(f"{quelle}: Screenshot passt nicht zur angegebenen Geräteplattform")
+    datei = bild.get("datei")
+    if not isinstance(datei, str) or not datei.endswith(".png") or Path(datei).is_absolute() or ".." in Path(datei).parts:
+        raise BuildError(f"{quelle}: Screenshot braucht eine lokale PNG-Datei")
+    pfad = (ROOT / datei).resolve()
+    erlaubt = (ROOT / "static" / "img" / "geraetetest" / lauf_id).resolve()
+    if not erlaubt.is_relative_to(STATIC.resolve()) or not pfad.is_relative_to(erlaubt):
+        raise BuildError(f"{quelle}: Screenshot liegt außerhalb seines Laufordners")
+    try:
+        roh = pfad.read_bytes()
+    except OSError as exc:
+        raise BuildError(f"{quelle}: Screenshot-Datei fehlt") from exc
+    if not isinstance(bild.get("sha256"), str) or hashlib.sha256(roh).hexdigest() != bild["sha256"]:
+        raise BuildError(f"{quelle}: Screenshot-Prüfsumme stimmt nicht")
+    if len(roh) < 24 or roh[:8] != b"\x89PNG\r\n\x1a\n" or roh[12:16] != b"IHDR":
+        raise BuildError(f"{quelle}: Screenshot ist kein PNG mit Bildmaßen")
+    breite, hoehe = int.from_bytes(roh[16:20], "big"), int.from_bytes(roh[20:24], "big")
+    if (not (0 < breite <= 10000 and 0 < hoehe <= 10000)
+            or any(type(bild.get(k)) is not int for k in ("breite", "hoehe"))
+            or (breite, hoehe) != (bild["breite"], bild["hoehe"])):
+        raise BuildError(f"{quelle}: Screenshot-Bildmaße stimmen nicht")
+    profil = [geraet.get(k) for k in ("modell", "system", "sprache", "variante")]
+    if any(not isinstance(wert, str) or not wert.strip() for wert in profil):
+        raise BuildError(f"{quelle}: Modell, System, Sprache und Variante im Lauf ergänzen")
+    datum = lauf.get("datum")
+    try:
+        datum = dt.date.fromisoformat(str(datum))
+    except ValueError as exc:
+        raise BuildError(f"{quelle}: Laufdatum ist ungültig") from exc
+    profil.append(datum_de(datum))
+    return {"src": "/" + pfad.relative_to(STATIC.resolve()).as_posix(), "alt": alt.strip(),
+            "breite": breite, "hoehe": hoehe, "profil": " · ".join(profil)}
+
+
 def komponenten(rumpf: str, quelle: str) -> str:
     zaehler = iter(range(1, 1000))
 
@@ -205,7 +267,14 @@ def komponenten(rumpf: str, quelle: str) -> str:
             if daten["geraet"] not in ("iphone", "android"):
                 raise BuildError(f"{quelle}: geraet muss iphone oder android sein")
             if art == "bildschirm":
-                daten["zeilen"] = [bildschirm_zeile(z) for z in daten.get("zeilen") or []]
+                if "foto" in daten:
+                    raise BuildError(f"{quelle}: foto ist intern; echten Screenshot über screenshot referenzieren")
+                if daten.get("screenshot") is not None:
+                    if daten.get("zeilen"):
+                        raise BuildError(f"{quelle}: screenshot und nachgebaute zeilen nicht mischen")
+                    daten["foto"] = screenshot_daten(daten, quelle)
+                else:
+                    daten["zeilen"] = [bildschirm_zeile(z) for z in daten.get("zeilen") or []]
             else:
                 unbekannt = set(daten.get("gedrueckt") or []) - set(TASTEN)
                 if unbekannt or not daten.get("gedrueckt"):

@@ -1,0 +1,52 @@
+schema_version: 1
+id: 2026-11-16-a56-erkundung-01
+datum: '2026-11-16'
+anbieter: Mobile Next
+testart: automatisierter Realgerätetest
+herkunft:
+  art: uebertragener_pr_bericht
+  quelle: https://github.com/charizzzzard/Senioren-Hilfe-Online/pull/48#issuecomment-6917296072
+  bildexport: ausstehend
+  hinweis: Bericht übernommen; private Rohbelege hier nicht erneut geprüft.
+text: null
+geraet:
+  plattform: android
+  modell: Galaxy A56 5G
+  modellcode: SM-A566U1
+  variante: US-Modell
+  system: Android 15
+  oberflaeche: One UI 7.0
+  sprache: English (United States)
+  app_version: null
+abdeckung: technischer Erkundungslauf, keine Artikelprüfung
+zeit:
+  gesamt_s: 291
+  berechtigungspausen: nicht separat gemessen
+kosten:
+  usd: 0
+  freie_minuten_vorher: 100
+  freie_minuten_nachher: 95
+  verbrauch_freiminuten: 5
+  hinweis: Mindestabrechnung; kein Abo, Mehrverbrauchsgrenze 0 USD laut Bericht.
+rueckstellung:
+  bericht: Laut Bericht keine Einstellungen verändert.
+  reservierung_beendet: true
+faelle:
+  - id: font-seite
+    aussage: Die Seite Font size and style ist über die normale Oberfläche erreichbar.
+    beobachtung: Startbildschirm, App-Liste, Settings, Display, Font size and style.
+    status: confirmed
+  - id: sprache-deutsch
+    aussage: Deutsch ist als Systemsprache aktivierbar.
+    beobachtung: Deutsch wurde nur zum Hinzufügen angeboten, nicht hinzugefügt oder aktiviert.
+    status: not_tested
+  - id: regler-wirkung
+    aussage: Der Regler verändert die Schrift und lässt sich zurückstellen.
+    beobachtung: Acht Stufen und bedienbare Elemente gemeldet; nichts verstellt.
+    status: not_tested
+grenzen:
+  - Nur diese zugeteilte Einheit mit englischer Sprache beobachtet.
+  - Remote management nicht untersucht; keine allgemeine Aussage über sämtliche Einstellungen.
+  - Kartenstatus über die Werkzeuge nicht sichtbar.
+  - Zwei Screenshots laut Quellbericht beim Anbieter; kein lokaler Bildexport vorhanden.
+bilder: []

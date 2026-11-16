@@ -14,14 +14,14 @@ Lesende Katalog-/Kontoprüfung, Quellenlesen, Artikelplanung und Berichtsschreib
 
 | Anlass | Umfang |
 |---|---|
-| Neue oder geänderte gerätebezogene Aussage, die Quellen nicht eindeutig klären | Betroffene Schritte und notwendige Voraussetzungen |
+| Neue oder inhaltlich geänderte Geräteanleitung | Kernpfad mit vorhandenem Lauf abgleichen; fehlende Gerätebelege bei passender Testmöglichkeit gezielt ergänzen, auch wenn Herstellerquellen vorliegen |
 | Fehlerhinweis, widersprüchliche Beschriftung, relevanter App-/OS-Menüwechsel | Gezielte Nachprüfung der betroffenen Aussagen |
 | Nur Rechtschreibung, Stil oder anderer unberührter Abschnitt geändert | Vorhandenen Beleg gegen den Diff prüfen; keine automatische Neubuchung |
 | Reine Erklärung ohne Gerätehandgriff | Kein Geräteauftrag |
 
-Vorher im Artikel, seinen Belegtabellen und offenen PRs/Issues nach vorhandenen Nachweisen suchen. Kein konkurrierender Korrektur-PR und keine zweite Prüfung derselben offenen Änderung. Bestehende Themenprioritäten und Inhaltskontingente bleiben erhalten.
+Vorher in `geraetelaeufe/`, im Artikel, seinen Belegtabellen und offenen PRs/Issues nach vorhandenen Nachweisen suchen. Kein konkurrierender Korrektur-PR und keine zweite Prüfung derselben offenen Änderung. Bestehende Themenprioritäten und Inhaltskontingente bleiben erhalten.
 
-**Wiederverwenden:** Ein Beleg bleibt für unveränderte Aussagen nutzbar, wenn Wortlaut/Bedeutung, Ablauf und Voraussetzungen gleich geblieben sind und sein Geräte-/Software-/Sprachumfang weiter passt. Der ursprüngliche Teststand bleibt genannt. Eine neue Gesamt-SHA allein erzwingt keinen Kompletttest; neue Aussagen oder betroffene Menüs dürfen den alten Beleg nicht erben. Der Prüfer bewertet die Zuordnung. Bei einschlägigem Update, Widerspruch oder fehlendem Nachweis nur den betroffenen Teil neu prüfen. Prüfdatum und Geltungsbereich nie allein durch Wiederverwendung erneuern.
+**Wiederverwenden:** Ein dauerhaft gespeicherter Beleg bleibt für unveränderte Aussagen nutzbar, wenn Wortlaut/Bedeutung, Ablauf und Voraussetzungen gleich geblieben sind und sein Geräte-/Software-/Sprachumfang weiter passt. Der ursprüngliche Teststand bleibt genannt. Eine neue Gesamt-SHA allein erzwingt keinen Kompletttest; neue Aussagen oder betroffene Menüs dürfen den alten Beleg nicht erben. Der Prüfer bewertet die Zuordnung. Bei einschlägigem Update, Widerspruch oder fehlendem Nachweis nur den betroffenen Teil neu prüfen. Prüfdatum und Geltungsbereich nie allein durch Wiederverwendung erneuern.
 
 ## 3. Vorbereitung: ein kleines Prüfpaket
 
@@ -50,13 +50,9 @@ Bei jeder neuen Reservierung aktuell erfassen: Modell und Modellcode, OS, Herste
 
 **Samsung-Einstieg:** Nachgewiesen sind zwei Läufe mit Galaxy A56, SM-A566U1 (US). Der zweite Lauf nutzte Deutsch (Deutschland), Android 15; seine One-UI-Version ist unbekannt. Die 7.0 des ersten Laufs wird nicht nachgetragen. Aussagebelege aus dem zweiten Lauf bleiben mit dieser Grenze erhalten; für ein vollständiges neues Profil muss die Version frisch ermittelt werden.
 
-**Einmaliger DE-/EU-Katalogcheck, ohne Buchung:** Katalog und aktuell verfügbare Auswahlfelder auf Modellcode und dokumentierte Vertriebs-/Firmware-Region prüfen. Samsungs deutsche Supportseite führt beispielsweise `SM-A566B/DS`; diese Kennung ist ein Kandidat, allein kein Nachweis ausschließlich deutscher Firmware. Nur vom Katalog/Anbieter belegte Varianten nennen. Geräte-Standort, GPS, IP, Sprache `de-DE` und Firmware-Vertriebsregion nicht gleichsetzen. Fehlen die Angaben, Ergebnis „regionale Auswahl unbekannt“; keinen verfügbaren DE-Pool erfinden und nicht mehrere Geräte auf Verdacht mieten.
+**Betriebsentscheidung des Betreibers:** Die verfügbaren US-Geräte werden für passende gewöhnliche Menütests verwendet; eine fehlende DE-/EU-Auswahl blockiert diese Arbeit nicht. Modellcode, tatsächliche Software und Sprache bleiben Belegmetadaten. Konkrete Unterschiede werden als beobachtete Abweichung beschrieben, nicht ungeprüft auf die Region zurückgeführt. Ein Menütest ist kein Nachweis für abweichende Netz-, SIM-, Zahlungs- oder Ersteinrichtungsfunktionen.
 
-Ohne nachgewiesene deutsche Variante wird Mobile Next weiterhin für das verfügbare reale Gerät mit korrekter regionaler Kennzeichnung genutzt. Ein US-Modell mit deutscher Sprache kann wertvolle konkrete Handgriffe belegen. Es bestätigt keine Gleichheit aller deutschen Menüs. Kritische regionale Abweichungen bleiben offen bzw. erhalten gezielte Quellen-/Gerätegegenprüfung.
-
-Quellen: [Mobile-Next-Katalog](https://mobilenext.ai/docs/cloud/devices), [Samsung DE, Galaxy A56](https://www.samsung.com/de/support/model/SM-A566BZAAEUB/).
-
-Auftrag für die verbundene Session: „Lies den aktuellen Mobile-Next-Katalog und seine Auswahlfelder, ohne zu reservieren. Prüfe, ob eine dokumentiert deutsche/europäische A56-Variante gezielt auswählbar ist, beispielsweise die auch bei Samsung DE geführte Modellfamilie SM-A566B/DS. Nenne Modellcode, belegte Region, Auswahlmöglichkeit und Quelle. Wenn der Katalog das nicht ausweist, melde unbekannt; Deutsch als Sprache reicht nicht als Regionalnachweis. Keine Probebuchungen und keine erneute Kontoanlage.“ Das Ergebnis einmal im bestehenden Geräte-Vorgang festhalten; nicht bei jedem Test neu recherchieren.
+Der einmalige Katalogcheck ist erledigt: Der [Kommentar in #48](https://github.com/charizzzzard/Senioren-Hilfe-Online/pull/48#issuecomment-6918606810) dokumentiert keine auswählbare DE-/EU-Variante und nur Plattform-/Namens-/Versionsfilter. Er wird nicht in jeder Session wiederholt. Neue Angaben des Anbieters können später berücksichtigt werden.
 
 ## 5. Ausführung ohne vermeidbare Wiederholungen
 
@@ -65,7 +61,7 @@ Auftrag für die verbundene Session: „Lies den aktuellen Mobile-Next-Katalog u
 3. Für den Leserpfad einen definierten Start herstellen. Die Einstellungen-App kann auf der zuletzt besuchten Unterseite öffnen: erst zum vorgesehenen Einstieg zurück, dann den tatsächlich beschriebenen Weg ausführen. Abkürzungen dürfen die Vorbereitung erleichtern, aber keinen zu bestätigenden Leserschritt ersetzen.
 4. Vorrangig aktuelle UI-Elemente und sichtbare Beschriftungen verwenden. **Nach Navigation, Sprachwechsel, Scrollen oder veränderter Suche Elemente neu lesen.** Referenzen und Koordinaten früherer Zustände sind keine stabilen Selektoren. Bei doppelten Treffern Titel und Kontext prüfen, beispielsweise Anzeige statt Samsung-Tastatur.
 5. Vor Texteingabe das richtige, fokussierte Eingabefeld prüfen. Keine Tastatureingabe auf Verdacht. Kleine, zusammengehörige Tool-Aktionen nur bündeln, wenn der nächste Zielzustand eindeutig ist; an Zustandswechseln neu beobachten. Tatsächliche Argumente aus dem Tool-Schema nehmen, keine erfundenen Selektoren/API-Felder.
-6. Screenshots gezielt an Belegpunkten: entscheidende Beschriftung, vor/nach einer Wirkung, erforderlicher Rückweg. Nicht jeden Klick fotografieren. UI-Text reicht für manche Beschriftungen; reine „bedienbar“-Metadaten belegen keine ausgeführte Wirkung. Belegdateien sofort privat sichern, Bericht später schreiben.
+6. Screenshots gezielt an Belegpunkten: entscheidende Beschriftung, vor/nach einer Wirkung, erforderlicher Rückweg. Nicht jeden Klick fotografieren. UI-Text reicht für manche Beschriftungen; reine „bedienbar“-Metadaten belegen keine ausgeführte Wirkung. Belegdateien sofort lokal sichern, dann bereinigt nach `geraetelaeufe/README.md` exportieren; Bericht später schreiben. Rohdateien und signierte URLs nicht veröffentlichen.
 7. Nach einem Fehltipp einmal an einem bekannten Startpunkt neu ansetzen. Bei zweitem Fehltipp am selben Prüfpunkt oder unklarem Zustand diesen Fall blockieren. Nicht mit alten Elementen weitertippen oder einen anderen Weg als den beschriebenen bestätigen.
 8. Jede Änderung unmittelbar zurückstellen, wenn der Fall abgeschlossen ist. Kein ADB-Settings-/Deep-Link-Ersatz für den sichtbaren Leserpfad. Keine fremden Konten, realen Zahlungen, Werksresets oder produktiven Daten für gewöhnliche Menütests. Einrichtungsassistent, Backup und Geräteumzug benötigen passende, gesondert vorbereitete Testbedingungen; die bloße Menüerreichbarkeit bestätigt sie nicht.
 
@@ -101,11 +97,11 @@ Folgeaktion: bestehender PR/Issue bzw. nächster regulärer Prüflauf
 
 Status je Aussage: `confirmed`, `mismatch`, `blocked`, `not_tested`. Ein Bildschirmteil kann bestätigt sein, während ein anderer offen bleibt. Der Gesamtbericht ist erfolgreich ausgeführt, wenn geplante Fälle bewertet, Belege gesichert, Rückstellung/Freigabe verifiziert und Kosten eingehalten sind; auch ein sauber nachgewiesener `mismatch` ist ein wertvolles Testergebnis. Ein technischer Abbruch oder unvollständige Rückstellung/Freigabe wird als `blocked` gemeldet. Keine pauschale Aussage „Artikel getestet“ aus einem erfolgreichen Teilfall.
 
-IMEI, Seriennummer, Geräte-/Session-IDs, Zugangs- und Download-URLs bleiben privat. Modellcode und Softwarestand gehören zum Belegumfang. Rohbelege im vorhandenen privaten Speicher sichern, bevor Anbieterspeicherung ausläuft; im öffentlichen Bericht nur bereinigte Befunde und zulässige Referenzen. Keine neue öffentliche Laufdatenbank.
+IMEI, Seriennummer, Geräte-/Session-IDs, Zugangs- und Download-URLs bleiben privat. Modellcode und Softwarestand gehören zum Belegumfang. Dauerhafte, bereinigte Laufprotokolle liegen unter `geraetelaeufe/`, freigegebene echte PNG-Bilder unter `static/img/geraetetest/<lauf-id>/`. Format, Export, Prüfsummen und Artikel-Einbindung: `geraetelaeufe/README.md`. Die dortigen zwei Pilotprotokolle sind aus Berichten übernommen; ihre Bildexporte stehen noch aus. Kein unbenannter privater Speicher und kein temporärer Anbieter-Link werden als schon bestehende Dauersicherung ausgegeben. Das Dateiverzeichnis ist ein Belegarchiv, kein neuer Dienst oder Aufgabenplan.
 
 ## 8. Einbindung in Redaktion und Qualität
 
-Der Autor oder die Nachprüfung bereitet bei Bedarf ein kleines Prüfpaket im bestehenden Vorgang vor. Im aktuell kostenfreien Rahmen führt eine Session mit tatsächlich verfügbaren Mobile-Next-Werkzeugen es ohne zusätzliche Einzelgenehmigung aus. Fehlt der Connector in einem geplanten Lauf, entsteht **keine Reservierung**: fehlende Fähigkeit einmal im bestehenden Vorgang melden, Quellenarbeit fortführen und die device-abhängigen Aussagen nicht als getestet ausgeben. Eine interaktive Verbindung beweist keinen Zugriff aller geplanten Aufgaben.
+Der Autor oder die Nachprüfung bereitet bei Bedarf ein kleines Prüfpaket im bestehenden Vorgang vor. Im aktuell kostenfreien Rahmen führt eine Session mit tatsächlich verfügbaren Mobile-Next-Werkzeugen es ohne zusätzliche Einzelgenehmigung aus. Fehlt der Connector in einem geplanten Lauf, entsteht **keine Reservierung**: fehlende Fähigkeit samt Handgriff einmal im vorhandenen Vorgang unter „Für die Geräte-Prüfliste“ melden, Quellenarbeit fortführen und die device-abhängigen Aussagen nicht als getestet ausgeben. Eine interaktive Verbindung beweist keinen Zugriff aller geplanten Aufgaben.
 
 Die unabhängige Faktenprüfung liest den Befund, bewertet Geräte-/Sprach-/Regionsgrenzen und prüft die Zuordnung zur konkreten Aussage. Sie bucht dasselbe Gerät nicht routinemäßig erneut. Nur offene oder widersprüchliche Punkte begründen einen gezielten Folgetest. Neue Fakten kommen über den Autor; Autoren-/Prüferrollen und Freigaberegeln bleiben bestehen.
 
@@ -117,4 +113,10 @@ Bestehende Nachprüfung/Faktenprüfung übernimmt konkrete Abweichungen. Kein ko
 
 Zuerst diesen Standard unabhängig prüfen und über das bestehende Freigabeverfahren übernehmen. Danach die bestehenden Autoren-/Nachprüfungsaufträge mit diesem Standard und der tatsächlichen Connector-Auswahl abgleichen. Falls deren Wortlaut geändert wird, aktive Aufgabe und Sicherung unter `docs/aufgaben/` im selben Zug aktualisieren. Nicht nur eine Sicherung ändern und daraus einen aktiven Betrieb behaupten.
 
-Die Einführung ist abgeschlossen, wenn ein tatsächlich dafür vorgesehener Lauf seine Mobile-Next-Werkzeuge ohne interaktives Nachfragen vor einer Buchung lesen kann und sein nächstes ohnehin sinnvolles Prüfpaket nach dem Standard ausführt. Keine zusätzliche Gerätemiete nur für einen Verbindungstest und kein neuer täglicher Zeitplan. Der Wochenbericht kann abgeschlossene Fälle und Kosten aus den vorhandenen Ergebnissen knapp zusammenfassen; kein zweites Archiv.
+Die Einführung ist abgeschlossen, wenn ein tatsächlich dafür vorgesehener Lauf seine Mobile-Next-Werkzeuge ohne interaktives Nachfragen vor einer Buchung lesen kann und sein nächstes ohnehin sinnvolles Prüfpaket nach dem Standard ausführt. Keine zusätzliche Gerätemiete nur für einen Verbindungstest und kein neuer täglicher Zeitplan. Der Wochenbericht kann abgeschlossene Fälle und Kosten aus den vorhandenen Ergebnissen knapp zusammenfassen; kein zweites Suchzahlenarchiv.
+
+## 10. Echte Bilder und Wiederverwendung
+
+Bei neuen oder regulär überarbeiteten Geräteartikeln passende reale Screenshots bevorzugen und vereinfachte Bildschirmdarstellungen gezielt ersetzen. Der Artikeltext, Alt-Text und die Bildunterschrift müssen das konkrete Bild beschreiben. Plattform, Version und Sprache passend wählen; nur benötigte Merkmale nennen. Die Komponente zeigt den dokumentierten Geräte-/Sprachstand und bietet die Originalgröße. Kein ungeprüftes Bild als allgemeine Samsung-Ansicht ausgeben.
+
+Vor einer neuen Gerätesitzung bestehende Bilder und Handlungsschritte im Archiv lesen. Export und weitere Aufbereitung erfolgen möglichst ohne reserviertes Gerät. Fehlende alte Downloads begründen keinen automatischen Kompletttest; echte notwendige Neuaufnahmen im nächsten passenden Prüfpaket bündeln und als neuer Lauf datieren. Vorhandene Bilder nie mit einem neuen Datum überschreiben oder einem anderen Lauf unterstellen.
