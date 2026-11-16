@@ -13,6 +13,10 @@ obwohl jede schreibende Session ihre Arbeit selbst „geprüft“ hatte. Ein gr�
 Was sich zählen lässt, prüft Code (`tools/check.py`), nicht das Modell: Kontingent (Regel 9), eine Wochenschau pro Woche,
 Pflichtfelder, Belegtabellen, Qualitätsbremse, Format des Kennzahlen-Archivs.
 
+**Zusätzliche Ausbauvorhaben:** Fehler und Nachbesserungen gehen vor laufender Qualitätsarbeit, Gerätebelegen,
+Nutzerwegen und Verbreitung. Höchstens ein zusätzliches Ausbauvorhaben gleichzeitig; normale Redaktion und dringende
+Korrekturen bleiben getrennt. Themenplan, bestehende Issues und PRs genügen als Arbeitsgrundlage; kein weiteres Register.
+
 **Keine Prüfschicht fängt alles.** Deshalb mehrere, die sich ergänzen – und jede wird selbst beobachtet:
 
 | Schicht | Was sie findet | Wie wir sehen, ob sie wirkt |
@@ -120,6 +124,12 @@ Quelle es hergibt (Beispiel: „Regler verschieben, bis die Schrift gut lesbar i
 **Werkzeuge:** `python tools/check.py` prüft Form und Zuordnung. `python tools/belegcheck.py [slug …]` lädt die Quellen
 (auch JavaScript-Seiten) und prüft, ob jedes Zitat noch wörtlich dort steht. Die GitHub-Action „Wöchentliche Wartung“ führt
 den Abgleich montags für alle Texte aus und legt bei Befunden ein `wartung`-Issue an.
+
+**Nachweisarten unterscheiden:** Quellenabgleich, automatisierter Emulatorlauf, automatisierter Realgerätetest und
+menschlicher Anwendungstest werden ausdrücklich als solche bezeichnet. Ein Emulator belegt keine Samsung-One-UI-Menüs;
+ein Realgerätetest belegt keine menschliche Verständlichkeit. Gerätebelege nennen Textstand, Gerät, Version, Sprache,
+Zeitpunkt, tatsächlich ausgeführte Schritte, Ergebnis und Rückweg. Nur die geprüften Aussagen gelten als abgedeckt.
+Eine vorhandene Belegdatei oder Testangabe allein ist keine bestätigte Prüfung.
 
 ## 5a. Menschliche Prüfung durch den Betreiber
 
@@ -235,12 +245,21 @@ claude.ai ändert, ändert im selben Zug die Datei dort – sonst weiß niemand,
 | --- | --- | --- | --- |
 | Di + Fr 10:37 | Netzleicht: neuer Artikel | Autor | Opus |
 | Fr 07:43 | Netzleicht: Die Woche im Netz | Autor | Opus |
-| Di + Fr 13:23 | Netzleicht: Faktenprüfung | Prüfer | Opus |
+| Di + Fr 13:23 | Netzleicht: Faktenprüfung | Prüfer | Opus (Effort xhigh, Stand 16.11.2026) |
 | Mi 20:07, vorübergehend auch Mo 20:07 | Netzleicht: Nachprüfung (Mo nur, bis alle Texte eine Belegtabelle haben) | Autor | Opus |
 | täglich 19:12 | Netzleicht: Freigabe | Freigabe | Sonnet |
 | Mo 08:13 | Netzleicht: Wochenbericht (Zahlen per Skript, Gegenprobe vor dem Senden, Kennzahlen-PR, am 1. Montag im Monat Stichprobe) | Bericht | Opus |
 | 3. des Monats 13:32 | Netzleicht: monatliche Wartung | Autor | Opus |
 | Mo 05:17 UTC | GitHub-Action „Wöchentliche Wartung“ | Technik | – |
+| Mo 05:41 UTC | GitHub-Action „GitHub aufräumen“ | Technik | – |
+
+GitHub-Zeiten sind geplante Startzeiten; die Plattform kann Läufe verzögert starten. Beide vorhandenen Actions
+bleiben von den sieben redaktionellen Aufgaben getrennt.
+
+**Monatliche Kostenübersicht:** Vorhandene Laufmetadaten im bestehenden Wartungsbericht zusammenfassen: Modell,
+Effort, Laufdauer und ausgewiesene Kosten samt Einheit und Herkunft. Listenpreis-Äquivalente nicht als tatsächliche
+Abrechnung ausgeben; fehlt die Abrechnung, bleibt sie unbekannt. Geräte- oder SEO-Kosten getrennt ausweisen.
+Dafür keinen eigenen Dienst, kein neues Suchzahlenarchiv und keine regelmäßigen Bericht-Commits einführen.
 
 ## 9. Störungen
 
