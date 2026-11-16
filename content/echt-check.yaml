@@ -5,7 +5,7 @@
 titel: "Ist das echt? Der Check für verdächtige Nachrichten und Anrufe"
 seo_titel: "Ist das echt? Check für verdächtige Nachrichten und Anrufe"
 beschreibung: "Eine merkwürdige Nachricht oder ein seltsamer Anruf? Beantworten Sie ein paar Fragen und bekommen Sie eine klare Empfehlung. Es wird nichts gespeichert."
-aktualisiert: 2026-11-10
+aktualisiert: 2026-11-16
 
 wege:
   - id: anruf
@@ -66,7 +66,7 @@ ratschlaege:
   messenger:
     - "Antworten Sie nicht und überweisen Sie nichts."
     - "Rufen Sie die Person unter der alten, Ihnen bekannten Nummer an."
-    - "Ist es Betrug: Bildschirmfoto machen, Nummer blockieren und melden, Polizei informieren."
+    - "Ist es Betrug: Nummer blockieren und melden, Polizei informieren. Schon Geld überwiesen: Chat mit Bildschirmfotos sichern und die Bank anrufen."
   email:
     - "Öffnen Sie keine Links und keine Anhänge."
     - "Geben Sie keine persönlichen Daten über Links in E-Mails ein."

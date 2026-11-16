@@ -332,6 +332,30 @@ fehler:
     behoben_in: "#34"
     altbestand: true
 
+  - id: 2026-11-13-21
+    gefunden: 2026-11-13
+    text: artikel/whatsapp-betrug-erkennen
+    art: unbelegt
+    live: true
+    entdeckt_durch: faktenpruefung
+    vorher: "Ist es Betrug: Bildschirmfoto machen (kurz_gesagt, Checkliste, Schritt 1 „Sichern Sie den Chat, bevor Sie etwas löschen“; ebenso Echt-Check, Weg Messenger)"
+    korrektur: "Bildschirmfoto-Schritt gestrichen; Chat sichern nur noch für den Fall „schon Geld überwiesen“, wie die Polizei es sagt (Abschnitt dazu, Checkliste, Echt-Check)."
+    ursache: "Einzige Quelle (WhatsApp-Hilfe) hat ihren Wortlaut geändert; der Polizei-Beleg gilt nur für „bereits Geld überwiesen“ und wurde verallgemeinert."
+    behoben_in: "#34"
+    altbestand: true
+
+  - id: 2026-11-13-22
+    gefunden: 2026-11-13
+    text: artikel/whatsapp-betrug-erkennen
+    art: unbelegt
+    live: true
+    entdeckt_durch: faktenpruefung
+    vorher: "Bildschirmfoto machen … Das hilft später der Polizei."
+    korrektur: "Satz mit dem Schritt gestrichen."
+    ursache: "Begründung ohne Zitat ergänzt."
+    behoben_in: "#34"
+    altbestand: true
+
   - id: 2026-11-05-05
     gefunden: 2026-11-05
     text: artikel/whatsapp-betrug-erkennen
