@@ -177,7 +177,6 @@ Quelle für reale Cloud-Geräte im vorhandenen kostenlosen Kontingent freigegebe
 0 USD zusätzliche Gerätekosten, keine neue Einzelgenehmigung für jeden vorbereiteten Routinelauf. Zusätzliche
 Kosten oder Verträge bleiben eine eigene Entscheidung.
 
-Die Wartung führt offene Gerätefragen in der vorhandenen Geräte-Prüfliste zusammen; eine neue Liste nur bei Bedarf.
 Bereits passende Belege werden nicht monatlich neu abgefragt oder getestet. Konkrete Befunde, relevante Menüänderungen
 und unbelegte neue Handgriffe begründen gezielte Tests. Reale Bedienung, Emulator, Quellenprüfung und menschliche
 Verständlichkeit werden getrennt ausgewiesen. Cloud-Gerätebelege nennen Modellvariante, tatsächliche Software, Sprache
