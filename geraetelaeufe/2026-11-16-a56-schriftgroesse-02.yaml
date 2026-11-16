@@ -80,7 +80,7 @@ faelle:
 grenzen:
   - One-UI-Version dieser Einheit nicht abgelesen; 7.0 der ersten Einheit wird nicht übernommen.
   - Modellvariante und Sprache dokumentiert; keine Gleichheit sämtlicher deutscher Geräte behauptet.
-  - Zwei Fehltipps mit veralteten Element-Referenzen; kein vollständiger Vergleich der Verbindungsschalter.
+  - Zwei Fehltipps mit veralteten Element-Referenzen; kein Vorher-Nachher-Vergleich der Verbindungsschalter.
   - Bildschirmaufnahme, Gerätelogs, Fettschrift-Wirkung und alle anderen Artikelabschnitte nicht geprüft.
   - Bilder nur von der Seite Schriftgröße und -stil vor und nach einer Reglerstufe; für Suche (t2, t3), Rückweg (t7) und App-Name (t1) gibt es kein Bild.
 folge: https://github.com/charizzzzard/Senioren-Hilfe-Online/issues/52

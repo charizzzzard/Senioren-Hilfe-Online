@@ -44,10 +44,10 @@ Ausnahme: Den Montag der Nachprüfung erwartet das Werkzeug ohnehin nur, solange
 
 ## Änderungen
 
-- **Vorbereitet, noch nicht aktiv umgestellt – Laufarchiv und echte Screenshots:** Die Sicherungen für neuer Artikel,
-  Nachprüfung und Faktenprüfung werden mit `geraetelaeufe/README.md` abgeglichen. Aktive Aufgaben erst nach geprüftem
-  Merge auf denselben Wortlaut umstellen; dieser Branch behauptet keine bereits erfolgte Aktualisierung.
-  Die beiden schreibenden Aufgaben brauchen Mobile Next, die Faktenprüfung liest das Repository. Keine neue Aufgabe
+- **16.11.2026 – neuer Artikel, Nachprüfung, Faktenprüfung (nur Sicherungen, PR #53) – Laufarchiv und echte Screenshots:**
+  Die Sicherungen werden mit `geraetelaeufe/README.md` abgeglichen. Stand beim Merge: Die aktiven Aufgaben sind noch nicht
+  auf diesen Wortlaut umgestellt; das geschieht erst nach dem geprüften Merge. Dieser Eintrag behauptet keine erfolgte Umstellung.
+  Neuer Artikel und Nachprüfung brauchen Mobile Next, die Faktenprüfung liest das Repository. Keine neue Aufgabe
   und keine Änderung der Zeitpläne. Die monatliche Wartung bleibt unverändert.
 
 - **16.11.2026 – Nachprüfung, neuer Artikel:** Gerätetests nach `docs/GERAETETESTS.md` (Standard v1, PR #48).

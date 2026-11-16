@@ -50,7 +50,7 @@ faelle:
 grenzen:
   - Nur diese zugeteilte Einheit mit englischer Sprache beobachtet.
   - Remote management nicht untersucht; keine allgemeine Aussage über sämtliche Einstellungen.
-  - Kartenstatus über die Werkzeuge nicht sichtbar.
+  - Ob im Konto eine Karte hinterlegt ist, war über die Werkzeuge nicht sichtbar.
   - Bilder nur von der Seite Font size and style und von Software information; für die übrigen Schritte gibt es kein Bild.
 bilder:
   - id: font-size-and-style
