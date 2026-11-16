@@ -1,0 +1,174 @@
+# Belegtabelle für content/artikel/woche-im-netz-2026-kw46.md (Format: docs/BETRIEB.md, Abschnitt „Belegtabelle“)
+# Prüfen: python tools/belegcheck.py woche-im-netz-2026-kw46
+# Hinweis: Einträge des Phishing-Radars wandern nach einigen Tagen ins Archiv (https://www.verbraucherzentrale.de/phishingradar-archiv-71872).
+geprueft: 2026-11-13
+belege:
+  # ---------------------------------------------------------------- Meldung 1: Consorsbank, easybank, PayPal
+  - aussage: "12. November: Mail im Namen der Consorsbank"
+    quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/phishingradar/phishingradar-aktuelle-warnungen-6059
+    zitat: "12. November 2026: \"Consorsbank\" droht mit angeblichem Zugriffsverlust des Kontos"
+  - aussage: "Betreff „Ohne Aktualisierung droht Zugriffsverlust – Jetzt handeln“"
+    quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/phishingradar/phishingradar-aktuelle-warnungen-6059
+    zitat: "Sie wird unter dem Betreff \"Ohne Aktualisierung droht Zugriffsverlust – Jetzt handeln\" versendet."
+  - aussage: "Angeblich neue gesetzliche Sicherheitsvorschriften"
+    quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/phishingradar/phishingradar-aktuelle-warnungen-6059
+    zitat: "durch den Hinweis auf neue gesetzliche Sicherheitsvorschriften zu einer Aktualisierung der Sicherheitseinstellungen zu bewegen"
+  - aussage: "Sicherheitseinstellungen bis zum 12. November aktualisieren, sonst Einschränkungen bis zum Zugriffsverlust"
+    quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/phishingradar/phishingradar-aktuelle-warnungen-6059
+    zitat: "bis zum 12. November 2026 zu aktualisieren. Andernfalls drohen laut E-Mail Einschränkungen bis hin zum Verlust des Zugriffs auf das eigene Konto."
+  - aussage: "Anzeichen: unseriöse Absenderadresse, fehlende Anrede, kurze Frist, Drohung, Link"
+    quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/phishingradar/phishingradar-aktuelle-warnungen-6059
+    zitat: "Anzeichen für Phishing: unseriöse Absenderadresse, fehlende Anrede, kurze Frist, Drohung, Link in der Mail."
+  - aussage: "Rat: ignorieren, unbeantwortet in den Spam-Ordner"
+    quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/phishingradar/phishingradar-aktuelle-warnungen-6059
+    zitat: "Wir empfehlen Ihnen, Phishing-Mails zu ignorieren und unbeantwortet in den Spam-Ordner zu verschieben."
+  - aussage: "Rat: Hinweise nur über die offizielle App oder die bekannte Internetseite prüfen"
+    quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/phishingradar/phishingradar-aktuelle-warnungen-6059
+    zitat: "prüfen Sie entsprechende Hinweise ausschließlich über die offizielle App oder die bekannte Internetseite."
+  - aussage: "11. November: Mail im Namen der easybank"
+    quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/phishingradar/phishingradar-aktuelle-warnungen-6059
+    zitat: "11. November 2026: Vermeintliche Datenaktualisierung bei der easybank erforderlich"
+  - aussage: "Zugriff auf das Konto angeblich vorübergehend deaktiviert"
+    quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/phishingradar/phishingradar-aktuelle-warnungen-6059
+    zitat: "dass der Zugriff auf das Easybank-Konto vorübergehend deaktiviert wurde"
+  - aussage: "Identität bestätigen und persönliche Daten eingeben"
+    quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/phishingradar/phishingradar-aktuelle-warnungen-6059
+    zitat: "über einen bereitgestellten Link ihre Identität zu bestätigen und persönliche Daten einzugeben"
+  - aussage: "Knopf „ZUR ÜBERPRÜFUNG FORTFAHREN“"
+    quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/phishingradar/phishingradar-aktuelle-warnungen-6059
+    zitat: "über den Button „ZUR ÜBERPRÜFUNG FORTFAHREN“ persönliche Daten preiszugeben"
+  - aussage: "10. November: Mail im Namen von PayPal"
+    quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/phishingradar/phishingradar-aktuelle-warnungen-6059
+    zitat: "10. November 2026: Angebliche Kontoeinschränkung im Namen von PayPal"
+  - aussage: "Konto wegen angeblichen Verstoßes gegen die Nutzungsrichtlinien eingeschränkt"
+    quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/phishingradar/phishingradar-aktuelle-warnungen-6059
+    zitat: "Als Begründung wird ein angeblicher Verstoß gegen die PayPal-Nutzungsrichtlinien genannt."
+  - aussage: "Schaltfläche „KONTO SICHERN“, anmelden"
+    quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/phishingradar/phishingradar-aktuelle-warnungen-6059
+    zitat: "sich über die Schaltfläche \"KONTO SICHERN\" anzumelden"
+  - aussage: "Hinweise auf Richtlinien und „Rechtliches“ sollen die Mail seriöser wirken lassen"
+    quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/phishingradar/phishingradar-aktuelle-warnungen-6059
+    zitat: "Durch solche rechtlich und offiziell klingenden Hinweise soll die Nachricht seriöser und glaubwürdiger wirken."
+  - aussage: "Unpersönliche Anrede „Hallo Kunde“"
+    quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/phishingradar/phishingradar-aktuelle-warnungen-6059
+    zitat: "unpersönliche Anrede (\"Hallo Kunde\")"
+  - aussage: "Bei PayPal Einschränkungen nur über offizielle App oder bekannte Internetseite prüfen"
+    quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/phishingradar/phishingradar-aktuelle-warnungen-6059
+    zitat: "prüfen Sie mögliche Einschränkungen ausschließlich über die offizielle PayPal-App oder die bekannte Internetseite des Anbieters"
+  # ---------------------------------------------------------------- Meldung 2: CHECK24, Deutsche Bank
+  - aussage: "9. November: Mail im Namen von CHECK24"
+    quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/phishingradar/phishingradar-aktuelle-warnungen-6059
+    zitat: "09. November 2026: Angebliche Rückerstattung im Namen von CHECK24"
+  - aussage: "Guthaben von 102,99 € wegen nachträglicher Preisanpassung"
+    quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/phishingradar/phishingradar-aktuelle-warnungen-6059
+    zitat: "aufgrund einer nachträglichen Preisanpassung ein Guthaben in Höhe von 102,99 € zusteht"
+  - aussage: "Für die Gutschrift Kartendaten bestätigen"
+    quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/phishingradar/phishingradar-aktuelle-warnungen-6059
+    zitat: "Um die vermeintliche Gutschrift zu erhalten, sollen die Kartendaten bestätigt werden"
+  - aussage: "Mail beruhigt: nichts werde von der Karte abgebucht"
+    quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/phishingradar/phishingradar-aktuelle-warnungen-6059
+    zitat: "Auch der Hinweis, es werde nichts von der Karte abgebucht, soll Vertrauen schaffen"
+  - aussage: "Konkrete Geldsumme als Lockmittel, Aufforderung zur Eingabe von Kartendaten als Anzeichen"
+    quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/phishingradar/phishingradar-aktuelle-warnungen-6059
+    zitat: "konkrete Geldsumme als Lockmittel, Aufforderung zur Eingabe von Kartendaten, Link in der Mail"
+  - aussage: "Rat: keinesfalls auf Links klicken"
+    quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/phishingradar/phishingradar-aktuelle-warnungen-6059
+    zitat: "unbeantwortet in den Spam-Ordner zu verschieben und keinesfalls auf enthaltene Links zu klicken. Falls Sie CHECK24 nutzen"
+  - aussage: "6. November: Mail im Namen der Deutschen Bank"
+    quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/phishingradar/phishingradar-aktuelle-warnungen-6059
+    zitat: "06. November 2026: Vermeintliche Aktualisierung der Stammdaten im Namen der Deutschen Bank"
+  - aussage: "Betreff „Dokumentenprüfung zur Einhaltung der Geldwäscheverordnung!“"
+    quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/phishingradar/phishingradar-aktuelle-warnungen-6059
+    zitat: "Dokumentenprüfung zur Einhaltung der Geldwäscheverordnung!"
+  - aussage: "Ausweis- oder Passkopie, Adressnachweis und Steueridentifikationsnummer einreichen"
+    quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/phishingradar/phishingradar-aktuelle-warnungen-6059
+    zitat: "eine Kopie des Personalausweises oder Reisepasses, ein aktueller Adressnachweis und die Steueridentifikationsnummer eingereicht werden"
+  - aussage: "Über einen Link hochladen"
+    quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/phishingradar/phishingradar-aktuelle-warnungen-6059
+    zitat: "innerhalb von 14 Tagen über einen Link in einem angeblich verschlüsselten KYC-Portal hochgeladen werden"
+  - aussage: "Angedroht: Kontosperrung und Ende der Geschäftsbeziehung"
+    quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/phishingradar/phishingradar-aktuelle-warnungen-6059
+    zitat: "eine automatische Kontosperrung ab dem 15. Tag, eine Beendigung der Geschäftsbeziehung ab dem 30. Tag"
+  - aussage: "Anzeichen: Aufforderung zur Übermittlung sensibler Dokumente"
+    quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/phishingradar/phishingradar-aktuelle-warnungen-6059
+    zitat: "Aufforderung zur Übermittlung sensibler Dokumente"
+  - aussage: "Rat: solche Aufforderungen ignorieren, um sensible Daten zu schützen"
+    quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/phishingradar/phishingradar-aktuelle-warnungen-6059
+    zitat: "Wir raten Ihnen, solche Aufforderungen zu ignorieren und Phishing-Mails unbeantwortet in den Spam-Ordner zu verschieben, um Ihre sensiblen Daten zu schützen."
+  # ---------------------------------------------------------------- Meldung 3: Apple-Updates
+  - aussage: "9. November: iOS 27.2.1 für iPhone 11 und neuer"
+    quelle: https://support.apple.com/de-de/100100
+    zitat: "iPhone 11 und neuer, iPad Pro (12,9″, 4. Generation und neuer)"
+  - aussage: "iOS 27.2.1 veröffentlicht am 9. November 2026"
+    quelle: https://support.apple.com/de-de/149715
+    zitat: "Veröffentlicht am 9. November 2026"
+  - aussage: "iOS 26.7.3 vom 9. November"
+    quelle: https://support.apple.com/de-de/100100
+    zitat: "iOS 26.7.3 und iPadOS 26.7.3"
+  - aussage: "iOS 18.7.12 für iPhone XS, iPhone XS Max, iPhone XR"
+    quelle: https://support.apple.com/de-de/149717
+    zitat: "Verfügbar für: iPhone XS, iPhone XS Max, iPhone XR, iPad (7. Generation)"
+  - aussage: "iOS 18.7.12 veröffentlicht am 9. November 2026"
+    quelle: https://support.apple.com/de-de/149717
+    zitat: "Veröffentlicht am 9. November 2026"
+  - aussage: "Bluetooth-Lücke: bösartiges Gerät kann ohne Benutzerinteraktion koppeln"
+    quelle: https://support.apple.com/de-de/149715
+    zitat: "Ein bösartiges Bluetooth-Gerät kann möglicherweise ohne Benutzerinteraktion eine Kopplung herstellen."
+  - aussage: "Bluetooth-Lücke auch in iOS 18.7.12 behoben"
+    quelle: https://support.apple.com/de-de/149717
+    zitat: "Ein bösartiges Bluetooth-Gerät kann möglicherweise ohne Benutzerinteraktion eine Kopplung herstellen."
+  - aussage: "iOS 27.2.1: Lücke in iMessage-Gruppenchats behoben"
+    quelle: https://support.apple.com/de-de/149715
+    zitat: "Ein entfernter Angreifer kann möglicherweise einem iMessage-Gruppenchat beitreten und dessen Nachrichten empfangen."
+  - aussage: "Aktualisieren ist eine der wichtigsten Maßnahmen für die Sicherheit"
+    quelle: https://support.apple.com/de-de/100100
+    zitat: "Eine der wichtigsten Maßnahmen, um die Sicherheit deines Apple-Produkts zu gewährleisten, besteht darin, deine Software auf dem neuesten Stand zu halten."
+  - aussage: "Einstellungen › Allgemein › Softwareupdate"
+    quelle: https://support.apple.com/de-de/118575
+    zitat: "Tippe auf „Softwareupdate“. Die aktuell installierte Version von iOS wird angezeigt und ob ein Update verfügbar ist."
+  - aussage: "Einstellungen öffnen, auf Allgemein tippen"
+    quelle: https://support.apple.com/de-de/118575
+    zitat: "Öffne „Einstellungen“. Tippe auf „Allgemein“."
+  - aussage: "„Laden und installieren“ tippen, Anweisungen folgen"
+    quelle: https://support.apple.com/de-de/118575
+    zitat: "Wenn ein Update verfügbar ist, tippe auf „Laden und installieren“, und folge den Anweisungen auf dem Bildschirm."
+  - aussage: "Vorher Backup, Strom, WLAN"
+    quelle: https://support.apple.com/de-de/118575
+    zitat: "Erstelle ein Backup deines Geräts mit iCloud oder deinem Computer."
+  - aussage: "Ans Ladekabel und ins WLAN"
+    quelle: https://support.apple.com/de-de/118575
+    zitat: "Schließe dein Gerät an die Stromversorgung an, und stelle über WLAN eine Verbindung mit dem Internet her."
+  - aussage: "Unter Softwareupdate: Automatische Updates"
+    quelle: https://support.apple.com/de-de/118575
+    zitat: "Tippe auf „Automatische Updates“."
+  - aussage: "Automatische Installation: über Nacht beim Laden im WLAN, vorher Mitteilung"
+    quelle: https://support.apple.com/de-de/118575
+    zitat: "Automatische Installation: Wenn ein Update verfügbar ist, lädt und installiert das iPhone das Update über Nacht, während es geladen wird und eine WLAN-Verbindung besteht. Du erhältst eine Mitteilung, bevor das iPhone ein Update installiert."
+  # ---------------------------------------------------------------- Meldung 4: Polizei, Social Engineering
+  - aussage: "9. November: Beitrag der Polizeilichen Kriminalprävention"
+    quelle: https://www.polizei-beratung.de/aktuelles/detailansicht/wie-betrueger-menschliche-schwaechen-ausnutzen/
+    zitat: "Wie Betrüger menschliche Schwächen ausnutzen"
+  - aussage: "Ausgenutzt werden Hilfsbereitschaft, Vertrauen, Angst, Respekt vor Autorität"
+    quelle: https://www.polizei-beratung.de/aktuelles/detailansicht/wie-betrueger-menschliche-schwaechen-ausnutzen/
+    zitat: "menschliche Eigenschaften wie Hilfsbereitschaft, Vertrauen, Angst oder Respekt vor Autorität gezielt ausgenutzt"
+  - aussage: "Täter geben sich als Techniker oder Mitarbeiter bekannter Firmen aus, vermitteln Dringlichkeit"
+    quelle: https://www.polizei-beratung.de/aktuelles/detailansicht/wie-betrueger-menschliche-schwaechen-ausnutzen/
+    zitat: "Angreifende geben sich oft als Techniker, Kollegen oder Mitarbeiter bekannter Firmen aus. Sie versuchen, Ihnen ein Gefühl der Dringlichkeit zu vermitteln"
+  - aussage: "Ziel: schnelle, unüberlegte Handlungen"
+    quelle: https://www.polizei-beratung.de/aktuelles/detailansicht/wie-betrueger-menschliche-schwaechen-ausnutzen/
+    zitat: "um Sie zu schnellen, unüberlegten Handlungen zu bewegen"
+  - aussage: "Tipp: wachsam bei Anfragen, die drängen oder zu gut erscheinen"
+    quelle: https://www.polizei-beratung.de/aktuelles/detailansicht/wie-betrueger-menschliche-schwaechen-ausnutzen/
+    zitat: "insbesondere wenn sie drängen oder zu gut erscheinen, immer wachsam und skeptisch"
+  - aussage: "Tipp: Identität über bekannten Kanal prüfen, offizielle Nummer statt der aus der Mail"
+    quelle: https://www.polizei-beratung.de/aktuelles/detailansicht/wie-betrueger-menschliche-schwaechen-ausnutzen/
+    zitat: "einen direkten Telefonanruf über eine offizielle Nummer, nicht die in der Anfrage oder bspw. in der E-Mail angegebene"
+  - aussage: "Seriöse Unternehmen oder Banken fordern niemals per E-Mail oder Telefon Passwörter, Zugangsdaten, Kontoinformationen"
+    quelle: https://www.polizei-beratung.de/aktuelles/detailansicht/wie-betrueger-menschliche-schwaechen-ausnutzen/
+    zitat: "Seriöse Unternehmen oder Banken fordern Sie niemals per E-Mail oder Telefon zur Preisgabe von Passwörtern, Zugangsdaten oder Kontoinformationen auf."
+  - aussage: "Nicht unter Druck setzen lassen, Zeit nehmen, Telefonat unterbrechen, Zweitmeinung"
+    quelle: https://www.polizei-beratung.de/aktuelles/detailansicht/wie-betrueger-menschliche-schwaechen-ausnutzen/
+    zitat: "Lassen Sie sich nicht unter Druck setzen und nehmen Sie sich Zeit für Entscheidungen. Falls Sie unsicher sind, unterbrechen Sie das Telefonat"
+  - aussage: "Zweite Meinung einholen"
+    quelle: https://www.polizei-beratung.de/aktuelles/detailansicht/wie-betrueger-menschliche-schwaechen-ausnutzen/
+    zitat: "holen Sie eine Zweitmeinung ein"

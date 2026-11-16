@@ -48,6 +48,7 @@ MEILENSTEINE = {
     "klicks_woche": [10, 50, 100, 250, 500, 1000],
     "impressionen_woche": [1000, 10000, 100000],
     "anfrage_top3": [10],        # erste Suchanfrage mit >= 10 Impressionen auf Ø Position 1–3 in einer Woche
+    "klicks_4wochen": [20000],   # Summe der Klicks aus 4 aufeinanderfolgenden Wochen (≈ Besuche aus Google im Monat)
     "alle_indexiert": [1],       # alle Sitemap-URLs indexiert
 }
 WOCHE = re.compile(r"^\d{4}-W\d{2}$")
@@ -131,6 +132,13 @@ def eintragen(datei: str) -> int:
     return 0
 
 
+# Was beim Erreichen zusätzlich zu tun ist (steht in der Zeile „Neue Meilensteine“)
+MEILENSTEIN_AUFTRAG = {
+    ("klicks_4wochen", 20000): "Betreiber an den Newsletter erinnern (Entscheidung #27, docs/STRATEGIE.md Stufe 3): "
+                               "neues Issue mit Label entscheidung anlegen",
+}
+
+
 # ---------------------------------------------------------------- auswerten
 def erreichte_meilensteine() -> list[tuple[str, int, str]]:
     """(art, schwelle, woche) – jeweils die erste Woche, in der die Schwelle erreicht wurde."""
@@ -139,8 +147,10 @@ def erreichte_meilensteine() -> list[tuple[str, int, str]]:
     ergebnis = []
     for art, schwellen in MEILENSTEINE.items():
         for schwelle in schwellen:
-            for w in wochen:
-                if art == "klicks_woche":
+            for i, w in enumerate(wochen):
+                if art == "klicks_4wochen":
+                    ok = i >= 3 and sum(int(x["klicks"]) for x in wochen[i - 3:i + 1]) >= schwelle
+                elif art == "klicks_woche":
                     ok = int(w["klicks"]) >= schwelle
                 elif art == "impressionen_woche":
                     ok = int(w["impressionen"]) >= schwelle
@@ -190,6 +200,9 @@ def auswerten() -> int:
     gemeldet = {(m["art"], int(m["schwelle"])) for m in lesen("meilensteine")}
     neu = [(art, s, w) for art, s, w in erreichte_meilensteine() if (art, s) not in gemeldet]
     print("Neue Meilensteine: " + ("; ".join(f"{art} {s} in {w}" for art, s, w in neu) if neu else "keine"))
+    for art, s, w in neu:
+        if (art, s) in MEILENSTEIN_AUFTRAG:
+            print(f"Auftrag zu {art} {s}: {MEILENSTEIN_AUFTRAG[(art, s)]}")
     return 0
 
 

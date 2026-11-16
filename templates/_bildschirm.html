@@ -1,4 +1,9 @@
-<figure class="bildschirm">
+<figure class="bildschirm{% if foto is defined %} bildschirm--echt{% endif %}">
+  {% if foto is defined %}
+  <a class="bildschirm__original" href="{{ foto.src }}" aria-label="{{ foto.alt }} – Bild in Originalgröße öffnen">
+    <img src="{{ foto.src }}" alt="{{ foto.alt }}" width="{{ foto.breite }}" height="{{ foto.hoehe }}" loading="lazy" decoding="async">
+  </a>
+  {% else %}
   <div class="bs bs--{{ geraet }}" aria-hidden="true">
     <div class="bs__kopf">
       <span class="bs__zurueck">{{ "‹" if geraet == "iphone" else "←" }}</span>
@@ -20,5 +25,6 @@
       {% endfor %}
     </ul>
   </div>
-  <figcaption>{{ unterschrift }} <span class="bildschirm__hinweis">Vereinfachte Darstellung – auf Ihrem Gerät kann es etwas anders aussehen.</span></figcaption>
+  {% endif %}
+  <figcaption>{{ unterschrift }} <span class="bildschirm__hinweis">{% if foto is defined %}Echter Screenshot · {{ foto.profil }}. Die Ansicht kann je nach Gerät und Version abweichen.{% else %}Vereinfachte Darstellung – auf Ihrem Gerät kann es etwas anders aussehen.{% endif %}</span></figcaption>
 </figure>

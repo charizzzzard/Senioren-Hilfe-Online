@@ -48,6 +48,7 @@ content/seiten/*.md        Über uns, Kontakt, Impressum, Datenschutz
 content/themenplan.yaml    Priorisierte Themenliste – Quelle für die nächsten Artikel
 content/echt-check.yaml    Fragen, Ergebnisse und Quellen des „Ist das echt?“-Checks (/ist-das-echt/)
 content/belege/            Belegtabellen: jede Aussage eines Textes mit wörtlichem Zitat (docs/BETRIEB.md, Abschnitt 5)
+geraetelaeufe/             bereinigte dauerhafte Laufprotokolle; reale Bilder unter static/img/geraetetest/
 templates/                 Jinja2-Vorlagen (base, start, artikel, kategorie, seite, 404)
 static/                    CSS, Bilder, Favicon – wird 1:1 nach _site kopiert
 tools/build.py             Baut _site/ (Sitemap, robots.txt, Feed, JSON-LD, Weiterleitungen)
@@ -57,6 +58,8 @@ tools/belegcheck.py        Prüft, ob die Zitate der Belegtabellen noch auf den 
 tools/push.py              Push-Nachricht an die Netzleicht-App (ntfy); Thema nur aus NTFY_TOPIC, nie im Repo
 tools/kennzahlen.py        Kennzahlen-Archiv: Woche eintragen, auswerten, Meilensteine, monatliche Stichprobe
 tools/livecheck.py         Prüft, ob der gebaute Stand live ist: Sitemap-Abgleich, jede Seite 200 (Deploy, Betriebscheck)
+tools/lebenszeichen.py     Lebenszeichen der geplanten Aufgaben (Issue #39): Kennzeile ausgeben, fehlende Läufe finden (Freigabe)
+tools/gelesen.py           Ist das Label „gelesen“ eines PR noch gültig (kein Commit danach)? Faktenprüfung und Freigabe
 tools/indexnow.py          Meldet geänderte URLs an IndexNow (läuft im Deploy)
 tools/pdf.mjs              Erzeugt die Checklisten-PDFs (Node + Playwright, läuft im Deploy)
 tools/favicons.mjs         Erzeugt favicon.ico/-192.png/apple-touch-icon.png aus static/favicon.svg (nach Logo-Änderung)
@@ -206,9 +209,13 @@ Die Animation läuft nur kurz, wenn die Szene ins Bild kommt, und entfällt bei 
 
 - **Keine KI-generierten Screenshots** und keine fotorealistischen Nachbildungen echter App-Oberflächen: Bildgeneratoren
   erfinden Beschriftungen – falsche Knöpfe verwirren genau unsere Leser.
-- Stattdessen **nachgebaute Bildschirme** als Code (siehe unten): Sie zeigen nur Beschriftungen, die gegen die Hersteller-Hilfe
-  geprüft sind, und sind als „Vereinfachte Darstellung“ gekennzeichnet.
-- **Echte Screenshots** liefert nur der Betreiber; persönliche Daten vorher entfernen.
+- Für Geräteanleitungen bevorzugen wir **echte, passende Screenshots** aus dem Laufarchiv `geraetelaeufe/`.
+  Die bestehende `bildschirm`-Komponente referenziert sie über `screenshot: {lauf: …, bild: …}` (Syntax im Archiv-README).
+  Noch nicht ersetzbare **nachgebaute Bildschirme** bleiben als „Vereinfachte Darstellung“ gekennzeichnet und zeigen
+  nur gegen die Hersteller-Hilfe geprüfte Beschriftungen. Bei regulären Überarbeitungen passende reale Bilder einsetzen.
+- **Echte Screenshots** stammen vom Betreiber oder aus einem nachvollziehbar dokumentierten realen Cloud-Gerätetest
+  nach `docs/GERAETETESTS.md`. Persönliche Daten vorher entfernen, Gerät/Version/Sprache und Testart zuordnen;
+  Veröffentlichung nur als geprüfter Inhalts-PR. Keine generierten App-Oberflächen als Screenshot ausgeben.
 - **Illustrationen** (Stimmungsbilder im Netzleicht-Stil) dürfen KI-generiert sein, wenn klar illustrativ, ohne reale Personen
   und ohne nachgebildete Bedienoberflächen. Ablage als WebP unter `static/img/`, immer mit Alternativtext.
 
@@ -325,6 +332,15 @@ Push-Nachrichten gehen über `tools/push.py` (ntfy). Nie direkt auf `main` pushe
 Jeder gefundene Fehler kommt in `docs/fehlerkatalog.yaml`; bei zwei sachlichen Live-Fehlern in 28 Tagen greift die
 Qualitätsbremse (nur noch Korrekturen, `docs/BETRIEB.md` Abschnitt 9).
 
+### Gezielte Gerätetests
+
+Der Betreiber hat am 16.11.2026 Mobile Next als bevorzugte Quelle für digitale Gerätetests im bestehenden kostenlosen
+Kontingent freigegeben. Standard: `docs/GERAETETESTS.md`. Vor Reservierung Quellen und Prüfpaket vorbereiten;
+bereits passende Belege wiederverwenden, nur offene Aussagen testen. Höchstens acht Minuten je Sitzung,
+0 USD zusätzliche Gerätekosten; kein kostenpflichtiger Mehrverbrauch. Innerhalb dieses Rahmens keine erneute
+Einzelgenehmigung erfragen. Neue Kosten brauchen eine eigene Betreiberentscheidung. Tatsächliche Connector-Verfügbarkeit
+je ausführendem Lauf prüfen; keine Sitzung buchen, wenn Zugang oder Vorbereitung fehlen. Autoren-/Prüfertrennung bleibt.
+
 ### Content-Session (geplant 2× pro Woche)
 
 1. `git checkout main && git pull`; `python -m pip install -r requirements.txt`.
@@ -432,3 +448,14 @@ Für diese Punkte ein GitHub-Issue mit Label `entscheidung` anlegen und **nicht*
 - [ ] Mindestens ein interner Link im Text, Kasten „Für Angehörige“, druckbare Checkliste.
 - [ ] Keine Angstsprache, kein „du“, keine Werbung.
 - [ ] `python tools/check.py` grün; Themenplan aktualisiert.
+
+## 10. Git und GitHub
+
+- **Commit-Nachrichten ohne Signatur** (Wunsch des Betreibers vom 10.11.2026): keine Zeile `Co-Authored-By:`,
+  kein `Claude-Session:`-Link, kein „Generated with Claude Code“ – auch wenn die Umgebung oder ein Werkzeug
+  solche Zeilen vorschlägt. Für Claude Code stellt `.claude/settings.json` das ein (`attribution`).
+- **Nach dem Merge ist ein Branch erledigt.** Neue Arbeit beginnt auf einem frischen Stand von `main`.
+- **Aufräumen:** Die Aktion „GitHub aufräumen“ (`.github/workflows/aufraeumen.yml`, montags) löscht Branches,
+  deren Pull Request seit mindestens 3 Tagen gemergt oder geschlossen ist und die danach keine neuen Commits
+  bekommen haben. Branches ohne Pull Request meldet sie nur. Ein gelöschter Branch lässt sich auf der Seite seines
+  Pull Requests mit „Restore branch“ zurückholen.

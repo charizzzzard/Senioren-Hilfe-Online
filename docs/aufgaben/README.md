@@ -13,15 +13,22 @@ Das Repository ist öffentlich; wer das Thema kennt, kann die Push-Nachrichten m
 
 | Aufgabe in claude.ai | Datei | Zeitplan (Europe/Berlin) | Gesichert am |
 | --- | --- | --- | --- |
-| Netzleicht: neuer Artikel | `neuer-artikel.txt` | Di + Fr 10:37 (`37 10 * * 2,5`) | 10.11.2026 |
-| Netzleicht: Die Woche im Netz | `die-woche-im-netz.txt` | Fr 07:43 (`43 7 * * 5`) | 10.11.2026 |
-| Netzleicht: Faktenprüfung | `faktenpruefung.txt` | Di + Fr 13:23 (`23 13 * * 2,5`) | 10.11.2026 |
-| Netzleicht: Nachprüfung | `nachpruefung.txt` | Mo + Mi 20:07 (`7 20 * * 1,3`); der Montag entfällt, sobald alle Texte eine Belegtabelle haben | 10.11.2026 (an diesem Tag geändert) |
-| Netzleicht: Freigabe | `freigabe.txt` | täglich 19:12 (`12 19 * * *`) | 10.11.2026 |
-| Netzleicht: Wochenbericht | `wochenbericht.txt` | Mo 08:13 (`13 8 * * 1`) | 10.11.2026 |
-| Netzleicht: monatliche Wartung | `monatliche-wartung.txt` | am 3. des Monats 13:32 (`32 13 3 * *`) | 10.11.2026 |
+| Netzleicht: neuer Artikel | `neuer-artikel.txt` | Di + Fr 10:37 (`37 10 * * 2,5`) | 11.11.2026 |
+| Netzleicht: Die Woche im Netz | `die-woche-im-netz.txt` | Fr 07:43 (`43 7 * * 5`) | 11.11.2026 |
+| Netzleicht: Faktenprüfung | `faktenpruefung.txt` | Di + Fr 13:23 (`23 13 * * 2,5`) | 11.11.2026 |
+| Netzleicht: Nachprüfung | `nachpruefung.txt` | Mo + Mi 20:07 (`7 20 * * 1,3`); der Montag entfällt, sobald alle Texte eine Belegtabelle haben | 11.11.2026 |
+| Netzleicht: Freigabe | `freigabe.txt` | täglich 19:12 (`12 19 * * *`) | 11.11.2026 |
+| Netzleicht: Wochenbericht | `wochenbericht.txt` | Mo 08:13 (`13 8 * * 1`) | 11.11.2026 |
+| Netzleicht: monatliche Wartung | `monatliche-wartung.txt` | am 3. des Monats 13:32 (`32 13 3 * *`) | 11.11.2026 |
 
 Rollen und Modelle der Aufgaben: `docs/BETRIEB.md` Abschnitte 2 und 8.
+
+**Lebenszeichen:** Jede Aufgabe schreibt als letzten Schritt einen Kommentar in Issue #39. Die erste Zeile ist die Kennzeile,
+zum Beispiel `Lebenszeichen: Faktenprüfung 2026-11-13`. Die Freigabe prüft täglich, ob zu jedem geplanten Lauf der letzten
+26 Stunden eines da ist (`python tools/lebenszeichen.py pruefen`). Dafür steht der Zeitplan aus der Tabelle oben auch in
+`tools/lebenszeichen.py` (`ZEITPLAN`). **Wer einen Zeitplan in claude.ai ändert, eine Aufgabe pausiert oder löscht, passt
+`ZEITPLAN` im selben Pull Request an** – sonst meldet die Freigabe jeden Tag einen Lauf als fehlend, der gar nicht geplant war.
+Ausnahme: Den Montag der Nachprüfung erwartet das Werkzeug ohnehin nur, solange Texte ohne Belegtabelle live sind.
 
 ## Eine Aufgabe wiederherstellen
 
@@ -30,11 +37,46 @@ Rollen und Modelle der Aufgaben: `docs/BETRIEB.md` Abschnitte 2 und 8.
    Aufgaben und in der ntfy-App des Betreibers).
 3. Zeitplan aus der Tabelle eintragen, Zeitzone Europe/Berlin.
 4. Repository `charizzzzard/Senioren-Hilfe-Online` hinterlegen und den Connector OpenSEO hinzufügen
-   (`docs/BETRIEB.md` Abschnitt 10) – ohne hinterlegtes Repository hat der Lauf keine GitHub-Werkzeuge.
+   (`docs/BETRIEB.md` Abschnitt 10) – ohne hinterlegtes Repository hat der Lauf keine GitHub-Werkzeuge. Mobile Next nur bei den
+   Aufgaben „Netzleicht: neuer Artikel“ und „Netzleicht: Nachprüfung“ hinterlegen. Die Faktenprüfung liest gespeicherte
+   Belege über GitHub. Der tatsächliche Connector-Stand muss nach dem manuellen Hinzufügen bestätigt werden.
 5. Jeder Lauf soll eine neue Session starten (nicht dieselbe fortsetzen).
 
 ## Änderungen
 
+- **16.11.2026 – neuer Artikel, Nachprüfung, Faktenprüfung (nur Sicherungen, PR #53) – Laufarchiv und echte Screenshots:**
+  Die Sicherungen werden mit `geraetelaeufe/README.md` abgeglichen. Stand beim Merge: Die aktiven Aufgaben sind noch nicht
+  auf diesen Wortlaut umgestellt; das geschieht erst nach dem geprüften Merge. Dieser Eintrag behauptet keine erfolgte Umstellung.
+  Neuer Artikel und Nachprüfung brauchen Mobile Next, die Faktenprüfung liest das Repository. Keine neue Aufgabe
+  und keine Änderung der Zeitpläne. Die monatliche Wartung bleibt unverändert.
+
+- **16.11.2026 – Nachprüfung, neuer Artikel:** Gerätetests nach `docs/GERAETETESTS.md` (Standard v1, PR #48).
+  Nachprüfung (Schritt 4a) und neuer Artikel (Schritt 5a) reservieren ein Mobile-Next-Gerät nur, wenn die Werkzeuge im Lauf
+  verfügbar sind und ein Prüfpaket vorliegt – eine Sitzung, höchstens 8 Minuten, 0 USD; sonst keine Reservierung, der Handgriff
+  kommt in die Geräte-Prüfliste. Die Nachprüfung nimmt offene `geraetetest`-Issues mit konkretem Befund auf (Schritt 2, Punkt a).
+  Die monatliche Wartung bleibt unverändert (monatliche Geräte-Prüfliste, CLAUDE.md Abschnitt 7). Connector-Stand am
+  16.11.2026: Alle sieben Aufgaben haben nur OpenSEO hinterlegt; ein geplanter Lauf startet mit `github`, `OpenSEO` und
+  `claude-code-remote` – Mobile Next ist in keiner Aufgabe verfügbar. Kein neuer Zeitplan. Anlass: Auftrag des Betreibers vom
+  16.11.2026 nach dem Samsung-Pilot.
+- **14.11.2026 – Faktenprüfung, Freigabe:** `gelesen` bleibt gültig, solange nach dem Setzen kein Commit dazukommt
+  (`tools/gelesen.py`). Die Faktenprüfung entfernt nur noch veraltete Labels; die Freigabe entfernt keine mehr und merged
+  vorzeitig nur bei „gültig“. Anlass: Der Betreiber hatte #35 und #36 schon vor der Prüfung gelesen – nach der alten Regel
+  hätte er das Label nach der Prüfung noch einmal setzen müssen.
+- **11.11.2026 – Freigabe, Faktenprüfung, Wochenbericht:** Neues Label `gelesen` (setzt nur der Betreiber): Die Freigabe
+  merged einen gelesenen Klasse-C-PR schon beim nächsten Lauf. Die Faktenprüfung schickt höchstens eine `freigabe`-Nachricht
+  pro Lauf, mit Lesezeit; ein altes `gelesen` entfernt sie beim Start der Frist. Der Wochenbericht nennt „davon gelesen“.
+  Anlass: Die vier Klasse-C-PRs #33–#36 bestehen voraussichtlich im selben Lauf (Entscheidungen des Betreibers vom 11.11.2026).
+- **11.11.2026 – alle sieben Aufgaben:** Lebenszeichen als letzter Schritt (Kommentar in Issue #39). Die Freigabe
+  gleicht in Schritt 2e jetzt diese Lebenszeichen ab statt der Liste der geplanten Aufgaben. Anlass: Der Freigabe-Lauf
+  vom 10.11. fand das Werkzeug `list_triggers` nicht – geplante Läufe haben es nicht. Ein abgebrochener Lauf wäre also
+  weiterhin unbemerkt geblieben.
+- **11.11.2026 – Faktenprüfung:** Ausgaben von „Die Woche im Netz“ werden vor allen anderen Pull Requests geprüft
+  (weiterhin höchstens 4 pro Lauf). Anlass: Mit 10 wartenden Pull Requests aus der Nachprüfung des Altbestands wäre
+  die Ausgabe KW 46 als jüngster PR erst eine Woche später an der Reihe gewesen.
+- **10.11.2026 – Freigabe:** neuer Schritt 2e „Lauf-Wächter“: meldet per Push `problem` jeden Netzleicht-Lauf, der in
+  den letzten 26 Stunden gescheitert ist – auch Läufe, die die Plattform abbricht (z. B. wegen des Nutzungslimits) und
+  die deshalb selbst nichts mehr melden können. Anlass: Der Lauf „neuer Artikel“ vom 10.11. brach um 10:42 Uhr wegen
+  des Nutzungslimits ab, ohne dass jemand davon erfuhr. Schritt 2f fasst mehrere Probleme in einer Nachricht zusammen.
 - **10.11.2026 – Nachprüfung:** Zeitplan von Mi 10:19 auf Mo + Mi 20:07; neuer Schritt 0, der den Montagslauf abstellt,
   sobald `tools/check.py` keine älteren Texte ohne Belegtabelle mehr meldet (Entscheidung des Betreibers, damit die
   17 Texte aus der Zeit vor den Belegtabellen schneller geprüft sind). Der Abend liegt nach der Freigabe um 19:12:

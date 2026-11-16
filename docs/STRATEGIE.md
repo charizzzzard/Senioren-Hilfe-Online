@@ -31,7 +31,10 @@ Entschieden am 10.11.2026:
   Ob der Wortlaut rechtlich trägt, ist nicht fachkundig geprüft.
 - **Newsletter** ([#27](https://github.com/charizzzzard/Senioren-Hilfe-Online/issues/27)): grundsätzlich ja, aber erst,
   wenn Netzleicht Besucher hat und sich abschätzen lässt, dass wiederkehrende Leser einen Newsletter möchten.
-  Netzleicht zählt keine wiederkehrenden Besucher (kein Tracking, Regel 7) – woran das abgeschätzt wird, ist noch offen.
+  Ergänzt am 12.11.2026: Maßstab ist Stufe 3 unten, etwa 20.000 Besuche im Monat. Ohne Tracking (Regel 7) zählen dafür
+  die Klicks aus der Google-Suche: 20.000 Klicks in vier aufeinanderfolgenden Wochen (Kennzahlen-Archiv). Andere Wege
+  auf die Seite sind darin nicht enthalten, die Zahl ist also eine Untergrenze. Ist die Schwelle erreicht, legt der
+  Wochenbericht ein Issue `entscheidung` an und erinnert den Betreiber; vorher wird das Thema nicht wieder aufgegriffen.
 
 ## Kennzahlen
 

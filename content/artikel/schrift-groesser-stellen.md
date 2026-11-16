@@ -5,7 +5,7 @@ beschreibung: "Die Schrift auf dem Handy ist zu klein? So ändern Sie die Schrif
 keyword: "schriftgröße iphone ändern"
 kategorie: smartphone
 veroeffentlicht: 2026-10-30
-aktualisiert: 2026-11-05
+aktualisiert: 2026-11-11
 geprueft: 2026-11-05
 kurz_gesagt: |
   **iPhone:** „Einstellungen“ › „Erscheinungsbild“ (bei iOS 26 und älter: „Anzeige & Helligkeit“) › „Textgröße“ – dann den Regler verschieben, bis die Schrift gut lesbar ist.
@@ -31,6 +31,9 @@ quellen:
     titel: "iPhone-Display und Texteinstellungen anpassen (iOS 26)"
     url: https://support.apple.com/de-de/guide/iphone/iphd6804774e/26.0/ios/26.0
   - herausgeber: Apple Support
+    titel: "Textgröße und Zoomeinstellung auf dem iPhone anpassen (iOS 18)"
+    url: https://support.apple.com/de-de/guide/iphone/iphd6804774e/18.0/ios/18.0
+  - herausgeber: Apple Support
     titel: Text auf dem iPhone leichter lesbar machen
     url: https://support.apple.com/de-de/guide/iphone/iph3c076905a/ios
   - herausgeber: Apple Support
@@ -51,6 +54,9 @@ quellen:
   - herausgeber: Apple Support
     titel: "Safari-Einstellungen auf dem iPhone anpassen (iOS 26)"
     url: https://support.apple.com/de-de/guide/iphone/iphb3100d149/26.0/ios/26.0
+  - herausgeber: Apple Support
+    titel: "Safari-Einstellungen auf dem iPhone anpassen (iOS 18)"
+    url: https://support.apple.com/de-de/guide/iphone/iphb3100d149/18.0/ios/18.0
   - herausgeber: Google Chrome-Hilfe
     titel: "Text-, Bild- und Videogrößen ändern (zoomen) – iPhone und iPad"
     url: https://support.google.com/chrome/answer/96810?hl=de&co=GENIE.Platform%3DiOS
@@ -88,6 +94,8 @@ Kleine Schrift strengt an, vor allem bei Nachrichten, Kontakten oder im Kalender
 2. Tippen Sie auf **„Erscheinungsbild“**. Finden Sie diesen Punkt nicht, tippen Sie stattdessen auf **„Anzeige & Helligkeit“** – so heißt er bei iOS 26 und älteren Versionen.
 3. Tippen Sie auf **„Textgröße“**.
 4. Verschieben Sie den **Regler**, bis die Schrift gut lesbar ist.
+
+Auf einem iPhone mit iOS 18.7.8 sah das bei unserem Test so aus: Nach rechts wird die Schrift größer, nach links kleiner. Oben auf dem Bildschirm steht ein Beispieltext, der sich sofort mit ändert. So sehen Sie gleich, ob es passt.
 
 ```klickpfad
 Einstellungen › Erscheinungsbild › Textgröße
@@ -166,6 +174,8 @@ Manchmal ist nur die Schrift im Internet zu klein – zum Beispiel bei den Ergeb
 2. Tippen Sie links neben dem Suchfeld auf die Taste **„Seitenmenü“**.
 3. Tippen Sie auf **„Seitenzoom“**. Bei iOS 26 entfällt dieser Schritt: Dort sehen Sie die beiden Buchstaben sofort.
 4. Tippen Sie auf das **große A**, damit die Schrift größer wird. Das **kleine A** macht sie wieder kleiner.
+
+**Älteres iPhone mit iOS 18?** Dort heißt die Taste bei Apple „Seiteneinstellungen“, und den Schritt „Seitenzoom“ gibt es nicht. Auf einem iPhone mit iOS 18.7.8 liegt sie ganz links neben dem Suchfeld – ein Rechteck mit zwei Strichen darunter. Nach dem Antippen stehen das kleine und das große A unten in der Mitte.
 
 Steht die Schrift wieder auf 100 Prozent – also auf ihrer ursprünglichen Größe –, blendet Safari bei iOS 27 kurz einen Hinweis ein. So finden Sie jederzeit zum Ausgangspunkt zurück.
 
