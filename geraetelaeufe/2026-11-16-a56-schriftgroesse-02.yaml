@@ -6,8 +6,11 @@ testart: automatisierter Realgerätetest
 herkunft:
   art: uebertragener_pr_bericht
   quelle: https://github.com/charizzzzard/Senioren-Hilfe-Online/pull/48#issuecomment-6917886141
-  bildexport: ausstehend
-  hinweis: Bericht übernommen; private Rohbelege hier nicht erneut geprüft.
+  bildexport: abgeschlossen
+  hinweis: >-
+    Bericht übernommen. Die beim Anbieter gespeicherten Screenshots dieses Laufs (zwei) wurden am
+    16.11.2026 ohne neue Reservierung exportiert; sie sind byte-identisch mit den Downloads während
+    des Laufs und unverändert übernommen. Elementlisten und Aufrufverlauf wurden nicht exportiert.
 text:
   pfad: content/artikel/schrift-groesser-stellen.md
   commit: 64f33f6e3c70743c04b1968abca2c1dcd4709417
@@ -79,6 +82,28 @@ grenzen:
   - Modellvariante und Sprache dokumentiert; keine Gleichheit sämtlicher deutscher Geräte behauptet.
   - Zwei Fehltipps mit veralteten Element-Referenzen; kein vollständiger Vergleich der Verbindungsschalter.
   - Bildschirmaufnahme, Gerätelogs, Fettschrift-Wirkung und alle anderen Artikelabschnitte nicht geprüft.
-  - Screenshots vorher/nachher laut Quellbericht beim Anbieter; kein lokaler Bildexport vorhanden.
+  - Bilder nur von der Seite Schriftgröße und -stil vor und nach einer Reglerstufe; für Suche (t2, t3), Rückweg (t7) und App-Name (t1) gibt es kein Bild.
 folge: https://github.com/charizzzzard/Senioren-Hilfe-Online/issues/52
-bilder: []
+bilder:
+  - id: schriftgroesse-vorher
+    datei: static/img/geraetetest/2026-11-16-a56-schriftgroesse-02/schriftgroesse-vorher.png
+    sha256: 5f7a7f21f07e4d71001a7a61da408749621cd5200564b510c06e11a4aed582c3
+    breite: 1080
+    hoehe: 2340
+    bytes: 108005
+    aufgenommen: '2026-11-16T13:28:49Z'
+    freigabe: bereinigt
+    bearbeitung: keine; Original unverändert. Sichtprüfung ohne Kennungen, Kontodaten oder Benachrichtigungen.
+    inhalt: Seite Schriftgröße und -stil vor der Änderung, Regler auf Stufe 3 von 8, Schalter Fette Schriftart aus.
+    faelle: [t4-regler, t5-seitentitel, t6-schalter]
+  - id: schriftgroesse-nachher
+    datei: static/img/geraetetest/2026-11-16-a56-schriftgroesse-02/schriftgroesse-nachher.png
+    sha256: 429eb810e204ef31cca28c10b73d1f2730ce3d9844939424d45fde488a0c321a
+    breite: 1080
+    hoehe: 2340
+    bytes: 111241
+    aufgenommen: '2026-11-16T13:28:50Z'
+    freigabe: bereinigt
+    bearbeitung: keine; Original unverändert. Sichtprüfung ohne Kennungen, Kontodaten oder Benachrichtigungen.
+    inhalt: Dieselbe Seite nach einer Stufe nach rechts (Stufe 4 von 8); Vorschautext sichtbar größer.
+    faelle: [t4-regler, t5-seitentitel, t6-schalter]

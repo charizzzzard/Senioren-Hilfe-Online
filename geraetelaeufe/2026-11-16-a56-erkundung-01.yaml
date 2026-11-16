@@ -6,8 +6,11 @@ testart: automatisierter Realgerätetest
 herkunft:
   art: uebertragener_pr_bericht
   quelle: https://github.com/charizzzzard/Senioren-Hilfe-Online/pull/48#issuecomment-6917296072
-  bildexport: ausstehend
-  hinweis: Bericht übernommen; private Rohbelege hier nicht erneut geprüft.
+  bildexport: abgeschlossen
+  hinweis: >-
+    Bericht übernommen. Die beim Anbieter gespeicherten Screenshots dieses Laufs (zwei) wurden am
+    16.11.2026 ohne neue Reservierung exportiert; sie sind byte-identisch mit den Downloads während
+    des Laufs und unverändert übernommen. Elementlisten und Aufrufverlauf wurden nicht exportiert.
 text: null
 geraet:
   plattform: android
@@ -48,5 +51,27 @@ grenzen:
   - Nur diese zugeteilte Einheit mit englischer Sprache beobachtet.
   - Remote management nicht untersucht; keine allgemeine Aussage über sämtliche Einstellungen.
   - Kartenstatus über die Werkzeuge nicht sichtbar.
-  - Zwei Screenshots laut Quellbericht beim Anbieter; kein lokaler Bildexport vorhanden.
-bilder: []
+  - Bilder nur von der Seite Font size and style und von Software information; für die übrigen Schritte gibt es kein Bild.
+bilder:
+  - id: font-size-and-style
+    datei: static/img/geraetetest/2026-11-16-a56-erkundung-01/font-size-and-style.png
+    sha256: ca67a0b721f23960e9f6c76cb334b10858f1d26421e8fe555cd3e76bf8c72260
+    breite: 1080
+    hoehe: 2340
+    bytes: 98769
+    aufgenommen: '2026-11-16T13:02:25Z'
+    freigabe: bereinigt
+    bearbeitung: keine; Original unverändert. Sichtprüfung ohne Kennungen, Kontodaten oder Benachrichtigungen.
+    inhalt: Seite Font size and style (Englisch), Regler auf Stufe 3 von 8, Bold font aus.
+    faelle: [font-seite]
+  - id: software-information
+    datei: static/img/geraetetest/2026-11-16-a56-erkundung-01/software-information.png
+    sha256: afed10e0034f6ca18df754ad79c4f8c8d4f1078828f1f23936ca70a72cd10a95
+    breite: 1080
+    hoehe: 2340
+    bytes: 168163
+    aufgenommen: '2026-11-16T13:05:25Z'
+    freigabe: bereinigt
+    bearbeitung: keine; Original unverändert. Sichtprüfung ohne IMEI, Seriennummer oder Kontodaten; sichtbar sind nur Firmware-Versionen.
+    inhalt: Seite Software information mit One UI version 7.0, Android version 15 und Build-Stand; Beleg für geraet.oberflaeche und geraet.system.
+    faelle: []
