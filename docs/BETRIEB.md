@@ -53,7 +53,7 @@ Der Autor schlägt die Klasse vor, der Prüfer legt sie fest. Es gilt die höchs
 | `pruefung-bestanden` | Prüfung bestanden |
 | `einspruchsfrist` | Klasse C, läuft – geht nach Ablauf live |
 | `einspruch` | Betreiber widerspricht – PR bleibt liegen, bis er entscheidet |
-| `gelesen` | Betreiber hat den Klasse-C-PR gelesen – die nächste Freigabe merged ihn, auch vor Ablauf der Frist |
+| `gelesen` | Betreiber hat den Klasse-C-PR gelesen – die nächste Freigabe merged ihn, auch vor Ablauf der Frist; gilt, solange danach kein neuer Commit kommt |
 | `stichprobe` | Issue: monatliche Stichprobe für den Betreiber (Abschnitt 5a) |
 
 1. **Autor:** Branch `claude/<art>-<slug>` (z. B. `claude/artikel-…`, `claude/woche-im-netz-…`, `claude/nachpruefung-…`),
@@ -85,7 +85,7 @@ Der Autor schlägt die Klasse vor, der Prüfer legt sie fest. Es gilt die höchs
      Keine Push-Nachricht „online“.
 3. **Freigabe** (täglich): Für jeden PR mit `einspruchsfrist`:
    - Label `einspruch` → nichts tun (der Betreiber entscheidet).
-   - Label `gelesen` → mergen wie nach Ablauf der Frist, auch wenn `live-ab` noch nicht erreicht ist.
+   - Label `gelesen`, das `python tools/gelesen.py <Nr>` als gültig meldet → mergen wie nach Ablauf der Frist, auch wenn `live-ab` noch nicht erreicht ist.
    - Neuer Commit nach der geprüften SHA → Labels zurück auf `pruefung-ausstehend` (erneute Prüfung).
    - `live-ab` erreicht, CI grün → mergen, Deploy abwarten, live prüfen (`tools/livecheck.py`), Push „online“.
      Scheitert der Deploy: Abschnitt 9.
@@ -134,10 +134,11 @@ Worauf achten:
    `pruefung-nachbessern` setzen – der nächste Autor-Lauf arbeitet es ein. Ist alles in Ordnung: Label `gelesen` setzen
    (freiwillig) – dann geht der PR mit der nächsten Freigabe (19:12) live. Ohne Label geht er nach Ablauf der Frist live.
 
-Die Labels `gelesen` und `einspruch` setzt nur der Betreiber. Keine Claude-Session setzt sie; `gelesen` entfernen Faktenprüfung
-und Freigabe, sobald ein neuer Stand geprüft werden muss – die Bestätigung gilt nur für den gelesenen Stand.
-Darum `gelesen` erst setzen, wenn die Push-Nachricht „freigabe“ da ist. Wie viele Klasse-C-PRs mit und ohne `gelesen`
-live gingen, steht im Wochenbericht.
+Die Labels `gelesen` und `einspruch` setzt nur der Betreiber; keine Claude-Session setzt sie. `gelesen` darf schon vor der
+Faktenprüfung gesetzt werden. Es gilt für den gelesenen Stand, solange danach kein neuer Commit dazukommt
+(`python tools/gelesen.py <Nr>`, Entscheidung des Betreibers vom 14.11.2026). Kommt einer dazu – vom Autor oder als Kürzung
+der Faktenprüfung –, entfernt die Faktenprüfung das Label, und die Push-Nachricht „freigabe“ nennt den PR wieder zum Lesen.
+Wie viele Klasse-C-PRs mit und ohne `gelesen` live gingen, steht im Wochenbericht.
 
 Entscheidungen des Betreibers vom 11.11.2026: Auch Korrekturen aus der Nachprüfung (Altbestand) werden ganz gelesen;
 die Frist bleibt 24 Stunden; mehrere Klasse-C-PRs eines Prüf-Laufs kommen in **einer** Push-Nachricht mit der Lesezeit
