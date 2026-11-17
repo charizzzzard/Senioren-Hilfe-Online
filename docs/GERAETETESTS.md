@@ -19,7 +19,7 @@ Lesende Katalog-/Kontoprüfung, Quellenlesen, Artikelplanung und Berichtsschreib
 | Nur Rechtschreibung, Stil oder anderer unberührter Abschnitt geändert | Vorhandenen Beleg gegen den Diff prüfen; keine automatische Neubuchung |
 | Reine Erklärung ohne Gerätehandgriff | Kein Geräteauftrag |
 
-**„Offen“** (hier, in den Prüffällen und in CLAUDE.md Abschnitt 7) heißt: Für die Aussage gibt es noch keinen passenden Gerätebeleg – „passend“ im Sinne von „Wiederverwenden“ unten. Eine vorliegende Herstellerquelle ändert daran nichts (erste Tabellenzeile). Ob getestet wird, richtet sich weiter nach Anlass und Testmöglichkeit in der Tabelle.
+**„Offen“** (hier, in den Prüffällen und in CLAUDE.md Abschnitt 7 unter „Gezielte Gerätetests“) heißt: Für die Aussage gibt es noch keinen passenden Gerätebeleg – „passend“ im Sinne von „Wiederverwenden“ unten. Eine vorliegende Herstellerquelle ändert daran nichts (erste Tabellenzeile). Ob getestet wird, richtet sich weiter nach Anlass und Testmöglichkeit in der Tabelle.
 
 Vorher in `geraetelaeufe/`, im Artikel, seinen Belegtabellen und offenen PRs/Issues nach vorhandenen Nachweisen suchen. Kein konkurrierender Korrektur-PR und keine zweite Prüfung derselben offenen Änderung. Bestehende Themenprioritäten und Inhaltskontingente bleiben erhalten.
 
