@@ -1,5 +1,7 @@
 # Belegtabelle für content/artikel/whatsapp-bild-senden.md (Format: docs/BETRIEB.md, Abschnitt „Belegtabelle“)
 # Jede Aussage mit einem wörtlichen Zitat aus einer selbst gelesenen Quelle. Prüfen: python tools/belegcheck.py whatsapp-bild-senden
+# Ergänzung am 17.11.2026: Einmalansicht und Zustellzeichen anhand der unten genannten Quellen geprüft.
+# geprueft bleibt unverändert: keine erneute vollständige Nachprüfung des übrigen Altbestands.
 geprueft: 2026-11-10
 belege:
   # ---------------------------------------------------------------- Vorbereitung
@@ -122,3 +124,41 @@ belege:
   - aussage: "„Für mich löschen“: verschwindet nur bei Ihnen"
     quelle: https://faq.whatsapp.com/1370476507114859/?locale=de_DE&cms_platform=iphone
     zitat: "Dies hat keine Auswirkungen in den Chats der Empfänger deiner Nachrichten."
+
+  # ---------------------------------------------------------------- Einmalansicht (Ergänzung 17.11.2026)
+  # Die Schritte wurden in der Android- und iOS-Fassung gelesen; die 1 ist im Alternativtext des Symbols beschrieben.
+  - aussage: "Android und iPhone: vor dem Senden das Einmalansicht-Symbol (1 im Kreis) antippen; Auswahl und Senden wie in den vorhandenen Plattform-Schritten"
+    quelle: https://faq.whatsapp.com/578442220724722/?locale=de_DE&cms_platform=android
+    zitat: "die Zahl 1 in einem Kreis"
+  - aussage: "Android und iPhone: Das grüne Symbol bestätigt die eingeschaltete Einmalansicht"
+    quelle: https://faq.whatsapp.com/578442220724722/?cms_platform=iphone&helpref=platform_switcher&locale=de_DE
+    zitat: "Wenn das Symbol grün wird"
+  - aussage: "Einmalansicht: Das Bild verschwindet nach dem ersten Öffnen durch die empfangende Person aus dem Chat; normaler Versand für ein später erneut anzusehendes Bild"
+    quelle: https://faq.whatsapp.com/578442220724722/?locale=de_DE&cms_platform=android
+    zitat: "aus einem Chat verschwinden"
+  - aussage: "Einmalansicht: Das empfangene Foto wird nicht in Fotos oder Galerie gespeichert"
+    quelle: https://faq.whatsapp.com/578442220724722/?cms_platform=iphone&helpref=platform_switcher&locale=de_DE
+    zitat: "nicht in den Fotos oder in der Galerie"
+  - aussage: "Die Einmalansicht muss für jedes weitere Bild erneut ausgewählt werden"
+    quelle: https://faq.whatsapp.com/1077018839582332?helpref=faq_content
+    zitat: "Du musst die Einmalansicht jedes Mal auswählen"
+  - aussage: "Nach dem Senden kann die sendende Person das gesendete Bild nicht erneut öffnen"
+    quelle: https://faq.whatsapp.com/1077018839582332?helpref=faq_content
+    zitat: "können nicht ein zweites Mal angesehen werden"
+  - aussage: "Kein vollständiger Kopierschutz: Aufnahme mit einer anderen Kamera oder einem anderen Gerät möglich; nur vertrauenswürdigen Personen senden"
+    quelle: https://faq.whatsapp.com/1077018839582332?helpref=faq_content
+    zitat: "mit einer Kamera oder einem anderen Gerät aufnehmen"
+  # ---------------------------------------------------------------- Zustellzeichen (Ergänzung 17.11.2026)
+  # Die Häkchenzahl/-farbe ist in den Alternativtexten der Symbolbilder beschrieben.
+  - aussage: "Ein graues Häkchen: gesendet"
+    quelle: https://faq.whatsapp.com/665923838265756/?cms_platform=web&locale=de_DE
+    zitat: "Die Nachricht wurde erfolgreich gesendet."
+  - aussage: "Zwei graue Häkchen: zugestellt"
+    quelle: https://faq.whatsapp.com/665923838265756/?cms_platform=web&locale=de_DE
+    zitat: "Geräte der Empfangsseite zugestellt."
+  - aussage: "Gruppen: zweites Häkchen erst, wenn alle die Nachricht erhalten haben"
+    quelle: https://faq.whatsapp.com/665923838265756/?cms_platform=web&locale=de_DE
+    zitat: "wenn alle deine Nachricht erhalten haben"
+  - aussage: "Uhr: noch nicht gesendet oder zugestellt; mögliche Verbindungsprobleme"
+    quelle: https://faq.whatsapp.com/665923838265756/?cms_platform=web&locale=de_DE
+    zitat: "Nachricht noch nicht gesendet oder zugestellt wurde."

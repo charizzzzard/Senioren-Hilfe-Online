@@ -587,6 +587,44 @@ fehler:
     behoben_in: "#37"
     altbestand: true
 
+
+  # ---- Betreiberauftrag vom 17.11.2026: Bild senden vervollständigen; Live-Stand noch ohne Belegtabelle.
+  - id: 2026-11-17-01
+    gefunden: 2026-11-17
+    text: artikel/whatsapp-bild-senden
+    art: luecke
+    live: true
+    entdeckt_durch: betreiber
+    vorher: "Die Einmalansicht und die Bedeutung des 1-Symbols fehlten."
+    korrektur: "Eigenen Abschnitt mit vier Schritten, grünem Aktivierungszustand, Grenzen der Funktion und Checklistenpunkt ergänzt."
+    ursache: "Nur den normalen Bildversand beschrieben; die sichtbare Versandoption und ihre Folgen nicht erklärt."
+    behoben_in: "#37"
+    altbestand: true
+
+  - id: 2026-11-17-02
+    gefunden: 2026-11-17
+    text: artikel/whatsapp-bild-senden
+    art: unbelegt
+    live: true
+    entdeckt_durch: inhaltspruefung
+    vorher: "Wer Wert auf die volle Schärfe legt, findet vor dem Senden das Symbol HD."
+    korrektur: "Höhere Bildqualität statt voller Schärfe; HD als eigenen Abschnitt sichtbar gemacht."
+    ursache: "Aus der Qualitätsoption ein nicht belegtes Versprechen voller Schärfe abgeleitet."
+    behoben_in: "#37"
+    altbestand: true
+
+  - id: 2026-11-17-03
+    gefunden: 2026-11-17
+    text: artikel/whatsapp-bild-senden
+    art: luecke
+    live: true
+    entdeckt_durch: inhaltspruefung
+    vorher: "Das Foto steht jetzt als Ihre Nachricht im Chat. Geschafft! Die andere Person bekommt es wie eine ganz normale Nachricht."
+    korrektur: "Gesendet und zugestellt anhand der Häkchen unterschieden; Uhr und Gruppen-Ausnahme ergänzt."
+    ursache: "Das Erscheinen im eigenen Chat als Erfolg beschrieben, ohne den Versandzustand zu erklären."
+    behoben_in: "#37"
+    altbestand: true
+
   - id: 2026-11-05-11
     gefunden: 2026-11-05
     text: artikel/schrift-groesser-stellen
