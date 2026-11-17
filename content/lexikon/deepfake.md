@@ -10,7 +10,7 @@ aktualisiert: 2026-11-10
 geprueft: 2026-11-10
 kurz_gesagt: |
   Ein **Deepfake** ist ein Video, Bild oder eine Sprachaufnahme, die mit Künstlicher Intelligenz (KI) gefälscht wurde. Darin scheint eine echte Person etwas zu sagen oder zu tun, was sie nie getan hat.
-  Wichtigster Schutz: Kommt Ihnen eine Bitte um Geld komisch vor, legen Sie auf und rufen die Person unter der Ihnen bekannten Nummer zurück.
+  Ein wichtiger Schutz: Kommt Ihnen eine Bitte um Geld komisch vor, legen Sie auf und rufen die Person unter der Ihnen bekannten Nummer zurück.
 quellen:
   - herausgeber: Bundesamt für Sicherheit in der Informationstechnik (BSI)
     titel: Deepfakes – Gefahren und Gegenmaßnahmen

@@ -10,7 +10,7 @@ aktualisiert: 2026-11-10
 geprueft: 2026-11-10
 kurz_gesagt: |
   **NFC** steht für „Near Field Communication“, auf Deutsch Nahfeldkommunikation. Mit dieser Funktechnik bezahlen Sie kontaktlos – mit Bankkarte oder Handy, aus höchstens wenigen Zentimetern Abstand.
-  Kleine Beträge gehen oft ohne PIN. Geht Karte oder Handy verloren, lassen Sie sie über den Sperr-Notruf 116 116 sperren.
+  Kleine Beträge gehen oft ohne PIN. Geht Karte oder Handy verloren, lassen Sie Ihre Karten über den Sperr-Notruf 116 116 sperren.
 quellen:
   - herausgeber: Bundesamt für Sicherheit in der Informationstechnik (BSI)
     titel: Kontaktloses Bezahlen im digitalen Alltag via NFC
@@ -54,7 +54,7 @@ Dazu kommen Grenzen beim Betrag. Für Karten erklärt die Verbraucherzentrale: U
 
 ## Was Sie tun können
 
-- **Verlust oder Diebstahl:** Lassen Sie Karte oder Handy sofort sperren. Der **Sperr-Notruf 116 116** ist rund um die Uhr erreichbar.
+- **Verlust oder Diebstahl:** Ist Karte oder Handy weg, lassen Sie Ihre Karten sofort sperren. Der **Sperr-Notruf 116 116** ist rund um die Uhr erreichbar.
 - **Handy schützen:** Sichern Sie Handy und Bezahl-App mit einer PIN, Fingerabdruck oder Gesichtserkennung.
 - **Benachrichtigungen einschalten:** Manche Bezahl-Apps melden jede Zahlung. Bietet Ihre App das an, schalten Sie es ein.
 - **Gar nicht kontaktlos bezahlen?** Fragen Sie Ihre Bank, ob sie die kontaktlose Funktion Ihrer Karte abschalten kann.
