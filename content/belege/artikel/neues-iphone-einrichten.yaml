@@ -1,0 +1,203 @@
+# Belegtabelle für content/artikel/neues-iphone-einrichten.md (Format: docs/BETRIEB.md, Abschnitt „Belegtabelle“)
+# Alle Quellen am 17.11.2026 selbst gelesen (Playwright, de-DE). Prüfen: python tools/belegcheck.py neues-iphone-einrichten
+geprueft: 2026-11-17
+belege:
+  # ---------------------------------------------------------------- Bereitlegen
+  - aussage: "Internet über WLAN (Name und Passwort) oder Mobilfunkverbindung des Anbieters"
+    quelle: https://support.apple.com/de-de/guide/iphone/iph1fd7e482f/27.0/ios/27.0
+    zitat: "Eine Verbindung zum Internet über ein WLAN (du benötigst hierfür möglicherweise den Namen und das Passwort des Netzwerks) oder über eine Mobilfunkverbindung deines Mobilfunkanbieters"
+  - aussage: "Apple Account mit Passwort; kann beim Einrichten erstellt werden"
+    quelle: https://support.apple.com/de-de/guide/iphone/iph1fd7e482f/27.0/ios/27.0
+    zitat: "Dein Apple Account und das zugehörige Passwort. Falls du noch keinen Apple Account hast, kannst du diesen im Zuge der Konfiguration erstellen."
+  - aussage: "Apple-ID heißt jetzt Apple Account; Anmeldung mit derselben E-Mail-Adresse oder Telefonnummer und demselben Passwort"
+    quelle: https://support.apple.com/de-de/102656
+    zitat: "Die Apple-ID ist jetzt der Apple Account. Du kannst dich weiterhin mit derselben E-Mail-Adresse oder Telefonnummer und demselben Passwort anmelden."
+  - aussage: "Altes iPhone oder dessen Backup, wenn Daten übertragen werden sollen"
+    quelle: https://support.apple.com/de-de/guide/iphone/iph1fd7e482f/27.0/ios/27.0
+    zitat: "Dein früheres iPhone oder dessen Sicherungsdaten (Backup), wenn du deine Daten auf ein neues Gerät übertragen möchtest."
+  - aussage: "Altes iPhone vorher auf die neueste iOS-Version bringen (Schnellstart)"
+    quelle: https://support.apple.com/de-de/102659
+    zitat: "Stelle also sicher, dass deine Geräte auf die neueste Version von iOS oder iPadOS aktualisiert wurden"
+  - aussage: "Android-Handy bereitlegen, wenn Sie von Android wechseln"
+    quelle: https://support.apple.com/de-de/guide/iphone/iph1fd7e482f/27.0/ios/27.0
+    zitat: "Dein Android-Gerät, wenn du Android-Inhalte übertragen willst."
+  - aussage: "Kartendaten nur, wenn Apple Pay eingerichtet werden soll (freiwillig)"
+    quelle: https://support.apple.com/de-de/guide/iphone/iph1fd7e482f/27.0/ios/27.0
+    zitat: "Die Daten deiner Kredit- oder Debitkarte (falls du im Zuge der Konfiguration eine Karte für Apple Pay hinzufügen möchtest)"
+  # ---------------------------------------------------------------- Tipp: vorübergehender iCloud-Speicher
+  - aussage: "Bis zu drei Wochen ab Kaufdatum kostenloser iCloud-Speicher für ein vorübergehendes Backup"
+    quelle: https://support.apple.com/de-de/guide/iphone/iph1fd7e482f/27.0/ios/27.0
+    zitat: "stellt dir iCloud für bis zu drei Wochen ab dem Kaufdatum deines iPhone kostenfrei so viel Speicher zur Verfügung, dass ein temporäres Backup abgeschlossen werden kann"
+  - aussage: "iOS 26: Einstellungen › Allgemein › iPhone übertragen/zurücksetzen › Los gehts"
+    quelle: https://support.apple.com/de-de/guide/iphone/iph1fd7e482f/26.0/ios/26.0
+    zitat: "Wähle auf deinem bisherigen Gerät „Einstellungen“ > „Allgemein“ > „[Gerät] übertragen/zurücksetzen“. Tippe auf „Los gehts“ und folge den angezeigten Anleitungen."
+  - aussage: "iOS 27: Apple nennt davor den Punkt „Übertragen“"
+    quelle: https://support.apple.com/de-de/guide/iphone/iph1fd7e482f/27.0/ios/27.0
+    zitat: "tippe auf „Allgemein“, tippe auf „Übertragen“ und tippe dann auf „[Gerät] übertragen/zurücksetzen“"
+  # ---------------------------------------------------------------- Einschalten
+  - aussage: "Seitentaste gedrückt halten, bis das Apple-Logo erscheint"
+    quelle: https://support.apple.com/de-de/guide/iphone/iph1fd7e482f/27.0/ios/27.0
+    zitat: "Halte die Seitentaste gedrückt, bis das Apple-Logo angezeigt wird."
+  - aussage: "Schaltet es sich nicht ein: vielleicht erst laden"
+    quelle: https://support.apple.com/de-de/guide/iphone/iph1fd7e482f/27.0/ios/27.0
+    zitat: "Wenn sich das iPhone nicht einschaltet, musst du möglicherweise erst noch die Batterie aufladen."
+  - aussage: "iPhone mit Face ID: dreimal Seitentaste schaltet VoiceOver ein (liest Bildschirm vor)"
+    quelle: https://support.apple.com/de-de/guide/iphone/iph1fd7e482f/27.0/ios/27.0
+    zitat: "kannst du dreimal die Seitentaste (auf einem iPhone mit Face ID oder einem iPhone Duo)"
+  - aussage: "VoiceOver liest den Bildschirminhalt vor"
+    quelle: https://support.apple.com/de-de/guide/iphone/iph1fd7e482f/27.0/ios/27.0
+    zitat: "um VoiceOver, die Funktion zum Vorlesen des Bildschirminhalts, zu aktivieren"
+  - aussage: "Doppeltippen mit drei Fingern schaltet den Zoom ein"
+    quelle: https://support.apple.com/de-de/guide/iphone/iph1fd7e482f/27.0/ios/27.0
+    zitat: "Du kannst auch mit drei Fingern auf dem Bildschirm doppeltippen, um den Zoom zu aktivieren."
+  # ---------------------------------------------------------------- Schnellstart
+  - aussage: "Schnellstart, wenn altes iPhone iOS 11 oder neuer hat"
+    quelle: https://support.apple.com/de-de/102659
+    zitat: "Wenn du ein anderes iPhone oder iPad mit iOS 11, iPadOS 13 oder neuer hast, kannst du „Schnellstart“ verwenden"
+  - aussage: "Schnellstart belegt beide Geräte; altes iPhone eine Weile nicht benutzbar"
+    quelle: https://support.apple.com/de-de/102659
+    zitat: "wähle einen Zeitpunkt, zu dem du dein aktuelles Gerät einige Minuten lang nicht benutzen musst"
+  - aussage: "Altes iPhone mit WLAN verbinden, Bluetooth einschalten"
+    quelle: https://support.apple.com/de-de/102659
+    zitat: "Stelle sicher, dass dein aktuelles Gerät mit einem WLAN verbunden ist und dass Bluetooth auf dem Gerät aktiviert ist."
+  - aussage: "Altes iPhone entsperren, zum Home-Bildschirm"
+    quelle: https://support.apple.com/de-de/102659
+    zitat: "Entsperre dein aktuelles Gerät und gehe zum Home-Bildschirm."
+  - aussage: "Neues iPhone einschalten, daneben legen, Anweisungen folgen"
+    quelle: https://support.apple.com/de-de/102659
+    zitat: "Schalte das neue Gerät ein, und halte es in die Nähe deines aktuellen Geräts. Befolge die Anweisungen auf dem Bildschirm, um zu beginnen."
+  - aussage: "Aufforderung verschwindet: beide Geräte neu starten"
+    quelle: https://support.apple.com/de-de/102659
+    zitat: "Wenn die Aufforderung zur Einrichtung deines neuen Geräts auf dem aktuellen Gerät nicht mehr angezeigt wird, starte beide Geräte neu."
+  - aussage: "Neues iPhone mit WLAN oder Mobilfunknetz verbinden"
+    quelle: https://support.apple.com/de-de/102659
+    zitat: "Verbinde dein Gerät mit dem WLAN oder dem Mobilfunknetz deines Geräts."
+  - aussage: "Vielleicht Aufforderung, den Mobilfunk zu aktivieren"
+    quelle: https://support.apple.com/de-de/102659
+    zitat: "Möglicherweise wirst du aufgefordert, den Mobilfunk zu aktivieren."
+  - aussage: "Face ID oder Touch ID einrichten"
+    quelle: https://support.apple.com/de-de/102659
+    zitat: "Richte Face ID oder Touch ID ein."
+  - aussage: "Wählen, wie Daten übertragen werden"
+    quelle: https://support.apple.com/de-de/102659
+    zitat: "Wähle aus, wie du deine Daten übertragen möchtest."
+  - aussage: "Aus iCloud: im Hintergrund, Gerät sofort nutzbar"
+    quelle: https://support.apple.com/de-de/102659
+    zitat: "Wenn du die Daten aus iCloud lädst, werden deine Apps und Daten im Hintergrund geladen, sodass du dein neues Gerät sofort verwenden kannst."
+  - aussage: "Direkt vom alten iPhone: warten, bis Übertragung auf beiden Geräten fertig"
+    quelle: https://support.apple.com/de-de/102659
+    zitat: "Wenn du die Daten direkt von deinem vorherigen Gerät überträgst, musst du warten, bis die Übertragung auf beiden Geräten abgeschlossen ist, bevor du sie verwenden kannst."
+  - aussage: "Beide nah beieinander und am Strom, bis alles übertragen ist"
+    quelle: https://support.apple.com/de-de/102659
+    zitat: "Achte darauf, dass sich die Geräte in der Nähe voneinander befinden und an eine Stromquelle angeschlossen sind, bis alle Daten vollständig übertragen wurden."
+  - aussage: "Dauer hängt von Netz und Datenmenge ab"
+    quelle: https://support.apple.com/de-de/102659
+    zitat: "Die Übertragungszeiten können abhängig von Faktoren wie Netzwerkbedingungen und übertragener Datenmenge variieren."
+  # ---------------------------------------------------------------- Kabel
+  - aussage: "iPhone 15 oder neuer auf iPhone 15 oder neuer: USB-C-Ladekabel"
+    quelle: https://support.apple.com/de-de/117383
+    zitat: "von einem iPhone 15 oder neuer auf ein anderes iPhone 15 oder neuer migrierst, verwende ein USB-C-Ladekabel"
+  - aussage: "iPhone 14 oder älter auf iPhone 15 oder neuer: USB-C-auf-Lightning-Kabel"
+    quelle: https://support.apple.com/de-de/117383
+    zitat: "von einem iPhone 14 oder älter auf ein iPhone 15 oder neuer migrierst, verwende ein USB-C-auf-Lightning-Kabel"
+  - aussage: "Kabel in die Ladeanschlüsse beider iPhones"
+    quelle: https://support.apple.com/de-de/117383
+    zitat: "Verbinde das USB-C-Ladekabel mit den Ladeanschlüssen des vorherigen und des neuen iPhone."
+  - aussage: "Beide einschalten, Anweisungen folgen"
+    quelle: https://support.apple.com/de-de/117383
+    zitat: "Schalte beide Geräte ein, und befolge die Anweisungen auf dem Bildschirm."
+  # ---------------------------------------------------------------- Ohne anderes Gerät / iCloud-Backup
+  - aussage: "Ohne anderes Gerät: „Ohne anderes Gerät konfigurieren“"
+    quelle: https://support.apple.com/de-de/guide/iphone/iph1fd7e482f/27.0/ios/27.0
+    zitat: "Wenn du kein anderes Gerät hast, tippe auf „Ohne anderes Gerät konfigurieren“ und befolge die angezeigten Anleitungen."
+  - aussage: "iCloud-Backup: Schritten folgen bis „Apps & Daten übertragen“"
+    quelle: https://support.apple.com/de-de/118105
+    zitat: "Befolge die Einrichtungsschritte auf dem Bildschirm, bis der Bildschirm „Apps & Daten übertragen“ angezeigt wird."
+  - aussage: "Auf „Aus iCloud-Backup“ tippen"
+    quelle: https://support.apple.com/de-de/118105
+    zitat: "Tippe auf „Aus iCloud-Backup“."
+  - aussage: "Mit Apple Account anmelden"
+    quelle: https://support.apple.com/de-de/118105
+    zitat: "Melde dich bei deinem Apple Account an, um auf deine Backups zuzugreifen."
+  - aussage: "Datum und Größe prüfen, neuestes wählen"
+    quelle: https://support.apple.com/de-de/118105
+    zitat: "Überprüfe Datum und Größe der einzelnen Backups, und wähle dann das aktuellste aus."
+  - aussage: "WLAN und Strom verbunden lassen, bis Fortschrittsbalken durch"
+    quelle: https://support.apple.com/de-de/118105
+    zitat: "Lass dein Gerät so lange mit dem WLAN und einer Stromquelle verbunden, bis der Fortschrittsbalken vollständig abgelaufen ist."
+  - aussage: "Einrichtung abschließen"
+    quelle: https://support.apple.com/de-de/118105
+    zitat: "Schließe die Einrichtung deines Geräts ab."
+  # ---------------------------------------------------------------- Android
+  - aussage: "Von Android: App „Auf iOS übertragen“ beim ersten Einrichten"
+    quelle: https://support.apple.com/de-de/guide/iphone/iph1fd7e482f/27.0/ios/27.0
+    zitat: "kannst du deine Daten bei der erstmaligen Einrichtung deines neuen iPhone mit der App „Auf iOS übertragen“ übertragen"
+  - aussage: "Android ab Version 4.0, App laden"
+    quelle: https://support.apple.com/de-de/guide/iphone/iph1fd7e482f/27.0/ios/27.0
+    zitat: "Lies auf deinem Gerät mit Android (ab Version 4.0)"
+  - aussage: "Auf dem iPhone bei „Apps & Daten übertragen“ auf „Von Android“ tippen"
+    quelle: https://support.apple.com/de-de/guide/iphone/iph1fd7e482f/27.0/ios/27.0
+    zitat: "Tippe auf dem Bildschirm „Apps & Daten übertragen“ auf „Von Android“."
+  - aussage: "Android: WLAN einschalten"
+    quelle: https://support.apple.com/de-de/guide/iphone/iph1fd7e482f/27.0/ios/27.0
+    zitat: "Führe auf dem Android-Gerät einen der folgenden Schritte aus: Aktiviere die WLAN-Verbindung."
+  - aussage: "Android: App „Auf iOS übertragen“ öffnen, Anleitungen folgen"
+    quelle: https://support.apple.com/de-de/guide/iphone/iph1fd7e482f/27.0/ios/27.0
+    zitat: "Öffne die App „Auf iOS übertragen“."
+  - aussage: "Schon eingerichtet: erst löschen und von vorn – oder Daten von Hand übertragen"
+    quelle: https://support.apple.com/de-de/guide/iphone/iph1fd7e482f/27.0/ios/27.0
+    zitat: "musst du dein iPhone erst löschen und von vorne beginnen. Alternativ kannst du deine Daten manuell übertragen."
+  # ---------------------------------------------------------------- Hat es geklappt?
+  - aussage: "Fotos, Musik und Apps laden nach der Einrichtung aus iCloud nach; Dauer hängt von Menge und WLAN ab; WLAN und Strom verbunden lassen"
+    quelle: https://support.apple.com/de-de/118105
+    zitat: "werden Inhalte wie deine Fotos, Musik und Apps weiterhin aus iCloud geladen. Die Dauer dieses Vorgangs hängt von der Menge der Inhalte und der WLAN-Geschwindigkeit ab. Lasse dein Gerät mit dem WLAN und der Stromversorgung verbunden."
+  # ---------------------------------------------------------------- Wenn es nicht klappt
+  - aussage: "Passwort vergessen: „Passwort vergessen?“ wählen, Anweisungen folgen"
+    quelle: https://support.apple.com/de-de/102656
+    zitat: "Wähle „Passwort vergessen?“ und befolge die Anweisungen auf dem Bildschirm"
+  - aussage: "Am einfachsten mit vertrauenswürdigem Gerät und vertrauenswürdiger Telefonnummer"
+    quelle: https://support.apple.com/de-de/102656
+    zitat: "Am einfachsten kannst du dein Passwort mit einem vertrauenswürdigen Gerät und deiner vertrauenswürdigen Telefonnummer zurücksetzen."
+  - aussage: "Vertrauenswürdiges Gerät = Gerät, auf dem man bereits angemeldet ist"
+    quelle: https://support.apple.com/de-de/102656
+    zitat: "Wenn du ein vertrauenswürdiges Gerät hast (eines, auf dem du bereits mit deinem Apple Account angemeldet bist)"
+  - aussage: "Bald wieder Zugriff: lieber warten, dann schneller"
+    quelle: https://support.apple.com/de-de/102656
+    zitat: "Wenn du wartest, kannst du schneller wieder auf deinen Account zugreifen."
+  - aussage: "Account-Wiederherstellung kann mehrere Tage oder länger dauern"
+    quelle: https://support.apple.com/de-de/102656
+    zitat: "Zu deiner Sicherheit kann dieser Vorgang eine Weile dauern – mehrere Tage oder länger."
+  - aussage: "Mehrere Apple Accounts für Käufe: Passwort vergessen → „Diesen Schritt überspringen“, später anmelden"
+    quelle: https://support.apple.com/de-de/118105
+    zitat: "Wenn du ein Passwort vergessen hast, tippe auf „Diesen Schritt überspringen“, und melde dich später an."
+  - aussage: "Als neu eingerichtet: neue iCloud-Backups ersetzen gespeicherte; Wiederherstellung so bald wie möglich"
+    quelle: https://support.apple.com/de-de/118105
+    zitat: "Wenn du dein Gerät als neu einrichtest, werden iCloud-Backups erstellt, die deine gespeicherten iCloud-Backups ersetzen."
+  - aussage: "Dafür Gerät löschen, dann aus Backup wiederherstellen"
+    quelle: https://support.apple.com/de-de/118105
+    zitat: "Stelle dein Gerät aus deinem gespeicherten iCloud-Backup wieder her."
+  - aussage: "Firmen-/Organisations-iPhone: Anleitung von dort"
+    quelle: https://support.apple.com/de-de/guide/iphone/iph1fd7e482f/27.0/ios/27.0
+    zitat: "erhältst du von den jeweiligen Admins entsprechende Anleitungen zur Konfiguration"
+  # ---------------------------------------------------------------- Altes iPhone
+  - aussage: "Reihenfolge: Backup erstellen, Daten übertragen, persönliche Daten entfernen"
+    quelle: https://support.apple.com/de-de/109511
+    zitat: "Backup erstellen. Die Informationen auf das neue Gerät übertragen."
+  - aussage: "Löschen: Einstellungen › Allgemein › iPhone übertragen/zurücksetzen"
+    quelle: https://support.apple.com/de-de/guide/iphone/iph7a2a9399b/27.0/ios/27.0
+    zitat: "Tippe auf „Allgemein“ und tippe auf „iPhone übertragen/zurücksetzen“."
+  - aussage: "„Alle Inhalte & Einstellungen löschen“"
+    quelle: https://support.apple.com/de-de/guide/iphone/iph7a2a9399b/27.0/ios/27.0
+    zitat: "Tippe auf „Alle Inhalte & Einstellungen löschen“."
+  - aussage: "Code oder Apple-Account-Passwort eingeben"
+    quelle: https://support.apple.com/de-de/guide/iphone/iph7a2a9399b/27.0/ios/27.0
+    zitat: "Gib bei der entsprechenden Aufforderung deinen iPhone-Code oder das Passwort für deinen Apple Account ein."
+  - aussage: "Mit „Fortfahren“ bestätigen"
+    quelle: https://support.apple.com/de-de/guide/iphone/iph7a2a9399b/27.0/ios/27.0
+    zitat: "Tippe zur Bestätigung auf „Fortfahren“."
+  - aussage: "eSIM: Auswahl löschen/behalten; gelöscht → Anbieter muss Tarif reaktivieren"
+    quelle: https://support.apple.com/de-de/guide/iphone/iph7a2a9399b/27.0/ios/27.0
+    zitat: "Wenn du deine eSIM löschst, musst du deinen Mobilfunktarif von deinem Mobilfunkanbieter reaktivieren lassen."
+  - aussage: "Neue Telefonnummer: als vertrauenswürdige Nummer hinzufügen, um Zugriff nicht zu verlieren"
+    quelle: https://support.apple.com/de-de/109511
+    zitat: "Wenn sich deine Telefonnummer mit dem neuen Gerät ändert, musst du zusätzliche vertrauenswürdige Telefonnummern zu deinem Account hinzufügen, damit du den Zugriff nicht verlierst."

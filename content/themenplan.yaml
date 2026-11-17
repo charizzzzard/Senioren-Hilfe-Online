@@ -326,7 +326,8 @@ themen:
     suchvolumen: 6600
     kd: 0
     prioritaet: 0
-    status: offen
+    status: veroeffentlicht
+    slug: neues-iphone-einrichten
     notiz: "Saison: Dez. 2025 12.100. Schnellstart vom alten iPhone, Apple-ID, Sollzustand je Schritt. Apple-Handbuch als Quelle."
   - titel: Neues Android-Handy einrichten
     kategorie: smartphone
