@@ -84,6 +84,7 @@ python tools/check.py                          # baut + prüft (Exit 1 bei Fehle
 python tools/linkcheck.py                      # externe Links prüfen
 python tools/livecheck.py                      # nach build.py: ist der gebaute Stand live? (Exit 1 bei Abweichung)
 python tools/belegcheck.py [slug …]            # Zitate der Belegtabellen gegen die Quellen prüfen (braucht npm ci)
+python -m unittest discover -s tests -p 'test_*.py'  # Werkzeug-Tests; laufen im CI bei PRs, die tools/ oder tests/ ändern
 python -m http.server 8765 --directory _site   # lokale Vorschau
 npm ci && node tools/pdf.mjs                   # optional lokal: Checklisten-PDFs nach _site/checklisten/ (meldet die Seitenzahl)
 ```
@@ -336,7 +337,8 @@ Qualitätsbremse (nur noch Korrekturen, `docs/BETRIEB.md` Abschnitt 9).
 
 Der Betreiber hat am 16.11.2026 Mobile Next als bevorzugte Quelle für digitale Gerätetests im bestehenden kostenlosen
 Kontingent freigegeben. Standard: `docs/GERAETETESTS.md`. Vor Reservierung Quellen und Prüfpaket vorbereiten;
-bereits passende Belege wiederverwenden, nur offene Aussagen testen. Höchstens acht Minuten je Sitzung,
+bereits passende Belege wiederverwenden, nur offene Aussagen testen („offen“ heißt: ohne passenden Gerätebeleg,
+`docs/GERAETETESTS.md` Abschnitt 2). Höchstens acht Minuten je Sitzung,
 0 USD zusätzliche Gerätekosten; kein kostenpflichtiger Mehrverbrauch. Innerhalb dieses Rahmens keine erneute
 Einzelgenehmigung erfragen. Neue Kosten brauchen eine eigene Betreiberentscheidung. Tatsächliche Connector-Verfügbarkeit
 je ausführendem Lauf prüfen; keine Sitzung buchen, wenn Zugang oder Vorbereitung fehlen. Autoren-/Prüfertrennung bleibt.

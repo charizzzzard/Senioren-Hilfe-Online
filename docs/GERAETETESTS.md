@@ -19,6 +19,8 @@ Lesende Katalog-/Kontoprüfung, Quellenlesen, Artikelplanung und Berichtsschreib
 | Nur Rechtschreibung, Stil oder anderer unberührter Abschnitt geändert | Vorhandenen Beleg gegen den Diff prüfen; keine automatische Neubuchung |
 | Reine Erklärung ohne Gerätehandgriff | Kein Geräteauftrag |
 
+**„Offen“** (hier, in den Prüffällen und in CLAUDE.md Abschnitt 7) heißt: Für die Aussage gibt es noch keinen passenden Gerätebeleg – „passend“ im Sinne von „Wiederverwenden“ unten. Eine vorliegende Herstellerquelle ändert daran nichts (erste Tabellenzeile). Ob getestet wird, richtet sich weiter nach Anlass und Testmöglichkeit in der Tabelle.
+
 Vorher in `geraetelaeufe/`, im Artikel, seinen Belegtabellen und offenen PRs/Issues nach vorhandenen Nachweisen suchen. Kein konkurrierender Korrektur-PR und keine zweite Prüfung derselben offenen Änderung. Bestehende Themenprioritäten und Inhaltskontingente bleiben erhalten.
 
 **Wiederverwenden:** Ein dauerhaft gespeicherter Beleg bleibt für unveränderte Aussagen nutzbar, wenn Wortlaut/Bedeutung, Ablauf und Voraussetzungen gleich geblieben sind und sein Geräte-/Software-/Sprachumfang weiter passt. Der ursprüngliche Teststand bleibt genannt. Eine neue Gesamt-SHA allein erzwingt keinen Kompletttest; neue Aussagen oder betroffene Menüs dürfen den alten Beleg nicht erben. Der Prüfer bewertet die Zuordnung. Bei einschlägigem Update, Widerspruch oder fehlendem Nachweis nur den betroffenen Teil neu prüfen. Prüfdatum und Geltungsbereich nie allein durch Wiederverwendung erneuern.

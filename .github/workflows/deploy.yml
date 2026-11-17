@@ -29,6 +29,18 @@ jobs:
       - name: Abhängigkeiten installieren
         run: pip install -r requirements.txt
 
+      # Werkzeug-Tests (tests/, z. B. Screenshot-Zuordnung in tools/build.py) halten nur Pull Requests auf, die das
+      # Werkzeug selbst ändern (tools/, tests/, requirements.txt, diese Datei; Vergleich mit main = HEAD^1). Auf main
+      # laufen sie nicht: Ein Werkzeug-Test darf weder den Deploy noch eine reine Text-Korrektur aufhalten.
+      - name: Werkzeug-Tests (nur im Pull Request mit Werkzeug-Änderung)
+        if: github.event_name == 'pull_request'
+        run: |
+          if git diff --quiet HEAD^1 HEAD -- tools/ tests/ requirements.txt .github/workflows/deploy.yml; then
+            echo "Keine Änderung an tools/, tests/, requirements.txt oder deploy.yml – Werkzeug-Tests entfallen."
+          else
+            python -m unittest discover -s tests -p 'test_*.py' -v
+          fi
+
       # Kontingent (Regel 9) und Qualitätsbremse halten NEUE Texte auf: im Pull Request alles, was es auf main noch
       # nicht gibt (Vergleichsstand HEAD^1). Auf main selbst ist nichts neu (Vergleichsstand HEAD) – ein schon
       # veröffentlichter Text kann den Deploy und damit die Korrekturen nie blockieren (tools/check.py).

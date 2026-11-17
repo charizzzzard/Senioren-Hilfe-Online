@@ -44,6 +44,14 @@ Ausnahme: Den Montag der Nachprüfung erwartet das Werkzeug ohnehin nur, solange
 
 ## Änderungen
 
+- **17.11.2026 – Connector-Stand nachgetragen (keine Auftragsänderung):** Seit 16.11.2026, 16:01 Uhr Berliner Zeit, haben
+  „Netzleicht: neuer Artikel“ und „Netzleicht: Nachprüfung“ zusätzlich Mobile Next hinterlegt. Die Faktenprüfung bewusst
+  nicht: Sie prüft gespeicherte Belege über GitHub. Freigabe, Wochenbericht, Die Woche im Netz und monatliche Wartung haben
+  weiter nur OpenSEO. Bestätigt am 17.11.2026 über die Aufgabenliste; im Nachprüfungslauf vom 16.11.2026 war Mobile Next
+  tatsächlich verfügbar (PR #54). Die aktiven Aufträge von neuer Artikel, Nachprüfung und Faktenprüfung haben seit
+  16.11.2026, 16:22 Uhr, den Wortlaut der Sicherungen aus PR #53. Damit sind der Connector-Stand im Eintrag zu PR #51 und
+  der „Stand beim Merge“ im Eintrag zu PR #53 überholt.
+
 - **16.11.2026 – neuer Artikel, Nachprüfung, Faktenprüfung (nur Sicherungen, PR #53) – Laufarchiv und echte Screenshots:**
   Die Sicherungen werden mit `geraetelaeufe/README.md` abgeglichen. Stand beim Merge: Die aktiven Aufgaben sind noch nicht
   auf diesen Wortlaut umgestellt; das geschieht erst nach dem geprüften Merge. Dieser Eintrag behauptet keine erfolgte Umstellung.
@@ -55,7 +63,7 @@ Ausnahme: Den Montag der Nachprüfung erwartet das Werkzeug ohnehin nur, solange
   verfügbar sind und ein Prüfpaket vorliegt – eine Sitzung, höchstens 8 Minuten, 0 USD; sonst keine Reservierung, der Handgriff
   kommt in die Geräte-Prüfliste. Die Nachprüfung nimmt offene `geraetetest`-Issues mit konkretem Befund auf (Schritt 2, Punkt a).
   Die monatliche Wartung bleibt unverändert (monatliche Geräte-Prüfliste, CLAUDE.md Abschnitt 7). Connector-Stand am
-  16.11.2026: Alle sieben Aufgaben haben nur OpenSEO hinterlegt; ein geplanter Lauf startet mit `github`, `OpenSEO` und
+  16.11.2026 vor 16:01 Uhr (überholt, siehe Eintrag vom 17.11.2026): Alle sieben Aufgaben haben nur OpenSEO hinterlegt; ein geplanter Lauf startet mit `github`, `OpenSEO` und
   `claude-code-remote` – Mobile Next ist in keiner Aufgabe verfügbar. Kein neuer Zeitplan. Anlass: Auftrag des Betreibers vom
   16.11.2026 nach dem Samsung-Pilot.
 - **14.11.2026 – Faktenprüfung, Freigabe:** `gelesen` bleibt gültig, solange nach dem Setzen kein Commit dazukommt
