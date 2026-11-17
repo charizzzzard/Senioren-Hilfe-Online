@@ -1,11 +1,11 @@
 ---
 titel: "WhatsApp: Foto oder Bild verschicken – Schritt für Schritt"
 seo_titel: "WhatsApp: Bild senden – so verschicken Sie Fotos"
-beschreibung: "Ein Foto per WhatsApp verschicken: So senden Sie ein Bild aus der Galerie oder direkt mit der Kamera – Schritt für Schritt auf iPhone und Android."
+beschreibung: "Fotos per WhatsApp senden: aus Galerie oder Kamera, in HD oder zur einmaligen Ansicht. Schritt für Schritt auf iPhone und Android, mit Hilfe bei Problemen."
 keyword: "whatsapp bild senden"
 kategorie: whatsapp
 veroeffentlicht: 2026-11-01
-aktualisiert: 2026-11-05
+aktualisiert: 2026-11-17
 geprueft: 2026-11-10
 kurz_gesagt: |
   **iPhone:** Chat öffnen › auf das **Pluszeichen** („Anhängen“) tippen › „Fotos“ › Bild auswählen › auf das **Papierflugzeug** tippen.
@@ -17,10 +17,10 @@ checkliste:
   - "iPhone: Pluszeichen (Anhängen) › Fotos › Bild antippen › Papierflugzeug"
   - "Android: Büroklammer (Anhängen) › Galerie › Bild antippen › Pfeil"
   - Neues Foto? Auf das Kamera-Symbol im Chat tippen.
-  - Das Foto erscheint danach im Chat – geschafft.
+  - "Ein Häkchen: gesendet. Zwei Häkchen: zugestellt (in Gruppen erst an alle)."
   - "iPhone, Fotos fehlen: Einstellungen › Apps › WhatsApp › Fotos › vollen Zugriff erlauben"
   - "Android, Fotos fehlen: Einstellungen › Apps › WhatsApp › Berechtigungen › Fotos und Videos › Erlauben"
-  - Lieber wenige Fotos auf einmal schicken als sehr viele.
+  - "Einmalansicht gewünscht? Vor dem Senden auf die 1 im Kreis tippen; das Symbol wird grün."
   - "Falsches Foto? Finger drauf › Löschen › „Für alle löschen“ (bis zu 2 Tage danach)"
 quellen:
   - herausgeber: WhatsApp-Hilfebereich
@@ -41,6 +41,18 @@ quellen:
   - herausgeber: WhatsApp-Hilfebereich
     titel: Nachrichten löschen (Android)
     url: https://faq.whatsapp.com/1370476507114859/?locale=de_DE&cms_platform=android
+  - herausgeber: WhatsApp-Hilfebereich
+    titel: Medien und Sprachnachrichten zur einmaligen Ansicht senden und öffnen (Android)
+    url: https://faq.whatsapp.com/578442220724722/?locale=de_DE&cms_platform=android
+  - herausgeber: WhatsApp-Hilfebereich
+    titel: Medien und Sprachnachrichten zur einmaligen Ansicht senden und öffnen (iPhone)
+    url: https://faq.whatsapp.com/578442220724722/?cms_platform=iphone&helpref=platform_switcher&locale=de_DE
+  - herausgeber: WhatsApp-Hilfebereich
+    titel: Informationen zur Einmalansicht
+    url: https://faq.whatsapp.com/1077018839582332?helpref=faq_content
+  - herausgeber: WhatsApp-Hilfebereich
+    titel: Lesebestätigungen prüfen
+    url: https://faq.whatsapp.com/665923838265756/?cms_platform=web&locale=de_DE
 verwandt:
   - whatsapp-sprachnachricht
   - whatsapp-videoanruf
@@ -112,9 +124,30 @@ Mehrere Bilder auf einmal? Halten Sie in der Galerie den Finger etwas länger au
 
 ## Hat es geklappt?
 
-Das Foto steht jetzt als Ihre Nachricht im Chat. Geschafft! Die andere Person bekommt es wie eine ganz normale Nachricht.
+Beim normalen Versand erscheint das Foto als Ihre Nachricht im Chat. An den Zeichen daneben erkennen Sie, wie weit es ist:
 
-Wundern Sie sich nicht, wenn das Bild beim Empfänger etwas weniger scharf aussieht als bei Ihnen. WhatsApp verkleinert Fotos beim Verschicken meist ein wenig. Wer Wert auf die volle Schärfe legt, findet vor dem Senden das Symbol **„HD“**: Dort können Sie zwischen „Standardqualität“ und „HD-Qualität“ wählen.
+- **Ein graues Häkchen:** Die Nachricht wurde gesendet.
+- **Zwei graue Häkchen:** Die Nachricht wurde zugestellt. In einer Gruppe erscheint das zweite Häkchen erst, wenn alle die Nachricht erhalten haben.
+- **Eine Uhr:** Die Nachricht wurde noch nicht gesendet oder zugestellt. Prüfen Sie dann die Internetverbindung.
+
+## Fotos in höherer Qualität senden
+
+WhatsApp verkleinert Fotos beim Verschicken meist ein wenig. Möchten Sie eine höhere Bildqualität, wählen Sie vor dem Senden das Symbol **„HD“**. Dort können Sie zwischen **„Standardqualität“** und **„HD-Qualität“** wählen.
+
+## Ein Foto nur einmal ansehen lassen
+
+Soll die andere Person das Bild nur ein einziges Mal öffnen können? Dafür gibt es die **Einmalansicht**. Sie wählen diese Funktion **vor dem Senden**.
+
+1. Wählen Sie im Chat ein Foto aus Ihrer Sammlung aus oder nehmen Sie ein neues auf – wie oben beschrieben.
+2. Tippen Sie vor dem Senden auf die **1 im Kreis**.
+3. Prüfen Sie, ob das Symbol **grün** geworden ist. Dann ist die Einmalansicht eingeschaltet.
+4. Tippen Sie auf das **Senden-Symbol**.
+
+Nach dem Senden können Sie das verschickte Bild selbst nicht erneut öffnen. Bei der anderen Person verschwindet es nach dem ersten Ansehen aus dem Chat. Es wird dort nicht in „Fotos“ oder in der „Galerie“ gespeichert.
+
+Für jedes weitere Bild zur einmaligen Ansicht müssen Sie die Funktion erneut auswählen. Soll ein Foto zum späteren Anschauen bleiben, verwenden Sie den normalen Versand.
+
+**Gut zu wissen:** Auch ein Bild zur einmaligen Ansicht kann jemand mit einem anderen Handy oder einer Kamera abfotografieren. Schicken Sie es deshalb nur an Personen, denen Sie vertrauen.
 
 ## Wenn es nicht klappt
 
