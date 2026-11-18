@@ -5,19 +5,19 @@ beschreibung: "Unerwünschte Nachrichten oder Betrugsversuche auf WhatsApp? So b
 keyword: "whatsapp blockieren"
 kategorie: whatsapp
 veroeffentlicht: 2026-10-30
-aktualisiert: 2026-11-13
+aktualisiert: 2026-11-18
 geprueft: 2026-11-10
 kurz_gesagt: |
   Öffnen Sie den Chat mit der Person. **Android:** auf die drei Punkte (⋮) › „Mehr“ › „Blockieren“. **iPhone:** auf den Namen tippen › „… blockieren“.
-  Machen Sie **vorher ein Bildschirmfoto** vom Chat, wenn es um Betrug geht. Blockierte Personen können Ihnen keine Nachrichten mehr schicken und Sie nicht mehr anrufen.
+  Blockierte Personen können Ihnen keine Nachrichten mehr schicken und Sie nicht mehr anrufen. Geht es um Betrug, melden Sie ihn auch der Polizei und löschen Sie den Chat erst danach.
 checkliste_titel: "Checkliste: Kontakt blockieren"
 checkliste:
-  - Bei Betrug zuerst ein Bildschirmfoto vom Chat machen.
   - Chat öffnen.
   - "Android: ⋮ › Mehr › Blockieren › Blockieren"
   - "iPhone: auf den Namen tippen › blockieren › Blockieren"
   - Bei Betrug zusätzlich „An WhatsApp melden“ bzw. „Blockieren und melden“ wählen.
-  - Bei Betrug auch die Polizei informieren.
+  - Bei Betrug auch die Polizei informieren und den Chat erst danach löschen.
+  - Schon Geld überwiesen? Den ganzen Chat mit Bildschirmfotos sichern und Anzeige erstatten.
 quellen:
   - herausgeber: WhatsApp-Hilfebereich
     titel: Jemanden blockieren und melden (Android)
@@ -59,8 +59,8 @@ Manche Nachrichten möchte man einfach nicht mehr bekommen – sei es Werbung, B
 
 Gruppen lassen sich nicht blockieren. Sie können aber eine Gruppe verlassen und die Person blockieren, die die Gruppe verwaltet.
 
-!!! wichtig "Bei Betrug: erst sichern, dann blockieren"
-    Machen Sie zuerst **Bildschirmfotos** vom Chat. Die Polizei rät: Nummer blockieren, den Vorfall der Polizei melden und erst danach den Chat löschen.
+!!! wichtig "Bei Betrug: erst melden, dann löschen"
+    Die Polizei rät: Nummer blockieren, den Vorfall der Polizei melden und erst danach den Chat löschen. Haben Sie schon Geld überwiesen, sichern Sie außerdem den ganzen Chat, zum Beispiel mit **Bildschirmfotos**, und erstatten Sie Anzeige. Alle weiteren Schritte stehen im [Notfallplan nach einem Betrug](/artikel/betrug-was-tun/).
 
 ## Auf einem Android-Handy
 
