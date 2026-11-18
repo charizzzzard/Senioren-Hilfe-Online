@@ -5,7 +5,7 @@ beschreibung: "Die Familie sehen statt nur hören: So starten Sie einen WhatsApp
 keyword: "whatsapp videoanruf"
 kategorie: whatsapp
 veroeffentlicht: 2026-11-01
-aktualisiert: 2026-11-13
+aktualisiert: 2026-11-18
 geprueft: 2026-11-11
 getestet: "Auflegen im Videoanruf auf einem iPhone mit iOS 18 (05.11.2026)"
 kurz_gesagt: |
@@ -49,25 +49,25 @@ text: >
   Till hat Geburtstag, und Margarete möchte ihn nicht nur hören, sondern auch sehen. Till meint: „Oma, ruf doch per Video an!“ Margarete ist unsicher, ob sie das hinbekommt. Sie bekommt es hin.
 ```
 
-Eine Stimme am Telefon ist schön. Ein Gesicht dazu ist noch schöner. Mit einem **WhatsApp-Videoanruf** sehen Sie Ihre Kinder, Enkel oder Freunde auf dem Bildschirm – egal, wie weit sie entfernt wohnen.
+Eine Stimme am Telefon ist schön. Ein Gesicht dazu ist noch schöner. Mit einem **WhatsApp-Videoanruf** sehen Sie Ihre Kinder, Enkel oder Freunde auf dem Bildschirm. Ganz gleich, wie weit entfernt sie wohnen.
 
 **Danach können Sie einen WhatsApp-Videoanruf starten, einen Anruf annehmen und während des Gesprächs die Kamera wechseln.** Und wenn etwas nicht gleich klappt: Sie legen auf und versuchen es noch einmal.
 
 ## Bevor Sie anrufen
 
-Videoanrufe laufen über das **Internet**. Für Sprachanrufe schreibt WhatsApp ausdrücklich: Sie nutzen die Internetverbindung des Handys und nicht die Gesprächsminuten Ihres Vertrags. Wenn Sie zu Hause sind, verbinden Sie Ihr Handy am besten mit dem **WLAN**. WhatsApp rät selbst dazu, damit Sie Datenvolumen sparen. Beide Seiten brauchen laut WhatsApp eine starke Internetverbindung.
+Videoanrufe laufen über das **Internet**. Für Sprachanrufe schreibt WhatsApp ausdrücklich: Sie nutzen die Internetverbindung des Handys und nicht die Gesprächsminuten Ihres Vertrags. Wenn Sie zu Hause sind, verbinden Sie Ihr Handy am besten mit dem **WLAN**. WhatsApp rät selbst dazu, damit Sie Datenvolumen sparen. Datenvolumen ist die Menge an mobilem Internet, die in Ihrem Handytarif enthalten ist. Beide Seiten brauchen laut WhatsApp eine starke Internetverbindung.
 
-Setzen Sie sich so, dass Licht auf Ihr Gesicht fällt. Und keine Sorge: Am Anfang sieht die andere Person Sie über die **Frontkamera** – also die Kamera auf der Bildschirmseite.
+Setzen Sie sich so, dass Licht auf Ihr Gesicht fällt. Und keine Sorge: Am Anfang sieht die andere Person Sie über die **Frontkamera**. Das ist die Kamera auf der Bildschirmseite.
 
 ## Auf dem iPhone
 
 ### Videoanruf starten
 
 1. Öffnen Sie den **Chat** mit der Person, die Sie anrufen möchten.
-2. Tippen Sie auf das Symbol mit der **Videokamera**. Auf einem iPhone mit iOS 18 liegt es oben rechts im Chat; rechts daneben ist das Symbol für einen Sprachanruf.
+2. Tippen Sie auf das Symbol mit der **Videokamera**. Auf einem iPhone mit iOS 18 liegt es oben rechts im Chat. Rechts daneben ist das Symbol für einen Sprachanruf.
 3. Warten Sie, bis die andere Person annimmt. Dann sehen Sie sich.
 
-Andere Möglichkeit: Öffnen Sie in WhatsApp den Bereich **„Anrufe“**. Tippen Sie auf das Symbol für einen neuen Anruf, suchen Sie die Person und tippen Sie auf die **Videokamera**.
+Andere Möglichkeit: Öffnen Sie in WhatsApp den Bereich **„Anrufe“**. Tippen Sie dort auf das Symbol für einen neuen Anruf. Suchen Sie die Person heraus. Tippen Sie dann auf die **Videokamera**.
 
 ### Videoanruf annehmen
 
@@ -92,7 +92,7 @@ Das Gespräch ist sofort beendet, eine Rückfrage gibt es nicht. Haben Sie selbs
 3. Tippen Sie auf **„Anruf“**.
 4. Warten Sie, bis die andere Person annimmt.
 
-Andere Möglichkeit: Öffnen Sie in WhatsApp den Bereich **„Anrufe“**. Tippen Sie auf das Symbol für einen neuen Anruf, suchen Sie die Person und tippen Sie auf die **Videokamera**.
+Andere Möglichkeit: Öffnen Sie in WhatsApp den Bereich **„Anrufe“**. Tippen Sie dort auf das Symbol für einen neuen Anruf. Suchen Sie die Person heraus. Tippen Sie dann auf die **Videokamera**.
 
 ### Videoanruf annehmen
 
@@ -119,16 +119,16 @@ Wenn Sie fertig sind, legen Sie auf – wie bei jedem Anruf.
 
 ## Wenn es nicht klappt
 
-- **Niemand nimmt ab?** Sie können eine kurze **Videonotiz** hinterlassen: Tippen Sie auf „Videonotiz aufnehmen“ und sprechen Sie Ihre Nachricht. Tippen Sie dann auf das **Quadrat**, um die Aufnahme zu beenden, und auf das **Papierflugzeug**, um sie zu senden. Die Videonotiz erscheint im Chat, und die andere Person bekommt eine Benachrichtigung.
+- **Niemand nimmt ab?** Sie können eine kurze **Videonotiz** hinterlassen: Tippen Sie auf „Videonotiz aufnehmen“ und sprechen Sie Ihre Nachricht. Tippen Sie auf das **Quadrat**, um die Aufnahme zu beenden. Tippen Sie dann auf das **Papierflugzeug**, um die Videonotiz zu senden. Sie erscheint im Chat, und die andere Person bekommt eine Benachrichtigung.
 - **Das Bild ruckelt oder friert ein?** Für Videoanrufe brauchen laut WhatsApp beide Seiten eine starke Internetverbindung. Versuchen Sie es an einem Platz mit besserem Empfang oder später noch einmal.
-- **Der Anruf funktioniert gar nicht?** Möglicherweise nutzt die andere Person laut WhatsApp ein älteres Betriebssystem oder eine ältere WhatsApp-Version. Fragen Sie nach, ob dort alles auf dem neuesten Stand ist.
+- **Der Anruf funktioniert gar nicht?** Möglicherweise nutzt die andere Person laut WhatsApp ein älteres Betriebssystem oder eine ältere WhatsApp-Version. Das Betriebssystem ist die Grundsoftware des Handys. Auf dem iPhone heißt sie iOS, auf vielen anderen Handys Android. Fragen Sie nach, ob dort alles auf dem neuesten Stand ist.
 
 !!! wichtig "Notruf nie über WhatsApp"
     Über WhatsApp erreichen Sie **keine Notrufnummern** – weder die 112 noch die 110. Im Notfall rufen Sie immer über die normale Telefon-App Ihres Handys an.
 
-Es klingelt per Video, und Sie kennen die Nummer nicht? Sie müssen nicht annehmen. Bei Unsicherheit hilft unser [Ist-das-echt-Check](/ist-das-echt/), und wie Sie lästige Nummern loswerden, steht in der Anleitung [WhatsApp-Kontakt blockieren](/artikel/whatsapp-kontakt-blockieren/).
+Es klingelt per Video, und Sie kennen die Nummer nicht? Sie müssen nicht annehmen. Bei Unsicherheit hilft unser [Ist-das-echt-Check](/ist-das-echt/). Wie Sie lästige Nummern loswerden, steht in der Anleitung [WhatsApp-Kontakt blockieren](/artikel/whatsapp-kontakt-blockieren/).
 
 Lieber erst einmal ein Foto oder eine Nachricht mit Ihrer Stimme schicken? Dann lesen Sie, wie Sie ein [Foto per WhatsApp verschicken](/artikel/whatsapp-bild-senden/) oder eine [Sprachnachricht aufnehmen](/artikel/whatsapp-sprachnachricht/).
 
 !!! angehoerige "Für Angehörige"
-    Verabreden Sie den ersten Videoanruf vorher – am besten zu einer festen Zeit, wenn beide in Ruhe im WLAN sind. Rufen Sie selbst an, dann muss Ihr Gegenüber nur annehmen. Zeigen Sie beim nächsten Besuch das Kamera-Wechseln: Viele freuen sich, wenn sie den Enkeln den Garten oder das Mittagessen zeigen können.
+    Verabreden Sie den ersten Videoanruf vorher. Am besten zu einer festen Zeit, wenn beide in Ruhe im WLAN sind. Rufen Sie selbst an, dann muss Ihr Gegenüber nur annehmen. Zeigen Sie beim nächsten Besuch, wie man die Kamera wechselt. Dann lässt sich den Enkeln auch einmal der Garten oder das Mittagessen zeigen.
