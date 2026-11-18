@@ -638,6 +638,15 @@ small { font-size: 0.85em; }
   h2, h3 { break-after: avoid; }
 }
 
+@media print {
+  .artikel__kopf h1 { break-after: avoid; }
+  .artikel__meta { break-inside: avoid; overflow-wrap: anywhere; }
+  .artikel__meta .nur-druck { display: inline; font: inherit; color: inherit; }
+  .artikel__meta .artikel__druck-geraet { display: none; }
+  .artikel[data-druck-geraet="iphone"] .artikel__druck-geraet--iphone,
+  .artikel[data-druck-geraet="android"] .artikel__druck-geraet--android { display: inline-block; }
+}
+
 /* ------------------------------------------------ Nachgebaute Bildschirme, Klickpfade, Tasten */
 
 .klickpfad {

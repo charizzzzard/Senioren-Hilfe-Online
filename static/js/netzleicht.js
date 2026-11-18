@@ -71,6 +71,7 @@
   }
 
   function geraetZeigen(abschnitte, geraet, leiste, artikel) {
+    artikel.dataset.druckGeraet = geraet;
     /* Zeilen in „Kurz gesagt“ und Checkliste, die mit „iPhone“/„Android“/„Samsung“ beginnen (data-fuer) */
     artikel.querySelectorAll("[data-fuer]").forEach(function (el) {
       el.hidden = geraet !== "alle" && el.getAttribute("data-fuer") !== geraet;
