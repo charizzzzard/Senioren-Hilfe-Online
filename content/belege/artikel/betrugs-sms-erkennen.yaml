@@ -1,6 +1,6 @@
 # Belegtabelle für content/artikel/betrugs-sms-erkennen.md (Format: docs/BETRIEB.md, Abschnitt „Belegtabelle“)
 # Jede Aussage mit einem wörtlichen Zitat aus einer selbst gelesenen Quelle. Prüfen: python tools/belegcheck.py betrugs-sms-erkennen
-geprueft: 2026-11-10
+geprueft: 2026-11-18
 belege:
   # ---------------------------------------------------------------- Die Masche
   - aussage: "Sehr viele Menschen bekommen SMS angeblicher Paketdienste"
@@ -46,9 +46,9 @@ belege:
   - aussage: "Dann stehen immer Sendungsnummer und Name des Absenders in der Nachricht"
     quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/mobilfunk-und-festnetz/paketdienstsms-vorsicht-abzocke-58988
     zitat: "In diesen Nachrichten befinden sich dann immer eine Sendungsnummer und der Name des Absenders."
-  - aussage: "Über Links in SMS keine persönlichen Daten angeben"
-    quelle: https://www.bundesnetzagentur.de/DE/Vportal/TK/Aerger/Faelle/SMSSpam/start.html
-    zitat: "Geben Sie keine persönlichen Daten über Links in SMS oder E-Mails an, es sei denn, Sie haben den Absender verifiziert."
+  - aussage: "Kasten und Checkliste: Auf der Seite aus dem SMS-Link keinesfalls Zugangsdaten zum Online-Banking oder andere Daten eingeben (ohne Ausnahme – die Bundesnetzagentur nennt eine für geprüfte Absender, deshalb steht ihr Rat nicht mehr im Kasten)"
+    quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/mobilfunk-und-festnetz/fakesms-zu-onlinebanking-steuerbescheiden-und-gerichtsverfahren-67038
+    zitat: "Haben Sie den Link in der Nachricht angetippt, geben Sie keinesfalls Ihre Zugangsdaten zum Online-Banking oder andere Daten auf der geöffneten Seite ein!"
   # ---------------------------------------------------------------- Richtig reagieren
   - aussage: "Nicht auf den Link tippen"
     quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/mobilfunk-und-festnetz/paketdienstsms-vorsicht-abzocke-58988
@@ -91,6 +91,9 @@ belege:
   - aussage: "Im schlimmsten Fall Zurücksetzen auf den Werkszustand"
     quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/mobilfunk-und-festnetz/paketdienstsms-vorsicht-abzocke-58988
     zitat: "Im schlimmsten Fall hilft nur ein Zurücksetzen des Geräts in den Auslieferungszustand."
+  - aussage: "Dabei helfen lassen (auch: „Hilfe holen“ in Kurz gesagt)"
+    quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/mobilfunk-und-festnetz/fakesms-zu-onlinebanking-steuerbescheiden-und-gerichtsverfahren-67038
+    zitat: "Wenn Sie dabei Hilfe benötigen, können Sie sich zum Beispiel an das Bundesamt für Sicherheit in der Informationstechnik (BSI) wenden."
   - aussage: "Bezahlt: Bank informieren, Abbuchungen beobachten"
     quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/mobilfunk-und-festnetz/paketdienstsms-vorsicht-abzocke-58988
     zitat: "Beobachten Sie die Abbuchungen von Ihrer Kreditkarte genau und informieren Sie vorsorglich Ihre Bank."
@@ -118,6 +121,15 @@ belege:
     zitat: "wird dieser Kontakt auch in den Apps „Mail“, „Telefon“, „FaceTime“, „Kalender“ und anderen Apps blockiert"
   - aussage: "Aufheben: Einstellungen › Datenschutz & Sicherheit › Blockierte Kontakte"
     quelle: https://support.apple.com/de-de/guide/iphone/iph3f94d910d/27.0/ios/27.0
+    zitat: "Tippe auf „Datenschutz & Sicherheit“, tippe auf „Blockierte Kontakte“ und führe beliebige der folgenden Schritte aus:"
+  - aussage: "iOS 26: sperren genauso – Symbol der Person"
+    quelle: https://support.apple.com/de-de/guide/iphone/iph3f94d910d/26.0/ios/26.0
+    zitat: "Gehe zur Konversation mit einer Person, die du blockieren möchtest, und tippe dann oben auf das Symbol der Person."
+  - aussage: "iOS 26: „Info“, nach unten scrollen, „Kontakt blockieren“"
+    quelle: https://support.apple.com/de-de/guide/iphone/iph3f94d910d/26.0/ios/26.0
+    zitat: "Tippe auf „Info“, scrolle nach unten und tippe auf „Kontakt blockieren“."
+  - aussage: "iOS 26: Aufheben unter Einstellungen › Datenschutz & Sicherheit › Blockierte Kontakte"
+    quelle: https://support.apple.com/de-de/guide/iphone/iph3f94d910d/26.0/ios/26.0
     zitat: "Tippe auf „Datenschutz & Sicherheit“, tippe auf „Blockierte Kontakte“ und führe beliebige der folgenden Schritte aus:"
   # ---------------------------------------------------------------- iPhone: filtern (iOS 27 und 26)
   - aussage: "iOS 27: Taste „Filtern“ in der Liste der Unterhaltungen, dann „Filter verwalten“"

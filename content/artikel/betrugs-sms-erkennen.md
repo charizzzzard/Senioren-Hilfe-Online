@@ -5,8 +5,8 @@ beschreibung: "„Ihr Paket wartet“ – und dazu ein Link? So erkennen Sie Bet
 keyword: "betrugs sms"
 kategorie: sicherheit
 veroeffentlicht: 2026-10-30
-aktualisiert: 2026-11-10
-geprueft: 2026-11-10
+aktualisiert: 2026-11-18
+geprueft: 2026-11-18
 kurz_gesagt: |
   **Tippen Sie nicht auf Links** in überraschenden SMS – egal ob angeblich vom Paketdienst, vom Zoll oder von der Bank. **Antworten Sie nicht**, sondern löschen Sie die Nachricht.
   Erwarten Sie wirklich ein Paket, prüfen Sie den Status **direkt auf der Internetseite des Paketdienstes**. Haben Sie schon getippt und eine App installiert: **Flugmodus einschalten** und Hilfe holen.
@@ -16,13 +16,16 @@ checkliste:
   - Ich antworte nicht und lösche die SMS.
   - Ich prüfe Pakete nur direkt auf der Internetseite des Paketdienstes.
   - Ich erlaube keine Installation einer App aus einem SMS-Link.
-  - Über einen Link aus einer SMS gebe ich keine persönlichen Daten ein – auch keine PIN oder TAN.
+  - Auf einer Seite aus einem SMS-Link gebe ich keine Daten ein – auch keine Zugangsdaten zum Online-Banking.
   - Spam-SMS kann ich bei der Bundesnetzagentur melden.
   - Habe ich eine App installiert? Erst wichtige Anrufe, dann Flugmodus an und WLAN aus. Bildschirmfotos, Polizei, Mobilfunkanbieter.
 quellen:
   - herausgeber: Verbraucherzentrale
     titel: "Paketdienst-SMS: Vorsicht, Abzocke!"
     url: https://www.verbraucherzentrale.de/wissen/digitale-welt/mobilfunk-und-festnetz/paketdienstsms-vorsicht-abzocke-58988
+  - herausgeber: Verbraucherzentrale
+    titel: "Fake-SMS zu Online-Banking, Steuerbescheiden und Gerichtsverfahren"
+    url: https://www.verbraucherzentrale.de/wissen/digitale-welt/mobilfunk-und-festnetz/fakesms-zu-onlinebanking-steuerbescheiden-und-gerichtsverfahren-67038
   - herausgeber: Bundesnetzagentur
     titel: SMS- und Messenger-Spam-Varianten
     url: https://www.bundesnetzagentur.de/DE/Vportal/TK/Aerger/Faelle/SMSSpam/start.html
@@ -32,6 +35,9 @@ quellen:
   - herausgeber: Apple Support
     titel: "Spam melden und Absender:innen blockieren in der App „Nachrichten“ auf dem iPhone (iOS 27)"
     url: https://support.apple.com/de-de/guide/iphone/iph3f94d910d/27.0/ios/27.0
+  - herausgeber: Apple Support
+    titel: "Spam melden und Absender:innen blockieren in der App „Nachrichten“ auf dem iPhone (iOS 26)"
+    url: https://support.apple.com/de-de/guide/iphone/iph3f94d910d/26.0/ios/26.0
   - herausgeber: Apple Support
     titel: "Textnachrichten auf dem iPhone prüfen und filtern (iOS 27)"
     url: https://support.apple.com/de-de/guide/iphone/iph203ab0be4/27.0/ios/27.0
@@ -82,7 +88,7 @@ Seien Sie besonders vorsichtig, wenn eine SMS
 !!! hinweis "Gut zu wissen"
     Zollgebühren bezahlen Sie nicht über einen Link aus einer überraschenden SMS. Es gibt eine Ausnahme: Manche Paketdienste bieten an, Zollgebühren vor der Zustellung zu bezahlen. Dafür müssen Sie sich aber vorher selbst angemeldet haben – und in der Nachricht stehen laut Verbraucherzentrale dann immer die Sendungsnummer und der Name des Absenders.
 
-    Die Bundesnetzagentur rät: Geben Sie über Links in SMS **keine persönlichen Daten** an – also auch keine PIN, TAN oder Kontodaten.
+    Und die Verbraucherzentrale rät: Haben Sie auf den Link in so einer SMS getippt, geben Sie auf der Seite **keinesfalls** Ihre Zugangsdaten zum Online-Banking oder andere Daten ein.
 
 ## So reagieren Sie richtig
 

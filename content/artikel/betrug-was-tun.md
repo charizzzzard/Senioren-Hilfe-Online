@@ -5,8 +5,8 @@ beschreibung: "Auf Betrug hereingefallen? Dieser Notfallplan zeigt in Ruhe, was 
 keyword: "betrug was tun"
 kategorie: sicherheit
 veroeffentlicht: 2026-10-30
-aktualisiert: 2026-11-10
-geprueft: 2026-11-10
+aktualisiert: 2026-11-18
+geprueft: 2026-11-18
 schnelle_hilfe: true
 kurz_gesagt: |
   **Handeln Sie schnell, aber ohne Hektik:**
@@ -69,6 +69,12 @@ quellen:
   - herausgeber: PayPal-Hilfe
     titel: Wie melde ich ein Problem mit einem Verkäufer?
     url: https://www.paypal.com/de/cshelp/article/wie-melde-ich-ein-problem-mit-einem-verk%C3%A4ufer-help160
+  - herausgeber: Verbraucherzentrale
+    titel: "Fake-SMS zu Online-Banking, Steuerbescheiden und Gerichtsverfahren"
+    url: https://www.verbraucherzentrale.de/wissen/digitale-welt/mobilfunk-und-festnetz/fakesms-zu-onlinebanking-steuerbescheiden-und-gerichtsverfahren-67038
+  - herausgeber: WhatsApp-Hilfebereich
+    titel: Verifizierungscode erhalten, ohne ihn angefordert zu haben
+    url: https://faq.whatsapp.com/479314433984258/?locale=de_DE
   - herausgeber: Apple Support
     titel: "iPhone-Einstellungen für Reisen auswählen (Flugmodus, iOS 27)"
     url: https://support.apple.com/de-de/guide/iphone/iphb771143ee/27.0/ios/27.0
@@ -110,7 +116,7 @@ Rufen Sie **so schnell wie möglich** Ihre Bank oder Sparkasse an.
 
 Damit Sie wissen, woran Sie sind: Ist eine Überweisung erst ausgeführt, ist das Geld laut Polizei in der Regel sehr schwer zurückzubekommen. Viele Überweisungen werden heute in Echtzeit gebucht, schreibt die Verbraucherzentrale. Der Anruf lohnt sich trotzdem: In einigen Fällen kann die Bank das Geld noch zurückholen – je früher, desto besser.
 
-- Die richtige Nummer steht auf Ihrer Bankkarte, auf Ihrem Kontoauszug oder auf der Internetseite Ihrer Bank.
+- Die richtige Nummer finden Sie in Ihrem Online-Banking oder auf der echten Internetseite Ihrer Bank.
 - Nehmen Sie **nie** eine Nummer aus der verdächtigen Nachricht oder dem Anruf.
 - Haben Sie mit Kreditkarte bezahlt, fragen Sie Ihre Bank, ob Sie die Zahlung zurückholen können. Die Verbraucherzentrale nennt dafür das „Charge-Back-Verfahren“.
 
@@ -172,7 +178,7 @@ Die Verbraucherzentrale rät:
 
 Den Flugmodus schalten Sie später auf demselben Weg wieder aus.
 
-Im schlimmsten Fall muss das Handy auf den Werkszustand zurückgesetzt werden. Lassen Sie sich dabei am besten helfen – zum Beispiel von einer vertrauten Person oder in einem Fachgeschäft.
+Im schlimmsten Fall muss das Handy auf den Werkszustand zurückgesetzt werden. Lassen Sie sich dabei am besten helfen – zum Beispiel von einer vertrauten Person oder von Fachleuten, die sich mit Schadsoftware auskennen.
 
 Mehr dazu: [Betrugs-SMS erkennen](/artikel/betrugs-sms-erkennen/).
 

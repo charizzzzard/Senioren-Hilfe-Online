@@ -6,7 +6,7 @@ keyword: "enkeltrick"
 kategorie: sicherheit
 veroeffentlicht: 2026-10-30
 aktualisiert: 2026-11-10
-geprueft: 2026-11-10
+geprueft: 2026-11-18
 kurz_gesagt: |
   Wenn am Telefon jemand Druck macht und es um Geld oder Wertsachen geht: **Legen Sie auf.** Das ist nicht unhöflich, sondern klug.
   Rufen Sie dann die Person oder Behörde **unter einer Nummer an, die Sie selbst kennen** oder selbst heraussuchen. Die echte Polizei bittet **niemals** um Geld und verwahrt **niemals** Wertsachen. Kommt Ihnen ein Anruf verdächtig vor, rufen Sie die **110**.
