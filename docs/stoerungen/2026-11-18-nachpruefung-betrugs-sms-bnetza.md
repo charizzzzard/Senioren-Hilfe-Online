@@ -5,7 +5,7 @@
 | Datum | 18.11.2026, wöchentliche Nachprüfung |
 | Auslöser (BETRIEB.md Abschnitt 9) | Ein sachlicher Fehler war live (Fehlerkatalog 2026-11-18-71, Art „falsch“: zu absolut, die Quelle nennt eine Ausnahme). Kein Altbestand – der Text hatte seit dem 10.11. eine Belegtabelle. |
 | Auswirkung | „Betrugs-SMS erkennen“ schrieb der Bundesnetzagentur seit der Nachprüfung vom 10.11. einen Rat ohne Ausnahme und mit zusätzlichen Beispielen zu. Der Rat selbst war vorsichtiger als die Quelle, nicht gefährlicher: Wer ihm folgte, gab keine Daten preis. |
-| Status | korrigiert im Pull Request der Nachprüfung vom 18.11.2026 (wartet auf die Faktenprüfung) |
+| Status | korrigiert in PR #63 (wartet auf die Faktenprüfung) |
 
 ## Was ist passiert?
 
