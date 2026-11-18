@@ -5,11 +5,11 @@ beschreibung: "Mit dem WhatsApp-Code können Betrüger Ihr Konto übernehmen. So
 keyword: "whatsapp verifizierung in zwei schritten"
 kategorie: whatsapp
 veroeffentlicht: 2026-10-30
-aktualisiert: 2026-11-10
+aktualisiert: 2026-11-18
 geprueft: 2026-11-10
 kurz_gesagt: |
   Geben Sie den **sechsstelligen Code**, den WhatsApp per SMS oder Anruf schickt, **niemals** weiter – auch nicht an Freunde oder Familie.
-  Schalten Sie außerdem die **Verifizierung in zwei Schritten** ein. Dann reicht der Code allein nicht mehr: Wer Ihr Konto auf einem anderen Handy einrichten will, muss sich zusätzlich ausweisen – zum Beispiel mit Ihrem Passwort.
+  Schalten Sie außerdem die **Verifizierung in zwei Schritten** ein. Dann reicht der Code allein nicht mehr. Wer Ihr Konto auf einem anderen Handy einrichten will, muss sich zusätzlich ausweisen, zum Beispiel mit Ihrem Passwort.
 checkliste_titel: "Checkliste: WhatsApp-Konto absichern"
 checkliste:
   - Ich gebe den sechsstelligen WhatsApp-Code niemals weiter.
@@ -31,6 +31,9 @@ quellen:
   - herausgeber: WhatsApp-Hilfebereich
     titel: Ich habe mein Passwort vergessen (iPhone)
     url: https://faq.whatsapp.com/2183055648554771/?locale=de_DE&cms_platform=iphone
+  - herausgeber: WhatsApp-Hilfebereich
+    titel: Ich habe mein Passwort vergessen (Android)
+    url: https://faq.whatsapp.com/2183055648554771/?locale=de_DE&cms_platform=android
   - herausgeber: WhatsApp-Hilfebereich
     titel: Tipps zur Kontosicherheit (iPhone)
     url: https://faq.whatsapp.com/1095301557782068/?locale=de_DE&cms_platform=iphone
@@ -63,11 +66,13 @@ text: >
   Anna ruft ihre Mutter an: „Falls dir jemand einen Code für WhatsApp schickt – bitte nie weitergeben.“ Margarete schreibt es sich auf einen Zettel. Genau darum geht es hier, und es ist schnell erledigt.
 ```
 
-Wer WhatsApp auf einem neuen Handy einrichtet, bekommt einen **sechsstelligen Code** per SMS oder Anruf. Damit bestätigt WhatsApp, dass Ihnen die Telefonnummer gehört. Genau diesen Code wollen Betrüger haben: Mit ihm können sie Ihr Konto auf ihrem eigenen Handy einrichten – und dann in Ihrem Namen Ihre Kontakte um Geld bitten.
+Wer WhatsApp auf einem neuen Handy einrichtet, bekommt einen **sechsstelligen Code** per SMS oder Anruf. Damit bestätigt WhatsApp, dass Ihnen die Telefonnummer gehört. Genau diesen Code wollen Betrüger haben. Mit ihm können sie Ihr Konto auf ihrem eigenen Handy einrichten. Dann können sie in Ihrem Namen Ihre Kontakte um Geld bitten.
+
+**Danach können Sie Ihr Konto mit drei Regeln schützen. Und Sie wissen, wie Sie es zurückholen, falls es doch einmal übernommen wurde.**
 
 ## Regel 1: Den Code niemals weitergeben
 
-WhatsApp sagt es klar: Teilen Sie Ihren Code **niemals** mit anderen – **nicht einmal mit Freunden oder der Familie**. Dasselbe gilt für Ihr Passwort.
+WhatsApp sagt es klar: Teilen Sie Ihren Code **niemals** mit anderen. **Auch nicht mit Freunden oder der Familie.** Ihr Passwort behalten Sie ebenfalls für sich.
 
 Seien Sie deshalb misstrauisch, wenn Sie jemand nach einem Code fragt – selbst ein bekannter Kontakt. WhatsApp weist darauf hin: Kommt eine verdächtige Nachricht von einem bekannten Kontakt, wurde dessen Konto vielleicht schon übernommen. Wie Sie solche Nachrichten erkennen, lesen Sie in [„Hallo Mama“-Betrug auf WhatsApp erkennen](/artikel/whatsapp-betrug-erkennen/).
 
@@ -75,9 +80,11 @@ Seien Sie deshalb misstrauisch, wenn Sie jemand nach einem Code fragt – selbst
 
 ## Regel 2: Verifizierung in zwei Schritten einschalten
 
-Mit der **Verifizierung in zwei Schritten** legen Sie ein zusätzliches Passwort fest. Wer Ihr Konto auf einem anderen Handy einrichten will, muss sich dann nach dem Code ein zweites Mal ausweisen – zum Beispiel mit diesem Passwort. WhatsApp und die Polizei empfehlen beide, diese Funktion einzuschalten.
+Mit der **Verifizierung in zwei Schritten** legen Sie ein zusätzliches Passwort fest. Wer Ihr Konto auf einem anderen Handy einrichten will, muss sich dann zweimal ausweisen. Das erste Mal mit dem Code. Das zweite Mal zum Beispiel mit diesem Passwort. WhatsApp und die Polizei empfehlen beide, diese Funktion einzuschalten.
 
-Legen Sie sich Zettel und Stift bereit, bevor Sie anfangen.
+Legen Sie sich Zettel und Stift bereit, bevor Sie anfangen. WhatsApp fragt beim Einrichten auch nach einer **E-Mail-Adresse**. Diesen Schritt können Sie überspringen. Mit E-Mail-Adresse haben Sie aber einen Weg mehr, sich auszuweisen, falls Sie das Passwort vergessen.
+
+**Sie haben schon eine sechsstellige PIN?** Früher nutzte WhatsApp für diese Funktion eine sechsstellige PIN. Inzwischen wird sie durch ein Passwort ersetzt. Wenn Ihr Konto noch mit einer PIN geschützt ist, können Sie mit denselben Schritten zu einem Passwort wechseln.
 
 ### Auf einem Android-Handy
 
@@ -85,9 +92,10 @@ Legen Sie sich Zettel und Stift bereit, bevor Sie anfangen.
 2. Tippen Sie auf die **drei Punkte** (⋮) und dann auf **„Einstellungen“**.
 3. Tippen Sie auf **„Konto“** und dann auf **„Verifizierung in zwei Schritten“**.
 4. Schalten Sie **„Verifizierung in zwei Schritten aktivieren“** ein.
-5. Denken Sie sich ein **sicheres Passwort** aus, geben Sie es ein und bestätigen Sie es. Schreiben Sie es auf.
-6. Geben Sie eine **E-Mail-Adresse** an, auf die Sie Zugriff haben, und tippen Sie auf **„Weiter“**. Sie können diesen Schritt auch überspringen. Mit E-Mail-Adresse haben Sie aber einen Weg mehr, sich auszuweisen, falls Sie das Passwort vergessen.
-7. Tippen Sie auf **„Diesem Gerät vertrauen“** oder auf **„Überspringen“**.
+5. Denken Sie sich ein **sicheres Passwort** aus. Geben Sie es ein und bestätigen Sie es.
+6. Schreiben Sie das Passwort auf Ihren Zettel.
+7. Geben Sie eine **E-Mail-Adresse** an, auf die Sie Zugriff haben. Tippen Sie dann auf **„Weiter“** – oder auf **„Überspringen“**.
+8. Tippen Sie auf **„Diesem Gerät vertrauen“** oder auf **„Überspringen“**.
 
 ```klickpfad
 ⋮ › Einstellungen › Konto › Verifizierung in zwei Schritten
@@ -117,30 +125,34 @@ unterschrift: Schalten Sie „Verifizierung in zwei Schritten aktivieren“ ein.
 2. Tippen Sie auf **„Du“** (je nach Version „Einstellungen“ oder Ihr Profilbild). Auf einem iPhone mit iOS 18.7.8 liegt „Du“ ganz unten rechts in der Leiste.
 3. Tippen Sie auf **„Konto“** und dann auf **„Verifizierung in zwei Schritten“**.
 4. Schalten Sie **„Verifizierung in zwei Schritten aktivieren“** ein.
-5. Denken Sie sich ein **sicheres Passwort** aus, geben Sie es ein und bestätigen Sie es. Schreiben Sie es auf.
-6. Geben Sie eine **E-Mail-Adresse** an, auf die Sie Zugriff haben, und tippen Sie auf **„Weiter“** – oder auf „Überspringen“.
-7. Tippen Sie auf **„Diesem Gerät vertrauen“** oder auf **„Überspringen“**.
+5. Denken Sie sich ein **sicheres Passwort** aus. Geben Sie es ein und bestätigen Sie es.
+6. Schreiben Sie das Passwort auf Ihren Zettel.
+7. Geben Sie eine **E-Mail-Adresse** an, auf die Sie Zugriff haben. Tippen Sie dann auf **„Weiter“** – oder auf **„Überspringen“**.
+8. Tippen Sie auf **„Diesem Gerät vertrauen“** oder auf **„Überspringen“**.
 
 ```klickpfad
 Du › Konto › Verifizierung in zwei Schritten
 ```
 
-**Sie haben schon eine sechsstellige PIN?** Früher nutzte WhatsApp für diese Funktion eine sechsstellige PIN. Inzwischen wird sie durch ein Passwort ersetzt. Wenn Ihr Konto noch mit einer PIN geschützt ist, können Sie über denselben Weg zu einem Passwort wechseln.
-
 !!! hinweis "Andere Bezeichnungen auf Ihrem Handy?"
-    WhatsApp ändert Menüs ab und zu. Heißt ein Punkt bei Ihnen etwas anders – zum Beispiel „Einstellungen“ statt „Du“ –, suchen Sie nach dem Bereich **„Konto“**. Dort finden Sie die Verifizierung in zwei Schritten.
+    WhatsApp ändert Menüs ab und zu. Heißt ein Punkt bei Ihnen etwas anders, zum Beispiel „Einstellungen“ statt „Du“? Dann suchen Sie nach dem Bereich **„Konto“**. Dort finden Sie die Verifizierung in zwei Schritten.
 
 ## Regel 3: Verknüpfte Geräte prüfen
 
-WhatsApp kann auch auf einem Computer oder Tablet benutzt werden. Diese Geräte heißen „verknüpfte Geräte“. WhatsApp empfiehlt, sie regelmäßig zu prüfen:
+WhatsApp kann auch auf einem Computer oder Tablet benutzt werden. Diese Geräte heißen „verknüpfte Geräte“. WhatsApp empfiehlt, sie regelmäßig zu prüfen. Steht in der Liste kein Gerät, ist auch kein Computer oder Tablet mit Ihrem Konto verknüpft.
 
-1. Öffnen Sie die verknüpften Geräte:
-    - **Android:** Tippen Sie auf die **drei Punkte** (⋮) und dann auf **„Verknüpfte Geräte“**.
-    - **iPhone:** Tippen Sie auf **„Du“** (je nach Version „Einstellungen“ oder Ihr Profilbild) und dann auf **„Verknüpfte Geräte“**.
+### Verknüpfte Geräte auf einem Android-Handy
+
+1. Tippen Sie auf die **drei Punkte** (⋮) und dann auf **„Verknüpfte Geräte“**.
 2. Sie sehen alle Geräte, die mit Ihrem Konto verbunden sind.
-3. Kennen Sie ein Gerät nicht? Tippen Sie darauf und dann auf **„Abmelden“**. Auf dem iPhone bestätigen Sie noch einmal mit **„Abmelden“**.
+3. Kennen Sie ein Gerät nicht? Tippen Sie darauf und dann auf **„Abmelden“**.
 
-Steht dort kein Gerät, ist auch kein Computer oder Tablet mit Ihrem Konto verknüpft.
+### Verknüpfte Geräte auf einem iPhone
+
+1. Tippen Sie auf **„Du“** (je nach Version „Einstellungen“ oder Ihr Profilbild) und dann auf **„Verknüpfte Geräte“**.
+2. Sie sehen alle Geräte, die mit Ihrem Konto verbunden sind.
+3. Kennen Sie ein Gerät nicht? Tippen Sie darauf und dann auf **„Abmelden“**.
+4. Bestätigen Sie noch einmal mit **„Abmelden“**.
 
 ## Zusätzlich sinnvoll
 
@@ -151,15 +163,16 @@ Steht dort kein Gerät, ist auch kein Computer oder Tablet mit Ihrem Konto verkn
 
 ## Wenn Ihr Konto schon übernommen wurde
 
-Das merken Sie zum Beispiel an der Meldung „Deine Telefonnummer wurde auf einem neuen Gerät bei WhatsApp registriert“ – oder daran, dass Freunde merkwürdige Nachrichten „von Ihnen“ bekommen. So holen Sie Ihr Konto zurück:
+Das merken Sie zum Beispiel an dieser Meldung: „Deine Telefonnummer wurde auf einem neuen Gerät bei WhatsApp registriert“. Oder Freunde bekommen merkwürdige Nachrichten „von Ihnen“. So holen Sie Ihr Konto zurück:
 
-1. Öffnen Sie WhatsApp auf Ihrem Handy und tippen Sie auf **„Erneut anmelden“** und dann **„Weiter“**.
-2. Geben Sie Ihre Telefonnummer ein, wenn Sie danach gefragt werden.
-3. Geben Sie den **sechsstelligen Code** ein, den Sie per SMS oder Anruf bekommen.
+1. Öffnen Sie WhatsApp auf Ihrem Handy.
+2. Tippen Sie auf **„Erneut anmelden“** und dann auf **„Weiter“**.
+3. Geben Sie Ihre Telefonnummer ein, wenn Sie danach gefragt werden.
+4. Geben Sie den **sechsstelligen Code** ein, den Sie per SMS oder Anruf bekommen.
 
 Sobald Sie sich so neu angemeldet haben, wird jede andere Person **automatisch abgemeldet**.
 
-Werden Sie nach einer PIN für die Verifizierung in zwei Schritten gefragt, die Sie nicht kennen? Dann hat in seltenen Fällen der Betrüger selbst diese Funktion eingeschaltet. WhatsApp rät in diesem Fall, **sieben Tage zu warten** und es dann erneut zu versuchen.
+Fragt WhatsApp nach einer PIN für die Verifizierung in zwei Schritten, die Sie nicht kennen? Die PIN ist der frühere Schutz dieser Funktion (siehe oben). Dann hat vielleicht der Betrüger selbst die Funktion eingeschaltet. Laut WhatsApp kommt das selten vor. WhatsApp rät in diesem Fall, **sieben Tage zu warten** und es dann erneut zu versuchen.
 
 !!! wichtig "Warnen Sie Ihre Kontakte"
     Wer Ihr Konto übernommen hat, kann sich in Chats und Gruppen als Sie ausgeben. Sagen Sie Familie und Freunden Bescheid – am besten per Anruf oder SMS: „Mein WhatsApp wurde gehackt. Überweist kein Geld, wenn ‚ich‘ darum bitte.“
@@ -167,4 +180,4 @@ Werden Sie nach einer PIN für die Verifizierung in zwei Schritten gefragt, die 
 Ein Passwort zu ändern, **wirft niemanden aus dem Konto**. Das geht nur über die Neuanmeldung mit dem Code. Schalten Sie danach die Verifizierung in zwei Schritten ein und prüfen Sie Ihre verknüpften Geräte. Ist durch die Übernahme Geld verloren gegangen, hilft unser [Notfallplan nach einem Betrug](/artikel/betrug-was-tun/).
 
 !!! angehoerige "Für Angehörige"
-    Richten Sie die Verifizierung in zwei Schritten gemeinsam ein. Das Passwort sollte die Person selbst wählen und aufschreiben – zum Beispiel in einem Notizbuch, das zu Hause bleibt. Erklären Sie dabei in einem Satz, warum: „Diesen Code will nur ein Betrüger haben.“
+    Richten Sie die Verifizierung in zwei Schritten gemeinsam ein. Das Passwort sollte die Person selbst wählen und aufschreiben. Gut geeignet ist zum Beispiel ein Notizbuch, das zu Hause bleibt. Erklären Sie dabei in einem Satz, warum: „Diesen Code will nur ein Betrüger haben.“
