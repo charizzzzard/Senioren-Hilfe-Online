@@ -1,6 +1,7 @@
 /* Netzleicht – Lesehilfen
-   Alles läuft nur im Browser: keine Cookies, kein Tracking, keine fremden Dienste.
-   Gespeichert werden nur selbst gewählte Einstellungen (Schriftgröße, Gerät) im lokalen Speicher. */
+   Alles läuft nur im Browser: keine Cookies, kein Tracking, Netzleicht bindet keine fremden Dienste ein.
+   Ausnahme ohne unser Zutun: Die Vorlese-Stimme stellt der Browser, und manche Stimmen sind Online-Dienste
+   (siehe vorleser()). Gespeichert werden nur selbst gewählte Einstellungen (Schriftgröße, Gerät) im lokalen Speicher. */
 (function () {
   "use strict";
 
@@ -94,9 +95,16 @@
     speicher.schreiben("nl-geraet", geraet);
   }
 
-  /* ---------------------------------------------- Vorlesen */
+  /* ---------------------------------------------- Vorlesen
+     Die Stimme stellt der Browser bzw. das Gerät. Nach der Web-Speech-Spezifikation (W3C) arbeitet eine Stimme
+     entweder auf dem Gerät (localService = true) oder als Sprachdienst im Internet (false). Ohne ausgewählte Stimme
+     nimmt der Browser seine Standardstimme, und auch die darf online sein. Darum wählen wir zuerst eine deutsche
+     Stimme auf dem Gerät. Gibt es nur deutsche Online-Stimmen, liest Netzleicht trotzdem vor, sagt es aber vorher
+     sichtbar neben dem Knopf. Grenze: Wir verlassen uns auf die Angabe des Browsers. Meldet er (noch) keine Stimmen,
+     entscheidet er selbst. */
   function vorleser(artikel, knopf) {
     if (!("speechSynthesis" in window)) { knopf.hidden = true; return; }
+    var synth = window.speechSynthesis;
     var laeuft = false;
     var markiert = null;
     var ruhig = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -108,10 +116,37 @@
     stopp.hidden = true;
     document.body.appendChild(stopp);
 
+    /* Hinweis, falls der Browser für Deutsch nur Online-Stimmen anbietet – sichtbar, bevor man vorlesen lässt */
+    var hinweis = document.createElement("p");
+    hinweis.className = "lesehilfe__hinweis";
+    hinweis.id = "vorlesen-hinweis";
+    hinweis.hidden = true;
+    hinweis.innerHTML = "Hinweis: Dieser Browser hat zum Vorlesen nur eine Online-Stimme. " +
+      "Der vorgelesene Text geht dafür an einen Sprachdienst im Internet. " +
+      '<a href="/datenschutz/#lesehilfen-schriftgroesse-handy-auswahl-und-vorlesen">Mehr dazu in der Datenschutzerklärung</a>';
+    (knopf.closest(".lesehilfe") || knopf.parentNode).appendChild(hinweis);
+
     function stimme() {
-      var stimmen = window.speechSynthesis.getVoices();
-      return stimmen.filter(function (s) { return /^de(-|_|$)/i.test(s.lang); })[0] || null;
+      var deutsch = synth.getVoices().filter(function (s) { return /^de(-|_|$)/i.test(s.lang); });
+      var lokal = deutsch.filter(function (s) { return s.localService === true; });
+      var auswahl = lokal.length ? lokal : deutsch;
+      return auswahl.filter(function (s) { return /^de[-_]DE$/i.test(s.lang); })[0] || auswahl[0] || null;
     }
+    function hinweisAktualisieren() {
+      var s = stimme();
+      var online = !!s && s.localService !== true;
+      hinweis.hidden = !online;
+      if (online) { knopf.setAttribute("aria-describedby", hinweis.id); } else { knopf.removeAttribute("aria-describedby"); }
+    }
+    /* Manche Browser laden die Stimmenliste erst nach dem ersten Abruf (Ereignis „voiceschanged“).
+       Wir fragen sie deshalb schon beim Laden ab, damit beim Antippen die passende Stimme bekannt ist –
+       das Vorlesen selbst startet weiterhin direkt beim Antippen. */
+    if (typeof synth.addEventListener === "function") {
+      synth.addEventListener("voiceschanged", hinweisAktualisieren);
+    } else {
+      synth.onvoiceschanged = hinweisAktualisieren;
+    }
+    hinweisAktualisieren();
     function bloecke() {
       var auswahl = artikel.querySelectorAll(
         "h1, .kurz p, .kurz li, .artikel__rumpf > p, .artikel__rumpf > h2, .artikel__rumpf > h3, " +
@@ -164,6 +199,7 @@
       knopf.textContent = "■ Vorlesen anhalten";
       stopp.hidden = false;
       window.speechSynthesis.cancel();
+      hinweisAktualisieren();
       sprechen(bloecke(), 0);
     });
     stopp.addEventListener("click", function () { anhalten(); knopf.focus({ preventScroll: true }); });

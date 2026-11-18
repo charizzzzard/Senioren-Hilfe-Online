@@ -66,6 +66,11 @@ jobs:
       - name: Chromium installieren
         run: npx playwright install --with-deps chromium
 
+      # Vorlesen: Stimme auf dem Gerät vor Online-Stimme, Hinweis bei reiner Online-Stimme (simulierte Stimmen).
+      - name: Vorlese-Stimmen prüfen (Pull Request)
+        if: github.event_name == 'pull_request'
+        run: node tools/vorlesen-check.mjs
+
       # Eine Checkliste mit mehr als einer A4-Seite ist im Pull Request ein Fehler, auf main nur ein Hinweis.
       - name: Checklisten-PDFs erzeugen
         run: node tools/pdf.mjs _site ${{ github.event_name != 'pull_request' && '--nur-hinweis' || '' }}
