@@ -173,21 +173,25 @@
   /* ---------------------------------------------- Schritte und Checkliste abhaken */
   function abhaken(liste, hinweisVor) {
     liste.forEach(function (li) {
-      li.setAttribute("role", "checkbox");
-      li.setAttribute("aria-checked", "false");
-      li.tabIndex = 0;
+      /* Das li bleibt ein Listeneintrag; Links und Hervorhebungen bleiben im Accessibility-Baum.
+         Eine native Checkbox bringt die Tastaturbedienung und den Zustand bereits mit. */
+      var label = document.createElement("label");
+      label.className = "abhaken-feld nicht-drucken";
+      var feld = document.createElement("input");
+      feld.type = "checkbox";
+      feld.setAttribute("aria-label", "Erledigt: " + li.textContent.replace(/\s+/g, " ").trim());
+      label.appendChild(feld);
+      li.appendChild(label);
       li.classList.add("abhakbar");
-      function umschalten() {
-        var an = li.getAttribute("aria-checked") !== "true";
-        li.setAttribute("aria-checked", String(an));
-        li.classList.toggle("erledigt", an);
+      function anzeigen() {
+        li.classList.toggle("erledigt", feld.checked);
       }
+      feld.addEventListener("change", anzeigen);
       li.addEventListener("click", function (e) {
-        if (e.target.closest("a, button")) { return; }
-        umschalten();
-      });
-      li.addEventListener("keydown", function (e) {
-        if (e.key === " " || e.key === "Enter") { e.preventDefault(); umschalten(); }
+        if (e.target.closest("li.abhakbar") !== li) { return; }
+        if (e.target.closest("a, button, input, label, select, textarea")) { return; }
+        feld.checked = !feld.checked;
+        anzeigen();
       });
     });
     if (hinweisVor) {
@@ -345,7 +349,8 @@
     form.addEventListener("change", function (e) {
       var fehlt = e.target.closest(".echt-check__schritt").querySelector(".echt-check__fehlt");
       if (fehlt) { fehlt.remove(); }
-      setTimeout(vor, 350);
+      /* Die Auswahl bleibt stehen, bis „Weiter“ betätigt wird. So können auch Pfeiltasten
+         in einer Radiogruppe benutzt und Antworten in Ruhe korrigiert werden. */
     });
     form.addEventListener("submit", function (e) { e.preventDefault(); vor(); });
     ergebnis.querySelector('[data-echt="neu"]').addEventListener("click", function () {

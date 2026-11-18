@@ -18,7 +18,12 @@ pip install -r requirements.txt
 python tools/check.py                          # baut nach _site/ und prüft die Qualität
 python -m http.server 8765 --directory _site   # Vorschau unter http://localhost:8765
 npm ci && node tools/pdf.mjs                   # optional: Checklisten-PDFs erzeugen (Node 22, Playwright)
+node tools/ui-check.mjs                        # Tastatur, 48-px-Klickflächen, große Schrift und Druck (Chromium)
 ```
+
+`tools/check.py` prüft auch die Herkunft geladener HTML-/CSS-Ressourcen und Bildabmessungen.
+Normale Links auf Quellen bleiben erlaubt. Der UI-Check läuft bei Pull Requests nach der PDF-Erzeugung;
+lokal muss Chromium gegebenenfalls mit `npx playwright install chromium` installiert werden.
 
 ## Veröffentlichung
 

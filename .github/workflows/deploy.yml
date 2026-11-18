@@ -70,6 +70,10 @@ jobs:
       - name: Checklisten-PDFs erzeugen
         run: node tools/pdf.mjs _site ${{ github.event_name != 'pull_request' && '--nur-hinweis' || '' }}
 
+      - name: Lesehilfen mit Tastatur, großer Schrift und Druck prüfen (Pull Request)
+        if: github.event_name == 'pull_request'
+        run: node tools/ui-check.mjs
+
       - name: Pages konfigurieren
         if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
         uses: actions/configure-pages@v5
