@@ -44,6 +44,12 @@ belege:
   - aussage: "Im Zweifel telefonisch beim Anbieter nachfragen"
     quelle: https://www.bsi.bund.de/DE/Themen/Verbraucherinnen-und-Verbraucher/Cyber-Sicherheitslage/Methoden-der-Cyber-Kriminalitaet/Spam-Phishing-Co/Passwortdiebstahl-durch-Phishing/Schutz-gegen-Phishing/schutz-gegen-phishing.html
     zitat: "fragen Sie am besten telefonisch bei dem genannten Anbieter nach"
+  - aussage: "Beim echten Anbieter nachfragen, nicht über eine Kontaktmöglichkeit aus der Mail"
+    quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/phishingradar/phishingmails-woran-sie-sie-erkennen-und-worauf-sie-achten-muessen-6073
+    zitat: "Sie sollten auch keine Kontaktmöglichkeit nutzen, die in der E-Mail angegeben ist."
+  - aussage: "Stattdessen die Kontaktdaten auf der echten Internetseite des Anbieters nutzen"
+    quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/phishingradar/phishingmails-woran-sie-sie-erkennen-und-worauf-sie-achten-muessen-6073
+    zitat: "nutzen Sie eine Kontaktmöglichkeit auf der echten Internetseite des Anbieters"
   - aussage: "Keine Anhänge aus verdächtigen Mails öffnen"
     quelle: https://www.bsi.bund.de/DE/Themen/Verbraucherinnen-und-Verbraucher/Cyber-Sicherheitslage/Methoden-der-Cyber-Kriminalitaet/Spam-Phishing-Co/Passwortdiebstahl-durch-Phishing/Schutz-gegen-Phishing/schutz-gegen-phishing.html
     zitat: "Öffnen Sie insbesondere niemals Dateien im Anhang einer verdächtigen E-Mail."

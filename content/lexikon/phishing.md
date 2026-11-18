@@ -6,7 +6,7 @@ beschreibung: "Was ist Phishing? Betrüger wollen mit gefälschten E-Mails und I
 keyword: "was ist phishing"
 stichwoerter: ["Phishing-Mails", "Phishing-Mail", "Phishing"]
 veroeffentlicht: 2026-11-01
-aktualisiert: 2026-11-10
+aktualisiert: 2026-11-18
 geprueft: 2026-11-10
 kurz_gesagt: |
   **Phishing** heißt: Betrüger verschicken gefälschte E-Mails oder Nachrichten, die aussehen wie von Ihrer Bank, einem Shop oder einer Behörde. Sie wollen damit an Passwörter, PIN oder Kartendaten kommen.
@@ -18,6 +18,9 @@ quellen:
   - herausgeber: Bundesamt für Sicherheit in der Informationstechnik (BSI)
     titel: Wie schützt man sich gegen Phishing?
     url: https://www.bsi.bund.de/DE/Themen/Verbraucherinnen-und-Verbraucher/Cyber-Sicherheitslage/Methoden-der-Cyber-Kriminalitaet/Spam-Phishing-Co/Passwortdiebstahl-durch-Phishing/Schutz-gegen-Phishing/schutz-gegen-phishing.html
+  - herausgeber: Verbraucherzentrale
+    titel: "Phishing-Mails: Woran Sie sie erkennen und worauf Sie achten müssen"
+    url: https://www.verbraucherzentrale.de/wissen/digitale-welt/phishingradar/phishingmails-woran-sie-sie-erkennen-und-worauf-sie-achten-muessen-6073
   - herausgeber: Verbraucherzentrale
     titel: "Phishing-Radar: Aktuelle Warnungen"
     url: https://www.verbraucherzentrale.de/wissen/digitale-welt/phishingradar/phishingradar-aktuelle-warnungen-6059
@@ -60,7 +63,7 @@ Früher erkannte man Phishing oft an schlechtem Deutsch. Das reicht heute nicht 
 
 - **Grundregel des BSI:** Kein Kreditkarteninstitut und kein seriöser Anbieter fordert Sie per E-Mail auf, vertrauliche Zugangsdaten preiszugeben.
 - **Nicht auf Links in verdächtigen Mails tippen.** Rufen Sie die Seite lieber selbst auf – über die Startseite des Anbieters.
-- **Im Zweifel anrufen:** Fragen Sie beim Anbieter nach – unter einer Nummer, die Sie selbst heraussuchen.
+- **Im Zweifel nachfragen:** Fragen Sie beim echten Anbieter nach – aber nicht über eine Nummer oder Adresse aus der Mail. Nutzen Sie lieber die Kontaktdaten auf seiner echten Internetseite.
 - **Keine Anhänge** aus verdächtigen Mails öffnen.
 - **Updates installieren:** Halten Sie Handy, Computer und Apps auf dem aktuellen Stand.
 
