@@ -63,11 +63,14 @@ tools/gelesen.py           Ist das Label „gelesen“ eines PR noch gültig (ke
 tools/indexnow.py          Meldet geänderte URLs an IndexNow (läuft im Deploy)
 tools/pdf.mjs              Erzeugt die Checklisten-PDFs (Node + Playwright, läuft im Deploy)
 tools/favicons.mjs         Erzeugt favicon.ico/-192.png/apple-touch-icon.png aus static/favicon.svg (nach Logo-Änderung)
+tools/leistung.mjs         Leistungsmessung mobil (Ladezeit, Layoutverschiebungen, Größen), Vergleich mit dem letzten Lauf
+tools/lesbarkeit.py        Auswahlliste für Verständlichkeits-Überarbeitungen (lange Sätze je Text, Gerätetrennung, Lexikon-Links)
 docs/BETRIEB.md            Betriebsmodell: Rollen, Risikoklassen, Prüfung, Freigabe, Push, Zeitplan – verbindlich
 docs/fehlerkatalog.yaml    Jeder gefundene Fehler mit Ursache; Grundlage der Qualitätsbremse (check.py)
 docs/stoerungen/           Störungsberichte (schuldfrei, mit Maßnahme)
 docs/aufgaben/             Wortlaut der geplanten Aufgaben (Sicherung; das Push-Thema steht dort nie)
 kennzahlen/                Öffentliches Archiv der Search-Console-Zahlen je Kalenderwoche (Google löscht nach 16 Monaten)
+leistung/                  Leistungsmessungen je Lauf (messungen.csv) und Regeln für den Vergleich (README.md)
 docs/STRATEGIE.md          Wachstum, Monetarisierung, Kennzahlen
 docs/ZIELGRUPPE.md         Belegtes Leserprofil und Folgerungen
 docs/WETTBEWERB.md         Google-Konkurrenzanalyse der Top-Themen (Stand, Lücken, Chancen)
@@ -85,6 +88,8 @@ python tools/linkcheck.py                      # externe Links prüfen
 python tools/livecheck.py                      # nach build.py: ist der gebaute Stand live? (Exit 1 bei Abweichung)
 python tools/belegcheck.py [slug …]            # Zitate der Belegtabellen gegen die Quellen prüfen (braucht npm ci)
 python -m unittest discover -s tests -p 'test_*.py'  # Werkzeug-Tests; laufen im CI bei PRs, die tools/ oder tests/ ändern
+python tools/lesbarkeit.py [artikel/<slug>]    # Auswahlliste für Verständlichkeits-Überarbeitungen
+node tools/leistung.mjs [--live] [--speichern] # nach build.py: mobile Leistungsmessung, Vergleich (leistung/README.md)
 python -m http.server 8765 --directory _site   # lokale Vorschau
 npm ci && node tools/pdf.mjs                   # optional lokal: Checklisten-PDFs nach _site/checklisten/ (meldet die Seitenzahl)
 ```
@@ -418,8 +423,14 @@ und keine Einzelberatung. Der Betreiber liest das Postfach. Damit Claude helfen 
 
 1. Offene `wartung`-Issues abarbeiten (defekte Links → neue offizielle Quelle suchen oder Aussage anpassen).
    Dazu gehören auch die Quellen in `content/echt-check.yaml`.
-2. Bis zu 2 ältere Texte an die aktuelle **Stimme** (Abschnitt 5) anpassen: Szene als Einstieg, wärmerer Ton, weniger Kästen –
-   Fakten und Quellen bleiben unverändert.
+2. Bis zu 2 ältere Texte mit **belegtem Verständlichkeitsproblem** überarbeiten (Auftrag des Betreibers vom 18.11.2026).
+   Auswahl nach der Auditliste: `python tools/lesbarkeit.py` (Sätze über 18 Wörter je Text, dieselbe Zählung wie
+   `docs/AUDIT-2026-11-18.md`) – nur Texte, die kein offener PR bearbeitet. Belegt heißt: beim Lesen bestätigt, nicht
+   nur gezählt. Prüfen: Satzbau (ein Handgriff pro Satz), Fachbegriffe (bei der ersten Nennung erklären),
+   iPhone-/Android-Trennung (der Gerätefilter blendet nur Abschnitte mit eigener Überschrift aus – Hinweise für beide
+   Geräte gehören in den gemeinsamen Teil), passende Lexikon-Links; dabei auch die **Stimme** (Abschnitt 5: Szene,
+   wärmerer Ton, weniger Kästen). Fakten und Quellen bleiben unverändert; `geprueft` nur nach vollständiger
+   Quellenprüfung ändern. Je Text ein PR.
 3. Die Quellen-Nachprüfung läuft wöchentlich als eigene Aufgabe (`docs/BETRIEB.md`, Abschnitt 6). Hier nur:
    `python tools/belegcheck.py` für alle Texte ausführen und Befunde als `wartung`-Issue festhalten;
    ein Issue „Geräte-Prüfliste“ für den Betreiber anlegen (3–5 Handgriffe, die sich aus Quellen nicht belegen lassen).
@@ -428,7 +439,12 @@ und keine Einzelberatung. Der Betreiber liest das Postfach. Damit Claude helfen 
 4. Falls die Search Console verbunden ist (OpenSEO-Werkzeuge, Projekt „Senioren-Hilfe Online (netzleicht.de)“):
    Seiten mit vielen Impressionen und wenig Klicks → Titel/Beschreibung verbessern; Suchanfragen ohne passenden
    Artikel → in den Themenplan aufnehmen. Ergebnisse knapp im PR beschreiben.
-5. Erledigte Issues schließen. Alle Änderungen als PR mit `pruefung-ausstehend` – nicht selbst mergen.
+5. **Leistung messen** (Auftrag des Betreibers vom 18.11.2026): `python tools/build.py`, dann
+   `node tools/leistung.mjs --speichern` und `node tools/leistung.mjs --live --speichern` – Startseite, eine Anleitung
+   und Echt-Check unter festen mobilen Bedingungen; das Werkzeug vergleicht mit dem letzten Lauf. Bestätigte
+   Verschlechterungen (Regeln in `leistung/README.md`) per kleinem PR beheben. Felddaten nur ergänzend, sobald es
+   genug gibt; kein Tracking einbauen. Die neuen Zeilen in `leistung/messungen.csv` gehören in den Wartungs-PR.
+6. Erledigte Issues schließen. Alle Änderungen als PR mit `pruefung-ausstehend` – nicht selbst mergen.
 
 ## 8. Wo Claude stoppt und fragt
 
