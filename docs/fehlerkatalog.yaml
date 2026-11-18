@@ -558,7 +558,7 @@ fehler:
     live: true
     entdeckt_durch: nachpruefung
     vorher: "Tippen Sie oben rechts auf die drei Punkte (⋮). / Tippen Sie oben auf den Namen der Person. (auch in „Kurz gesagt“ und im Hinweiskasten)"
-    korrektur: "Lageangaben „oben rechts“ und „oben“ gestrichen – die WhatsApp-Hilfe nennt sie nicht. Steht auf der nächsten Geräte-Prüfliste."
+    korrektur: "Lageangaben „oben rechts“ (Android) und „oben“ (iPhone) gestrichen – die WhatsApp-Hilfe nennt sie nicht. Für das iPhone steht seit dem Gerätetest des Betreibers vom 13.11. wieder „Tippen Sie oben auf den Namen der Person – so war es auf einem iPhone mit iOS 18.“; für Android bleibt die Lage offen."
     ursache: "Lage eines Symbols ohne Beleg beschrieben."
     behoben_in: "#37"
     altbestand: true
@@ -582,7 +582,7 @@ fehler:
     live: true
     entdeckt_durch: geraetetest
     vorher: "Tippen Sie auf „Sprache auswählen“ und wählen Sie Deutsch."
-    korrektur: "Zeigt WhatsApp darunter „Sprache auswählen“, tippen Sie darauf … – auf einem iPhone mit iOS 18 fehlte der Punkt beim Gerätetest."
+    korrektur: "Zeigt WhatsApp danach „Sprache auswählen“, tippen Sie darauf … Auf einem iPhone mit iOS 18 haben wir diesen Punkt nicht gefunden."
     ursache: "Schritt aus der Hilfeseite als für alle iPhones gültig übernommen; die Hilfe nennt keine Version, am Testgerät (iOS 18.7.8) fehlte er."
     behoben_in: "#37"
     altbestand: true
@@ -622,6 +622,18 @@ fehler:
     vorher: "Das Foto steht jetzt als Ihre Nachricht im Chat. Geschafft! Die andere Person bekommt es wie eine ganz normale Nachricht."
     korrektur: "Gesendet und zugestellt anhand der Häkchen unterschieden; Uhr und Gruppen-Ausnahme ergänzt."
     ursache: "Das Erscheinen im eigenen Chat als Erfolg beschrieben, ohne den Versandzustand zu erklären."
+    behoben_in: "#37"
+    altbestand: true
+
+  - id: 2026-11-17-37
+    gefunden: 2026-11-17
+    text: artikel/whatsapp-kontakt-blockieren
+    art: unbelegt
+    live: true
+    entdeckt_durch: faktenpruefung
+    vorher: "Bei Betrug Bildschirmfoto vor dem Blockieren (kurz_gesagt „Machen Sie vorher ein Bildschirmfoto vom Chat, wenn es um Betrug geht.“, Checkliste Punkt 1, Kasten „Bei Betrug: erst sichern, dann blockieren“)"
+    korrektur: "Bildschirmfoto-Rat aus „Kurz gesagt“ und Checkliste Punkt 1 gestrichen; Chat sichern nur noch für den Fall „schon Geld überwiesen“, wie die Polizei es sagt (Kasten jetzt „Bei Betrug: erst melden, dann löschen“, Checkliste letzter Punkt)."
+    ursache: "Einzige Quelle (WhatsApp-Hilfe) hat den Satz zu Screenshots gestrichen; der Ersatzbeleg der Polizei gilt nur für „bereits Geld überwiesen“ und wurde verallgemeinert – derselbe Befund wie 2026-11-13-21."
     behoben_in: "#37"
     altbestand: true
 
