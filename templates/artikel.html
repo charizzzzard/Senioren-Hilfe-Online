@@ -18,10 +18,7 @@
   <header class="artikel__kopf">
     <p class="artikel__rubrik">{% if artikel.meta.get("reihe") == "wochenschau" %}Die Woche im Netz{% else %}{{ kategorie.name }}{% endif %}{% if artikel.kategorie == "aktuell" %} · {{ artikel.veroeffentlicht | datum }}{% endif %}</p>
     <h1>{{ artikel.titel }}</h1>
-    <p class="artikel__meta">
-      Quellen geprüft am <time datetime="{{ artikel.geprueft.isoformat() }}">{{ artikel.geprueft | datum }}</time>
-      <span aria-hidden="true">·</span> Lesezeit ca. {{ artikel.lesezeit }} Minuten
-    </p>
+    {% with dokument = artikel %}{% include "_artikel_meta.html" %}{% endwith %}
     {% include "_lesehilfe.html" %}
   </header>
 

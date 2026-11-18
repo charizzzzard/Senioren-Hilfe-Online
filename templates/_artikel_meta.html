@@ -1,0 +1,7 @@
+<p class="artikel__meta">
+  <span class="nur-druck"><a href="{{ site.url }}{{ pfad }}">{{ site.url | replace("https://", "") }}{{ pfad }}</a> · </span>
+  Quellen geprüft am <time datetime="{{ dokument.geprueft.isoformat() }}">{{ dokument.geprueft | datum }}</time>
+  <span class="nicht-drucken"><span aria-hidden="true">·</span> Lesezeit ca. {{ dokument.lesezeit }} Minuten</span>
+  <span class="nur-druck artikel__druck-geraet artikel__druck-geraet--iphone"> · Schritte für iPhone</span>
+  <span class="nur-druck artikel__druck-geraet artikel__druck-geraet--android"> · Schritte für Android</span>
+</p>
