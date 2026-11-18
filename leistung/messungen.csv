@@ -1,0 +1,7 @@
+datum,commit,quelle,profil,seite,laeufe,ttfb_ms,fcp_ms,lcp_ms,dcl_ms,load_ms,cls_laden,cls_gesamt,anfragen,kb_gesamt,kb_html,kb_css,kb_js,kb_schrift,kb_bild,kb_sonst,extern
+2026-11-18T10:00,c4283cc04791,lokal,mobil-v1,/,5,151,692,692,477,962,0.0000,0.0000,6,136.0,7.5,9.0,5.4,104.1,10.0,0.0,-
+2026-11-18T10:00,c4283cc04791,lokal,mobil-v1,/artikel/schrift-groesser-stellen/,5,151,720,720,484,956,0.0000,0.0000,5,128.2,9.7,9.0,5.4,104.1,0.0,0.0,-
+2026-11-18T10:00,c4283cc04791,lokal,mobil-v1,/ist-das-echt/,5,151,608,608,578,963,0.0000,0.0000,5,125.0,6.5,9.0,5.4,104.1,0.0,0.0,-
+2026-11-18T10:01,c4283cc04791,live,mobil-v1,/,5,288,832,832,694,1195,0.0000,0.0000,6,139.5,8.1,9.7,6.0,105.2,10.5,0.0,-
+2026-11-18T10:01,c4283cc04791,live,mobil-v1,/artikel/schrift-groesser-stellen/,5,227,852,852,751,1190,0.0000,0.0000,5,131.1,10.2,9.7,6.0,105.2,0.0,0.0,-
+2026-11-18T10:01,c4283cc04791,live,mobil-v1,/ist-das-echt/,5,215,712,712,682,1129,0.0000,0.0000,5,127.9,7.0,9.7,6.0,105.2,0.0,0.0,-
