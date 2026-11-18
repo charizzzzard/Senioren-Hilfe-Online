@@ -644,7 +644,7 @@ small { font-size: 0.85em; }
   .artikel__meta .nur-druck { display: inline; font: inherit; color: inherit; }
   .artikel__meta .artikel__druck-geraet { display: none; }
   .artikel[data-druck-geraet="iphone"] .artikel__druck-geraet--iphone,
-  .artikel[data-druck-geraet="android"] .artikel__druck-geraet--android { display: inline; }
+  .artikel[data-druck-geraet="android"] .artikel__druck-geraet--android { display: inline-block; }
 }
 
 /* ------------------------------------------------ Nachgebaute Bildschirme, Klickpfade, Tasten */
