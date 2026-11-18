@@ -66,6 +66,10 @@ class Seitenparser(HTMLParser):
         super().__init__(convert_charrefs=True)
         self.links: list[str] = []
         self.bilder_ohne_alt: list[str] = []
+        self.bilder_ohne_groesse: list[str] = []
+        self.ressourcen: list[tuple[str, str]] = []
+        self._style = False
+        self._css = ""
         self.h1 = 0
         self.title = False
         self.meta: dict[str, str] = {}
@@ -74,6 +78,26 @@ class Seitenparser(HTMLParser):
 
     def handle_starttag(self, tag, attrs):
         a = dict(attrs)
+        if tag == "style":
+            self._style = True
+            self._css = ""
+        if a.get("style"):
+            self.ressourcen += [("img", url) for url in css_ressourcen(a["style"])]
+        # Fremde Ressourcen werden schon beim Seitenaufruf geladen; normale Quellen-/Teilen-Links nicht.
+        if tag in ("script", "img", "iframe", "embed", "audio", "video", "source", "track", "input") and a.get("src"):
+            self.ressourcen.append((tag, a["src"]))
+        if tag == "video" and a.get("poster"):
+            self.ressourcen.append(("img", a["poster"]))
+        if tag == "object" and a.get("data"):
+            self.ressourcen.append((tag, a["data"]))
+        if tag == "link" and set(a.get("rel", "").lower().split()) & {
+            "stylesheet", "preload", "modulepreload", "prefetch", "preconnect", "dns-prefetch", "icon", "apple-touch-icon"
+        } and a.get("href"):
+            self.ressourcen.append(("link", a["href"]))
+        if tag in ("img", "source") and a.get("srcset"):
+            # Netzleicht nutzt dateibasierte Bildvarianten; Data-URIs gehören nicht in srcset.
+            self.ressourcen += [(tag, kandidat.strip().split()[0])
+                                for kandidat in a["srcset"].split(",") if kandidat.strip()]
         if tag == "a" and a.get("href"):
             self.links.append(a["href"])
         elif tag in ("link", "script", "img") and (a.get("href") or a.get("src")):
@@ -83,6 +107,8 @@ class Seitenparser(HTMLParser):
                 self.links.append(a.get("href") or a.get("src"))
         if tag == "img" and "alt" not in a:
             self.bilder_ohne_alt.append(a.get("src", "?"))
+        if tag == "img" and not all(re.fullmatch(r"[1-9][0-9]*", a.get(k, "")) for k in ("width", "height")):
+            self.bilder_ohne_groesse.append(a.get("src", "?"))
         if tag == "h1":
             self.h1 += 1
         if tag == "title":
@@ -91,6 +117,38 @@ class Seitenparser(HTMLParser):
             self.meta[a["name"]] = a.get("content", "")
             if a["name"] == "robots":
                 self.robots = a.get("content", "")
+
+    def handle_data(self, data):
+        if self._style:
+            self._css += data
+
+    def handle_endtag(self, tag):
+        if tag == "style":
+            self.ressourcen += [("img", url) for url in css_ressourcen(self._css)]
+            self._style = False
+            self._css = ""
+
+
+def externe_ressource(url: str, site_url: str, bild: bool = False) -> bool:
+    """Nur lokale bzw. gleichursprüngliche Ressourcen; eingebettete Bilder sind erlaubt.
+
+    Das ist eine statische Herkunftsprüfung, keine vollständige Laufzeit-/Trackinganalyse.
+    """
+    url = url.strip()
+    if bild and url.lower().startswith("data:image/"):
+        return False
+    teile, site = urlsplit(url), urlsplit(site_url)
+    if not teile.scheme and not teile.netloc:
+        return False
+    return (teile.scheme or site.scheme, teile.netloc) != (site.scheme, site.netloc)
+
+
+def css_ressourcen(css: str) -> list[str]:
+    """url(...) und @import mit Zeichenkette; Kommentare enthalten keine Ladevorgänge."""
+    css = re.sub(r"/\*.*?\*/", "", css, flags=re.S)
+    urls = [m.group(2).strip() for m in re.finditer(r"url\(\s*(['\"]?)(.*?)\1\s*\)", css, re.I | re.S)]
+    urls += [m.group(2) for m in re.finditer(r"@import\s+(['\"])(.*?)\1", css, re.I | re.S)]
+    return urls
 
 
 def ziel_existiert(pfad: str) -> bool:
@@ -433,6 +491,9 @@ def main() -> int:
         p = Seitenparser()
         p.feed(text)
 
+        for tag, url in p.ressourcen:
+            if externe_ressource(url, site["url"], bild=tag in ("img", "source")):
+                fehler.append(f"{rel}: externe Ressource ({tag}): {url}")
         for signatur in TRACKING:
             if signatur in text.lower():
                 fehler.append(f"{rel}: Tracking-/Werbe-Code gefunden ({signatur})")
@@ -450,6 +511,8 @@ def main() -> int:
                 fehler.append(f"{rel}: Link ins Leere: {link}")
         for src in p.bilder_ohne_alt:
             fehler.append(f"{rel}: Bild ohne alt-Text: {src}")
+        for src in p.bilder_ohne_groesse:
+            fehler.append(f"{rel}: Bild ohne gültige width/height-Angaben: {src}")
         if weiterleitung:
             continue
         if p.h1 != 1:
@@ -462,6 +525,17 @@ def main() -> int:
             fehler.append(f"{rel}: Artikel ist auf noindex gesetzt")
         if not site["indexierung"] and "noindex" not in p.robots:
             fehler.append(f"{rel}: Staging-Modus, aber noindex fehlt")
+
+    for datei in sorted(OUT.rglob("*.css")):
+        for url in css_ressourcen(datei.read_text(encoding="utf-8")):
+            if externe_ressource(url, site["url"], bild=True):
+                fehler.append(f"{datei.relative_to(OUT)}: externe CSS-Ressource: {url}")
+
+    for datei in sorted(OUT.rglob("*.js")):
+        code = datei.read_text(encoding="utf-8").lower()
+        for signatur in TRACKING:
+            if signatur in code:
+                fehler.append(f"{datei.relative_to(OUT)}: Tracking-/Werbe-Code gefunden ({signatur})")
 
     for url in daten["sitemap"]:
         pfad = urlsplit(url).path
