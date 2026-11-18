@@ -597,3 +597,36 @@ fehler:
     korrektur: "Checkliste: \"Beim Einrichten die Chats wiederherstellen – nicht auf „Überspringen“ tippen.\""
     ursache: "Android-Beschriftung in eine Checkliste für beide Geräte übernommen; auf dem iPhone heißt der Knopf „Chatverlauf wiederherstellen“."
     behoben_in: "#30"
+
+  - id: 2026-11-16-01
+    gefunden: 2026-11-16
+    text: artikel/schrift-groesser-stellen
+    art: luecke
+    live: true
+    entdeckt_durch: geraetetest
+    vorher: "Bei Samsung-Handys … Dort können Sie die Schrift mit dem Schalter „Fettschrift“ auch fett stellen."
+    korrektur: "Dort gibt es auch einen Schalter für fette Schrift. Je nach Gerät heißt er „Fettschrift“ oder „Fette Schriftart“. Dazu ein echter Screenshot des Testgeräts."
+    ursache: "Einzige Samsung-Quelle (Samsung Österreich, Stand 2022) nennt nur eine Beschriftung; der Gerätetest (Galaxy A56, US-Modell, Deutsch) zeigte „Fette Schriftart“. Ob deutsche Geräte abweichen, ist ungeprüft."
+    behoben_in: "#54"
+
+  - id: 2026-11-16-02
+    gefunden: 2026-11-16
+    text: artikel/schrift-groesser-stellen
+    art: luecke
+    live: true
+    entdeckt_durch: geraetetest
+    vorher: "kurz_gesagt: „oben ins Suchfeld „Schriftgröße“ eingeben, den Treffer antippen“; Schritt 3 ohne Hinweis auf einen zweiten Treffer; Checkliste „Samsung: Einstellungen › Lupe › „Schriftgröße und -stil“ suchen“"
+    korrektur: "„über die Lupe oder das Suchfeld nach „Schriftgröße“ suchen“; Hinweis, dass das Eingabefeld auch unten erscheinen kann und dass bei Samsung ein zweiter Treffer zur Tastatur gehört; Checkliste „nach „Schriftgröße“ suchen, den Treffer unter „Anzeige“ wählen“ (so getestet)."
+    ursache: "Suchablauf aus der Samsung-Hilfe übernommen, die Lage des Eingabefelds und doppelte Treffer nicht beschreibt; der Checklisten-Suchbegriff war nie auf einem Gerät ausprobiert."
+    behoben_in: "#54"
+
+  - id: 2026-11-16-03
+    gefunden: 2026-11-16
+    text: artikel/schrift-groesser-stellen
+    art: unbelegt
+    live: true
+    entdeckt_durch: nachpruefung
+    vorher: "Auf vielen Geräten finden Sie die Einstellung auch unter „Bedienungshilfen“ › „Anzeigegröße und Text“."
+    korrektur: "Je nach Gerät finden Sie die Einstellung auch unter … – belegt mit Pfad und Abschnittsüberschrift der Google-Hilfe."
+    ursache: "Mengenangabe „vielen“ ohne Beleg; Google hat die Schritte zur Schriftgröße umgestellt, das zitierte Menü steht dort nur noch im Abschnitt zum Fettdruck – belegcheck findet das Zitat trotzdem und meldet den Kontextwechsel nicht."
+    behoben_in: "#54"

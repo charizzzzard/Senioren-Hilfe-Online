@@ -1,8 +1,9 @@
 # Belegtabelle für content/artikel/schrift-groesser-stellen.md (Format: docs/BETRIEB.md, Abschnitt „Belegtabelle“)
 # Jede Aussage mit einem wörtlichen Zitat aus einer selbst gelesenen Quelle. Prüfen: python tools/belegcheck.py schrift-groesser-stellen
 # Am 11.11.2026 ergänzt: Gerätetests Nr. 1 und 2 aus Issue #25 und die Apple-Handbuchseiten für iOS 18.
-# Die übrigen Zitate sind am 05.11.2026 gelesen; geprueft bleibt deshalb auf diesem Datum.
-geprueft: 2026-11-05
+# Am 16.11.2026 alle 15 Quellen neu gelesen (Nachprüfung, Issue #52) und die Samsung-Befunde des Gerätelaufs
+# 2026-11-16-a56-schriftgroesse-02 mit ihren Grenzen übernommen (US-Modell, One UI unbekannt; deutsche Geräte ungeprüft).
+geprueft: 2026-11-16
 belege:
   # ---------------------------------------------------------------- iPhone: Textgröße
   - aussage: "iPhone (iOS 27): Einstellungen › Erscheinungsbild › Textgröße"
@@ -62,9 +63,12 @@ belege:
   - aussage: "Vorschau zeigt die Wirkung"
     quelle: https://support.google.com/accessibility/android/answer/11183305?hl=de
     zitat: "kannst du dir in der Vorschau ansehen, wie sich deine Änderungen auswirken"
-  - aussage: "Bedienungshilfen › Anzeigegröße und Text"
+  - aussage: "Je nach Gerät auch unter Bedienungshilfen › Anzeigegröße und Text (Pfad; bei Google seit der Umstellung nur noch im Abschnitt zum Fettdruck genannt)"
     quelle: https://support.google.com/accessibility/android/answer/11183305?hl=de
     zitat: "Tippen Sie auf Bedienungshilfen Anzeigegröße und Text."
+  - aussage: "… und die Schriftgröße gehört zu „Anzeigegröße und Text“ (Überschrift über den Schritten zur Schriftgröße)"
+    quelle: https://support.google.com/accessibility/android/answer/11183305?hl=de
+    zitat: "Anzeigegröße und Text ändern"
   - aussage: "Bis zu 200 Prozent"
     quelle: https://support.google.com/accessibility/android/answer/11183305?hl=de
     zitat: "Du kannst die Schriftgröße auf bis zu 200 % anpassen."
@@ -92,15 +96,33 @@ belege:
   - aussage: "Samsung: Einstellungen öffnen (Zahnrad) und oben rechts auf die Lupe tippen"
     quelle: https://www.samsung.com/de/support/mobile-devices/einstellungen-einfach-finden/
     zitat: "Tippe jetzt oben rechts auf die Lupe, um die Suchfunktion aufzurufen."
+  - aussage: "Samsung: Suchbegriff ins Suchfeld eingeben"
+    quelle: https://www.samsung.com/de/support/mobile-devices/einstellungen-einfach-finden/
+    zitat: "Möchtest du lieber gezielt nach Themen suchen? Dann nutze das Suchfeld."
+  - aussage: "Das Feld zum Eintippen kann nach dem Antippen der Lupe auch unten am Bildschirm erscheinen (Lupe oben rechts, Eingabefeld danach unten)"
+    geraetetest: "Galaxy A56 (SM-A566U1, US-Modell), Android 15, One UI unbekannt, Deutsch (Deutschland), 16.11.2026, automatisierter Realgerätetest (Mobile Next), geraetelaeufe/2026-11-16-a56-schriftgroesse-02.yaml, Fall t2 (Beobachtung; Startseite und Beschriftung der Lupe nicht abgelesen)"
+  - aussage: "Bei Samsung kann es zwei Treffer „Schriftgröße“ geben: der unter „Anzeige“ führt zur Seite „Schriftgröße und -stil“, der andere gehört zur Samsung-Tastatur (auch Checkliste: „nach „Schriftgröße“ suchen, den Treffer unter „Anzeige“ wählen“)"
+    geraetetest: "Galaxy A56 (SM-A566U1, US-Modell), Android 15, One UI unbekannt, Deutsch (Deutschland), 16.11.2026, automatisierter Realgerätetest (Mobile Next), geraetelaeufe/2026-11-16-a56-schriftgroesse-02.yaml, Fall t3"
   - aussage: "Einstellungen-App erkennt man meist am Zahnrad"
     quelle: https://www.samsung.com/de/support/mobile-devices/einstellungen-einfach-finden/
     zitat: "Wische vom oberen Bildschirmrand nach unten und tippe auf das Zahnrad. Damit öffnest du die Einstellungen."
   - aussage: "Samsung: Punkt „Schriftgröße und -stil“"
     quelle: https://www.samsung.com/at/support/mobile-devices/einstellen-der-schriftgrosse-und-des-schriftstils-auf-deinem-galaxy-smartphone/
+    zitat: "Wähle Schriftgröße und- stil"
+  - aussage: "Samsung: Seite heißt „Schriftgröße und -stil“ (Seitentitel wörtlich gelesen)"
+    geraetetest: "Galaxy A56 (SM-A566U1, US-Modell), Android 15, One UI unbekannt, Deutsch (Deutschland), 16.11.2026, automatisierter Realgerätetest (Mobile Next), geraetelaeufe/2026-11-16-a56-schriftgroesse-02.yaml, Fall t5"
+  - aussage: "Samsung: dort Regler für die Schriftgröße"
+    quelle: https://www.samsung.com/at/support/mobile-devices/einstellen-der-schriftgrosse-und-des-schriftstils-auf-deinem-galaxy-smartphone/
     zitat: "Ändre die Schriftgröße, indem du den Schieberegler nach links oder rechts ziehst."
-  - aussage: "Samsung: Schalter „Fettschrift“"
+  - aussage: "Samsung: Schalter für fette Schrift, je nach Gerät „Fettschrift“ … (Quelle Samsung Österreich, Stand 07.02.2022)"
     quelle: https://www.samsung.com/at/support/mobile-devices/einstellen-der-schriftgrosse-und-des-schriftstils-auf-deinem-galaxy-smartphone/
     zitat: "Tippe auf den Schalter neben Fettschrift, um die Schrift fetter erscheinen zu lassen."
+  - aussage: "… oder „Fette Schriftart“ (auf dem Testgerät; Ursache der Abweichung zur Quelle ungeklärt, Wirkung des Schalters nicht geprüft)"
+    geraetetest: "Galaxy A56 (SM-A566U1, US-Modell), Android 15, One UI unbekannt, Deutsch (Deutschland), 16.11.2026, automatisierter Realgerätetest (Mobile Next), geraetelaeufe/2026-11-16-a56-schriftgroesse-02.yaml, Fall t6 (mismatch zur Quelle)"
+  - aussage: "Samsung: Eine Reglerstufe nach rechts vergrößert den Vorschautext sichtbar; eine Stufe zurück stellt Regler und Vorschau wieder her"
+    geraetetest: "Galaxy A56 (SM-A566U1, US-Modell), Android 15, One UI unbekannt, Deutsch (Deutschland), 16.11.2026, automatisierter Realgerätetest (Mobile Next), geraetelaeufe/2026-11-16-a56-schriftgroesse-02.yaml, Fälle t4 und t7"
+  - aussage: "Echter Screenshot (bildschirm, schriftgroesse-vorher): Seite „Schriftgröße und -stil“ mit Vorschautext, „Schriftstil“, Schalter „Fette Schriftart“ (aus) und Regler „Schriftgröße“ mit acht Stufen – Alt-Text und Bildunterschrift"
+    geraetetest: "Galaxy A56 (SM-A566U1, US-Modell), Android 15, One UI unbekannt, Deutsch (Deutschland), 16.11.2026, automatisierter Realgerätetest (Mobile Next), geraetelaeufe/2026-11-16-a56-schriftgroesse-02.yaml, Bild schriftgroesse-vorher (SHA-256 im Laufprotokoll)"
   # ---------------------------------------------------------------- Safari
   - aussage: "Safari: Taste „Seitenmenü“ vergrößert die Webseite"
     quelle: https://support.apple.com/de-de/guide/iphone/iphb3100d149/27.0/ios/27.0

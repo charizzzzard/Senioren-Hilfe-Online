@@ -5,11 +5,11 @@ beschreibung: "Die Schrift auf dem Handy ist zu klein? So ändern Sie die Schrif
 keyword: "schriftgröße iphone ändern"
 kategorie: smartphone
 veroeffentlicht: 2026-10-30
-aktualisiert: 2026-11-11
-geprueft: 2026-11-05
+aktualisiert: 2026-11-16
+geprueft: 2026-11-16
 kurz_gesagt: |
   **iPhone:** „Einstellungen“ › „Erscheinungsbild“ (bei iOS 26 und älter: „Anzeige & Helligkeit“) › „Textgröße“ – dann den Regler verschieben, bis die Schrift gut lesbar ist.
-  **Android:** „Einstellungen“ öffnen, oben ins Suchfeld **„Schriftgröße“** eingeben, den Treffer antippen und den Regler verschieben.
+  **Android:** „Einstellungen“ öffnen, über die Lupe oder das Suchfeld nach **„Schriftgröße“** suchen, den Treffer antippen und den Regler verschieben.
   Sie können nichts kaputt machen: Jede Einstellung lässt sich genauso wieder zurückstellen.
   Nur Internetseiten wie die Google-Suche zu klein? In Safari über „Seitenmenü“ › „Seitenzoom“, in Chrome über das Dreipunkt-Menü vergrößern.
 checkliste_titel: "Spickzettel: Schrift größer stellen"
@@ -18,7 +18,7 @@ checkliste:
   - "iPhone, noch größer: Einstellungen › Bedienungshilfen › Anzeige & Textgröße › Größerer Text"
   - "iPhone, fetter: „Fetter Text“ einschalten"
   - "Android: Einstellungen › Lupe/Suchfeld: „Schriftgröße“ › Regler verschieben"
-  - "Samsung: Einstellungen › Lupe › „Schriftgröße und -stil“ suchen"
+  - "Samsung: nach „Schriftgröße“ suchen, den Treffer unter „Anzeige“ wählen"
   - "Android, Anzeigegröße: in den Einstellungen nach „Anzeigegröße“ suchen"
   - "iPhone, nur Internetseiten: Safari › Seitenmenü › Seitenzoom › großes A"
   - "Android, nur Internetseiten: Chrome › Dreipunkt-Menü › Zoomen"
@@ -146,11 +146,20 @@ Android-Handys gibt es von vielen Herstellern. Die Menüs heißen deshalb nicht 
 ### Schrift größer stellen
 
 1. Öffnen Sie die App **„Einstellungen“** (meist ein Zahnrad).
-2. Tippen Sie oben auf die **Lupe** oder das **Suchfeld** und geben Sie **„Schriftgröße“** ein.
-3. Tippen Sie auf den Treffer **„Schriftgröße“**.
+2. Tippen Sie oben auf die **Lupe** oder das **Suchfeld** und geben Sie **„Schriftgröße“** ein. Das Feld zum Eintippen kann danach auch unten am Bildschirm erscheinen.
+3. Tippen Sie auf den Treffer **„Schriftgröße“**. Bei Samsung kann es zwei solche Treffer geben: Nehmen Sie den unter **„Anzeige“** – der andere gehört zur Tastatur.
 4. Verschieben Sie den **Regler**, bis die Schrift gut lesbar ist. In der Vorschau sehen Sie, wie es aussieht.
 
-Auf vielen Geräten finden Sie die Einstellung auch unter **„Bedienungshilfen“** › **„Anzeigegröße und Text“**. Bei **Samsung**-Handys heißt der Punkt **„Schriftgröße und -stil“**. Dort können Sie die Schrift mit dem Schalter **„Fettschrift“** auch fett stellen.
+Je nach Gerät finden Sie die Einstellung auch unter **„Bedienungshilfen“** › **„Anzeigegröße und Text“**. Bei **Samsung**-Handys heißt der Punkt **„Schriftgröße und -stil“**. Dort gibt es auch einen Schalter für fette Schrift. Je nach Gerät heißt er **„Fettschrift“** oder **„Fette Schriftart“**.
+
+```bildschirm
+geraet: android
+screenshot:
+  lauf: 2026-11-16-a56-schriftgroesse-02
+  bild: schriftgroesse-vorher
+alt: "Die Seite „Schriftgröße und -stil“ auf einem Samsung-Handy: oben ein Vorschautext, darunter „Schriftstil“ und der Schalter „Fette Schriftart“, ganz unten der Regler „Schriftgröße“ mit acht Stufen."
+unterschrift: "So sah die Seite „Schriftgröße und -stil“ bei unserem Samsung-Testgerät aus: unten der Regler, darüber der Schalter für fette Schrift."
+```
 
 Laut Google lässt sich die Schrift auf bis zu **200 Prozent** vergrößern.
 

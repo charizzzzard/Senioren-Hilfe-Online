@@ -6,7 +6,7 @@ kategorie: aktuell
 reihe: wochenschau
 veroeffentlicht: 2026-11-13
 aktualisiert: 2026-11-13
-geprueft: 2026-11-13
+geprueft: 2026-11-16
 kurz_gesagt: |
   Betrüger verschicken Mails im Namen von Consorsbank, easybank und PayPal und drohen mit Sperrung oder Zugriffsverlust. Andere locken mit Geld wie einer angeblichen Rückerstattung von CHECK24. Tippen Sie auf keinen Link und verschieben Sie solche Mails in den Spam-Ordner.
   Ob etwas dran ist, prüfen Sie nur in der offiziellen App oder auf der bekannten Internetseite des Anbieters.
@@ -15,6 +15,9 @@ quellen:
   - herausgeber: Verbraucherzentrale
     titel: "Phishing-Radar: Aktuelle Warnungen (Stand 12. November 2026)"
     url: https://www.verbraucherzentrale.de/wissen/digitale-welt/phishingradar/phishingradar-aktuelle-warnungen-6059
+  - herausgeber: Verbraucherzentrale
+    titel: "Phishing-Radar: Archiv (Eintrag vom 6. November 2026)"
+    url: https://www.verbraucherzentrale.de/phishingradar-archiv-71872
   - herausgeber: Apple Support
     titel: "Apple-Sicherheitsupdates und -maßnahmen"
     url: https://support.apple.com/de-de/100100
