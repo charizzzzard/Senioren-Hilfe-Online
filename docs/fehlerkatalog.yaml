@@ -142,8 +142,20 @@ fehler:
     live: true
     entdeckt_durch: nachpruefung
     vorher: "… eine vertraute Nummer – etwa die Ihrer Bank oder sogar die 110. / Selbst die 110 oder die 116 116 können gefälscht im Display stehen."
-    korrektur: "Steht die 110 im Display, ist die Anzeige in jedem Fall gefälscht: Die Polizei ruft nie von der 110 an. Auch der Sperr-Notruf 116 116 ruft niemals an. (Belegt mit Bundesnetzagentur und Sperr-Notruf-FAQ.) In „Kurz gesagt“ steht jetzt „eine Nummer aus Ihrer Stadt“."
+    korrektur: "Steht die 110 im Display, ist die Anzeige in jedem Fall gefälscht: Die Polizei ruft nie von der 110 an. Auch der Sperr-Notruf 116 116 ruft niemals an. (Belegt mit Bundesnetzagentur und Sperr-Notruf-FAQ.) In „Kurz gesagt“ steht jetzt „eine Nummer aus Ihrer Stadt“. Außerdem eingeengt: „Polizei, Banken und Behörden fragen außerdem nie am Telefon nach PIN oder TAN.“ → „Und Banken fordern laut Polizei keine vertraulichen Daten wie PIN oder TAN am Telefon an.“; „Welche Maschen am Telefon besonders häufig sind“ → „Wie Betrüger am Telefon vorgehen“."
     ursache: "Aussage stand in keiner Quelle des Textes; die Seite der Bundesnetzagentur dazu war nicht gelesen."
+    behoben_in: "#35"
+    altbestand: true
+
+  - id: 2026-11-17-35
+    gefunden: 2026-11-17
+    text: lexikon/phishing
+    art: unbelegt
+    live: true
+    entdeckt_durch: faktenpruefung
+    vorher: "**Im Zweifel anrufen:** Fragen Sie beim Anbieter nach – unter einer Nummer, die Sie selbst heraussuchen."
+    korrektur: "**Im Zweifel nachfragen:** Fragen Sie beim echten Anbieter nach – aber nicht über eine Nummer oder Adresse aus der Mail. Nutzen Sie lieber die Kontaktdaten auf seiner echten Internetseite. (Neue Quelle: Verbraucherzentrale „Phishing-Mails: Woran Sie sie erkennen …“.)"
+    ursache: "Rat um einen Schritt ergänzt, den keine Quelle des Textes nennt; die Belegtabelle deckte nur den ersten Satzteil."
     behoben_in: "#35"
     altbestand: true
 
