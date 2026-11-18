@@ -62,6 +62,7 @@ tools/lebenszeichen.py     Lebenszeichen der geplanten Aufgaben (Issue #39): Ken
 tools/gelesen.py           Ist das Label „gelesen“ eines PR noch gültig (kein Commit danach)? Faktenprüfung und Freigabe
 tools/indexnow.py          Meldet geänderte URLs an IndexNow (läuft im Deploy)
 tools/pdf.mjs              Erzeugt die Checklisten-PDFs (Node + Playwright, läuft im Deploy)
+tools/vorlesen-check.mjs   Prüft die Stimmenauswahl beim Vorlesen mit simulierten Stimmen (Node + Playwright, läuft im PR)
 tools/favicons.mjs         Erzeugt favicon.ico/-192.png/apple-touch-icon.png aus static/favicon.svg (nach Logo-Änderung)
 docs/BETRIEB.md            Betriebsmodell: Rollen, Risikoklassen, Prüfung, Freigabe, Push, Zeitplan – verbindlich
 docs/fehlerkatalog.yaml    Jeder gefundene Fehler mit Ursache; Grundlage der Qualitätsbremse (check.py)
@@ -87,6 +88,7 @@ python tools/belegcheck.py [slug …]            # Zitate der Belegtabellen gege
 python -m unittest discover -s tests -p 'test_*.py'  # Werkzeug-Tests; laufen im CI bei PRs, die tools/ oder tests/ ändern
 python -m http.server 8765 --directory _site   # lokale Vorschau
 npm ci && node tools/pdf.mjs                   # optional lokal: Checklisten-PDFs nach _site/checklisten/ (meldet die Seitenzahl)
+node tools/vorlesen-check.mjs                  # nach build.py: Vorlesen wählt eine Gerätestimme vor einer Online-Stimme
 ```
 
 Push auf `main` veröffentlicht automatisch auf https://netzleicht.de (GitHub Pages, Custom Domain).
