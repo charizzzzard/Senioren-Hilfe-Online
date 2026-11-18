@@ -597,3 +597,48 @@ fehler:
     korrektur: "Checkliste: \"Beim Einrichten die Chats wiederherstellen – nicht auf „Überspringen“ tippen.\""
     ursache: "Android-Beschriftung in eine Checkliste für beide Geräte übernommen; auf dem iPhone heißt der Knopf „Chatverlauf wiederherstellen“."
     behoben_in: "#30"
+
+  # ---- Nachprüfung vom 18.11.2026 (Notfallplan, Betrugs-SMS, Schockanruf)
+  - id: 2026-11-18-71
+    gefunden: 2026-11-18
+    text: artikel/betrugs-sms-erkennen
+    art: falsch
+    live: true
+    entdeckt_durch: nachpruefung
+    vorher: "Kasten: „Die Bundesnetzagentur rät: Geben Sie über Links in SMS keine persönlichen Daten an – also auch keine PIN, TAN oder Kontodaten.“ / Checkliste: „Über einen Link aus einer SMS gebe ich keine persönlichen Daten ein – auch keine PIN oder TAN.“"
+    korrektur: "Kasten: „Und die Verbraucherzentrale rät: Haben Sie auf den Link in so einer SMS getippt, geben Sie auf der Seite keinesfalls Ihre Zugangsdaten zum Online-Banking oder andere Daten ein.“ / Checkliste: „Auf einer Seite aus einem SMS-Link gebe ich keine Daten ein – auch keine Zugangsdaten zum Online-Banking.“ (Neue Quelle: Verbraucherzentrale „Fake-SMS zu Online-Banking …“.)"
+    ursache: "Rat einer Behörde ohne ihre Ausnahme wiedergegeben („es sei denn, Sie haben den Absender verifiziert“) und um Beispiele ergänzt, die sie nicht nennt (PIN, TAN, Kontodaten). Die Belegtabelle vom 10.11. zitierte den ganzen Satz samt Ausnahme, verglich ihn aber nicht mit dem gekürzten Text."
+    behoben_in: "#63"
+
+  - id: 2026-11-18-72
+    gefunden: 2026-11-18
+    text: artikel/betrug-was-tun
+    art: unbelegt
+    live: true
+    entdeckt_durch: nachpruefung
+    vorher: "Die richtige Nummer steht auf Ihrer Bankkarte, auf Ihrem Kontoauszug oder auf der Internetseite Ihrer Bank."
+    korrektur: "Die richtige Nummer finden Sie in Ihrem Online-Banking oder auf der echten Internetseite Ihrer Bank. (Verbraucherzentrale: „Fake-SMS …“ und „Phishing-Mails …“.)"
+    ursache: "Fundorte genannt, die keine Quelle des Textes nennt; die Belegtabelle hatte für die beiden Sätze zur Bank-Nummer keinen Eintrag."
+    behoben_in: "#63"
+
+  - id: 2026-11-18-73
+    gefunden: 2026-11-18
+    text: artikel/betrug-was-tun
+    art: unbelegt
+    live: true
+    entdeckt_durch: nachpruefung
+    vorher: "Lassen Sie sich dabei am besten helfen – zum Beispiel von einer vertrauten Person oder in einem Fachgeschäft."
+    korrektur: "… oder von Fachleuten, die sich mit Schadsoftware auskennen. (Verbraucherzentrale „Phishing-Mails …“: Expert:innen mit Erfahrung bei der Entfernung von Schadsoftware.)"
+    ursache: "Hilfsangebot ohne Quelle ergänzt."
+    behoben_in: "#63"
+
+  - id: 2026-11-18-74
+    gefunden: 2026-11-18
+    text: artikel/betrug-was-tun
+    art: unbelegt
+    live: true
+    entdeckt_durch: nachpruefung
+    vorher: "Sieben belegpflichtige Aussagen ohne Zitat in der Belegtabelle: keine Nummer aus der Nachricht oder dem Anruf nehmen; PayPal selbst öffnen, nicht über einen Link; Code von WhatsApp weitergegeben → Konto kann übernommen sein; Beweisliste in Schritt 5 (Nummer, Datum und Uhrzeit, Belege, Notiz); 110, wenn Sie bedroht werden; Vorsicht vor dem zweiten Anruf; Sperr-Notruf sperrt die Online-Funktion des Personalausweises."
+    korrektur: "Text unverändert. Zitate ergänzt; dafür zwei Quellen neu (Verbraucherzentrale „Fake-SMS zu Online-Banking …“, WhatsApp-Hilfe „Verifizierungscode erhalten, ohne ihn angefordert zu haben“)."
+    ursache: "Die Belegtabelle vom 10.11. deckte nicht jeden belegpflichtigen Satz; die Lücken fielen erst beim satzweisen Abgleich auf."
+    behoben_in: "#63"

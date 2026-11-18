@@ -1,6 +1,6 @@
 # Belegtabelle für content/artikel/betrug-was-tun.md (Format: docs/BETRIEB.md, Abschnitt „Belegtabelle“)
 # Jede Aussage mit einem wörtlichen Zitat aus einer selbst gelesenen Quelle. Prüfen: python tools/belegcheck.py betrug-was-tun
-geprueft: 2026-11-10
+geprueft: 2026-11-18
 belege:
   # ---------------------------------------------------------------- Einstieg und Notruf
   - aussage: "Polizei: Geben Sie sich keine Mitschuld"
@@ -9,6 +9,9 @@ belege:
   - aussage: "Akute Gefahr, schnelle Hilfe nötig: Notruf 110"
     quelle: https://www.test.de/Strafanzeige-So-erstatten-Sie-eine-Online-Anzeige-5003664-0/
     zitat: "Wählen Sie den Notruf 110, wenn Sie schnell polizeiliche Hilfe benötigen."
+  - aussage: "110, wenn Sie bedroht werden"
+    quelle: https://portal.onlinewache.polizei.de/
+    zitat: "Bei Straftaten, die unter Androhung oder Anwendung von Gewalt erfolgt sind, wenden Sie sich bitte sofort an die Polizei – persönlich oder über Notruf 110."
   - aussage: "110 auch bei einem verdächtigen Anruf (jemand kündigt an, Geld oder Wertsachen abzuholen)"
     quelle: https://www.polizei-beratung.de/themen-und-tipps/betrug/schockanrufe/
     zitat: "Informieren Sie sofort die Polizei über die 110, wenn Ihnen ein Anruf verdächtig vorkommt."
@@ -28,9 +31,24 @@ belege:
   - aussage: "Bank anrufen: In einigen Fällen kann das Geld zurückgeholt werden (Polizei)"
     quelle: https://www.polizei-beratung.de/themen-und-tipps/betrug/messenger/
     zitat: "kontaktieren Sie ihr Geldinstitut, in einigen Fällen kann das Geld zurück geholt werden"
+  - aussage: "Die richtige Nummer der Bank: im Online-Banking"
+    quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/mobilfunk-und-festnetz/fakesms-zu-onlinebanking-steuerbescheiden-und-gerichtsverfahren-67038
+    zitat: "Im Zweifel rufen Sie Ihre Bank bitte nur unter den Telefonnummern an, die im Online-Banking als Kontaktmöglichkeiten stehen!"
+  - aussage: "… oder auf der echten Internetseite (nicht die Kontaktmöglichkeit aus der Nachricht)"
+    quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/phishingradar/phishingmails-woran-sie-sie-erkennen-und-worauf-sie-achten-muessen-6073
+    zitat: "nutzen Sie eine Kontaktmöglichkeit auf der echten Internetseite des Anbieters"
+  - aussage: "Nie eine Nummer aus der verdächtigen Nachricht nehmen"
+    quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/mobilfunk-und-festnetz/fakesms-zu-onlinebanking-steuerbescheiden-und-gerichtsverfahren-67038
+    zitat: "Tippen Sie keinen Link an, rufen Sie keine Telefonnummer in so einer Nachricht an!"
+  - aussage: "… und nicht aus dem Anruf, sondern eine bekannte Nummer"
+    quelle: https://www.polizei-beratung.de/themen-und-tipps/betrug/schockanrufe/
+    zitat: "Kontaktieren Sie die Anruferin, den Anrufer oder eine Person Ihres Vertrauens unter einer Ihnen bekannten Telefonnummer."
   - aussage: "Kreditkarte: Charge-Back-Verfahren, an die Bank wenden"
     quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/onlinehandel/internetbetrug-so-koennen-sie-versuchen-ihr-geld-zurueckzuholen-33155
     zitat: "Im sogenannten Charge-Back-Verfahren können Zahlungen storniert werden."
+  - aussage: "Kreditkarte: dafür an die Bank wenden"
+    quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/onlinehandel/internetbetrug-so-koennen-sie-versuchen-ihr-geld-zurueckzuholen-33155
+    zitat: "Wenden Sie sich an Ihre kartenausgebende Bank."
   - aussage: "Lastschrift lässt sich am einfachsten zurückholen"
     quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/onlinehandel/internetbetrug-so-koennen-sie-versuchen-ihr-geld-zurueckzuholen-33155
     zitat: "Am einfachsten ist es, eine Sepa-Lastschrift zurückzuholen."
@@ -47,6 +65,18 @@ belege:
     quelle: https://www.verbraucherzentrale.de/wissen/geld-versicherungen/sparen-und-anlegen/bezahlen-im-sepalastschriftverfahren-das-sollten-sie-darueber-wissen-16639
     zitat: "Unberechtigte SEPA-Lastschriften (also ohne Mandat) können Sie sogar bis zu 13 Monaten nach Belastung zurückgeben."
   # ---------------------------------------------------------------- PayPal
+  # paypal.com antwortet automatischen Abrufen zeitweise mit HTTP 403 (#50, #54; am 18.11.2026 beim ersten Abruf ebenfalls).
+  # Die sechs PayPal-Zitate hat der Betreiber am 16.11.2026 im eigenen Browser bestätigt (#54, Kommentar); am 18.11.2026 hat
+  # belegcheck sie beim zweiten Lauf wieder auf der Seite gefunden.
+  - aussage: "Mit PayPal bezahlt: sofort bei PayPal melden"
+    quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/onlinehandel/kein-kaeuferschutz-mit-paypalfreunde-worauf-sie-achten-sollten-33139
+    zitat: "Informieren Sie PayPal unverzüglich"
+  - aussage: "PayPal selbst öffnen, nicht über einen Link aus einer Nachricht"
+    quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/phishingradar/phishingmails-woran-sie-sie-erkennen-und-worauf-sie-achten-muessen-6073
+    zitat: "Besser ist es ohnehin immer, die Internetseite selbst aufzurufen"
+  - aussage: "Keinen Link aus einer Nachricht öffnen; App oder Internetseite selbst öffnen (Verbraucherzentrale, für das Online-Banking)"
+    quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/mobilfunk-und-festnetz/fakesms-zu-onlinebanking-steuerbescheiden-und-gerichtsverfahren-67038
+    zitat: "öffnen Sie Ihre Banking-App oder die Internetseite Ihres Online-Bankings"
   - aussage: "PayPal: im Konto unter „Konfliktlösungen“ auf „Problem melden“"
     quelle: https://www.paypal.com/de/cshelp/article/wie-melde-ich-ein-problem-mit-einem-verk%C3%A4ufer-help160
     zitat: "Klicken Sie unter Konfliktlösungen auf Problem melden."
@@ -87,6 +117,15 @@ belege:
   - aussage: "Sperrt girocard, Kreditkarte, Online-Banking, E-Personalausweis, SIM-Karte"
     quelle: https://www.sperr-notruf.de/
     zitat: "ob girocard (früher ec-Karte), Kreditkarte, Online-Banking, E-Personalausweis oder SIM-Karte"
+  - aussage: "… beim Personalausweis die Online-Funktion (Identitätsfunktion)"
+    quelle: https://www.sperr-notruf.de/faq
+    zitat: "Ziffer 4. Identitätsfunktion des E-Personalausweises"
+  - aussage: "Daten verraten: Bank kontaktieren und Konten oder Karten sperren, zum Beispiel über 116 116"
+    quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/phishingradar/phishingmails-woran-sie-sie-erkennen-und-worauf-sie-achten-muessen-6073
+    zitat: "Sperren Sie wenn nötig Konten oder Karten, zum Beispiel über die Sperr-Hotline 116 116!"
+  - aussage: "… sofort an die Bank wenden"
+    quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/phishingradar/phishingmails-woran-sie-sie-erkennen-und-worauf-sie-achten-muessen-6073
+    zitat: "Kontaktieren Sie sofort Ihre(n) echten Anbieter, etwa das Kreditinstitut oder den Zahlungsdienstleister!"
   - aussage: "Aus dem Mobilfunknetz können Gebühren anfallen"
     quelle: https://www.sperr-notruf.de/
     zitat: "Anrufe aus dem deutschen Festnetz sind kostenlos, aus dem Mobilnetz können Gebühren anfallen."
@@ -99,6 +138,9 @@ belege:
   - aussage: "Der Sperr-Notruf ruft niemals an"
     quelle: https://www.sperr-notruf.de/faq
     zitat: "Von der Rufnummer 116 116 finden grundsätzlich keine Anrufe statt!"
+  - aussage: "Vorsicht vor weiteren Anrufen, nachdem Daten in fremde Hände gelangt sind"
+    quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/phishingradar/phishingmails-woran-sie-sie-erkennen-und-worauf-sie-achten-muessen-6073
+    zitat: "Dann seien Sie besonders vorsichtig, wenn Sie demnächst Post bekommen oder Anrufe entgegennehmen."
   - aussage: "Betrüger geben sich als Mitarbeiter des Sperr-Notrufs aus, „116 116“ steht gefälscht im Display"
     quelle: https://www.sperr-notruf.de/faq
     zitat: "Es sind Kriminelle, die die Display-Anzeige Deines Telefons manipulieren, um sich als Mitarbeiter des Sperr-Notrufs, der Finanzaufsicht o.ä. auszugeben"
@@ -121,6 +163,9 @@ belege:
   - aussage: "Code von WhatsApp nie weitergeben (sonst Konto in Gefahr)"
     quelle: https://www.polizei-beratung.de/themen-und-tipps/betrug/messenger/
     zitat: "Teilen Sie niemals den Code zur Verifizierung Ihres Accounts, den Sie bei der Registrierung per SMS erhalten haben."
+  - aussage: "Code von WhatsApp weitergegeben: Jemand kann das Konto übernommen haben"
+    quelle: https://faq.whatsapp.com/479314433984258/?locale=de_DE
+    zitat: "Wenn eine Person versucht, dein Konto zu übernehmen, braucht sie den SMS-Verifizierungscode, der an deine Telefonnummer gesendet wird."
   # ---------------------------------------------------------------- Schritt 4: App installiert
   - aussage: "Flugmodus, damit die schädliche App keine Daten mehr über das Internet sendet"
     quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/mobilfunk-und-festnetz/paketdienstsms-vorsicht-abzocke-58988
@@ -167,10 +212,25 @@ belege:
   - aussage: "Im schlimmsten Fall Zurücksetzen auf den Werkszustand"
     quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/mobilfunk-und-festnetz/paketdienstsms-vorsicht-abzocke-58988
     zitat: "Im schlimmsten Fall hilft nur ein Zurücksetzen des Geräts in den Auslieferungszustand."
+  - aussage: "Dabei helfen lassen, zum Beispiel von Fachleuten, die sich mit Schadsoftware auskennen"
+    quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/phishingradar/phishingmails-woran-sie-sie-erkennen-und-worauf-sie-achten-muessen-6073
+    zitat: "ob diese Erfahrung haben mit Internetkriminalität und der Entfernung von Schadsoftware"
   # ---------------------------------------------------------------- Schritt 5 und 6: Beweise, Anzeige
   - aussage: "Den gesamten Chatverlauf sichern, zum Beispiel mit Bildschirmfotos"
     quelle: https://www.polizei-beratung.de/themen-und-tipps/betrug/messenger/
     zitat: "Sichern Sie den gesamten Chatverlauf, z.B. durch Screenshots."
+  - aussage: "Beweise sichern: die Telefonnummer oder den Absender (Kontaktdaten der Tatverdächtigen)"
+    quelle: https://portal.onlinewache.polizei.de/
+    zitat: "Halten Sie die Personendaten zu Ihrer Person und weiteren beteiligten Personen (Geschädigte, Zeugen, Tatverdächtige) bereit"
+  - aussage: "Beweise sichern: Bildschirmfotos, Belege und Unterlagen (Überweisungsbelege, Kontoauszüge)"
+    quelle: https://www.test.de/Strafanzeige-So-erstatten-Sie-eine-Online-Anzeige-5003664-0/
+    zitat: "Alle Unterlagen, die der Polizei als Beweismittel nützlich sein könnten – Fotos, Quittungen, relevante Dokumente, etc."
+  - aussage: "Datum und Uhrzeit; kurze Notiz, was passiert ist"
+    quelle: https://www.test.de/Strafanzeige-So-erstatten-Sie-eine-Online-Anzeige-5003664-0/
+    zitat: "Sie müssen die klassischen W-Fragen beantworten: Was ist passiert? Wie, wo und wann ist es passiert?"
+  - aussage: "Bei gefälschter Nummer: Datum und Uhrzeit des Anrufs festhalten"
+    quelle: https://www.bundesnetzagentur.de/DE/Vportal/TK/Aerger/Faelle/Manipulation/start.html
+    zitat: "Datum und Uhrzeit des Anrufs,"
   - aussage: "Auf jeden Fall Anzeige erstatten"
     quelle: https://www.polizei-beratung.de/themen-und-tipps/betrug/messenger/
     zitat: "Erstatten Sie auf jeden Fall Anzeige bei der Polizei."
@@ -205,3 +265,6 @@ belege:
   - aussage: "Keine Vorwürfe: Scham hält Betroffene davon ab, über den Betrug zu sprechen"
     quelle: https://www.polizei-beratung.de/themen-und-tipps/betrug/messenger/
     zitat: "dass sich Betroffene nicht trauen über den Betrug zu sprechen"
+  - aussage: "Scham hält Betroffene davon ab, Hilfe zu holen (Anzeige)"
+    quelle: https://www.polizei-beratung.de/themen-und-tipps/betrug/messenger/
+    zitat: "Sie erstatten daher aus Scham keine Anzeige."

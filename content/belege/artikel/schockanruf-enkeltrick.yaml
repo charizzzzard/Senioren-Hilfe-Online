@@ -1,6 +1,6 @@
 # Belegtabelle für content/artikel/schockanruf-enkeltrick.md (Format: docs/BETRIEB.md, Abschnitt „Belegtabelle“)
 # Jede Aussage mit einem wörtlichen Zitat aus einer selbst gelesenen Quelle. Prüfen: python tools/belegcheck.py schockanruf-enkeltrick
-geprueft: 2026-11-10
+geprueft: 2026-11-18
 belege:
   # ---------------------------------------------------------------- Die Maschen
   - aussage: "Alle Maschen: Angst, Druck, Ziel sind Geld oder Wertsachen"
@@ -40,6 +40,9 @@ belege:
   - aussage: "Bei Anrufen auf dem Handy mitunter bis zur Geldübergabe in der Leitung gehalten"
     quelle: https://www.polizei-beratung.de/themen-und-tipps/betrug/schockanrufe/
     zitat: "Es kann bei einem Anruf über das Handy vorkommen, dass die Betroffenen bis zur Geldübergabe in der Leitung gehalten werden."
+  - aussage: "… damit sie mit niemandem sprechen können"
+    quelle: https://www.polizei-beratung.de/themen-und-tipps/betrug/schockanrufe/
+    zitat: "Dies geschieht, um sicherzustellen, dass sie keine Möglichkeit haben, mit jemandem außerhalb der Situation zu sprechen."
   - aussage: "… damit sie mit niemandem sprechen und im Schreck bleiben"
     quelle: https://www.polizei-beratung.de/themen-und-tipps/betrug/schockanrufe/
     zitat: "Stattdessen sollen sie in der Schocksituation bleiben und nicht aus dem emotionalen Zustand herauskommen."
@@ -99,6 +102,9 @@ belege:
   - aussage: "Verdächtiger Anruf (auch: Abholung angekündigt): 110"
     quelle: https://www.polizei-beratung.de/themen-und-tipps/betrug/schockanrufe/
     zitat: "Informieren Sie sofort die Polizei über die 110, wenn Ihnen ein Anruf verdächtig vorkommt."
+  - aussage: "… ebenso beim Enkeltrick: verdächtiger Anruf, 110"
+    quelle: https://www.polizei-beratung.de/themen-und-tipps/betrug/enkeltrick/
+    zitat: "Kommt Ihnen ein Anruf verdächtig vor, informieren Sie unverzüglich die Polizei unter der Nummer 110."
   - aussage: "Beim Enkeltrick wird ein Bote angekündigt, der das Geld abholt"
     quelle: https://www.polizei-beratung.de/themen-und-tipps/betrug/enkeltrick/
     zitat: "Sobald das Opfer zahlen will, wird ein Bote angekündigt, der das Geld abholt."
