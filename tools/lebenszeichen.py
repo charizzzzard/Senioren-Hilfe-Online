@@ -47,7 +47,7 @@ FENSTER_ENDE = dt.timedelta(hours=2)     # … und so lange hat ein Lauf Zeit, b
 ZEITPLAN: dict[str, dict] = {
     "neuer Artikel":      {"tage": {1, 4}, "zeit": (10, 37)},
     "Die Woche im Netz":  {"tage": {4}, "zeit": (7, 43)},
-    "Faktenprüfung":      {"tage": {1, 4}, "zeit": (13, 23)},
+    "Faktenprüfung":      {"tage": {0, 1, 4}, "zeit": (13, 23)},
     "Nachprüfung":        {"tage": {0, 2}, "zeit": (20, 7)},  # Montag nur, solange Texte ohne Belegtabelle live sind
     "Freigabe":           {"tage": set(range(7)), "zeit": (19, 12)},
     "Wochenbericht":      {"tage": {0}, "zeit": (8, 13)},
