@@ -6,7 +6,7 @@ kategorie: aktuell
 reihe: wochenschau
 veroeffentlicht: 2026-11-06
 aktualisiert: 2026-11-06
-geprueft: 2026-11-06
+geprueft: 2026-11-11
 kurz_gesagt: |
   Betrüger verschicken Mails im Namen von Volksbanken, Consorsbank, ELSTER und Apple. Alle drohen mit Fristen, Sperrungen oder Verzögerungen. Tippen Sie auf keinen Link und verschieben Sie solche Mails in den Spam-Ordner.
   Ob etwas dran ist, prüfen Sie nur in der offiziellen App oder auf der bekannten Internetseite. Die Steuerverwaltung fragt niemals per E-Mail nach Kontoverbindung oder PIN.
@@ -15,6 +15,9 @@ quellen:
   - herausgeber: Verbraucherzentrale
     titel: "Phishing-Radar: Aktuelle Warnungen (Stand 5. November 2026)"
     url: https://www.verbraucherzentrale.de/wissen/digitale-welt/phishingradar/phishingradar-aktuelle-warnungen-6059
+  - herausgeber: Verbraucherzentrale
+    titel: "Phishing-Radar: Archiv (Einträge vom 2. und 3. November 2026)"
+    url: https://www.verbraucherzentrale.de/phishingradar-archiv-71872
   - herausgeber: Verbraucherzentrale
     titel: "Phishing-Mails: Woran Sie sie erkennen und worauf Sie achten müssen"
     url: https://www.verbraucherzentrale.de/wissen/digitale-welt/phishingradar/phishingmails-woran-sie-sie-erkennen-und-worauf-sie-achten-muessen-6073
