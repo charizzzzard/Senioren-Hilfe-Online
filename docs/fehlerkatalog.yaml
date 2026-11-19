@@ -245,6 +245,19 @@ fehler:
     ursache: "Plattformen nicht vollständig abgedeckt."
     behoben_in: "#15"
 
+  # ---- Verständlichkeits-Überarbeitung vom 18.11.2026 (WhatsApp-Konto schützen). Eigener Nummernbereich ab -51,
+  # damit parallele Läufe desselben Tages (Nachprüfung ab -01) keine doppelten Nummern erzeugen.
+  - id: 2026-11-18-51
+    gefunden: 2026-11-18
+    text: artikel/whatsapp-konto-schuetzen
+    art: luecke
+    live: true
+    entdeckt_durch: inhaltspruefung
+    vorher: "Der Hinweis „Mit E-Mail-Adresse haben Sie aber einen Weg mehr, sich auszuweisen …“ stand nur im Android-Abschnitt, der Absatz zur alten sechsstelligen PIN nur im iPhone-Abschnitt. Mit dem Gerätefilter fehlte je einer Gruppe ein Hinweis."
+    korrektur: "Beide Hinweise stehen jetzt im gemeinsamen Teil von „Regel 2“; Android-Belege (Passwort vergessen, PIN-Hinweis) ergänzt."
+    ursache: "Hinweise, die für beide Geräte gelten, in einen Geräteabschnitt geschrieben; der Gerätefilter blendet ganze Abschnitte aus."
+    behoben_in: "#59"
+
   # ---- Nachprüfung des Altbestands vom 10.11.2026, Teil b (WhatsApp-Betrug, WhatsApp-Konto schützen).
   # Weitere Einträge zu diesem Pull Request bitte hier anfügen, nicht am Dateiende: Die Teile a bis g liegen
   # gleichzeitig offen und stehen deshalb an verschiedenen Stellen der Datei (check.py verlangt keine Reihenfolge).
