@@ -15,7 +15,7 @@ Das Repository ist öffentlich; wer das Thema kennt, kann die Push-Nachrichten m
 | --- | --- | --- | --- |
 | Netzleicht: neuer Artikel | `neuer-artikel.txt` | Di + Fr 10:37 (`37 10 * * 2,5`) | 11.11.2026 |
 | Netzleicht: Die Woche im Netz | `die-woche-im-netz.txt` | Fr 07:43 (`43 7 * * 5`) | 11.11.2026 |
-| Netzleicht: Faktenprüfung | `faktenpruefung.txt` | Di + Fr 13:23 (`23 13 * * 2,5`) | 11.11.2026 |
+| Netzleicht: Faktenprüfung | `faktenpruefung.txt` | Mo + Di + Fr 13:23 (`23 13 * * 1,2,5`) | 11.11.2026 |
 | Netzleicht: Nachprüfung | `nachpruefung.txt` | Mo + Mi 20:07 (`7 20 * * 1,3`); der Montag entfällt, sobald alle Texte eine Belegtabelle haben | 11.11.2026 |
 | Netzleicht: Freigabe | `freigabe.txt` | täglich 19:12 (`12 19 * * *`) | 11.11.2026 |
 | Netzleicht: Wochenbericht | `wochenbericht.txt` | Mo 08:13 (`13 8 * * 1`) | 11.11.2026 |
@@ -43,6 +43,13 @@ Ausnahme: Den Montag der Nachprüfung erwartet das Werkzeug ohnehin nur, solange
 5. Jeder Lauf soll eine neue Session starten (nicht dieselbe fortsetzen).
 
 ## Änderungen
+
+- **19.11.2026 – Faktenprüfung: zusätzlicher Lauf montags (Entscheidung des Betreibers, Issue #64, Option A):**
+  Zeitplan von Di + Fr auf Mo + Di + Fr 13:23 (`23 13 * * 1,2,5`), in claude.ai umgestellt am 19.11.2026; Auftrag
+  unverändert (weiterhin höchstens 4 PRs pro Lauf). `ZEITPLAN` in `tools/lebenszeichen.py` erwartet den Montag jetzt mit.
+  Anlass: 13 PRs warteten auf die Prüfung, vier davon seit dem 11.11.; zwei Läufe à 4 PRs reichten für den Zulauf nicht.
+  Der Montag schließt die längste Lücke (Fr → Di). Hinweis: Die Sicherung `nachpruefung.txt` und der aktive Auftrag der
+  Nachprüfung nennen weiter „Faktenprüfung (Di/Fr)“ – nur eine Erläuterung, ohne Wirkung auf den Ablauf.
 
 - **17.11.2026 – Connector-Stand nachgetragen (keine Auftragsänderung):** Seit 16.11.2026, 16:01 Uhr Berliner Zeit, haben
   „Netzleicht: neuer Artikel“ und „Netzleicht: Nachprüfung“ zusätzlich Mobile Next hinterlegt. Die Faktenprüfung bewusst

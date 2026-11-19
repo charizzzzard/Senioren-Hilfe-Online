@@ -245,7 +245,7 @@ claude.ai ändert, ändert im selben Zug die Datei dort – sonst weiß niemand,
 | --- | --- | --- | --- |
 | Di + Fr 10:37 | Netzleicht: neuer Artikel | Autor | Opus |
 | Fr 07:43 | Netzleicht: Die Woche im Netz | Autor | Opus |
-| Di + Fr 13:23 | Netzleicht: Faktenprüfung | Prüfer | Opus |
+| Mo + Di + Fr 13:23 | Netzleicht: Faktenprüfung | Prüfer | Opus |
 | Mi 20:07, vorübergehend auch Mo 20:07 | Netzleicht: Nachprüfung (Mo nur, bis alle Texte eine Belegtabelle haben) | Autor | Opus |
 | täglich 19:12 | Netzleicht: Freigabe | Freigabe | Sonnet |
 | Mo 08:13 | Netzleicht: Wochenbericht (Zahlen per Skript, Gegenprobe vor dem Senden, Kennzahlen-PR, am 1. Montag im Monat Stichprobe) | Bericht | Opus |
