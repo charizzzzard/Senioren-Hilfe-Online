@@ -143,7 +143,7 @@ Soll die andere Person das Bild nur ein einziges Mal öffnen können? Dafür gib
 3. Prüfen Sie, ob das Symbol **grün** geworden ist. Dann ist die Einmalansicht eingeschaltet.
 4. Tippen Sie auf das **Senden-Symbol**.
 
-Nach dem Senden können Sie das verschickte Bild selbst nicht erneut öffnen. Bei der anderen Person verschwindet es nach dem ersten Ansehen aus dem Chat. Es wird dort nicht in „Fotos“ oder in der „Galerie“ gespeichert.
+Bei der anderen Person verschwindet das Bild nach dem ersten Ansehen aus dem Chat. Es wird dort nicht in „Fotos“ oder in der „Galerie“ gespeichert.
 
 Für jedes weitere Bild zur einmaligen Ansicht müssen Sie die Funktion erneut auswählen. Soll ein Foto zum späteren Anschauen bleiben, verwenden Sie den normalen Versand.
 
