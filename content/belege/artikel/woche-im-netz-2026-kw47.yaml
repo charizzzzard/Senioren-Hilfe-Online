@@ -1,0 +1,150 @@
+# Belegtabelle für content/artikel/woche-im-netz-2026-kw47.md (Format: docs/BETRIEB.md, Abschnitt „Belegtabelle“)
+# Prüfen: python tools/belegcheck.py woche-im-netz-2026-kw47
+# Hinweis: Einträge des Phishing-Radars wandern nach einigen Tagen ins Archiv (https://www.verbraucherzentrale.de/phishingradar-archiv-71872).
+geprueft: 2026-11-20
+belege:
+  # ---------------------------------------------------------------- Meldung 1: Deutsche Rentenversicherung
+  - aussage: "18. November: Mail im Namen der Deutschen Rentenversicherung"
+    quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/phishingradar/phishingradar-aktuelle-warnungen-6059
+    zitat: "18. November 2026: Angebliche Überprüfung der Kontaktdaten bei der Deutschen Rentenversicherung"
+  - aussage: "Betreff „Kurze Sache zu Ihren Kontaktdaten“"
+    quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/phishingradar/phishingradar-aktuelle-warnungen-6059
+    zitat: "Die Nachricht wird unter dem Betreff \"Kurze Sache zu Ihren Kontaktdaten\" versendet."
+  - aussage: "Gespeicherte Kontaktdaten überprüfen und bestätigen"
+    quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/phishingradar/phishingradar-aktuelle-warnungen-6059
+    zitat: "wird dazu aufgefordert, die gespeicherten Kontaktdaten zu überprüfen und deren Richtigkeit zu bestätigen"
+  - aussage: "Begründung: aktuelle Daten für reibungslosen Schriftverkehr"
+    quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/phishingradar/phishingradar-aktuelle-warnungen-6059
+    zitat: "dass die Daten aktuell sein müssten, um einen reibungslosen Schriftverkehr sicherzustellen"
+  - aussage: "Bestätigung über Link im angeblichen Kundenportal, Frist bis 20. November 2026"
+    quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/phishingradar/phishingradar-aktuelle-warnungen-6059
+    zitat: "Die Überprüfung soll über einen Link im angeblichen Kundenportal erfolgen. Dafür wird eine Frist bis zum 20. November 2026 gesetzt."
+  - aussage: "Anzeichen: unpersönliche Anrede, unseriöse Absenderadresse, Bestätigung persönlicher Daten über Link, kurze Frist"
+    quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/phishingradar/phishingradar-aktuelle-warnungen-6059
+    zitat: "Anzeichen für Phishing: unpersönliche Anrede, unseriöse Absenderadresse, Aufforderung zur Bestätigung persönlicher Daten über einen Link und kurze Fristsetzung."
+  - aussage: "Rat: unbeantwortet in den Spam-Ordner, keinen Aufforderungen nachgehen (Link nicht antippen)"
+    quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/phishingradar/phishingradar-aktuelle-warnungen-6059
+    zitat: "Wir empfehlen Ihnen, solche E-Mails immer unbeantwortet in den Spam-Ordner zu verschieben und keinerlei Aufforderungen nachzugehen."
+  - aussage: "Kontaktdaten nur über offizielle Internetseite oder bekannte Kontaktwege ändern"
+    quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/phishingradar/phishingradar-aktuelle-warnungen-6059
+    zitat: "ändern Sie Ihre Kontaktdaten ausschließlich über die offizielle Internetseite oder die bekannten Kontaktwege der Rentenversicherung"
+  # ---------------------------------------------------------------- Meldung 2: WhatsApp, PayPal
+  - aussage: "17. November: Mail im Namen von WhatsApp"
+    quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/phishingradar/phishingradar-aktuelle-warnungen-6059
+    zitat: "17. November 2026: Angebliche Kontoschließung bei WhatsApp"
+  - aussage: "Betreff „WA Login lahmgelegt“; inaktive Profile werden überprüft und geschlossen"
+    quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/phishingradar/phishingradar-aktuelle-warnungen-6059
+    zitat: "\"WA Login lahmgelegt\" – im Namen von WhatsApp wird angekündigt, dass im Rahmen regelmäßiger Wartungsarbeiten inaktive Profile überprüft und gegebenenfalls geschlossen werden."
+  - aussage: "Konto als möglicherweise inaktiv eingestuft, Bestätigung über Link „Jetzt verifizieren“"
+    quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/phishingradar/phishingradar-aktuelle-warnungen-6059
+    zitat: "Das eigene Konto sei als möglicherweise inaktiv eingestuft worden. Um die Schließung zu verhindern, sollen Betroffene ihre Mitgliedschaft über einen Link (\"Jetzt verifizieren\") bestätigen."
+  - aussage: "Sonst Schließung innerhalb von 24 Stunden"
+    quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/phishingradar/phishingradar-aktuelle-warnungen-6059
+    zitat: "Ohne rechtzeitige Bestätigung werde das Konto innerhalb von 24 Stunden endgültig geschlossen."
+  - aussage: "WhatsApp: Spam-Ordner, keine Links, nur in der offiziellen App prüfen"
+    quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/phishingradar/phishingradar-aktuelle-warnungen-6059
+    zitat: "Falls Sie ein Konto bei WhatsApp besitzen, prüfen Sie mögliche Kontoeinschränkungen ausschließlich über die offizielle App."
+  - aussage: "WhatsApp: keinesfalls auf Links klicken"
+    quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/phishingradar/phishingradar-aktuelle-warnungen-6059
+    zitat: "immer unbeantwortet in den Spam-Ordner zu verschieben und keinesfalls auf enthaltene Links zu klicken"
+  - aussage: "19. November: Mail im Namen von PayPal, Zahlungsmethode angeblich abgelaufen"
+    quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/phishingradar/phishingradar-aktuelle-warnungen-6059
+    zitat: "19. November 2026: Angeblich notwendige Aktualisierung der Zahlungsmethode im Namen von PayPal"
+  - aussage: "Zahlungsmethode abgelaufen; sonst Konto vorübergehend eingeschränkt"
+    quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/phishingradar/phishingradar-aktuelle-warnungen-6059
+    zitat: "Wird die Zahlungsmethode nicht rechtzeitig aktualisiert wird das Konto angeblich vorübergehend eingeschränkt."
+  - aussage: "Hinterlegte Zahlungsmethode angeblich abgelaufen"
+    quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/phishingradar/phishingradar-aktuelle-warnungen-6059
+    zitat: "dass die bei PayPal hinterlegte Zahlungsmethode abgelaufen sei oder nicht autorisiert werden kann"
+  - aussage: "Frist bis 22.11.2026 um 10:54:52 Uhr, auf die Sekunde genau"
+    quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/phishingradar/phishingradar-aktuelle-warnungen-6059
+    zitat: "Zusätzlich wird eine konkrete Frist bis zum 22.11.2026 um 10:54:52 Uhr gesetzt."
+  - aussage: "Begrüßung mit der persönlichen E-Mail-Adresse"
+    quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/phishingradar/phishingradar-aktuelle-warnungen-6059
+    zitat: "Besonders auffällig ist, dass die Kundschaft mit der persönlichen E-Mail-Adresse begrüßt werden."
+  - aussage: "Persönliche E-Mail-Adresse zur Vertrauensbildung ist ein Anzeichen für Phishing"
+    quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/phishingradar/phishingradar-aktuelle-warnungen-6059
+    zitat: "Anzeichen für Phishing: unseriöse Absenderadresse, Verwendung der persönlichen E-Mail-Adresse zur Vertrauensbildung"
+  - aussage: "PayPal: nur über offizielle App oder bekannte Internetseite prüfen"
+    quelle: https://www.verbraucherzentrale.de/wissen/digitale-welt/phishingradar/phishingradar-aktuelle-warnungen-6059
+    zitat: "prüfen Sie mögliche Einschränkungen oder Zahlungsprobleme ausschließlich über die offizielle PayPal-App oder die bekannte Internetseite des Anbieters"
+  # ---------------------------------------------------------------- Meldung 3: Microsoft
+  - aussage: "Störung von Microsoft 365 (Teams, Outlook) am 12. und 13. November"
+    quelle: https://www.verbraucherzentrale.de/warnungen/microsoft-warnt-nach-outlookstoerung-vor-phishingkampagne-127229
+    zitat: "Am 12. und 13. November 2026 waren weltweit Programme aus Microsoft 365 wie Teams und Outlook gestört."
+  - aussage: "Microsoft warnt vor Phishing-Mails, die das Problem aufgreifen"
+    quelle: https://www.verbraucherzentrale.de/warnungen/microsoft-warnt-nach-outlookstoerung-vor-phishingkampagne-127229
+    zitat: "Jetzt warnt Microsoft vor betrügerischen E-Mails, die das Problem aufgreifen."
+  - aussage: "Bericht der Verbraucherzentrale mit Stand 18. November"
+    quelle: https://www.verbraucherzentrale.de/warnungen/microsoft-warnt-nach-outlookstoerung-vor-phishingkampagne-127229
+    zitat: "Stand: 18. November 2026"
+  - aussage: "Mails: einige E-Mails nicht zugestellt, Button klicken, sonst nach 24 Stunden gelöscht"
+    quelle: https://www.verbraucherzentrale.de/warnungen/microsoft-warnt-nach-outlookstoerung-vor-phishingkampagne-127229
+    zitat: "In den Phishing-Mails heißt es, dass durch die Störung einige E-Mails nicht zugestellt werden konnten. Empfänger:innen sollen auf einen Button klicken, um die Nachrichten abzurufen, da sie andernfalls nach 24 Stunden gelöscht würden."
+  - aussage: "Mails enthalten Microsoft-Logo und richtige Fallnummer"
+    quelle: https://www.verbraucherzentrale.de/warnungen/microsoft-warnt-nach-outlookstoerung-vor-phishingkampagne-127229
+    zitat: "Denn die Phishing-Mails enthalten das Microsoft-Logo und die richtige Fallnummer"
+  - aussage: "Nicht auf Inhalt und Aussehen verlassen"
+    quelle: https://www.verbraucherzentrale.de/warnungen/microsoft-warnt-nach-outlookstoerung-vor-phishingkampagne-127229
+    zitat: "verlassen Sie sich nicht nur auf den Inhalt und deren Aussehen!"
+  - aussage: "Absender: hinter dem @ „microsoft“, Schreibweise „rnicrosoft“ nicht echt"
+    quelle: https://www.verbraucherzentrale.de/warnungen/microsoft-warnt-nach-outlookstoerung-vor-phishingkampagne-127229
+    zitat: "Bei einer echten E-Mail von Microsoft sollte hinter dem @ auch der Begriff \"microsoft\" auftauchen. Achten Sie dabei auf die Schreibweise: \"rnicrosoft\" zum Beispiel sieht ähnlich aus, ist aber nicht echt!"
+  - aussage: "Link prüfen: Mauszeiger auf den Link zeigt die Internetadresse"
+    quelle: https://www.verbraucherzentrale.de/warnungen/microsoft-warnt-nach-outlookstoerung-vor-phishingkampagne-127229
+    zitat: "Halten Sie den Mauszeiger auf einen Link oder Button, zeigt Ihr E-Mail-Programm die URL (Internetadresse) an, zu der der Link führt."
+  - aussage: "Nutzerkonto im Browser oder in der App des Anbieters öffnen"
+    quelle: https://www.verbraucherzentrale.de/warnungen/microsoft-warnt-nach-outlookstoerung-vor-phishingkampagne-127229
+    zitat: "Sind Sie durch eine E-Mail verunsichert, öffnen Sie ihr Nutzerkonto in einem Browser oder in der App des Anbieters."
+  - aussage: "Auch Anrufe eines angeblichen Microsoft-Supports möglich"
+    quelle: https://www.verbraucherzentrale.de/warnungen/microsoft-warnt-nach-outlookstoerung-vor-phishingkampagne-127229
+    zitat: "Auch weitere Betrugsversuche, zum Beispiel durch Anrufe eines angeblichen Microsoft-Supports, sind möglich."
+  - aussage: "Polizei: Seriöse Unternehmen wie Microsoft melden sich nicht unaufgefordert; auflegen"
+    quelle: https://www.polizei-beratung.de/themen-und-tipps/betrug/falsche-microsoft-mitarbeiter/
+    zitat: "Seriöse Unternehmen wie Microsoft nehmen nicht unaufgefordert Kontakt zu ihren Kunden auf. Sollte sich ein Servicemitarbeiter bei Ihnen melden, ohne dass Sie darum gebeten haben: Legen Sie einfach den Hörer auf."
+  - aussage: "Polizei: unbekanntem Anrufer nie Zugriff auf den Rechner gewähren"
+    quelle: https://www.polizei-beratung.de/themen-und-tipps/betrug/falsche-microsoft-mitarbeiter/
+    zitat: "Gewähren Sie einem unbekannten Anrufer niemals Zugriff auf Ihren Rechner"
+  # ---------------------------------------------------------------- Meldung 4: Polizei, Taschendiebstahl, 116 116
+  - aussage: "Polizei-Tipps vom 18.11.2026: Taschendiebstahl auf Herbst- und Weihnachtsmärkten"
+    quelle: https://www.polizei-beratung.de/aktuelles/detailansicht/was-tun-bei-verlust-oder-diebstahl-von-debitkarten/
+    zitat: "Was tun bei Verlust oder Diebstahl von Debitkarten? 18.11.2026"
+  - aussage: "Herbst- und Weihnachtsmärkte bieten Taschendieben viele Gelegenheiten"
+    quelle: https://www.polizei-beratung.de/aktuelles/detailansicht/was-tun-bei-verlust-oder-diebstahl-von-debitkarten/
+    zitat: "wie Herbst- oder Weihnachtsmärkte bieten Taschendieben viele Gelegenheiten"
+  - aussage: "Ablenkung: anrempeln, Kleidung beschmutzen, nach dem Weg fragen; Komplize stiehlt"
+    quelle: https://www.polizei-beratung.de/aktuelles/detailansicht/was-tun-bei-verlust-oder-diebstahl-von-debitkarten/
+    zitat: "Im Gedränge werden Opfer angerempelt oder unter einem Vorwand abgelenkt, beispielsweise, indem ihre Kleidung „versehentlich“ beschmutzt wird oder die Täter nach dem Weg fragen. Während einer das Opfer ablenkt, stiehlt eine Komplizin oder ein Komplize den Geldbeutel oder andere Wertsachen."
+  - aussage: "Tipp: Abstand einfordern"
+    quelle: https://www.polizei-beratung.de/aktuelles/detailansicht/was-tun-bei-verlust-oder-diebstahl-von-debitkarten/
+    zitat: "Fordern Sie Abstand ein, wenn Ihnen Fremde zu nahe kommen."
+  - aussage: "Tipp: nur so viel Bargeld wie nötig"
+    quelle: https://www.polizei-beratung.de/aktuelles/detailansicht/was-tun-bei-verlust-oder-diebstahl-von-debitkarten/
+    zitat: "Nehmen Sie nur so viel Bargeld mit wie nötig."
+  - aussage: "Tipp: Geld, Karten, Papiere, Smartphone in verschiedenen verschlossenen Innentaschen nah am Körper"
+    quelle: https://www.polizei-beratung.de/aktuelles/detailansicht/was-tun-bei-verlust-oder-diebstahl-von-debitkarten/
+    zitat: "Tragen Sie Geld, Zahlungskarten und Papiere sowie Ihr Smartphone immer in verschiedenen verschlossenen Innentaschen der Kleidung möglichst nah am Körper."
+  - aussage: "Tipp: Taschen verschlossen vorne tragen oder unter den Arm klemmen"
+    quelle: https://www.polizei-beratung.de/aktuelles/detailansicht/was-tun-bei-verlust-oder-diebstahl-von-debitkarten/
+    zitat: "Tragen Sie Hand- und Umhängetaschen verschlossen auf der Körpervorderseite oder klemmen Sie sich diese unter den Arm."
+  - aussage: "Sofort unter 116 116 sperren"
+    quelle: https://www.polizei-beratung.de/aktuelles/detailansicht/was-tun-bei-verlust-oder-diebstahl-von-debitkarten/
+    zitat: "sperren Sie umgehend unter 116 116"
+  - aussage: "116 116 für alle girocards und die meisten Kreditkarten"
+    quelle: https://www.polizei-beratung.de/aktuelles/detailansicht/was-tun-bei-verlust-oder-diebstahl-von-debitkarten/
+    zitat: "Über den Sperr-Notruf 116 116* ist das für alle girocards und die meisten Kreditkarten möglich."
+  - aussage: "Auch elektronischer Personalausweis und SIM-Karte sperrbar"
+    quelle: https://www.polizei-beratung.de/aktuelles/detailansicht/was-tun-bei-verlust-oder-diebstahl-von-debitkarten/
+    zitat: "Hier können Sie im Verlustfall u.a. auch Ihren elektronischen Personalausweis oder Ihre SIM-Karte sperren lassen."
+  - aussage: "Aus Deutschland kostenfrei"
+    quelle: https://www.polizei-beratung.de/aktuelles/detailansicht/was-tun-bei-verlust-oder-diebstahl-von-debitkarten/
+    zitat: "Sperr-Notruf 116 116 aus Deutschland kostenfrei."
+  - aussage: "Anzeige bei der Polizei; sie kann Lastschrift per Unterschrift sperren lassen"
+    quelle: https://www.polizei-beratung.de/aktuelles/detailansicht/was-tun-bei-verlust-oder-diebstahl-von-debitkarten/
+    zitat: "Zeigen Sie einen Diebstahl auch bei der Polizei an. Diese kann zusätzlich die Sperrung des elektronischen Lastschriftverfahrens per Unterschrift (SEPA-Lastschriften) veranlassen."
+  - aussage: "Kontobewegungen prüfen, unberechtigte Abbuchungen bei Bank oder Sparkasse reklamieren"
+    quelle: https://www.polizei-beratung.de/aktuelles/detailansicht/was-tun-bei-verlust-oder-diebstahl-von-debitkarten/
+    zitat: "Prüfen Sie sorgfältig Ihre Kontobewegungen und reklamieren Sie unberechtigte Abbuchungen bei Ihrer Bank oder Sparkasse."
+  - aussage: "Kostenlose SperrApp für Android und iOS, Daten verschlüsselt hinterlegen"
+    quelle: https://www.polizei-beratung.de/aktuelles/detailansicht/was-tun-bei-verlust-oder-diebstahl-von-debitkarten/
+    zitat: "bietet der Sperr-Notruf eine kostenlose SperrApp für Android und iOS an. In der App können alle Daten zu sperrbaren Karten und Ausweisen für den Ernstfall verschlüsselt hinterlegt werden."
