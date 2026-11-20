@@ -94,10 +94,21 @@ Das ist der bequemste Weg. Legen Sie beide Handys nebeneinander.
 
 ### Ihr neues Handy ist ein Samsung Galaxy: Smart Switch
 
-Samsung hat dafür die App **„Smart Switch“**. Auf den meisten neueren Galaxy-Handys ist sie schon da. Sie finden sie auf dem Startbildschirm oder hier:
+Samsung hat dafür die App **„Smart Switch“**. Auf den meisten neueren Galaxy-Handys ist sie schon da. Sie finden sie auf dem Startbildschirm oder in den Einstellungen. Samsung nennt diesen Weg:
 
 ```klickpfad
 Einstellungen › Konten und Sicherung › Smart Switch
+```
+
+Auf einem Galaxy A56 mit Android 15 sah es in unserem Test etwas anders aus: „Smart Switch“ stand dort nur als graue Überschrift. Der Punkt darunter hieß **„Geräteeinrichtungsdaten übertragen“**.
+
+```bildschirm
+geraet: android
+screenshot:
+  lauf: 2026-11-20-a56-smartswitch-03
+  bild: konten-und-sicherung
+alt: "Die Seite „Konten und Sicherung“ auf einem Galaxy A56: unter der Überschrift „Smart Switch“ die Punkte „Geräteeinrichtungsdaten übertragen“ und „Externe Speicherübertragung“."
+unterschrift: "Auf diesem Galaxy steht unter „Smart Switch“ der Punkt „Geräteeinrichtungsdaten übertragen“."
 ```
 
 Kommen Sie von einem anderen Android-Handy, muss Smart Switch auf **beiden** Handys installiert sein. Auf dem alten Handy laden Sie die App bei Bedarf aus dem **Google Play Store** oder dem **Galaxy Store**. Beide Handys brauchen mindestens Android 6.0.

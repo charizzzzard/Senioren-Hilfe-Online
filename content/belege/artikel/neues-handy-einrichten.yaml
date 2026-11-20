@@ -78,6 +78,8 @@ belege:
   - aussage: "Smart Switch auf den meisten neueren Galaxy vorinstalliert; Startbildschirm oder Einstellungen › Konten und Sicherung › Smart Switch"
     quelle: https://www.samsung.com/de/apps/smart-switch/
     zitat: "Smart Switch ist auf den meisten neueren Samsung Galaxy Smartphone- und Tablet-Modellen bereits vorinstalliert. Du findest es auf dem Startbildschirm oder unter „Einstellungen“ > „Konten und Sicherung“ > „Smart Switch“."
+  - aussage: "Galaxy A56 (Android 15): „Konten und Sicherung“ vorhanden; „Smart Switch“ nur als Überschrift, Punkt darunter „Geräteeinrichtungsdaten übertragen“ (Screenshot)"
+    geraetetest: "Galaxy A56, SM-A566U1 (US), Android 15, Einstellungen-App Deutsch, 20.11.2026 (Mobile Next, automatisierter Realgerätetest, geraetelaeufe/2026-11-20-a56-smartswitch-03.yaml)"
   - aussage: "Bei Android muss Smart Switch auf beiden Geräten installiert sein"
     quelle: https://www.samsung.com/de/apps/smart-switch/
     zitat: "Nutzt du Android, muss Smart Switch auf beiden Geräten installiert sein."

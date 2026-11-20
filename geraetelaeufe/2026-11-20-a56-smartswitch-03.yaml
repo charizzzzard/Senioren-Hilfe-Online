@@ -1,0 +1,93 @@
+schema_version: 1
+id: 2026-11-20-a56-smartswitch-03
+datum: '2026-11-20'
+anbieter: Mobile Next
+testart: automatisierter Realgerätetest
+herkunft:
+  art: eigener_lauf
+  quelle: "Autor-Lauf „Netzleicht: neuer Artikel“ vom 20.11.2026; Bericht im Artikel-PR zu neues-handy-einrichten"
+  bildexport: abgeschlossen
+  hinweis: >-
+    Ein Screenshot während der Sitzung beim Anbieter gespeichert, sofort heruntergeladen und unverändert
+    übernommen. Elementlisten wurden während des Laufs gelesen; die unten genannten Beschriftungen stammen daraus.
+    Aufrufverlauf nicht exportiert.
+text:
+  pfad: content/artikel/neues-handy-einrichten.md
+  commit: 7d9986a283476b88f8717887959f92b6a9a21b93
+  blob: 93c97178244f28fe0ec6ec3b4dbf9fd4c566f381
+  abschnitt: "Ihr neues Handy ist ein Samsung Galaxy: Smart Switch (Klickpfad und App-Start)"
+geraet:
+  plattform: android
+  modell: Galaxy A56
+  modellcode: SM-A566U1
+  variante: US-Modell
+  system: Android 15
+  oberflaeche: null
+  sprache: Deutsch (de-DE, nur Einstellungen-App)
+  app_version: null
+abdeckung: Teilprüfung des Klickpfads zu Smart Switch; kein Test der Datenübertragung oder Ersteinrichtung.
+zeit:
+  gesamt_s: 106
+  bereitstellung_s: null
+  sprachwechsel_s: 0
+  test_s: null
+  rueckstellung_ca_s: null
+  berechtigungspausen: Keine erkennbar; nur Gesamtzeit von Reservierung bis Freigabe gemessen.
+kosten:
+  usd: 0
+  freie_minuten_vorher: 90
+  freie_minuten_nachher: 85
+  verbrauch_freiminuten: 5
+  hinweis: Tarif starter, kein Abo, Mehrverbrauchsgrenze 0 USD (Kontoanzeige vor und nach dem Lauf).
+rueckstellung:
+  sprache: >-
+    Systemsprache nicht geändert. Die Einstellungen-App wurde mit dem Startparameter de-DE geöffnet;
+    der Start-Parameter wirkt nur auf diesen App-Start.
+  sonstige_werte: >-
+    Keine Einstellung verändert. Den Installationsdialog für Smart Switch mit „Cancel“ geschlossen,
+    keine App installiert. Danach Home-Taste.
+  reservierung_beendet: true
+faelle:
+  - id: t1-konten-und-sicherung
+    aussage: "In den Einstellungen gibt es den Punkt Konten und Sicherung (Klickpfad Einstellungen › Konten und Sicherung › Smart Switch)."
+    beobachtung: >-
+      Einstellungen-Startseite nach unten gewischt: Punkt „Konten und Sicherung“ mit Untertitel
+      „Konten verwalten • Smart Switch“. Angetippt, Seitentitel „Konten und Sicherung“.
+    status: confirmed
+  - id: t2-smart-switch-eintrag
+    aussage: "Unter Konten und Sicherung steht ein Punkt Smart Switch."
+    beobachtung: >-
+      „Smart Switch“ steht dort als graue Abschnittsüberschrift, nicht als eigener Punkt. Darunter der Punkt
+      „Geräteeinrichtungsdaten übertragen“ mit dem Text „Sende Daten von diesem Telefon an ein neues Gerät oder
+      übertrage Daten von einem alten Gerät auf dieses Telefon. Du kannst Bilder, Kontakte, Apps und mehr übertragen.“
+      und der Punkt „Externe Speicherübertragung“. Samsung Deutschland nennt den Weg „Einstellungen“ > „Konten und
+      Sicherung“ > „Smart Switch“; Ursache der Abweichung nicht geklärt.
+    status: mismatch
+  - id: t3-daten-empfangen
+    aussage: "In Smart Switch auf Daten empfangen tippen und Galaxy wählen."
+    beobachtung: >-
+      Antippen von „Geräteeinrichtungsdaten übertragen“ öffnete einen englischsprachigen Dialog
+      „Download and install Smart Switch?“ – die App war auf diesem Cloud-Gerät nicht installiert.
+      Abgebrochen; „Daten empfangen“ und „Galaxy“ nicht gesehen.
+    status: blocked
+grenzen:
+  - One-UI-Version nicht abgelesen.
+  - Sprache nur für die Einstellungen-App per Startparameter gesetzt, nicht als Systemsprache; der Smart-Switch-Dialog erschien englisch.
+  - US-Modell; keine Gleichheit sämtlicher deutscher Geräte behauptet.
+  - Ersteinrichtung, Datenübertragung, QR-Code und Kabelweg nicht geprüft (passende Testbedingungen fehlen).
+  - Nur ein Bild (Seite Konten und Sicherung); für den Installationsdialog gibt es kein Bild.
+folge: Artikel-PR zu content/artikel/neues-handy-einrichten.md
+bilder:
+  - id: konten-und-sicherung
+    datei: static/img/geraetetest/2026-11-20-a56-smartswitch-03/konten-und-sicherung.png
+    sha256: 1c9abdeaf04e4a32f13d4ef42d2578e36715d158a778b7b6ce4a0739531829dc
+    breite: 1080
+    hoehe: 2340
+    bytes: 141820
+    aufgenommen: '2026-11-20T09:45:34Z'
+    freigabe: bereinigt
+    bearbeitung: keine; Original unverändert. Sichtprüfung ohne Kennungen, Kontodaten oder Benachrichtigungen.
+    inhalt: >-
+      Seite „Konten und Sicherung“: Konten verwalten, Überschrift Google Drive, Überschrift Smart Switch mit den
+      Punkten „Geräteeinrichtungsdaten übertragen“ und „Externe Speicherübertragung“.
+    faelle: [t1-konten-und-sicherung, t2-smart-switch-eintrag]
