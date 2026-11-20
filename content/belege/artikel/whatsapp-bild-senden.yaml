@@ -52,7 +52,7 @@ belege:
     zitat: "Beim gleichzeitigen Senden einer größeren Anzahl von Bildern können Probleme auftreten."
   - aussage: "Lieber weniger Bilder auf einmal"
     quelle: https://faq.whatsapp.com/453914586839706/?locale=de_DE&cms_platform=iphone
-    zitat: "Versuche in der Zwischenzeit, eine kleinere Anzahl von Bildern auf einmal zu senden."
+    zitat: "eine kleinere Anzahl von Bildern auf einmal zu senden."
   - aussage: "Weiterleiten: Finger auf das Bild halten, „Weiterleiten“"
     quelle: https://faq.whatsapp.com/453914586839706/?locale=de_DE&cms_platform=iphone
     zitat: "Tippe und halte die Nachricht, die du weiterleiten möchtest, und tippe dann auf Weiterleiten."
@@ -142,9 +142,6 @@ belege:
   - aussage: "Die Einmalansicht muss für jedes weitere Bild erneut ausgewählt werden"
     quelle: https://faq.whatsapp.com/1077018839582332?helpref=faq_content
     zitat: "Du musst die Einmalansicht jedes Mal auswählen"
-  - aussage: "Nach dem Senden kann die sendende Person das gesendete Bild nicht erneut öffnen"
-    quelle: https://faq.whatsapp.com/1077018839582332?helpref=faq_content
-    zitat: "können nicht ein zweites Mal angesehen werden"
   - aussage: "Kein vollständiger Kopierschutz: Aufnahme mit einer anderen Kamera oder einem anderen Gerät möglich; nur vertrauenswürdigen Personen senden"
     quelle: https://faq.whatsapp.com/1077018839582332?helpref=faq_content
     zitat: "mit einer Kamera oder einem anderen Gerät aufnehmen"
