@@ -334,7 +334,8 @@ themen:
     suchvolumen: 5400
     kd: 0
     prioritaet: 0
-    status: offen
+    status: veroeffentlicht
+    slug: neues-handy-einrichten
     notiz: "Saison: Dez. 2025 6.600. daten auf neues handy übertragen 2.900 (KD 13). Eigener Samsung-Abschnitt (Smart Switch) – nur mit Samsung-Hilfe als Quelle."
 
   # ---------------------------------------------------------------- Ergänzung aus docs/SEO-ANALYSE-2026-11.md (Suchdaten: OpenSEO, Google DE, Abruf 01.11.2026)

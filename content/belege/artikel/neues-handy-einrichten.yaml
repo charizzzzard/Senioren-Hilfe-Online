@@ -1,0 +1,209 @@
+# Belegtabelle für content/artikel/neues-handy-einrichten.md (Format: docs/BETRIEB.md, Abschnitt „Belegtabelle“)
+# Alle Quellen am 20.11.2026 selbst gelesen (Playwright, de-DE). Prüfen: python tools/belegcheck.py neues-handy-einrichten
+geprueft: 2026-11-20
+belege:
+  # ---------------------------------------------------------------- Bereitlegen
+  - aussage: "Beide Handys aufladen"
+    quelle: https://support.google.com/android/answer/6193424?hl=de
+    zitat: "Laden Sie beide Geräte auf."
+  - aussage: "Altes Handy mit PIN, Muster oder Passwort entsperren können"
+    quelle: https://support.google.com/android/answer/6193424?hl=de
+    zitat: "Vergewissern Sie sich, dass Sie Ihr altes Gerät mit einer PIN, einem Muster oder einem Passwort entsperren können."
+  - aussage: "Auf dem alten Handy mit dem Google-Konto anmelden – so lassen sich die meisten Daten übertragen"
+    quelle: https://support.google.com/android/answer/6193424?hl=de
+    zitat: "Wenn Sie die meisten Daten übertragen möchten, melden Sie sich mit Ihrem Google-Konto an."
+  - aussage: "Ohne Google-Konto kann man eines erstellen"
+    quelle: https://support.google.com/android/answer/6193424?hl=de
+    zitat: "Wenn Sie noch kein Google-Konto haben, können Sie hier eines erstellen."
+  - aussage: "WLAN-Verbindung prüfen"
+    quelle: https://support.google.com/android/answer/6193424?hl=de
+    zitat: "Prüfen Sie, ob eine WLAN-Verbindung besteht."
+  # ---------------------------------------------------------------- Sicherung
+  - aussage: "Gesichert werden u. a. Apps, Anrufliste, Kontakte, Geräteeinstellungen, SMS"
+    quelle: https://support.google.com/android/answer/2819582?hl=de
+    zitat: "Die Daten Ihres Smartphones werden automatisch in Ihrem Google-Konto gesichert. Dazu gehören:"
+  - aussage: "Liste der gesicherten Daten (Apps und App-Daten, Anrufliste, Kontakte, Geräteeinstellungen, SMS und MMS)"
+    quelle: https://support.google.com/android/answer/2819582?hl=de
+    zitat: "Apps und App-Daten Anrufliste Kontakte Geräteeinstellungen SMS und MMS"
+  - aussage: "Einstellungen öffnen"
+    quelle: https://support.google.com/android/answer/2819582?hl=de
+    zitat: "Öffnen Sie auf Ihrem Android-Gerät die Einstellungen."
+  - aussage: "Auf „Google“ tippen, dann „Alle Dienste“"
+    quelle: https://support.google.com/android/answer/2819582?hl=de
+    zitat: "Tippen Sie auf Google Alle Dienste."
+  - aussage: "Je nach Gerät heißt der Punkt „Google-Dienste“"
+    quelle: https://support.google.com/android/answer/2819582?hl=de
+    zitat: "Tippe auf Google-Dienste Alle Dienste."
+  - aussage: "Unter „Sicherung & Wiederherstellung“ auf „Sicherung“ und „Jetzt sichern“ tippen"
+    quelle: https://support.google.com/android/answer/2819582?hl=de
+    zitat: "Tippen Sie unter „Sicherung & Wiederherstellung“ auf Sicherung Jetzt sichern."
+  - aussage: "Bis zu 15 GB kostenlos"
+    quelle: https://support.google.com/android/answer/2819582?hl=de
+    zitat: "Sie können bis zu 15 GB Speicherplatz für Ihr Google-Konto kostenlos sichern."
+  - aussage: "Sicherung kann bis zu 24 Stunden dauern; danach steht „An“"
+    quelle: https://support.google.com/android/answer/2819582?hl=de
+    zitat: "Die Google One-Sicherung kann bis zu 24 Stunden dauern. Wenn deine Daten gesichert wurden, wird unter den ausgewählten Datentypen „An“ angezeigt."
+  - aussage: "Nicht jede App lässt sich vollständig sichern"
+    quelle: https://support.google.com/android/answer/2819582?hl=de
+    zitat: "Es können nicht von allen Apps alle Einstellungen und Daten gesichert oder wiederhergestellt werden."
+  - aussage: "Höhere Android-Version lässt sich nicht auf niedrigerer wiederherstellen"
+    quelle: https://support.google.com/android/answer/2819582?hl=de
+    zitat: "Ein Back-up, das auf einem Smartphone mit einer höheren Android-Version erstellt wurde, kann nicht auf einem Smartphone mit einer niedrigeren Android-Version wiederhergestellt werden."
+  - aussage: "Manche Schritte erst ab Android 9"
+    quelle: https://support.google.com/android/answer/2819582?hl=de
+    zitat: "Einige dieser Schritte funktionieren nur unter Android 9 oder höher."
+  # ---------------------------------------------------------------- Einschalten, vom Android-Handy
+  - aussage: "Neues Gerät einschalten"
+    quelle: https://support.google.com/android/answer/6193424?hl=de
+    zitat: "Schalte das neue Gerät ein."
+  - aussage: "Schritte können je nach Gerät variieren"
+    quelle: https://support.google.com/android/answer/6193424?hl=de
+    zitat: "Einige dieser Schritte können je nach Gerät variieren."
+  - aussage: "Bei der Frage nach einem anderen Gerät „Android-Gerät“ wählen"
+    quelle: https://support.google.com/android/answer/6193424?hl=de
+    zitat: "Wenn Sie gefragt werden, ob Sie ein anderes Gerät für die Einrichtung nutzen möchten, wählen Sie Android-Gerät aus."
+  - aussage: "QR-Code scannen, Geräte koppeln"
+    quelle: https://support.google.com/android/answer/6193424?hl=de
+    zitat: "Folgen Sie der Anleitung, um den QR‑Code zu scannen und die Geräte zu koppeln."
+  - aussage: "PIN, Muster oder Passwort eingeben; WLAN-Zugänge und Google-Konto werden übertragen"
+    quelle: https://support.google.com/android/answer/6193424?hl=de
+    zitat: "Geben Sie Ihre PIN, Ihr Muster oder Ihr Passwort ein, um Ihre WLAN-Anmeldedaten und Google-Konten auf Ihr neues Gerät zu übertragen."
+  - aussage: "Apps und Daten kopieren wählen, Daten auswählen"
+    quelle: https://support.google.com/android/answer/6193424?hl=de
+    zitat: "Wählen Sie aus, dass Apps und Daten von Ihrem alten Gerät kopiert werden sollen. Folgen Sie der Anleitung auf dem Bildschirm, um Ihre Daten auszuwählen und zu kopieren."
+  - aussage: "WhatsApp-Chats haben einen eigenen Übertragungsweg"
+    quelle: https://support.google.com/android/answer/6193424?hl=de
+    zitat: "Sie können auch WhatsApp-Chats und -Daten von Ihrem alten Gerät übertragen."
+  # ---------------------------------------------------------------- Samsung Smart Switch
+  - aussage: "Smart Switch auf den meisten neueren Galaxy vorinstalliert; Startbildschirm oder Einstellungen › Konten und Sicherung › Smart Switch"
+    quelle: https://www.samsung.com/de/apps/smart-switch/
+    zitat: "Smart Switch ist auf den meisten neueren Samsung Galaxy Smartphone- und Tablet-Modellen bereits vorinstalliert. Du findest es auf dem Startbildschirm oder unter „Einstellungen“ > „Konten und Sicherung“ > „Smart Switch“."
+  - aussage: "Galaxy A56 (Android 15): „Konten und Sicherung“ vorhanden; „Smart Switch“ nur als Überschrift, Punkt darunter „Geräteeinrichtungsdaten übertragen“ (Screenshot)"
+    geraetetest: "Galaxy A56, SM-A566U1 (US), Android 15, Einstellungen-App Deutsch, 20.11.2026 (Mobile Next, automatisierter Realgerätetest, geraetelaeufe/2026-11-20-a56-smartswitch-03.yaml)"
+  - aussage: "Bei Android muss Smart Switch auf beiden Geräten installiert sein"
+    quelle: https://www.samsung.com/de/apps/smart-switch/
+    zitat: "Nutzt du Android, muss Smart Switch auf beiden Geräten installiert sein."
+  - aussage: "Auf älteren/anderen Android-Geräten aus Galaxy Store oder Google Play Store laden"
+    quelle: https://www.samsung.com/de/apps/smart-switch/
+    zitat: "Auf älteren oder anderen Android-Geräten musst du es möglicherweise aus dem Galaxy Store oder dem Google Play Store herunterladen."
+  - aussage: "Mindestens Android 6.0 auf beiden Geräten"
+    quelle: https://www.samsung.com/de/apps/smart-switch/
+    zitat: "Eine Datenübertragung ist möglich, sofern Sende- und Empfangsgerät mindestens Android 6.0 nutzen."
+  - aussage: "Neues Galaxy: Smart Switch öffnen, „Daten empfangen“, „Galaxy“"
+    quelle: https://www.samsung.com/de/apps/smart-switch/
+    zitat: "Öffne auf deinem neuen Samsung Galaxy Gerät die Smart Switch App, tippe auf „Daten empfangen“ und wähle anschließend „Galaxy“ aus."
+  - aussage: "QR-Code mit dem alten Gerät scannen oder USB-Kabel"
+    quelle: https://www.samsung.com/de/apps/smart-switch/
+    zitat: "Scanne den QR-Code mit deinem alten Gerät. Alternativ kannst du beide Geräte per USB-Kabel verbinden."
+  - aussage: "Daten auswählen, „Übertragen“"
+    quelle: https://www.samsung.com/de/apps/smart-switch/
+    zitat: "Wähle die Daten aus, die du übertragen möchtest. Wenn du bereit bist zu starten, tippe auf „Übertragen“."
+  - aussage: "Am Ende „Fertig“"
+    quelle: https://www.samsung.com/de/apps/smart-switch/
+    zitat: "Tippe auf „Fertig“, wenn sie beendet ist."
+  - aussage: "Große Datenmenge: Kabel empfohlen; vorher laden, Laden während der Übertragung nicht möglich"
+    quelle: https://www.samsung.com/de/apps/smart-switch/
+    zitat: "Wenn eine große Datenmenge übertragen wird, empfiehlt sich eine Kabelverbindung, da so eine größere Datenmenge auf einmal übertragen werden kann. Die Geräte sollten vorher ausreichend aufgeladen sein, da ein Anschluss an ein Ladegerät während einer solchen Übertragung nicht möglich ist."
+  - aussage: "Fortschritt: vom oberen Bildschirmrand nach unten wischen"
+    quelle: https://www.samsung.com/de/apps/smart-switch/
+    zitat: "Auf dem neuen Samsung Galaxy Gerät kannst du in der Schnelleinstellung vom oberen Bildschirmrand nach unten wischen, um den Fortschritt der Übertragung zu überprüfen."
+  - aussage: "Smart Switch löscht nichts; Daten danach auf beiden Geräten"
+    quelle: https://www.samsung.com/de/apps/smart-switch/
+    zitat: "Nein. Smart Switch löscht auf keinem Gerät Inhalte. Sobald die Übertragung fertig ist, sind die Daten auf beiden Geräten verfügbar."
+  # ---------------------------------------------------------------- Ohne altes Handy
+  - aussage: "Ohne altes Gerät: Google-Konto und Passwort nötig"
+    quelle: https://support.google.com/android/answer/6193424?hl=de
+    zitat: "Wenn Sie Ihr altes Gerät nicht haben, müssen Sie zum Wiederherstellen der Daten Ihr Google-Konto und Ihr Passwort kennen."
+  - aussage: "Durch die ersten Bildschirme tippen"
+    quelle: https://support.google.com/android/answer/6193424?hl=de
+    zitat: "Tippen Sie sich durch die ersten Bildschirme, um mit der Einrichtung des Geräts zu beginnen."
+  - aussage: "Bei der Frage nach anderem Gerät „Überspringen“"
+    quelle: https://support.google.com/android/answer/6193424?hl=de
+    zitat: "Wenn Sie gefragt werden, ob Sie die Einrichtung mit einem anderen Gerät vornehmen, tippen Sie auf Überspringen."
+  - aussage: "WLAN, SIM bereitstellen, mit Google-Konto anmelden"
+    quelle: https://support.google.com/android/answer/6193424?hl=de
+    zitat: "Wenn Sie dazu aufgefordert werden, stellen Sie eine WLAN-Verbindung her, stellen Sie Ihre SIM bereit und melden Sie sich mit Ihrem Google-Konto an."
+  - aussage: "Apps und Daten wählen, Sicherung wählen; ggf. PIN/Muster/Passwort des alten Geräts aus Sicherheitsgründen"
+    quelle: https://support.google.com/android/answer/6193424?hl=de
+    zitat: "Folgen Sie der Anleitung, um die Sicherung auszuwählen, aus der Sie Daten wiederherstellen möchten. Aus Sicherheitsgründen müssen Sie möglicherweise die PIN, das Muster oder das Passwort Ihres alten Geräts eingeben."
+  # ---------------------------------------------------------------- Vom iPhone
+  - aussage: "Vom iPhone: „iPhone oder iPad“ wählen"
+    quelle: https://support.google.com/android/answer/6193424?hl=de
+    zitat: "Wenn Sie gefragt werden, ob Sie Daten von einem vorhandenen Gerät kopieren möchten, wählen Sie iPhone oder iPad aus."
+  - aussage: "QR-Code mit der Kamera des iPhone scannen"
+    quelle: https://support.google.com/android/answer/6193424?hl=de
+    zitat: "Scannen Sie den QR‑Code mit der Kamera Ihres iOS‑Geräts, um Ihre Geräte kabellos zu koppeln."
+  - aussage: "Ohne QR-Code: WLAN, SIM, Google-Konto, dann Kabel anschließen"
+    quelle: https://support.google.com/android/answer/6193424?hl=de
+    zitat: "Fahren Sie mit der Einrichtung fort, indem Sie eine WLAN‑Verbindung herstellen, eine SIM‑Karte hinzufügen und sich in einem Google-Konto anmelden. Sie werden dann aufgefordert, ein Kabel anzuschließen."
+  - aussage: "Einrichtung fortsetzen, während übertragen wird"
+    quelle: https://support.google.com/android/answer/6193424?hl=de
+    zitat: "Sie können mit der Einrichtung Ihres Smartphones fortfahren, während die Datenübertragung läuft."
+  - aussage: "Geräte verbunden lassen, bis die Einrichtung abgeschlossen ist"
+    quelle: https://support.google.com/android/answer/6193424?hl=de
+    zitat: "Lassen Sie Ihre Geräte verbunden, bis die Einrichtung abgeschlossen ist"
+  - aussage: "Vom iPhone: prüfen, ob SMS, Fotos und Videos angekommen sind"
+    quelle: https://support.google.com/android/answer/6193424?hl=de
+    zitat: "Prüfen Sie, ob Ihre SMS, Fotos und Videos übertragen wurden."
+  - aussage: "Samsung: iOS 26.6+ und Android 17+ ohne Kabel, per QR-Code"
+    quelle: https://www.samsung.com/de/apps/smart-switch/
+    zitat: "Verfügbar für Geräte mit iOS 26.6 oder höher und Android 17 oder höher. Übertragungen finden ohne Kabel statt und werden über einen QR-Code gestartet."
+  - aussage: "Samsung: beim Einrichten „iPhone oder iPad“ wählen"
+    quelle: https://www.samsung.com/de/apps/smart-switch/
+    zitat: "Starte dein neues Galaxy Gerät, stimme den Samsung Geschäftsbedingungen zu und wähle „iPhone oder iPad“ aus, um einen QR-Code zu generieren."
+  - aussage: "Samsung: QR-Code mit dem iPhone scannen"
+    quelle: https://www.samsung.com/de/apps/smart-switch/
+    zitat: "scanne einfach den QR-Code auf dem iOS-Gerät"
+  # ---------------------------------------------------------------- Hat es geklappt / nicht geklappt
+  - aussage: "Kontakte im Google-Konto erscheinen nach der Anmeldung automatisch"
+    quelle: https://support.google.com/android/answer/6193424?hl=de
+    zitat: "werden diese nach der Anmeldung automatisch auf Ihrem neuen Android-Gerät angezeigt"
+  - aussage: "Google-Kalender-Termine erscheinen beim Öffnen der Kalender-App"
+    quelle: https://support.google.com/android/answer/6193424?hl=de
+    zitat: "Wenn Sie Google Kalender bereits verwenden, werden Ihre Kalendertermine angezeigt, wenn Sie die Kalender App öffnen."
+  - aussage: "Mit den Wegen oben lassen sich die meisten Daten wiederherstellen"
+    quelle: https://support.google.com/android/answer/6193424?hl=de
+    zitat: "Mit den Anleitungen oben lassen sich die meisten Daten wiederherstellen."
+  - aussage: "Musikdienste: App laden, Musik synchronisiert automatisch"
+    quelle: https://support.google.com/android/answer/6193424?hl=de
+    zitat: "Wenn Sie Musikdienste wie YouTube Music, Apple Music und Spotify verwenden, laden Sie die App auf Ihr neues Gerät herunter. Ihre Musik wird automatisch synchronisiert."
+  - aussage: "Kontowiederherstellung: Fragen beantworten"
+    quelle: https://support.google.com/accounts/answer/7682439?hl=de
+    zitat: "Ihnen werden einige Fragen gestellt, um Ihre Kontoinhaberschaft zu bestätigen."
+  - aussage: "Falsche Antworten beenden den Vorgang nicht; beliebig oft versuchen"
+    quelle: https://support.google.com/accounts/answer/7682439?hl=de
+    zitat: "Falsche Antworten führen nicht dazu, dass der Prozess zur Kontowiederherstellung beendet wird. Sie können beliebig oft versuchen, Ihr Konto wiederherzustellen."
+  - aussage: "Google bespricht Anmeldeprobleme nicht telefonisch; Passwörter und Codes nicht weitergeben"
+    quelle: https://support.google.com/accounts/answer/7682439?hl=de
+    zitat: "Aus Sicherheitsgründen können Sie Probleme bei der Anmeldung in Ihrem Konto nicht telefonisch mit Google besprechen."
+  - aussage: "Passwörter und Bestätigungscodes nicht weitergeben"
+    quelle: https://support.google.com/accounts/answer/7682439?hl=de
+    zitat: "Geben Sie Passwörter oder Bestätigungscodes nicht an andere weiter."
+  - aussage: "Pixel: eigene Anleitung „Pixel einrichten“"
+    quelle: https://support.google.com/android/answer/6193424?hl=de
+    zitat: "Wenn Sie ein neues Pixel haben, lesen Sie den Artikel Pixel einrichten."
+  - aussage: "Firmenhandy: Anleitung von der IT-Abteilung"
+    quelle: https://support.google.com/android/answer/6193424?hl=de
+    zitat: "sollte Ihre IT-Abteilung eine Anleitung zur Verfügung stellen"
+  # ---------------------------------------------------------------- Altes Handy
+  - aussage: "Erst löschen, wenn bestätigt ist, dass alle Daten kopiert wurden"
+    quelle: https://support.google.com/android/answer/6193424?hl=de
+    zitat: "Sie sollten Daten erst löschen, wenn Sie bestätigt haben, dass alle Ihre Daten auf Ihr neues Gerät kopiert wurden."
+  - aussage: "Vor Recyceln, Spenden, Eintauschen auf Werkseinstellungen zurücksetzen"
+    quelle: https://support.google.com/android/answer/6193424?hl=de
+    zitat: "Bevor Sie Ihr altes Gerät recyceln, spenden oder eintauschen, löschen Sie die Daten und setzen Sie es auf die Werkseinstellungen zurück"
+  - aussage: "Zurücksetzen löscht alle Daten"
+    quelle: https://support.google.com/android/answer/6088915?hl=de
+    zitat: "Durch das Zurücksetzen auf die Werkseinstellungen werden alle Daten von Ihrem Smartphone gelöscht."
+  - aussage: "Ein Google-Konto auf dem Handy kennen (Name und Passwort)"
+    quelle: https://support.google.com/android/answer/6088915?hl=de
+    zitat: "Sie müssen eines der Google-Konten auf dem Smartphone kennen."
+  - aussage: "Passwort kürzlich zurückgesetzt: 24 Stunden warten"
+    quelle: https://support.google.com/android/answer/6088915?hl=de
+    zitat: "Falls Sie das Passwort Ihres Google-Kontos vor Kurzem zurückgesetzt haben, warten Sie 24 Stunden, bevor Sie das Gerät auf die Werkseinstellungen zurücksetzen."
+  - aussage: "Auf mindestens 70 % laden; bis zu einer Stunde"
+    quelle: https://support.google.com/android/answer/6088915?hl=de
+    zitat: "Das Zurücksetzen auf die Werkseinstellungen kann bis zu einer Stunde dauern. Laden Sie das Smartphone auf mindestens 70 % auf."
+  - aussage: "Gerätespezifischer Weg beim Hersteller"
+    quelle: https://support.google.com/android/answer/6088915?hl=de
+    zitat: "Gerätespezifische Anleitungen finden Sie auf der Supportwebsite des Herstellers."
