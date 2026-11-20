@@ -8,7 +8,7 @@ veroeffentlicht: 2026-11-20
 aktualisiert: 2026-11-20
 geprueft: 2026-11-20
 kurz_gesagt: |
-  Betrüger verschicken Mails im Namen der Deutschen Rentenversicherung, von WhatsApp, PayPal und Microsoft. Sie verlangen, Daten über einen Link zu bestätigen, und setzen kurze Fristen.
+  Betrüger verschicken Mails im Namen der Deutschen Rentenversicherung, von WhatsApp, PayPal und Microsoft. Sie drängen dazu, auf einen Link zu tippen, und setzen kurze Fristen.
   Tippen Sie auf keinen Link, verschieben Sie solche Mails in den Spam-Ordner und prüfen Sie Hinweise nur in der offiziellen App oder auf der bekannten Internetseite.
   Die Polizei rät auf Weihnachtsmärkten: Wertsachen nah am Körper tragen. Sind Karte oder Handy weg, lassen Sie sie unter 116 116 sperren.
 quellen:
@@ -102,4 +102,4 @@ Zeigen Sie den Diebstahl auch bei der Polizei an. Sie kann die Karte zusätzlich
 Ist schon Geld weg oder haben Sie Daten in eine falsche Seite eingegeben? Dann hilft unser [Notfallplan nach einem Betrug](/artikel/betrug-was-tun/) Schritt für Schritt weiter.
 
 !!! angehoerige "Für Angehörige"
-    Die Mail im Namen der Rentenversicherung ist ein guter Anlass für ein kurzes Gespräch. Sie wirkt harmlos und betrifft genau die Menschen, denen Sie helfen. Ein Satz zum Weitergeben: „Daten bestätige ich nie über einen Link in einer Mail.“ Und vor dem nächsten Weihnachtsmarkt: Schreiben Sie gemeinsam die 116 116 auf, oder richten Sie zusammen die SperrApp ein.
+    Die Mail im Namen der Rentenversicherung ist ein guter Anlass für ein kurzes Gespräch. Sie wirkt harmlos und kann genau die Menschen erreichen, denen Sie helfen. Ein Satz zum Weitergeben: „Daten bestätige ich nie über einen Link in einer Mail.“ Und vor dem nächsten Weihnachtsmarkt: Schreiben Sie gemeinsam die 116 116 auf, oder richten Sie zusammen die SperrApp ein.
